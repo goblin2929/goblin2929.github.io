@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayport Container Terminal - GoFreight Glossary</title>
+    <meta name="description" content="Bayport Container Terminal at Port Houston handles 70% of Gulf Coast containers. Learn location, shipping lines, tracking, gate hours, and how to streamline operations.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #01aac1;
+            --accent-blue: #01d7f4;
+            --teal: #017d8e;
+            --dark-text: #111111;
+            --medium-gray: #2a2a2a;
+            --body-text: #4a4a4a;
+            --light-gray: #f5f5f5;
+            --border-gray: #e5e7eb;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--body-text);
+            line-height: 1.7;
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--dark-text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--body-text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn-demo {
+            background: var(--primary-blue);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .btn-demo:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: var(--light-gray);
+            padding: 12px 0;
+            font-size: 14px;
+        }
+
+        .breadcrumb-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: var(--body-text);
+            margin: 0 8px;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 48px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .content {
+            max-width: 100%;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        .definition-block {
+            background: linear-gradient(135deg, #e6f7f9 0%, #d4f3f7 100%);
+            border-left: 4px solid var(--primary-blue);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 32px;
+        }
+
+        .definition-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+
+        th {
+            background: var(--medium-gray);
+            color: var(--white);
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        tr:hover {
+            background: var(--light-gray);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 16px 0 16px 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Steps */
+        .step {
+            background: var(--light-gray);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+
+        .step h3 {
+            margin-top: 0;
+            color: var(--primary-blue);
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-gray);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .faq-answer {
+            color: var(--body-text);
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--teal) 100%);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            color: var(--white);
+            border: none;
+            margin-top: 0;
+        }
+
+        .cta-box p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 16px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-box {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .sidebar-box h3 {
+            margin-top: 0;
+            font-size: 16px;
+            color: var(--dark-text);
+            margin-bottom: 16px;
+        }
+
+        .sidebar-box ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-box li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-box a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sidebar-box a:hover {
+            text-decoration: underline;
+        }
+
+        .key-fact {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-gray);
+            font-size: 14px;
+        }
+
+        .key-fact:last-child {
+            border-bottom: none;
+        }
+
+        .key-fact-label {
+            font-weight: 500;
+            color: var(--body-text);
+        }
+
+        .key-fact-value {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-text);
+            color: var(--white);
+            padding: 40px 0 24px;
+            margin-top: 60px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        .last-updated {
+            font-size: 13px;
+            color: #888;
+            font-style: italic;
+            margin-top: 40px;
+        }
+
+        /* Shipping lines list */
+        .shipping-lines {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        @media (max-width: 600px) {
+            .shipping-lines {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .shipping-line {
+            background: var(--light-gray);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* STAGING BANNER */
+        .staging-banner {
+            background: #fef3c7;
+            border-bottom: 2px solid #f59e0b;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <!-- Staging Notice -->
+    <div class="staging-banner">
+        STAGING PREVIEW - New Glossary Page Template for Client Review
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">Go<span>Freight</span></a>
+            <nav class="nav-links">
+                <a href="#">Solutions</a>
+                <a href="#">Who We Serve</a>
+                <a href="#">Resources</a>
+                <a href="#">Glossary</a>
+                <a href="#">Pricing</a>
+                <a href="#" class="btn-demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-inner">
+            <a href="#">Home</a>
+            <span>/</span>
+            <a href="#">Glossary</a>
+            <span>/</span>
+            Bayport Container Terminal
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <article class="content">
+            <h1>Bayport Container Terminal</h1>
+
+            <!-- Definition Block -->
+            <div class="definition-block">
+                <p><strong>Bayport Container Terminal</strong> is the newest and largest container facility at the Port of Houston, located in Seabrook, Texas. Opened in 2007, Bayport handles approximately 70% of all containerized cargo moving through the Houston Ship Channel, making it the primary gateway for Gulf Coast import and export operations.</p>
+                <p>The terminal spans over 1,000 acres and features state-of-the-art infrastructure including ship-to-shore cranes capable of handling the largest container vessels calling on the U.S. Gulf Coast.</p>
+            </div>
+
+            <!-- Why It Matters -->
+            <h2>Why Bayport Matters for Freight Forwarders</h2>
+            <p>For freight forwarders operating in the Gulf region, Bayport Container Terminal is unavoidable. Whether you're moving automotive parts from Mexico, petrochemical equipment to South America, or consumer goods from Asia, Bayport is likely your primary port of call.</p>
+            <p>Understanding Bayport's operations—gate hours, container tracking systems, and shipping line schedules—directly impacts your ability to:</p>
+            <ul>
+                <li>Minimize demurrage and detention charges</li>
+                <li>Provide accurate ETAs to customers</li>
+                <li>Coordinate trucking and drayage efficiently</li>
+            </ul>
+            <p>With Houston's strategic position serving the energy sector and manufacturing hubs across Texas and the Midwest, mastering Bayport operations is essential for any forwarder serving these markets.</p>
+
+            <!-- Inline Testimonial -->
+            <div style="background: var(--light-gray); border-radius: 12px; padding: 24px; margin: 32px 0; border-left: 4px solid var(--primary-blue);">
+                <div style="font-size: 16px; font-style: italic; color: var(--dark-text); line-height: 1.6; margin-bottom: 12px;">
+                    "These timely alerts help us avoid detention and demurrage, ensuring smoother operations. The user interface, with its intuitive charts and graphical representations, transformed how we viewed our data."
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 40px; height: 40px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">JP</div>
+                    <div>
+                        <div style="font-weight: 600; color: var(--dark-text);">Joseph Park</div>
+                        <div style="font-size: 13px; color: #666;">Founder, Seamax Freight International</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Facts Table -->
+            <h2>Bayport Container Terminal Key Facts</h2>
+            <table>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td><strong>Location</strong></td>
+                    <td>10800 Bay Area Blvd, Seabrook, TX 77586</td>
+                </tr>
+                <tr>
+                    <td><strong>Operator</strong></td>
+                    <td>Port Houston</td>
+                </tr>
+                <tr>
+                    <td><strong>FIRMS Code</strong></td>
+                    <td>G431</td>
+                </tr>
+                <tr>
+                    <td><strong>Opened</strong></td>
+                    <td>2007</td>
+                </tr>
+                <tr>
+                    <td><strong>Size</strong></td>
+                    <td>1,000+ acres</td>
+                </tr>
+                <tr>
+                    <td><strong>Berths</strong></td>
+                    <td>5 container berths</td>
+                </tr>
+                <tr>
+                    <td><strong>Cranes</strong></td>
+                    <td>26 ship-to-shore gantry cranes</td>
+                </tr>
+                <tr>
+                    <td><strong>Annual TEU Capacity</strong></td>
+                    <td>2.3 million TEUs</td>
+                </tr>
+                <tr>
+                    <td><strong>Rail Service</strong></td>
+                    <td>On-dock rail served by BNSF and Union Pacific</td>
+                </tr>
+            </table>
+
+            <h3>Major Shipping Lines at Bayport</h3>
+            <div class="shipping-lines">
+                <div class="shipping-line">MSC</div>
+                <div class="shipping-line">Hapag-Lloyd</div>
+                <div class="shipping-line">CMA CGM</div>
+                <div class="shipping-line">ONE</div>
+                <div class="shipping-line">Evergreen</div>
+                <div class="shipping-line">Yang Ming</div>
+                <div class="shipping-line">COSCO</div>
+                <div class="shipping-line">ZIM</div>
+            </div>
+
+            <!-- How To Track -->
+            <h2>How to Track Containers at Bayport Container Terminal</h2>
+            <p>Tracking your containers at Bayport involves using Port Houston's online tracking system. Here's how:</p>
+
+            <div class="step">
+                <h3>Step 1: Access the Port Houston Tracking Portal</h3>
+                <p>Visit <a href="https://porthouston.com" target="_blank">porthouston.com</a> and navigate to the "Track & Trace" section.</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: Enter Container Information</h3>
+                <p>You'll need one of the following:</p>
+                <ul>
+                    <li><strong>Container number</strong> (e.g., MSCU1234567)</li>
+                    <li><strong>Bill of Lading (BL) number</strong></li>
+                    <li><strong>Booking reference</strong></li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Review Container Status</h3>
+                <p>The system displays:</p>
+                <ul>
+                    <li>Current location (vessel, yard, gate)</li>
+                    <li>Last Free Day (LFD)</li>
+                    <li>Holds or customs clearance status</li>
+                    <li>Available for pickup status</li>
+                </ul>
+            </div>
+
+            <!-- Gate Hours -->
+            <h2>Bayport Terminal Gate Hours</h2>
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Gate Hours</th>
+                </tr>
+                <tr>
+                    <td>Monday - Friday</td>
+                    <td>7:00 AM - 5:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>7:00 AM - 12:00 PM (limited)</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>Closed</td>
+                </tr>
+            </table>
+            <p><strong>Note:</strong> Extended gate hours may be available during peak seasons. Always verify current hours on the Port Houston website before dispatching trucks.</p>
+
+            <!-- FAQ Section -->
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Where is Bayport Container Terminal located?</div>
+                <div class="faq-answer">Bayport Container Terminal is located at 10800 Bay Area Blvd in Seabrook, Texas, approximately 25 miles southeast of downtown Houston along the Houston Ship Channel.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What shipping lines use Bayport Container Terminal?</div>
+                <div class="faq-answer">Major carriers including MSC, Hapag-Lloyd, CMA CGM, ONE, Evergreen, Yang Ming, COSCO, and ZIM operate regular services through Bayport. The terminal handles vessels from virtually all major global shipping alliances.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I track a container at Bayport?</div>
+                <div class="faq-answer">Use Port Houston's online Track & Trace portal at porthouston.com. Enter your container number, bill of lading, or booking reference to view real-time status including location, holds, and Last Free Day.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is the FIRMS code for Bayport Container Terminal?</div>
+                <div class="faq-answer">The FIRMS code for Bayport Container Terminal is <strong>G431</strong>. This code is required for customs clearance documentation and trucking appointments.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What are Bayport Container Terminal gate hours?</div>
+                <div class="faq-answer">Standard gate hours are Monday-Friday 7:00 AM - 5:00 PM, with limited Saturday hours from 7:00 AM - 12:00 PM. The terminal is closed on Sundays.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Does Bayport have on-dock rail service?</div>
+                <div class="faq-answer">Yes, Bayport offers on-dock intermodal rail service with connections to both BNSF and Union Pacific railroads, enabling efficient rail transport to inland destinations across the U.S.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is the difference between Bayport and Barbours Cut Terminal?</div>
+                <div class="faq-answer">Both terminals are operated by Port Houston. Bayport is the newer, larger facility handling the majority of container traffic, while Barbours Cut Terminal is an older facility that handles overflow and certain carrier services.</div>
+            </div>
+
+            <!-- CTA Box -->
+            <div class="cta-box">
+                <h2>Streamline Bayport Operations with GoFreight</h2>
+                <p>Managing container tracking across multiple terminals and carriers is time-consuming. GoFreight's automated tracking pulls real-time container status from Bayport and other major terminals directly into your TMS—no more logging into multiple portals or chasing status updates.</p>
+                <p>From vessel arrival alerts to Last Free Day notifications, GoFreight helps you stay ahead of demurrage charges and keep customers informed automatically.</p>
+                <a href="#" class="cta-button">See How GoFreight Automates Terminal Tracking</a>
+            </div>
+
+            <p class="last-updated">Last Updated: January 2026</p>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Terminal Quick Facts - About the topic -->
+            <div class="sidebar-box" style="border: 2px solid var(--border-gray);">
+                <h3 style="color: var(--medium-gray); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Terminal Quick Facts</h3>
+                <div class="key-fact">
+                    <span class="key-fact-label">FIRMS Code</span>
+                    <span class="key-fact-value">G431</span>
+                </div>
+                <div class="key-fact">
+                    <span class="key-fact-label">Port</span>
+                    <span class="key-fact-value">Port Houston</span>
+                </div>
+                <div class="key-fact">
+                    <span class="key-fact-label">Opened</span>
+                    <span class="key-fact-value">2007</span>
+                </div>
+                <div class="key-fact">
+                    <span class="key-fact-label">Size</span>
+                    <span class="key-fact-value">1,000+ acres</span>
+                </div>
+                <div class="key-fact">
+                    <span class="key-fact-label">TEU Capacity</span>
+                    <span class="key-fact-value">2.3M/year</span>
+                </div>
+            </div>
+
+            <div class="sidebar-box" style="border: 2px solid var(--border-gray);">
+                <h3 style="color: var(--medium-gray); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Related Glossary Terms</h3>
+                <ul>
+                    <li><a href="#">Container Tracking</a></li>
+                    <li><a href="#">Demurrage</a></li>
+                    <li><a href="#">Last Free Day (LFD)</a></li>
+                    <li><a href="#">FIRMS Code</a></li>
+                    <li><a href="#">Drayage</a></li>
+                </ul>
+            </div>
+
+            <!-- GOFREIGHT SECTION - Visually separated -->
+            <div style="margin: 32px 0 16px; padding-top: 16px; border-top: 2px dashed var(--primary-blue);">
+                <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-blue); font-weight: 700; margin-bottom: 16px;">Powered by GoFreight</div>
+            </div>
+
+            <!-- GoFreight G2 Rating Badge -->
+            <div class="sidebar-box" style="background: linear-gradient(135deg, #e6f7f9 0%, #d4f3f7 100%); border: 2px solid var(--primary-blue);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                    <span style="background: var(--primary-blue); color: white; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">GoFreight</span>
+                    <span style="font-size: 11px; color: #666;">on G2</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <div style="background: #22c55e; color: white; font-size: 20px; font-weight: 700; padding: 8px 12px; border-radius: 8px;">4.8</div>
+                    <div>
+                        <div style="color: #f59e0b; font-size: 14px;">★★★★★</div>
+                        <div style="font-size: 12px; color: #666;">88 Reviews</div>
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--body-text);">
+                    <strong>#1 Rated</strong> Freight Management Platform
+                </div>
+            </div>
+
+            <!-- GoFreight Verified Customer Result -->
+            <div class="sidebar-box" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #f59e0b;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                    <span style="background: #f59e0b; color: white; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">✓ VERIFIED</span>
+                    <span style="font-size: 11px; color: #92400e; font-weight: 600;">GoFreight Customer</span>
+                </div>
+                <div style="font-size: 32px; font-weight: 700; color: var(--dark-text);">53%</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--dark-text); margin-bottom: 8px;">Reduction in Demurrage Costs</div>
+                <div style="font-size: 13px; color: #666; font-style: italic; border-left: 3px solid #f59e0b; padding-left: 10px; margin: 12px 0;">"GoFreight's tracking alerts help us avoid detention and demurrage."</div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 12px;">
+                    <div style="width: 32px; height: 32px; background: #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 12px;">JL</div>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 600; color: var(--dark-text);">Jeff Lee</div>
+                        <div style="font-size: 11px; color: #888;">Sales Manager, UCM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GoFreight Feature Spotlight -->
+            <div class="sidebar-box" style="background: white; border: 2px solid var(--primary-blue);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                    <span style="background: var(--primary-blue); color: white; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">GoFreight Feature</span>
+                </div>
+                <h3 style="color: var(--dark-text); margin-top: 0;">Container Tracking</h3>
+                <ul style="font-size: 14px; padding-left: 16px; margin: 12px 0;">
+                    <li><strong>125+</strong> carrier integrations</li>
+                    <li>Real-time status updates</li>
+                    <li>Last Free Day alerts</li>
+                    <li>Customer portal access</li>
+                </ul>
+                <a href="#" style="display: inline-block; background: var(--primary-blue); color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; margin-top: 8px;">See How It Works →</a>
+            </div>
+
+            <!-- GoFreight Final CTA -->
+            <div class="sidebar-box" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--teal) 100%); color: white; border: none;">
+                <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 8px;">GoFreight TMS</div>
+                <h3 style="color: white; margin-bottom: 8px; margin-top: 0;">Stop Manual Tracking</h3>
+                <p style="font-size: 14px; margin-bottom: 16px; opacity: 0.95;">GoFreight pulls status from Bayport and 125+ carriers automatically.</p>
+                <ul style="font-size: 13px; padding-left: 16px; margin: 0 0 16px 0; opacity: 0.9;">
+                    <li>Real-time LFD alerts</li>
+                    <li>Customer portal access</li>
+                    <li>4-8 week implementation</li>
+                </ul>
+                <a href="#" style="display: block; background: white; color: var(--teal); padding: 12px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600; text-align: center;">Get a Demo →</a>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>&copy; 2026 GoFreight. All rights reserved.</p>
+            <p style="margin-top: 8px;">This is a staging preview of the new glossary page template.</p>
+        </div>
+    </footer>
+</body>
+</html>
