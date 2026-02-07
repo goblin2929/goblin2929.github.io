@@ -35,7 +35,7 @@
 </head>
 
 <div style="background:#f59e0b;color:#000;text-align:center;padding:8px;font-family:monospace;font-size:13px;font-weight:600;position:sticky;top:0;z-index:9999;">
-  STAGING PREVIEW — v4: SVG Robot Team Scene — <a href="https://www.novastacks-ai.com/fractional-growth-partner" style="color:#000;text-decoration:underline;">View Production</a>
+  STAGING v5: 80s Pixel Art Office Scene — <a href="https://www.novastacks-ai.com/fractional-growth-partner" style="color:#000;text-decoration:underline;">View Production</a>
 </div>
 <body class="bg-slate-950 text-white font-sans">
   <!-- Header -->
@@ -147,289 +147,408 @@
             </div>
           </div>
 
-          <!-- AI Team Workspace Scene (desktop) -->
+          <!-- 80s Pixel Art Office Scene (desktop) -->
           <div class="hidden lg:block lg:w-1/2">
-            <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" style="max-width: 480px;">
+            <svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" style="max-width: 520px; shape-rendering: crispEdges;">
 
-              <!-- Animated connection lines from Tina to each agent -->
-              <line x1="240" y1="215" x2="115" y2="58" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.2"/>
-              <line x1="240" y1="215" x2="365" y2="58" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.2" style="animation-delay:0.3s"/>
-              <line x1="240" y1="215" x2="425" y2="225" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.2" style="animation-delay:0.6s"/>
-              <line x1="240" y1="215" x2="365" y2="392" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.2" style="animation-delay:0.9s"/>
-              <line x1="240" y1="215" x2="115" y2="392" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.2" style="animation-delay:1.2s"/>
-              <line x1="240" y1="215" x2="55" y2="225" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.2" style="animation-delay:1.5s"/>
+              <!-- Background -->
+              <rect width="480" height="360" fill="#0a0e1a"/>
 
-              <!-- Glow rings around Tina -->
-              <circle cx="240" cy="215" r="68" fill="none" stroke="#01aac1" stroke-width="1" opacity="0.12"/>
-              <circle cx="240" cy="215" r="84" fill="none" stroke="#01aac1" stroke-width="0.5" opacity="0.06"/>
+              <!-- Wall -->
+              <rect width="480" height="220" fill="#0f172a"/>
 
-              <!-- Connection dots at each agent center -->
-              <circle cx="115" cy="58" r="3" fill="#01aac1" opacity="0.3"/>
-              <circle cx="365" cy="58" r="3" fill="#01aac1" opacity="0.3"/>
-              <circle cx="425" cy="225" r="3" fill="#01aac1" opacity="0.3"/>
-              <circle cx="365" cy="392" r="3" fill="#01aac1" opacity="0.3"/>
-              <circle cx="115" cy="392" r="3" fill="#01aac1" opacity="0.3"/>
-              <circle cx="55" cy="225" r="3" fill="#01aac1" opacity="0.3"/>
+              <!-- Pixel art window (back wall) -->
+              <rect x="320" y="20" width="130" height="76" fill="#0a0e2e" stroke="#1e293b" stroke-width="4"/>
+              <line x1="385" y1="20" x2="385" y2="96" stroke="#1e293b" stroke-width="4"/>
+              <line x1="320" y1="58" x2="450" y2="58" stroke="#1e293b" stroke-width="4"/>
+              <!-- Stars -->
+              <rect x="340" y="34" width="3" height="3" fill="#01aac1" opacity="0.5"/>
+              <rect x="365" y="44" width="2" height="2" fill="white" opacity="0.4"/>
+              <rect x="410" y="30" width="3" height="3" fill="white" opacity="0.3"/>
+              <rect x="430" y="68" width="3" height="3" fill="#01aac1" opacity="0.4"/>
+              <rect x="395" y="74" width="2" height="2" fill="white" opacity="0.3"/>
 
-              <!-- ═══ TINA — Growth Strategist (center, human) ═══ -->
-              <g transform="translate(204,170) scale(0.45)">
-                <rect width="160" height="200" rx="14" fill="#0f172a" stroke="#01aac1" stroke-width="2.5"/>
-                <!-- Hair back -->
-                <ellipse cx="80" cy="36" rx="28" ry="14" fill="#1a0e08"/>
-                <!-- Head — warm skin -->
-                <rect x="52" y="30" width="56" height="48" rx="16" fill="#d4a574"/>
-                <!-- Hair front/bangs -->
-                <path d="M52 44 Q52 28 80 26 Q108 28 108 44 L106 38 Q104 30 80 28 Q56 30 54 38 Z" fill="#1a0e08"/>
-                <!-- Hair sides flowing down -->
-                <path d="M52 44 Q48 62 50 80" stroke="#1a0e08" stroke-width="7" stroke-linecap="round" fill="none"/>
-                <path d="M108 44 Q112 62 110 80" stroke="#1a0e08" stroke-width="7" stroke-linecap="round" fill="none"/>
-                <!-- Eyes — dark, expressive -->
-                <ellipse cx="69" cy="52" rx="3.5" ry="3" fill="#1a1a1a"/>
-                <ellipse cx="91" cy="52" rx="3.5" ry="3" fill="#1a1a1a"/>
-                <!-- Eye highlights -->
-                <circle cx="70.5" cy="51" r="1.2" fill="white" opacity="0.5"/>
-                <circle cx="92.5" cy="51" r="1.2" fill="white" opacity="0.5"/>
-                <!-- Eyebrows -->
-                <path d="M62 45 Q69 43 74 45" stroke="#1a0e08" stroke-width="1.5" fill="none"/>
-                <path d="M86 45 Q91 43 98 45" stroke="#1a0e08" stroke-width="1.5" fill="none"/>
+              <!-- Floor -->
+              <rect y="220" width="480" height="140" fill="#12121e"/>
+              <!-- Floor tile grid -->
+              <line x1="0" y1="248" x2="480" y2="248" stroke="#1a1a2e" stroke-width="1"/>
+              <line x1="0" y1="276" x2="480" y2="276" stroke="#1a1a2e" stroke-width="1"/>
+              <line x1="0" y1="304" x2="480" y2="304" stroke="#1a1a2e" stroke-width="1"/>
+              <line x1="0" y1="332" x2="480" y2="332" stroke="#1a1a2e" stroke-width="1"/>
+              <!-- Wall baseboard -->
+              <rect y="216" width="480" height="6" fill="#1e293b"/>
+
+              <!-- ======= DATA FLOW LINES (terminal → agents) ======= -->
+              <line x1="155" y1="196" x2="232" y2="168" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25"/>
+              <line x1="155" y1="196" x2="302" y2="168" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:0.3s"/>
+              <line x1="155" y1="196" x2="372" y2="168" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:0.6s"/>
+              <line x1="155" y1="200" x2="262" y2="230" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:0.9s"/>
+              <line x1="155" y1="200" x2="362" y2="230" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:1.2s"/>
+              <line x1="155" y1="196" x2="442" y2="168" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:1.5s"/>
+
+              <!-- ======= TINA'S CLI STATION (left side) ======= -->
+
+              <!-- Desk -->
+              <rect x="16" y="232" width="160" height="10" fill="#2d2018"/>
+              <rect x="20" y="242" width="8" height="36" fill="#2d2018"/>
+              <rect x="164" y="242" width="8" height="36" fill="#2d2018"/>
+
+              <!-- Monitor -->
+              <rect x="40" y="156" width="116" height="76" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="3"/>
+              <!-- Monitor stand -->
+              <rect x="88" y="232" width="20" height="4" fill="#2a2a3e"/>
+              <rect x="92" y="228" width="12" height="6" fill="#2a2a3e"/>
+
+              <!-- CLI Screen -->
+              <rect x="46" y="162" width="104" height="64" fill="#0a0a12"/>
+              <!-- Green terminal text -->
+              <text x="50" y="176" font-family="monospace" font-size="7.5" fill="#22c55e">tina@novastacks:~$</text>
+              <text x="50" y="188" font-family="monospace" font-size="7.5" fill="#22c55e">> /orchestrator run</text>
+              <text x="50" y="200" font-family="monospace" font-size="7.5" fill="#01aac1">> deploying 6 agents</text>
+              <text x="50" y="212" font-family="monospace" font-size="7.5" fill="#22c55e">> all agents active ✓</text>
+              <!-- Blinking cursor -->
+              <rect x="50" y="216" width="5" height="7" fill="#22c55e">
+                <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+              </rect>
+              <!-- Monitor glow -->
+              <rect x="40" y="156" width="116" height="76" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.1"/>
+
+              <!-- TINA pixel art character (seated at desk) -->
+              <g transform="translate(14, 190)">
+                <!-- Hair (dark, long) -->
+                <rect x="2" y="0" width="20" height="4" fill="#1a0e08"/>
+                <rect x="0" y="4" width="4" height="20" fill="#1a0e08"/>
+                <rect x="22" y="0" width="4" height="10" fill="#1a0e08"/>
+                <!-- Head -->
+                <rect x="4" y="4" width="18" height="14" fill="#d4a574"/>
+                <!-- Eyes -->
+                <rect x="8" y="8" width="4" height="3" fill="#1a1a1a"/>
+                <rect x="15" y="8" width="4" height="3" fill="#1a1a1a"/>
+                <!-- Eye shine -->
+                <rect x="9" y="8" width="2" height="2" fill="white" opacity="0.4"/>
+                <rect x="16" y="8" width="2" height="2" fill="white" opacity="0.4"/>
                 <!-- Smile -->
-                <path d="M72 66 Q80 72 88 66" stroke="#b87333" stroke-width="2" fill="none"/>
-                <!-- Neck -->
-                <rect x="72" y="78" width="16" height="14" fill="#d4a574"/>
-                <!-- Body — navy blazer -->
-                <path d="M30 200 L30 140 Q30 118 52 110 L70 92 L90 92 L108 110 Q130 118 130 140 L130 200 Z" fill="#1e3a5f"/>
-                <!-- Blazer lapels -->
-                <path d="M70 92 L58 116 L70 114 Z" fill="#162d4a"/>
-                <path d="M90 92 L102 116 L90 114 Z" fill="#162d4a"/>
+                <rect x="10" y="14" width="6" height="2" fill="#b87333"/>
+                <!-- Body (navy blazer) -->
+                <rect x="2" y="18" width="22" height="14" fill="#1e3a5f"/>
                 <!-- White collar -->
-                <path d="M68 92 L76 92 L72 104 Z" fill="#e2e8f0"/>
-                <path d="M84 92 L92 92 L88 104 Z" fill="#e2e8f0"/>
-                <!-- Arms -->
-                <path d="M30 140 Q18 148 14 170 Q12 180 16 188" stroke="#1e3a5f" stroke-width="14" stroke-linecap="round"/>
-                <path d="M130 140 Q142 148 146 170 Q148 180 144 188" stroke="#1e3a5f" stroke-width="14" stroke-linecap="round"/>
-                <!-- Hands — human skin -->
-                <circle cx="16" cy="190" r="8" fill="#d4a574"/>
-                <circle cx="144" cy="190" r="8" fill="#d4a574"/>
+                <rect x="8" y="18" width="4" height="3" fill="#e2e8f0"/>
+                <rect x="14" y="18" width="4" height="3" fill="#e2e8f0"/>
+                <!-- Arm reaching to keyboard -->
+                <rect x="22" y="22" width="16" height="4" fill="#1e3a5f"/>
+                <rect x="36" y="22" width="4" height="4" fill="#d4a574"/>
+                <!-- Legs (seated) -->
+                <rect x="4" y="32" width="7" height="8" fill="#1e293b"/>
+                <rect x="15" y="32" width="7" height="8" fill="#1e293b"/>
+                <!-- Shoes -->
+                <rect x="4" y="38" width="8" height="4" fill="#111"/>
+                <rect x="15" y="38" width="8" height="4" fill="#111"/>
               </g>
-              <!-- Tina label -->
-              <text x="240" y="272" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="600" fill="white">TINA</text>
-              <text x="240" y="284" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#01aac1">HUMAN // GROWTH LEAD</text>
 
-              <!-- ═══ ATLAS — SEO Strategist (top-left) ═══ -->
-              <g transform="translate(91,28) scale(0.3)">
-                <rect width="160" height="200" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
-                <!-- Dual antennas -->
-                <line x1="64" y1="16" x2="64" y2="34" stroke="#64748b" stroke-width="2.5"/>
-                <line x1="96" y1="16" x2="96" y2="34" stroke="#64748b" stroke-width="2.5"/>
-                <circle cx="64" cy="14" r="3.5" fill="#01aac1"/>
-                <circle cx="96" cy="14" r="3.5" fill="#01aac1"/>
-                <!-- Head (wide) — cool gray -->
-                <rect x="38" y="34" width="84" height="48" rx="10" fill="#64748b"/>
+              <!-- Chair -->
+              <rect x="8" y="222" width="30" height="4" fill="#374151"/>
+              <rect x="6" y="192" width="4" height="34" fill="#374151"/>
+
+              <!-- Keyboard -->
+              <rect x="56" y="234" width="22" height="4" fill="#2a2a3e"/>
+              <rect x="58" y="235" width="2" height="2" fill="#3a3a4e"/>
+              <rect x="62" y="235" width="2" height="2" fill="#3a3a4e"/>
+              <rect x="66" y="235" width="2" height="2" fill="#3a3a4e"/>
+              <rect x="70" y="235" width="2" height="2" fill="#3a3a4e"/>
+              <rect x="74" y="235" width="2" height="2" fill="#3a3a4e"/>
+
+              <!-- Coffee mug -->
+              <rect x="140" y="224" width="8" height="10" fill="#374151"/>
+              <rect x="148" y="226" width="3" height="5" fill="#374151"/>
+              <!-- Steam -->
+              <rect x="142" y="218" width="2" height="5" fill="white" opacity="0.12">
+                <animate attributeName="y" values="218;214;218" dur="2s" repeatCount="indefinite"/>
+              </rect>
+              <rect x="146" y="216" width="2" height="5" fill="white" opacity="0.08">
+                <animate attributeName="y" values="216;212;216" dur="2.5s" repeatCount="indefinite"/>
+              </rect>
+
+              <!-- ======= BACK ROW AGENTS (y≈148) ======= -->
+
+              <!-- ATLAS — SEO Strategist -->
+              <g transform="translate(220, 148)">
+                <!-- Antennas -->
+                <rect x="5" y="0" width="4" height="3" fill="#01aac1"/>
+                <rect x="15" y="0" width="4" height="3" fill="#01aac1"/>
+                <rect x="6" y="3" width="3" height="5" fill="#64748b"/>
+                <rect x="16" y="3" width="3" height="5" fill="#64748b"/>
+                <!-- Head — cool gray -->
+                <rect x="0" y="8" width="24" height="14" fill="#64748b"/>
                 <!-- Visor eyes -->
-                <rect x="52" y="50" width="18" height="8" rx="2" fill="#01aac1"/>
-                <rect x="90" y="50" width="18" height="8" rx="2" fill="#01aac1"/>
-                <!-- Smile -->
-                <path d="M68 72 L80 76 L92 72" stroke="#4a5568" stroke-width="2.5" fill="none"/>
-                <!-- Neck -->
-                <rect x="70" y="82" width="20" height="14" fill="#64748b"/>
-                <!-- Body — broad charcoal suit -->
-                <path d="M26 200 L26 138 Q26 114 50 106 L70 96 L90 96 L110 106 Q134 114 134 138 L134 200 Z" fill="#374151"/>
-                <!-- Suit lapels -->
-                <path d="M70 96 L56 124 L70 120 Z" fill="#2d3748"/>
-                <path d="M90 96 L104 124 L90 120 Z" fill="#2d3748"/>
-                <!-- Tie -->
-                <path d="M78 96 L74 118 L80 140 L86 118 L82 96 Z" fill="#01aac1" opacity="0.7"/>
-                <!-- Arms -->
-                <path d="M26 138 Q12 148 14 175 Q16 187 22 194" stroke="#374151" stroke-width="16" stroke-linecap="round"/>
-                <path d="M134 138 Q148 148 146 175 Q144 187 138 194" stroke="#374151" stroke-width="16" stroke-linecap="round"/>
-                <!-- Hands -->
-                <circle cx="22" cy="196" r="8" fill="#64748b"/>
-                <circle cx="138" cy="196" r="8" fill="#64748b"/>
+                <rect x="3" y="12" width="7" height="4" fill="#01aac1"/>
+                <rect x="14" y="12" width="7" height="4" fill="#01aac1"/>
+                <!-- Body — charcoal suit -->
+                <rect x="0" y="22" width="24" height="4" fill="#374151"/>
+                <rect x="-2" y="26" width="28" height="4" fill="#374151"/>
+                <rect x="0" y="30" width="24" height="8" fill="#374151"/>
+                <!-- Teal tie -->
+                <rect x="10" y="24" width="4" height="10" fill="#01aac1" opacity="0.7"/>
+                <!-- Legs -->
+                <rect x="4" y="38" width="6" height="6" fill="#374151"/>
+                <rect x="14" y="38" width="6" height="6" fill="#374151"/>
               </g>
-              <text x="115" y="100" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" font-weight="600" fill="white">ATLAS</text>
-              <text x="115" y="111" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6" fill="#64748b">SEO Strategist</text>
+              <!-- Atlas desk + monitor -->
+              <rect x="215" y="192" width="34" height="6" fill="#2d2018"/>
+              <rect x="220" y="177" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
+              <rect x="222" y="179" width="20" height="12" fill="#0a0e1a"/>
+              <!-- Screen: bar chart -->
+              <rect x="224" y="182" width="3" height="7" fill="#01aac1" opacity="0.6"/>
+              <rect x="228" y="185" width="3" height="4" fill="#01aac1" opacity="0.6"/>
+              <rect x="232" y="180" width="3" height="9" fill="#22c55e" opacity="0.6"/>
+              <rect x="236" y="183" width="3" height="6" fill="#01aac1" opacity="0.6"/>
 
-              <!-- ═══ ECHO — Content Writer (top-right) ═══ -->
-              <g transform="translate(341,28) scale(0.3)">
-                <rect width="160" height="200" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
-                <!-- Headphone antenna -->
-                <path d="M48 46 Q48 20 80 18 Q112 20 112 46" stroke="#01aac1" stroke-width="3.5" fill="none"/>
-                <!-- Head (tall) — rose gold -->
-                <rect x="48" y="30" width="64" height="56" rx="12" fill="#b76e79"/>
+              <!-- ECHO — Content Writer -->
+              <g transform="translate(290, 148)">
+                <!-- Headphone arc -->
+                <rect x="0" y="5" width="4" height="4" fill="#01aac1" opacity="0.6"/>
+                <rect x="4" y="0" width="16" height="3" fill="#01aac1"/>
+                <rect x="20" y="5" width="4" height="4" fill="#01aac1" opacity="0.6"/>
+                <!-- Head — rose gold -->
+                <rect x="4" y="6" width="16" height="16" fill="#b76e79"/>
                 <!-- Oval eyes -->
-                <ellipse cx="66" cy="54" rx="5" ry="7" fill="#01aac1"/>
-                <ellipse cx="94" cy="54" rx="5" ry="7" fill="#01aac1"/>
+                <rect x="7" y="10" width="3" height="5" fill="#01aac1"/>
+                <rect x="14" y="10" width="3" height="5" fill="#01aac1"/>
                 <!-- Smile -->
-                <path d="M68 72 Q80 80 92 72" stroke="#8d545e" stroke-width="2.5" fill="none"/>
-                <!-- Ear pads -->
-                <circle cx="46" cy="46" r="6" fill="#01aac1" opacity="0.6"/>
-                <circle cx="114" cy="46" r="6" fill="#01aac1" opacity="0.6"/>
-                <!-- Neck -->
-                <rect x="70" y="86" width="20" height="10" fill="#b76e79"/>
+                <rect x="9" y="18" width="6" height="2" fill="#8d545e"/>
                 <!-- Body — purple tee -->
-                <path d="M36 200 L36 142 Q36 120 54 112 L70 96 L90 96 L106 112 Q124 120 124 142 L124 200 Z" fill="#2d1b4e"/>
-                <!-- T-shirt collar -->
-                <path d="M70 96 Q76 102 80 102 Q84 102 90 96" stroke="#3d2b5e" stroke-width="3" fill="none"/>
-                <!-- Arms -->
-                <path d="M36 142 Q24 152 22 174 Q20 186 24 194" stroke="#2d1b4e" stroke-width="12" stroke-linecap="round"/>
-                <path d="M124 142 Q136 152 138 174 Q140 186 136 194" stroke="#2d1b4e" stroke-width="12" stroke-linecap="round"/>
-                <!-- Hands -->
-                <circle cx="24" cy="196" r="7" fill="#b76e79"/>
-                <circle cx="136" cy="196" r="7" fill="#b76e79"/>
+                <rect x="0" y="22" width="24" height="4" fill="#2d1b4e"/>
+                <rect x="-2" y="26" width="28" height="4" fill="#2d1b4e"/>
+                <rect x="0" y="30" width="24" height="8" fill="#2d1b4e"/>
+                <!-- Legs -->
+                <rect x="4" y="38" width="6" height="6" fill="#2d1b4e"/>
+                <rect x="14" y="38" width="6" height="6" fill="#2d1b4e"/>
               </g>
-              <text x="365" y="100" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" font-weight="600" fill="white">ECHO</text>
-              <text x="365" y="111" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6" fill="#64748b">Content Writer</text>
+              <!-- Echo desk + monitor -->
+              <rect x="285" y="192" width="34" height="6" fill="#2d2018"/>
+              <rect x="290" y="177" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
+              <rect x="292" y="179" width="20" height="12" fill="#0a0e1a"/>
+              <!-- Screen: text doc -->
+              <rect x="294" y="181" width="14" height="2" fill="#64748b" opacity="0.5"/>
+              <rect x="294" y="184" width="10" height="2" fill="#64748b" opacity="0.5"/>
+              <rect x="294" y="187" width="12" height="2" fill="#64748b" opacity="0.5"/>
 
-              <!-- ═══ CIPHER — Technical SEO (right) ═══ -->
-              <g transform="translate(401,195) scale(0.3)">
-                <rect width="160" height="200" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
-                <!-- Antenna with orb -->
-                <line x1="80" y1="18" x2="80" y2="30" stroke="#01aac1" stroke-width="2.5"/>
-                <circle cx="80" cy="14" r="5" fill="#01aac1"/>
-                <!-- Head (hexagonal) — titanium -->
-                <polygon points="80,28 118,42 118,72 80,86 42,72 42,42" fill="#8892a0"/>
+              <!-- CIPHER — Technical SEO -->
+              <g transform="translate(360, 148)">
+                <!-- Antenna orb -->
+                <rect x="9" y="0" width="6" height="4" fill="#01aac1"/>
+                <rect x="10" y="4" width="4" height="4" fill="#8892a0"/>
+                <!-- Head — titanium hex -->
+                <rect x="2" y="8" width="20" height="4" fill="#8892a0"/>
+                <rect x="0" y="12" width="24" height="6" fill="#8892a0"/>
+                <rect x="2" y="18" width="20" height="4" fill="#8892a0"/>
                 <!-- Code eyes -->
-                <rect x="56" y="50" width="14" height="10" rx="2" fill="#0f172a"/>
-                <rect x="90" y="50" width="14" height="10" rx="2" fill="#0f172a"/>
-                <rect x="59" y="53" width="8" height="4" rx="1" fill="#01aac1"/>
-                <rect x="93" y="53" width="8" height="4" rx="1" fill="#01aac1"/>
-                <!-- Mouth -->
-                <rect x="70" y="72" width="20" height="2.5" rx="1" fill="#6b7280"/>
-                <!-- Body — black hoodie -->
-                <path d="M24 200 L24 138 Q24 114 50 106 L70 92 L90 92 L110 106 Q136 114 136 138 L136 200 Z" fill="#1a1a2e"/>
-                <!-- Hood -->
-                <path d="M56 92 Q46 86 38 96 L38 112 Q44 100 56 92 Z" fill="#1a1a2e"/>
-                <path d="M104 92 Q114 86 122 96 L122 112 Q116 100 104 92 Z" fill="#1a1a2e"/>
-                <!-- Hoodie strings -->
-                <line x1="74" y1="96" x2="72" y2="118" stroke="#2a2a3e" stroke-width="1.5"/>
-                <line x1="86" y1="96" x2="88" y2="118" stroke="#2a2a3e" stroke-width="1.5"/>
-                <!-- Arms -->
-                <path d="M24 138 Q10 148 8 172 Q6 184 10 192" stroke="#1a1a2e" stroke-width="16" stroke-linecap="round"/>
-                <path d="M136 138 Q150 148 152 172 Q154 184 150 192" stroke="#1a1a2e" stroke-width="16" stroke-linecap="round"/>
-                <!-- Hands -->
-                <circle cx="10" cy="194" r="9" fill="#8892a0"/>
-                <circle cx="150" cy="194" r="9" fill="#8892a0"/>
+                <rect x="4" y="13" width="6" height="4" fill="#0f172a"/>
+                <rect x="14" y="13" width="6" height="4" fill="#0f172a"/>
+                <rect x="5" y="14" width="4" height="2" fill="#01aac1"/>
+                <rect x="15" y="14" width="4" height="2" fill="#01aac1"/>
+                <!-- Body — dark hoodie -->
+                <rect x="0" y="22" width="24" height="4" fill="#1a1a2e"/>
+                <rect x="-2" y="26" width="28" height="4" fill="#1a1a2e"/>
+                <rect x="0" y="30" width="24" height="8" fill="#1a1a2e"/>
+                <!-- Legs -->
+                <rect x="4" y="38" width="6" height="6" fill="#1a1a2e"/>
+                <rect x="14" y="38" width="6" height="6" fill="#1a1a2e"/>
               </g>
-              <text x="425" y="267" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" font-weight="600" fill="white">CIPHER</text>
-              <text x="425" y="278" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6" fill="#64748b">Technical SEO</text>
+              <!-- Cipher desk + monitor -->
+              <rect x="355" y="192" width="34" height="6" fill="#2d2018"/>
+              <rect x="360" y="177" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
+              <rect x="362" y="179" width="20" height="12" fill="#0a0e1a"/>
+              <!-- Screen: code -->
+              <text x="364" y="186" font-family="monospace" font-size="5" fill="#01aac1" opacity="0.6">&lt;schema&gt;</text>
 
-              <!-- ═══ FLUX — Conversion Optimizer (bottom-right) ═══ -->
-              <g transform="translate(341,362) scale(0.3)">
-                <rect width="160" height="200" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
-                <!-- Lightning antenna -->
-                <path d="M78 8 L74 22 L82 18 L78 32" stroke="#01aac1" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
-                <!-- Head — bronze -->
-                <rect x="46" y="32" width="68" height="52" rx="16" fill="#cd7f32"/>
-                <!-- Asymmetric eyes -->
-                <circle cx="64" cy="54" r="5" fill="#01aac1"/>
-                <circle cx="96" cy="54" r="8" fill="#0f172a"/>
-                <circle cx="96" cy="54" r="5.5" fill="#01aac1"/>
-                <!-- Zigzag mouth -->
-                <path d="M64 72 L72 68 L80 72 L88 68 L96 72" stroke="#9a6428" stroke-width="2.5" fill="none"/>
-                <!-- Neck -->
-                <rect x="70" y="84" width="20" height="12" fill="#cd7f32"/>
-                <!-- Body — blue track jacket -->
-                <path d="M26 200 L32 142 Q32 118 54 108 L70 96 L90 96 L106 108 Q128 118 128 142 L134 200 Z" fill="#1a2d5a"/>
-                <!-- Track stripes -->
-                <path d="M54 108 L44 116" stroke="#01aac1" stroke-width="3" opacity="0.5"/>
-                <path d="M106 108 L116 116" stroke="#01aac1" stroke-width="3" opacity="0.5"/>
-                <!-- Zipper -->
-                <line x1="80" y1="96" x2="80" y2="180" stroke="#2a3d6a" stroke-width="2"/>
-                <!-- Arms -->
-                <path d="M28 138 Q14 146 10 168 Q8 180 12 188" stroke="#1a2d5a" stroke-width="15" stroke-linecap="round"/>
-                <path d="M132 138 Q146 146 150 168 Q152 180 148 188" stroke="#1a2d5a" stroke-width="15" stroke-linecap="round"/>
-                <!-- Hands -->
-                <circle cx="12" cy="190" r="8" fill="#cd7f32"/>
-                <circle cx="148" cy="190" r="8" fill="#cd7f32"/>
-              </g>
-              <text x="365" y="434" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" font-weight="600" fill="white">FLUX</text>
-              <text x="365" y="445" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6" fill="#64748b">CRO Specialist</text>
-
-              <!-- ═══ PRISM — Graphic Designer (bottom-left) ═══ -->
-              <g transform="translate(91,362) scale(0.3)">
-                <rect width="160" height="200" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+              <!-- PRISM — Designer (far right, standing at easel) -->
+              <g transform="translate(430, 148)">
                 <!-- Spike antenna -->
-                <polygon points="76,8 80,20 84,8" fill="#01aac1"/>
-                <line x1="80" y1="20" x2="80" y2="34" stroke="#6ecfb0" stroke-width="2.5"/>
+                <polygon points="10,0 13,6 7,6" fill="#01aac1"/>
+                <rect x="10" y="6" width="3" height="4" fill="#6ecfb0"/>
                 <!-- Head — mint -->
-                <rect x="46" y="34" width="68" height="50" rx="10" fill="#6ecfb0"/>
+                <rect x="2" y="10" width="20" height="12" fill="#6ecfb0"/>
                 <!-- Diamond eyes -->
-                <polygon points="64,48 70,54 64,60 58,54" fill="#01aac1"/>
-                <polygon points="96,48 102,54 96,60 90,54" fill="#01aac1"/>
-                <!-- Mouth -->
-                <rect x="68" y="72" width="24" height="2.5" rx="1" fill="#4a9e87"/>
-                <!-- Neck -->
-                <rect x="70" y="84" width="20" height="12" fill="#6ecfb0"/>
+                <rect x="6" y="14" width="4" height="4" fill="#01aac1" transform="rotate(45 8 16)"/>
+                <rect x="14" y="14" width="4" height="4" fill="#01aac1" transform="rotate(45 16 16)"/>
                 <!-- Body — coral smock -->
-                <path d="M30 200 L30 140 Q30 118 52 110 L70 96 L90 96 L108 110 Q130 118 130 140 L130 200 Z" fill="#7c3238"/>
-                <!-- Paint splatters -->
-                <circle cx="72" cy="140" r="4" fill="#01aac1" opacity="0.3"/>
-                <circle cx="92" cy="156" r="3" fill="#c49b4e" opacity="0.3"/>
-                <circle cx="65" cy="162" r="2.5" fill="#6ecfb0" opacity="0.3"/>
-                <!-- Arms (one raised) -->
-                <path d="M30 140 Q18 148 14 170 Q12 180 16 188" stroke="#7c3238" stroke-width="14" stroke-linecap="round"/>
-                <path d="M130 140 Q144 140 148 124 Q150 116 146 110" stroke="#7c3238" stroke-width="14" stroke-linecap="round"/>
-                <!-- Hands -->
-                <circle cx="16" cy="190" r="8" fill="#6ecfb0"/>
-                <circle cx="146" cy="108" r="8" fill="#6ecfb0"/>
+                <rect x="0" y="22" width="24" height="4" fill="#7c3238"/>
+                <rect x="-2" y="26" width="28" height="4" fill="#7c3238"/>
+                <rect x="0" y="30" width="24" height="8" fill="#7c3238"/>
+                <!-- Paint spots -->
+                <rect x="6" y="28" width="3" height="3" fill="#01aac1" opacity="0.3"/>
+                <rect x="16" y="32" width="2" height="2" fill="#c49b4e" opacity="0.3"/>
+                <!-- Raised arm holding brush -->
+                <rect x="22" y="24" width="4" height="4" fill="#7c3238"/>
+                <rect x="24" y="18" width="4" height="6" fill="#7c3238"/>
+                <rect x="26" y="14" width="4" height="4" fill="#6ecfb0"/>
+                <!-- Legs -->
+                <rect x="4" y="38" width="6" height="6" fill="#7c3238"/>
+                <rect x="14" y="38" width="6" height="6" fill="#7c3238"/>
               </g>
-              <text x="115" y="434" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" font-weight="600" fill="white">PRISM</text>
-              <text x="115" y="445" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6" fill="#64748b">Designer</text>
+              <!-- Prism's canvas/easel -->
+              <rect x="456" y="170" width="18" height="24" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
+              <rect x="458" y="172" width="14" height="20" fill="#0a0e1a"/>
+              <!-- Canvas: colorful blocks -->
+              <rect x="460" y="174" width="5" height="5" fill="#01aac1" opacity="0.5"/>
+              <rect x="466" y="176" width="4" height="4" fill="#c49b4e" opacity="0.5"/>
+              <rect x="462" y="180" width="4" height="6" fill="#6ecfb0" opacity="0.4"/>
+              <rect x="468" y="183" width="3" height="5" fill="#b76e79" opacity="0.4"/>
 
-              <!-- ═══ PIXEL — Data Analyst (left) ═══ -->
-              <g transform="translate(31,195) scale(0.3)">
-                <rect width="160" height="200" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
-                <!-- Twin antennas -->
-                <rect x="58" y="14" width="4" height="18" fill="#01aac1"/>
-                <rect x="98" y="14" width="4" height="18" fill="#01aac1"/>
-                <rect x="55" y="10" width="10" height="6" rx="2" fill="#01aac1"/>
-                <rect x="95" y="10" width="10" height="6" rx="2" fill="#01aac1"/>
-                <!-- Head (boxy) — copper -->
-                <rect x="44" y="32" width="72" height="52" rx="6" fill="#b87333"/>
-                <!-- Pixel eyes -->
-                <rect x="58" y="48" width="10" height="10" fill="#01aac1"/>
-                <rect x="92" y="48" width="10" height="10" fill="#01aac1"/>
-                <!-- Data lines mouth -->
-                <rect x="62" y="70" width="16" height="2.5" fill="#8b5e2b"/>
-                <rect x="62" y="74" width="10" height="2.5" fill="#8b5e2b"/>
-                <!-- Neck -->
-                <rect x="70" y="84" width="20" height="12" fill="#b87333"/>
-                <!-- Body — stocky green hoodie -->
-                <path d="M24 200 L24 138 Q24 114 50 106 L70 96 L90 96 L110 106 Q136 114 136 138 L136 200 Z" fill="#1a3a2a"/>
-                <!-- Hood shape -->
-                <path d="M56 96 Q50 90 44 96 L44 108 Q48 100 56 96 Z" fill="#1a3a2a"/>
-                <path d="M104 96 Q110 90 116 96 L116 108 Q112 100 104 96 Z" fill="#1a3a2a"/>
-                <!-- Hoodie pocket -->
-                <rect x="62" y="150" width="36" height="12" rx="4" fill="#153525" opacity="0.6"/>
-                <!-- Arms -->
-                <path d="M24 138 Q10 148 8 172 Q6 184 10 192" stroke="#1a3a2a" stroke-width="16" stroke-linecap="round"/>
-                <path d="M136 138 Q150 148 152 172 Q154 184 150 192" stroke="#1a3a2a" stroke-width="16" stroke-linecap="round"/>
-                <!-- Hands -->
-                <circle cx="10" cy="194" r="9" fill="#b87333"/>
-                <circle cx="150" cy="194" r="9" fill="#b87333"/>
-              </g>
-              <text x="55" y="267" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" font-weight="600" fill="white">PIXEL</text>
-              <text x="55" y="278" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6" fill="#64748b">Data Analyst</text>
+              <!-- ======= FRONT ROW AGENTS (y≈214) ======= -->
 
-              <!-- Subtle floating UI elements -->
-              <!-- Mini dashboard near PIXEL -->
-              <g transform="translate(8, 162)" opacity="0.15">
-                <rect width="28" height="18" rx="3" fill="#01aac1"/>
-                <rect x="3" y="4" width="6" height="10" rx="1" fill="#0f172a"/>
-                <rect x="11" y="7" width="6" height="7" rx="1" fill="#0f172a"/>
-                <rect x="19" y="2" width="6" height="12" rx="1" fill="#0f172a"/>
+              <!-- PIXEL — Data Analyst -->
+              <g transform="translate(250, 214)">
+                <!-- Twin rect antennas -->
+                <rect x="4" y="0" width="5" height="3" fill="#01aac1"/>
+                <rect x="15" y="0" width="5" height="3" fill="#01aac1"/>
+                <rect x="6" y="3" width="3" height="5" fill="#01aac1"/>
+                <rect x="16" y="3" width="3" height="5" fill="#01aac1"/>
+                <!-- Head — copper, boxy -->
+                <rect x="0" y="8" width="24" height="14" fill="#b87333"/>
+                <!-- Square pixel eyes -->
+                <rect x="4" y="12" width="5" height="5" fill="#01aac1"/>
+                <rect x="15" y="12" width="5" height="5" fill="#01aac1"/>
+                <!-- Data mouth -->
+                <rect x="6" y="19" width="8" height="2" fill="#8b5e2b"/>
+                <!-- Body — green hoodie, stocky -->
+                <rect x="-2" y="22" width="28" height="4" fill="#1a3a2a"/>
+                <rect x="-2" y="26" width="28" height="4" fill="#1a3a2a"/>
+                <rect x="0" y="30" width="24" height="8" fill="#1a3a2a"/>
+                <!-- Pocket -->
+                <rect x="6" y="32" width="12" height="4" fill="#153525" opacity="0.6"/>
+                <!-- Legs -->
+                <rect x="4" y="38" width="6" height="6" fill="#1a3a2a"/>
+                <rect x="14" y="38" width="6" height="6" fill="#1a3a2a"/>
               </g>
-              <!-- Code bracket near CIPHER -->
-              <g transform="translate(445, 190)" opacity="0.15">
-                <text font-family="monospace" font-size="16" fill="#01aac1">&lt;/&gt;</text>
+              <!-- Pixel desk + monitor -->
+              <rect x="245" y="258" width="34" height="6" fill="#2d2018"/>
+              <rect x="250" y="243" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
+              <rect x="252" y="245" width="20" height="12" fill="#0a0e1a"/>
+              <!-- Screen: traffic chart -->
+              <rect x="254" y="248" width="3" height="7" fill="#22c55e" opacity="0.6"/>
+              <rect x="258" y="251" width="3" height="4" fill="#eab308" opacity="0.6"/>
+              <rect x="262" y="246" width="3" height="9" fill="#22c55e" opacity="0.6"/>
+              <rect x="266" y="249" width="3" height="6" fill="#01aac1" opacity="0.6"/>
+
+              <!-- FLUX — CRO Specialist -->
+              <g transform="translate(350, 214)">
+                <!-- Lightning antenna (pixel) -->
+                <rect x="9" y="0" width="3" height="3" fill="#01aac1"/>
+                <rect x="11" y="3" width="3" height="3" fill="#01aac1"/>
+                <rect x="9" y="6" width="3" height="3" fill="#01aac1"/>
+                <!-- Head — bronze -->
+                <rect x="2" y="9" width="20" height="14" fill="#cd7f32"/>
+                <!-- Asymmetric eyes -->
+                <rect x="5" y="13" width="4" height="4" fill="#01aac1"/>
+                <rect x="14" y="12" width="5" height="5" fill="#0f172a"/>
+                <rect x="15" y="13" width="4" height="4" fill="#01aac1"/>
+                <!-- Zigzag mouth -->
+                <rect x="7" y="20" width="3" height="2" fill="#9a6428"/>
+                <rect x="10" y="18" width="3" height="2" fill="#9a6428"/>
+                <rect x="13" y="20" width="3" height="2" fill="#9a6428"/>
+                <!-- Body — blue track jacket -->
+                <rect x="-2" y="23" width="28" height="4" fill="#1a2d5a"/>
+                <rect x="0" y="27" width="24" height="4" fill="#1a2d5a"/>
+                <rect x="0" y="31" width="24" height="8" fill="#1a2d5a"/>
+                <!-- Shoulder stripes -->
+                <rect x="-2" y="23" width="4" height="3" fill="#01aac1" opacity="0.5"/>
+                <rect x="22" y="23" width="4" height="3" fill="#01aac1" opacity="0.5"/>
+                <!-- Zipper -->
+                <rect x="11" y="27" width="2" height="10" fill="#2a3d6a"/>
+                <!-- Legs -->
+                <rect x="4" y="39" width="6" height="6" fill="#1a2d5a"/>
+                <rect x="14" y="39" width="6" height="6" fill="#1a2d5a"/>
               </g>
-              <!-- Pen icon near ECHO -->
-              <g transform="translate(395, 20)" opacity="0.15">
-                <path d="M0 12 L8 4 L12 8 L4 16 Z" fill="#01aac1"/>
+              <!-- Flux desk + monitor -->
+              <rect x="345" y="258" width="34" height="6" fill="#2d2018"/>
+              <rect x="350" y="243" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
+              <rect x="352" y="245" width="20" height="12" fill="#0a0e1a"/>
+              <!-- Screen: funnel -->
+              <rect x="354" y="246" width="16" height="2" fill="#01aac1" opacity="0.5"/>
+              <rect x="357" y="249" width="10" height="2" fill="#01aac1" opacity="0.5"/>
+              <rect x="360" y="252" width="4" height="2" fill="#22c55e" opacity="0.7"/>
+
+              <!-- ======= SPEECH BUBBLES (pixel art style, sharp corners) ======= -->
+
+              <!-- ATLAS bubble -->
+              <g transform="translate(205, 126)">
+                <rect width="62" height="18" fill="white" opacity="0.92"/>
+                <rect x="42" y="18" width="4" height="4" fill="white" opacity="0.92"/>
+                <rect x="38" y="22" width="4" height="4" fill="white" opacity="0.92"/>
+                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">Keywords ✓</text>
               </g>
+
+              <!-- ECHO bubble (talking to ATLAS) -->
+              <g transform="translate(274, 126)">
+                <rect width="80" height="18" fill="white" opacity="0.92"/>
+                <rect x="14" y="18" width="4" height="4" fill="white" opacity="0.92"/>
+                <rect x="18" y="22" width="4" height="4" fill="white" opacity="0.92"/>
+                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">Draft v2 sent</text>
+              </g>
+
+              <!-- Conversation line ATLAS ↔ ECHO -->
+              <line x1="248" y1="168" x2="288" y2="168" stroke="#01aac1" stroke-width="1" opacity="0.25" stroke-dasharray="3 3"/>
+
+              <!-- CIPHER bubble -->
+              <g transform="translate(358, 126)">
+                <rect width="66" height="18" fill="white" opacity="0.92"/>
+                <rect x="16" y="18" width="4" height="4" fill="white" opacity="0.92"/>
+                <rect x="20" y="22" width="4" height="4" fill="white" opacity="0.92"/>
+                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">Schema ✓</text>
+              </g>
+
+              <!-- PIXEL bubble -->
+              <g transform="translate(234, 196)">
+                <rect width="72" height="18" fill="white" opacity="0.92"/>
+                <rect x="28" y="18" width="4" height="4" fill="white" opacity="0.92"/>
+                <rect x="24" y="22" width="4" height="4" fill="white" opacity="0.92"/>
+                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">Traffic +15%</text>
+              </g>
+
+              <!-- FLUX bubble -->
+              <g transform="translate(340, 196)">
+                <rect width="68" height="18" fill="white" opacity="0.92"/>
+                <rect x="18" y="18" width="4" height="4" fill="white" opacity="0.92"/>
+                <rect x="22" y="22" width="4" height="4" fill="white" opacity="0.92"/>
+                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">CVR up 2.1%</text>
+              </g>
+
+              <!-- Conversation line PIXEL ↔ FLUX -->
+              <line x1="278" y1="234" x2="348" y2="234" stroke="#01aac1" stroke-width="1" opacity="0.25" stroke-dasharray="3 3"/>
+
+              <!-- ======= SCENE PROPS ======= -->
+
+              <!-- Potted plant (back right) -->
+              <rect x="462" y="264" width="10" height="8" fill="#7c3238"/>
+              <rect x="464" y="256" width="3" height="10" fill="#153525"/>
+              <rect x="460" y="250" width="5" height="8" fill="#22c55e" opacity="0.6"/>
+              <rect x="466" y="248" width="5" height="6" fill="#22c55e" opacity="0.5"/>
+              <rect x="463" y="244" width="4" height="8" fill="#22c55e" opacity="0.4"/>
+
+              <!-- Whiteboard on back wall (between window and agents) -->
+              <rect x="204" y="30" width="100" height="60" fill="#e2e8f0" opacity="0.08"/>
+              <rect x="210" y="40" width="40" height="3" fill="#01aac1" opacity="0.12"/>
+              <rect x="210" y="48" width="30" height="3" fill="#01aac1" opacity="0.08"/>
+              <rect x="210" y="56" width="35" height="3" fill="#22c55e" opacity="0.08"/>
+              <rect x="260" y="44" width="20" height="20" fill="#01aac1" opacity="0.06"/>
+              <rect x="260" y="68" width="20" height="10" fill="#22c55e" opacity="0.06"/>
+
+              <!-- Retro label -->
+              <text x="10" y="14" font-family="monospace" font-size="7" fill="#01aac1" opacity="0.25">NOVASTACKS CMD v2.0</text>
+
+              <!-- Scanline CRT overlay -->
+              <defs>
+                <pattern id="scanlines" width="2" height="4" patternUnits="userSpaceOnUse">
+                  <rect width="2" height="2" fill="transparent"/>
+                  <rect y="2" width="2" height="2" fill="black" opacity="0.03"/>
+                </pattern>
+              </defs>
+              <rect width="480" height="360" fill="url(#scanlines)"/>
 
             </svg>
           </div>
+
 
 
         </div>
