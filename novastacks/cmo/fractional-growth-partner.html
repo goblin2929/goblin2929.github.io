@@ -35,7 +35,7 @@
 </head>
 
 <div style="background:#f59e0b;color:#000;text-align:center;padding:8px;font-family:monospace;font-size:13px;font-weight:600;position:sticky;top:0;z-index:9999;">
-  STAGING v5: 80s Pixel Art Office Scene — <a href="https://www.novastacks-ai.com/fractional-growth-partner" style="color:#000;text-decoration:underline;">View Production</a>
+  STAGING v6: New page structure — Hero | Operator | AI Team | CLI Terminal | How It Works | Comparison | CTA
 </div>
 <body class="bg-slate-950 text-white font-sans">
   <!-- Header -->
@@ -96,614 +96,357 @@
     </div>
   </header>
 
-  <!-- Teammate card animations + hero illustration -->
+  <!-- Page styles -->
   <style>
     @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     .status-pulse { animation: pulse-dot 2s ease-in-out infinite; }
-    .agent-card { transition: transform 0.2s ease, border-color 0.2s ease; }
-    .agent-card:hover { transform: translateY(-2px); border-color: #01aac1; }
-    .glow-line { background: linear-gradient(90deg, transparent, #01aac1, transparent); }
-
-    /* Hero command center illustration */
-    @keyframes agent-float-1 { 0%, 100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-6px); } }
-    @keyframes agent-float-2 { 0%, 100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(5px); } }
-    @keyframes agent-float-3 { 0%, 100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-4px); } }
-    @keyframes data-flow { 0% { stroke-dashoffset: 20; } 100% { stroke-dashoffset: 0; } }
-    .cmd-agent { position: absolute; transform: translate(-50%, -50%); }
-    .cmd-float-1 { animation: agent-float-1 4s ease-in-out infinite; }
-    .cmd-float-2 { animation: agent-float-2 5s ease-in-out infinite; }
-    .cmd-float-3 { animation: agent-float-3 3.5s ease-in-out infinite; }
-    .cmd-line { stroke-dasharray: 6 4; animation: data-flow 2s linear infinite; }
   </style>
 
-  <!-- Main Content -->
   <main>
-    <!-- Hero Section (DARK) -->
-    <section class="relative py-20 lg:py-32 overflow-hidden bg-slate-950">
-      <!-- Ambient background glow -->
+    <!-- Hero (DARK) — Full-width text, no illustration -->
+    <section class="relative py-24 lg:py-36 overflow-hidden bg-slate-950">
+      <!-- Ambient glow -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div class="absolute rounded-full" style="left: 60%; top: 15%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(1,170,193,0.06) 0%, transparent 70%);"></div>
-        <div class="absolute rounded-full" style="left: 20%; top: 60%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(1,170,193,0.04) 0%, transparent 70%);"></div>
+        <div class="absolute rounded-full" style="left: 70%; top: 20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(1,170,193,0.06) 0%, transparent 70%);"></div>
       </div>
 
       <div class="container mx-auto px-8 md:px-6 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-
-          <!-- Text column -->
-          <div class="lg:w-1/2">
-            <p class="font-mono text-novastacks text-sm mb-6 tracking-wider">// FRACTIONAL GROWTH PARTNER</p>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.05]">
-              20 Years of CMO.<br>
-              <span class="text-novastacks">An AI Team Behind It.</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
-              You're not hiring a consultant. You're getting a senior growth operator who shaped marketing at Expedia, Tencent, and Klook, backed by AI specialists with codified workflows that execute at scale.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-6 items-start">
-              <a href="https://calendar.app.google/kFcXYGMDD7cY3boHA" class="bg-novastacks text-white px-8 py-3.5 rounded font-mono text-sm tracking-wide hover:bg-novastacks/80 transition-colors duration-200 inline-flex items-center gap-2">
-                Book Strategy Call <span aria-hidden="true">&rarr;</span>
-              </a>
-              <span class="font-mono text-sm text-slate-500 self-center">1 operator + 8 AI specialists</span>
-            </div>
+        <div class="max-w-4xl">
+          <p class="font-mono text-novastacks text-sm mb-6 tracking-wider">// FRACTIONAL GROWTH PARTNER</p>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.05]">
+            20 Years of CMO.<br>
+            <span class="text-novastacks">An AI Team Behind It.</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
+            You're not hiring a consultant. You're getting a senior growth operator who shaped marketing at Expedia, Tencent, and Klook, backed by AI specialists with codified workflows that execute at scale.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-6 items-start">
+            <a href="https://calendar.app.google/kFcXYGMDD7cY3boHA" class="bg-novastacks text-white px-8 py-3.5 rounded font-mono text-sm tracking-wide hover:bg-novastacks/80 transition-colors duration-200 inline-flex items-center gap-2">
+              Book Strategy Call <span aria-hidden="true">&rarr;</span>
+            </a>
+            <span class="font-mono text-sm text-slate-500 self-center">1 operator + 8 AI specialists</span>
           </div>
-
-          <!-- 80s Pixel Art Office Scene (desktop) -->
-          <div class="hidden lg:block lg:w-1/2">
-            <svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" style="max-width: 520px; shape-rendering: crispEdges;">
-
-              <!-- Background -->
-              <rect width="480" height="360" fill="#0a0e1a"/>
-
-              <!-- Wall -->
-              <rect width="480" height="220" fill="#0f172a"/>
-
-              <!-- Pixel art window (back wall) -->
-              <rect x="320" y="20" width="130" height="76" fill="#0a0e2e" stroke="#1e293b" stroke-width="4"/>
-              <line x1="385" y1="20" x2="385" y2="96" stroke="#1e293b" stroke-width="4"/>
-              <line x1="320" y1="58" x2="450" y2="58" stroke="#1e293b" stroke-width="4"/>
-              <!-- Stars -->
-              <rect x="340" y="34" width="3" height="3" fill="#01aac1" opacity="0.5"/>
-              <rect x="365" y="44" width="2" height="2" fill="white" opacity="0.4"/>
-              <rect x="410" y="30" width="3" height="3" fill="white" opacity="0.3"/>
-              <rect x="430" y="68" width="3" height="3" fill="#01aac1" opacity="0.4"/>
-              <rect x="395" y="74" width="2" height="2" fill="white" opacity="0.3"/>
-
-              <!-- Floor -->
-              <rect y="220" width="480" height="140" fill="#12121e"/>
-              <!-- Floor tile grid -->
-              <line x1="0" y1="248" x2="480" y2="248" stroke="#1a1a2e" stroke-width="1"/>
-              <line x1="0" y1="276" x2="480" y2="276" stroke="#1a1a2e" stroke-width="1"/>
-              <line x1="0" y1="304" x2="480" y2="304" stroke="#1a1a2e" stroke-width="1"/>
-              <line x1="0" y1="332" x2="480" y2="332" stroke="#1a1a2e" stroke-width="1"/>
-              <!-- Wall baseboard -->
-              <rect y="216" width="480" height="6" fill="#1e293b"/>
-
-              <!-- ======= DATA FLOW LINES (terminal → agents) ======= -->
-              <line x1="155" y1="196" x2="232" y2="168" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25"/>
-              <line x1="155" y1="196" x2="302" y2="168" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:0.3s"/>
-              <line x1="155" y1="196" x2="372" y2="168" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:0.6s"/>
-              <line x1="155" y1="200" x2="262" y2="230" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:0.9s"/>
-              <line x1="155" y1="200" x2="362" y2="230" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:1.2s"/>
-              <line x1="155" y1="196" x2="442" y2="168" class="cmd-line" stroke="#01aac1" stroke-width="1" opacity="0.25" style="animation-delay:1.5s"/>
-
-              <!-- ======= TINA'S CLI STATION (left side) ======= -->
-
-              <!-- Desk -->
-              <rect x="16" y="232" width="160" height="10" fill="#2d2018"/>
-              <rect x="20" y="242" width="8" height="36" fill="#2d2018"/>
-              <rect x="164" y="242" width="8" height="36" fill="#2d2018"/>
-
-              <!-- Monitor -->
-              <rect x="40" y="156" width="116" height="76" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="3"/>
-              <!-- Monitor stand -->
-              <rect x="88" y="232" width="20" height="4" fill="#2a2a3e"/>
-              <rect x="92" y="228" width="12" height="6" fill="#2a2a3e"/>
-
-              <!-- CLI Screen -->
-              <rect x="46" y="162" width="104" height="64" fill="#0a0a12"/>
-              <!-- Green terminal text -->
-              <text x="50" y="176" font-family="monospace" font-size="7.5" fill="#22c55e">tina@novastacks:~$</text>
-              <text x="50" y="188" font-family="monospace" font-size="7.5" fill="#22c55e">> /orchestrator run</text>
-              <text x="50" y="200" font-family="monospace" font-size="7.5" fill="#01aac1">> deploying 6 agents</text>
-              <text x="50" y="212" font-family="monospace" font-size="7.5" fill="#22c55e">> all agents active ✓</text>
-              <!-- Blinking cursor -->
-              <rect x="50" y="216" width="5" height="7" fill="#22c55e">
-                <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
-              </rect>
-              <!-- Monitor glow -->
-              <rect x="40" y="156" width="116" height="76" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.1"/>
-
-              <!-- TINA pixel art character (seated at desk) -->
-              <g transform="translate(14, 190)">
-                <!-- Hair (dark, long) -->
-                <rect x="2" y="0" width="20" height="4" fill="#1a0e08"/>
-                <rect x="0" y="4" width="4" height="20" fill="#1a0e08"/>
-                <rect x="22" y="0" width="4" height="10" fill="#1a0e08"/>
-                <!-- Head -->
-                <rect x="4" y="4" width="18" height="14" fill="#d4a574"/>
-                <!-- Eyes -->
-                <rect x="8" y="8" width="4" height="3" fill="#1a1a1a"/>
-                <rect x="15" y="8" width="4" height="3" fill="#1a1a1a"/>
-                <!-- Eye shine -->
-                <rect x="9" y="8" width="2" height="2" fill="white" opacity="0.4"/>
-                <rect x="16" y="8" width="2" height="2" fill="white" opacity="0.4"/>
-                <!-- Smile -->
-                <rect x="10" y="14" width="6" height="2" fill="#b87333"/>
-                <!-- Body (navy blazer) -->
-                <rect x="2" y="18" width="22" height="14" fill="#1e3a5f"/>
-                <!-- White collar -->
-                <rect x="8" y="18" width="4" height="3" fill="#e2e8f0"/>
-                <rect x="14" y="18" width="4" height="3" fill="#e2e8f0"/>
-                <!-- Arm reaching to keyboard -->
-                <rect x="22" y="22" width="16" height="4" fill="#1e3a5f"/>
-                <rect x="36" y="22" width="4" height="4" fill="#d4a574"/>
-                <!-- Legs (seated) -->
-                <rect x="4" y="32" width="7" height="8" fill="#1e293b"/>
-                <rect x="15" y="32" width="7" height="8" fill="#1e293b"/>
-                <!-- Shoes -->
-                <rect x="4" y="38" width="8" height="4" fill="#111"/>
-                <rect x="15" y="38" width="8" height="4" fill="#111"/>
-              </g>
-
-              <!-- Chair -->
-              <rect x="8" y="222" width="30" height="4" fill="#374151"/>
-              <rect x="6" y="192" width="4" height="34" fill="#374151"/>
-
-              <!-- Keyboard -->
-              <rect x="56" y="234" width="22" height="4" fill="#2a2a3e"/>
-              <rect x="58" y="235" width="2" height="2" fill="#3a3a4e"/>
-              <rect x="62" y="235" width="2" height="2" fill="#3a3a4e"/>
-              <rect x="66" y="235" width="2" height="2" fill="#3a3a4e"/>
-              <rect x="70" y="235" width="2" height="2" fill="#3a3a4e"/>
-              <rect x="74" y="235" width="2" height="2" fill="#3a3a4e"/>
-
-              <!-- Coffee mug -->
-              <rect x="140" y="224" width="8" height="10" fill="#374151"/>
-              <rect x="148" y="226" width="3" height="5" fill="#374151"/>
-              <!-- Steam -->
-              <rect x="142" y="218" width="2" height="5" fill="white" opacity="0.12">
-                <animate attributeName="y" values="218;214;218" dur="2s" repeatCount="indefinite"/>
-              </rect>
-              <rect x="146" y="216" width="2" height="5" fill="white" opacity="0.08">
-                <animate attributeName="y" values="216;212;216" dur="2.5s" repeatCount="indefinite"/>
-              </rect>
-
-              <!-- ======= BACK ROW AGENTS (y≈148) ======= -->
-
-              <!-- ATLAS — SEO Strategist -->
-              <g transform="translate(220, 148)">
-                <!-- Antennas -->
-                <rect x="5" y="0" width="4" height="3" fill="#01aac1"/>
-                <rect x="15" y="0" width="4" height="3" fill="#01aac1"/>
-                <rect x="6" y="3" width="3" height="5" fill="#64748b"/>
-                <rect x="16" y="3" width="3" height="5" fill="#64748b"/>
-                <!-- Head — cool gray -->
-                <rect x="0" y="8" width="24" height="14" fill="#64748b"/>
-                <!-- Visor eyes -->
-                <rect x="3" y="12" width="7" height="4" fill="#01aac1"/>
-                <rect x="14" y="12" width="7" height="4" fill="#01aac1"/>
-                <!-- Body — charcoal suit -->
-                <rect x="0" y="22" width="24" height="4" fill="#374151"/>
-                <rect x="-2" y="26" width="28" height="4" fill="#374151"/>
-                <rect x="0" y="30" width="24" height="8" fill="#374151"/>
-                <!-- Teal tie -->
-                <rect x="10" y="24" width="4" height="10" fill="#01aac1" opacity="0.7"/>
-                <!-- Legs -->
-                <rect x="4" y="38" width="6" height="6" fill="#374151"/>
-                <rect x="14" y="38" width="6" height="6" fill="#374151"/>
-              </g>
-              <!-- Atlas desk + monitor -->
-              <rect x="215" y="192" width="34" height="6" fill="#2d2018"/>
-              <rect x="220" y="177" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
-              <rect x="222" y="179" width="20" height="12" fill="#0a0e1a"/>
-              <!-- Screen: bar chart -->
-              <rect x="224" y="182" width="3" height="7" fill="#01aac1" opacity="0.6"/>
-              <rect x="228" y="185" width="3" height="4" fill="#01aac1" opacity="0.6"/>
-              <rect x="232" y="180" width="3" height="9" fill="#22c55e" opacity="0.6"/>
-              <rect x="236" y="183" width="3" height="6" fill="#01aac1" opacity="0.6"/>
-
-              <!-- ECHO — Content Writer -->
-              <g transform="translate(290, 148)">
-                <!-- Headphone arc -->
-                <rect x="0" y="5" width="4" height="4" fill="#01aac1" opacity="0.6"/>
-                <rect x="4" y="0" width="16" height="3" fill="#01aac1"/>
-                <rect x="20" y="5" width="4" height="4" fill="#01aac1" opacity="0.6"/>
-                <!-- Head — rose gold -->
-                <rect x="4" y="6" width="16" height="16" fill="#b76e79"/>
-                <!-- Oval eyes -->
-                <rect x="7" y="10" width="3" height="5" fill="#01aac1"/>
-                <rect x="14" y="10" width="3" height="5" fill="#01aac1"/>
-                <!-- Smile -->
-                <rect x="9" y="18" width="6" height="2" fill="#8d545e"/>
-                <!-- Body — purple tee -->
-                <rect x="0" y="22" width="24" height="4" fill="#2d1b4e"/>
-                <rect x="-2" y="26" width="28" height="4" fill="#2d1b4e"/>
-                <rect x="0" y="30" width="24" height="8" fill="#2d1b4e"/>
-                <!-- Legs -->
-                <rect x="4" y="38" width="6" height="6" fill="#2d1b4e"/>
-                <rect x="14" y="38" width="6" height="6" fill="#2d1b4e"/>
-              </g>
-              <!-- Echo desk + monitor -->
-              <rect x="285" y="192" width="34" height="6" fill="#2d2018"/>
-              <rect x="290" y="177" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
-              <rect x="292" y="179" width="20" height="12" fill="#0a0e1a"/>
-              <!-- Screen: text doc -->
-              <rect x="294" y="181" width="14" height="2" fill="#64748b" opacity="0.5"/>
-              <rect x="294" y="184" width="10" height="2" fill="#64748b" opacity="0.5"/>
-              <rect x="294" y="187" width="12" height="2" fill="#64748b" opacity="0.5"/>
-
-              <!-- CIPHER — Technical SEO -->
-              <g transform="translate(360, 148)">
-                <!-- Antenna orb -->
-                <rect x="9" y="0" width="6" height="4" fill="#01aac1"/>
-                <rect x="10" y="4" width="4" height="4" fill="#8892a0"/>
-                <!-- Head — titanium hex -->
-                <rect x="2" y="8" width="20" height="4" fill="#8892a0"/>
-                <rect x="0" y="12" width="24" height="6" fill="#8892a0"/>
-                <rect x="2" y="18" width="20" height="4" fill="#8892a0"/>
-                <!-- Code eyes -->
-                <rect x="4" y="13" width="6" height="4" fill="#0f172a"/>
-                <rect x="14" y="13" width="6" height="4" fill="#0f172a"/>
-                <rect x="5" y="14" width="4" height="2" fill="#01aac1"/>
-                <rect x="15" y="14" width="4" height="2" fill="#01aac1"/>
-                <!-- Body — dark hoodie -->
-                <rect x="0" y="22" width="24" height="4" fill="#1a1a2e"/>
-                <rect x="-2" y="26" width="28" height="4" fill="#1a1a2e"/>
-                <rect x="0" y="30" width="24" height="8" fill="#1a1a2e"/>
-                <!-- Legs -->
-                <rect x="4" y="38" width="6" height="6" fill="#1a1a2e"/>
-                <rect x="14" y="38" width="6" height="6" fill="#1a1a2e"/>
-              </g>
-              <!-- Cipher desk + monitor -->
-              <rect x="355" y="192" width="34" height="6" fill="#2d2018"/>
-              <rect x="360" y="177" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
-              <rect x="362" y="179" width="20" height="12" fill="#0a0e1a"/>
-              <!-- Screen: code -->
-              <text x="364" y="186" font-family="monospace" font-size="5" fill="#01aac1" opacity="0.6">&lt;schema&gt;</text>
-
-              <!-- PRISM — Designer (far right, standing at easel) -->
-              <g transform="translate(430, 148)">
-                <!-- Spike antenna -->
-                <polygon points="10,0 13,6 7,6" fill="#01aac1"/>
-                <rect x="10" y="6" width="3" height="4" fill="#6ecfb0"/>
-                <!-- Head — mint -->
-                <rect x="2" y="10" width="20" height="12" fill="#6ecfb0"/>
-                <!-- Diamond eyes -->
-                <rect x="6" y="14" width="4" height="4" fill="#01aac1" transform="rotate(45 8 16)"/>
-                <rect x="14" y="14" width="4" height="4" fill="#01aac1" transform="rotate(45 16 16)"/>
-                <!-- Body — coral smock -->
-                <rect x="0" y="22" width="24" height="4" fill="#7c3238"/>
-                <rect x="-2" y="26" width="28" height="4" fill="#7c3238"/>
-                <rect x="0" y="30" width="24" height="8" fill="#7c3238"/>
-                <!-- Paint spots -->
-                <rect x="6" y="28" width="3" height="3" fill="#01aac1" opacity="0.3"/>
-                <rect x="16" y="32" width="2" height="2" fill="#c49b4e" opacity="0.3"/>
-                <!-- Raised arm holding brush -->
-                <rect x="22" y="24" width="4" height="4" fill="#7c3238"/>
-                <rect x="24" y="18" width="4" height="6" fill="#7c3238"/>
-                <rect x="26" y="14" width="4" height="4" fill="#6ecfb0"/>
-                <!-- Legs -->
-                <rect x="4" y="38" width="6" height="6" fill="#7c3238"/>
-                <rect x="14" y="38" width="6" height="6" fill="#7c3238"/>
-              </g>
-              <!-- Prism's canvas/easel -->
-              <rect x="456" y="170" width="18" height="24" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
-              <rect x="458" y="172" width="14" height="20" fill="#0a0e1a"/>
-              <!-- Canvas: colorful blocks -->
-              <rect x="460" y="174" width="5" height="5" fill="#01aac1" opacity="0.5"/>
-              <rect x="466" y="176" width="4" height="4" fill="#c49b4e" opacity="0.5"/>
-              <rect x="462" y="180" width="4" height="6" fill="#6ecfb0" opacity="0.4"/>
-              <rect x="468" y="183" width="3" height="5" fill="#b76e79" opacity="0.4"/>
-
-              <!-- ======= FRONT ROW AGENTS (y≈214) ======= -->
-
-              <!-- PIXEL — Data Analyst -->
-              <g transform="translate(250, 214)">
-                <!-- Twin rect antennas -->
-                <rect x="4" y="0" width="5" height="3" fill="#01aac1"/>
-                <rect x="15" y="0" width="5" height="3" fill="#01aac1"/>
-                <rect x="6" y="3" width="3" height="5" fill="#01aac1"/>
-                <rect x="16" y="3" width="3" height="5" fill="#01aac1"/>
-                <!-- Head — copper, boxy -->
-                <rect x="0" y="8" width="24" height="14" fill="#b87333"/>
-                <!-- Square pixel eyes -->
-                <rect x="4" y="12" width="5" height="5" fill="#01aac1"/>
-                <rect x="15" y="12" width="5" height="5" fill="#01aac1"/>
-                <!-- Data mouth -->
-                <rect x="6" y="19" width="8" height="2" fill="#8b5e2b"/>
-                <!-- Body — green hoodie, stocky -->
-                <rect x="-2" y="22" width="28" height="4" fill="#1a3a2a"/>
-                <rect x="-2" y="26" width="28" height="4" fill="#1a3a2a"/>
-                <rect x="0" y="30" width="24" height="8" fill="#1a3a2a"/>
-                <!-- Pocket -->
-                <rect x="6" y="32" width="12" height="4" fill="#153525" opacity="0.6"/>
-                <!-- Legs -->
-                <rect x="4" y="38" width="6" height="6" fill="#1a3a2a"/>
-                <rect x="14" y="38" width="6" height="6" fill="#1a3a2a"/>
-              </g>
-              <!-- Pixel desk + monitor -->
-              <rect x="245" y="258" width="34" height="6" fill="#2d2018"/>
-              <rect x="250" y="243" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
-              <rect x="252" y="245" width="20" height="12" fill="#0a0e1a"/>
-              <!-- Screen: traffic chart -->
-              <rect x="254" y="248" width="3" height="7" fill="#22c55e" opacity="0.6"/>
-              <rect x="258" y="251" width="3" height="4" fill="#eab308" opacity="0.6"/>
-              <rect x="262" y="246" width="3" height="9" fill="#22c55e" opacity="0.6"/>
-              <rect x="266" y="249" width="3" height="6" fill="#01aac1" opacity="0.6"/>
-
-              <!-- FLUX — CRO Specialist -->
-              <g transform="translate(350, 214)">
-                <!-- Lightning antenna (pixel) -->
-                <rect x="9" y="0" width="3" height="3" fill="#01aac1"/>
-                <rect x="11" y="3" width="3" height="3" fill="#01aac1"/>
-                <rect x="9" y="6" width="3" height="3" fill="#01aac1"/>
-                <!-- Head — bronze -->
-                <rect x="2" y="9" width="20" height="14" fill="#cd7f32"/>
-                <!-- Asymmetric eyes -->
-                <rect x="5" y="13" width="4" height="4" fill="#01aac1"/>
-                <rect x="14" y="12" width="5" height="5" fill="#0f172a"/>
-                <rect x="15" y="13" width="4" height="4" fill="#01aac1"/>
-                <!-- Zigzag mouth -->
-                <rect x="7" y="20" width="3" height="2" fill="#9a6428"/>
-                <rect x="10" y="18" width="3" height="2" fill="#9a6428"/>
-                <rect x="13" y="20" width="3" height="2" fill="#9a6428"/>
-                <!-- Body — blue track jacket -->
-                <rect x="-2" y="23" width="28" height="4" fill="#1a2d5a"/>
-                <rect x="0" y="27" width="24" height="4" fill="#1a2d5a"/>
-                <rect x="0" y="31" width="24" height="8" fill="#1a2d5a"/>
-                <!-- Shoulder stripes -->
-                <rect x="-2" y="23" width="4" height="3" fill="#01aac1" opacity="0.5"/>
-                <rect x="22" y="23" width="4" height="3" fill="#01aac1" opacity="0.5"/>
-                <!-- Zipper -->
-                <rect x="11" y="27" width="2" height="10" fill="#2a3d6a"/>
-                <!-- Legs -->
-                <rect x="4" y="39" width="6" height="6" fill="#1a2d5a"/>
-                <rect x="14" y="39" width="6" height="6" fill="#1a2d5a"/>
-              </g>
-              <!-- Flux desk + monitor -->
-              <rect x="345" y="258" width="34" height="6" fill="#2d2018"/>
-              <rect x="350" y="243" width="24" height="16" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="2"/>
-              <rect x="352" y="245" width="20" height="12" fill="#0a0e1a"/>
-              <!-- Screen: funnel -->
-              <rect x="354" y="246" width="16" height="2" fill="#01aac1" opacity="0.5"/>
-              <rect x="357" y="249" width="10" height="2" fill="#01aac1" opacity="0.5"/>
-              <rect x="360" y="252" width="4" height="2" fill="#22c55e" opacity="0.7"/>
-
-              <!-- ======= SPEECH BUBBLES (pixel art style, sharp corners) ======= -->
-
-              <!-- ATLAS bubble -->
-              <g transform="translate(205, 126)">
-                <rect width="62" height="18" fill="white" opacity="0.92"/>
-                <rect x="42" y="18" width="4" height="4" fill="white" opacity="0.92"/>
-                <rect x="38" y="22" width="4" height="4" fill="white" opacity="0.92"/>
-                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">Keywords ✓</text>
-              </g>
-
-              <!-- ECHO bubble (talking to ATLAS) -->
-              <g transform="translate(274, 126)">
-                <rect width="80" height="18" fill="white" opacity="0.92"/>
-                <rect x="14" y="18" width="4" height="4" fill="white" opacity="0.92"/>
-                <rect x="18" y="22" width="4" height="4" fill="white" opacity="0.92"/>
-                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">Draft v2 sent</text>
-              </g>
-
-              <!-- Conversation line ATLAS ↔ ECHO -->
-              <line x1="248" y1="168" x2="288" y2="168" stroke="#01aac1" stroke-width="1" opacity="0.25" stroke-dasharray="3 3"/>
-
-              <!-- CIPHER bubble -->
-              <g transform="translate(358, 126)">
-                <rect width="66" height="18" fill="white" opacity="0.92"/>
-                <rect x="16" y="18" width="4" height="4" fill="white" opacity="0.92"/>
-                <rect x="20" y="22" width="4" height="4" fill="white" opacity="0.92"/>
-                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">Schema ✓</text>
-              </g>
-
-              <!-- PIXEL bubble -->
-              <g transform="translate(234, 196)">
-                <rect width="72" height="18" fill="white" opacity="0.92"/>
-                <rect x="28" y="18" width="4" height="4" fill="white" opacity="0.92"/>
-                <rect x="24" y="22" width="4" height="4" fill="white" opacity="0.92"/>
-                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">Traffic +15%</text>
-              </g>
-
-              <!-- FLUX bubble -->
-              <g transform="translate(340, 196)">
-                <rect width="68" height="18" fill="white" opacity="0.92"/>
-                <rect x="18" y="18" width="4" height="4" fill="white" opacity="0.92"/>
-                <rect x="22" y="22" width="4" height="4" fill="white" opacity="0.92"/>
-                <text x="5" y="13" font-family="monospace" font-size="8" fill="#0f172a">CVR up 2.1%</text>
-              </g>
-
-              <!-- Conversation line PIXEL ↔ FLUX -->
-              <line x1="278" y1="234" x2="348" y2="234" stroke="#01aac1" stroke-width="1" opacity="0.25" stroke-dasharray="3 3"/>
-
-              <!-- ======= SCENE PROPS ======= -->
-
-              <!-- Potted plant (back right) -->
-              <rect x="462" y="264" width="10" height="8" fill="#7c3238"/>
-              <rect x="464" y="256" width="3" height="10" fill="#153525"/>
-              <rect x="460" y="250" width="5" height="8" fill="#22c55e" opacity="0.6"/>
-              <rect x="466" y="248" width="5" height="6" fill="#22c55e" opacity="0.5"/>
-              <rect x="463" y="244" width="4" height="8" fill="#22c55e" opacity="0.4"/>
-
-              <!-- Whiteboard on back wall (between window and agents) -->
-              <rect x="204" y="30" width="100" height="60" fill="#e2e8f0" opacity="0.08"/>
-              <rect x="210" y="40" width="40" height="3" fill="#01aac1" opacity="0.12"/>
-              <rect x="210" y="48" width="30" height="3" fill="#01aac1" opacity="0.08"/>
-              <rect x="210" y="56" width="35" height="3" fill="#22c55e" opacity="0.08"/>
-              <rect x="260" y="44" width="20" height="20" fill="#01aac1" opacity="0.06"/>
-              <rect x="260" y="68" width="20" height="10" fill="#22c55e" opacity="0.06"/>
-
-              <!-- Retro label -->
-              <text x="10" y="14" font-family="monospace" font-size="7" fill="#01aac1" opacity="0.25">NOVASTACKS CMD v2.0</text>
-
-              <!-- Scanline CRT overlay -->
-              <defs>
-                <pattern id="scanlines" width="2" height="4" patternUnits="userSpaceOnUse">
-                  <rect width="2" height="2" fill="transparent"/>
-                  <rect y="2" width="2" height="2" fill="black" opacity="0.03"/>
-                </pattern>
-              </defs>
-              <rect width="480" height="360" fill="url(#scanlines)"/>
-
-            </svg>
-          </div>
-
-
-
         </div>
       </div>
     </section>
 
-    <!-- Meet Your Team (DARK - the Leena.ai-inspired section) -->
-    <section class="py-24 lg:py-32 bg-slate-900 scroll-animate">
+    <!-- Your Operator (DARK) -->
+    <section class="py-20 lg:py-28 bg-slate-900 border-t border-white/5">
       <div class="container mx-auto px-8 md:px-6">
-        <div class="text-center mb-16">
-          <p class="font-mono text-novastacks text-sm mb-6 tracking-wider">// YOUR TEAM</p>
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Meet the Team You're Actually Hiring
+        <div class="max-w-3xl mx-auto">
+          <p class="font-mono text-novastacks text-sm mb-8 tracking-wider">// YOUR OPERATOR</p>
+          <div class="flex flex-col md:flex-row gap-8 items-start">
+            <div class="w-20 h-20 rounded-lg bg-novastacks/10 border border-novastacks/30 flex items-center justify-center flex-shrink-0">
+              <svg class="w-10 h-10 text-novastacks" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-white mb-2">Tina Chu</h2>
+              <p class="font-mono text-novastacks text-xs mb-4">GROWTH STRATEGIST // 20+ YEARS</p>
+              <p class="text-slate-400 leading-relaxed mb-6">
+                Sets growth strategy, oversees all execution, makes brand-critical decisions. The operator who shaped marketing at billion-dollar companies and now directs the AI team to execute against your goals.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <span class="bg-slate-800 text-slate-300 px-3 py-1.5 rounded font-mono text-xs">Expedia</span>
+                <span class="bg-slate-800 text-slate-300 px-3 py-1.5 rounded font-mono text-xs">Tencent</span>
+                <span class="bg-slate-800 text-slate-300 px-3 py-1.5 rounded font-mono text-xs">Klook</span>
+                <span class="bg-slate-800 text-slate-300 px-3 py-1.5 rounded font-mono text-xs">Cabital</span>
+                <span class="bg-slate-800 text-slate-300 px-3 py-1.5 rounded font-mono text-xs">Traveloka</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Your AI Team (DARK) — Full-size robot characters -->
+    <section class="py-20 lg:py-28 bg-slate-950 border-t border-white/5">
+      <div class="container mx-auto px-8 md:px-6">
+        <div class="max-w-4xl mb-12">
+          <p class="font-mono text-novastacks text-sm mb-6 tracking-wider">// YOUR AI TEAM</p>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            Meet the Specialists
           </h2>
-          <p class="text-lg text-slate-400 max-w-2xl mx-auto">
-            One senior marketing leader directs a team of AI specialists. Every workflow is codified. Every specialist stays on task. No overhead, no ramp-up time.
+          <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">
+            Each agent is a specialized AI instance with custom skills, tools, and memory. They don't sleep, don't context-switch, and never miss a detail.
           </p>
         </div>
 
-        <!-- The Human Lead -->
-        <div class="max-w-3xl mx-auto mb-8">
-          <div class="bg-slate-800/80 border border-novastacks/30 rounded-lg p-8 relative">
-            <div class="absolute top-4 right-4 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-green-400 status-pulse"></span>
-              <span class="font-mono text-xs text-green-400">LEAD</span>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 lg:gap-x-8 lg:gap-y-12">
+
+          <!-- ARIA — Chief of Staff -->
+          <div class="text-center">
+            <div class="w-full mb-3 rounded-lg overflow-hidden">
+              <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <rect width="160" height="200" fill="#1e293b"/>
+                <line x1="80" y1="18" x2="80" y2="32" stroke="#94a3b8" stroke-width="2.5"/>
+                <circle cx="80" cy="15" r="4" fill="#01aac1"/>
+                <rect x="48" y="32" width="64" height="52" rx="14" fill="#94a3b8"/>
+                <circle cx="66" cy="54" r="6" fill="#0f172a"/>
+                <circle cx="66" cy="54" r="4" fill="#01aac1"/>
+                <circle cx="94" cy="54" r="6" fill="#0f172a"/>
+                <circle cx="94" cy="54" r="4" fill="#01aac1"/>
+                <rect x="70" y="70" width="20" height="3" rx="1.5" fill="#64748b"/>
+                <rect x="70" y="84" width="20" height="12" fill="#94a3b8"/>
+                <path d="M30 200 L30 140 Q30 118 52 110 L70 96 L90 96 L108 110 Q130 118 130 140 L130 200 Z" fill="#1e3a5f"/>
+                <path d="M70 96 L60 120 L70 118 Z" fill="#162d4a"/>
+                <path d="M90 96 L100 120 L90 118 Z" fill="#162d4a"/>
+                <path d="M66 96 L74 96 L70 106 Z" fill="#e2e8f0"/>
+                <path d="M86 96 L94 96 L90 106 Z" fill="#e2e8f0"/>
+                <path d="M30 140 Q18 148 14 170 Q12 180 16 188" stroke="#1e3a5f" stroke-width="14" stroke-linecap="round"/>
+                <path d="M130 140 Q142 148 146 170 Q148 180 144 188" stroke="#1e3a5f" stroke-width="14" stroke-linecap="round"/>
+                <circle cx="16" cy="190" r="8" fill="#94a3b8"/>
+                <circle cx="144" cy="190" r="8" fill="#94a3b8"/>
+              </svg>
             </div>
-            <div class="flex flex-col md:flex-row items-start gap-6">
-              <div class="w-16 h-16 rounded-lg bg-novastacks/10 border border-novastacks/30 flex items-center justify-center flex-shrink-0">
-                <svg class="w-8 h-8 text-novastacks" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-1">Growth Strategist</h3>
-                <p class="font-mono text-novastacks text-xs mb-3">HUMAN // 20+ YEARS // EXPEDIA, TENCENT, KLOOK</p>
-                <p class="text-slate-400 leading-relaxed">
-                  Sets growth strategy, oversees all execution, makes brand-critical decisions, mentors your team. The operator who's done this at billion-dollar scale and now directs the AI team to execute against your goals.
-                </p>
-              </div>
-            </div>
+            <p class="font-mono text-sm font-semibold text-white">ARIA</p>
+            <p class="text-xs text-slate-500">Chief of Staff</p>
           </div>
+
+          <!-- PIXEL — Data Analyst -->
+          <div class="text-center">
+            <div class="w-full mb-3 rounded-lg overflow-hidden">
+              <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <rect width="160" height="200" fill="#1a2332"/>
+                <rect x="58" y="14" width="4" height="18" fill="#01aac1"/>
+                <rect x="98" y="14" width="4" height="18" fill="#01aac1"/>
+                <rect x="55" y="10" width="10" height="6" rx="2" fill="#01aac1"/>
+                <rect x="95" y="10" width="10" height="6" rx="2" fill="#01aac1"/>
+                <rect x="44" y="32" width="72" height="52" rx="6" fill="#b87333"/>
+                <rect x="58" y="48" width="10" height="10" fill="#01aac1"/>
+                <rect x="92" y="48" width="10" height="10" fill="#01aac1"/>
+                <rect x="62" y="70" width="16" height="2.5" fill="#8b5e2b"/>
+                <rect x="62" y="74" width="10" height="2.5" fill="#8b5e2b"/>
+                <rect x="70" y="84" width="20" height="12" fill="#b87333"/>
+                <path d="M24 200 L24 138 Q24 114 50 106 L70 96 L90 96 L110 106 Q136 114 136 138 L136 200 Z" fill="#1a3a2a"/>
+                <path d="M56 96 Q50 90 44 96 L44 108 Q48 100 56 96 Z" fill="#1a3a2a"/>
+                <path d="M104 96 Q110 90 116 96 L116 108 Q112 100 104 96 Z" fill="#1a3a2a"/>
+                <rect x="62" y="150" width="36" height="12" rx="4" fill="#153525" opacity="0.6"/>
+                <path d="M24 138 Q10 148 8 172 Q6 184 10 192" stroke="#1a3a2a" stroke-width="16" stroke-linecap="round"/>
+                <path d="M136 138 Q150 148 152 172 Q154 184 150 192" stroke="#1a3a2a" stroke-width="16" stroke-linecap="round"/>
+                <circle cx="10" cy="194" r="9" fill="#b87333"/>
+                <circle cx="150" cy="194" r="9" fill="#b87333"/>
+              </svg>
+            </div>
+            <p class="font-mono text-sm font-semibold text-white">PIXEL</p>
+            <p class="text-xs text-slate-500">Data Analyst</p>
+          </div>
+
+          <!-- ATLAS — SEO Strategist -->
+          <div class="text-center">
+            <div class="w-full mb-3 rounded-lg overflow-hidden">
+              <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <rect width="160" height="200" fill="#1e293b"/>
+                <line x1="64" y1="16" x2="64" y2="34" stroke="#64748b" stroke-width="2.5"/>
+                <line x1="96" y1="16" x2="96" y2="34" stroke="#64748b" stroke-width="2.5"/>
+                <circle cx="64" cy="14" r="3.5" fill="#01aac1"/>
+                <circle cx="96" cy="14" r="3.5" fill="#01aac1"/>
+                <rect x="38" y="34" width="84" height="48" rx="10" fill="#64748b"/>
+                <rect x="52" y="50" width="18" height="8" rx="2" fill="#01aac1"/>
+                <rect x="90" y="50" width="18" height="8" rx="2" fill="#01aac1"/>
+                <path d="M68 72 L80 76 L92 72" stroke="#4a5568" stroke-width="2.5" fill="none"/>
+                <rect x="70" y="82" width="20" height="14" fill="#64748b"/>
+                <path d="M26 200 L26 138 Q26 114 50 106 L70 96 L90 96 L110 106 Q134 114 134 138 L134 200 Z" fill="#374151"/>
+                <path d="M70 96 L56 124 L70 120 Z" fill="#2d3748"/>
+                <path d="M90 96 L104 124 L90 120 Z" fill="#2d3748"/>
+                <path d="M78 96 L74 118 L80 140 L86 118 L82 96 Z" fill="#01aac1" opacity="0.7"/>
+                <path d="M26 138 Q12 148 14 175 Q16 187 22 194" stroke="#374151" stroke-width="16" stroke-linecap="round"/>
+                <path d="M134 138 Q148 148 146 175 Q144 187 138 194" stroke="#374151" stroke-width="16" stroke-linecap="round"/>
+                <circle cx="22" cy="196" r="8" fill="#64748b"/>
+                <circle cx="138" cy="196" r="8" fill="#64748b"/>
+              </svg>
+            </div>
+            <p class="font-mono text-sm font-semibold text-white">ATLAS</p>
+            <p class="text-xs text-slate-500">SEO/AEO Strategist</p>
+          </div>
+
+          <!-- SAGE — Content Strategist -->
+          <div class="text-center">
+            <div class="w-full mb-3 rounded-lg overflow-hidden">
+              <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <rect width="160" height="200" fill="#192230"/>
+                <line x1="68" y1="32" x2="60" y2="14" stroke="#c49b4e" stroke-width="2.5"/>
+                <line x1="92" y1="32" x2="100" y2="14" stroke="#c49b4e" stroke-width="2.5"/>
+                <circle cx="58" cy="12" r="4" fill="#01aac1"/>
+                <circle cx="102" cy="12" r="4" fill="#01aac1"/>
+                <rect x="46" y="32" width="68" height="52" rx="26" fill="#c49b4e"/>
+                <circle cx="64" cy="54" r="8" fill="#0f172a"/>
+                <circle cx="64" cy="54" r="5" fill="#01aac1"/>
+                <circle cx="96" cy="54" r="8" fill="#0f172a"/>
+                <circle cx="96" cy="54" r="5" fill="#01aac1"/>
+                <circle cx="80" cy="72" r="3" fill="#9a7a3a"/>
+                <rect x="66" y="82" width="28" height="16" rx="6" fill="#4a1942"/>
+                <path d="M38 200 L38 142 Q38 120 56 112 L72 96 L88 96 L104 112 Q122 120 122 142 L122 200 Z" fill="#4a1942"/>
+                <path d="M38 142 Q26 152 24 174 Q22 186 26 194" stroke="#4a1942" stroke-width="12" stroke-linecap="round"/>
+                <path d="M122 142 Q134 152 136 174 Q138 186 134 194" stroke="#4a1942" stroke-width="12" stroke-linecap="round"/>
+                <circle cx="26" cy="196" r="7" fill="#c49b4e"/>
+                <circle cx="134" cy="196" r="7" fill="#c49b4e"/>
+              </svg>
+            </div>
+            <p class="font-mono text-sm font-semibold text-white">SAGE</p>
+            <p class="text-xs text-slate-500">Content Strategist</p>
+          </div>
+
+          <!-- ECHO — Content Writer -->
+          <div class="text-center">
+            <div class="w-full mb-3 rounded-lg overflow-hidden">
+              <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <rect width="160" height="200" fill="#1e293b"/>
+                <path d="M48 46 Q48 20 80 18 Q112 20 112 46" stroke="#01aac1" stroke-width="3.5" fill="none"/>
+                <rect x="48" y="30" width="64" height="56" rx="12" fill="#b76e79"/>
+                <ellipse cx="66" cy="54" rx="5" ry="7" fill="#01aac1"/>
+                <ellipse cx="94" cy="54" rx="5" ry="7" fill="#01aac1"/>
+                <path d="M68 72 Q80 80 92 72" stroke="#8d545e" stroke-width="2.5" fill="none"/>
+                <circle cx="46" cy="46" r="6" fill="#01aac1" opacity="0.6"/>
+                <circle cx="114" cy="46" r="6" fill="#01aac1" opacity="0.6"/>
+                <rect x="70" y="86" width="20" height="10" fill="#b76e79"/>
+                <path d="M36 200 L36 142 Q36 120 54 112 L70 96 L90 96 L106 112 Q124 120 124 142 L124 200 Z" fill="#2d1b4e"/>
+                <path d="M70 96 Q76 102 80 102 Q84 102 90 96" stroke="#3d2b5e" stroke-width="3" fill="none"/>
+                <path d="M36 142 Q24 152 22 174 Q20 186 24 194" stroke="#2d1b4e" stroke-width="12" stroke-linecap="round"/>
+                <path d="M124 142 Q136 152 138 174 Q140 186 136 194" stroke="#2d1b4e" stroke-width="12" stroke-linecap="round"/>
+                <circle cx="24" cy="196" r="7" fill="#b76e79"/>
+                <circle cx="136" cy="196" r="7" fill="#b76e79"/>
+              </svg>
+            </div>
+            <p class="font-mono text-sm font-semibold text-white">ECHO</p>
+            <p class="text-xs text-slate-500">Content Writer</p>
+          </div>
+
+          <!-- CIPHER — Technical SEO -->
+          <div class="text-center">
+            <div class="w-full mb-3 rounded-lg overflow-hidden">
+              <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <rect width="160" height="200" fill="#1e293b"/>
+                <line x1="80" y1="18" x2="80" y2="30" stroke="#01aac1" stroke-width="2.5"/>
+                <circle cx="80" cy="14" r="5" fill="#01aac1"/>
+                <polygon points="80,28 118,42 118,72 80,86 42,72 42,42" fill="#8892a0"/>
+                <rect x="56" y="50" width="14" height="10" rx="2" fill="#0f172a"/>
+                <rect x="90" y="50" width="14" height="10" rx="2" fill="#0f172a"/>
+                <rect x="59" y="53" width="8" height="4" rx="1" fill="#01aac1"/>
+                <rect x="93" y="53" width="8" height="4" rx="1" fill="#01aac1"/>
+                <rect x="70" y="72" width="20" height="2.5" rx="1" fill="#6b7280"/>
+                <path d="M24 200 L24 138 Q24 114 50 106 L70 92 L90 92 L110 106 Q136 114 136 138 L136 200 Z" fill="#1a1a2e"/>
+                <path d="M56 92 Q46 86 38 96 L38 112 Q44 100 56 92 Z" fill="#1a1a2e"/>
+                <path d="M104 92 Q114 86 122 96 L122 112 Q116 100 104 92 Z" fill="#1a1a2e"/>
+                <line x1="74" y1="96" x2="72" y2="118" stroke="#2a2a3e" stroke-width="1.5"/>
+                <line x1="86" y1="96" x2="88" y2="118" stroke="#2a2a3e" stroke-width="1.5"/>
+                <path d="M24 138 Q10 148 8 172 Q6 184 10 192" stroke="#1a1a2e" stroke-width="16" stroke-linecap="round"/>
+                <path d="M136 138 Q150 148 152 172 Q154 184 150 192" stroke="#1a1a2e" stroke-width="16" stroke-linecap="round"/>
+                <circle cx="10" cy="194" r="9" fill="#8892a0"/>
+                <circle cx="150" cy="194" r="9" fill="#8892a0"/>
+              </svg>
+            </div>
+            <p class="font-mono text-sm font-semibold text-white">CIPHER</p>
+            <p class="text-xs text-slate-500">Technical SEO</p>
+          </div>
+
+          <!-- FLUX — Conversion Optimizer -->
+          <div class="text-center">
+            <div class="w-full mb-3 rounded-lg overflow-hidden">
+              <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <rect width="160" height="200" fill="#192230"/>
+                <path d="M78 8 L74 22 L82 18 L78 32" stroke="#01aac1" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+                <rect x="46" y="32" width="68" height="52" rx="16" fill="#cd7f32"/>
+                <circle cx="64" cy="54" r="5" fill="#01aac1"/>
+                <circle cx="96" cy="54" r="8" fill="#0f172a"/>
+                <circle cx="96" cy="54" r="5.5" fill="#01aac1"/>
+                <path d="M64 72 L72 68 L80 72 L88 68 L96 72" stroke="#9a6428" stroke-width="2.5" fill="none"/>
+                <rect x="70" y="84" width="20" height="12" fill="#cd7f32"/>
+                <path d="M26 200 L32 142 Q32 118 54 108 L70 96 L90 96 L106 108 Q128 118 128 142 L134 200 Z" fill="#1a2d5a"/>
+                <path d="M54 108 L44 116" stroke="#01aac1" stroke-width="3" opacity="0.5"/>
+                <path d="M106 108 L116 116" stroke="#01aac1" stroke-width="3" opacity="0.5"/>
+                <line x1="80" y1="96" x2="80" y2="180" stroke="#2a3d6a" stroke-width="2"/>
+                <path d="M28 138 Q14 146 10 168 Q8 180 12 188" stroke="#1a2d5a" stroke-width="15" stroke-linecap="round"/>
+                <path d="M132 138 Q146 146 150 168 Q152 180 148 188" stroke="#1a2d5a" stroke-width="15" stroke-linecap="round"/>
+                <circle cx="12" cy="190" r="8" fill="#cd7f32"/>
+                <circle cx="148" cy="190" r="8" fill="#cd7f32"/>
+              </svg>
+            </div>
+            <p class="font-mono text-sm font-semibold text-white">FLUX</p>
+            <p class="text-xs text-slate-500">Conversion Optimizer</p>
+          </div>
+
+          <!-- SYNC — Campaign Orchestrator -->
+          <div class="text-center">
+            <div class="w-full mb-3 rounded-lg overflow-hidden">
+              <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <rect width="160" height="200" fill="#192230"/>
+                <line x1="80" y1="16" x2="80" y2="32" stroke="#6e9ecf" stroke-width="2.5"/>
+                <circle cx="80" cy="14" r="4" fill="#6e9ecf"/>
+                <path d="M68,10 A14,14 0 0,1 92,10" stroke="#01aac1" stroke-width="2" fill="none"/>
+                <path d="M62,5 A20,20 0 0,1 98,5" stroke="#01aac1" stroke-width="1.5" fill="none" opacity="0.5"/>
+                <rect x="46" y="32" width="68" height="52" rx="10" fill="#6e9ecf"/>
+                <circle cx="64" cy="54" r="7" fill="#0f172a"/>
+                <circle cx="64" cy="54" r="4.5" fill="#01aac1"/>
+                <circle cx="96" cy="54" r="7" fill="#0f172a"/>
+                <circle cx="96" cy="54" r="4.5" fill="#01aac1"/>
+                <line x1="71" y1="54" x2="89" y2="54" stroke="#01aac1" stroke-width="2" opacity="0.4"/>
+                <path d="M72 72 L80 70 L88 72" stroke="#5580a8" stroke-width="2.5" fill="none"/>
+                <rect x="70" y="84" width="20" height="12" fill="#6e9ecf"/>
+                <path d="M30 200 L30 140 Q30 118 52 110 L70 96 L90 96 L108 110 Q130 118 130 140 L130 200 Z" fill="#1a3a3a"/>
+                <rect x="46" y="110" width="16" height="4" rx="2" fill="#01aac1" opacity="0.4"/>
+                <rect x="98" y="110" width="16" height="4" rx="2" fill="#01aac1" opacity="0.4"/>
+                <circle cx="68" cy="128" r="5" fill="#01aac1" opacity="0.3"/>
+                <path d="M30 140 Q18 148 14 170 Q12 180 16 188" stroke="#1a3a3a" stroke-width="14" stroke-linecap="round"/>
+                <path d="M130 140 Q142 148 146 170 Q148 180 144 188" stroke="#1a3a3a" stroke-width="14" stroke-linecap="round"/>
+                <circle cx="16" cy="190" r="8" fill="#6e9ecf"/>
+                <circle cx="144" cy="190" r="8" fill="#6e9ecf"/>
+              </svg>
+            </div>
+            <p class="font-mono text-sm font-semibold text-white">SYNC</p>
+            <p class="text-xs text-slate-500">Campaign Orchestrator</p>
+          </div>
+
         </div>
 
-        <!-- Connecting line -->
-        <div class="flex justify-center mb-8">
-          <div class="w-px h-12 glow-line"></div>
-        </div>
-
-        <!-- AI Teammates Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-
-          <!-- Agent: SEO/AEO Strategist -->
-          <div class="agent-card bg-slate-800/60 border border-slate-700 rounded-lg p-6">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-10 h-10 rounded-lg bg-slate-700/60 flex items-center justify-center">
-                <svg class="w-5 h-5 text-novastacks" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-400 status-pulse"></span>
-                <span class="font-mono text-[10px] text-slate-500">ACTIVE</span>
-              </div>
-            </div>
-            <h4 class="text-white font-semibold mb-1">SEO/AEO Strategist</h4>
-            <p class="font-mono text-[10px] text-novastacks mb-2">AI AGENT</p>
-            <p class="text-slate-400 text-sm leading-relaxed">Keyword research, site architecture, AI visibility optimization, competitive intelligence.</p>
-          </div>
-
-          <!-- Agent: Content Writer -->
-          <div class="agent-card bg-slate-800/60 border border-slate-700 rounded-lg p-6">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-10 h-10 rounded-lg bg-slate-700/60 flex items-center justify-center">
-                <svg class="w-5 h-5 text-novastacks" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-400 status-pulse"></span>
-                <span class="font-mono text-[10px] text-slate-500">ACTIVE</span>
-              </div>
-            </div>
-            <h4 class="text-white font-semibold mb-1">Content Writer</h4>
-            <p class="font-mono text-[10px] text-novastacks mb-2">AI AGENT</p>
-            <p class="text-slate-400 text-sm leading-relaxed">Blog posts, landing pages, technical content. On-brand, SEO-optimized, publish-ready.</p>
-          </div>
-
-          <!-- Agent: Marketing Analyst -->
-          <div class="agent-card bg-slate-800/60 border border-slate-700 rounded-lg p-6">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-10 h-10 rounded-lg bg-slate-700/60 flex items-center justify-center">
-                <svg class="w-5 h-5 text-novastacks" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-400 status-pulse"></span>
-                <span class="font-mono text-[10px] text-slate-500">ACTIVE</span>
-              </div>
-            </div>
-            <h4 class="text-white font-semibold mb-1">Marketing Analyst</h4>
-            <p class="font-mono text-[10px] text-novastacks mb-2">AI AGENT</p>
-            <p class="text-slate-400 text-sm leading-relaxed">GA4, Search Console, ranking data. Surfaces insights, diagnoses drops, builds reports.</p>
-          </div>
-
-          <!-- Agent: Technical SEO -->
-          <div class="agent-card bg-slate-800/60 border border-slate-700 rounded-lg p-6">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-10 h-10 rounded-lg bg-slate-700/60 flex items-center justify-center">
-                <svg class="w-5 h-5 text-novastacks" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" /></svg>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-400 status-pulse"></span>
-                <span class="font-mono text-[10px] text-slate-500">ACTIVE</span>
-              </div>
-            </div>
-            <h4 class="text-white font-semibold mb-1">Technical SEO</h4>
-            <p class="font-mono text-[10px] text-novastacks mb-2">AI AGENT</p>
-            <p class="text-slate-400 text-sm leading-relaxed">Schema markup, crawl fixes, Core Web Vitals, sitemaps, redirect management.</p>
-          </div>
-
-          <!-- Agent: Graphic Designer -->
-          <div class="agent-card bg-slate-800/60 border border-slate-700 rounded-lg p-6">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-10 h-10 rounded-lg bg-slate-700/60 flex items-center justify-center">
-                <svg class="w-5 h-5 text-novastacks" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm12.75-11.25h.008v.008h-.008V8.25Z" /></svg>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-400 status-pulse"></span>
-                <span class="font-mono text-[10px] text-slate-500">ACTIVE</span>
-              </div>
-            </div>
-            <h4 class="text-white font-semibold mb-1">Graphic Designer</h4>
-            <p class="font-mono text-[10px] text-novastacks mb-2">AI AGENT</p>
-            <p class="text-slate-400 text-sm leading-relaxed">Blog banners, social media graphics, infographics, presentation visuals.</p>
-          </div>
-
-          <!-- Agent: Conversion Optimizer -->
-          <div class="agent-card bg-slate-800/60 border border-slate-700 rounded-lg p-6">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-10 h-10 rounded-lg bg-slate-700/60 flex items-center justify-center">
-                <svg class="w-5 h-5 text-novastacks" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></svg>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-400 status-pulse"></span>
-                <span class="font-mono text-[10px] text-slate-500">ACTIVE</span>
-              </div>
-            </div>
-            <h4 class="text-white font-semibold mb-1">Conversion Optimizer</h4>
-            <p class="font-mono text-[10px] text-novastacks mb-2">AI AGENT</p>
-            <p class="text-slate-400 text-sm leading-relaxed">Landing page audits, A/B test design, funnel analysis, CRO recommendations.</p>
-          </div>
-
-        </div>
-
-        <!-- Bottom note -->
         <div class="text-center mt-12">
           <p class="font-mono text-sm text-slate-500">
-            + Campaign Orchestrator &middot; Web Developer &middot; CMS Specialist
+            + Graphic Designer &middot; Web Designer &middot; Web Developer &middot; CMS Specialist
           </p>
         </div>
       </div>
     </section>
+
+    <!-- The CLI — How She Directs Them (DARK) -->
+    <section class="py-20 lg:py-28 bg-slate-900 border-t border-white/5">
+      <div class="container mx-auto px-8 md:px-6">
+        <div class="max-w-4xl mx-auto">
+          <p class="font-mono text-novastacks text-sm mb-6 tracking-wider">// HOW SHE DIRECTS THEM</p>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+            One Terminal. Eight Specialists.
+          </h2>
+          <p class="text-lg text-slate-400 mb-10 max-w-2xl leading-relaxed">
+            Every agent is deployed through codified workflows. Strategy in, execution out. No meetings about meetings.
+          </p>
+
+          <!-- Terminal window -->
+          <div class="bg-slate-950 border border-slate-700 rounded-lg overflow-hidden shadow-2xl">
+            <!-- Terminal header bar -->
+            <div class="flex items-center gap-2 px-4 py-3 bg-slate-800/80 border-b border-slate-700">
+              <span class="w-3 h-3 rounded-full bg-red-400/60"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-400/60"></span>
+              <span class="w-3 h-3 rounded-full bg-green-400/60"></span>
+              <span class="font-mono text-xs text-slate-500 ml-2">novastacks — terminal</span>
+            </div>
+            <!-- Terminal body -->
+            <div class="p-6 md:p-8 font-mono text-sm md:text-base leading-loose">
+              <p><span class="text-green-400">tina@novastacks</span><span class="text-slate-500">:</span><span class="text-blue-400">~</span><span class="text-slate-500">$</span> <span class="text-white">/orchestrator run marketing-campaign</span></p>
+              <p class="text-slate-600 mt-4">Initializing AI team...</p>
+              <p class="text-slate-400 mt-3"><span class="text-novastacks">ATLAS</span>  analyzing 2,400 keywords across 6 clusters <span class="text-green-400">✓</span></p>
+              <p class="text-slate-400"><span class="text-novastacks">SAGE</span>   mapping content strategy for Q1 <span class="text-green-400">✓</span></p>
+              <p class="text-slate-400"><span class="text-novastacks">ECHO</span>   drafting 12 blog posts from briefs <span class="text-green-400">✓</span></p>
+              <p class="text-slate-400"><span class="text-novastacks">CIPHER</span> deploying schema markup to 47 pages <span class="text-green-400">✓</span></p>
+              <p class="text-slate-400"><span class="text-novastacks">PIXEL</span>  building live performance dashboard <span class="text-green-400">✓</span></p>
+              <p class="text-slate-400"><span class="text-novastacks">FLUX</span>   auditing 3 conversion funnels <span class="text-green-400">✓</span></p>
+              <p class="text-green-400 mt-4">All agents deployed. Campaign executing.</p>
+              <p class="text-slate-500 mt-1">Estimated output: 6-person team equivalent.</p>
+              <p class="mt-3"><span class="text-green-400">tina@novastacks</span><span class="text-slate-500">:</span><span class="text-blue-400">~</span><span class="text-slate-500">$</span> <span class="inline-block w-2.5 h-5 bg-green-400/80 animate-pulse ml-1"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
     <!-- How It Works (LIGHT) -->
     <section class="py-24 lg:py-32 bg-white scroll-animate">
