@@ -237,45 +237,34 @@
 <!-- ============================================================ -->
 <section id="executive-summary" class="scroll-animate min-h-screen bg-white text-ns-dark py-16 md:py-24 px-4">
   <div class="max-w-4xl mx-auto">
-    <span class="font-mono text-xs text-ns-teal tracking-[0.2em] uppercase block mb-4">// 01 EXECUTIVE SUMMARY</span>
-    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-ns-dark mb-8">The Cobbler's Children<br>Have No Shoes</h2>
+    <span class="font-mono text-xs text-ns-teal tracking-[0.2em] uppercase block mb-6">// 01 EXECUTIVE SUMMARY</span>
+    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-ns-dark mb-8 leading-tight">The Cobbler's Children<br>Have No Shoes</h2>
 
-    <!-- Quote callout -->
-    <div class="bg-ns-light border-l-4 border-ns-primary rounded-r-lg p-6 md:p-8 mb-12">
-      <p class="text-gray-700 text-base md:text-lg leading-relaxed">
-        Novastacks is invisible to AI engines for the exact services it sells. Despite building AEO systems for clients, the company has zero organic visibility in Singapore, suffers brand dilution across 4+ similarly-named entities, and is never cited when LLMs are asked about AEO agencies.
-      </p>
-    </div>
+    <!-- Primary insight — large, clear narrative text -->
+    <p class="text-gray-800 text-xl md:text-2xl leading-relaxed mb-6">
+      Novastacks is <strong class="text-ns-dark">invisible to AI engines</strong> for the exact services it sells.
+    </p>
+    <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-6">
+      Despite building AEO systems for clients, the company has <strong class="text-ns-dark">zero organic visibility in Singapore</strong>, suffers brand dilution across 4+ similarly-named entities, and is <strong class="text-ns-dark">never cited</strong> when LLMs are asked about AEO agencies.
+    </p>
+    <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-12">
+      When someone asks ChatGPT for the best AEO agency in Singapore, <strong class="text-ns-danger">Hashmeta is recommended. Novastacks is not mentioned.</strong>
+    </p>
 
-    <!-- Score Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-      <!-- Site Readiness -->
-      <div class="bg-white rounded-xl border border-gray-200 shadow-lg p-6">
-        <div class="flex items-center justify-between mb-3">
-          <span class="font-mono text-xs text-gray-500 uppercase tracking-wider">Site Readiness</span>
-          <span class="font-display text-3xl font-bold text-ns-warning">4.0<span class="text-base text-gray-400">/10</span></span>
-        </div>
-        <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-          <div class="h-full bg-ns-warning rounded-full transition-all duration-1000" style="width:40%"></div>
-        </div>
+    <!-- Score cards — secondary, compact -->
+    <div class="flex flex-wrap items-center gap-4">
+      <div class="flex items-center gap-3 px-5 py-3 rounded-lg border border-gray-200 bg-gray-50">
+        <span class="text-gray-500 text-sm">Site Readiness</span>
+        <span class="font-display text-xl font-bold text-ns-warning">4.0<span class="text-xs text-gray-400 font-mono">/10</span></span>
       </div>
-      <!-- LLM Visibility -->
-      <div class="bg-white rounded-xl border border-gray-200 shadow-lg p-6">
-        <div class="flex items-center justify-between mb-3">
-          <span class="font-mono text-xs text-gray-500 uppercase tracking-wider">LLM Visibility</span>
-          <span class="font-display text-3xl font-bold text-ns-danger">1.6<span class="text-base text-gray-400">/10</span></span>
-        </div>
-        <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-          <div class="h-full bg-ns-danger rounded-full transition-all duration-1000" style="width:16%"></div>
-        </div>
+      <div class="flex items-center gap-3 px-5 py-3 rounded-lg border border-gray-200 bg-gray-50">
+        <span class="text-gray-500 text-sm">LLM Visibility</span>
+        <span class="font-display text-xl font-bold text-ns-danger">1.6<span class="text-xs text-gray-400 font-mono">/10</span></span>
       </div>
-    </div>
-
-    <!-- Score Summary -->
-    <div class="bg-ns-dark rounded-xl p-6 text-center">
-      <p class="text-gray-400 text-xs font-mono mb-2 tracking-wider">COMBINED AEO SCORE</p>
-      <p class="text-3xl font-display font-bold text-ns-danger">2.5<span class="text-sm text-gray-400 font-mono">/10</span></p>
-      <p class="text-gray-500 text-xs font-mono mt-2">Site Readiness + LLM Visibility</p>
+      <div class="flex items-center gap-3 px-5 py-3 rounded-lg border border-ns-dark bg-ns-dark">
+        <span class="text-gray-400 text-sm">Overall</span>
+        <span class="font-display text-xl font-bold text-ns-danger">2.5<span class="text-xs text-gray-500 font-mono">/10</span></span>
+      </div>
     </div>
   </div>
 </section>
