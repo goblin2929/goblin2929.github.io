@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Ops Health Check — The Uncomfortable Truth Edition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- INTRO SCREEN -->
+        <div id="screen-intro" class="screen active">
+            <div class="intro-container">
+                <div class="badge">3 minutes &middot; 12 questions &middot; 1 uncomfortable truth</div>
+                <h1>Is Your Martech Stack a <span class="highlight">Dumpster Fire?</span></h1>
+                <p class="subtitle">A brutally honest, slightly uncomfortable health check for marketing teams that suspect things could be better — but are too busy pulling CSV exports to investigate.</p>
+                <div class="intro-stats">
+                    <div class="stat">
+                        <span class="stat-number">73%</span>
+                        <span class="stat-label">of mid-market teams use less than 30% of their martech</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5.2 hrs</span>
+                        <span class="stat-label">avg. time wasted weekly on manual reporting</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">questions between you and the truth</span>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="startQuiz()">Let's See the Damage →</button>
+                <p class="disclaimer">Yes, we want to sell you things eventually. But first, a genuinely useful diagnosis.</p>
+            </div>
+        </div>
+
+        <!-- STACK PICKER SCREEN (STEP 1) -->
+        <div id="screen-stack" class="screen">
+            <div class="stack-picker-container">
+                <div class="pillar-tag" style="background:rgba(244,114,182,0.12);color:var(--pink)">Step 1 of 3</div>
+                <h2 class="question-text">First — what's in your martech toolbox?</h2>
+                <p class="stack-subtitle">Tap everything you use or pay for. This shapes your entire diagnosis.</p>
+                <div id="stack-categories"></div>
+                <div class="stack-selected-bar" id="stack-selected-bar">
+                    <span id="stack-count">0 selected</span>
+                </div>
+                <button class="btn-primary stack-next-btn" id="stack-next-btn" onclick="submitStack()" disabled>Next →</button>
+            </div>
+        </div>
+
+        <!-- ROLE PICKER (STEP 2) -->
+        <div id="screen-role" class="screen">
+            <div class="question-container">
+                <div class="pillar-tag" style="background:rgba(52,211,153,0.12);color:var(--green)">Step 2 of 3</div>
+                <h2 class="question-text">What's your role?</h2>
+                <div class="options-container" id="role-options"></div>
+            </div>
+        </div>
+
+        <!-- DYNAMIC QUESTIONS (STEP 3) -->
+        <div id="screen-question" class="screen">
+            <div class="question-container">
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <span id="progress-text" class="progress-text"></span>
+                </div>
+                <div class="pillar-tag" id="pillar-tag"></div>
+                <h2 id="question-text" class="question-text"></h2>
+                <div id="options-container" class="options-container"></div>
+            </div>
+        </div>
+
+        <!-- RESULTS SCREEN -->
+        <div id="screen-results" class="screen">
+            <div class="results-container">
+                <div class="results-header">
+                    <div class="overall-score-section">
+                        <div class="score-ring" id="score-ring">
+                            <svg viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="54" class="score-ring-bg"/>
+                                <circle cx="60" cy="60" r="54" class="score-ring-fill" id="score-ring-fill"/>
+                            </svg>
+                            <div class="score-ring-value" id="score-value">0</div>
+                        </div>
+                        <div class="score-meta">
+                            <h1 id="stage-name" class="stage-name"></h1>
+                            <p id="stage-roast" class="stage-roast"></p>
+                            <p id="stage-description" class="stage-description"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-results" id="pillar-results"></div>
+
+                <div class="results-detail" id="results-detail"></div>
+
+                <div class="stack-diagnosis" id="stack-diagnosis"></div>
+
+                <!-- FORM GATE — after results -->
+                <div class="form-gate" id="form-gate">
+                    <div class="form-gate-header">
+                        <span class="form-gate-icon">🔧</span>
+                        <h3>Want the fix?</h3>
+                        <p>We'll build a customized action plan based on your exact stack and gaps. No generic advice. No 47-page PDF. Just "here's what's broken and here's the fix."</p>
+                    </div>
+                    <form id="lead-form" onsubmit="submitLead(event)">
+                        <input type="text" id="input-name" placeholder="Your name" required>
+                        <input type="email" id="input-email" placeholder="Work email" required>
+                        <input type="text" id="input-company" placeholder="Company name">
+                        <button type="submit" class="btn-primary btn-full">Show My Custom Fix →</button>
+                    </form>
+                </div>
+
+                <!-- CUSTOM SOLUTION — shown after form submit -->
+                <div class="custom-solution" id="custom-solution" style="display:none;"></div>
+
+                <div class="results-footer">
+                    <p>Built by <strong>Novastacks AI</strong> — we help mid-market teams unfuck their martech.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
