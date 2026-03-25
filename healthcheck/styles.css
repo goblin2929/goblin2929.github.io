@@ -345,6 +345,18 @@ body {
     flex-shrink: 0;
 }
 
+.stack-chip.is-other {
+    border-style: dashed;
+    opacity: 0.7;
+}
+.stack-chip.is-other:hover {
+    opacity: 1;
+}
+.stack-chip.is-other.selected {
+    border-style: solid;
+    opacity: 1;
+}
+
 .stack-chip-check {
     display: none;
     align-items: center;

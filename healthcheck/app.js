@@ -15,6 +15,21 @@ const STACK_CATEGORIES = [
             { id: "salesforce", label: "Salesforce",  icon: "☁️", category: "crm" },
             { id: "pipedrive",  label: "Pipedrive",   icon: "🟢", category: "crm" },
             { id: "zoho",       label: "Zoho CRM",    icon: "🔵", category: "crm" },
+            { id: "crm_other",  label: "Other",        icon: "➕", category: "crm", isOther: true },
+        ]
+    },
+    {
+        label: "GTM & Sales Intelligence",
+        tools: [
+            { id: "clay",       label: "Clay",        icon: "🧱", category: "gtm" },
+            { id: "apollo",     label: "Apollo.io",    icon: "🚀", category: "gtm" },
+            { id: "zoominfo",   label: "ZoomInfo",     icon: "🔎", category: "gtm" },
+            { id: "outreach",   label: "Outreach",     icon: "📤", category: "gtm" },
+            { id: "salesloft",  label: "Salesloft",    icon: "📞", category: "gtm" },
+            { id: "linkedin_sn",label: "LinkedIn Sales Nav", icon: "💼", category: "gtm" },
+            { id: "clearbit",   label: "Clearbit",     icon: "🔵", category: "gtm" },
+            { id: "6sense",     label: "6sense",       icon: "6️⃣", category: "gtm" },
+            { id: "gtm_other",  label: "Other",        icon: "➕", category: "gtm", isOther: true },
         ]
     },
     {
@@ -24,6 +39,8 @@ const STACK_CATEGORIES = [
             { id: "klaviyo",        label: "Klaviyo",          icon: "💚", category: "email" },
             { id: "activecampaign", label: "ActiveCampaign",   icon: "⚡", category: "email" },
             { id: "brevo",          label: "Brevo",            icon: "💙", category: "email" },
+            { id: "marketo",        label: "Marketo",          icon: "🟣", category: "email" },
+            { id: "email_other",    label: "Other",            icon: "➕", category: "email", isOther: true },
         ]
     },
     {
@@ -33,6 +50,7 @@ const STACK_CATEGORIES = [
             { id: "meta_ads",     label: "Meta Ads",     icon: "📘", category: "ads" },
             { id: "linkedin_ads", label: "LinkedIn Ads",  icon: "💼", category: "ads" },
             { id: "tiktok_ads",   label: "TikTok Ads",    icon: "🎵", category: "ads" },
+            { id: "ads_other",    label: "Other",          icon: "➕", category: "ads", isOther: true },
         ]
     },
     {
@@ -43,6 +61,8 @@ const STACK_CATEGORIES = [
             { id: "hotjar",   label: "Hotjar",           icon: "🔥", category: "analytics" },
             { id: "tableau",  label: "Tableau",           icon: "📈", category: "bi" },
             { id: "looker",   label: "Looker Studio",     icon: "👀", category: "bi" },
+            { id: "powerbi",  label: "Power BI",          icon: "📊", category: "bi" },
+            { id: "analytics_other", label: "Other",      icon: "➕", category: "analytics", isOther: true },
         ]
     },
     {
@@ -52,6 +72,7 @@ const STACK_CATEGORIES = [
             { id: "ahrefs",    label: "Ahrefs",     icon: "🅰️", category: "seo" },
             { id: "wordpress", label: "WordPress",   icon: "📝", category: "cms" },
             { id: "webflow",   label: "Webflow",     icon: "🌊", category: "cms" },
+            { id: "seo_other", label: "Other",       icon: "➕", category: "seo", isOther: true },
         ]
     },
     {
@@ -60,6 +81,7 @@ const STACK_CATEGORIES = [
             { id: "zapier", label: "Zapier", icon: "⚡", category: "automation" },
             { id: "make",   label: "Make",   icon: "🔮", category: "automation" },
             { id: "n8n",    label: "n8n",    icon: "🔧", category: "automation" },
+            { id: "auto_other", label: "Other", icon: "➕", category: "automation", isOther: true },
         ]
     },
     {
@@ -69,6 +91,7 @@ const STACK_CATEGORIES = [
             { id: "asana",  label: "Asana",       icon: "🎯", category: "pm" },
             { id: "monday", label: "Monday.com",  icon: "📋", category: "pm" },
             { id: "trello", label: "Trello",      icon: "📌", category: "pm" },
+            { id: "pm_other", label: "Other",     icon: "➕", category: "pm", isOther: true },
         ]
     },
     {
@@ -84,8 +107,10 @@ const STACK_CATEGORIES = [
         tools: [
             { id: "intercom", label: "Intercom",  icon: "💬", category: "support" },
             { id: "drift",    label: "Drift",      icon: "🤖", category: "chat" },
+            { id: "zendesk",  label: "Zendesk",    icon: "🟢", category: "support" },
             { id: "slack",    label: "Slack",       icon: "💬", category: "comms" },
             { id: "shopify",  label: "Shopify",     icon: "🛍️", category: "ecom" },
+            { id: "support_other", label: "Other",  icon: "➕", category: "support", isOther: true },
         ]
     }
 ];
@@ -413,7 +438,7 @@ function renderStackPicker() {
         grid.className = "stack-category-grid";
         cat.tools.forEach(tool => {
             const chip = document.createElement("button");
-            chip.className = "stack-chip";
+            chip.className = "stack-chip" + (tool.isOther ? " is-other" : "");
             chip.dataset.id = tool.id;
             chip.innerHTML = `<span class="stack-chip-icon">${tool.icon}</span><span>${tool.label}</span><span class="stack-chip-check">✓</span>`;
             chip.addEventListener("click", () => toggleStack(tool.id, chip));
