@@ -176,7 +176,6 @@
   <button class="sort-btn" data-sort="engagements">Engagements</button>
   <button class="sort-btn" data-sort="engRate">Eng Rate</button>
   <button class="sort-btn" data-sort="date">Date</button>
-  <button class="sort-btn" data-sort="media">Media Type</button>
 </div>
 <div class="posts-grid" id="postsGrid"></div>
 
@@ -267,23 +266,7 @@
     </div>
   </div>
 
-  <!-- Media Type Performance -->
-  <div class="intel-card">
-    <h3>Media Type <span class="tag tag-blue">Format</span></h3>
-    <div class="intel-bar-row">
-      <div class="intel-bar-label"><span>Carousel (1 post)</span><span class="intel-metric">8,289 avg imp</span></div>
-      <div class="intel-bar-bg"><div class="intel-bar-fill" style="width:100%;background:#be185d"></div></div>
-    </div>
-    <div class="intel-bar-row">
-      <div class="intel-bar-label"><span>Image (28 posts)</span><span class="intel-metric">2,112 avg · 1.8%</span></div>
-      <div class="intel-bar-bg"><div class="intel-bar-fill" style="width:25%;background:#1d4ed8"></div></div>
-    </div>
-    <div class="intel-bar-row">
-      <div class="intel-bar-label"><span>Text Only (22 posts)</span><span class="intel-metric">2,002 avg · 1.9%</span></div>
-      <div class="intel-bar-bg"><div class="intel-bar-fill" style="width:24%;background:#6b7280"></div></div>
-    </div>
-    <div style="font-size:12px;color:var(--text-dim);margin-top:12px;line-height:1.5">Image vs text: negligible difference. Only 1 carousel post (top performer) — not enough data. Test more carousels to validate.</div>
-  </div>
+  <!-- Media Type: waiting for LinkedIn API for accurate data -->
 
   <!-- Audience Fit -->
   <div class="intel-card">
@@ -439,7 +422,6 @@ const followerDaily = [{"date": "3/26/2025", "new_followers": 3}, {"date": "3/27
       card.innerHTML = `
         <div class="post-header">
           <span class="post-rank">#${p._postNum}</span>
-          <span class="post-media-tag ${p.media_type || 'unknown'}">${(p.media_type || 'unknown').toUpperCase()}</span>
           <span class="post-date">${p.date}</span>
         </div>
         <div class="post-text ${text ? '' : 'empty'}">${text || 'Post text available when API is connected'}</div>
