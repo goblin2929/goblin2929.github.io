@@ -423,26 +423,49 @@ const followerDaily = [{"date": "3/26/2025", "new_followers": 3}, {"date": "3/27
       sorted.sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0));
     }
     grid.innerHTML = '';
-    sorted.forEach((p, i) => {
-      const text = p.text || '';
-      const card = document.createElement('div');
-      card.className = 'post-card';
-      card.innerHTML = `
-        <div class="post-header">
-          <span class="post-rank">#${p._postNum}</span>
-          <span class="post-date">${p.date}</span>
-        </div>
-        <div class="post-text ${text ? '' : 'empty'}">${text || 'Post text available when API is connected'}</div>
-        <div class="post-stats">
-          <div class="post-stat"><div class="post-stat-value">${p.impressions.toLocaleString()}</div><div class="post-stat-label">Impressions</div></div>
-          <div class="post-stat"><div class="post-stat-value">${p.engagements}</div><div class="post-stat-label">Engagements</div></div>
-          <div class="post-stat"><div class="post-stat-value">${p.engRate.toFixed(1)}%</div><div class="post-stat-label">Eng Rate</div></div>
-          <div class="post-stat"><div class="post-stat-value">${p.impressions > 0 ? Math.round(p.engagements / p.impressions * p.impressions * 0.027) : 0}</div><div class="post-stat-label">Est. Clicks</div></div>
-        </div>
-        <a class="post-link" href="${p.url}" target="_blank">View on LinkedIn &#8594;</a>
-      `;
-      grid.appendChild(card);
-    });
+    let showAll = false;
+    const INITIAL_COUNT = 20;
+
+    function renderCards() {
+      grid.innerHTML = '';
+      const visible = showAll ? sorted : sorted.slice(0, INITIAL_COUNT);
+      visible.forEach((p, i) => {
+        const text = p.text || '';
+        const card = document.createElement('div');
+        card.className = 'post-card';
+        card.innerHTML = `
+          <div class="post-header">
+            <span class="post-rank">#${p._postNum}</span>
+            <span class="post-date">${p.date}</span>
+          </div>
+          <div class="post-text ${text ? '' : 'empty'}">${text || 'Post text available when API is connected'}</div>
+          <div class="post-stats">
+            <div class="post-stat"><div class="post-stat-value">${p.impressions.toLocaleString()}</div><div class="post-stat-label">Impressions</div></div>
+            <div class="post-stat"><div class="post-stat-value">${p.engagements}</div><div class="post-stat-label">Engagements</div></div>
+            <div class="post-stat"><div class="post-stat-value">${p.engRate.toFixed(1)}%</div><div class="post-stat-label">Eng Rate</div></div>
+            <div class="post-stat"><div class="post-stat-value">${p.impressions > 0 ? Math.round(p.engagements / p.impressions * p.impressions * 0.027) : 0}</div><div class="post-stat-label">Est. Clicks</div></div>
+          </div>
+          <a class="post-link" href="${p.url}" target="_blank">View on LinkedIn &#8594;</a>
+        `;
+        grid.appendChild(card);
+      });
+
+      if (!showAll && sorted.length > INITIAL_COUNT) {
+        const seeMore = document.createElement('div');
+        seeMore.style.cssText = 'grid-column:1/-1;text-align:center;padding:20px 0;';
+        seeMore.innerHTML = '<span style="color:var(--text-light);font-size:13px;">... ' + (sorted.length - INITIAL_COUNT) + ' more posts</span><br><button class="sort-btn" style="margin-top:8px;" id="seeMoreBtn">See all ' + sorted.length + ' posts</button>';
+        grid.appendChild(seeMore);
+        document.getElementById('seeMoreBtn').addEventListener('click', () => { showAll = true; renderCards(); });
+      }
+      if (showAll && sorted.length > INITIAL_COUNT) {
+        const seeLess = document.createElement('div');
+        seeLess.style.cssText = 'grid-column:1/-1;text-align:center;padding:20px 0;';
+        seeLess.innerHTML = '<button class="sort-btn" id="seeLessBtn">Show top 20</button>';
+        grid.appendChild(seeLess);
+        document.getElementById('seeLessBtn').addEventListener('click', () => { showAll = false; renderCards(); });
+      }
+    }
+    renderCards();
   }
 
   // Sort button handlers
