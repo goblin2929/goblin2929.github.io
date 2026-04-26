@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Obstetric Services — Pregnancy, Delivery & Postnatal Care in Hong Kong</title>
+<meta name="description" content="Comprehensive obstetric services in Hong Kong: antenatal care, ultrasound screening, fetal monitoring, labor induction, vaginal & C-section delivery, postnatal care, high-risk pregnancy management, genetic testing, lactation support and more — under one specialist centre." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ivory: #ffffff;
+    --cream: #f6efe2;
+    --paper: #fbf7ee;
+    --ink: #1f1b16;
+    --ink-2: #4a423a;
+    --ink-3: #877d6f;
+    --line: #ece4d2;
+    --line-2: #d8cab0;
+    --amber: #a87437;         /* deep warm accent */
+    --amber-2: #d49a56;
+    --blush: #e7c9b8;
+    --sage: #8a9a7b;
+    --r-s: 6px;
+    --r-m: 12px;
+    --r-l: 22px;
+    --serif: "Cormorant Garamond", "Times New Roman", serif;
+    --sans: "Inter", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth; scroll-padding-top:120px}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--ivory);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit; text-decoration:none}
+  img{max-width:100%; display:block}
+  button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
+  .serif{font-family:var(--serif); font-weight:500; letter-spacing:-0.01em}
+  .mono{font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase}
+  .wrap{max-width:1280px; margin:0 auto; padding:0 40px}
+  @media (max-width:720px){ .wrap{padding:0 20px} }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:60;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(14px) saturate(1.1);
+    -webkit-backdrop-filter:blur(14px) saturate(1.1);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .brand{display:flex; align-items:center}
+  .brand img{height:44px; width:auto; display:block}
+  .top-nav{display:flex; gap:28px; font-size:14px; color:var(--ink-2)}
+  .top-nav a{position:relative; padding:6px 0}
+  .top-nav a.on{color:var(--ink)}
+  .top-nav a.on::after{content:""; position:absolute; left:0; right:0; bottom:-2px; height:1px; background:var(--amber)}
+  .top-right{display:flex; align-items:center; gap:16px}
+  .lang{
+    display:flex; align-items:center; gap:2px;
+    font-size:12px; color:var(--ink-3); font-family:var(--mono);
+    letter-spacing:.1em;
+  }
+  .lang button{padding:6px 8px; color:var(--ink-3)}
+  .lang button.on{color:var(--ink)}
+  .lang .sep{color:var(--line-2)}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:999px;
+    font-size:13px; font-weight:500; letter-spacing:.01em;
+    transition:all .2s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--paper)}
+  .btn-primary:hover{background:var(--amber)}
+  .btn-ghost{border:1px solid var(--line-2); color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink); background:var(--paper)}
+  @media (max-width:900px){ .top-nav{display:none} }
+
+  /* ---------- breadcrumb ---------- */
+  .crumbs{padding:20px 0 4px; font-size:12px; color:var(--ink-3); letter-spacing:.02em}
+  .crumbs a:hover{color:var(--amber)}
+  .crumbs .sep{margin:0 8px; color:var(--line-2)}
+  .crumbs .here{color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:40px 0 80px; position:relative}
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:60px; align-items:end;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:40px} }
+  .kicker{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em;
+    color:var(--amber); text-transform:uppercase;
+    padding:6px 0;
+  }
+  .kicker::before{content:""; width:28px; height:1px; background:var(--amber)}
+  h1.hero-title{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(48px, 6.2vw, 92px);
+    line-height:1.02; letter-spacing:-0.02em;
+    margin:16px 0 28px; color:var(--ink);
+  }
+  h1.hero-title em{font-style:italic; color:var(--amber); font-weight:500}
+  .lede{
+    font-size:18px; color:var(--ink-2); max-width:560px;
+    line-height:1.6;
+  }
+  .hero-meta{
+    display:flex; gap:28px; margin-top:36px; flex-wrap:wrap;
+    padding-top:28px; border-top:1px solid var(--line);
+  }
+  .hero-meta .cell{min-width:140px}
+  .hero-meta .num{font-family:var(--serif); font-size:42px; line-height:1; color:var(--ink)}
+  .hero-meta .lbl{font-size:12px; color:var(--ink-3); margin-top:6px; letter-spacing:.02em}
+
+  .hero-visual{
+    aspect-ratio: 4/5; border-radius:var(--r-l); overflow:hidden; position:relative;
+    background:#f5ede0;
+  }
+  .hero-visual img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .hero-visual .badge{
+    position:absolute; left:20px; top:20px;
+    background:var(--paper); color:var(--ink);
+    padding:10px 14px; border-radius:999px;
+    font-size:12px; font-family:var(--mono); letter-spacing:.1em;
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero-visual .badge .dot{width:8px; height:8px; border-radius:50%; background:var(--sage)}
+
+  /* ---------- sticky service nav ---------- */
+  .subnav{
+    position:sticky; top:72px; z-index:50;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .subnav-inner{
+    display:flex; gap:6px; overflow-x:auto; padding:12px 0;
+    scrollbar-width:none;
+  }
+  .subnav-inner::-webkit-scrollbar{display:none}
+  .subnav a{
+    flex:none;
+    padding:8px 14px; border-radius:999px;
+    font-size:13px; color:var(--ink-2);
+    border:1px solid transparent;
+    transition:all .2s ease;
+    white-space:nowrap;
+  }
+  .subnav a:hover{color:var(--ink); background:var(--paper)}
+  .subnav a.active{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+  .subnav-inner .sep-label{
+    flex:none; padding:8px 6px 8px 14px;
+    font-family:var(--mono); font-size:10px; color:var(--ink-3); letter-spacing:.15em;
+    border-left:1px solid var(--line-2);
+    margin-left:8px;
+    align-self:center;
+  }
+  .subnav-inner .sep-label:first-child{border-left:0; margin-left:0; padding-left:0}
+
+  /* ---------- at a glance (AEO snippet block) ---------- */
+  .glance{padding:80px 0 40px}
+  .eyebrow{display:flex; align-items:center; gap:14px; margin-bottom:24px}
+  .eyebrow .line{flex:1; height:1px; background:var(--line)}
+  .section-head{
+    display:grid; grid-template-columns:.8fr 1.2fr; gap:60px; align-items:start;
+    margin-bottom:56px;
+  }
+  @media (max-width:900px){ .section-head{grid-template-columns:1fr; gap:24px} }
+  .section-head h2{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(36px, 4.2vw, 56px);
+    line-height:1.05; letter-spacing:-0.015em;
+    margin:0;
+  }
+  .section-head h2 em{font-style:italic; color:var(--amber)}
+  .section-head .p{color:var(--ink-2); font-size:17px; line-height:1.65; max-width:580px}
+
+  .definition-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--r-l);
+    padding:36px 40px;
+    margin-bottom:20px;
+  }
+  .definition-card .q{
+    font-family:var(--serif); font-weight:400; font-size:26px; line-height:1.25;
+    color:var(--ink); margin:0 0 14px;
+  }
+  .definition-card .a{
+    font-size:16px; line-height:1.7; color:var(--ink-2);
+    max-width:820px;
+  }
+  .definition-card .a strong{color:var(--ink); font-weight:600}
+
+  /* ---------- group band ---------- */
+  .group-band{padding:80px 0 40px; border-top:1px solid var(--line)}
+  .group-media{
+    display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:end;
+    margin-bottom:48px;
+  }
+  @media (max-width:900px){ .group-media{grid-template-columns:1fr; gap:24px} }
+  .group-media .group-head{margin-bottom:0; flex:1}
+  .group-media .group-img{
+    aspect-ratio: 5/4; border-radius:var(--r-l); overflow:hidden;
+    background:#f5ede0; position:relative; margin:0;
+  }
+  .group-media .group-img img{width:100%; height:100%; object-fit:cover; display:block}
+  .group-media .group-img.placeholder{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,.18) 100%),
+      repeating-linear-gradient(45deg, #efe1cc 0 14px, #e6d4b8 14px 28px);
+    display:grid; place-items:center;
+  }
+  .group-media .group-img.placeholder::after{
+    content:attr(data-label);
+    font-family:var(--mono); font-size:10px; letter-spacing:.18em;
+    color:#8a6b3e; text-transform:uppercase;
+    padding:6px 14px; background:rgba(255,255,255,.7); border-radius:999px;
+  }
+  .group-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:40px;
+    margin-bottom:40px; flex-wrap:wrap;
+  }
+  .group-head .lhs{display:flex; align-items:baseline; gap:20px}
+  .group-index{
+    font-family:var(--mono); font-size:12px; color:var(--amber); letter-spacing:.15em;
+  }
+  .group-title{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(32px, 3.6vw, 48px); margin:0; letter-spacing:-0.015em;
+  }
+  .group-title em{font-style:italic; color:var(--amber)}
+  .group-sub{color:var(--ink-3); font-size:14px; max-width:420px; text-align:right}
+
+  /* service grid */
+  .svc-grid{
+    display:grid; grid-template-columns:repeat(12, 1fr); gap:0;
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  .svc{
+    grid-column:span 4;
+    padding:36px 32px 32px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:#fff;
+    display:flex; flex-direction:column; gap:18px;
+    min-height:360px;
+    position:relative;
+    transition:background .25s ease;
+  }
+  .svc:hover{background:var(--cream)}
+  .svc:hover .svc-cta{color:var(--amber)}
+  .svc:hover .svc-cta .arrow{transform:translateX(4px)}
+  @media (max-width:900px){ .svc{grid-column:span 6} }
+  @media (max-width:600px){ .svc{grid-column:span 12} }
+
+  .svc-head{display:flex; align-items:flex-start; justify-content:space-between; gap:12px}
+  .svc-num{
+    font-family:var(--mono); font-size:10px; color:var(--ink-3); letter-spacing:.15em;
+  }
+  .svc-pill{
+    font-size:10px; font-family:var(--mono); letter-spacing:.12em;
+    padding:4px 8px; border-radius:999px;
+    background:var(--cream); color:var(--ink-2);
+  }
+  .svc-pill.high{background:#efdac7; color:#7a4a1e}
+  .svc-icon{
+    width:44px; height:44px; border-radius:12px;
+    background:var(--cream); display:grid; place-items:center;
+    color:var(--amber);
+  }
+  .svc-icon svg{width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:1.4}
+  .svc-title{
+    font-family:var(--serif); font-weight:500;
+    font-size:28px; line-height:1.15; letter-spacing:-0.01em;
+    margin:0; color:var(--ink);
+  }
+  .svc-zh{font-size:13px; color:var(--ink-3); margin-top:-6px}
+  .svc-desc{font-size:14.5px; color:var(--ink-2); line-height:1.6; flex:1}
+  .svc-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; color:var(--ink); font-weight:500;
+    margin-top:auto; padding-top:8px;
+    border-top:1px solid var(--line);
+    transition:color .2s;
+  }
+  .svc-cta .arrow{display:inline-block; transition:transform .2s}
+
+  /* ---------- comparison table ---------- */
+  .compare{padding:100px 0; border-top:1px solid var(--line); background:var(--paper)}
+  .compare .tbl{
+    border:1px solid var(--line);
+    border-radius:var(--r-l); overflow:hidden;
+    background:#fff;
+    margin-top:40px;
+  }
+  table.delivery{
+    width:100%; border-collapse:collapse; font-size:14.5px;
+  }
+  table.delivery th, table.delivery td{
+    padding:18px 24px; text-align:left; vertical-align:top;
+    border-bottom:1px solid var(--line);
+  }
+  table.delivery thead th{
+    background:var(--cream); font-weight:600; color:var(--ink);
+    font-size:13px; letter-spacing:.02em;
+  }
+  table.delivery thead th.feat{
+    font-family:var(--serif); font-size:22px; font-weight:500; letter-spacing:-0.01em;
+  }
+  table.delivery thead th.feat .sub{display:block; font-family:var(--sans); font-size:11px; color:var(--ink-3); letter-spacing:.1em; margin-top:4px; text-transform:uppercase; font-weight:500}
+  table.delivery td:first-child{
+    font-weight:500; color:var(--ink-2); width:24%;
+    background:var(--paper);
+  }
+  table.delivery tbody tr:last-child td{border-bottom:0}
+  @media (max-width:720px){
+    table.delivery, table.delivery thead, table.delivery tbody, table.delivery tr, table.delivery td, table.delivery th{display:block; width:100%}
+    table.delivery thead{display:none}
+    table.delivery td{border-bottom:0; padding:8px 20px}
+    table.delivery td:first-child{background:var(--cream); font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; padding:12px 20px}
+    table.delivery tr{border-bottom:1px solid var(--line); padding:8px 0}
+  }
+
+  /* ---------- testimonials ---------- */
+  .testi{padding:100px 0; border-top:1px solid var(--line)}
+  .testi-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-top:40px;
+  }
+  @media (max-width:900px){ .testi-grid{grid-template-columns:1fr} }
+  .quote{
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:var(--r-l); padding:36px 32px 28px;
+    display:flex; flex-direction:column; gap:20px;
+  }
+  .quote .mark{
+    font-family:var(--serif); font-size:72px; line-height:.6; color:var(--amber);
+    height:24px;
+  }
+  .quote .body{
+    font-family:var(--serif); font-size:22px; line-height:1.35; color:var(--ink);
+    font-weight:400; letter-spacing:-0.005em;
+  }
+  .quote .attrib{
+    display:flex; align-items:center; gap:12px;
+    margin-top:auto; padding-top:16px; border-top:1px solid var(--line);
+    font-size:13px;
+  }
+  .quote .avatar{
+    width:36px; height:36px; border-radius:50%;
+    background:linear-gradient(135deg, var(--blush), var(--amber-2));
+  }
+  .quote .who{font-weight:500}
+  .quote .meta{color:var(--ink-3); font-size:12px}
+
+  /* ---------- FAQ ---------- */
+  .faq{padding:100px 0; border-top:1px solid var(--line); background:var(--cream)}
+  .faq-list{border-top:1px solid var(--line); margin-top:40px}
+  details.qa{
+    border-bottom:1px solid var(--line);
+    padding:24px 0;
+  }
+  details.qa summary{
+    list-style:none; cursor:pointer;
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    font-family:var(--serif); font-size:24px; line-height:1.25; color:var(--ink);
+    font-weight:500; letter-spacing:-0.005em;
+  }
+  details.qa summary::-webkit-details-marker{display:none}
+  details.qa .plus{
+    flex:none; width:28px; height:28px; border:1px solid var(--line-2); border-radius:50%;
+    position:relative; margin-top:4px;
+    transition:transform .25s, border-color .25s;
+  }
+  details.qa .plus::before, details.qa .plus::after{
+    content:""; position:absolute; left:50%; top:50%; background:var(--ink);
+    transition:transform .25s;
+  }
+  details.qa .plus::before{width:10px; height:1px; transform:translate(-50%, -50%)}
+  details.qa .plus::after{width:1px; height:10px; transform:translate(-50%, -50%)}
+  details[open].qa .plus{border-color:var(--amber); background:var(--amber)}
+  details[open].qa .plus::before, details[open].qa .plus::after{background:var(--paper)}
+  details[open].qa .plus::after{transform:translate(-50%, -50%) scaleY(0)}
+  details.qa .ans{
+    padding:16px 48px 8px 0;
+    font-size:15.5px; line-height:1.7; color:var(--ink-2);
+    max-width:820px;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:var(--ink); color:var(--paper);
+    padding:100px 0; border-top:1px solid var(--line);
+  }
+  .cta-inner{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:60px; align-items:center;
+  }
+  @media (max-width:900px){ .cta-inner{grid-template-columns:1fr} }
+  .cta h2{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(40px, 5vw, 68px); line-height:1.05; letter-spacing:-0.02em;
+    margin:0;
+  }
+  .cta h2 em{font-style:italic; color:var(--amber-2)}
+  .cta p{color:rgba(255,253,248,.75); font-size:16px; max-width:560px; line-height:1.6; margin:20px 0 32px}
+  .cta .actions{display:flex; flex-direction:column; gap:14px}
+  .cta-btn{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 26px; border:1px solid rgba(255,253,248,.18);
+    border-radius:var(--r-m);
+    transition:all .2s ease;
+  }
+  .cta-btn:hover{background:rgba(255,253,248,.06); border-color:var(--amber-2)}
+  .cta-btn .lhs{display:flex; flex-direction:column; gap:4px}
+  .cta-btn .lbl{font-family:var(--mono); font-size:10px; letter-spacing:.15em; color:var(--amber-2)}
+  .cta-btn .val{font-family:var(--serif); font-size:22px}
+  .cta-btn .arr{color:var(--amber-2); font-size:18px}
+
+  /* ---------- footer ---------- */
+  footer{padding:60px 0 40px; background:#fff; border-top:1px solid var(--line)}
+  .foot-top{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:20px}
+  .foot-top .serif{font-size:28px}
+  .foot-bot{
+    display:flex; justify-content:space-between; align-items:center; gap:20px;
+    margin-top:60px; padding-top:24px; border-top:1px solid var(--line);
+    font-size:12px; color:var(--ink-3); flex-wrap:wrap;
+  }
+  .foot-bot a:hover{color:var(--amber)}
+
+  /* hidden lang */
+  [data-zh]{display:none}
+  html[data-lang="zh"] [data-en]{display:none}
+  html[data-lang="zh"] [data-zh]{display:inline}
+  html[data-lang="zh"] [data-zh-block]{display:block}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#" aria-label="Amber Health">
+      <img src="amber-health-logo.png" alt="Amber Health" />
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="#">Specialties</a>
+      <a href="#" class="on">Obstetrics</a>
+      <a href="#">Gynaecology</a>
+      <a href="#">Our Team</a>
+      <a href="#">Library</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="top-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button id="lang-en" class="on" onclick="setLang('en')">EN</button>
+        <span class="sep">/</span>
+        <button id="lang-zh" onclick="setLang('zh')">繁中</button>
+      </div>
+      <a class="btn btn-primary" href="#cta"><span data-en>Book</span><span data-zh>預約</span> →</a>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<div class="wrap">
+  <div class="crumbs">
+    <a href="#">Home</a><span class="sep">/</span>
+    <a href="#">Specialties</a><span class="sep">/</span>
+    <span class="here"><span data-en>Obstetric Services</span><span data-zh>產科服務</span></span>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker"><span data-en>Obstetric Services · Hong Kong</span><span data-zh>產科服務 · 香港</span></div>
+        <h1 class="hero-title">
+          <span data-en>Considered care,<br>from first heartbeat<br>to <em>first breath</em>.</span>
+          <span data-zh data-zh-block>細緻照護，<br>由第一次心跳<br>至<em>初啼</em>。</span>
+        </h1>
+        <p class="lede">
+          <span data-en>A dedicated obstetric team, an in-house operating theatre, and twelve services designed around the pregnancy journey — all under one Central address.</span>
+          <span data-zh>專業產科團隊、院內手術室、以及圍繞整段孕期設計的十二項服務 — 全於中環同一地址提供。</span>
+        </p>
+        <div class="hero-meta">
+          <div class="cell">
+            <div class="num">12</div>
+            <div class="lbl" data-en>Obstetric services</div>
+            <div class="lbl" data-zh>項產科服務</div>
+          </div>
+          <div class="cell">
+            <div class="num">24/7</div>
+            <div class="lbl" data-en>On-call delivery team</div>
+            <div class="lbl" data-zh>分娩隨召團隊</div>
+          </div>
+          <div class="cell">
+            <div class="num">DPC</div>
+            <div class="lbl" data-en>Licensed facility &amp; theatre</div>
+            <div class="lbl" data-zh>註冊設施及手術室</div>
+          </div>
+        </div>
+      </div>
+      <figure class="hero-visual">
+        <img src="img-hero.jpg" alt="Expectant mother in soft natural light" />
+        <div class="badge"><span class="dot"></span> <span data-en>Specialist led</span><span data-zh>專科醫生主理</span></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STICKY SERVICE NAV ============ -->
+<nav class="subnav" id="subnav" aria-label="Services">
+  <div class="wrap">
+    <div class="subnav-inner" id="subnav-inner">
+      <span class="sep-label"><span data-en>Pregnancy</span><span data-zh>孕期</span></span>
+      <a href="#antenatal">Antenatal</a>
+      <a href="#ultrasound">Ultrasound</a>
+      <a href="#fetal">Fetal monitoring</a>
+      <a href="#highrisk">High-risk</a>
+      <a href="#genetic">Genetic testing</a>
+      <a href="#preterm">Preterm</a>
+      <span class="sep-label"><span data-en>Delivery</span><span data-zh>分娩</span></span>
+      <a href="#induction">Induction</a>
+      <a href="#vaginal">Vaginal</a>
+      <a href="#csection">C-section</a>
+      <span class="sep-label"><span data-en>Postnatal &amp; Support</span><span data-zh>產後及支援</span></span>
+      <a href="#postnatal">Postnatal</a>
+      <a href="#lactation">Lactation</a>
+      <a href="#contraceptive">Contraceptive</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ AT A GLANCE (AEO definitions) ============ -->
+<section class="glance">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="mono" style="color:var(--ink-3); margin-bottom:12px">At a glance</div>
+        <h2><span data-en>What are <em>obstetric services</em>?</span><span data-zh data-zh-block>甚麼是<em>產科服務</em>？</span></h2>
+      </div>
+      <p class="p">
+        <span data-en>Obstetrics is the medical specialty that cares for women before, during and after pregnancy. Amber Health offers a full range of obstetric services — from the first antenatal visit, through labour and delivery, to postnatal recovery and lactation — delivered by HK-accredited specialists.</span>
+        <span data-zh>產科是專門照顧女性孕前、孕期及產後的醫學專科。Amber Health 提供全面的產科服務 — 由首次產前檢查、分娩、到產後恢復及哺乳支援 — 全由香港認可專科醫生主理。</span>
+      </p>
+    </div>
+
+    <div class="definition-card">
+      <h3 class="q"><span data-en>Who is obstetric care for?</span><span data-zh>產科服務適合誰？</span></h3>
+      <p class="a">
+        <span data-en><strong>Any woman planning to conceive, currently pregnant, or recently delivered.</strong> Care begins ideally at pre-conception and continues through the 40-week journey and six weeks postpartum. Women with a prior caesarean, miscarriage, gestational diabetes, advanced maternal age (≥35), or multiple pregnancy are considered higher-risk and benefit from specialist-led pathways.</span>
+        <span data-zh><strong>任何計劃懷孕、正在懷孕或剛分娩的女性均適用。</strong>理想情況下，照護應由孕前開始，延續整個四十週孕程及產後六週。曾接受剖腹產、流產、妊娠糖尿病、高齡產婦（≥35 歲）或多胞胎孕婦屬高風險，更適合由專科主導。</span>
+      </p>
+    </div>
+    <div class="definition-card">
+      <h3 class="q"><span data-en>When should I book my first antenatal visit?</span><span data-zh>第一次產前檢查應何時預約？</span></h3>
+      <p class="a">
+        <span data-en><strong>Between 6 and 10 weeks of pregnancy</strong>, as soon as a home test is positive. The first visit confirms viability by ultrasound, establishes the estimated due date, reviews medical and family history, and plans the schedule of screenings (including nuchal translucency at 11–13⁺⁶ weeks and the anomaly scan at 20–22 weeks).</span>
+        <span data-zh><strong>懷孕 6 至 10 週</strong>，家用驗孕棒呈陽性後即可預約。首次檢查會以超聲波確認胚胎活動、估算預產期、回顧個人及家族病史，並安排後續篩查（包括 11–13⁺⁶ 週頸項透明帶及 20–22 週結構篩查）。</span>
+      </p>
+    </div>
+    <div class="definition-card">
+      <h3 class="q"><span data-en>Do you offer both vaginal and C-section delivery?</span><span data-zh>你們提供自然分娩及剖腹產嗎？</span></h3>
+      <p class="a">
+        <span data-en><strong>Yes — both, with a birth-plan conversation in the third trimester.</strong> Our specialists deliver at accredited Hong Kong private hospitals and manage the full care pathway: induction, epidural, assisted delivery, elective or emergency caesarean, and immediate postnatal support. See the full comparison below.</span>
+        <span data-zh><strong>是 — 兩種均可提供，並於第三孕期進行分娩計劃諮詢。</strong>我們的專科醫生於認可私家醫院接生，並管理整個流程：引產、硬膜外麻醉、助產、擇期或緊急剖腹、及即時產後支援。詳見下方比較表。</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GROUP 1: PREGNANCY CARE ============ -->
+<section class="group-band" id="group-pregnancy">
+  <div class="wrap">
+    <div class="group-media">
+      <div class="group-head">
+        <div class="lhs">
+          <span class="group-index">01 / 03</span>
+          <h2 class="group-title"><span data-en>Pregnancy <em>care</em></span><span data-zh data-zh-block>孕期<em>照護</em></span></h2>
+        </div>
+        <p class="group-sub">
+          <span data-en>Monitoring and diagnostic services from first heartbeat through the final trimester.</span>
+          <span data-zh>由首次心跳至最後孕期的監測及診斷服務。</span>
+        </p>
+      </div>
+      <figure class="group-img"><img src="img-pregnancy.jpg" alt="Ultrasound examination, clinical closeup" /></figure>
+    </div>
+
+    <div class="svc-grid">
+      <!-- 01 Antenatal -->
+      <a class="svc" id="antenatal" href="#">
+        <div class="svc-head">
+          <span class="svc-num">01</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3v18M5 8c3 0 5 2 7 4M19 8c-3 0-5 2-7 4"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>Antenatal Care</span><span data-zh>產前護理</span></h3>
+        <div class="svc-zh" data-en>產前護理</div>
+        <div class="svc-zh" data-zh>Antenatal Care</div>
+        <p class="svc-desc"><span data-en>Scheduled check-ups tracking mother and baby across all three trimesters — blood work, blood pressure, growth measurement and wellbeing review at every visit.</span><span data-zh>三個孕期的定期檢查，涵蓋血液、血壓、胎兒生長及整體健康評估。</span></p>
+        <span class="svc-cta"><span data-en>Explore antenatal</span><span data-zh>了解更多</span> <span class="arrow">→</span></span>
+      </a>
+      <!-- 02 Ultrasound -->
+      <a class="svc" id="ultrasound" href="#">
+        <div class="svc-head">
+          <span class="svc-num">02</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>Ultrasound Screening</span><span data-zh>超聲波檢查</span></h3>
+        <div class="svc-zh" data-en>超聲波檢查</div>
+        <div class="svc-zh" data-zh>Ultrasound Screening</div>
+        <p class="svc-desc"><span data-en>Dating, nuchal translucency (11–13⁺⁶ wk), mid-trimester anomaly scan (20–22 wk), and growth scans. 2D, 3D and 4D imaging available.</span><span data-zh>孕期定位、頸項透明帶（11–13⁺⁶ 週）、中期結構篩查（20–22 週）及生長超聲。提供 2D、3D、4D 影像。</span></p>
+        <span class="svc-cta"><span data-en>View scan schedule</span><span data-zh>查看時序</span> <span class="arrow">→</span></span>
+      </a>
+      <!-- 03 Fetal Monitoring -->
+      <a class="svc" id="fetal" href="#">
+        <div class="svc-head">
+          <span class="svc-num">03</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 3 10 2-7 2 4h5"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>Fetal Monitoring</span><span data-zh>胎兒監測</span></h3>
+        <div class="svc-zh" data-en>胎兒監測</div>
+        <div class="svc-zh" data-zh>Fetal Monitoring</div>
+        <p class="svc-desc"><span data-en>Cardiotocography (CTG) and non-stress tests measuring fetal heart rate and uterine activity — routine in late pregnancy and essential during labour.</span><span data-zh>心臟監測（CTG）及無壓力測試，量度胎心及宮縮 — 晚期孕程及分娩期間必備。</span></p>
+        <span class="svc-cta"><span data-en>About CTG</span><span data-zh>了解 CTG</span> <span class="arrow">→</span></span>
+      </a>
+      <!-- 04 High-risk -->
+      <a class="svc" id="highrisk" href="#">
+        <div class="svc-head">
+          <span class="svc-num">04</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.01"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>High-Risk Pregnancy</span><span data-zh>高危妊娠管理</span></h3>
+        <div class="svc-zh" data-en>高危妊娠管理</div>
+        <div class="svc-zh" data-zh>High-Risk Pregnancy</div>
+        <p class="svc-desc"><span data-en>Specialist-led pathway for advanced maternal age, multiple pregnancy, gestational diabetes, pre-eclampsia, placental issues and previous caesarean.</span><span data-zh>針對高齡、多胞胎、妊娠糖尿、子癇前症、胎盤問題及過往剖腹產的專科主導流程。</span></p>
+        <span class="svc-cta"><span data-en>Learn more</span><span data-zh>了解更多</span> <span class="arrow">→</span></span>
+      </a>
+      <!-- 05 Genetic Testing -->
+      <a class="svc" id="genetic" href="#">
+        <div class="svc-head">
+          <span class="svc-num">05</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 4c4 4 8 12 12 16M18 4c-4 4-8 12-12 16M7 7h10M7 17h10M9 10h6M9 14h6"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>Genetic Testing</span><span data-zh>基因檢測</span></h3>
+        <div class="svc-zh" data-en>基因檢測</div>
+        <div class="svc-zh" data-zh>Genetic Testing</div>
+        <p class="svc-desc"><span data-en>Non-invasive prenatal testing (NIPT) from 10 weeks, carrier screening, and diagnostic CVS or amniocentesis when clinically indicated.</span><span data-zh>由 10 週起的非侵入性產前檢測（NIPT）、帶因者篩查；臨床需要時提供絨毛或羊水穿刺。</span></p>
+        <span class="svc-cta"><span data-en>NIPT vs amnio</span><span data-zh>NIPT 與羊水比較</span> <span class="arrow">→</span></span>
+      </a>
+      <!-- 06 Preterm -->
+      <a class="svc" id="preterm" href="#">
+        <div class="svc-head">
+          <span class="svc-num">06</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>Preterm Birth Management</span><span data-zh>早產管理</span></h3>
+        <div class="svc-zh" data-en>早產管理</div>
+        <div class="svc-zh" data-zh>Preterm Birth Management</div>
+        <p class="svc-desc"><span data-en>Risk screening, cervical length surveillance, progesterone therapy and cerclage where indicated — proactive prevention of preterm labour.</span><span data-zh>風險篩查、子宮頸長度監測、黃體酮治療及必要時的環紮術 — 主動預防早產。</span></p>
+        <span class="svc-cta"><span data-en>Prevention protocol</span><span data-zh>預防方案</span> <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GROUP 2: DELIVERY ============ -->
+<section class="group-band" id="group-delivery">
+  <div class="wrap">
+    <div class="group-media">
+      <div class="group-head">
+        <div class="lhs">
+          <span class="group-index">02 / 03</span>
+          <h2 class="group-title"><span data-en><em>Delivery</em> &amp; labour</span><span data-zh data-zh-block><em>分娩</em>服務</span></h2>
+        </div>
+        <p class="group-sub">
+          <span data-en>On-call specialist team and an accredited operating theatre for the birth plan you choose.</span>
+          <span data-zh>專科隨召團隊及認可手術室，配合您選擇的分娩計劃。</span>
+        </p>
+      </div>
+      <figure class="group-img"><img src="img-delivery.jpg" alt="Mother and newborn after delivery" /></figure>
+    </div>
+
+    <div class="svc-grid">
+      <!-- 07 Induction -->
+      <a class="svc" id="induction" href="#">
+        <div class="svc-head">
+          <span class="svc-num">07</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>Labour Induction</span><span data-zh>引產</span></h3>
+        <div class="svc-zh" data-en>引產</div>
+        <div class="svc-zh" data-zh>Labour Induction</div>
+        <p class="svc-desc"><span data-en>Planned onset of labour when medically indicated — post-dates, ruptured membranes, hypertension or diabetes — using membrane sweep, prostaglandins, balloon catheter or oxytocin.</span><span data-zh>醫學指引下的計劃性引產 — 過期妊娠、破水、高血壓或糖尿 — 採用人工剝膜、前列腺素、球囊或催產素。</span></p>
+        <span class="svc-cta"><span data-en>Methods &amp; timing</span><span data-zh>方法及時間</span> <span class="arrow">→</span></span>
+      </a>
+      <!-- 08 Vaginal -->
+      <a class="svc" id="vaginal" href="#">
+        <div class="svc-head">
+          <span class="svc-num">08</span>
+          <span class="svc-pill" data-en>Most common</span>
+          <span class="svc-pill" data-zh>最常見</span>
+        </div>
+        <div class="svc-icon" aria-hidden="true" style="margin-top:-8px">
+          <svg viewBox="0 0 24 24"><path d="M4 18c4-8 12-8 16 0M8 18c2-4 6-4 8 0"/></svg>
+        </div>
+        <h3 class="svc-title"><span data-en>Vaginal Delivery</span><span data-zh>自然分娩</span></h3>
+        <div class="svc-zh" data-en>自然分娩</div>
+        <div class="svc-zh" data-zh>Vaginal Delivery</div>
+        <p class="svc-desc"><span data-en>Unassisted or assisted (vacuum, forceps) natural birth with full pain-relief options including epidural. Supported by a continuous midwife + specialist team.</span><span data-zh>自然或助產（真空吸引、產鉗），包含硬膜外麻醉等止痛選擇，由助產士及專科醫生連續陪伴。</span></p>
+        <span class="svc-cta"><span data-en>Birth plan &amp; pain relief</span><span data-zh>分娩計劃</span> <span class="arrow">→</span></span>
+      </a>
+      <!-- 09 C-section -->
+      <a class="svc" id="csection" href="#">
+        <div class="svc-head">
+          <span class="svc-num">09</span>
+          <span class="svc-pill high" data-en>In-house theatre</span>
+          <span class="svc-pill high" data-zh>院內手術室</span>
+        </div>
+        <div class="svc-icon" aria-hidden="true" style="margin-top:-8px">
+          <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 12h18M9 12v6M15 12v6"/></svg>
+        </div>
+        <h3 class="svc-title"><span data-en>C-Section Delivery</span><span data-zh>剖腹分娩</span></h3>
+        <div class="svc-zh" data-en>剖腹分娩</div>
+        <div class="svc-zh" data-zh>C-Section Delivery</div>
+        <p class="svc-desc"><span data-en>Elective or emergency caesarean performed by our specialist team with anaesthesiology and paediatric support. Enhanced-recovery protocols for faster healing.</span><span data-zh>由專科團隊執行的擇期或緊急剖腹產，備有麻醉及兒科支援；採用加速康復方案。</span></p>
+        <span class="svc-cta"><span data-en>What to expect</span><span data-zh>流程概覽</span> <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GROUP 3: POSTNATAL & SUPPORT ============ -->
+<section class="group-band" id="group-postnatal">
+  <div class="wrap">
+    <div class="group-media">
+      <div class="group-head">
+        <div class="lhs">
+          <span class="group-index">03 / 03</span>
+          <h2 class="group-title"><span data-en>Postnatal &amp; <em>support</em></span><span data-zh data-zh-block>產後及<em>支援</em></span></h2>
+        </div>
+        <p class="group-sub">
+          <span data-en>The six weeks after birth matter. Continued care for mother, baby and feeding.</span>
+          <span data-zh>產後六週同樣重要 — 為母親、嬰兒及哺乳提供持續照護。</span>
+        </p>
+      </div>
+      <figure class="group-img"><img src="img-postnatal.jpg" alt="Nurse with mother and newborn at postnatal check" /></figure>
+    </div>
+
+    <div class="svc-grid">
+      <!-- 10 Postnatal -->
+      <a class="svc" id="postnatal" href="#">
+        <div class="svc-head">
+          <span class="svc-num">10</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-4-7-10a5 5 0 0110-1 5 5 0 0110 1c0 6-7 10-7 10z" transform="scale(.7) translate(5 3)"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>Postnatal Care</span><span data-zh>產後護理</span></h3>
+        <div class="svc-zh" data-en>產後護理</div>
+        <div class="svc-zh" data-zh>Postnatal Care</div>
+        <p class="svc-desc"><span data-en>Six-week review of physical recovery, pelvic-floor health, contraception planning, and mental-health screening for postpartum mood disorders.</span><span data-zh>六週覆診評估身體恢復、盆底健康、避孕計劃，及產後情緒篩查。</span></p>
+        <span class="svc-cta"><span data-en>Recovery timeline</span><span data-zh>康復時序</span> <span class="arrow">→</span></span>
+      </a>
+      <!-- 11 Lactation -->
+      <a class="svc" id="lactation" href="#">
+        <div class="svc-head">
+          <span class="svc-num">11</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="M12 16v5"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>Lactation Support</span><span data-zh>哺乳支援</span></h3>
+        <div class="svc-zh" data-en>哺乳支援</div>
+        <div class="svc-zh" data-zh>Lactation Support</div>
+        <p class="svc-desc"><span data-en>Certified consultants helping with latch, supply, engorgement, mastitis and returning to work. In-clinic sessions and home visits on request.</span><span data-zh>認可哺乳顧問協助含乳、奶量、乳脹、乳腺炎及重返職場；提供診所面診及家訪。</span></p>
+        <span class="svc-cta"><span data-en>Book a consult</span><span data-zh>預約諮詢</span> <span class="arrow">→</span></span>
+      </a>
+      <!-- 12 Contraceptive -->
+      <a class="svc" id="contraceptive" href="#">
+        <div class="svc-head">
+          <span class="svc-num">12</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>
+          </div>
+        </div>
+        <h3 class="svc-title"><span data-en>Contraceptive Counselling</span><span data-zh>避孕諮詢</span></h3>
+        <div class="svc-zh" data-en>避孕諮詢</div>
+        <div class="svc-zh" data-zh>Contraceptive Counselling</div>
+        <p class="svc-desc"><span data-en>Individualised guidance on pill, IUD, implant, injection and barrier methods — with placement and follow-up handled in-house.</span><span data-zh>個人化指導，包括避孕丸、宮內裝置、植入式、注射及屏障方式，診所內完成放置及跟進。</span></p>
+        <span class="svc-cta"><span data-en>Compare options</span><span data-zh>比較選擇</span> <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON TABLE ============ -->
+<section class="compare" id="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="mono" style="color:var(--ink-3); margin-bottom:12px">Side-by-side</div>
+        <h2><span data-en>Vaginal vs. <em>C-section</em></span><span data-zh data-zh-block>自然 vs <em>剖腹</em></span></h2>
+      </div>
+      <p class="p">
+        <span data-en>Both are safe delivery methods in a properly-equipped setting. The right choice depends on clinical factors and your birth plan — we discuss this together by the third trimester.</span>
+        <span data-zh>兩種均為安全的分娩方式，選擇取決於臨床因素及您的分娩計劃。我們會於第三孕期與您討論。</span>
+      </p>
+    </div>
+
+    <div class="tbl">
+      <table class="delivery">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="feat"><span data-en>Vaginal Delivery</span><span data-zh>自然分娩</span><span class="sub"><span data-en>Natural birth</span><span data-zh>自然生產</span></span></th>
+            <th class="feat"><span data-en>C-Section</span><span data-zh>剖腹分娩</span><span class="sub"><span data-en>Surgical birth</span><span data-zh>手術分娩</span></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span data-en>Typical duration</span><span data-zh>典型時長</span></td>
+            <td><span data-en>6–18 hours of active labour</span><span data-zh>活躍產程 6–18 小時</span></td>
+            <td><span data-en>45–90 minute procedure</span><span data-zh>手術 45–90 分鐘</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Anaesthesia</span><span data-zh>麻醉</span></td>
+            <td><span data-en>Optional epidural / gas &amp; air</span><span data-zh>可選硬膜外／笑氣</span></td>
+            <td><span data-en>Spinal or general, always</span><span data-zh>脊髓或全身麻醉（必備）</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Hospital stay</span><span data-zh>住院時間</span></td>
+            <td><span data-en>2–3 nights</span><span data-zh>2–3 晚</span></td>
+            <td><span data-en>3–4 nights</span><span data-zh>3–4 晚</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Recovery to light activity</span><span data-zh>恢復輕度活動</span></td>
+            <td><span data-en>1–2 weeks</span><span data-zh>1–2 週</span></td>
+            <td><span data-en>4–6 weeks</span><span data-zh>4–6 週</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Breastfeeding start</span><span data-zh>開始哺乳</span></td>
+            <td><span data-en>Within the first hour</span><span data-zh>首小時內</span></td>
+            <td><span data-en>Usually within 1–2 hours</span><span data-zh>通常 1–2 小時內</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Best considered when</span><span data-zh>適用情況</span></td>
+            <td><span data-en>Low-risk, singleton, head-down pregnancy</span><span data-zh>低風險、單胎、頭位</span></td>
+            <td><span data-en>Breech, placenta praevia, prior C-section, fetal distress</span><span data-zh>臀位、前置胎盤、曾剖腹、胎兒窘迫</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testi">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="mono" style="color:var(--ink-3); margin-bottom:12px">In their words</div>
+        <h2><span data-en>Patients, <em>in their own words</em></span><span data-zh data-zh-block>她們的<em>親身分享</em></span></h2>
+      </div>
+      <p class="p">
+        <span data-en>Three journeys that began at Amber Health — from first scan to first night home.</span>
+        <span data-zh>由首次超聲到首晚回家 — Amber Health 的三段旅程。</span>
+      </p>
+    </div>
+    <div class="testi-grid">
+      <div class="quote">
+        <div class="mark">“</div>
+        <div class="body" data-en>The team caught a placental issue early and re-planned the delivery calmly. Nothing felt rushed — they treated it like their own family.</div>
+        <div class="body" data-zh>團隊很早便發現胎盤問題並從容地重新安排分娩。過程毫不倉促，他們待我如同家人。</div>
+        <div class="attrib">
+          <div class="avatar"></div>
+          <div>
+            <div class="who"><span data-en>Sophia L.</span><span data-zh>Sophia L.</span></div>
+            <div class="meta"><span data-en>First-time mother · C-section · 2025</span><span data-zh>首次生育 · 剖腹 · 2025</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="mark">“</div>
+        <div class="body" data-en>Thirty-six weeks of check-ups, the same doctor every time. By the delivery room, I wasn't meeting a stranger — I was meeting a friend.</div>
+        <div class="body" data-zh>三十六週的產檢，每次都是同一位醫生。到了產房，我不是遇到陌生人 — 是遇到熟悉的朋友。</div>
+        <div class="attrib">
+          <div class="avatar" style="background:linear-gradient(135deg,#d4b8a3,var(--amber))"></div>
+          <div>
+            <div class="who"><span data-en>Cheryl K.</span><span data-zh>Cheryl K.</span></div>
+            <div class="meta"><span data-en>Second pregnancy · Vaginal · 2024</span><span data-zh>二胎 · 自然 · 2024</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="mark">“</div>
+        <div class="body" data-en>The lactation consultant came to the hospital within hours of delivery. That single visit changed everything about feeding for us.</div>
+        <div class="body" data-zh>分娩後數小時內，哺乳顧問已到醫院。那一次探訪，改變了我們整個哺乳過程。</div>
+        <div class="attrib">
+          <div class="avatar" style="background:linear-gradient(135deg,#c9b79a,#8a6b3e)"></div>
+          <div>
+            <div class="who"><span data-en>Amanda W.</span><span data-zh>Amanda W.</span></div>
+            <div class="meta"><span data-en>First-time mother · Lactation · 2025</span><span data-zh>首次生育 · 哺乳 · 2025</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="mono" style="color:var(--ink-3); margin-bottom:12px">FAQ</div>
+        <h2><span data-en>Common <em>questions</em></span><span data-zh data-zh-block>常見<em>問題</em></span></h2>
+      </div>
+      <p class="p">
+        <span data-en>Short answers to the questions we hear most. For anything specific to your pregnancy, please book a consultation.</span>
+        <span data-zh>以下為最常被問到的問題。如涉及您的個別情況，請預約諮詢。</span>
+      </p>
+    </div>
+
+    <div class="faq-list">
+      <details class="qa" open>
+        <summary><span><span data-en>How many antenatal check-ups will I need?</span><span data-zh>我需要做多少次產前檢查？</span></span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans"><span data-en>A low-risk pregnancy typically involves 10–14 visits — monthly until 28 weeks, fortnightly from 28 to 36 weeks, and weekly thereafter. High-risk pregnancies require more frequent monitoring.</span><span data-zh>低風險孕期通常需要 10–14 次檢查 — 28 週前每月一次、28–36 週每兩週一次、之後每週一次。高危孕婦需要更頻密監測。</span></div>
+      </details>
+      <details class="qa">
+        <summary><span><span data-en>Which hospitals do you deliver at?</span><span data-zh>你們在哪些醫院接生？</span></span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans"><span data-en>Our specialists hold admitting privileges at major accredited private hospitals in Hong Kong. The most suitable hospital is discussed during your birth-plan consultation based on your medical needs and preferences.</span><span data-zh>我們的專科醫生於香港多間認可私家醫院擁有接生權。合適的醫院會於分娩計劃諮詢中，按您的醫療需要及個人意願共同決定。</span></div>
+      </details>
+      <details class="qa">
+        <summary><span><span data-en>Is NIPT enough, or do I also need an amniocentesis?</span><span data-zh>做了 NIPT 還需要做羊水穿刺嗎？</span></span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans"><span data-en>NIPT is a screening test with &gt;99% detection for common trisomies (21, 18, 13) and is usually sufficient. Amniocentesis is a diagnostic test offered when NIPT is positive, when ultrasound findings warrant it, or when a specific genetic condition is being investigated.</span><span data-zh>NIPT 為篩查測試，對常見三體（21、18、13）檢出率 &gt;99%，一般已足夠。若 NIPT 陽性、超聲有發現或需排除特定遺傳病，則會安排羊水穿刺作診斷。</span></div>
+      </details>
+      <details class="qa">
+        <summary><span><span data-en>After a C-section, can I have a vaginal birth next time (VBAC)?</span><span data-zh>曾剖腹，下次可以自然分娩嗎（VBAC）？</span></span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans"><span data-en>Often yes. VBAC has a success rate of 60–80% when the previous caesarean used a low-transverse incision and no new contraindications exist. It requires continuous fetal monitoring and delivery at a facility with immediate theatre access.</span><span data-zh>通常可以。若上次為下段橫切剖腹且無新禁忌，VBAC 成功率為 60–80%。需連續胎心監測並於設有即時手術室的醫院分娩。</span></div>
+      </details>
+      <details class="qa">
+        <summary><span><span data-en>When should I start lactation support?</span><span data-zh>甚麼時候開始尋求哺乳支援？</span></span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans"><span data-en>An antenatal lactation session at 34–36 weeks sets expectations and technique. After delivery, the first 72 hours are crucial — our consultants are available in-hospital and for home visits from day one.</span><span data-zh>建議於 34–36 週進行產前哺乳諮詢，預先了解流程及技巧。產後首 72 小時至關重要 — 我們的顧問於醫院及家中均可支援，由第一天開始。</span></div>
+      </details>
+      <details class="qa">
+        <summary><span><span data-en>Do you accept medical insurance?</span><span data-zh>你們接受醫療保險嗎？</span></span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans"><span data-en>Yes — we work with major local and international insurers. We can issue pre-authorisation letters and itemised invoices. Please bring your policy details to the first consultation.</span><span data-zh>可以 — 我們與主要本地及國際保險公司合作，可提供預先批核信及詳細收據。請於首次諮詢帶備保單資料。</span></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="cta">
+  <div class="wrap cta-inner">
+    <div>
+      <h2><span data-en>Ready when <em>you</em> are.</span><span data-zh data-zh-block><em>隨時</em>為您而來。</span></h2>
+      <p>
+        <span data-en>Book a 45-minute first consultation with one of our obstetric specialists. We'll walk you through your pregnancy plan and every scan on the timeline.</span>
+        <span data-zh>預約 45 分鐘的首次諮詢，我們的產科專科醫生會逐一為您講解孕期計劃及所有篩查時序。</span>
+      </p>
+    </div>
+    <div class="actions">
+      <a class="cta-btn" href="#"><div class="lhs"><span class="lbl"><span data-en>Book online</span><span data-zh>網上預約</span></span><span class="val"><span data-en>First consultation</span><span data-zh>首次諮詢</span></span></div><span class="arr">→</span></a>
+      <a class="cta-btn" href="#"><div class="lhs"><span class="lbl">WhatsApp</span><span class="val">+852 6400 0000</span></div><span class="arr">→</span></a>
+      <a class="cta-btn" href="#"><div class="lhs"><span class="lbl"><span data-en>Call</span><span data-zh>電話</span></span><span class="val">+852 3595 0000</span></div><span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="mono" style="color:var(--ink-3); margin-bottom:8px">Amber Health · Central, Hong Kong</div>
+        <div class="serif" style="font-family:var(--serif); font-size:28px">
+          <span data-en>A specialist centre for women's health.</span>
+          <span data-zh>女性健康專科中心。</span>
+        </div>
+      </div>
+      <a class="btn btn-ghost" href="#"><span data-en>Meet the team</span><span data-zh>認識團隊</span> →</a>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Amber Health · DPC-licensed facility</div>
+      <div style="display:flex; gap:20px">
+        <a href="#"><span data-en>Privacy</span><span data-zh>私隱</span></a>
+        <a href="#"><span data-en>Terms</span><span data-zh>條款</span></a>
+        <a href="#"><span data-en>Accessibility</span><span data-zh>無障礙</span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCHEMA.ORG JSON-LD ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": "#amberhealth",
+      "name": "Amber Health",
+      "medicalSpecialty": "Obstetrics",
+      "address": { "@type": "PostalAddress", "addressLocality": "Central", "addressRegion": "Hong Kong" },
+      "areaServed": "Hong Kong",
+      "availableService": [
+        { "@type": "MedicalProcedure", "name": "Antenatal Care", "procedureType": "https://schema.org/DiagnosticProcedure" },
+        { "@type": "MedicalProcedure", "name": "Ultrasound Screening" },
+        { "@type": "MedicalProcedure", "name": "Fetal Monitoring" },
+        { "@type": "MedicalProcedure", "name": "Labor Induction" },
+        { "@type": "MedicalProcedure", "name": "Vaginal Delivery", "procedureType": "https://schema.org/TherapeuticProcedure" },
+        { "@type": "MedicalProcedure", "name": "Caesarean Section", "procedureType": "https://schema.org/SurgicalProcedure" },
+        { "@type": "MedicalProcedure", "name": "Postnatal Care" },
+        { "@type": "MedicalProcedure", "name": "High-Risk Pregnancy Management" },
+        { "@type": "MedicalTest", "name": "Prenatal Genetic Testing" },
+        { "@type": "MedicalTherapy", "name": "Contraceptive Counselling" },
+        { "@type": "MedicalProcedure", "name": "Preterm Birth Management" },
+        { "@type": "MedicalTherapy", "name": "Lactation Support" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How many antenatal check-ups will I need?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A low-risk pregnancy typically involves 10-14 visits - monthly until 28 weeks, fortnightly from 28 to 36 weeks, and weekly thereafter." } },
+        { "@type": "Question", "name": "When should I book my first antenatal visit?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Between 6 and 10 weeks of pregnancy, as soon as a home test is positive. The first visit confirms viability by ultrasound and establishes the estimated due date." } },
+        { "@type": "Question", "name": "Is NIPT enough, or do I also need an amniocentesis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "NIPT is a screening test with over 99% detection for common trisomies and is usually sufficient. Amniocentesis is diagnostic and offered when NIPT is positive or ultrasound findings warrant it." } },
+        { "@type": "Question", "name": "After a C-section, can I have a vaginal birth next time (VBAC)?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Often yes. VBAC has a 60-80% success rate when the previous caesarean used a low-transverse incision and no new contraindications exist." } },
+        { "@type": "Question", "name": "When should I start lactation support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An antenatal lactation session at 34-36 weeks sets expectations. After delivery, the first 72 hours are crucial." } },
+        { "@type": "Question", "name": "Do you accept medical insurance?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes - we work with major local and international insurers and can issue pre-authorisation letters and itemised invoices." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://amberhealth.hk/" },
+        { "@type": "ListItem", "position": 2, "name": "Specialties", "item": "https://amberhealth.hk/specialties/" },
+        { "@type": "ListItem", "position": 3, "name": "Obstetric Services" }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  // ---------- language ----------
+  function setLang(l){
+    document.documentElement.setAttribute('data-lang', l);
+    document.getElementById('lang-en').classList.toggle('on', l==='en');
+    document.getElementById('lang-zh').classList.toggle('on', l==='zh');
+    document.documentElement.setAttribute('lang', l==='zh' ? 'zh-Hant' : 'en');
+  }
+
+  // ---------- sticky sub-nav active state ----------
+  const svcIds = ['antenatal','ultrasound','fetal','highrisk','genetic','preterm','induction','vaginal','csection','postnatal','lactation','contraceptive'];
+  const subnavLinks = {};
+  document.querySelectorAll('#subnav-inner a').forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    subnavLinks[id] = a;
+  });
+
+  function updateActive(){
+    const y = window.scrollY + 180;
+    let current = null;
+    for(const id of svcIds){
+      const el = document.getElementById(id);
+      if(el && el.offsetTop <= y) current = id;
+    }
+    Object.values(subnavLinks).forEach(a => a.classList.remove('active'));
+    if(current && subnavLinks[current]){
+      subnavLinks[current].classList.add('active');
+      // scroll the subnav horizontally to keep active in view
+      const active = subnavLinks[current];
+      const nav = document.getElementById('subnav-inner');
+      const ar = active.getBoundingClientRect();
+      const nr = nav.getBoundingClientRect();
+      if(ar.left < nr.left + 20) nav.scrollBy({left: ar.left - nr.left - 40, behavior:'smooth'});
+      if(ar.right > nr.right - 20) nav.scrollBy({left: ar.right - nr.right + 40, behavior:'smooth'});
+    }
+  }
+  window.addEventListener('scroll', updateActive, {passive:true});
+  window.addEventListener('load', updateActive);
+</script>
+</body>
+</html>
