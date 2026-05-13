@@ -126,7 +126,10 @@
   }
   .hero-meta .cell{min-width:140px}
   .hero-meta .num{font-family:var(--serif); font-size:42px; line-height:1; color:var(--ink)}
-  .hero-meta .lbl{font-size:12px; color:var(--ink-3); margin-top:6px; letter-spacing:.02em}
+  .hero-meta .lbl{
+    font-family:var(--mono); text-transform:uppercase;
+    font-size:11px; color:var(--ink-2); margin-top:10px; letter-spacing:.14em;
+  }
 
   .hero-visual{
     aspect-ratio: 4/5; border-radius:var(--r-l); overflow:hidden; position:relative;
@@ -343,6 +346,88 @@
     table.delivery tr{border-bottom:1px solid var(--line); padding:8px 0}
   }
 
+  /* ---------- team / specialists ---------- */
+  .team{padding:110px 0; border-top:1px solid var(--line); background:var(--paper)}
+  .team-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; margin-top:56px;
+  }
+  @media (max-width:980px){ .team-grid{grid-template-columns:1fr; gap:28px; max-width:520px; margin-left:auto; margin-right:auto} }
+  .doc{
+    background:#fff; border:1px solid var(--line);
+    border-radius:var(--r-l); overflow:hidden;
+    display:flex; flex-direction:column;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .25s ease;
+  }
+  .doc:hover{
+    transform:translateY(-4px); border-color:var(--amber-2);
+    box-shadow:0 24px 48px -28px rgba(40,28,12,.22);
+  }
+  .doc .portrait{
+    aspect-ratio:4/5; background:var(--cream);
+    background-size:cover; background-position:center top;
+    position:relative; border-bottom:1px solid var(--line);
+    filter:saturate(.85) contrast(.96) sepia(.06);
+  }
+  .doc .portrait::after{
+    content:""; position:absolute; inset:auto 0 0 0; height:40%;
+    background:linear-gradient(to bottom, transparent, rgba(255,255,255,.5));
+    pointer-events:none;
+  }
+  .doc .pill{
+    position:absolute; top:16px; left:16px;
+    background:rgba(255,255,255,.94); backdrop-filter:saturate(140%) blur(6px);
+    color:var(--ink); font-family:var(--mono);
+    text-transform:uppercase; letter-spacing:.12em; font-size:10px;
+    padding:6px 10px; border-radius:999px; border:1px solid var(--line);
+    z-index:2;
+  }
+  .doc .body{
+    padding:28px 28px 30px; display:flex; flex-direction:column; gap:18px;
+    flex:1;
+  }
+  .doc .name{
+    font-family:var(--serif); font-size:28px; line-height:1.1;
+    color:var(--ink); letter-spacing:-.01em;
+  }
+  .doc .name em{color:var(--amber); font-style:italic}
+  .doc .role{
+    font-family:var(--sans); font-size:13px; color:var(--ink-3);
+    margin-top:6px; line-height:1.4;
+  }
+  .doc .focus-label{
+    font-family:var(--mono); text-transform:uppercase; letter-spacing:.14em;
+    font-size:10px; color:var(--ink-3); margin-bottom:6px;
+  }
+  .doc .degrees{
+    display:flex; flex-direction:column; gap:7px;
+    padding-top:18px; border-top:1px solid var(--line);
+  }
+  .doc .degrees .row{
+    display:flex; align-items:baseline; gap:10px;
+    font-size:13px; color:var(--ink-2); line-height:1.45;
+  }
+  .doc .degrees .row .abbr{
+    font-family:var(--mono); font-size:11px; color:var(--amber-2);
+    letter-spacing:.06em; min-width:64px; flex-shrink:0;
+  }
+  .doc .degrees .row .full{color:var(--ink-2)}
+  .doc .lang{
+    font-family:var(--sans); font-size:12px; color:var(--ink-3);
+    display:flex; flex-wrap:wrap; gap:6px;
+  }
+  .doc .lang .tag{
+    background:var(--cream); border:1px solid var(--line);
+    padding:3px 9px; border-radius:999px;
+  }
+  .doc .book{
+    margin-top:auto; padding-top:18px;
+    display:inline-flex; align-items:center; justify-content:space-between;
+    color:var(--amber); font-family:var(--sans); font-size:14px; font-weight:500;
+    border-top:1px solid var(--line); padding-top:18px;
+  }
+  .doc .book .arr{transition:transform .25s ease}
+  .doc:hover .book .arr{transform:translateX(4px); color:var(--amber-2)}
+
   /* ---------- testimonials ---------- */
   .testi{padding:100px 0; border-top:1px solid var(--line)}
   .testi-grid{
@@ -368,8 +453,10 @@
     font-size:13px;
   }
   .quote .avatar{
-    width:36px; height:36px; border-radius:50%;
+    width:44px; height:44px; border-radius:50%;
     background:linear-gradient(135deg, var(--blush), var(--amber-2));
+    background-size:cover; background-position:center;
+    flex-shrink:0;
   }
   .quote .who{font-weight:500}
   .quote .meta{color:var(--ink-3); font-size:12px}
@@ -441,12 +528,136 @@
   footer{padding:60px 0 40px; background:#fff; border-top:1px solid var(--line)}
   .foot-top{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:20px}
   .foot-top .serif{font-size:28px}
+  .foot-map{
+    margin-top:48px; display:grid; grid-template-columns:1fr 1.6fr; gap:32px;
+    align-items:stretch;
+  }
+  .foot-map .addr{display:flex; flex-direction:column; justify-content:center; gap:14px}
+  .foot-map .addr .label{
+    font-family:var(--mono); text-transform:uppercase; letter-spacing:.12em;
+    font-size:11px; color:var(--ink-3);
+  }
+  .foot-map .addr .line{font-size:15px; color:var(--ink); line-height:1.6}
+  .foot-map .addr .dir{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; color:var(--amber-2); margin-top:4px; width:fit-content;
+    border-bottom:1px solid var(--amber-2); padding-bottom:2px;
+  }
+  .foot-map .addr .dir:hover{color:var(--amber); border-color:var(--amber)}
+  .foot-map .map-frame{
+    position:relative; border-radius:14px; overflow:hidden;
+    border:1px solid var(--line); min-height:260px; background:var(--cream);
+  }
+  .foot-map .map-frame iframe{
+    width:100%; height:100%; border:0; display:block; position:absolute; inset:0;
+    filter:grayscale(.15) contrast(.95);
+  }
+  @media (max-width:760px){
+    .foot-map{grid-template-columns:1fr; gap:20px}
+    .foot-map .map-frame{min-height:220px}
+  }
   .foot-bot{
     display:flex; justify-content:space-between; align-items:center; gap:20px;
     margin-top:60px; padding-top:24px; border-top:1px solid var(--line);
     font-size:12px; color:var(--ink-3); flex-wrap:wrap;
   }
   .foot-bot a:hover{color:var(--amber)}
+
+  /* ---------- floating book widget ---------- */
+  .fb-stack{
+    position:fixed; right:24px; bottom:24px; z-index:90;
+    display:flex; flex-direction:column; align-items:flex-end; gap:14px;
+    opacity:0; pointer-events:none; transform:translateY(12px);
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .fb-stack.is-visible{opacity:1; pointer-events:auto; transform:translateY(0)}
+  .floating-book{
+    position:relative; width:280px; min-height:34vh;
+    display:flex; flex-direction:column; justify-content:space-between;
+    background:var(--ink); color:#fff;
+    border:1px solid var(--ink); border-radius:18px;
+    padding:24px 24px 22px;
+    box-shadow:0 24px 48px -20px rgba(20,14,6,.55), 0 6px 16px rgba(20,14,6,.18);
+    text-decoration:none; font-family:var(--sans);
+    transition:box-shadow .25s ease, transform .25s ease;
+  }
+  .floating-book:hover{
+    box-shadow:0 28px 56px -18px rgba(20,14,6,.6), 0 6px 16px rgba(20,14,6,.22);
+    transform:translateY(-2px);
+  }
+  .floating-book .fb-head{display:flex; flex-direction:column; gap:8px}
+  .floating-book .fb-lbl{
+    font-family:var(--mono); text-transform:uppercase; letter-spacing:.16em;
+    font-size:10px; color:var(--amber-2);
+  }
+  .floating-book .fb-ttl{
+    font-family:var(--serif); font-size:30px; line-height:1.05;
+    color:#fff; letter-spacing:-.01em;
+  }
+  .floating-book .fb-ttl em{color:var(--amber-2); font-style:italic}
+  .floating-book .fb-sub{
+    font-size:13px; color:rgba(255,255,255,.7); line-height:1.5; margin-top:4px;
+  }
+  .floating-book .fb-actions{
+    display:flex; flex-direction:column; gap:10px; margin-top:18px;
+  }
+  .floating-book .fb-primary{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--amber); color:#fff; padding:14px 18px;
+    border-radius:12px; font-size:14px; font-weight:500;
+    transition:background .2s ease;
+  }
+  .floating-book:hover .fb-primary{background:var(--amber-2)}
+  .floating-book .fb-primary .arr{
+    font-size:18px; color:#fff; transition:transform .25s ease;
+  }
+  .floating-book:hover .fb-primary .arr{transform:translateX(4px)}
+  .floating-book .fb-meta{
+    border-top:1px solid rgba(255,255,255,.12); padding-top:14px;
+    display:flex; flex-direction:column; gap:4px;
+    font-family:var(--mono); font-size:11px; color:rgba(255,255,255,.55);
+    letter-spacing:.06em;
+  }
+  .floating-book .fb-meta .val{color:#fff; font-size:14px; font-family:var(--sans); letter-spacing:0}
+  .fb-close{
+    position:absolute; top:-10px; right:-10px;
+    width:26px; height:26px; border-radius:50%;
+    background:#fff; color:var(--ink-3); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px; line-height:1; cursor:pointer;
+    box-shadow:0 4px 10px rgba(40,28,12,.18); z-index:3;
+  }
+  .fb-close:hover{color:var(--ink); border-color:var(--ink-2)}
+  .floating-wa{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:72px; height:72px; border-radius:50%;
+    background:#25D366; color:#fff;
+    box-shadow:0 16px 32px -12px rgba(37,211,102,.6), 0 4px 10px rgba(0,0,0,.1);
+    transition:transform .2s ease, box-shadow .25s ease;
+    text-decoration:none;
+    animation:fb-wa-pulse 2.4s ease-in-out infinite;
+  }
+  .floating-wa:hover{transform:translateY(-3px) scale(1.05); background:#1ebe5d; animation:none}
+  .floating-wa svg{width:38px; height:38px; display:block}
+  @keyframes fb-wa-pulse{
+    0%, 100%{box-shadow:0 16px 32px -12px rgba(37,211,102,.6), 0 4px 10px rgba(0,0,0,.1), 0 0 0 0 rgba(37,211,102,.4)}
+    50%{box-shadow:0 16px 32px -12px rgba(37,211,102,.6), 0 4px 10px rgba(0,0,0,.1), 0 0 0 14px rgba(37,211,102,0)}
+  }
+  /* whatsapp inline icon (used in CTA buttons) */
+  .wa-ico{
+    width:18px; height:18px; display:inline-block; vertical-align:-3px;
+    margin-right:6px; color:#25D366;
+  }
+  @media (max-width:760px){
+    .fb-stack{right:14px; bottom:14px; gap:10px}
+    .floating-book{width:240px; min-height:280px; padding:20px 20px 18px}
+    .floating-book .fb-ttl{font-size:24px}
+    .floating-wa{width:60px; height:60px}
+    .floating-wa svg{width:32px; height:32px}
+  }
+  @media (max-width:420px){
+    .floating-book{width:calc(100vw - 100px); min-height:260px}
+  }
 
   /* hidden lang */
   [data-zh]{display:none}
@@ -551,6 +762,8 @@
       <a href="#postnatal">Postnatal</a>
       <a href="#lactation">Lactation</a>
       <a href="#contraceptive">Contraceptive</a>
+      <span class="sep-label"><span data-en>Team</span><span data-zh>團隊</span></span>
+      <a href="#team"><span data-en>Specialists</span><span data-zh>專科醫生</span></a>
     </div>
   </div>
 </nav>
@@ -891,6 +1104,117 @@
   </div>
 </section>
 
+<!-- ============ TEAM / SPECIALISTS ============ -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="mono" style="color:var(--ink-3); margin-bottom:12px">Specialists</div>
+        <h2><span data-en>Meet your <em>specialists</em></span><span data-zh data-zh-block>專業<em>團隊</em></span></h2>
+      </div>
+      <p class="p">
+        <span data-en>Three fellowship-trained obstetricians who carry your care from first scan to first night home — the same doctor at every visit.</span>
+        <span data-zh>三位資深婦產專科醫生 — 由首次超聲到首晚回家，每次產檢由同一位醫生跟進。</span>
+      </p>
+    </div>
+
+    <div class="team-grid">
+      <!-- Dr. Tracy Yeung -->
+      <a class="doc" href="https://www.finddoc.com/en/doctors/yeung-wing-yee-tracy-8706" target="_blank" rel="noopener">
+        <div class="portrait" style="background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=700&q=80')">
+          <span class="pill"><span data-en>Reproductive Medicine</span><span data-zh>生殖醫學</span></span>
+        </div>
+        <div class="body">
+          <div>
+            <div class="name"><span data-en>Dr. Tracy <em>Yeung</em></span><span data-zh>楊穎宜<em>醫生</em></span></div>
+            <div class="role"><span data-en>Obstetrician &amp; Gynaecologist · Sub-specialty in Reproductive Medicine</span><span data-zh>婦產科專科醫生 · 生殖醫學專科</span></div>
+          </div>
+          <div>
+            <div class="focus-label"><span data-en>Qualifications</span><span data-zh>專業資格</span></div>
+            <div class="degrees">
+              <div class="row"><span class="abbr">MBBS</span><span class="full"><span data-en>Bachelor of Medicine, HKU</span><span data-zh>香港大學內外全科醫學士</span></span></div>
+              <div class="row"><span class="abbr">FRCOG</span><span class="full"><span data-en>Royal College of Obstetricians &amp; Gynaecologists, UK</span><span data-zh>英國皇家婦產科醫學院院士</span></span></div>
+              <div class="row"><span class="abbr">FHKAM</span><span class="full"><span data-en>HK Academy of Medicine (O&amp;G)</span><span data-zh>香港醫學專科學院院士（婦產科）</span></span></div>
+              <div class="row"><span class="abbr">FHKCOG</span><span class="full"><span data-en>HK College of Obstetricians &amp; Gynaecologists</span><span data-zh>香港婦產科學院院士</span></span></div>
+              <div class="row"><span class="abbr">Cert.</span><span class="full"><span data-en>RCOG &amp; HKCOG Reproductive Medicine</span><span data-zh>RCOG &amp; HKCOG 生殖醫學證書</span></span></div>
+            </div>
+          </div>
+          <div class="lang">
+            <span class="tag">English</span>
+            <span class="tag"><span data-en>Cantonese</span><span data-zh>廣東話</span></span>
+          </div>
+          <span class="book">
+            <span><span data-en>Book with Dr. Yeung</span><span data-zh>預約楊醫生</span></span>
+            <span class="arr">→</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Dr. Grace Cheung -->
+      <a class="doc" href="https://www.finddoc.com/en/doctors/cheung-wai-yan-grace-10466" target="_blank" rel="noopener">
+        <div class="portrait" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80')">
+          <span class="pill"><span data-en>Obstetrics &amp; Gynaecology</span><span data-zh>婦產科</span></span>
+        </div>
+        <div class="body">
+          <div>
+            <div class="name"><span data-en>Dr. Grace <em>Cheung</em></span><span data-zh>張惠恩<em>醫生</em></span></div>
+            <div class="role"><span data-en>Obstetrician &amp; Gynaecologist · Routine and high-risk pregnancy care</span><span data-zh>婦產科專科醫生 · 一般及高危妊娠</span></div>
+          </div>
+          <div>
+            <div class="focus-label"><span data-en>Qualifications</span><span data-zh>專業資格</span></div>
+            <div class="degrees">
+              <div class="row"><span class="abbr">MBChB</span><span class="full"><span data-en>University of Liverpool, UK</span><span data-zh>英國利物浦大學醫學士</span></span></div>
+              <div class="row"><span class="abbr">MRCOG</span><span class="full"><span data-en>Royal College of Obstetricians &amp; Gynaecologists, UK</span><span data-zh>英國皇家婦產科醫學院成員</span></span></div>
+              <div class="row"><span class="abbr">FHKAM</span><span class="full"><span data-en>HK Academy of Medicine (O&amp;G)</span><span data-zh>香港醫學專科學院院士（婦產科）</span></span></div>
+              <div class="row"><span class="abbr">FHKCOG</span><span class="full"><span data-en>HK College of Obstetricians &amp; Gynaecologists</span><span data-zh>香港婦產科學院院士</span></span></div>
+            </div>
+          </div>
+          <div class="lang">
+            <span class="tag">English</span>
+            <span class="tag"><span data-en>Cantonese</span><span data-zh>廣東話</span></span>
+            <span class="tag"><span data-en>Putonghua</span><span data-zh>普通話</span></span>
+          </div>
+          <span class="book">
+            <span><span data-en>Book with Dr. Cheung</span><span data-zh>預約張醫生</span></span>
+            <span class="arr">→</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Dr. Helena Lee -->
+      <a class="doc" href="https://www.finddoc.com/en/doctors/lee-hui-ling-helena-10167" target="_blank" rel="noopener">
+        <div class="portrait" style="background-image:url('https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=700&q=80')">
+          <span class="pill"><span data-en>Obstetrics &amp; Subfertility</span><span data-zh>婦產及生育治療</span></span>
+        </div>
+        <div class="body">
+          <div>
+            <div class="name"><span data-en>Dr. Helena <em>Lee</em></span><span data-zh>李曉玲<em>醫生</em></span></div>
+            <div class="role"><span data-en>Obstetrician &amp; Gynaecologist · Antenatal, delivery, gynae &amp; subfertility workup</span><span data-zh>婦產科專科醫生 · 產前產後、分娩、婦科及生育評估</span></div>
+          </div>
+          <div>
+            <div class="focus-label"><span data-en>Qualifications</span><span data-zh>專業資格</span></div>
+            <div class="degrees">
+              <div class="row"><span class="abbr">MBBS</span><span class="full"><span data-en>Bachelor of Medicine, HKU</span><span data-zh>香港大學內外全科醫學士</span></span></div>
+              <div class="row"><span class="abbr">MRCOG</span><span class="full"><span data-en>Royal College of Obstetricians &amp; Gynaecologists, UK</span><span data-zh>英國皇家婦產科醫學院成員</span></span></div>
+              <div class="row"><span class="abbr">FHKAM</span><span class="full"><span data-en>HK Academy of Medicine (O&amp;G)</span><span data-zh>香港醫學專科學院院士（婦產科）</span></span></div>
+              <div class="row"><span class="abbr">FHKCOG</span><span class="full"><span data-en>HK College of Obstetricians &amp; Gynaecologists</span><span data-zh>香港婦產科學院院士</span></span></div>
+            </div>
+          </div>
+          <div class="lang">
+            <span class="tag">English</span>
+            <span class="tag"><span data-en>Cantonese</span><span data-zh>廣東話</span></span>
+            <span class="tag"><span data-en>Putonghua</span><span data-zh>普通話</span></span>
+          </div>
+          <span class="book">
+            <span><span data-en>Book with Dr. Lee</span><span data-zh>預約李醫生</span></span>
+            <span class="arr">→</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ TESTIMONIALS ============ -->
 <section class="testi">
   <div class="wrap">
@@ -910,7 +1234,7 @@
         <div class="body" data-en>The team caught a placental issue early and re-planned the delivery calmly. Nothing felt rushed — they treated it like their own family.</div>
         <div class="body" data-zh>團隊很早便發現胎盤問題並從容地重新安排分娩。過程毫不倉促，他們待我如同家人。</div>
         <div class="attrib">
-          <div class="avatar"></div>
+          <div class="avatar" style="background-image:url('https://randomuser.me/api/portraits/women/68.jpg')"></div>
           <div>
             <div class="who"><span data-en>Sophia L.</span><span data-zh>Sophia L.</span></div>
             <div class="meta"><span data-en>First-time mother · C-section · 2025</span><span data-zh>首次生育 · 剖腹 · 2025</span></div>
@@ -922,7 +1246,7 @@
         <div class="body" data-en>Thirty-six weeks of check-ups, the same doctor every time. By the delivery room, I wasn't meeting a stranger — I was meeting a friend.</div>
         <div class="body" data-zh>三十六週的產檢，每次都是同一位醫生。到了產房，我不是遇到陌生人 — 是遇到熟悉的朋友。</div>
         <div class="attrib">
-          <div class="avatar" style="background:linear-gradient(135deg,#d4b8a3,var(--amber))"></div>
+          <div class="avatar" style="background-image:url('https://randomuser.me/api/portraits/women/26.jpg')"></div>
           <div>
             <div class="who"><span data-en>Cheryl K.</span><span data-zh>Cheryl K.</span></div>
             <div class="meta"><span data-en>Second pregnancy · Vaginal · 2024</span><span data-zh>二胎 · 自然 · 2024</span></div>
@@ -934,7 +1258,7 @@
         <div class="body" data-en>The lactation consultant came to the hospital within hours of delivery. That single visit changed everything about feeding for us.</div>
         <div class="body" data-zh>分娩後數小時內，哺乳顧問已到醫院。那一次探訪，改變了我們整個哺乳過程。</div>
         <div class="attrib">
-          <div class="avatar" style="background:linear-gradient(135deg,#c9b79a,#8a6b3e)"></div>
+          <div class="avatar" style="background-image:url('https://randomuser.me/api/portraits/women/65.jpg')"></div>
           <div>
             <div class="who"><span data-en>Amanda W.</span><span data-zh>Amanda W.</span></div>
             <div class="meta"><span data-en>First-time mother · Lactation · 2025</span><span data-zh>首次生育 · 哺乳 · 2025</span></div>
@@ -1000,13 +1324,40 @@
     </div>
     <div class="actions">
       <a class="cta-btn" href="#"><div class="lhs"><span class="lbl"><span data-en>Book online</span><span data-zh>網上預約</span></span><span class="val"><span data-en>First consultation</span><span data-zh>首次諮詢</span></span></div><span class="arr">→</span></a>
-      <a class="cta-btn" href="#"><div class="lhs"><span class="lbl">WhatsApp</span><span class="val">+852 6400 0000</span></div><span class="arr">→</span></a>
-      <a class="cta-btn" href="#"><div class="lhs"><span class="lbl"><span data-en>Call</span><span data-zh>電話</span></span><span class="val">+852 3595 0000</span></div><span class="arr">→</span></a>
+      <a class="cta-btn" href="https://wa.me/85291380799" target="_blank" rel="noopener"><div class="lhs"><span class="lbl"><svg class="wa-ico" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.003 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.46 1.74 6.4L3.2 28.8l6.55-1.72a12.78 12.78 0 0 0 6.25 1.6h.01c7.06 0 12.8-5.74 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.06-3.63zm5.83 16.4c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.58-1.59a9.7 9.7 0 0 1-1.79-2.22c-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.74-.99-2.38-.26-.62-.53-.54-.72-.55l-.62-.01c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.08 1.31 3.29c.16.21 2.27 3.46 5.49 4.85 2.55 1.1 3.07.88 3.62.83.56-.05 1.79-.73 2.04-1.43.25-.7.25-1.31.18-1.43-.07-.13-.29-.21-.61-.37z"/></svg>WhatsApp</span><span class="val">+852 9138 0799</span></div><span class="arr">→</span></a>
+      <a class="cta-btn" href="#"><div class="lhs"><span class="lbl"><span data-en>Call</span><span data-zh>電話</span></span><span class="val">+852 3899 2699</span></div><span class="arr">→</span></a>
     </div>
   </div>
 </section>
 
 </main>
+
+<!-- ============ FLOATING BOOK WIDGET ============ -->
+<div class="fb-stack" id="floatingBook" aria-label="Quick contact">
+  <a class="floating-wa" href="https://wa.me/85291380799" target="_blank" rel="noopener" aria-label="WhatsApp Amber Health">
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <path d="M16.003 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.46 1.74 6.4L3.2 28.8l6.55-1.72a12.78 12.78 0 0 0 6.25 1.6h.01c7.06 0 12.8-5.74 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.06-3.63zm0 23.36h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.88 1.02 1.04-3.78-.25-.4a10.6 10.6 0 0 1-1.62-5.69c0-5.86 4.77-10.63 10.63-10.63 2.84 0 5.5 1.1 7.5 3.12a10.6 10.6 0 0 1 3.11 7.52c0 5.87-4.77 10.63-10.63 10.63zm5.83-7.96c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.58-1.59a9.7 9.7 0 0 1-1.79-2.22c-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.74-.99-2.38-.26-.62-.53-.54-.72-.55l-.62-.01c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.08 1.31 3.29c.16.21 2.27 3.46 5.49 4.85 2.55 1.1 3.07.88 3.62.83.56-.05 1.79-.73 2.04-1.43.25-.7.25-1.31.18-1.43-.07-.13-.29-.21-.61-.37z"/>
+    </svg>
+  </a>
+  <a class="floating-book" href="#cta" aria-label="Book a consultation">
+    <div class="fb-head">
+      <span class="fb-lbl"><span data-en>Ready when you are</span><span data-zh>隨時為您</span></span>
+      <span class="fb-ttl"><span data-en>Book a <em>visit</em></span><span data-zh>預約<em>診症</em></span></span>
+      <span class="fb-sub"><span data-en>45-min first consultation with an obstetric specialist.</span><span data-zh>45 分鐘首次諮詢，由產科專科醫生主理。</span></span>
+    </div>
+    <div class="fb-actions">
+      <span class="fb-primary">
+        <span><span data-en>Book online</span><span data-zh>網上預約</span></span>
+        <span class="arr">→</span>
+      </span>
+      <div class="fb-meta">
+        <span><span data-en>Or call us</span><span data-zh>或致電</span></span>
+        <span class="val">+852 3899 2699</span>
+      </div>
+    </div>
+    <button class="fb-close" id="fbClose" aria-label="Dismiss" type="button">×</button>
+  </a>
+</div>
 
 <!-- ============ FOOTER ============ -->
 <footer>
@@ -1021,6 +1372,35 @@
       </div>
       <a class="btn btn-ghost" href="#"><span data-en>Meet the team</span><span data-zh>認識團隊</span> →</a>
     </div>
+
+    <div class="foot-map">
+      <div class="addr">
+        <div>
+          <div class="label"><span data-en>Visit us</span><span data-zh>到診地址</span></div>
+          <div class="line">
+            <span data-en>Amber Health Specialist Centre<br>9/F, Tower 2, New World Tower<br>18 Queen's Road Central, Hong Kong</span>
+            <span data-zh>Amber Health 專科中心<br>香港中環皇后大道中 18 號<br>新世界大廈第二期 9 樓</span>
+          </div>
+        </div>
+        <div>
+          <div class="label"><span data-en>Hours</span><span data-zh>診症時間</span></div>
+          <div class="line">
+            <span data-en>Mon–Fri 9:00–18:30 · Sat 9:00–13:00</span>
+            <span data-zh>週一至五 9:00–18:30 · 週六 9:00–13:00</span>
+          </div>
+        </div>
+        <a class="dir" href="https://www.google.com/maps/dir/?api=1&destination=New+World+Tower+18+Queen%27s+Road+Central+Hong+Kong" target="_blank" rel="noopener">
+          <span data-en>Get directions</span><span data-zh>取得路線</span> →
+        </a>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=New+World+Tower+18+Queen%27s+Road+Central+Hong+Kong&z=16&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Amber Health location map"></iframe>
+      </div>
+    </div>
+
     <div class="foot-bot">
       <div>© 2026 Amber Health · DPC-licensed facility</div>
       <div style="display:flex; gap:20px">
@@ -1098,7 +1478,7 @@
   }
 
   // ---------- sticky sub-nav active state ----------
-  const svcIds = ['antenatal','ultrasound','fetal','highrisk','genetic','preterm','induction','vaginal','csection','postnatal','lactation','contraceptive'];
+  const svcIds = ['antenatal','ultrasound','fetal','highrisk','genetic','preterm','induction','vaginal','csection','postnatal','lactation','contraceptive','team'];
   const subnavLinks = {};
   document.querySelectorAll('#subnav-inner a').forEach(a => {
     const id = a.getAttribute('href').slice(1);
@@ -1126,6 +1506,29 @@
   }
   window.addEventListener('scroll', updateActive, {passive:true});
   window.addEventListener('load', updateActive);
+
+  // ---------- floating book widget ----------
+  (function(){
+    const fb = document.getElementById('floatingBook');
+    const close = document.getElementById('fbClose');
+    if(!fb) return;
+    const dismissed = sessionStorage.getItem('fb-dismissed') === '1';
+    function toggle(){
+      if(dismissed) return;
+      const cta = document.getElementById('cta');
+      const ctaTop = cta ? cta.getBoundingClientRect().top : Infinity;
+      const show = window.scrollY > 600 && ctaTop > 120;
+      fb.classList.toggle('is-visible', show);
+    }
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      fb.classList.remove('is-visible');
+      sessionStorage.setItem('fb-dismissed','1');
+    });
+    window.addEventListener('scroll', toggle, {passive:true});
+    window.addEventListener('load', toggle);
+  })();
 </script>
 </body>
 </html>
