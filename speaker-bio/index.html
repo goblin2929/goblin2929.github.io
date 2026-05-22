@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tina Chu — Speaker bio</title>
+<meta name="viewport" content="width=1440">
+<meta name="description" content="Speaker bio for Tina Chu, Founder &amp; CEO of Novastacks — APAC growth marketing leader and AI marketing systems architect.">
+<style>
+  /* =========================================================================
+     MBB PROPOSAL DECK SYSTEM — TOKENS (from colors_and_type.css)
+     Light-dominant, hairline-driven, type-led. Board-room consultancy.
+     ========================================================================= */
+  @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    /* Paper / surface */
+    --paper:        #FAF8F4;
+    --paper-pure:   #FFFFFF;
+    --paper-deep:   #F2EFE8;
+    --paper-wash:   #EAF6F8;
+
+    /* Ink scale */
+    --ink-1:        #131313;
+    --ink-2:        #2A2A2A;
+    --ink-3:        #4A4A4A;
+    --ink-4:        #707070;
+    --ink-5:        #9B9B9B;
+
+    /* Hairline / rules */
+    --rule-hair:    #D9D5CC;
+    --rule-strong:  #131313;
+
+    /* Accent — one brand teal */
+    --accent:       #01AAC1;
+    --accent-deep:  #017D8E;
+    --accent-tint:  #EAF6F8;
+    --accent-tint-2:#D4EDF2;
+
+    /* Dark slab */
+    --dark-bg:      #131313;
+    --dark-fg:      #FAF8F4;
+    --dark-fg-2:    #B8B5AE;
+    --dark-rule:    #2A2A2A;
+
+    /* Type families */
+    --font-display: 'Inter Tight', system-ui, -apple-system, sans-serif;
+    --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+
+    /* Type — size scale */
+    --fs-footer:    16px;
+
+    /* Tracking */
+    --tr-display:   -0.02em;
+    --tr-cover:     -0.04em;
+    --tr-body:      -0.005em;
+    --tr-mono:       0.16em;
+
+    /* Geometry */
+    --rule-w-hair:   1px;
+    --rule-w-strong: 2px;
+  }
+
+  html, body {
+    font-family: var(--font-body);
+    color: var(--ink-2);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Mono footer label — used in the top bar and page foot */
+  .t-footer {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: var(--fs-footer);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+  }
+
+  /* =========================================================================
+     PAGE SHELL — single A-format-ish document on paper
+     ========================================================================= */
+  html, body { margin: 0; padding: 0; background: var(--paper); }
+  body {
+    color: var(--ink-2);
+    font-family: var(--font-body);
+    min-width: 1440px;
+  }
+
+  .page {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 64px 96px 96px;
+    box-sizing: border-box;
+    position: relative;
+    background: var(--paper);
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 18px;
+    border-bottom: var(--rule-w-strong) solid var(--ink-1);
+  }
+  .topbar .left { display: flex; gap: 28px; align-items: baseline; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    display: grid; grid-template-columns: 1.35fr 1fr;
+    gap: 64px;
+    padding: 72px 0 64px;
+    border-bottom: var(--rule-w-hair) solid var(--rule-hair);
+  }
+  .hero-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 88px;
+    letter-spacing: var(--tr-display);
+    line-height: 1.0;
+    color: var(--ink-1);
+    margin: 0;
+  }
+  .hero-role {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: -0.005em;
+    color: var(--ink-3);
+    margin-top: 16px;
+  }
+  .hero-role strong { color: var(--ink-1); font-weight: 600; }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: var(--tr-mono);
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 24px;
+  }
+  .hero-lede {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.3;
+    letter-spacing: var(--tr-body);
+    color: var(--ink-2);
+    margin: 36px 0 0;
+    max-width: 760px;
+    text-wrap: pretty;
+  }
+  .hero-lede strong { color: var(--ink-1); font-weight: 600; }
+
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 0 28px;
+    margin-top: 40px;
+  }
+  .hero-tag {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding: 10px 0;
+  }
+  .hero-tag + .hero-tag { border-left: var(--rule-w-hair) solid var(--rule-hair); padding-left: 28px; }
+
+  .hero-portrait {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background: var(--ink-2);
+    border: var(--rule-w-hair) solid var(--rule-hair);
+    overflow: hidden;
+  }
+  .hero-portrait img.portrait {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 50% 22%;
+    /* MBB system: desaturated ~80%, neutral-warm */
+    filter: saturate(0.82) contrast(1.02);
+  }
+  .hero-portrait .corner-tag {
+    position: absolute; top: 0; left: 0;
+    background: var(--ink-1); color: var(--paper);
+    font-family: var(--font-mono); font-size: 14px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 10px 14px;
+    z-index: 2;
+  }
+
+  /* ---------- Stat strip ---------- */
+  .stat-strip {
+    border-top: var(--rule-w-strong) solid var(--ink-1);
+    border-bottom: var(--rule-w-hair) solid var(--rule-hair);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    margin-top: 56px;
+  }
+  .stat-cell {
+    padding: 32px 28px 36px;
+    border-right: var(--rule-w-hair) solid var(--rule-hair);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .stat-cell:last-child { border-right: 0; }
+  .stat-eyebrow {
+    font-family: var(--font-mono); font-size: 14px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-4);
+  }
+  .stat-num {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 84px; letter-spacing: var(--tr-display);
+    line-height: 1; color: var(--ink-1);
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+  .stat-num .unit {
+    font-size: 36px; vertical-align: top; margin-left: 4px;
+    color: var(--ink-3); font-weight: 500;
+  }
+  .stat-num.accent { color: var(--accent-deep); }
+  .stat-label {
+    font-family: var(--font-body); font-size: 18px;
+    line-height: 1.4; color: var(--ink-3);
+  }
+
+  /* =========================================================================
+     SECTION SCAFFOLD
+     ========================================================================= */
+  section.bio {
+    margin-top: 80px;
+  }
+  .crumb {
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 16px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 20px;
+  }
+  .action {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: var(--tr-display);
+    color: var(--ink-1);
+    margin: 0;
+    max-width: 1100px;
+    text-wrap: balance;
+  }
+  .accent-rule {
+    border: 0;
+    border-top: var(--rule-w-strong) solid var(--accent);
+    width: 64px;
+    margin: 24px 0 0;
+  }
+
+  /* ---------- Narrative columns ---------- */
+  .narrative {
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: 64px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: var(--rule-w-hair) solid var(--rule-hair);
+  }
+  .narrative + .narrative { margin-top: 56px; }
+  .narrative .side {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    line-height: 1.5;
+  }
+  .narrative .body {
+    font-family: var(--font-body);
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 920px;
+  }
+  .narrative .body p { margin: 0 0 18px; text-wrap: pretty; }
+  .narrative .body p:last-child { margin-bottom: 0; }
+  .narrative .body strong { color: var(--ink-1); font-weight: 600; }
+  .narrative .body em {
+    font-style: normal; color: var(--accent-deep); font-weight: 500;
+  }
+
+  /* =========================================================================
+     CAREER MATRIX
+     ========================================================================= */
+  .career {
+    margin-top: 48px;
+  }
+  table.career-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 22px;
+  }
+  table.career-table thead tr {
+    border-top: var(--rule-w-strong) solid var(--ink-1);
+    border-bottom: var(--rule-w-strong) solid var(--ink-1);
+  }
+  table.career-table th {
+    text-align: left;
+    padding: 18px 20px;
+    font-family: var(--font-display);
+    font-weight: 600; font-size: 22px;
+    letter-spacing: -0.01em; color: var(--ink-1);
+  }
+  table.career-table th.right, table.career-table td.right { text-align: right; }
+  table.career-table tbody tr { border-bottom: var(--rule-w-hair) solid var(--rule-hair); }
+  table.career-table tbody tr:hover { background: var(--paper-deep); }
+  table.career-table td {
+    padding: 22px 20px;
+    color: var(--ink-2);
+    vertical-align: baseline;
+  }
+  table.career-table td.role {
+    color: var(--ink-1); font-weight: 600;
+  }
+  table.career-table td.years {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    font-feature-settings: "tnum" 1;
+  }
+  table.career-table tr.current td.role::after {
+    content: "CURRENT";
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: 0.16em; color: var(--paper);
+    background: var(--accent-deep);
+    padding: 3px 8px;
+    margin-left: 12px;
+    vertical-align: 3px;
+  }
+
+  /* =========================================================================
+     WINS — ranked list
+     ========================================================================= */
+  .wins {
+    margin-top: 48px;
+    border-top: var(--rule-w-strong) solid var(--ink-1);
+  }
+  .win-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 280px;
+    column-gap: 36px;
+    padding: 28px 0;
+    border-bottom: var(--rule-w-hair) solid var(--rule-hair);
+    align-items: baseline;
+  }
+  .win-tag {
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 18px;
+    color: var(--paper); background: var(--ink-1);
+    padding: 4px 10px;
+    letter-spacing: 0.12em; text-align: center;
+    justify-self: start;
+  }
+  .win-claim {
+    font-family: var(--font-display);
+    font-weight: 600; font-size: 28px;
+    line-height: 1.2; letter-spacing: -0.01em;
+    color: var(--ink-1);
+    text-wrap: balance;
+  }
+  .win-where {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-4);
+    text-align: right;
+  }
+
+  /* =========================================================================
+     INTRO + SHORT — two-up
+     ========================================================================= */
+  .twoup {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 48px;
+    border-top: var(--rule-w-strong) solid var(--ink-1);
+  }
+  .twoup > div {
+    padding: 36px 40px 40px;
+  }
+  .twoup > div:first-child {
+    border-right: var(--rule-w-hair) solid var(--rule-hair);
+  }
+  .twoup > div:last-child {
+    background: var(--accent-tint);
+  }
+  .twoup .label {
+    font-family: var(--font-mono); font-size: 14px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 8px;
+  }
+  .twoup .meta {
+    font-family: var(--font-mono); font-size: 14px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 8px;
+  }
+  .twoup .title {
+    font-family: var(--font-display); font-weight: 600; font-size: 28px;
+    color: var(--ink-1); letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .twoup .text {
+    font-family: var(--font-body); font-size: 20px; line-height: 1.5;
+    color: var(--ink-2);
+    text-wrap: pretty;
+  }
+
+  /* =========================================================================
+     SPEAKING & TRAINING + EDUCATION — two column
+     ========================================================================= */
+  .speak-edu {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 0;
+    margin-top: 48px;
+    border-top: var(--rule-w-strong) solid var(--ink-1);
+  }
+  .speak-edu > div { padding: 36px 40px 40px; }
+  .speak-edu .speak {
+    border-right: var(--rule-w-hair) solid var(--rule-hair);
+  }
+  .speak-edu .edu {
+    background: var(--paper-deep);
+  }
+  .speak-edu .label {
+    font-family: var(--font-mono); font-size: 14px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 20px;
+  }
+  .speak-lede {
+    font-family: var(--font-body); font-size: 20px; line-height: 1.5;
+    color: var(--ink-2); margin: 0 0 24px;
+    text-wrap: pretty;
+  }
+  .speak-list, .edu-list {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .speak-list li {
+    font-family: var(--font-body); font-size: 20px;
+    line-height: 1.45; color: var(--ink-2);
+    padding-left: 24px; position: relative;
+  }
+  .speak-list li::before {
+    content: "—"; position: absolute; left: 0; top: 0;
+    color: var(--accent-deep); font-family: var(--font-mono);
+  }
+  .speak-list li strong { color: var(--ink-1); font-weight: 600; }
+  .edu-list li {
+    font-family: var(--font-body); font-size: 20px;
+    line-height: 1.45; color: var(--ink-2);
+  }
+  .edu-list li strong {
+    color: var(--ink-1); font-weight: 600;
+    font-family: var(--font-display);
+    font-size: 24px; letter-spacing: -0.01em;
+  }
+  .edu-list .edu-where {
+    color: var(--ink-3); font-size: 18px;
+    display: inline-block; margin-top: 4px;
+  }
+
+  /* ---------- One-liner close ---------- */
+  .close {
+    margin-top: 96px;
+    background: var(--ink-1);
+    color: var(--dark-fg);
+    padding: 56px 64px;
+    display: grid; grid-template-columns: 1fr 280px;
+    gap: 64px; align-items: end;
+  }
+  .close .oneliner {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 56px; line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--dark-fg);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .close .oneliner em {
+    font-style: normal; color: var(--accent);
+  }
+  .close .sig {
+    font-family: var(--font-mono); font-size: 14px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--dark-fg-2);
+    text-align: right;
+    line-height: 1.6;
+  }
+  .close .sig .accent { color: var(--accent); display: block; margin-bottom: 8px; }
+
+  /* ---------- Bottom strip ---------- */
+  .pagefoot {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: var(--rule-w-hair) solid var(--rule-hair);
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .pagefoot span {
+    font-family: var(--font-mono); font-size: 13px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-4);
+  }
+
+  /* print niceties */
+  @media print {
+    body { background: var(--paper); min-width: 0; }
+    .page { width: 100%; padding: 32px 40px; }
+    .close, table.career-table tbody tr:hover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ====================== TOP BAR ====================== -->
+  <header class="topbar">
+    <div class="left">
+      <span class="t-footer">SPEAKER BIO</span>
+      <span class="t-footer" style="color: var(--ink-3);">TINA CHU · NOVASTACKS</span>
+    </div>
+    <div class="right">
+      <span class="t-footer">SINGAPORE · MAY 2026</span>
+    </div>
+  </header>
+
+  <!-- ====================== HERO ====================== -->
+  <section class="hero">
+    <div>
+      <div class="hero-eyebrow">Speaker</div>
+      <h1 class="hero-name">Tina Chu</h1>
+      <div class="hero-role"><strong>Founder &amp; CEO</strong>, Novastacks</div>
+      <hr class="accent-rule" style="margin-top: 32px; width: 64px;">
+      <p class="hero-lede">APAC Growth Marketing leadership (Formerly at Expedia, Tencent, Klook), now&nbsp;<span style="letter-spacing: -0.15px;">orchestrates AI marketing systems to grow brands regional and globally.</span></p>
+    </div>
+
+    <div class="hero-portrait">
+      <img class="portrait" src="tina-portrait.jpg" alt="Tina Chu, founder and CEO of Novastacks">
+      <div class="corner-tag">Speaker · 01</div>
+    </div>
+  </section>
+
+  <!-- ====================== STAT STRIP ====================== -->
+  <div class="stat-strip">
+    <div class="stat-cell">
+      <div class="stat-eyebrow">Leadership</div>
+      <div class="stat-num">18<span class="unit">+ yrs</span></div>
+      <div class="stat-label">across Expedia, Tencent, Klook, Traveloka</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-eyebrow">Ad spend managed</div>
+      <div class="stat-num">$50<span class="unit">M+</span></div>
+      <div class="stat-label">measurable ROI, data-driven strategy</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-eyebrow">Novastacks system</div>
+      <div class="stat-num accent">12</div>
+      <div class="stat-label">specialized AI agents · 10+ custom skills</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-eyebrow">Growth org built</div>
+      <div class="stat-num">100<span class="unit">+</span></div>
+      <div class="stat-label">people, performance · brand · creative</div>
+    </div>
+  </div>
+
+  <!-- ====================== BIO ====================== -->
+  <section class="bio">
+    <div class="crumb">01 · Bio</div>
+    <h2 class="action">Bio.</h2>
+    <hr class="accent-rule">
+
+    <div class="narrative">
+      <div class="side">
+        Founder &amp; CEO<br>Novastacks<br><br><span style="color: var(--ink-4);">Singapore</span>
+      </div>
+      <div class="body">
+        <p>
+          Tina Chu is the founder and CEO of Novastacks, an AI marketing studio based in Singapore.
+          She brings 18+ years of growth marketing leadership across tech-native companies in travel,
+          entertainment, crypto, and Web3, including Expedia, Tencent, Klook, and Traveloka. At each,
+          she built and scaled marketing organizations, managed $50M+ in ad spend, and delivered
+          measurable ROI through data-driven strategy.
+        </p>
+        <p>
+          Most recently, as VP of Acquisition Marketing at Traveloka, Tina built and led a 100-person
+          growth organization spanning performance marketing, affiliates, organic growth, brand, and
+          creative. Earlier, she scaled organic search and built the CRM function at Klook, led growth
+          for Tencent's JOOX music app across Southeast Asia, and ran Expedia's mobile marketing P&amp;L
+          across Asia, where her work for Hotels.com won the Marketing Excellence Awards.
+        </p>
+        <p>
+          When she built Novastacks, she didn't hire a team of twelve. She architected one: twelve
+          specialized AI agents, ten-plus custom skills, and connected data pipelines, all orchestrated
+          from a CLI terminal. Novastacks is an AI marketing studio that strategizes, executes, and
+          delivers business outcomes, not a solo consultancy that ships decks. Senior human expertise
+          is the orchestration layer, connected AI systems are the execution layer. Research feeds
+          content, content feeds SEO, SEO feeds AEO, analytics closes the loop.
+        </p>
+        <p>
+          Today, Tina builds agentic marketing systems for growth-stage companies, runs AI search
+          optimization (AEO) to get brands recommended by ChatGPT and Perplexity, and serves as a
+          fractional growth partner. She was building AEO systems for clients before most marketers
+          had a playbook for it. She holds an MBA from the Wharton School and considers AI discovery
+          the biggest customer acquisition puzzle in marketing today.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== CAREER MATRIX ====================== -->
+  <section class="bio career">
+    <div class="crumb">02 · Career</div>
+    <h2 class="action">Career.</h2>
+    <hr class="accent-rule">
+
+    <table class="career-table" style="margin-top: 40px;">
+      <thead>
+        <tr>
+          <th style="width: 420px;">Role</th>
+          <th>Company</th>
+          <th class="right" style="width: 320px;">Sector</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="current">
+          <td class="role">Founder &amp; CEO</td>
+          <td>Novastacks</td>
+          <td class="right" style="color: var(--ink-3);">AI marketing</td>
+        </tr>
+        <tr>
+          <td class="role">VP, Acquisition Marketing</td>
+          <td>Traveloka</td>
+          <td class="right" style="color: var(--ink-3);">Online travel</td>
+        </tr>
+        <tr>
+          <td class="role">VP, Growth</td>
+          <td>Cabital</td>
+          <td class="right" style="color: var(--ink-3);">B2B fintech</td>
+        </tr>
+        <tr>
+          <td class="role">VP, Growth Marketing</td>
+          <td>Klook</td>
+          <td class="right" style="color: var(--ink-3);">Travel &amp; experiences</td>
+        </tr>
+        <tr>
+          <td class="role">Director, Product &amp; Content Growth</td>
+          <td>Tencent · JOOX</td>
+          <td class="right" style="color: var(--ink-3);">Music streaming</td>
+        </tr>
+        <tr>
+          <td class="role">Head of Mobile Marketing</td>
+          <td>Expedia</td>
+          <td class="right" style="color: var(--ink-3);">Online travel</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ====================== SIGNATURE WINS ====================== -->
+  <section class="bio">
+    <div class="crumb">03 · Signature wins</div>
+    <h2 class="action">Signature wins.</h2>
+    <hr class="accent-rule">
+
+    <div class="wins">
+      <div class="win-row">
+        <div class="win-tag">01</div>
+        <div class="win-claim">Built and led a 100-person growth organization spanning performance marketing, brand, and creative.</div>
+        <div class="win-where">Traveloka</div>
+      </div>
+      <div class="win-row">
+        <div class="win-tag">02</div>
+        <div class="win-claim">Scaled organic search and built CRM functions from the ground up at high-growth tech companies.</div>
+        <div class="win-where">Klook</div>
+      </div>
+      <div class="win-row">
+        <div class="win-tag">03</div>
+        <div class="win-claim">Led product and content growth for a leading Southeast Asian entertainment platform.</div>
+        <div class="win-where">Tencent · JOOX</div>
+      </div>
+      <div class="win-row">
+        <div class="win-tag">04</div>
+        <div class="win-claim">Two-time winner of the Marketing Excellence Awards.</div>
+        <div class="win-where">Hotels.com</div>
+      </div>
+      <div class="win-row" style="border-bottom: 0;">
+        <div class="win-tag">05</div>
+        <div class="win-claim">Pioneered an ad-fraud detection method later adopted as a company-wide standard.</div>
+        <div class="win-where">Expedia</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== SPEAKER INTRODUCTIONS ====================== -->
+  <section class="bio">
+    <div class="crumb">04 · Introductions</div>
+    <h2 class="action">Speaker introductions.</h2>
+    <hr class="accent-rule">
+
+    <div class="twoup">
+      <div>
+        <div class="label">Short version · 2 sentences</div>
+        <p class="text">
+          Tina Chu is a marketing leader with 18+ years at Expedia, Tencent, Klook, and Traveloka.
+          She operates Novastacks, an AI marketing studio where she architects and orchestrates
+          connected AI marketing systems for growth-stage companies from Singapore.
+        </p>
+      </div>
+      <div>
+        <div class="meta">Webinar intro · 30 seconds · AEO topic</div>
+        <p class="text" style="color: var(--ink-1);">
+          Today's speaker is Tina Chu, a marketing leader with 18+ years at Expedia, Tencent, Klook,
+          and Traveloka. She runs Novastacks, a Singapore-based AI marketing studio that builds
+          agentic marketing systems, runs AI search optimization (AEO), and serves as a fractional
+          growth partner for growth-stage companies. Her team operates at a 1-to-9 human-to-AI-agent
+          ratio, working seamlessly to solve what she believes is the biggest customer acquisition
+          puzzle in marketing today. She was building these systems for clients before most marketers
+          had a playbook for it. Today she'll share what actually works.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== SPEAKING & TRAINING + EDUCATION ====================== -->
+  <section class="bio">
+    <div class="crumb">05 · Speaking &amp; training · education</div>
+    <h2 class="action">Speaking, training, and education.</h2>
+    <hr class="accent-rule">
+
+    <div class="speak-edu">
+      <div class="speak">
+        <div class="label">Speaking &amp; training</div>
+        <p class="speak-lede">
+          A recognized speaker on AI marketing, AI search (AEO), and mobile marketing.
+          Recent and regular engagements include:
+        </p>
+        <ul class="speak-list">
+          <li><strong>Panel speaker</strong> — Manus × HubSpot</li>
+          <li><strong>Speaker</strong> — Web in Travel (WiT) Summit</li>
+          <li><strong>Guest speaker</strong> — mobile marketing &amp; AI marketing for industry organizations and corporate audiences</li>
+          <li><strong>Corporate training facilitator</strong> — AI transformation</li>
+        </ul>
+      </div>
+      <div class="edu">
+        <div class="label">Education</div>
+        <ul class="edu-list">
+          <li>
+            <strong>MBA, Strategic Management</strong><br>
+            <span class="edu-where">The Wharton School, University of Pennsylvania</span>
+          </li>
+          <li>
+            <strong>Generative AI &amp; Business Transformation Program</strong><br>
+            <span class="edu-where">Wharton</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== CLOSE ====================== -->
+  <div class="close">
+    <p class="oneliner">
+      Marketing leader (Expedia, Tencent, Klook, Traveloka) who orchestrates
+      <em>connected AI marketing systems.</em> Founder &amp; CEO, Novastacks.
+    </p>
+    <div class="sig">
+      <span class="accent">Tina Chu</span>
+      Singapore<br>
+      Novastacks &nbsp;·&nbsp; 2026
+    </div>
+  </div>
+
+  <footer class="pagefoot">
+    <span>SPEAKER BIO · TINA CHU · NOVASTACKS AI</span>
+    <span>01 / 01</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
