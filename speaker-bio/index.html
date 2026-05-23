@@ -515,6 +515,22 @@
     color: var(--ink-4);
   }
 
+  /* Novastacks inline link — inherits color, underlines on hover only */
+  a.nova-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color .15s, border-color .15s;
+  }
+  a.nova-link:hover {
+    color: var(--accent-deep);
+    border-bottom-color: var(--accent-deep);
+  }
+  .close a.nova-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
   /* print niceties */
   @media print {
     body { background: var(--paper); min-width: 0; }
@@ -531,7 +547,7 @@
   <header class="topbar">
     <div class="left">
       <span class="t-footer">SPEAKER BIO</span>
-      <span class="t-footer" style="color: var(--ink-3);">TINA CHU · NOVASTACKS</span>
+      <span class="t-footer" style="color: var(--ink-3);">TINA CHU · <a class="nova-link" href="https://novastacks-ai.com">NOVASTACKS</a></span>
     </div>
     <div class="right">
       <span class="t-footer">SINGAPORE · MAY 2026</span>
@@ -543,7 +559,7 @@
     <div>
       <div class="hero-eyebrow">Speaker</div>
       <h1 class="hero-name">Tina Chu</h1>
-      <div class="hero-role"><strong>Founder &amp; CEO</strong>, Novastacks</div>
+      <div class="hero-role"><strong>Founder &amp; CEO</strong>, <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a></div>
       <hr class="accent-rule" style="margin-top: 32px; width: 64px;">
       <p class="hero-lede">APAC Growth Marketing leadership (Formerly at Expedia, Tencent, Klook), now&nbsp;<span style="letter-spacing: -0.15px;">orchestrates AI marketing systems to grow brands regional and globally.</span></p>
     </div>
@@ -586,11 +602,11 @@
 
     <div class="narrative">
       <div class="side">
-        Founder &amp; CEO<br>Novastacks<br><br><span style="color: var(--ink-4);">Singapore</span>
+        Founder &amp; CEO<br><a class="nova-link" href="https://novastacks-ai.com">Novastacks</a><br><br><span style="color: var(--ink-4);">Singapore</span>
       </div>
       <div class="body">
         <p>
-          Tina Chu is the founder and CEO of Novastacks, an AI marketing studio based in Singapore.
+          Tina Chu is the founder and CEO of <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a>, an AI marketing studio based in Singapore.
           She brings 18+ years of growth marketing leadership across tech-native companies in travel,
           entertainment, crypto, and Web3, including Expedia, Tencent, Klook, and Traveloka. At each,
           she built and scaled marketing organizations, managed $50M+ in ad spend, and delivered
@@ -604,9 +620,9 @@
           across Asia, where her work for Hotels.com won the Marketing Excellence Awards.
         </p>
         <p>
-          When she built Novastacks, she didn't hire a team of twelve. She architected one: twelve
+          When she built <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a>, she didn't hire a team of twelve. She architected one: twelve
           specialized AI agents, ten-plus custom skills, and connected data pipelines, all orchestrated
-          from a CLI terminal. Novastacks is an AI marketing studio that strategizes, executes, and
+          from a CLI terminal. <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a> is an AI marketing studio that strategizes, executes, and
           delivers business outcomes, not a solo consultancy that ships decks. Senior human expertise
           is the orchestration layer, connected AI systems are the execution layer. Research feeds
           content, content feeds SEO, SEO feeds AEO, analytics closes the loop.
@@ -639,7 +655,7 @@
       <tbody>
         <tr class="current">
           <td class="role">Founder &amp; CEO</td>
-          <td>Novastacks</td>
+          <td><a class="nova-link" href="https://novastacks-ai.com">Novastacks</a></td>
           <td class="right" style="color: var(--ink-3);">AI marketing</td>
         </tr>
         <tr>
@@ -717,7 +733,7 @@
         <div class="label">Short version · 2 sentences</div>
         <p class="text">
           Tina Chu is a marketing leader with 18+ years at Expedia, Tencent, Klook, and Traveloka.
-          She operates Novastacks, an AI marketing studio where she architects and orchestrates
+          She operates <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a>, an AI marketing studio where she architects and orchestrates
           connected AI marketing systems for growth-stage companies from Singapore.
         </p>
       </div>
@@ -725,7 +741,7 @@
         <div class="meta">Webinar intro · 30 seconds · AEO topic</div>
         <p class="text" style="color: var(--ink-1);">
           Today's speaker is Tina Chu, a marketing leader with 18+ years at Expedia, Tencent, Klook,
-          and Traveloka. She runs Novastacks, a Singapore-based AI marketing studio that builds
+          and Traveloka. She runs <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a>, a Singapore-based AI marketing studio that builds
           agentic marketing systems, runs AI search optimization (AEO), and serves as a fractional
           growth partner for growth-stage companies. Her team operates at a 1-to-9 human-to-AI-agent
           ratio, working seamlessly to solve what she believes is the biggest customer acquisition
@@ -776,17 +792,17 @@
   <div class="close">
     <p class="oneliner">
       Marketing leader (Expedia, Tencent, Klook, Traveloka) who orchestrates
-      <em>connected AI marketing systems.</em> Founder &amp; CEO, Novastacks.
+      <em>connected AI marketing systems.</em> Founder &amp; CEO, <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a>.
     </p>
     <div class="sig">
       <span class="accent">Tina Chu</span>
       Singapore<br>
-      Novastacks &nbsp;·&nbsp; 2026
+      <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a> &nbsp;·&nbsp; 2026
     </div>
   </div>
 
   <footer class="pagefoot">
-    <span>SPEAKER BIO · TINA CHU · NOVASTACKS AI</span>
+    <span>SPEAKER BIO · TINA CHU · <a class="nova-link" href="https://novastacks-ai.com">NOVASTACKS AI</a></span>
     <span>01 / 01</span>
   </footer>
 
