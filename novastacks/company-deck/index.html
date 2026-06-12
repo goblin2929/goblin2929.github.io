@@ -275,7 +275,11 @@
   /* ---- Partner card tags ---- */
   .pcard .ptitle{font-family:var(--font-display);font-weight:600;font-size:33px;color:var(--ink-1);margin:0;letter-spacing:-.015em;line-height:1.12}
   .pcard .psub{font-family:var(--font-body);font-weight:600;font-size:21px;color:var(--ink-3);margin:14px 0 0;line-height:1.3}
-  .ptags{display:flex;flex-wrap:wrap;gap:9px;margin-top:auto;padding-top:22px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .pprice{margin-top:auto;padding-top:20px;border-top:var(--rule-w-hair) solid var(--rule-hair);display:flex;flex-direction:column;gap:4px}
+  .pprice .plab{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+  .pprice .pnum{font-family:var(--font-display);font-weight:600;font-size:38px;letter-spacing:-.02em;color:var(--ink-1);font-feature-settings:"tnum" 1}
+  .pprice .pnum .pmo{font-size:21px;font-weight:500;color:var(--ink-3)}
+  .ptags{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
   .ptag{font-family:var(--font-mono);font-size:15px;letter-spacing:.04em;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:5px 11px;border-radius:var(--radius-1);white-space:nowrap}
   .ptag.em{background:var(--accent-deep);color:var(--paper)}
 
@@ -702,24 +706,27 @@
           <h3 class="ptitle">SEO &amp; AEO Solution —<br>Done For You</h3>
           <p class="psub">We run the Source &amp; Echo Method end to end.</p>
           <p class="pd">Business-outcome focused. Your account stays with senior operators — never outsourced, never handed to juniors.</p>
+          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">$3K–10K<span class="pmo"> / month</span></span></div>
           <div class="ptags">
-            <span class="ptag em">$3K–10K / mo</span><span class="ptag">Monthly retainer</span><span class="ptag">Technical SEO</span><span class="ptag">AEO</span><span class="ptag">Content SEO</span><span class="ptag">Local SEO</span>
+            <span class="ptag em">Monthly retainer</span><span class="ptag">Technical SEO</span><span class="ptag">AEO</span><span class="ptag">Content SEO</span><span class="ptag">Local SEO</span>
           </div>
         </div>
         <div class="pcard">
           <h3 class="ptitle">SEO &amp; AEO Strategy<br>Advisory</h3>
           <p class="psub">The strategy and roadmap, without the operation.</p>
           <p class="pd">Strategy-focused. Prompt portfolio baseline, the method strategy and a 90-day plan — handed to your team to run.</p>
+          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Customised</span></div>
           <div class="ptags">
-            <span class="ptag em">Pricing — Customised</span><span class="ptag">Strategy</span><span class="ptag">Roadmap</span><span class="ptag">Handover</span>
+            <span class="ptag em">Strategy-focused</span><span class="ptag">Roadmap</span><span class="ptag">Handover</span>
           </div>
         </div>
         <div class="pcard">
           <h3 class="ptitle">Agentic System<br>Building &amp; Advisory</h3>
           <p class="psub">We build the capability with you.</p>
           <p class="pd">Workshops and implementation that leave the system — and the skills — inside your team.</p>
+          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Customised</span></div>
           <div class="ptags">
-            <span class="ptag em">Pricing — Customised</span><span class="ptag">Project-based</span><span class="ptag">Workshops</span><span class="ptag">Implementation</span><span class="ptag">Custom agent builds</span>
+            <span class="ptag em">Project-based</span><span class="ptag">Workshops</span><span class="ptag">Implementation</span><span class="ptag">Custom agent builds</span>
           </div>
         </div>
       </div>
