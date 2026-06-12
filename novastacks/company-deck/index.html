@@ -55,6 +55,21 @@
   .chart-col .claim{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);line-height:1.18;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
   .chart-col .src{font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin:0}
 
+  /* ---- SEO vs AEO split (slide 3) ---- */
+  .vs-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+  .vs-half{padding:64px 72px 56px;display:flex;flex-direction:column;gap:22px;min-width:0}
+  .vs-half.light{background:var(--paper);border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .vs-half.dark{background:var(--dark-bg);color:var(--dark-fg)}
+  .vs-half .vh{font-family:var(--font-display);font-weight:600;font-size:42px;letter-spacing:-.02em;line-height:1.05;margin:0;color:var(--ink-1)}
+  .vs-half.dark .vh{color:var(--dark-fg)}
+  .vs-half .vshot{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);overflow:hidden}
+  .vs-half.dark .vshot{border-color:var(--dark-rule);background:#0d0d0d}
+  .vs-half .vshot img{max-width:100%;max-height:100%;object-fit:contain}
+  .vs-half .vcap2{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:0}
+  .vs-half.dark .vcap2{color:var(--dark-fg-2)}
+  .vs-half .vfoot{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}
+  .vs-half.dark .vfoot{color:var(--dark-fg-2)}
+
   /* ---- Venn (slide 3) ---- */
   .venn-grid{margin-top:32px;flex:1;display:grid;grid-template-columns:720px 1fr;gap:72px;align-items:center}
   .venn{position:relative;width:640px;height:520px;margin:0 auto}
@@ -362,7 +377,27 @@
           <p class="src">Ahrefs, GSC data</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · Pew 2025 · Wix · Ahrefs GSC</span><span class="t-footer">02 / 15</span></div>
+      <div class="footer"><span class="t-footer">SRC · Pew 2025 · Wix · Ahrefs GSC</span><span class="t-footer">02 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 02B SEO VS AEO -->
+  <section data-label="SEO vs AEO">
+    <div class="mslide bleed vs-grid" style="padding:0">
+      <div class="vs-half light">
+        <div class="t-eyebrow">SEO — TRADITIONAL SEARCH</div>
+        <p class="vh">Ten blue links compete for a click.</p>
+        <div class="vshot"><img src="assets/seo-bluelinks.png" alt="Google results page — ten ranked blue links"></div>
+        <p class="vcap2">Google, "what is seo" — ranked pages, every visit a click away.</p>
+        <div class="vfoot"><span>SRC · LIVE GOOGLE RESULTS</span><span>03 / 16</span></div>
+      </div>
+      <div class="vs-half dark">
+        <div class="t-eyebrow" style="color:var(--accent)">AEO — AI SEARCH</div>
+        <p class="vh">One answer mentions a few brands.</p>
+        <div class="vshot"><img src="assets/aeo-mention-sg.jpg" alt="Google AI Overview naming Novastacks as a recommended AEO agency"></div>
+        <p class="vcap2">Google AI Overview, "aeo agency singapore" — the answer names Novastacks. Cited, not ranked.</p>
+        <div class="vfoot"><span>LIVE RESULT · JUN 2026</span><span>&nbsp;</span></div>
+      </div>
     </div>
   </section>
 
@@ -387,7 +422,7 @@
           <p class="vpayoff">Run all three together and your brand becomes the answer AI gives — not just a link it lists.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">POSITIONING · OUTCOME = BEING CHOSEN BY AI</span><span class="t-footer">03 / 15</span></div>
+      <div class="footer"><span class="t-footer">POSITIONING · OUTCOME = BEING CHOSEN BY AI</span><span class="t-footer">04 / 16</span></div>
     </div>
   </section>
 
@@ -430,7 +465,7 @@
         <span class="wm">Traveloka</span>
         <span class="wm">Tokopedia</span>
       </div>
-      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">04 / 15</span></div>
+      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">05 / 16</span></div>
     </div>
   </section>
 
@@ -452,7 +487,7 @@
           <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Echo Network</span><span class="sysnum">SYS·04</span></div>
           <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Proof Loop</span><span class="sysnum">SYS·05</span></div>
         </div>
-        <div class="footer"><span class="t-footer">METHOD · THE SOURCE &amp; ECHO METHOD · FIVE SYSTEMS</span><span class="t-footer">05 / 15</span></div>
+        <div class="footer"><span class="t-footer">METHOD · THE SOURCE &amp; ECHO METHOD · FIVE SYSTEMS</span><span class="t-footer">06 / 16</span></div>
       </div>
       <div class="method-right anim d2">
         <div class="dia"><img src="assets/full-system-light.png" alt="The Source &amp; Echo Method system diagram"></div>
@@ -485,7 +520,7 @@
           <p class="vcap"><b>Live in NovaLens.</b> The week’s top visibility movers: per-engine cited / appears / absent status across the tracked prompt set.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED</span><span class="t-footer">06 / 15</span></div>
+      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED</span><span class="t-footer">07 / 16</span></div>
     </div>
   </section>
 
@@ -512,7 +547,7 @@
           <p class="vcap"><b>System view.</b> Schema brackets, entity tags and passage-first structure on a page, with AI crawler reads confirmed in the logs.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 02</span><span class="t-footer">07 / 15</span></div>
+      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 02</span><span class="t-footer">08 / 16</span></div>
     </div>
   </section>
 
@@ -538,7 +573,7 @@
           <p class="vcap"><b>System view.</b> Sales calls, win/loss notes and support tickets assembled into comparison pages no competitor holds — the pages AI ends up citing.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 03</span><span class="t-footer">08 / 15</span></div>
+      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 03</span><span class="t-footer">09 / 16</span></div>
     </div>
   </section>
 
@@ -565,7 +600,7 @@
           <p class="vcap"><b>The outreach table, live.</b> Eleven publisher targets mined from AI citations — each with the exact list to enter and the placement model quoted. Client masked.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · BRAINLABS PUBLISHED RESEARCH · ECHO TRACK · SYSTEM 04</span><span class="t-footer">09 / 15</span></div>
+      <div class="footer"><span class="t-footer">SRC · BRAINLABS PUBLISHED RESEARCH · ECHO TRACK · SYSTEM 04</span><span class="t-footer">10 / 16</span></div>
     </div>
   </section>
 
@@ -591,7 +626,7 @@
           <p class="vcap"><b>Live in NovaLens.</b> The morning traffic read: daily clicks, brand / non-brand split, pacing against last month.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED, VOLUMES INDEXED</span><span class="t-footer">10 / 15</span></div>
+      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED, VOLUMES INDEXED</span><span class="t-footer">11 / 16</span></div>
     </div>
   </section>
 
@@ -608,7 +643,7 @@
         <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">→</span> 8.4</div><div class="sl">Page 3 → page 1</div></div>
         <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">11 / 15</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">12 / 16</span></div>
     </div>
   </section>
 
@@ -635,7 +670,7 @@
           <p class="cap">AI visibility climbing across every engine — <b>Google AI Overviews, Perplexity and ChatGPT</b> — tracked live in NovaLens through the engagement.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">12 / 15</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">13 / 16</span></div>
     </div>
   </section>
 
@@ -649,7 +684,7 @@
         <p class="bigq anim d1">“I had a conversation with AI… it narrowed it down to a top five. <em>You guys were a top two.</em>”</p>
         <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
       </div>
-      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">13 / 15</span></div>
+      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">14 / 16</span></div>
     </div>
   </section>
 
@@ -668,7 +703,7 @@
           <p class="psub">We run the Source &amp; Echo Method end to end.</p>
           <p class="pd">Business-outcome focused. Your account stays with senior operators — never outsourced, never handed to juniors.</p>
           <div class="ptags">
-            <span class="ptag em">$3K–7K / mo</span><span class="ptag">Monthly retainer</span><span class="ptag">Technical SEO</span><span class="ptag">AEO</span><span class="ptag">Content SEO</span><span class="ptag">Local SEO</span>
+            <span class="ptag em">$3K–10K / mo</span><span class="ptag">Monthly retainer</span><span class="ptag">Technical SEO</span><span class="ptag">AEO</span><span class="ptag">Content SEO</span><span class="ptag">Local SEO</span>
           </div>
         </div>
         <div class="pcard">
@@ -688,7 +723,7 @@
           </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">ENGAGE · DONE-FOR-YOU · STRATEGY · BUILD-WITH-YOU</span><span class="t-footer">14 / 15</span></div>
+      <div class="footer"><span class="t-footer">ENGAGE · DONE-FOR-YOU · STRATEGY · BUILD-WITH-YOU</span><span class="t-footer">15 / 16</span></div>
     </div>
   </section>
 
@@ -708,7 +743,7 @@
           </div>
           <div class="footer" style="margin-top:40px">
             <span class="t-footer" style="color:var(--dark-fg-2)">FULL CASE STUDY · goblin2929.github.io/prospect-docs</span>
-            <span class="t-footer" style="color:var(--accent)">15 / 15</span>
+            <span class="t-footer" style="color:var(--accent)">16 / 16</span>
           </div>
         </div>
       </div>
