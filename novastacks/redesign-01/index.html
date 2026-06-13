@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAGING 01 — Ink on the Blueprint — NOVASTACKS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* SYSTEM 01 — INK ON THE BLUEPRINT: Bauhaus geometry carries the system,
+       one calligraphic gesture per major view. Thick ink rules, flat fields. */
+    :root {
+      --paper:#F6F1E7; --ink:#15171B; --ink2:#43474F; --ink3:#6E737C;
+      --teal:#01aac1; --tealdeep:#017d8e; --clay:#C4A08A; --hair:#E2DDD2; --max:76rem;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+    .wrap { max-width:var(--max); margin:0 auto; padding:0 2rem; }
+    h1,h2,h3 { font-family:'Space Grotesk',sans-serif; }
+    h2 { font-size:clamp(2rem,3.6vw,3.1rem); line-height:1.06; font-weight:700; letter-spacing:-.015em; }
+    h3 { font-size:1.15rem; font-weight:600; }
+    p { color:var(--ink2); }
+    .measure { max-width:62ch; }
+    .btn { display:inline-block; background:var(--tealdeep); color:#fff; font-weight:600; font-size:.95rem; text-decoration:none; padding:.85rem 1.6rem; border-radius:4px; transition:background-color .2s; }
+    .btn:hover { background:#01646f; }
+    .ghost { display:inline-flex; align-items:center; gap:.5rem; color:var(--ink2); font-weight:500; font-size:.95rem; text-decoration:none; border-bottom:1.5px solid var(--hair); padding-bottom:2px; }
+    .ghost:hover { color:var(--tealdeep); border-color:var(--tealdeep); }
+    .ghost b { color:var(--tealdeep); font-weight:500; }
+    section { padding:5.5rem 0; border-top:2px solid var(--ink); }
+    .staging { background:var(--ink); color:#fff; text-align:center; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; padding:.5rem 1rem; font-weight:600; }
+    .staging span { color:#7fd6e2; }
+    header { position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:2px solid var(--ink); }
+    .nav { display:flex; align-items:center; justify-content:space-between; height:4.25rem; }
+    .nav .wordmark { font-family:'Space Grotesk'; font-weight:700; font-size:1.25rem; letter-spacing:.04em; color:var(--ink); text-decoration:none; }
+    .nav-links { display:flex; gap:1.9rem; }
+    .nav-links a { font-size:.92rem; font-weight:500; color:var(--ink2); text-decoration:none; }
+    .nav-links a:hover { color:var(--tealdeep); }
+    @media (max-width:920px){ .nav-links{display:none;} }
+
+    /* hero */
+    .hero { position:relative; overflow:hidden; border-top:none; padding:0; height:46rem; }
+    .hero .grid-bg { position:absolute; inset:0; background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px); background-size:120px 120px; opacity:.05; }
+    .hero .geo-c { position:absolute; width:42rem; height:42rem; border-radius:50%; background:var(--teal); right:-13rem; top:6rem; }
+    .hero .geo-s { position:absolute; width:11.5rem; height:11.5rem; background:var(--ink); right:10rem; top:1.8rem; }
+    .hero .geo-q { position:absolute; width:21rem; height:21rem; background:var(--clay); right:21rem; bottom:-5.5rem; border-radius:100% 0 0 0; }
+    .hero .slash { position:absolute; width:47rem; right:-3rem; top:13rem; transform:rotate(6deg); z-index:10; }
+    .hero .inner { position:relative; z-index:20; padding-top:7.5rem; }
+    .hero h1 { font-size:clamp(2.8rem,5.4vw,5.4rem); font-weight:700; line-height:1.0; letter-spacing:-.02em; max-width:48rem; }
+    .hero .sub { font-size:1.16rem; margin:1.7rem 0 2.3rem; max-width:32rem; }
+    .hero .ctas { display:flex; gap:1.75rem; align-items:center; }
+    .proofband { position:absolute; left:0; right:0; bottom:0; background:var(--ink); color:#fff; z-index:30; }
+    .proofband .in { display:flex; gap:4rem; align-items:center; height:5.4rem; }
+    .proofband .p { font-size:.88rem; color:#B9BDC4; }
+    .proofband .p b { color:#fff; font-family:'Space Grotesk'; font-size:1.3rem; margin-right:.5rem; }
+
+    /* index rows */
+    .index-row { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr) auto; gap:2.5rem; align-items:baseline; padding:2.1rem .75rem; border-top:2px solid var(--ink); text-decoration:none; transition:background .2s; }
+    .index-row:last-of-type { border-bottom:2px solid var(--ink); }
+    .index-row:hover { background:#fff; }
+    .index-row .t { font-family:'Space Grotesk'; font-size:clamp(1.4rem,2.4vw,2rem); font-weight:600; color:var(--ink); }
+    .index-row .d { font-size:.97rem; color:var(--ink2); }
+    .index-row .a { color:var(--tealdeep); font-weight:500; white-space:nowrap; font-size:.95rem; }
+    @media (max-width:720px){ .index-row{grid-template-columns:1fr; gap:.5rem;} }
+
+    /* systems grid: ink table */
+    .syst { display:grid; grid-template-columns:1fr 1fr; border:2px solid var(--ink); background:var(--ink); gap:2px; }
+    .syst > div { background:var(--paper); padding:2.2rem 2.4rem; }
+    .syst h3 { margin-bottom:.5rem; }
+    .syst p { font-size:.97rem; }
+    .syst .chip { width:2.4rem; height:.5rem; margin-bottom:1.1rem; }
+    @media (max-width:720px){ .syst{grid-template-columns:1fr;} }
+
+    /* fit */
+    .fit { display:grid; grid-template-columns:1fr 1fr; gap:2px; border:2px solid var(--ink); background:var(--ink); max-width:56rem; }
+    .fit > div { background:var(--paper); padding:2rem 2.2rem; }
+    .fit .head { font-family:'Space Grotesk'; font-weight:600; font-size:1.1rem; padding:.4rem .9rem; display:inline-block; margin-bottom:1.2rem; }
+    .fit .gy .head { background:var(--teal); color:#fff; }
+    .fit .gn .head { background:var(--hair); color:var(--ink2); }
+    .fit ul { list-style:none; }
+    .fit li { display:flex; gap:.8rem; padding:.5rem 0; color:var(--ink2); }
+    .fit .y { color:var(--tealdeep); font-weight:700; }
+    .fit .n { color:var(--ink3); font-weight:700; }
+    @media (max-width:720px){ .fit{grid-template-columns:1fr;} }
+
+    /* case study */
+    .kicker { font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink3); font-weight:600; margin-bottom:1rem; }
+    .case { border:2px solid var(--ink); background:#fff; }
+    .case-head { padding:2.4rem 2.6rem; border-bottom:2px solid var(--ink); }
+    .case-head h3 { font-size:1.55rem; margin-bottom:1rem; }
+    .case-head p { font-size:1rem; max-width:70ch; }
+    .stats { display:grid; grid-template-columns:repeat(4,1fr); background:var(--ink); gap:2px; }
+    .stats > div { padding:1.6rem 2.4rem; background:var(--paper); position:relative; }
+    .stats .n { font-family:'Space Grotesk'; font-size:2.4rem; font-weight:700; color:var(--tealdeep); line-height:1.1; }
+    .stats > div:first-child .ring { position:absolute; width:7.5rem; left:1rem; top:.2rem; opacity:.9; }
+    .stats .l { font-size:.85rem; color:var(--ink3); margin-top:.3rem; }
+    @media (max-width:860px){ .stats{grid-template-columns:1fr 1fr;} }
+    .sprint { padding:2rem 2.6rem 2.4rem; border-top:2px solid var(--ink); }
+    .sprint ol { margin:.8rem 0 1rem 1.2rem; color:var(--ink2); font-size:.97rem; }
+    .sprint .res { font-size:.97rem; color:var(--ink); font-weight:500; }
+    .pullq { border-left:4px solid var(--teal); padding-left:1.4rem; margin-top:2.4rem; font-size:1.1rem; color:var(--ink2); max-width:62ch; }
+
+    .logos { display:flex; flex-wrap:wrap; align-items:center; gap:3rem 4rem; margin-top:2rem; }
+    .logos img { height:2rem; filter:brightness(0); opacity:.62; }
+
+    .trio { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem; margin-top:2.6rem; }
+    .trio > div { border-top:4px solid var(--ink); padding-top:1.1rem; }
+    .trio > div:nth-child(1){ border-color:var(--teal); }
+    .trio > div:nth-child(2){ border-color:var(--clay); }
+    .trio > div:nth-child(3){ border-color:var(--ink); }
+    .trio h3 { margin-bottom:.5rem; font-size:1.05rem; }
+    .trio p { font-size:.95rem; }
+    @media (max-width:860px){ .trio{grid-template-columns:1fr;} }
+
+    .loop { display:grid; grid-template-columns:repeat(4,1fr); margin-top:2.6rem; }
+    .loop > div { padding:1.2rem 1.6rem 0 0; position:relative; }
+    .loop > div::before { content:""; position:absolute; top:0; left:0; right:1.6rem; height:4px; background:var(--teal); }
+    .loop > div:last-child::before { right:0; background:var(--clay); }
+    .loop h3 { display:flex; gap:.55rem; margin-bottom:.5rem; font-size:1.05rem; }
+    .loop h3 .gl { color:var(--tealdeep); font-weight:500; }
+    .loop p { font-size:.93rem; }
+    @media (max-width:860px){ .loop{grid-template-columns:1fr;} .loop>div{margin-bottom:1.4rem;} }
+
+    .eng { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; border:2px solid var(--ink); background:var(--ink); margin-top:2rem; }
+    .eng a { background:var(--paper); padding:1.8rem 2rem; text-decoration:none; display:block; }
+    .eng a:hover { background:#fff; }
+    .eng h3 { font-size:1.02rem; color:var(--tealdeep); margin-bottom:.35rem; }
+    .eng p { font-size:.93rem; }
+    @media (max-width:860px){ .eng{grid-template-columns:1fr;} }
+
+    .founder { display:grid; grid-template-columns:4fr 7fr; gap:3.5rem; align-items:start; margin-top:2.6rem; }
+    .founder .photo { position:relative; max-width:320px; }
+    .founder .photo::before { content:""; position:absolute; width:9rem; height:9rem; border-radius:50%; background:var(--teal); left:-2.4rem; top:-2.4rem; z-index:0; }
+    .founder img { position:relative; width:100%; display:block; border:2px solid var(--ink); z-index:1; }
+    .founder .role { font-size:.85rem; color:var(--tealdeep); font-weight:600; margin-top:1rem; }
+    .founder .name { font-family:'Space Grotesk'; font-size:1.5rem; font-weight:700; }
+    .founder .bio p { font-size:1.02rem; margin-bottom:.9rem; }
+    .fstats { display:flex; gap:2.6rem; flex-wrap:wrap; margin:1.4rem 0 1.2rem; }
+    .fstats .n { font-family:'Space Grotesk'; font-size:1.45rem; font-weight:700; }
+    .fstats .l { font-size:.82rem; color:var(--ink3); }
+    .experts { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem; margin-top:3.4rem; }
+    .experts img { width:100%; aspect-ratio:4/4.6; object-fit:cover; object-position:top; display:block; border:2px solid var(--ink); }
+    .experts .name { font-family:'Space Grotesk'; font-weight:600; font-size:1.05rem; margin-top:.9rem; }
+    .experts .role { font-size:.83rem; color:var(--tealdeep); font-weight:600; margin-bottom:.4rem; }
+    .experts p.b { font-size:.92rem; color:var(--ink2); }
+    @media (max-width:860px){ .founder,.experts{grid-template-columns:1fr;} }
+
+    .sg-tags { display:flex; flex-wrap:wrap; gap:.6rem 2.2rem; margin-top:1.6rem; font-size:.95rem; color:var(--ink2); font-weight:500; }
+    .faq { max-width:50rem; }
+    .faq details { border-top:2px solid var(--ink); }
+    .faq details:last-child { border-bottom:2px solid var(--ink); }
+    .faq summary { cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; padding:1.15rem .25rem; font-weight:500; font-size:1rem; }
+    .faq summary::-webkit-details-marker { display:none; }
+    .faq summary::after { content:"+"; color:var(--tealdeep); font-size:1.3rem; margin-left:1rem; }
+    .faq details[open] summary::after { content:"\2212"; }
+    .faq .ans { padding:0 .25rem 1.3rem; font-size:.95rem; color:var(--ink2); max-width:65ch; }
+    .faq a { color:var(--tealdeep); }
+
+    .cta { text-align:center; position:relative; overflow:hidden; }
+    .cta .geo { position:absolute; width:16rem; height:16rem; border-radius:50%; background:var(--teal); right:-5rem; bottom:-8rem; opacity:.9; }
+    .cta .geo2 { position:absolute; width:8rem; height:8rem; background:var(--clay); left:-3rem; top:-3rem; }
+    .cta h2 { font-size:clamp(2.2rem,4vw,3.4rem); position:relative; z-index:2; }
+    .cta .underline { width:300px; margin:0.6rem auto 0; display:block; position:relative; z-index:2; }
+    .cta p { margin:1.4rem auto 2.2rem; max-width:44ch; position:relative; z-index:2; }
+    .cta .alt { margin-top:1.8rem; font-size:.95rem; color:var(--ink3); }
+    .cta .alt a { color:var(--tealdeep); }
+
+    footer { background:var(--ink); color:#fff; padding:4rem 0 3rem; border-top:none; }
+    .fgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:2.5rem; }
+    .fgrid h3 { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:#8A8F98; margin-bottom:.9rem; font-family:'Inter'; font-weight:600; }
+    .fgrid ul { list-style:none; }
+    .fgrid li { padding:.22rem 0; }
+    .fgrid a { font-size:.92rem; color:#B9BDC4; text-decoration:none; }
+    .fgrid a:hover { color:var(--teal); }
+    .fnote { margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.15); font-size:.85rem; color:#8A8F98; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    @media (max-width:860px){ .fgrid{grid-template-columns:1fr 1fr;} }
+  </style>
+</head>
+<body>
+  <div class="staging">Staging 01 <span>&middot;</span> Ink on the Blueprint <span>&middot;</span> not production</div>
+  <header><div class="wrap nav">
+    <a class="wordmark" href="#">NOVASTACKS</a>
+    <nav class="nav-links"><a href="#services">AEO Services</a><a href="#services">GEO Services</a><a href="#">Fractional CMO</a><a href="#">Methodology</a><a href="#">Free Tools</a><a href="#founder">About</a></nav>
+    <a class="btn" href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a Strategy Call</a>
+  </div></header>
+
+  <section class="hero">
+    <div class="grid-bg"></div><div class="geo-c"></div><div class="geo-s"></div><div class="geo-q"></div>
+    <img class="slash" src="assets/cut-slash-diagonal-ink.png" alt="">
+    <div class="wrap inner">
+      <h1>The AI SEO agency for Singapore.</h1>
+      <p class="sub">We get Singapore brands ranked on Google and recommended by ChatGPT, Perplexity, and Google AI Overviews. One agency. Search and AI search, together.</p>
+      <div class="ctas"><a class="btn" href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a Strategy Call</a><a class="ghost" href="#services">See what we do <b>&rarr;</b></a></div>
+    </div>
+    <div class="proofband"><div class="wrap in">
+      <span class="p"><b>43</b>AI citations in 60 days, from zero</span>
+      <span class="p"><b>+178%</b>non-branded organic traffic</span>
+      <span class="p"><b>Top 0.5%</b>Claude Code usage, globally</span>
+    </div></div>
+  </section>
+
+  <section style="border-top:none;">
+    <div class="wrap">
+      <h2 style="margin-bottom:1.6rem;">Ranking Is No Longer<br>the Same as Being Found.</h2>
+      <div class="measure">
+        <p style="margin-bottom:.9rem;">Half of Singapore searches now end without a click. AI answers them first.</p>
+        <p style="margin-bottom:.9rem;">ChatGPT and Perplexity recommend brands. Google AI Overviews summarise them.</p>
+        <p style="margin-bottom:.9rem;">A traditional SEO agency optimises for the ten blue links. That game is shrinking.</p>
+        <p style="font-family:'Space Grotesk'; font-size:1.3rem; font-weight:600; color:var(--ink); margin-top:1.6rem;">You need an agency that wins Google rankings <em>and</em> AI recommendations. That is what we do.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2 style="margin-bottom:1rem;">Three Disciplines. One Search Practice.</h2>
+      <p class="measure" style="margin-bottom:2.8rem;">Most agencies do one. We run all three as a single system. Strong technical SEO and content SEO are the foundation: a fast, crawlable, well-structured site with authoritative content is what makes AEO and GEO possible at all.</p>
+      <a class="index-row" href="#"><span class="t">Search Engine Optimization</span><span class="d">Technical SEO, content, and authority that win Google rankings in the Singapore market.</span><span class="a">SEO services &rarr;</span></a>
+      <a class="index-row" href="#"><span class="t">Answer Engine Optimization</span><span class="d">Get cited by ChatGPT, Perplexity, and Google AI Overviews when buyers ask about your category.</span><span class="a">AEO agency &rarr;</span></a>
+      <a class="index-row" href="#"><span class="t">Generative Engine Optimization</span><span class="d">Shape how generative AI describes, ranks, and recommends your brand across every model.</span><span class="a">GEO agency &rarr;</span></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-bottom:1rem;">Custom Agentic Marketing Systems</h2>
+      <p class="measure" style="margin-bottom:2.4rem;">We do not sell software. We design, build, and operate AI-powered workflows tailored to your business.</p>
+      <div class="syst">
+        <div><div class="chip" style="background:var(--teal);"></div><h3>AEO Systems</h3><p>Get cited by AI when prospects ask questions in your category. Be the answer ChatGPT, Perplexity, and Google AI give.</p></div>
+        <div><div class="chip" style="background:var(--clay);"></div><h3>Content Systems</h3><p>Scale quality, not just quantity. AI workflows that maintain your brand voice while producing content that converts.</p></div>
+        <div><div class="chip" style="background:var(--ink);"></div><h3>Analytics Systems</h3><p>Turn data into decisions, not dashboards. Automated insights that tell you what to do next, not just what happened.</p></div>
+        <div><div class="chip" style="background:var(--tealdeep);"></div><h3>Performance Systems</h3><p>AI-optimized campaigns that adapt in real-time. Paid media that learns and improves automatically.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-bottom:2.4rem;">Is This You?</h2>
+      <div class="fit">
+        <div class="gy"><span class="head">A good fit</span>
+          <ul>
+            <li><span class="y">&#10003;</span> Series A+ with customer data and traction</li>
+            <li><span class="y">&#10003;</span> Relying on online discovery for growth</li>
+            <li><span class="y">&#10003;</span> Ready to invest in systems, not just campaigns</li>
+            <li><span class="y">&#10003;</span> Want leverage: human expertise amplified by AI</li>
+          </ul>
+        </div>
+        <div class="gn"><span class="head">Not a fit</span>
+          <ul>
+            <li><span class="n">&#10005;</span> Pre-product or pre-revenue startups</li>
+            <li><span class="n">&#10005;</span> "Rank fast, spend little" expectations</li>
+            <li><span class="n">&#10005;</span> Looking for bulk content or template automation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-bottom:2.4rem;">Outcomes, Not Activity Reports.</h2>
+      <div class="case">
+        <div class="case-head">
+          <p class="kicker">Case study &middot; B2B SaaS</p>
+          <h3>Logistics SaaS: 0 &rarr; 43 AI Citations in 60 Days</h3>
+          <p>A Series B logistics SaaS company ranked #3 on Google for "logistics software for mid-market." Good SEO. Solid content. But sales kept hearing about a competitor "that came recommended." We tested their buyer queries in ChatGPT: the competitor was cited every time. They were not. The competitor had FAQ schema, Q&amp;A structured content, and named credentials on technical articles. Our client had none of it.</p>
+        </div>
+        <div class="stats">
+          <div><img class="ring" src="assets/cut-enso-circle-teal.png" alt=""><div class="n">43</div><div class="l">AI citations in 60 days, from zero</div></div>
+          <div><div class="n">+178%</div><div class="l">Non-branded organic traffic</div></div>
+          <div><div class="n">2.3&times;</div><div class="l">Higher conversion from AI-referred visitors</div></div>
+          <div><div class="n">8</div><div class="l">Queries with first-page AI citation</div></div>
+        </div>
+        <div class="sprint">
+          <p style="font-weight:600; color:var(--ink); font-size:.97rem;">The 60-day sprint</p>
+          <ol>
+            <li>FAQ schema added across 12 product and use-case pages</li>
+            <li>Comparison pages restructured against 4 main competitors</li>
+            <li>Named credentials and author bios added to technical content</li>
+            <li>Integration pages reformatted into a clear Q&amp;A structure</li>
+            <li>Citeable statistics surfaced from the client's proprietary data</li>
+          </ol>
+          <p class="res">Result: AEO amplified their SEO. Same rankings, a brand-new discovery channel.</p>
+        </div>
+      </div>
+      <p class="pullq">We do not just run this playbook for clients. We built and pressure-tested it on our own properties and our own AEO research first, then turned it into the free AI visibility tools you can use on this site.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="font-size:clamp(1.5rem,2.6vw,2.1rem); margin-bottom:.6rem;">Where We've Shaped Marketing at Scale</h2>
+      <p style="color:var(--ink3);">20 years leading growth across Asia-Pacific. Now building AI systems for growth-stage companies.</p>
+      <div class="logos">
+        <img src="assets/tencent-logo.avif" alt="Tencent"><img src="assets/expedia-group-logo.svg" alt="Expedia Group"><img src="assets/klook-logo.avif" alt="Klook"><img src="assets/cabital-logo.png" alt="Cabital"><img src="assets/traveloka-logo.webp" alt="Traveloka">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-bottom:1rem;">Not a Retainer. An AI-Native System.</h2>
+      <p class="measure">A traditional SEO agency bills you for hours. We build you a system: senior operators plus an AI agent team that runs analysis, content, and monitoring at a scale a human-only agency cannot match.</p>
+      <div class="trio">
+        <div><h3>Senior operators, not juniors</h3><p>Your account is run by people who led marketing at Expedia, Tencent, and Klook, not handed to a trainee.</p></div>
+        <div><h3>An AI agent team behind them</h3><p>Twelve AI agents handle audits, prompt tracking, and content drafts so output compounds week over week.</p></div>
+        <div><h3>Search and AI search together</h3><p>One team owns Google rankings and AI citations, so the two reinforce each other instead of competing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>The Compounding Loop.</h2>
+      <div class="loop">
+        <div><h3>Audit <span class="gl">&rarr;</span></h3><p>We map where you stand across search, AEO, and GEO. Run with AI for speed, verified by senior operators.</p></div>
+        <div><h3>Architect <span class="gl">&rarr;</span></h3><p>We design the system: content, structured data, agent workflows, and the roadmap.</p></div>
+        <div><h3>Activate <span class="gl">&rarr;</span></h3><p>Senior operators and AI agents execute the build at scale.</p></div>
+        <div><h3>Amplify <span class="gl">&#8635;</span></h3><p>We measure outcomes, feed learnings back, and the system compounds.</p></div>
+      </div>
+      <p style="margin-top:2.4rem;"><a class="ghost" href="#">See our full methodology <b>&rarr;</b></a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="font-size:clamp(1.5rem,2.6vw,2.1rem);">Ways to Work Together</h2>
+      <div class="eng">
+        <a href="#"><h3>Answer Engine Optimization (AEO)</h3><p>Get cited by AI answer engines like ChatGPT, Perplexity, and Google AI Overviews when buyers ask about your category.</p></a>
+        <a href="#"><h3>Generative Engine Optimization (GEO)</h3><p>Shape how generative AI describes, ranks, and recommends your brand so you become the trusted choice.</p></a>
+        <a href="#"><h3>Fractional Growth Partner</h3><p>Strategic marketing leadership on demand for companies not ready for a full-time hire.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="founder">
+    <div class="wrap">
+      <h2 style="margin-bottom:1rem;">One Founder. Three Experts. Twelve AI Agents.</h2>
+      <p class="measure">Real, named operators run your account. Most agencies in Singapore will not tell you who actually does the work.</p>
+      <div class="founder">
+        <div>
+          <div class="photo"><img src="assets/founder-photo.jpg" alt="Portrait of Tina Chu"></div>
+          <p class="role">FOUNDER &amp; CEO</p><p class="name">Tina Chu</p>
+          <p style="font-size:.9rem; color:var(--ink3);">The human in the loop</p>
+        </div>
+        <div class="bio">
+          <p>While others debated whether AI would replace marketers, Tina Chu was already living the answer. Every client report, every SEO audit, every piece of content flows through a terminal where Claude Code is not a tool but a thinking partner.</p>
+          <div class="fstats">
+            <div><div class="n">11,000</div><div class="l">messages with her AI agents</div></div>
+            <div><div class="n">1,737</div><div class="l">working sessions</div></div>
+            <div><div class="n">Top 0.5%</div><div class="l">Claude Code usage, globally</div></div>
+          </div>
+          <p>Twenty years of enterprise marketing at Expedia, Tencent, Klook, Traveloka, and Cabital taught her what moves metrics at scale across APAC. 2017 Mob-Ex Award, APAC Mobile Excellence.</p>
+          <p>This is not automation. It is augmentation: human judgment at AI speed.</p>
+        </div>
+      </div>
+      <div class="experts">
+        <div><img src="assets/team-yaohong.avif" alt="Portrait of Yaohong"><p class="name">Yaohong</p><p class="role">CTO</p><p class="b">20+ years in finance and tech, building and scaling data teams at StashAway and January Capital.</p></div>
+        <div><img src="assets/team-eki.jpg" alt="Portrait of Eki"><p class="name">Eki</p><p class="role">HEAD OF AEO</p><p class="b">Google Product Expert, featured in Google's official Core Web Vitals case study. Former SEO lead at Tokopedia. Speaker at SEOCON Jakarta.</p></div>
+        <div><img src="assets/team-raka.jpg" alt="Portrait of Raka"><p class="name">Raka</p><p class="role">CREATIVE DIRECTOR</p><p class="b">15 years in motion design across broadcast, tech, and creative production.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-bottom:1.4rem;">An SEO Agency That Knows<br>the Singapore Market.</h2>
+      <div class="measure">
+        <p style="margin-bottom:.9rem;">We are a Singapore based agency working with local brands and APAC companies entering the market.</p>
+        <p>That means search behaviour, language, competitor sets, and the AI platforms your buyers actually use here, not a generic global playbook.</p>
+      </div>
+      <div class="sg-tags"><span>Singapore SMEs &amp; startups</span><span>APAC market entry</span><span>B2B &amp; SaaS</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-bottom:2.2rem;">Questions Singapore Brands Ask Us</h2>
+      <div class="faq">
+        <details><summary>What is an AI SEO agency?</summary><div class="ans">An AI SEO agency optimizes your visibility in two places at once: traditional search engines like Google, and AI answer engines like ChatGPT, Perplexity, and Google AI Overviews. A conventional SEO agency stops at Google rankings. Novastacks runs both as one practice, because the same content, structure, and authority signals increasingly feed both.</div></details>
+        <details><summary>What is AEO, and how is it different from SEO?</summary><div class="ans">SEO (Search Engine Optimization) earns you rankings and clicks in Google's results. AEO (Answer Engine Optimization) earns you citations and recommendations inside AI-generated answers. SEO optimizes for the ten blue links; AEO optimizes for the moment ChatGPT or an AI Overview names a brand. You need both, and they reinforce each other.</div></details>
+        <details><summary>What is the difference between AEO and GEO?</summary><div class="ans">AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) both make your content visible to AI-driven search, but they differ in focus. AEO targets direct, concise answers, such as voice search and featured snippets. GEO optimizes for comprehensive, authoritative content that AI models summarize and cite. Both matter, and they work best together.</div></details>
+        <details><summary>How do I choose an SEO agency in Singapore?</summary><div class="ans">Look for three things: senior operators who actually run your account rather than juniors, transparency about who does the work, and a methodology that covers AI search and not just Google. Ask any agency how they will get you cited by ChatGPT and Perplexity. If they have no clear answer, they are optimizing for a shrinking slice of search.</div></details>
+        <details><summary>When should my business engage an SEO agency?</summary><div class="ans">Engage one when organic search is, or should be, a meaningful channel for you and you do not have senior in-house SEO capacity. For AEO specifically, earlier is better: AI answer engines are still forming their view of most brands, so there is a first-mover window to become the cited source in your category before competitors do.</div></details>
+        <details><summary>How do you get a brand cited by ChatGPT and AI search?</summary><div class="ans">AI answer engines pull from structured, authoritative, clearly formatted content. We add FAQ and Q&amp;A structured data, build comparison and use-case pages that directly answer buyer questions, strengthen author and brand credentials, and surface citeable data. We then track which prompts cite you and refine from there. In one recent engagement this took a logistics SaaS from zero to 43 AI citations in 60 days.</div></details>
+        <details><summary>What makes Novastacks different from other SEO agencies in Singapore?</summary><div class="ans">Two things. First, we run SEO, AEO, and GEO as one system, so your Google rankings and AI citations compound together instead of being treated as separate projects. Second, senior operators run your account, with experience at Tencent, Expedia, and Klook and a Google Product Expert leading AEO, backed by an AI agent team that scales execution. You get senior judgment and high output, not a junior with a checklist.</div></details>
+        <details><summary>How much does SEO cost in Singapore?</summary><div class="ans">SEO engagements in Singapore vary widely by scope and how competitive your category is. Rather than a fixed package, we scope each engagement to your goals after a free audit, so you only pay for work that moves your search and AI visibility. <a href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a strategy call</a> and we will give you a clear, specific proposal.</div></details>
+        <details><summary>Do you work with businesses outside Singapore?</summary><div class="ans">Yes. We are Singapore based and know this market deeply, but we also work with APAC companies and businesses in other markets and industry segments such as SaaS, financial, OTA, e-commerce, and more. AEO and GEO are global by nature: if your buyers ask AI about your category anywhere, we can help you become the cited answer.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="geo"></div><div class="geo2"></div>
+    <div class="wrap">
+      <h2>Ready to Win Search<br>and AI Search?</h2>
+      <img class="underline" src="assets/cut-swash-underline-teal.png" alt="">
+      <p>Book a strategy call. We will show you where you stand in Google and across AI platforms today.</p>
+      <a class="btn" href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a Strategy Call</a>
+      <p class="alt">Not ready to talk? <a href="#">Try our free AI visibility tools &rarr;</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="fgrid">
+        <div><h3>Services</h3><ul><li><a href="#">AEO Services</a></li><li><a href="#">GEO Services</a></li><li><a href="#">SEO Services</a></li><li><a href="#">Fractional CMO</a></li></ul></div>
+        <div><h3>AEO Resources</h3><ul><li><a href="#">Free AEO Audit</a></li><li><a href="#">AEO Guide</a></li><li><a href="#">Best AEO Tools 2026</a></li></ul></div>
+        <div><h3>Growth Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Methodology</a></li></ul></div>
+        <div><h3>Company</h3><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      </div>
+      <div class="fnote"><span>&copy; 2026 Novastacks. AI marketing studio, Singapore.</span><span>Search and AI search, together.</span></div>
+    </div>
+  </footer>
+</body>
+</html>
