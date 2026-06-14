@@ -256,6 +256,63 @@
     .fgrid a:hover { color:var(--teal); }
     .fnote { max-width:var(--max); margin:2.8rem auto 0; padding:1.4rem 2.2rem 0; border-top:1px solid rgba(255,255,255,.15); font-size:.84rem; color:#8A8F98; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
     @media (max-width:820px){ .fgrid{grid-template-columns:1fr 1fr;} }
+
+    /* ===== Review 2026-06-14: de-deck. No section numbers/eyebrows, no horizontal
+       stripes, fewer + softer boxes, rounded corners, more breathing room. ===== */
+    .blk-head { display:none !important; }                 /* kill section numbers + eyebrow labels */
+    .blk { border-top:none !important; }                   /* kill thick horizontal divider stripes */
+    .pad { padding:2.6rem 0 5.5rem; }                      /* lean on whitespace for separation */
+    .btn { border-radius:11px; }
+    /* disciplines: open soft cards, no ink frame */
+    .disc { border:none; background:transparent; gap:1.2rem; }
+    .disc a { border-radius:20px; }
+    .disc a:not(:nth-child(1)) { background:#fff; box-shadow:0 14px 40px rgba(21,23,27,.05); }
+    .disc a:nth-child(1) { border-radius:20px; }
+    /* systems bento: soft rounded cards, no hard ink grid */
+    .bento { border:none; background:transparent; gap:1.2rem; }
+    .bento > div { border-radius:20px; }
+    .bento .sm { background:#fff; box-shadow:0 14px 40px rgba(21,23,27,.05); }
+    /* fit: soft, no heavy borders */
+    .fitb .good { border:none; background:#fff; border-radius:24px; box-shadow:0 18px 50px rgba(21,23,27,.06); }
+    .fitb .good li { border-bottom:1px solid var(--hair); }
+    .fitb .bad { border:none; }
+    /* case exhibit: soft frame */
+    .exh { border:none; background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 24px 70px rgba(21,23,27,.07); }
+    .exh .stats { border-top:1px solid var(--hair); }
+    .exh .stats > div + div { border-left:1px solid var(--hair); }
+    /* engagements: soft cards, drop the colour stripe */
+    .eng { border:none; background:transparent; gap:1.2rem; }
+    .eng a { background:#fff; border-radius:20px; box-shadow:0 14px 40px rgba(21,23,27,.05); }
+    .eng .bar { display:none; }
+    /* why-novastacks: drop the colour-bar top stripes */
+    .ret-cols > div { border-top:none; padding-top:0; }
+    /* team experts: soft rounded cards */
+    .experts { border:none; background:transparent; gap:1.5rem; }
+    .experts .c { background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 16px 44px rgba(21,23,27,.06); }
+    .experts img { border-radius:0; }
+    .founder .pf img { border-radius:18px; border-width:0; box-shadow:0 18px 50px rgba(21,23,27,.10); }
+    .founder .pf::before { border-radius:18px; }
+    /* FAQ: open list, soft, no box */
+    .qa { border:none; border-radius:0; }
+    .qa summary { padding:1.15rem .25rem; }
+    .qa .ans { padding-left:.25rem; }
+    /* loop: soften connector + nodes */
+    .loop .conn { background:repeating-linear-gradient(90deg,var(--ink) 0 5px,transparent 5px 13px); opacity:.18; }
+    .loop .bn { border-radius:999px; }
+    /* hero proof: rounded soft frame instead of hard bordered box */
+    .hero .proof .frame { border:none; border-radius:16px; overflow:hidden; box-shadow:0 28px 70px rgba(21,23,27,.18); }
+    .hero .proof .cap { border:none; border-radius:0 0 16px 16px; }
+    .hero .proof .figtag { border-radius:8px; }
+    /* singapore: softer */
+    .sg .stamp { border-radius:18px; }
+    .sg-tags span { border-radius:999px; }
+    /* drop decorative item-numerals + inner tag labels (keep only the sequential process loop) */
+    .disc .dn { display:none; }
+    .disc h3 { margin-top:0; }
+    .bento .sm .sn { display:none; }
+    .bento .big .ft { display:none; }
+    .bento .sm h3 { margin-top:0; }
+    .shift-grid .pull { border-radius:22px; }
   </style>
 </head>
 <body>
