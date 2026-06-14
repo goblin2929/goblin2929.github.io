@@ -513,5 +513,20 @@
     </div>
     <div class="fnote"><span>&copy; 2026 Novastacks. AI marketing studio, Singapore.</span><span>Search and AI search, together.</span></div>
   </footer>
+  <script>
+  /* Restrained scroll-reveal — progressive enhancement. Respects reduced-motion. */
+  (function(){
+    var root=document.documentElement; root.classList.add('js');
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var st=document.createElement('style');
+    st.textContent='.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);}.rv.in{opacity:1;transform:none;}';
+    document.head.appendChild(st);
+    var sel='.hero .copy,.hero .proof,.blk-head,section>.wrap>h2,.shift-grid,.disc>a,.bento>div,.fitb>div,.exh,.ll,.ret-lead,.ret-cols>div,.loop,.eng>a,.founder,.experts>.c,.sg,.qa,.cta .inner';
+    var els=[].slice.call(document.querySelectorAll(sel));
+    els.forEach(function(el){el.classList.add('rv');});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target,p=el.parentNode,sibs=p?[].slice.call(p.children).filter(function(c){return c.classList.contains('rv');}):[el],i=sibs.indexOf(el);el.style.transitionDelay=(Math.min(i,5)*70)+'ms';el.classList.add('in');io.unobserve(el);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    els.forEach(function(el){io.observe(el);});
+  })();
+  </script>
 </body>
 </html>

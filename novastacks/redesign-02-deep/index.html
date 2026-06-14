@@ -68,10 +68,12 @@
     .hero .swash { display:block; width:18rem; margin-top:.4rem; }
     .hero .ctas { display:flex; gap:1.6rem; align-items:center; margin-top:2.1rem; }
     .exhibit { position:relative; }
-    .exhibit .frame { aspect-ratio:4/4.7; background:var(--ink); display:flex; align-items:flex-end; }
-    .exhibit .ph { color:rgba(255,255,255,.72); font-size:.8rem; line-height:1.55; padding:1.1rem 1.2rem; border-top:1px dashed rgba(255,255,255,.3); }
-    .exhibit .figtag { position:absolute; top:-.7rem; left:-.7rem; background:var(--ink); color:#fff; font-family:'Space Grotesk'; font-size:.72rem; font-weight:600; letter-spacing:.1em; padding:.3rem .7rem; text-transform:uppercase; }
-    .exhibit .note { position:absolute; left:-2rem; bottom:-1.4rem; font-size:1.5rem; transform:rotate(-4deg); width:12rem; line-height:1.1; }
+    .exhibit .frame { border:2px solid var(--ink); background:#0b0d12; box-shadow:11px 11px 0 var(--clay); position:relative; z-index:2; }
+    .exhibit .frame img { width:100%; display:block; }
+    .exhibit .figtag { position:absolute; z-index:4; top:-.7rem; left:-.7rem; background:var(--ink); color:#fff; font-family:'Space Grotesk'; font-size:.72rem; font-weight:600; letter-spacing:.1em; padding:.3rem .7rem; text-transform:uppercase; }
+    .exhibit .cap { position:relative; z-index:2; border:2px solid var(--ink); border-top:none; background:var(--paper2); font-size:.82rem; line-height:1.45; padding:.75rem .95rem; }
+    .exhibit .cap b { color:var(--tealdeep); font-weight:600; }
+    .exhibit .note { position:absolute; z-index:5; right:-1rem; top:-1.9rem; font-size:1.4rem; transform:rotate(-3deg); width:13rem; line-height:1.1; text-align:right; }
 
     /* ---------- §01 THE SHIFT — drop cap statement ---------- */
     .shift .dc { font-size:1.6rem; line-height:1.45; color:var(--ink); font-weight:400; max-width:30ch; }
@@ -251,9 +253,10 @@
           <div class="ctas"><a class="btn" href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a Strategy Call</a><a class="ghost" href="#services">See what we do <b>&rarr;</b></a></div>
         </div>
         <div class="exhibit">
-          <span class="figtag">Fig. 1 — the work</span>
-          <div class="frame"><p class="ph">Exhibit slot: real top-down photo of Tina's desk — a printed client proof with actual ink circles and margin notes, terminal visible on screen. Warm light, real, never stock.</p></div>
-          <div class="note hand">this is what buyers now ask ChatGPT &darr;</div>
+          <div class="note hand">proof, not a promise &darr;</div>
+          <span class="figtag">Fig. 1 — live proof</span>
+          <div class="frame"><img src="assets/proof-aio-serp.jpg" alt="Google AI Overview for 'aeo agency singapore' citing Novastacks as an AEO-native AI marketing studio"></div>
+          <div class="cap">Ask Google "<b>aeo agency singapore</b>" today and its AI Overview names <b>Novastacks</b>. We run our own playbook on ourselves first.</div>
         </div>
       </div>
     </section>
@@ -512,5 +515,20 @@
     </div>
     <div class="fnote"><span>&copy; 2026 Novastacks. AI marketing studio, Singapore.</span><span>Search and AI search, together.</span></div>
   </footer>
+  <script>
+  /* Restrained scroll-reveal — progressive enhancement. Respects reduced-motion. */
+  (function(){
+    var root=document.documentElement; root.classList.add('js');
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var st=document.createElement('style');
+    st.textContent='.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);}.rv.in{opacity:1;transform:none;}';
+    document.head.appendChild(st);
+    var sel='.hero-grid>div,.sec>.rail,.sec>div>h2,.shift .dc,.shift .body,.shift .verdict,.toc>a,.cat>div,.fit2>div,.exh,.ledger>div>.ll,.retainer>div>p,.retainer .marg>div,.loop2,.files>a,.founder,.contact-sheet>.card,.sg,.qa>details,.cta';
+    var els=[].slice.call(document.querySelectorAll(sel));
+    els.forEach(function(el){el.classList.add('rv');});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target,p=el.parentNode,sibs=p?[].slice.call(p.children).filter(function(c){return c.classList.contains('rv');}):[el],i=sibs.indexOf(el);el.style.transitionDelay=(Math.min(i,5)*70)+'ms';el.classList.add('in');io.unobserve(el);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    els.forEach(function(el){io.observe(el);});
+  })();
+  </script>
 </body>
 </html>
