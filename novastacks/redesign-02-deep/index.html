@@ -239,6 +239,47 @@
     .fgrid a:hover { color:var(--tealdeep); }
     .fnote { max-width:var(--max); margin:2.8rem auto 0; padding:1.4rem 2.2rem 0; border-top:1px solid var(--hair); font-size:.85rem; color:var(--ink3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
     @media (max-width:780px){ .fgrid{grid-template-columns:1fr 1fr;} }
+
+    /* ===== Review 2026-06-14 (#2): strip the manuscript scaffolding (section numbers,
+       running-head labels, Fig. tags), kill stripes, soften boxes — keep the
+       hand-annotation soul (ink-circled words, margin notes, brush underline, proof). ===== */
+    .sec { grid-template-columns:1fr; border-top:none; padding:2.4rem 0 4.6rem; }  /* collapse numbered rail + remove divider stripes */
+    .rail { display:none; }
+    /* drop figure-number tags everywhere */
+    .exhibit .figtag, .exh .figtag, .contact-sheet .fg, .cat .feature .ft { display:none; }
+    .btn { border-radius:11px; }
+    /* disciplines index: lose the ruled-leader feel, keep open rows */
+    .toc a { border-top-color:transparent; }
+    .toc a:first-child { border-top:none; }
+    .toc a:last-of-type { border-bottom-color:var(--hair); }
+    /* catalogue: soft rounded, no hard frame */
+    .cat .feature { border-radius:22px; }
+    .cat .filed > div { border-top:none; border-bottom:1px solid var(--hair); }
+    .cat .filed > div:first-child { border-top:none; }
+    /* fit: soft card for the good column, open for not-a-fit */
+    .fit2 .good { background:#fff; border-radius:22px; padding:1.8rem 2rem; box-shadow:0 18px 50px rgba(21,23,27,.05); }
+    /* case exhibit: soft rounded, no hard ink border */
+    .exh { border:none; background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 24px 70px rgba(21,23,27,.07); }
+    .exh .stats > div + div { border-left:1px solid var(--hair); }
+    /* engagements: soft cards, drop the AEO/GEO/CMO tab labels */
+    .files > a { border:none; background:#fff; border-radius:18px; margin-bottom:1rem; box-shadow:0 14px 40px rgba(21,23,27,.05); }
+    .files > a::before { display:none; }
+    .files > a:last-child { border-bottom:none; }
+    /* team: soft rounded imagery */
+    .contact-sheet img, .founder img.f { border-radius:18px; }
+    /* hero proof + results proof: soft rounded frames */
+    .hero .exhibit .frame { border:none; border-radius:16px; box-shadow:0 28px 70px rgba(21,23,27,.18); }
+    .hero .exhibit .cap { border:none; border-radius:0 0 16px 16px; }
+    .proof-fig .fr { border-radius:14px; overflow:hidden; }
+    /* singapore stamp + faq soften */
+    .sg .stamp { border-radius:18px; }
+    /* drop remaining decorative numerals (disciplines ghost nums, systems row nums, FAQ Q-numbers) */
+    .toc .gn { display:none; }
+    .toc a { grid-template-columns:1fr auto; }
+    .cat .filed .fg { display:none; }
+    .cat .filed > div { grid-template-columns:1fr; }
+    .qa .qn { display:none; }
+    .qa summary { grid-template-columns:1fr auto; }
   </style>
 </head>
 <body>
