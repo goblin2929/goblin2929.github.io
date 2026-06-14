@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAGING 03-DEEP — Ensō, composed all the way down — NOVASTACKS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       03-DEEP — ENSŌ, composed all the way down. Spine = thin ink
+       rules + vast whitespace + section index numbers. Each section
+       a distinct composition; distinctiveness comes from DENSITY
+       CONTRAST (huge near-empty statements between dense rows) and
+       TYPE SCALE, with the ensō used structurally (figure mark,
+       loop-closer, faint CTA field) — never as filler decoration.
+       ============================================================ */
+    :root {
+      --paper:#F6F1E7; --ink:#15171B; --ink2:#43474F; --ink3:#6E737C;
+      --teal:#01aac1; --tealdeep:#017d8e; --clay:#C4A08A; --rule:rgba(21,23,27,.16); --hair:#E2DDD2; --max:72rem;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; font-size:17px; line-height:1.72; -webkit-font-smoothing:antialiased; }
+    h1,h2,h3 { font-family:'Space Grotesk',sans-serif; }
+    h2 { font-size:clamp(2rem,3.6vw,3rem); line-height:1.04; font-weight:700; letter-spacing:-.02em; }
+    h2 .tw { color:var(--tealdeep); font-style:italic; }
+    p { color:var(--ink2); }
+    em { font-style:italic; }
+    a { color:inherit; }
+    .wrap { max-width:var(--max); margin:0 auto; padding:0 2.5rem; }
+    .btn { display:inline-block; background:var(--tealdeep); color:#fff; font-weight:600; font-size:.95rem; text-decoration:none; padding:.85rem 1.6rem; border-radius:4px; transition:background-color .2s; }
+    .btn:hover { background:#01646f; }
+    .ghost { display:inline-flex; align-items:center; gap:.5rem; color:var(--ink2); font-weight:500; font-size:.95rem; text-decoration:none; border-bottom:1.5px solid var(--hair); padding-bottom:2px; }
+    .ghost:hover { color:var(--tealdeep); border-color:var(--tealdeep); }
+    .ghost b { color:var(--tealdeep); font-weight:500; }
+    .idx { font-family:'Space Grotesk'; font-size:.8rem; font-weight:600; color:var(--ink3); letter-spacing:.04em; }
+    .staging { background:var(--ink); color:#fff; text-align:center; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; padding:.5rem 1rem; font-weight:600; }
+    .staging span { color:#7fd6e2; }
+
+    header { position:sticky; top:0; z-index:60; background:rgba(246,241,231,.95); backdrop-filter:blur(8px); border-bottom:1px solid var(--rule); }
+    .nav { max-width:var(--max); margin:0 auto; padding:0 2.5rem; display:flex; align-items:center; justify-content:space-between; height:4.5rem; }
+    .nav .wm { display:flex; align-items:center; gap:.7rem; text-decoration:none; }
+    .nav .wm img { height:1.9rem; }
+    .nav .wm span { font-family:'Space Grotesk'; font-weight:700; font-size:1.2rem; letter-spacing:.05em; color:var(--ink); }
+    .nav-links { display:flex; gap:1.9rem; }
+    .nav-links a { font-size:.92rem; font-weight:500; color:var(--ink2); text-decoration:none; }
+    .nav-links a:hover { color:var(--tealdeep); }
+    @media (max-width:920px){ .nav-links{display:none;} }
+
+    section { border-top:1px solid var(--rule); }
+    .sechead { display:flex; align-items:baseline; gap:1rem; padding-top:1.4rem; }
+    .sechead .rh { font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3); font-weight:600; }
+
+    /* ---------- HERO ---------- */
+    .hero { position:relative; overflow:hidden; border-top:none; padding:6.5rem 0 0; }
+    .hero .enso { position:absolute; width:38rem; right:-6rem; top:2rem; z-index:0; pointer-events:none; }
+    .hero .inner { position:relative; z-index:2; }
+    .hero h1 { font-size:clamp(3rem,6.5vw,6.2rem); font-weight:700; line-height:.97; letter-spacing:-.03em; max-width:48rem; }
+    .hero h1 .tw { color:var(--tealdeep); font-style:italic; }
+    .hero .sub { font-size:1.15rem; margin:1.9rem 0 2.4rem; max-width:29rem; }
+    .hero .ctas { display:flex; gap:1.75rem; align-items:center; }
+    .hero .statsrow { display:flex; gap:4rem; margin-top:5rem; padding:2rem 0 4.5rem; border-top:1px solid var(--ink); flex-wrap:wrap; }
+    .hero .statsrow .n { font-family:'Space Grotesk'; font-weight:700; font-size:2rem; line-height:1; }
+    .hero .statsrow .l { font-size:.85rem; color:var(--ink3); margin-top:.4rem; }
+
+    /* ---------- §01 SHIFT — big statement, lots of air ---------- */
+    .shift { padding:6rem 0; }
+    .shift .big { font-family:'Space Grotesk'; font-size:clamp(1.9rem,3.4vw,2.8rem); font-weight:600; line-height:1.18; max-width:24ch; letter-spacing:-.01em; }
+    .shift .big .tw { color:var(--tealdeep); font-style:italic; }
+    .shift .rows { margin-top:2.4rem; max-width:60ch; }
+    .shift .rows p { padding:.7rem 0; border-top:1px solid var(--rule); color:var(--ink2); }
+
+    /* ---------- §02 DISCIPLINES — minimal ruled index ---------- */
+    .pad { padding:3rem 0 5rem; }
+    .disc a { display:grid; grid-template-columns:auto 1fr auto; gap:1.6rem; align-items:baseline; padding:1.8rem 0; border-top:1px solid var(--rule); text-decoration:none; transition:padding-left .2s; }
+    .disc a:last-child { border-bottom:1px solid var(--rule); }
+    .disc a:hover { padding-left:.8rem; }
+    .disc .n { font-family:'Space Grotesk'; font-weight:600; color:var(--ink3); font-size:1rem; }
+    .disc .nm { font-family:'Space Grotesk'; font-size:clamp(1.4rem,2.4vw,1.95rem); font-weight:600; color:var(--ink); display:block; line-height:1.04; }
+    .disc .ds { display:block; font-size:.94rem; color:var(--ink2); margin-top:.4rem; max-width:54ch; }
+    .disc .go { color:var(--tealdeep); font-weight:500; font-size:.92rem; white-space:nowrap; }
+    @media (max-width:600px){ .disc a{grid-template-columns:auto 1fr;} .disc .go{grid-column:2;} }
+
+    /* ---------- §03 SYSTEMS — featured line + ruled trio ---------- */
+    .syst-feature { font-family:'Space Grotesk'; font-size:clamp(1.4rem,2.4vw,1.9rem); font-weight:600; line-height:1.2; max-width:30ch; margin-bottom:2.6rem; }
+    .syst-feature .tw { color:var(--tealdeep); font-style:italic; }
+    .syst { display:grid; grid-template-columns:repeat(3,1fr); gap:0 3.5rem; }
+    @media (max-width:780px){ .syst{grid-template-columns:1fr;} }
+    .syst > div { padding:1.6rem 0; border-top:1px solid var(--ink); }
+    .syst .n { font-family:'Space Grotesk'; font-weight:700; color:var(--clay); font-size:.95rem; margin-bottom:.5rem; }
+    .syst h3 { font-size:1.12rem; margin-bottom:.4rem; }
+    .syst p { font-size:.93rem; }
+
+    /* ---------- §04 FIT — two thin-ruled columns ---------- */
+    .fit { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
+    @media (max-width:780px){ .fit{grid-template-columns:1fr; gap:2.4rem;} }
+    .fit h3 { font-size:.95rem; letter-spacing:.05em; text-transform:uppercase; padding-bottom:.9rem; border-bottom:1px solid var(--ink); margin-bottom:.6rem; }
+    .fit .good h3 { color:var(--tealdeep); }
+    .fit .bad { opacity:.6; }
+    .fit ul { list-style:none; }
+    .fit .good li { display:flex; gap:.8rem; padding:.7rem 0; border-bottom:1px solid var(--rule); font-size:1.04rem; color:var(--ink); }
+    .fit .good .t { color:var(--tealdeep); }
+    .fit .bad li { padding:.6rem 0; color:var(--ink3); text-decoration:line-through; text-decoration-color:var(--clay); font-size:.97rem; border-bottom:1px solid var(--rule); }
+
+    /* ---------- §05 PROOF — stats on rules, no box, ensō figure ---------- */
+    .case .kk { font-size:.78rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink3); font-weight:600; margin-bottom:1rem; }
+    .case h3 { font-size:1.6rem; margin-bottom:1rem; }
+    .case .lede { font-size:1rem; max-width:70ch; }
+    .case-grid { display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:start; margin-top:2.6rem; }
+    @media (max-width:780px){ .case-grid{grid-template-columns:1fr;} }
+    .case .stats { display:flex; flex-wrap:wrap; gap:2.6rem 4rem; padding-top:1.8rem; border-top:1px solid var(--ink); }
+    .case .stats .n { font-family:'Space Grotesk'; font-size:2.6rem; font-weight:700; color:var(--ink); line-height:1; }
+    .case .stats .l { font-size:.84rem; color:var(--ink3); margin-top:.4rem; max-width:15ch; }
+    .case .ensomark { width:11rem; opacity:.9; justify-self:end; }
+    .case .sprint { margin-top:2.6rem; }
+    .case .sprint .sh { font-size:.78rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink3); font-weight:600; margin-bottom:1rem; }
+    .case .sprint ol { columns:2; column-gap:3.5rem; margin-left:1.1rem; color:var(--ink2); font-size:.94rem; }
+    .case .sprint ol li { padding:.25rem 0; break-inside:avoid; }
+    .case .sprint .res { margin-top:1.2rem; color:var(--ink); font-weight:500; font-size:.96rem; }
+    @media (max-width:600px){ .case .sprint ol{columns:1;} }
+
+    /* ---------- §06 LEDGER — single hairline ---------- */
+    .ll { display:flex; flex-wrap:wrap; align-items:center; gap:2.6rem 4rem; padding-top:1.6rem; border-top:1px solid var(--ink); }
+    .ll img { height:1.8rem; filter:brightness(0); opacity:.55; }
+
+    /* ---------- §07 RETAINER — oversized pull on near-empty canvas (density break) ---------- */
+    .retainer { padding:7rem 0; text-align:center; }
+    .retainer .pull { font-family:'Space Grotesk'; font-size:clamp(2.2rem,4.6vw,4rem); font-weight:700; line-height:1.04; letter-spacing:-.025em; max-width:18ch; margin:0 auto; }
+    .retainer .pull .tw { color:var(--tealdeep); font-style:italic; }
+    .retainer .body { max-width:52ch; margin:2rem auto 0; }
+    .retainer .trio { display:grid; grid-template-columns:repeat(3,1fr); gap:3rem; max-width:60rem; margin:3rem auto 0; text-align:left; }
+    @media (max-width:780px){ .retainer .trio{grid-template-columns:1fr;} }
+    .retainer .trio > div { border-top:1px solid var(--ink); padding-top:1rem; }
+    .retainer .trio h3 { font-size:1.02rem; margin-bottom:.4rem; }
+    .retainer .trio p { font-size:.92rem; }
+
+    /* ---------- §08 LOOP — numbered, thin rules, ensō closes ---------- */
+    .loop { position:relative; margin-top:.5rem; }
+    .loop .track { display:grid; grid-template-columns:repeat(4,1fr); gap:2.5rem; }
+    @media (max-width:780px){ .loop .track{grid-template-columns:1fr 1fr;} }
+    .loop .step { border-top:1px solid var(--ink); padding-top:1rem; position:relative; }
+    .loop .step .bn { font-family:'Space Grotesk'; font-weight:700; font-size:1.1rem; color:var(--tealdeep); }
+    .loop .step:last-child .bn { color:var(--ink); }
+    .loop .step h3 { font-size:1.05rem; margin:.3rem 0 .4rem; }
+    .loop .step p { font-size:.9rem; }
+    .loop .step:last-child .ens { position:absolute; top:-.4rem; right:0; width:2.4rem; opacity:.85; }
+
+    /* ---------- §09 ENGAGEMENTS — ruled list, italic teal ---------- */
+    .eng a { display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:baseline; padding:1.6rem 0; border-top:1px solid var(--rule); text-decoration:none; }
+    .eng a:last-child { border-bottom:1px solid var(--rule); }
+    .eng h3 { font-size:1.2rem; color:var(--ink); }
+    .eng h3 .tw { color:var(--tealdeep); font-style:italic; font-weight:600; }
+    .eng a:hover h3 { color:var(--tealdeep); }
+    .eng p { font-size:.92rem; max-width:46ch; margin-top:.3rem; }
+    .eng .go { color:var(--tealdeep); font-weight:500; font-size:.9rem; white-space:nowrap; }
+    @media (max-width:600px){ .eng a{grid-template-columns:1fr;} }
+
+    /* ---------- §10 TEAM ---------- */
+    .founder { display:grid; grid-template-columns:4fr 7fr; gap:3.5rem; align-items:start; }
+    @media (max-width:780px){ .founder{grid-template-columns:1fr;} }
+    .founder img.f { width:100%; max-width:280px; display:block; filter:grayscale(.3); }
+    .founder .role { font-size:.82rem; color:var(--tealdeep); font-weight:600; margin-top:.9rem; }
+    .founder .name { font-family:'Space Grotesk'; font-size:1.45rem; font-weight:700; }
+    .founder .bio p { font-size:1rem; margin-bottom:.85rem; }
+    .fstats { display:flex; gap:2.4rem; flex-wrap:wrap; margin:1.3rem 0 1rem; }
+    .fstats .n { font-family:'Space Grotesk'; font-size:1.4rem; font-weight:700; }
+    .fstats .l { font-size:.8rem; color:var(--ink3); }
+    .experts { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem; margin-top:3.4rem; }
+    @media (max-width:780px){ .experts{grid-template-columns:1fr;} }
+    .experts img { width:100%; aspect-ratio:4/4.6; object-fit:cover; object-position:top; display:block; filter:grayscale(1); }
+    .experts .name { font-family:'Space Grotesk'; font-weight:600; font-size:1.02rem; margin-top:.8rem; }
+    .experts .role { font-size:.8rem; color:var(--tealdeep); font-weight:600; margin-bottom:.35rem; }
+    .experts p.b { font-size:.9rem; color:var(--ink2); }
+
+    /* ---------- §11 SINGAPORE — huge type, tiny coordinate ---------- */
+    .sg .big { font-size:clamp(2rem,4vw,3.2rem); font-family:'Space Grotesk'; font-weight:700; letter-spacing:-.02em; line-height:1.02; max-width:16ch; }
+    .sg .coord { font-size:.8rem; letter-spacing:.1em; color:var(--tealdeep); font-weight:600; margin-top:1.2rem; }
+    .sg .body { max-width:54ch; margin-top:1.6rem; }
+    .sg .body p { margin-bottom:.85rem; }
+    .sg-tags { display:flex; flex-wrap:wrap; gap:.6rem 2rem; margin-top:1.4rem; font-size:.94rem; color:var(--ink2); font-weight:500; }
+
+    /* ---------- §12 FAQ — numbered transcript, thin rules ---------- */
+    .qa details { padding:1.3rem 0; border-top:1px solid var(--rule); }
+    .qa details:last-child { border-bottom:1px solid var(--rule); }
+    .qa summary { cursor:pointer; list-style:none; display:grid; grid-template-columns:auto 1fr auto; gap:1rem; align-items:baseline; }
+    .qa summary::-webkit-details-marker { display:none; }
+    .qa .qn { font-family:'Space Grotesk'; font-weight:700; color:var(--clay); font-size:1rem; }
+    .qa .qt { font-family:'Space Grotesk'; font-weight:600; font-size:1.1rem; color:var(--ink); line-height:1.25; }
+    .qa .pl { color:var(--tealdeep); font-size:1.3rem; }
+    .qa .ans { font-size:.94rem; color:var(--ink2); max-width:64ch; margin:.9rem 0 0 2rem; }
+    .qa a { color:var(--tealdeep); }
+
+    /* ---------- CTA — faint giant ensō behind ---------- */
+    .cta { position:relative; overflow:hidden; border-top:1px solid var(--ink); text-align:center; padding:6.5rem 0; }
+    .cta .enso { position:absolute; width:26rem; left:50%; top:50%; transform:translate(-50%,-50%); opacity:.09; z-index:0; }
+    .cta .inner { position:relative; z-index:2; }
+    .cta h2 { font-size:clamp(2.2rem,4.4vw,3.6rem); }
+    .cta p { margin:1.5rem auto 2.2rem; max-width:44ch; }
+    .cta .alt { margin-top:1.7rem; font-size:.95rem; color:var(--ink3); }
+    .cta .alt a { color:var(--tealdeep); }
+
+    footer { background:var(--paper); border-top:1px solid var(--ink); padding:3.5rem 0 2.8rem; }
+    .fbrand { display:flex; align-items:center; gap:.9rem; margin-bottom:2.2rem; }
+    .fbrand img { height:2.2rem; }
+    .fbrand span { font-family:'Space Grotesk'; font-weight:700; font-size:1.1rem; letter-spacing:.05em; }
+    .fgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:2.4rem; }
+    .fgrid h3 { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); margin-bottom:.9rem; font-family:'Inter'; font-weight:600; }
+    .fgrid ul { list-style:none; }
+    .fgrid li { padding:.22rem 0; }
+    .fgrid a { font-size:.91rem; color:var(--ink2); text-decoration:none; }
+    .fgrid a:hover { color:var(--tealdeep); }
+    .fnote { margin-top:2.8rem; padding-top:1.4rem; border-top:1px solid var(--rule); font-size:.85rem; color:var(--ink3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    @media (max-width:780px){ .fgrid{grid-template-columns:1fr 1fr;} }
+  </style>
+</head>
+<body>
+  <div class="staging">Staging 03-DEEP <span>&middot;</span> Ensō, composed all the way down <span>&middot;</span> not production</div>
+  <header><nav class="nav">
+    <a class="wm" href="#"><img src="assets/cut-enso-circle-ink.png" alt=""><span>NOVASTACKS</span></a>
+    <div class="nav-links"><a href="#services">AEO Services</a><a href="#services">GEO Services</a><a href="#">Fractional CMO</a><a href="#">Methodology</a><a href="#">Free Tools</a><a href="#founder">About</a></div>
+    <a class="btn" href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a Strategy Call</a>
+  </nav></header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="enso" src="assets/cut-enso-circle-ink.png" alt="">
+    <div class="wrap inner">
+      <h1>Search is now an <span class="tw">answer.</span><br>Be the answer.</h1>
+      <p class="sub">We get Singapore brands ranked on Google and recommended by ChatGPT, Perplexity, and Google AI Overviews. One practice for both.</p>
+      <div class="ctas"><a class="btn" href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a Strategy Call</a><a class="ghost" href="#services">See what we do <b>&rarr;</b></a></div>
+      <div class="statsrow">
+        <div><div class="n">43</div><div class="l">AI citations in 60 days, from zero</div></div>
+        <div><div class="n">+178%</div><div class="l">non-branded organic traffic</div></div>
+        <div><div class="n">Top 0.5%</div><div class="l">Claude Code usage, globally</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §01 SHIFT -->
+  <section class="shift"><div class="wrap">
+    <div class="sechead"><span class="idx">01</span><span class="rh">The Shift</span></div>
+    <p class="big" style="margin-top:1.8rem;">Ranking is no longer the same as being <span class="tw">found.</span></p>
+    <div class="rows">
+      <p>Half of Singapore searches now end without a click. AI answers them first.</p>
+      <p>ChatGPT and Perplexity recommend brands. Google AI Overviews summarise them.</p>
+      <p>A traditional SEO agency optimises for the ten blue links. That game is shrinking.</p>
+    </div>
+  </div></section>
+
+  <!-- §02 DISCIPLINES -->
+  <section id="services"><div class="wrap pad">
+    <div class="sechead"><span class="idx">02</span><span class="rh">What We Do</span></div>
+    <h2 style="margin:1.6rem 0 2.6rem; max-width:18ch;">Three Disciplines. One <span class="tw">Search</span> Practice.</h2>
+    <nav class="disc">
+      <a href="#"><span class="n">01</span><span><span class="nm">Search Engine Optimization</span><span class="ds">Technical SEO, content, and authority that win Google rankings in the Singapore market.</span></span><span class="go">SEO services &rarr;</span></a>
+      <a href="#"><span class="n">02</span><span><span class="nm">Answer Engine Optimization</span><span class="ds">Get cited by ChatGPT, Perplexity, and Google AI Overviews when buyers ask about your category.</span></span><span class="go">AEO agency &rarr;</span></a>
+      <a href="#"><span class="n">03</span><span><span class="nm">Generative Engine Optimization</span><span class="ds">Shape how generative AI describes, ranks, and recommends your brand across every model.</span></span><span class="go">GEO agency &rarr;</span></a>
+    </nav>
+  </div></section>
+
+  <!-- §03 SYSTEMS -->
+  <section><div class="wrap pad">
+    <div class="sechead"><span class="idx">03</span><span class="rh">What We Build</span></div>
+    <p class="syst-feature" style="margin-top:1.8rem;">We do not sell software. We design, build, and operate <span class="tw">agentic</span> marketing systems tailored to your business.</p>
+    <div class="syst">
+      <div><div class="n">01</div><h3>AEO Systems</h3><p>Get cited by AI when prospects ask questions in your category. Be the answer ChatGPT, Perplexity, and Google AI give.</p></div>
+      <div><div class="n">02</div><h3>Content Systems</h3><p>AI workflows that hold your brand voice while producing content that converts.</p></div>
+      <div><div class="n">03</div><h3>Analytics Systems</h3><p>Insights that tell you what to do next, not just what happened.</p></div>
+    </div>
+    <div class="syst" style="margin-top:0;">
+      <div><div class="n">04</div><h3>Performance Systems</h3><p>Paid media that learns and improves automatically, in real time.</p></div>
+      <div><div class="n">05</div><h3>One pool, one team</h3><p>Every system runs off the same senior operators and agent stack.</p></div>
+      <div></div>
+    </div>
+  </div></section>
+
+  <!-- §04 FIT -->
+  <section><div class="wrap pad">
+    <div class="sechead"><span class="idx">04</span><span class="rh">Who We Work With</span></div>
+    <h2 style="margin:1.6rem 0 2.4rem;">Is This <span class="tw">You?</span></h2>
+    <div class="fit">
+      <div class="good"><h3>A good fit</h3><ul>
+        <li><span class="t">&#10003;</span> Series A+ with customer data and traction</li>
+        <li><span class="t">&#10003;</span> Relying on online discovery for growth</li>
+        <li><span class="t">&#10003;</span> Ready to invest in systems, not just campaigns</li>
+        <li><span class="t">&#10003;</span> Want leverage: human expertise amplified by AI</li>
+      </ul></div>
+      <div class="bad"><h3>Not a fit</h3><ul>
+        <li>Pre-product or pre-revenue startups</li>
+        <li>"Rank fast, spend little" expectations</li>
+        <li>Looking for bulk content or template automation</li>
+      </ul></div>
+    </div>
+  </div></section>
+
+  <!-- §05 PROOF -->
+  <section class="case"><div class="wrap pad">
+    <div class="sechead"><span class="idx">05</span><span class="rh">Results</span></div>
+    <h2 style="margin:1.6rem 0 2.4rem;">Outcomes, Not Activity Reports.</h2>
+    <p class="kk">Case study &middot; B2B SaaS</p>
+    <h3>Logistics SaaS: 0 &rarr; 43 AI Citations in 60 Days</h3>
+    <p class="lede">Ranked #3 on Google for "logistics software for mid-market." Good SEO, solid content. But sales kept hearing about a competitor "that came recommended." We tested their buyer queries in ChatGPT: the competitor was cited every time. They were not. The competitor had FAQ schema, Q&amp;A structured content, and named credentials. Our client had none of it.</p>
+    <div class="case-grid">
+      <div class="stats">
+        <div><div class="n">43</div><div class="l">AI citations in 60 days, from zero</div></div>
+        <div><div class="n">+178%</div><div class="l">non-branded organic traffic</div></div>
+        <div><div class="n">2.3&times;</div><div class="l">higher conversion, AI-referred</div></div>
+        <div><div class="n">8</div><div class="l">queries with first-page AI citation</div></div>
+      </div>
+      <img class="ensomark" src="assets/cut-enso-circle-teal.png" alt="">
+    </div>
+    <div class="sprint">
+      <p class="sh">The 60-day sprint</p>
+      <ol>
+        <li>FAQ schema added across 12 product and use-case pages</li>
+        <li>Comparison pages restructured against 4 main competitors</li>
+        <li>Named credentials and author bios added to technical content</li>
+        <li>Integration pages reformatted into a clear Q&amp;A structure</li>
+        <li>Citeable statistics surfaced from the client's proprietary data</li>
+      </ol>
+      <p class="res">Result: AEO amplified their SEO. Same rankings, a brand-new discovery channel.</p>
+    </div>
+  </div></section>
+
+  <!-- §06 LEDGER -->
+  <section><div class="wrap pad">
+    <div class="sechead"><span class="idx">06</span><span class="rh">Track Record</span></div>
+    <h2 style="font-size:clamp(1.5rem,2.6vw,2.1rem); margin:1.6rem 0 .5rem;">Where We've Shaped Marketing at Scale</h2>
+    <p style="color:var(--ink3); max-width:54ch;">20 years leading growth across Asia-Pacific. Now building AI systems for growth-stage companies.</p>
+    <div class="ll"><img src="assets/tencent-logo.avif" alt="Tencent"><img src="assets/expedia-group-logo.svg" alt="Expedia Group"><img src="assets/klook-logo.avif" alt="Klook"><img src="assets/cabital-logo.png" alt="Cabital"><img src="assets/traveloka-logo.webp" alt="Traveloka"></div>
+  </div></section>
+
+  <!-- §07 RETAINER (density break) -->
+  <section class="retainer"><div class="wrap">
+    <p class="pull">Not a retainer.<br>An <span class="tw">AI-native</span> system.</p>
+    <p class="body">A traditional SEO agency bills you for hours. We build you a system: senior operators plus an AI agent team that runs analysis, content, and monitoring at a scale a human-only agency cannot match.</p>
+    <div class="trio">
+      <div><h3>Senior operators, not juniors</h3><p>Run by people who led marketing at Expedia, Tencent, and Klook, not handed to a trainee.</p></div>
+      <div><h3>An AI agent team behind them</h3><p>Twelve AI agents handle audits, prompt tracking, and drafts so output compounds week over week.</p></div>
+      <div><h3>Search and AI search together</h3><p>One team owns Google rankings and AI citations, so the two reinforce each other.</p></div>
+    </div>
+  </div></section>
+
+  <!-- §08 LOOP -->
+  <section><div class="wrap pad">
+    <div class="sechead"><span class="idx">08</span><span class="rh">How We Work</span></div>
+    <h2 style="margin:1.6rem 0 .8rem;">The Compounding Loop.</h2>
+    <p style="max-width:52ch; margin-bottom:2.6rem;">Four moves that feed each other. The fourth returns to the first, and the system compounds.</p>
+    <div class="loop"><div class="track">
+      <div class="step"><span class="bn">1</span><h3>Audit</h3><p>We map where you stand across search, AEO, and GEO. Run with AI for speed, verified by senior operators.</p></div>
+      <div class="step"><span class="bn">2</span><h3>Architect</h3><p>We design the system: content, structured data, agent workflows, and the roadmap.</p></div>
+      <div class="step"><span class="bn">3</span><h3>Activate</h3><p>Senior operators and AI agents execute the build at scale.</p></div>
+      <div class="step"><img class="ens" src="assets/cut-enso-circle-tealdeep.png" alt=""><span class="bn">4</span><h3>Amplify</h3><p>We measure outcomes, feed learnings back, and the loop begins again.</p></div>
+    </div></div>
+  </div></section>
+
+  <!-- §09 ENGAGEMENTS -->
+  <section><div class="wrap pad">
+    <div class="sechead"><span class="idx">09</span><span class="rh">Engagements</span></div>
+    <h2 style="font-size:clamp(1.5rem,2.6vw,2.1rem); margin:1.6rem 0 2rem;">Ways to Work Together</h2>
+    <nav class="eng">
+      <a href="#"><div><h3>Answer Engine Optimization <span class="tw">(AEO)</span></h3><p>Get cited by AI answer engines like ChatGPT, Perplexity, and Google AI Overviews when buyers ask about your category.</p></div><span class="go">Explore &rarr;</span></a>
+      <a href="#"><div><h3>Generative Engine Optimization <span class="tw">(GEO)</span></h3><p>Shape how generative AI describes, ranks, and recommends your brand so you become the trusted choice.</p></div><span class="go">Explore &rarr;</span></a>
+      <a href="#"><div><h3>Fractional Growth <span class="tw">Partner</span></h3><p>Strategic marketing leadership on demand for companies not ready for a full-time hire.</p></div><span class="go">Explore &rarr;</span></a>
+    </nav>
+  </div></section>
+
+  <!-- §10 TEAM -->
+  <section id="founder"><div class="wrap pad">
+    <div class="sechead"><span class="idx">10</span><span class="rh">The Team</span></div>
+    <h2 style="margin:1.6rem 0 1rem; max-width:20ch;">One Founder. Three Experts. Twelve AI Agents.</h2>
+    <p style="max-width:54ch; margin-bottom:2.4rem;">Real, named operators run your account. Most agencies in Singapore will not tell you who actually does the work.</p>
+    <div class="founder">
+      <div>
+        <img class="f" src="assets/founder-photo.jpg" alt="Portrait of Tina Chu">
+        <p class="role">FOUNDER &amp; CEO</p><p class="name">Tina Chu</p>
+        <p style="font-size:.88rem; color:var(--ink3);">The human in the loop</p>
+      </div>
+      <div class="bio">
+        <p>While others debated whether AI would replace marketers, Tina Chu was already living the answer. Every client report, every SEO audit, every piece of content flows through a terminal where Claude Code is not a tool but a thinking partner.</p>
+        <div class="fstats">
+          <div><div class="n">11,000</div><div class="l">messages with her agents</div></div>
+          <div><div class="n">1,737</div><div class="l">working sessions</div></div>
+          <div><div class="n">Top 0.5%</div><div class="l">Claude Code usage, globally</div></div>
+        </div>
+        <p>Twenty years of enterprise marketing at Expedia, Tencent, Klook, Traveloka, and Cabital taught her what moves metrics at scale across APAC. 2017 Mob-Ex Award, APAC Mobile Excellence.</p>
+        <p>This is not automation. It is augmentation: human judgment at AI speed.</p>
+      </div>
+    </div>
+    <div class="experts">
+      <div><img src="assets/team-yaohong.avif" alt="Yaohong"><p class="name">Yaohong</p><p class="role">CTO</p><p class="b">20+ years in finance and tech, building data teams at StashAway and January Capital.</p></div>
+      <div><img src="assets/team-eki.jpg" alt="Eki"><p class="name">Eki</p><p class="role">HEAD OF AEO</p><p class="b">Google Product Expert, featured in Google's Core Web Vitals case study. Former SEO lead at Tokopedia.</p></div>
+      <div><img src="assets/team-raka.jpg" alt="Raka"><p class="name">Raka</p><p class="role">CREATIVE DIRECTOR</p><p class="b">15 years in motion design across broadcast, tech, and creative production.</p></div>
+    </div>
+  </div></section>
+
+  <!-- §11 SINGAPORE -->
+  <section><div class="wrap pad">
+    <div class="sechead"><span class="idx">11</span><span class="rh">Where We Are</span></div>
+    <div class="sg" style="margin-top:1.8rem;">
+      <p class="big">An SEO agency that knows the Singapore market.</p>
+      <p class="coord">SINGAPORE &middot; 1.3521&deg; N, 103.8198&deg; E</p>
+      <div class="body">
+        <p>We are a Singapore based agency working with local brands and APAC companies entering the market.</p>
+        <p>That means search behaviour, language, competitor sets, and the AI platforms your buyers actually use here, not a generic global playbook.</p>
+      </div>
+      <div class="sg-tags"><span>Singapore SMEs &amp; startups</span><span>APAC market entry</span><span>B2B &amp; SaaS</span></div>
+    </div>
+  </div></section>
+
+  <!-- §12 FAQ -->
+  <section><div class="wrap pad">
+    <div class="sechead"><span class="idx">12</span><span class="rh">Questions</span></div>
+    <h2 style="margin:1.6rem 0 1.8rem;">Questions Singapore Brands Ask Us</h2>
+    <div class="qa">
+      <details><summary><span class="qn">Q1</span><span class="qt">What is an AI SEO agency?</span><span class="pl">+</span></summary><div class="ans">An AI SEO agency optimizes your visibility in two places at once: traditional search engines like Google, and AI answer engines like ChatGPT, Perplexity, and Google AI Overviews. A conventional SEO agency stops at Google rankings. Novastacks runs both as one practice, because the same content, structure, and authority signals increasingly feed both.</div></details>
+      <details><summary><span class="qn">Q2</span><span class="qt">What is AEO, and how is it different from SEO?</span><span class="pl">+</span></summary><div class="ans">SEO earns you rankings and clicks in Google's results. AEO earns you citations and recommendations inside AI-generated answers. SEO optimizes for the ten blue links; AEO optimizes for the moment ChatGPT or an AI Overview names a brand. You need both, and they reinforce each other.</div></details>
+      <details><summary><span class="qn">Q3</span><span class="qt">What is the difference between AEO and GEO?</span><span class="pl">+</span></summary><div class="ans">AEO and GEO both make your content visible to AI-driven search but differ in focus. AEO targets direct, concise answers such as voice search and featured snippets. GEO optimizes for comprehensive, authoritative content that AI models summarize and cite. Both matter, and they work best together.</div></details>
+      <details><summary><span class="qn">Q4</span><span class="qt">How do I choose an SEO agency in Singapore?</span><span class="pl">+</span></summary><div class="ans">Look for three things: senior operators who actually run your account rather than juniors, transparency about who does the work, and a methodology that covers AI search and not just Google. Ask any agency how they will get you cited by ChatGPT and Perplexity. If they have no clear answer, they are optimizing for a shrinking slice of search.</div></details>
+      <details><summary><span class="qn">Q5</span><span class="qt">How do you get a brand cited by ChatGPT and AI search?</span><span class="pl">+</span></summary><div class="ans">AI answer engines pull from structured, authoritative, clearly formatted content. We add FAQ and Q&amp;A structured data, build comparison and use-case pages that answer buyer questions, strengthen author and brand credentials, and surface citeable data. We then track which prompts cite you and refine. In one recent engagement this took a logistics SaaS from zero to 43 AI citations in 60 days.</div></details>
+      <details><summary><span class="qn">Q6</span><span class="qt">What makes Novastacks different from other SEO agencies in Singapore?</span><span class="pl">+</span></summary><div class="ans">Two things. First, we run SEO, AEO, and GEO as one system, so your Google rankings and AI citations compound together. Second, senior operators run your account, with experience at Tencent, Expedia, and Klook and a Google Product Expert leading AEO, backed by an AI agent team that scales execution.</div></details>
+      <details><summary><span class="qn">Q7</span><span class="qt">How much does SEO cost in Singapore?</span><span class="pl">+</span></summary><div class="ans">SEO engagements in Singapore vary widely by scope and how competitive your category is. Rather than a fixed package, we scope each engagement to your goals after a free audit. <a href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a strategy call</a> and we will give you a clear, specific proposal.</div></details>
+      <details><summary><span class="qn">Q8</span><span class="qt">Do you work with businesses outside Singapore?</span><span class="pl">+</span></summary><div class="ans">Yes. We are Singapore based and know this market deeply, but we also work with APAC companies and businesses in other markets and segments such as SaaS, financial, OTA, and e-commerce. AEO and GEO are global by nature: if your buyers ask AI about your category anywhere, we can help you become the cited answer.</div></details>
+    </div>
+  </div></section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <img class="enso" src="assets/cut-enso-circle-ink.png" alt="">
+    <div class="wrap inner">
+      <h2>Ready to Win Search<br>and <span class="tw">AI Search?</span></h2>
+      <p>Book a strategy call. We will show you where you stand in Google and across AI platforms today.</p>
+      <a class="btn" href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a Strategy Call</a>
+      <p class="alt">Not ready to talk? <a href="#">Try our free AI visibility tools &rarr;</a></p>
+    </div>
+  </section>
+
+  <footer><div class="wrap">
+    <div class="fbrand"><img src="assets/cut-enso-circle-ink.png" alt=""><span>NOVASTACKS</span></div>
+    <div class="fgrid">
+      <div><h3>Services</h3><ul><li><a href="#">AEO Services</a></li><li><a href="#">GEO Services</a></li><li><a href="#">SEO Services</a></li><li><a href="#">Fractional CMO</a></li></ul></div>
+      <div><h3>AEO Resources</h3><ul><li><a href="#">Free AEO Audit</a></li><li><a href="#">AEO Guide</a></li><li><a href="#">Best AEO Tools 2026</a></li></ul></div>
+      <div><h3>Growth Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Methodology</a></li></ul></div>
+      <div><h3>Company</h3><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="fnote"><span>&copy; 2026 Novastacks. AI marketing studio, Singapore.</span><span>Search and AI search, together.</span></div>
+  </div></footer>
+</body>
+</html>
