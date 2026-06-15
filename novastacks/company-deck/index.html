@@ -45,15 +45,17 @@
   .cover-right .ct{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-fg-2)}
 
   /* ---- Charts (slide 2) ---- */
-  .chart-row{margin-top:48px;border-top:var(--rule-w-strong) solid var(--ink-1);
+  .chart-row{margin-top:28px;border-top:var(--rule-w-strong) solid var(--ink-1);
     display:grid;grid-template-columns:repeat(3,1fr);flex:1}
-  .chart-col{padding:32px 36px;display:flex;flex-direction:column;
+  .chart-col{padding:26px 36px;display:flex;flex-direction:column;
     border-right:var(--rule-w-hair) solid var(--rule-hair)}
   .chart-col:last-child{border-right:0}
   .chart-col .ce{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin:0 0 auto}
-  .chart-col .cw{flex:1;display:flex;align-items:flex-end;margin:24px 0}
-  .chart-col .claim{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);line-height:1.18;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
+  .chart-col .cw{flex:1;display:flex;align-items:flex-end;justify-content:center;margin:14px 0;min-height:0}
+  .chart-col .cw svg{max-height:230px;width:100%}
+  .chart-col .claim{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);line-height:1.18;letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance}
   .chart-col .src{font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin:0}
+  .subhead .pq{display:block;font-family:var(--font-display);font-weight:500;font-size:26px;color:var(--accent-deep);letter-spacing:-.01em;margin:8px 0 0}
 
   /* ---- SEO vs AEO split (slide 3) ---- */
   .vs-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
@@ -333,57 +335,64 @@
       <div class="crumb t-eyebrow anim">01 · The Shift</div>
       <h2 class="t-action anim d1">Buying decisions moved inside AI answers this year.</h2>
       <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">The click data shows it — across three independent sources.</p>
+      <p class="t-lede subhead anim d1">AI now answers the query before anyone reaches a link.
+        <span class="pq">"The click is now optional." — Amanda Natividad, SparkToro</span></p>
       <div class="chart-row anim d2">
         <div class="chart-col">
-          <p class="ce">Search visits with a result click</p>
+          <p class="ce">Google searches showing an AI answer</p>
           <div class="cw">
             <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
               <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
-              <rect x="54" y="46" width="80" height="138" fill="#4A4A4A"/>
-              <text x="94" y="36" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="34" fill="#4A4A4A">15%</text>
-              <rect x="192" y="112" width="80" height="72" fill="#01AAC1"/>
-              <text x="232" y="102" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="34" fill="#017D8E">8%</text>
-              <text x="94" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#707070">No summary</text>
-              <text x="232" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#707070">AI summary</text>
+              <polygon points="28,150 164,96 300,70 300,184 28,184" fill="#01AAC1" opacity="0.10"/>
+              <polyline points="28,150 164,96 300,70" fill="none" stroke="#01AAC1" stroke-width="4"/>
+              <circle cx="28" cy="150" r="5" fill="#01AAC1"/>
+              <circle cx="164" cy="96" r="5" fill="#01AAC1"/>
+              <circle cx="300" cy="70" r="6" fill="#017D8E"/>
+              <text x="28" y="138" text-anchor="start" font-family="Inter Tight" font-weight="600" font-size="26" fill="#4A4A4A">13%</text>
+              <text x="300" y="56" text-anchor="end" font-family="Inter Tight" font-weight="600" font-size="30" fill="#017D8E">25%</text>
+              <text x="28" y="204" text-anchor="start" font-family="JetBrains Mono" font-size="14" fill="#707070">Q1 2025</text>
+              <text x="300" y="204" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#707070">Q1 2026</text>
             </svg>
           </div>
-          <p class="claim">Clicks drop to 8% when an AI summary appears.</p>
-          <p class="src">Pew Research, 2025</p>
+          <p class="claim">One in four Google searches now opens with an AI answer, nearly double a year ago.</p>
+          <p class="src">Conductor · 21.9M queries</p>
         </div>
         <div class="chart-col">
-          <p class="ce">AI-search usage, year over year</p>
+          <p class="ce">US searches ending without a click</p>
           <div class="cw">
             <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
               <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
-              <rect x="54" y="114" width="80" height="70" fill="#4A4A4A"/>
-              <text x="94" y="104" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="30" fill="#4A4A4A">1×</text>
-              <rect x="192" y="46" width="80" height="138" fill="#01AAC1"/>
-              <text x="232" y="36" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="30" fill="#017D8E">2×</text>
-              <text x="94" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#707070">Last year</text>
-              <text x="232" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#707070">This year</text>
+              <polygon points="28,118 300,78 300,184 28,184" fill="#01AAC1" opacity="0.10"/>
+              <polyline points="28,118 300,78" fill="none" stroke="#01AAC1" stroke-width="4"/>
+              <circle cx="28" cy="118" r="5" fill="#01AAC1"/>
+              <circle cx="300" cy="78" r="6" fill="#017D8E"/>
+              <text x="28" y="106" text-anchor="start" font-family="Inter Tight" font-weight="600" font-size="26" fill="#4A4A4A">60%</text>
+              <text x="300" y="64" text-anchor="end" font-family="Inter Tight" font-weight="600" font-size="30" fill="#017D8E">68%</text>
+              <text x="28" y="204" text-anchor="start" font-family="JetBrains Mono" font-size="14" fill="#707070">2024</text>
+              <text x="300" y="204" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#707070">2026</text>
             </svg>
           </div>
-          <p class="claim">AI search usage doubled year-over-year.</p>
-          <p class="src">Wix</p>
+          <p class="claim">Two-thirds of US searches now end without any click.</p>
+          <p class="src">SparkToro · clickstream</p>
         </div>
         <div class="chart-col">
-          <p class="ce">Organic clicks — AI Overview queries</p>
+          <p class="ce">Conversion rate by traffic source</p>
           <div class="cw">
             <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
               <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
-              <polyline points="28,66 100,70 172,68 244,72 300,68" fill="none" stroke="#9B9B9B" stroke-width="3" stroke-dasharray="3 5"/>
-              <polyline points="28,62 100,90 172,124 244,152 300,170" fill="none" stroke="#01AAC1" stroke-width="4"/>
-              <circle cx="300" cy="170" r="5" fill="#01AAC1"/>
-              <text x="34" y="52" font-family="JetBrains Mono" font-size="15" fill="#707070">no AIO — flat</text>
-              <text x="150" y="166" font-family="JetBrains Mono" font-size="15" fill="#017D8E">with AIO</text>
+              <rect x="54" y="104" width="80" height="80" fill="#4A4A4A"/>
+              <text x="94" y="94" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="28" fill="#4A4A4A">1.0×</text>
+              <rect x="192" y="70" width="80" height="114" fill="#01AAC1"/>
+              <text x="232" y="60" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="28" fill="#017D8E">1.42×</text>
+              <text x="94" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#707070">Other traffic</text>
+              <text x="232" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#707070">AI-referred</text>
             </svg>
           </div>
-          <p class="claim">Even SEO authority Ahrefs lost clicks to AI Overviews.</p>
-          <p class="src">Ahrefs, GSC data</p>
+          <p class="claim">AI-referred visitors convert 42% more often than other traffic.</p>
+          <p class="src">Adobe Analytics</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · Pew 2025 · Wix · Ahrefs GSC</span><span class="t-footer">02 / 16</span></div>
+      <div class="footer"><span class="t-footer">SRC · Conductor 2026 · SparkToro 2026 · Adobe Analytics</span><span class="t-footer">02 / 16</span></div>
     </div>
   </section>
 
