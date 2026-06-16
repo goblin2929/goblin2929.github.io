@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Novastacks — AEO Deck (MBB)</title>
-<meta property="og:title" content="Novastacks - Leading SEO &amp; AEO Service">
+<title>Novastacks — Company Credentials</title>
+<meta property="og:title" content="Novastacks - Credentials">
 <meta property="og:type" content="website">
-<meta name="twitter:title" content="Novastacks - Leading SEO &amp; AEO Service">
+<meta name="twitter:title" content="Novastacks - Credentials">
 <link rel="stylesheet" href="mbb_tokens.css">
 <style>
   *,*::before,*::after{box-sizing:border-box}
@@ -306,6 +306,48 @@
     [data-deck-active] .anim.d3{animation-delay:.21s}
     @keyframes mrise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
   }
+
+  /* ===== Company Credentials — added components ===== */
+  /* Team — 4-up grid */
+  .team.quad{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+  .team.quad .prof{grid-template-columns:140px 1fr;gap:28px;padding:28px 38px}
+  .team.quad .prof:nth-child(odd){border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .team.quad .prof:nth-child(-n+2){border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .team.quad .photo{width:140px;height:172px}
+  .team.quad .pname{font-size:30px}
+  .team.quad .prole{font-size:16px;margin-top:8px}
+  .team.quad .cred{margin-top:16px;gap:11px}
+  .team.quad .cred p{font-size:19px;line-height:1.34}
+  .avatar{width:140px;height:172px;display:flex;align-items:center;justify-content:center;
+    background:var(--paper-deep);border:var(--rule-w-hair) solid var(--rule-hair);
+    font-family:var(--font-display);font-weight:600;font-size:54px;color:var(--accent-deep);letter-spacing:.02em}
+
+  /* Callout bar */
+  .callout{margin-top:30px;background:var(--ink-1);color:var(--paper);
+    padding:20px 28px;display:flex;align-items:center;gap:16px;
+    font-family:var(--font-body);font-size:23px;line-height:1.35}
+  .callout .dot{flex:0 0 auto;width:12px;height:12px;border-radius:2px;background:var(--accent)}
+  .callout b{color:#fff;font-weight:600}
+
+  /* Pyramid — Growth System */
+  .pyr-grid{margin-top:40px;flex:1;display:grid;grid-template-columns:640px 1fr;gap:64px;align-items:center}
+  .pyr-left{position:relative;height:512px}
+  .pyr-left svg{display:block;width:100%;height:100%}
+  .pyr-text{display:grid;grid-template-rows:repeat(4,128px)}
+  .pyr-row{display:flex;flex-direction:column;justify-content:center;
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pyr-row:last-child{border-bottom:0}
+  .pyr-row .ph{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .pyr-row .pdd{font-family:var(--font-body);font-size:21px;color:var(--ink-3);line-height:1.35;margin:8px 0 0;max-width:900px}
+
+  /* Scope grid — Tiket case */
+  .scope-grid{margin-top:34px;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px 56px;align-content:start}
+  .sitem{display:grid;grid-template-columns:32px 1fr;gap:18px;align-items:start;
+    padding-top:22px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .sitem .ar{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--accent-deep);line-height:1.1}
+  .sitem .sh{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .sitem .sd{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.36;margin:7px 0 0}
+
 </style>
 </head>
 <body>
@@ -317,149 +359,118 @@
       <div class="cover-left">
         <img class="cover-logo anim" src="assets/novastacks-logo.png" alt="Novastacks">
         <div>
-          <h1 class="t-cover-h1 anim d1" style="font-size:108px">We help brands grow on the agentic internet.</h1>
+          <h1 class="t-cover-h1 anim d1" style="font-size:112px">Novastacks AI</h1>
           <hr class="accent-rule anim d2">
-          <p class="t-lede anim d2" style="max-width:840px">We know how to get your brand chosen by AI</p>
+          <p class="t-lede anim d2" style="max-width:840px">AI-native growth partner for scaling APAC companies.</p>
         </div>
-        <div class="t-eyebrow anim d3">PREPARED BY · NOVASTACKS · SINGAPORE</div>
+        <div class="t-eyebrow anim d3">COMPANY CREDENTIALS · NOVASTACKS · SINGAPORE</div>
       </div>
       <div class="cover-right">
-        <p class="rtag">Get your brand<br>chosen by AI.</p>
+        <p class="rtag">We build the AI<br>system that grows<br>your business.</p>
         <hr class="tealrule">
-        <div class="ct">Agentic AEO/SEO · Singapore</div>
+        <div class="ct">Company Credentials · Singapore</div>
       </div>
     </div>
   </section>
 
-  <!-- 02 THE SHIFT -->
-  <section data-label="The Shift">
+  <!-- 02 WHAT WE DO -->
+  <section data-label="What We Do">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">01 · The Shift</div>
-      <h2 class="t-action anim d1">Buying decisions moved inside AI answers this year.</h2>
+      <div class="crumb t-eyebrow anim">01 · What We Do</div>
+      <h2 class="t-action anim d1">We build AI marketing systems to grow your business 10&times; faster.</h2>
       <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">AI now answers the query before anyone reaches a link.
-        <span class="pq">"The click is now optional." — Amanda Natividad, SparkToro</span></p>
-      <div class="chart-row anim d2">
-        <div class="chart-col">
-          <p class="ce">Google searches showing an AI answer</p>
-          <div class="cw">
-            <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-              <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
-              <polygon points="28,150 164,96 300,70 300,184 28,184" fill="#01AAC1" opacity="0.10"/>
-              <polyline points="28,150 164,96 300,70" fill="none" stroke="#01AAC1" stroke-width="4"/>
-              <circle cx="28" cy="150" r="5" fill="#01AAC1"/>
-              <circle cx="164" cy="96" r="5" fill="#01AAC1"/>
-              <circle cx="300" cy="70" r="6" fill="#017D8E"/>
-              <text x="28" y="138" text-anchor="start" font-family="Inter Tight" font-weight="600" font-size="26" fill="#4A4A4A">13%</text>
-              <text x="300" y="56" text-anchor="end" font-family="Inter Tight" font-weight="600" font-size="30" fill="#017D8E">25%</text>
-              <text x="28" y="204" text-anchor="start" font-family="JetBrains Mono" font-size="14" fill="#707070">Q1 2025</text>
-              <text x="300" y="204" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#707070">Q1 2026</text>
-            </svg>
-          </div>
-          <p class="claim">One in four Google searches now opens with an AI answer, nearly double a year ago.</p>
-          <p class="src">Conductor · 21.9M queries</p>
+      <div class="three-up fill anim d2">
+        <div class="card3">
+          <div class="n">01</div>
+          <h3 class="h">AI Transformation</h3>
+          <p class="d">Repositioning your business and team for the AI-native competitive landscape.</p>
         </div>
-        <div class="chart-col">
-          <p class="ce">US searches ending without a click</p>
-          <div class="cw">
-            <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-              <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
-              <polygon points="28,118 300,78 300,184 28,184" fill="#01AAC1" opacity="0.10"/>
-              <polyline points="28,118 300,78" fill="none" stroke="#01AAC1" stroke-width="4"/>
-              <circle cx="28" cy="118" r="5" fill="#01AAC1"/>
-              <circle cx="300" cy="78" r="6" fill="#017D8E"/>
-              <text x="28" y="106" text-anchor="start" font-family="Inter Tight" font-weight="600" font-size="26" fill="#4A4A4A">60%</text>
-              <text x="300" y="64" text-anchor="end" font-family="Inter Tight" font-weight="600" font-size="30" fill="#017D8E">68%</text>
-              <text x="28" y="204" text-anchor="start" font-family="JetBrains Mono" font-size="14" fill="#707070">2024</text>
-              <text x="300" y="204" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#707070">2026</text>
-            </svg>
-          </div>
-          <p class="claim">Two-thirds of US searches now end without any click.</p>
-          <p class="src">SparkToro · clickstream</p>
+        <div class="card3">
+          <div class="n">02</div>
+          <h3 class="h">Growth Strategy &amp; Execution</h3>
+          <p class="d">A seasoned operator steering your digital frontlines &mdash; co-owning the business outcome, not just the deliverable.</p>
         </div>
-        <div class="chart-col">
-          <p class="ce">Conversion rate by traffic source</p>
-          <div class="cw">
-            <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-              <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
-              <rect x="54" y="104" width="80" height="80" fill="#4A4A4A"/>
-              <text x="94" y="94" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="28" fill="#4A4A4A">1.0×</text>
-              <rect x="192" y="70" width="80" height="114" fill="#01AAC1"/>
-              <text x="232" y="60" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="28" fill="#017D8E">1.42×</text>
-              <text x="94" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#707070">Other traffic</text>
-              <text x="232" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#707070">AI-referred</text>
-            </svg>
-          </div>
-          <p class="claim">AI-referred visitors convert 42% more often than other traffic.</p>
-          <p class="src">Adobe Analytics</p>
+        <div class="card3">
+          <div class="n">03</div>
+          <h3 class="h">Growth System Building</h3>
+          <p class="d">The infrastructure layer &mdash; agents, automation and unified data &mdash; built in-house and customised for you.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · Conductor 2026 · SparkToro 2026 · Adobe Analytics</span><span class="t-footer">02 / 16</span></div>
+      <div class="footer"><span class="t-footer">WHAT WE DO · THREE WAYS WE CREATE GROWTH</span><span class="t-footer">02 / 11</span></div>
     </div>
   </section>
 
-  <!-- 02B SEO VS AEO -->
-  <section data-label="SEO vs AEO">
-    <div class="mslide bleed vs-grid" style="padding:0">
-      <div class="vs-half light">
-        <div class="t-eyebrow">SEO — TRADITIONAL SEARCH</div>
-        <p class="vh">Classic SEO: ten blue links compete for a click.</p>
-        <div class="vshot"><img src="assets/seo-bluelinks.png" alt="Google results page — ten ranked blue links"></div>
-        <p class="vcap2">Google, "what is seo" — ranked pages, every visit a click away.</p>
-        <div class="vfoot"><span>SRC · LIVE GOOGLE RESULTS</span><span>03 / 16</span></div>
-      </div>
-      <div class="vs-half dark">
-        <div class="t-eyebrow" style="color:var(--accent)">AEO — AI SEARCH</div>
-        <p class="vh">AI SEO / AEO / GEO: the AI answer mentions a few brands.</p>
-        <div class="vshot"><img src="assets/aeo-mention-sg.jpg" alt="Google AI Overview naming Novastacks as a recommended AEO agency"></div>
-        <p class="vcap2">Google AI Overview, "aeo agency singapore" — the answer names Novastacks. Cited, not ranked.</p>
-        <div class="vfoot"><span>LIVE RESULT · JUN 2026</span><span>&nbsp;</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 WHY WE'RE DIFFERENT -->
-  <section data-label="Why We're Different">
+  <!-- 03 GROWTH SYSTEM -->
+  <section data-label="The Growth System">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">02 · Why We're Different</div>
-      <h2 class="t-action long anim d1">Winning AI answers takes three disciplines. Most have one. Some have two. We run all three.</h2>
+      <div class="crumb t-eyebrow anim">02 · The Growth System</div>
+      <h2 class="t-action anim d1">Every engagement runs on one stack &mdash; outcome on top, AI infrastructure underneath.</h2>
       <hr class="accent-rule anim d1">
-      <div class="venn-grid anim d2">
-        <div class="venn">
-          <div class="c c1"><span class="lab">Domain<br>Expertise</span></div>
-          <div class="c c2"><span class="lab">AI<br>Augmentation</span></div>
-          <div class="c c3"><span class="lab">Context<br>Engineering</span></div>
-          <div class="core"><span>All<br>three</span></div>
+      <div class="pyr-grid anim d2">
+        <div class="pyr-left">
+          <svg viewBox="0 0 640 512" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <polygon points="320,6 580,506 60,506" fill="#01AAC1"/>
+            <line x1="255" y1="131" x2="385" y2="131" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+            <line x1="190" y1="256" x2="450" y2="256" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+            <line x1="125" y1="381" x2="515" y2="381" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+            <text x="320" y="80" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">1</text>
+            <text x="320" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">2</text>
+            <text x="320" y="330" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">3</text>
+            <text x="320" y="455" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">4</text>
+          </svg>
         </div>
-        <div class="venn-claim">
-          <div class="vrow"><span class="vnum">01</span><span class="vname">Domain expertise</span></div>
-          <div class="vrow"><span class="vnum">02</span><span class="vname">AI augmentation</span></div>
-          <div class="vrow"><span class="vnum">03</span><span class="vname">Context engineering</span></div>
-          <p class="vpayoff">Run all three together and your brand becomes the answer AI gives — not just a link it lists.</p>
+        <div class="pyr-text">
+          <div class="pyr-row">
+            <p class="ph">Business Outcome</p>
+            <p class="pdd">Revenue, margin, lead pipeline and AI search share-of-voice &mdash; co-owned and on our comp.</p>
+          </div>
+          <div class="pyr-row">
+            <p class="ph">Expert Strategy</p>
+            <p class="pdd">Senior operator layer &mdash; GTM, ecommerce strategy, user acquisition and retention initiatives.</p>
+          </div>
+          <div class="pyr-row">
+            <p class="ph">Human &amp; Agentic Execution</p>
+            <p class="pdd">Storefront, branded app, membership, rebrand, ERP, AEO &amp; SEO, paid media, social content and campaign management.</p>
+          </div>
+          <div class="pyr-row">
+            <p class="ph">AI Infrastructure</p>
+            <p class="pdd">Agents, automation and data unification &mdash; customised and built for you.</p>
+          </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">POSITIONING · OUTCOME = BEING CHOSEN BY AI</span><span class="t-footer">04 / 16</span></div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">03 / 11</span></div>
     </div>
   </section>
 
   <!-- 04 TEAM -->
-  <section data-label="The Team">
+  <section data-label="Team &amp; Resources">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">02 · The Team</div>
-      <h2 class="t-action anim d1">Your strategy is set by senior operators, not handed to junior staff.</h2>
+      <div class="crumb t-eyebrow anim">03 · Team &amp; Resources</div>
+      <h2 class="t-action anim d1">The people named here do the work &mdash; not partners selling and juniors delivering.</h2>
       <hr class="accent-rule anim d1">
-      <div class="team anim d2">
+      <div class="team quad anim d2">
         <div class="prof">
           <div class="photo" style="background-image:url(assets/team-tina.jpg)"></div>
           <div>
             <p class="pname">Tina Chu</p>
             <p class="prole">Founder &amp; CEO</p>
             <div class="cred">
-              <p><b>Strategy.</b> 20 years of marketing leadership at Expedia, Tencent and Klook sets your direction right the first time.</p>
-              <p><b>Builder &amp; trainer.</b> Certified SMU AI-marketing trainer; runs corporate agentic-system workshops for brands including tiket.com.</p>
+              <p>Ex-VP Marketing &mdash; <b>Expedia, Klook, Tencent.</b> 20 years leading growth.</p>
+              <p>Certified SMU AI-marketing trainer; runs agentic-system workshops for brands including tiket.com.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="avatar">YH</div>
+          <div>
+            <p class="pname">YaoHong</p>
+            <p class="prole">CTO</p>
+            <div class="cred">
+              <p>Ex-CTO, <b>StashAway &amp; January Capital.</b> Writes the code; ships AI systems in days.</p>
+              <p>Business intelligence, data unification and agentic-workflow engineering.</p>
             </div>
           </div>
         </div>
@@ -469,207 +480,114 @@
             <p class="pname">Eki Riandra</p>
             <p class="prole">Head of Search &amp; Commerce</p>
             <div class="cred">
-              <p><b>Search authority.</b> Ex-Tech SEO Head of Traveloka and Tokopedia; Google Product Expert.</p>
-              <p><b>Proven with Google.</b> Co-authored the Tokopedia growth case study with Google.</p>
+              <p>Ex-Tech SEO Head of <b>Traveloka &amp; Tokopedia;</b> Google Product Expert.</p>
+              <p>Co-authored the Tokopedia growth case study with Google.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="avatar">RK</div>
+          <div>
+            <p class="pname">Raka</p>
+            <p class="prole">Creative Director</p>
+            <div class="cred">
+              <p>Ex-Creative Director, <b>Traveloka.</b> Founder of ArtGenie Studio.</p>
+              <p>Brand strategy, creative direction and visual storytelling.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="logo-row anim d3">
-        <span class="lab">Where they operated</span>
-        <span class="wm">Expedia</span>
-        <span class="wm">Tencent</span>
-        <span class="wm">Klook</span>
-        <span class="wm">Traveloka</span>
-        <span class="wm">Tokopedia</span>
-      </div>
-      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">05 / 16</span></div>
+      <div class="callout anim d3"><span class="dot"></span><span>At market salaries this team is worth <b>~$500K/year combined</b> &mdash; you&rsquo;re not getting a junior team behind a senior sales face.</span></div>
+      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">04 / 11</span></div>
     </div>
   </section>
 
-  <!-- 05 THE METHOD — OVERVIEW -->
-  <section data-label="The Source & Echo Method">
-    <div class="mslide bleed method-grid">
-      <div class="method-left">
-        <div class="crumb t-eyebrow anim">03 · The Source &amp; Echo Method</div>
-        <h2 class="t-action anim d1">The Source &amp; Echo Method is Novastacks' own AEO methodology.</h2>
-        <hr class="accent-rule anim d1">
-        <div class="anim d2" style="display:flex;flex-direction:column;gap:16px">
-          <p class="t-lede" style="max-width:none">Every AI answer is assembled from content worth quoting — the source — and from what the rest of the internet says about you — the echo. We engineer both, with five systems that are built and running, not advised.</p>
-          <p class="t-lede" style="max-width:none;color:var(--ink-2)">Prompt Radar finds every question worth winning. Two source systems and the Echo Network go win them. The Proof Loop measures daily and reports in pipeline.</p>
-        </div>
-        <div class="syslist anim d2">
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Prompt Radar</span><span class="sysnum">SYS·01</span></div>
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Answer Architecture</span><span class="sysnum">SYS·02</span></div>
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">First-Party Answers</span><span class="sysnum">SYS·03</span></div>
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Echo Network</span><span class="sysnum">SYS·04</span></div>
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Proof Loop</span><span class="sysnum">SYS·05</span></div>
-        </div>
-        <div class="footer"><span class="t-footer">METHOD · THE SOURCE &amp; ECHO METHOD · FIVE SYSTEMS</span><span class="t-footer">06 / 16</span></div>
-      </div>
-      <div class="method-right anim d2">
-        <div class="dia"><img src="assets/full-system-light.png" alt="The Source &amp; Echo Method system diagram"></div>
-        <p class="dcap">One buyer prompt through the method: the radar detects it, the source and echo tracks win it, the loop proves it.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05A SYSTEM 01 PROMPT RADAR -->
-  <section data-label="System 01 — Prompt Radar">
-    <div class="mslide sysslide">
-      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">03 · The Method — System 01 of 05</div>
-      <h2 class="t-action anim d1">Prompt Radar: built from your sales calls, not keyword tools.</h2>
-      <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">Under 20% of brands are cited by both ChatGPT and Google for the same question — visibility only counts if it is tracked per engine.</p>
-      <div class="sysgrid anim d2">
-        <div class="feat">
-          <span class="fbadge">★ The system only we run</span>
-          <p class="fe">Source track</p>
-          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Prompt Radar</p><span class="pchip">SYS·01</span></div>
-          <div class="cmp">
-            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Prompt lists from keyword tools and educated guesses, checked monthly.</p></div>
-            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Three source families: commercial-intent keywords, actual long-tail customer queries, and unstructured customer-facing data — sales calls, reviews, support tickets. Expanded with engine fan-out, filtered to prompts where vendors get recommended, tracked daily per engine.</p></div>
-          </div>
-          <p class="fstrip">query fan-out<span class="s">·</span>synthetic query expansion<span class="s">·</span>prompt portfolio<span class="s">·</span>per-engine baselines</p>
-        </div>
-        <div class="sysviz">
-          <div class="vframe"><img src="assets/novalens-shots/novalens-prompt-table-slidecut.png" alt="NovaLens prompt portfolio panel — top movers" style="max-height:500px"></div>
-          <p class="vcap"><b>Live in NovaLens.</b> The week’s top visibility movers: per-engine cited / appears / absent status across the tracked prompt set.</p>
-        </div>
-      </div>
-      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED</span><span class="t-footer">07 / 16</span></div>
-    </div>
-  </section>
-
-  <!-- 05B SYSTEM 02 ANSWER ARCHITECTURE -->
-  <section data-label="System 02 — Answer Architecture">
-    <div class="mslide sysslide">
-      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">03 · The Method — System 02 of 05</div>
-      <h2 class="t-action anim d1">Answer Architecture: proven in your server logs, not promised in an audit.</h2>
-      <hr class="accent-rule anim d1">
-      <div class="sysgrid anim d2">
-        <div class="feat">
-          <span class="fbadge">★ Led by the ex-Tech SEO Head, Traveloka &amp; Tokopedia</span>
-          <p class="fe">Source track</p>
-          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Answer Architecture</p><span class="pchip">SYS·02</span></div>
-          <div class="cmp">
-            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Lead with content and PR because deep technical work is scarce; schema is a checkbox.</p></div>
-            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Entities, schema, llms.txt and passage structure led by the ex-Tech SEO Head of Traveloka and Tokopedia — then validated in your server logs, where AI crawler reads are visible.</p></div>
-          </div>
-          <p class="fstrip">entity disambiguation<span class="s">·</span>schema / JSON-LD<span class="s">·</span>llms.txt<span class="s">·</span>passage extraction<span class="s">·</span>AI bot log analysis</p>
-        </div>
-        <div class="sysviz">
-          <div class="vframe"><img src="assets/answer-architecture.png" alt="Answer Architecture system view"></div>
-          <p class="vcap"><b>System view.</b> Schema brackets, entity tags and passage-first structure on a page, with AI crawler reads confirmed in the logs.</p>
-        </div>
-      </div>
-      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 02</span><span class="t-footer">08 / 16</span></div>
-    </div>
-  </section>
-
-  <!-- 05C SYSTEM 03 FIRST-PARTY ANSWERS -->
-  <section data-label="System 03 — First-Party Answers">
-    <div class="mslide sysslide">
-      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">03 · The Method — System 03 of 05</div>
-      <h2 class="t-action anim d1">First-Party Answers: your data, not recycled content.</h2>
-      <hr class="accent-rule anim d1">
-      <div class="sysgrid anim d2">
-        <div class="feat">
-          <p class="fe">Source track</p>
-          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">First-Party Answers</p><span class="pchip">SYS·03</span></div>
-          <div class="cmp">
-            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Say unique data earns citations, but never say where it comes from; ship AI-written volume.</p></div>
-            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">We mine the underutilised proprietary data in your business — sales and support conversations, usage benchmarks, pricing intelligence — and turn it into tiers of content that shape how AI describes and recommends you. Engines cite what they cannot find elsewhere.</p></div>
-          </div>
-          <p class="fstrip">first-party data mining<span class="s">·</span>sales-transcript insights<span class="s">·</span>comparison pages<span class="s">·</span>refresh cadence</p>
-        </div>
-        <div class="sysviz">
-          <div class="vframe"><img src="assets/first-party-answers.png" alt="First-Party Answers system view"></div>
-          <p class="vcap"><b>System view.</b> Sales calls, win/loss notes and support tickets assembled into comparison pages no competitor holds — the pages AI ends up citing.</p>
-        </div>
-      </div>
-      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 03</span><span class="t-footer">09 / 16</span></div>
-    </div>
-  </section>
-
-  <!-- 05D SYSTEM 04 ECHO NETWORK -->
-  <section data-label="System 04 — Echo Network">
-    <div class="mslide sysslide">
-      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">03 · The Method — System 04 of 05</div>
-      <h2 class="t-action anim d1">Echo Network: the exact domains AI cites, not a generic media list.</h2>
-      <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">60% of AI Overview citations come from URLs outside the top 20 organic results, and 85% of brand mentions sit on third-party pages. The echo decides who gets recommended.</p>
-      <div class="sysgrid anim d2">
-        <div class="feat">
-          <p class="fe">Echo track</p>
-          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Echo Network</p><span class="pchip">SYS·04</span></div>
-          <div class="cmp">
-            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Generic link building against a standard media list.</p></div>
-            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Citation mining first: the outreach list is the exact set of domains each engine already cites for your prompts — and unlinked mentions count.</p></div>
-          </div>
-          <p class="fstrip">citation mining<span class="s">·</span>digital PR<span class="s">·</span>unlinked brand mentions<span class="s">·</span>review platforms</p>
-        </div>
-        <div class="sysviz">
-          <div class="vframe" style="background:var(--paper-pure)"><img src="assets/echo-outreach-masked.png" alt="AI-citation publisher outreach table — targets, lists and placement models" style="max-height:470px"></div>
-          <p class="vcap"><b>The outreach table, live.</b> Eleven publisher targets mined from AI citations — each with the exact list to enter and the placement model quoted. Client masked.</p>
-        </div>
-      </div>
-      <div class="footer"><span class="t-footer">SRC · BRAINLABS PUBLISHED RESEARCH · ECHO TRACK · SYSTEM 04</span><span class="t-footer">10 / 16</span></div>
-    </div>
-  </section>
-
-  <!-- 05E SYSTEM 05 PROOF LOOP -->
-  <section data-label="System 05 — Proof Loop">
-    <div class="mslide sysslide">
-      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">03 · The Method — System 05 of 05</div>
-      <h2 class="t-action anim d1">Proof Loop: daily agents, not quarterly reports.</h2>
-      <hr class="accent-rule anim d1">
-      <div class="sysgrid anim d2">
-        <div class="feat">
-          <p class="fe">Operate</p>
-          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Proof Loop</p><span class="pchip">SYS·05</span></div>
-          <div class="cmp">
-            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Quarterly audits, monthly PDFs, and a junior account team running execution.</p></div>
-            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Agents pull visibility data daily into NovaLens; senior strategists carry every meeting decision straight into execution.</p></div>
-          </div>
-          <p class="fstrip">daily prompt runs<span class="s">·</span>NovaLens platform<span class="s">·</span>AI share of voice<span class="s">·</span>pipeline attribution</p>
-        </div>
-        <div class="sysviz">
-          <div class="vframe"><img src="assets/novalens-shots/novalens-clicks-mtd-slidecut.png" alt="NovaLens daily traffic panel" style="max-height:490px"></div>
-          <p class="vcap"><b>Live in NovaLens.</b> The morning traffic read: daily clicks, brand / non-brand split, pacing against last month.</p>
-        </div>
-      </div>
-      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED, VOLUMES INDEXED</span><span class="t-footer">11 / 16</span></div>
-    </div>
-  </section>
-
-  <!-- 08 CASE NUMBERS -->
-  <section data-label="Case Study — Results">
+  <!-- 05 PROOF BEFORE PITCH -->
+  <section data-label="Proof Before Pitch">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">05 · Client Use Case · GoFreight — Freight-Tech SaaS</div>
+      <div class="crumb t-eyebrow anim">04 · Proof Before Pitch</div>
+      <h2 class="t-action anim d1">Before Novastacks existed, the team carried real P&amp;Ls &mdash; here&rsquo;s what they delivered.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="stat-grid anim d2" style="grid-template-columns:repeat(3,1fr)">
+        <div class="stat">
+          <div class="se">D2C portfolio exits</div>
+          <div class="sn">$10M</div>
+          <div class="sl">Dunwell, Cranberry and Sentinol &mdash; D2C brands built from zero over four years.</div>
+        </div>
+        <div class="stat">
+          <div class="se">Growth acceleration</div>
+          <div class="sn">4&times;</div>
+          <div class="sl">Traveloka paid channel: 10% YoY growth on entry &rarr; 40% YoY at exit.</div>
+        </div>
+        <div class="stat">
+          <div class="se">Years operating</div>
+          <div class="sn">60+</div>
+          <div class="sl">Combined pedigree across Expedia, Tencent, Klook, Traveloka, StashAway and Carro.</div>
+        </div>
+      </div>
+      <div class="logo-row anim d3">
+        <span class="lab">Brands we&rsquo;ve grown</span>
+        <span class="wm">Traveloka</span>
+        <span class="wm">Expedia</span>
+        <span class="wm">Tencent</span>
+        <span class="wm">Tokopedia</span>
+      </div>
+      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">05 / 11</span></div>
+    </div>
+  </section>
+
+  <!-- 06 WHY NOW -->
+  <section data-label="Why Now">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">05 · Why Now</div>
+      <h2 class="t-action anim d1">Why this configuration, and why now.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="three-up anim d2">
+        <div class="card3">
+          <div class="n">Force 01</div>
+          <h3 class="h">AI is collapsing the channel stack</h3>
+          <p class="d">SEO, paid, content and PR are converging into one chat surface. Whoever owns the LLM interface for their category wins disproportionately.</p>
+        </div>
+        <div class="card3">
+          <div class="n">Force 02</div>
+          <h3 class="h">Agencies and IT vendors don&rsquo;t compose</h3>
+          <p class="d">Agencies execute but can&rsquo;t build AI growth systems. IT vendors build software but don&rsquo;t carry a business outcome. You pay both &mdash; and neither owns the result.</p>
+        </div>
+        <div class="card3">
+          <div class="n">Force 03</div>
+          <h3 class="h">Growth-stage companies need velocity</h3>
+          <p class="d">The topline growth you need can&rsquo;t come from traditional models or channels. Enterprise value compounds faster than how marketing firms work.</p>
+        </div>
+      </div>
+      <div class="callout anim d3"><span class="dot"></span><span>The gap between those three forces is exactly where <b>Novastacks</b> sits.</span></div>
+      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">06 / 11</span></div>
+    </div>
+  </section>
+
+  <!-- 07 CASE — GOFREIGHT RESULTS -->
+  <section data-label="Case — GoFreight Results">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · Client Case · GoFreight &mdash; Freight-Tech SaaS</div>
       <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">In three months we took a freight-tech SaaS from invisible to fastest-rising in AI answers. <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
       <hr class="accent-rule anim d1">
       <div class="stat-grid anim d2">
         <div class="stat"><div class="se">Monthly organic clicks</div><div class="sn">+88%</div><div class="sl">in three months</div></div>
-        <div class="stat"><div class="se">AI visibility</div><div class="sn range">13.7% <span class="ar">→</span> 23.5%</div><div class="sl">#5 → #4 vs competitors</div></div>
-        <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">→</span> 8.4</div><div class="sl">Page 3 → page 1</div></div>
+        <div class="stat"><div class="se">AI visibility</div><div class="sn range">13.7% <span class="ar">&rarr;</span> 23.5%</div><div class="sl">#5 &rarr; #4 vs competitors</div></div>
+        <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">&rarr;</span> 8.4</div><div class="sl">Page 3 &rarr; page 1</div></div>
         <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">12 / 16</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">07 / 11</span></div>
     </div>
   </section>
 
-  <!-- 09 PROOF -->
-  <section data-label="Case Study — Proof">
+  <!-- 08 CASE — GOFREIGHT PROOF -->
+  <section data-label="Case — GoFreight Proof">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">05 · Case Study — Proof</div>
+      <div class="crumb t-eyebrow anim">06 · Client Case · GoFreight &mdash; Proof</div>
       <h2 class="t-action anim d1">The CEO saw it in the pipeline before he saw it in a dashboard.</h2>
       <hr class="accent-rule anim d1">
       <div class="proof anim d2">
@@ -678,99 +596,78 @@
           <div class="frame email">
             <img src="assets/proof-email.jpg" alt="Inbound lead email — ChatGPT recommended the client">
           </div>
-          <p class="cap">Inbound enterprise lead — the prospect found them through ChatGPT, which recommended them over the market leader. <b>January 2026.</b></p>
+          <p class="cap">Inbound enterprise lead &mdash; the prospect found them through ChatGPT, which recommended them over the market leader. <b>January 2026.</b></p>
         </div>
         <div class="artifact">
           <p class="alabel">The visibility that drove it</p>
           <div class="frame shot" style="padding:0;background:#020617">
             <img src="assets/novalens-shots/novalens-sov-trend-slidecut.png" alt="NovaLens — AI visibility by engine climbing weekly across Google AI Overviews, Perplexity and ChatGPT" style="max-height:500px">
           </div>
-          <p class="cap">AI visibility climbing across every engine — <b>Google AI Overviews, Perplexity and ChatGPT</b> — tracked live in NovaLens through the engagement.</p>
+          <p class="cap">AI visibility climbing across every engine &mdash; <b>Google AI Overviews, Perplexity and ChatGPT</b> &mdash; tracked live in NovaLens through the engagement.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">13 / 16</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">08 / 11</span></div>
     </div>
   </section>
 
-  <!-- 10 QUOTE -->
-  <section data-label="Case Study — The Buyer">
+  <!-- 09 CASE — GOFREIGHT BUYER -->
+  <section data-label="Case — GoFreight Buyer">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">05 · Case Study — The Buyer's Words</div>
+      <div class="crumb t-eyebrow anim">06 · Client Case · GoFreight &mdash; The Buyer&rsquo;s Words</div>
       <div class="quote-wrap">
-        <p class="t-h2 anim d1" style="color:var(--ink-3);font-weight:500;max-width:1500px">1 of the client's 6 most recent enterprise wins started with an AI shortlist.</p>
-        <p class="bigq anim d1">“I had a conversation with AI… it narrowed it down to a top five. <em>You guys were a top two.</em>”</p>
+        <p class="t-h2 anim d1" style="color:var(--ink-3);font-weight:500;max-width:1500px">1 of the client&rsquo;s 6 most recent enterprise wins started with an AI shortlist.</p>
+        <p class="bigq anim d1">&ldquo;I had a conversation with AI&hellip; it narrowed it down to a top five. <em>You guys were a top two.</em>&rdquo;</p>
         <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
       </div>
-      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">14 / 16</span></div>
+      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">09 / 11</span></div>
     </div>
   </section>
 
-  <!-- 11 PARTNER -->
-  <section data-label="How to Work Together">
-    <div class="mslide sysslide">
+  <!-- 10 CASE — TIKET -->
+  <section data-label="Case — Tiket.com">
+    <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">06 · Engage</div>
-      <h2 class="t-action anim d1">Three ways to work with us.</h2>
+      <div class="crumb t-eyebrow anim">07 · Client Case · Tiket.com &mdash; AI Transformation</div>
+      <h2 class="t-action anim d1">We delivered an enterprise AI transformation for tiket.com.</h2>
       <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">Whichever you pick, the outcome is the same: your leads arrive pre-sold — AI already did their research and put you on the shortlist.</p>
-      <div class="partner three anim d2">
-        <div class="pcard lead">
-          <span class="pbadge">RECOMMENDED</span>
-          <h3 class="ptitle">SEO &amp; AEO Solution —<br>Done For You</h3>
-          <p class="psub">We run the Source &amp; Echo Method end to end.</p>
-          <p class="pd">Business-outcome focused. Your account stays with senior operators — never outsourced, never handed to juniors.</p>
-          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">$3K–10K<span class="pmo"> / month</span></span></div>
-          <div class="ptags">
-            <span class="ptag em">Monthly retainer</span><span class="ptag">Technical SEO</span><span class="ptag">AEO</span><span class="ptag">Content SEO</span><span class="ptag">Local SEO</span>
-          </div>
-        </div>
-        <div class="pcard">
-          <h3 class="ptitle">SEO &amp; AEO Strategy<br>Advisory</h3>
-          <p class="psub">The strategy and roadmap, without the operation.</p>
-          <p class="pd">Strategy-focused. Prompt portfolio baseline, the method strategy and a 90-day plan — handed to your team to run.</p>
-          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Customised</span></div>
-          <div class="ptags">
-            <span class="ptag em">Strategy-focused</span><span class="ptag">Roadmap</span><span class="ptag">Handover</span>
-          </div>
-        </div>
-        <div class="pcard">
-          <h3 class="ptitle">Agentic System<br>Building &amp; Advisory</h3>
-          <p class="psub">We build the capability with you.</p>
-          <p class="pd">Workshops and implementation that leave the system — and the skills — inside your team.</p>
-          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Customised</span></div>
-          <div class="ptags">
-            <span class="ptag em">Project-based</span><span class="ptag">Workshops</span><span class="ptag">Implementation</span><span class="ptag">Custom agent builds</span>
-          </div>
-        </div>
+      <p class="t-lede subhead anim d1">Claude-partnered delivery &mdash; from internal prompt fluency to deployed, governed agentic workflows.</p>
+      <div class="scope-grid anim d2">
+        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Prompt Engineering Course</p><p class="sd">Hands-on training to build internal AI fluency across teams.</p></div></div>
+        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Build &amp; Configure Agents</p><p class="sd">Agentic workflows designed and deployed against Tiket&rsquo;s real business cases.</p></div></div>
+        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Generative Action Configuration</p><p class="sd">Multi-step workflow design with conditional logic and decision branching.</p></div></div>
+        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Knowledge Orchestration</p><p class="sd">Business processes mapped to AI use cases, connecting internal knowledge to agent outputs.</p></div></div>
+        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Responsible AI &amp; Governance</p><p class="sd">Governance for agents and workflows &mdash; accountability, auditability and risk controls.</p></div></div>
       </div>
-      <div class="footer"><span class="t-footer">ENGAGE · DONE-FOR-YOU · STRATEGY · BUILD-WITH-YOU</span><span class="t-footer">15 / 16</span></div>
+      <div class="footer"><span class="t-footer">SRC · TIKET.COM AI TRANSFORMATION · youtube.com/shorts/KQBdmOxKl3E</span><span class="t-footer">10 / 11</span></div>
     </div>
   </section>
 
-  <!-- 12 CLOSE -->
+  <!-- 11 CLOSE -->
   <section class="dark" data-label="Close">
     <div class="mslide dark">
       <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">06 · Close</div>
+      <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">08 · Close</div>
       <div class="close-wrap">
         <div>
-          <div class="close-q anim d1">See what AI says about your brand today — <em>we'll run the first audit free.</em></div>
-          <hr class="accent-rule anim d2" style="margin-top:44px">
-          <a class="cta-btn anim d2" href="https://calendar.app.google/3tk45A3Wq7UwgJef9" target="_blank" rel="noopener">Book a meeting →</a>
+          <div class="close-q anim d1">Let&rsquo;s build something that compounds together.</div>
+          <p class="anim d1" style="font-family:var(--font-body);font-size:26px;color:var(--dark-fg-2);line-height:1.42;max-width:1180px;margin:28px 0 0">One working session &mdash; we align on the KPI, map the first 90 days, and both walk away knowing if it&rsquo;s the right fit.</p>
+          <hr class="accent-rule anim d2" style="margin-top:40px">
+          <a class="cta-btn anim d2" href="https://calendar.app.google/3tk45A3Wq7UwgJef9" target="_blank" rel="noopener">Book a working session &rarr;</a>
         </div>
         <div class="anim d2">
           <div class="close-contact">
             <span class="nm">Tina Chu</span><span class="sep">·</span>tchu@novastacks-ai.com<span class="sep">·</span>novastacks-ai.com
           </div>
           <div class="footer" style="margin-top:40px">
-            <span class="t-footer" style="color:var(--dark-fg-2)">FULL CASE STUDY · goblin2929.github.io/prospect-docs</span>
-            <span class="t-footer" style="color:var(--accent)">16 / 16</span>
+            <span class="t-footer" style="color:var(--dark-fg-2)">NOVASTACKS · AI-NATIVE GROWTH PARTNER</span>
+            <span class="t-footer" style="color:var(--accent)">11 / 11</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 
 </deck-stage>
 
