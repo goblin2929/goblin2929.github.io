@@ -299,17 +299,17 @@
 
   <!-- Audience Fit -->
   <div class="intel-card">
-    <h3>Audience Fit <span class="tag tag-green">Buyer = funded tech scale-up × decision-maker</span></h3>
-    <div class="intel-row"><span><strong>Target buyers — 50+ team companies</strong></span><span class="intel-metric" style="color:#16a34a">~50% ✓</span></div>
-    <div class="intel-row"><span>Scale-up potential — 11–50 (tech-leaning)</span><span class="intel-metric" style="color:#0891b2">16% ◐</span></div>
-    <div class="intel-row"><span>Solo / micro — 0–10 emp (true off-target)</span><span class="intel-metric" style="color:#d97706">18% ⚠</span></div>
+    <h3>Audience Fit <span class="tag tag-green">% of audience reached (not followers)</span></h3>
+    <div style="font-size:11px;color:var(--text-dim);margin:-2px 0 8px;">By company size — where the people who saw your content work:</div>
+    <div class="intel-row"><span><strong>Scale-up buyers — 11–1,000 emp (core ICP)</strong></span><span class="intel-metric" style="color:#16a34a">~38% ✓</span></div>
+    <div class="intel-row"><span>Enterprise buyers — 1,001+ emp (secondary)</span><span class="intel-metric" style="color:#0891b2">~28% ◐</span></div>
+    <div class="intel-row"><span>Non-buyers — 0–10 emp (solo / micro)</span><span class="intel-metric" style="color:#d97706">~18% ⚠</span></div>
+    <div style="font-size:11px;color:var(--text-dim);margin:6px 0 4px;">By role — the decision-maker axis (separate from company size):</div>
     <div class="intel-row"><span>Director + CXO + Owner (decision-makers)</span><span class="intel-metric" style="color:#16a34a">33% ✓</span></div>
     <div class="intel-row"><span>Senior</span><span class="intel-metric" style="color:#16a34a">28% ✓</span></div>
-    <div class="intel-row"><span>Tech + IT Services</span><span class="intel-metric" style="color:#16a34a">27% ✓</span></div>
+    <div class="intel-row"><span>Tech + IT Services (industry)</span><span class="intel-metric" style="color:#16a34a">27% ✓</span></div>
     <div class="intel-row"><span>Singapore + Taipei + London</span><span class="intel-metric" style="color:#16a34a">23% ✓</span></div>
-    <div class="intel-row"><span>Enterprise 10,001+ (fractional-CMO end)</span><span class="intel-metric" style="color:#16a34a">13% ✓</span></div>
-    <div class="intel-row"><span>Founders (target if funded co, not if solo)</span><span class="intel-metric" style="color:#0891b2">7% ◐</span></div>
-    <div style="font-size:12px;color:var(--text-dim);margin-top:12px;line-height:1.5"><strong>Buyer = (funded tech/SaaS scale-up or larger) × (decision-maker with budget).</strong> Headcount is a proxy, not the definition: 50+ teams are clearly target (~50%), 11–50 tech are likely early scale-ups (16%), and only solo/micro 0–10 (18%) is the genuine off-target slice — not "everything sub-50." Limitation: LinkedIn shows size + industry but not funding stage, so 50+ is the clean signal and 11–50 leans target given the ~27% tech/IT skew. Whole-integer shares this export — sub-percentage shifts not trackable.</div>
+    <div style="font-size:12px;color:var(--text-dim);margin-top:12px;line-height:1.5"><strong>A buyer = (funded scale-up or larger) × (decision-maker with budget)</strong> — two separate axes, both shown above. Scale-up (11–1,000) is the bullseye: budget to spend, too lean to run growth in-house. Enterprise (1,001+) is valid but secondary (fractional-CMO / large-account). Only solo/micro 0–10 is true off-target — NOT "everything small." These are shares of the <em>audience reached</em> (who saw the content), not followers, and not per-post. Limitation: LinkedIn gives size + industry but not funding stage; whole-integer shares this export.</div>
   </div>
 
   <!-- Cadence Alert -->
@@ -463,7 +463,7 @@ const followerDaily = [{"date": "3/5/2026", "new_followers": 1}, {"date": "3/6/2
             <div class="post-stat"><div class="post-stat-value">${p.engRate.toFixed(1)}%</div><div class="post-stat-label">Eng Rate</div></div>
             <div class="post-stat"><div class="post-stat-value">${p.impressions > 0 ? Math.round(p.engagements / p.impressions * p.impressions * 0.027) : 0}</div><div class="post-stat-label">Est. Clicks</div></div>
           </div>
-          ${p.buyer_share !== undefined ? `<div class="post-buyer" style="margin:8px 0 4px;padding:6px 8px;border-radius:6px;font-size:11px;font-weight:600;background:${p.lean>=10?'#e7f5ec':p.lean<=-10?'#fdecea':'#fef6e7'};color:${p.lean>=10?'#16a34a':p.lean<=-10?'#dc2626':'#b8860b'};">Buyer reach: ${p.buyer_share}% target (50+) &middot; ${p.scaleup_share}% scale-up (11&ndash;50) &middot; ${p.micro_share}% solo/micro &mdash; ${p.lean>=10?'reaches buyers':p.lean<=-10?'off-target':'mixed'}</div>` : ''}
+          ${p.scaleup_buyer !== undefined ? (() => { const s=p.scaleup_buyer, e=p.ent_buyer, n=p.nonbuyer; const dom = (s>=e && s>=n) ? 'scaleup' : ((e>=s && e>=n) ? 'ent' : 'non'); const bg = dom==='scaleup'?'#e7f5ec':dom==='ent'?'#e6f6f9':'#fef6e7'; const col = dom==='scaleup'?'#16a34a':dom==='ent'?'#0891b2':'#b8860b'; const lab = dom==='scaleup'?'&rarr; scale-up buyers':dom==='ent'?'&rarr; enterprise buyers':'&rarr; mostly non-buyers'; return `<div class="post-buyer" style="margin:8px 0 4px;padding:6px 8px;border-radius:6px;font-size:11px;font-weight:600;background:${bg};color:${col};">Buyer reach: ${s}% scale-up &middot; ${e}% enterprise &middot; ${n}% solo/micro &nbsp;${lab}</div>`; })() : ''}
           <a class="post-link" href="${p.url}" target="_blank">View on LinkedIn &#8594;</a>
         `;
         grid.appendChild(card);
