@@ -87,6 +87,9 @@
   .sort-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:500; padding:5px 14px; border-radius:20px; border:1px solid var(--border); background:var(--surface); color:var(--text-dim); cursor:pointer; transition:all 0.15s; }
   .sort-btn:hover { border-color:var(--accent); color:var(--accent); }
   .sort-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .period-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; padding:5px 14px; border-radius:20px; border:1px solid var(--border); background:var(--surface); color:var(--text-dim); cursor:pointer; transition:all 0.15s; }
+  .period-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .period-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
 
   /* Intelligence Section */
   .intel-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:36px; }
@@ -130,39 +133,19 @@
   <div class="period-badge">Oct 2025 — Jun 2026</div>
 </div>
 
+<!-- Period Selector (drives overview + engagement + post performance) -->
+<div class="sort-bar" style="margin-bottom:16px;">
+  <span class="sort-label">Period</span>
+  <button class="period-btn" data-period="L30D">Last 30d</button>
+  <button class="period-btn active" data-period="L90D">Last 90d</button>
+  <button class="period-btn" data-period="YTD">YTD</button>
+  <button class="period-btn" data-period="ALL">All time</button>
+  <span id="periodNote" style="margin-left:auto;font-size:12px;color:var(--text-dim);"></span>
+</div>
+
 <!-- KPI Cards -->
 <div class="section-label">// overview</div>
-<div class="kpi-grid">
-  <div class="kpi">
-    <div class="kpi-value accent">10,626</div>
-    <div class="kpi-label">Impressions (28d)</div>
-    <div class="kpi-sub">12mo: 111,910+ · prev 90d: 33,026</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-value">3,402</div>
-    <div class="kpi-label">Members Reached (28d)</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-value">3,939</div>
-    <div class="kpi-label">Followers</div>
-    <div class="kpi-sub">+36 since Jun 2</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-value">74</div>
-    <div class="kpi-label">Total Posts</div>
-    <div class="kpi-sub">60 active (Oct+)</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-value">1,986</div>
-    <div class="kpi-label">Avg Imp / Post</div>
-    <div class="kpi-sub">-4% · no 2k-reach post this cycle</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-value">2.05%</div>
-    <div class="kpi-label">Engagement Rate</div>
-    <div class="kpi-sub">+0.05pt · top new post 5.3% eng</div>
-  </div>
-</div>
+<div class="kpi-grid" id="kpiGrid"></div>
 
 <!-- Engagement Chart -->
 <div class="section-label">// engagement over time</div>
@@ -340,45 +323,46 @@
 
   <!-- Next Posts -->
   <div class="intel-card intel-full">
-    <h3>Recommended Next Posts <span class="tag tag-blue">Pipeline</span></h3>
+    <h3>Recommended Next Posts <span class="tag tag-blue">Aligned to current-regime read</span></h3>
     <div class="rec-card">
       <div class="rec-num">1</div>
       <div class="rec-body">
-        <div class="rec-title">The B2B tech industry spent $8.2M on ads last quarter. My client spent [$X] and out-ranked them in ChatGPT. Here's the full math.</div>
-        <div class="rec-meta">Expands the Jun 13 winner (4.5% eng) into a wide-reach version · pairs the proven dollar-figure format with a sarcastic-breakdown distribution shell to fix reach</div>
+        <div class="rec-title">What my analytics agent told me about who actually sees my posts (and how I changed what I write because of it).</div>
+        <div class="rec-meta">Sequel to the May 27 buyer-reach winner (~287 buyers, your best of the period) · operator-dispatch about your own system, <strong>business-framed</strong> (who reaches buyers), not mechanics · current best format for buyer reach</div>
       </div>
     </div>
     <div class="rec-card">
       <div class="rec-num">2</div>
       <div class="rec-body">
-        <div class="rec-title">I wrote quality standards into my AI's instructions. Two weeks later it quietly stopped following half of them. Here's the audit I run weekly.</div>
-        <div class="rec-meta">Sequel to the May 25 winner (2,085 imp) · the 2k-reach operator-dispatch format absent this cycle · brings back the wide-reach post</div>
+        <div class="rec-title">The B2B tech industry spent $8.2M on ads last quarter. My client spent [$X] and out-ranked them in ChatGPT. Here's the full math.</div>
+        <div class="rec-meta">Expands the Jun 13 client-ROI post into a wide-reach version · the format works but reached only ~60 buyers (232 reached) — this one is built for distribution</div>
       </div>
     </div>
     <div class="rec-card">
       <div class="rec-num">3</div>
       <div class="rec-body">
-        <div class="rec-title">My SaaS client cut content review cycles from 9 days to 2. The agentic workflow they didn't pay for.</div>
-        <div class="rec-meta">Operator dispatch · second client-ROI dollar/time story to build the backlog · anonymised, specific (carried)</div>
+        <div class="rec-title">A standalone framework / number worth reposting — one quotable takeaway your peers want to share with their network.</div>
+        <div class="rec-meta">Tests the reach hypothesis: recent posts earn likes but ~zero reposts (the signal that travels). Build it to be reshared, then measure · hypothesis, not law — re-check next cycle</div>
       </div>
     </div>
     <div class="rec-card">
       <div class="rec-num">4</div>
       <div class="rec-body">
-        <div class="rec-title">You can post every day, boost every post, and run ads — and still watch your reach stall. Here's what actually moves it.</div>
-        <div class="rec-meta">Follow-up to the Jun 2 contrarian-reach post (3.6% eng) · turn the observation into a method post · it's the audience's own constraint</div>
+        <div class="rec-title">My SaaS client cut content review cycles from 9 days to 2. The agentic workflow they didn't pay for.</div>
+        <div class="rec-meta">Business-outcome (not mechanics) framing → reaches buyers, not builders · second client-ROI story to build the backlog · anonymised, specific</div>
       </div>
     </div>
     <div class="rec-card">
       <div class="rec-num">5</div>
       <div class="rec-body">
-        <div class="rec-title">AI search is ~12% of query share in APAC and most brands haven't updated a single page.</div>
-        <div class="rec-meta">Regional authority · stat-led, wide-reach potential · serves SG/Taipei base + US readers tracking APAC · Thursday (carried)</div>
+        <div class="rec-title">68% of B2B buyers finish half their buying journey before they ever talk to sales. What that means for your pipeline in 2026.</div>
+        <div class="rec-meta">Stat-led, <strong>business-outcome framing</strong> aimed at CMO/VP decision-makers · wide-reach potential · ties to the Inbound Pipeline Engine</div>
       </div>
     </div>
-    <div style="display:flex;align-items:center;gap:12px;margin-top:8px;">
+    <div style="font-size:12px;color:var(--text-dim);margin:8px 0 0;line-height:1.5;">All five follow the current read: <strong>frame on business results (reach buyers, not builders)</strong>, prioritise reach, and test for shares over likes. The old "bring back the 2k operator-dispatch" rec was dropped — that playbook (and the May 25 mechanics-framed post) stopped reaching buyers this regime.</div>
+    <div style="display:flex;align-items:center;gap:12px;margin-top:10px;">
       <a class="strategy-cta" href="vscode://file/Users/tinachu/novastacks/company/linkedin/">Open in VS Code</a>
-      <span class="last-updated">Intelligence updated: June 17, 2026 · Next refresh: July 2026</span>
+      <span class="last-updated">Intelligence updated: June 18, 2026 · Next refresh: July 2026</span>
     </div>
   </div>
 
@@ -417,15 +401,26 @@ const posts = [{"url": "https://www.linkedin.com/feed/update/urn:li:activity:743
 const demographics = {"companies": [{"value": "Traveloka", "percentage": 2.0}, {"value": "Klook", "percentage": "< 1%"}, {"value": "Google", "percentage": "< 1%"}, {"value": "Expedia Group", "percentage": "< 1%"}, {"value": "Meta", "percentage": "< 1%"}, {"value": "Stealth Startup", "percentage": "< 1%"}, {"value": "Amazon", "percentage": "< 1%"}, {"value": "TikTok", "percentage": "< 1%"}, {"value": "Uber", "percentage": "< 1%"}], "locations": [{"value": "Singapore", "percentage": 15.0}, {"value": "San Francisco Bay Area", "percentage": 4.0}, {"value": "Taipei\u2013Keelung Metropolitan area", "percentage": 4.0}, {"value": "London Area, United Kingdom", "percentage": 4.0}, {"value": "New York City Metropolitan Area", "percentage": 3.0}, {"value": "Jakarta Metropolitan Area", "percentage": 2.0}, {"value": "Greater Delhi Area", "percentage": 1.0}, {"value": "Greater Sydney Area", "percentage": 1.0}, {"value": "Los Angeles Metropolitan Area", "percentage": 1.0}], "company_size": [{"value": "11-50 employees", "percentage": 16.0}, {"value": "2-10 employees", "percentage": 16.0}, {"value": "10,001+ employees", "percentage": 13.0}, {"value": "51-200 employees", "percentage": 11.0}, {"value": "1,001-5,000 employees", "percentage": 11.0}, {"value": "201-500 employees", "percentage": 6.0}, {"value": "501-1,000 employees", "percentage": 5.0}, {"value": "5,001-10,000 employees", "percentage": 4.0}, {"value": "0-1 employees", "percentage": 2.0}], "seniority": [{"value": "Senior", "percentage": 28.0}, {"value": "Director", "percentage": 16.0}, {"value": "Entry", "percentage": 10.0}, {"value": "CXO", "percentage": 10.0}, {"value": "Owner", "percentage": 7.0}, {"value": "VP", "percentage": 7.0}, {"value": "Partner", "percentage": 6.0}, {"value": "Manager", "percentage": 6.0}, {"value": "Training", "percentage": "< 1%"}], "job_titles": [{"value": "Founder", "percentage": 7.0}, {"value": "Co-Founder", "percentage": 6.0}, {"value": "Chief Executive Officer", "percentage": 2.0}, {"value": "Managing Director", "percentage": 2.0}, {"value": "Board Member", "percentage": 1.0}, {"value": "Product Manager", "percentage": 1.0}, {"value": "Managing Partner", "percentage": 1.0}, {"value": "Business Development Manager", "percentage": 1.0}, {"value": "Marketing Manager", "percentage": 1.0}], "industries": [{"value": "Technology, Information and Internet", "percentage": 19.0}, {"value": "IT Services and IT Consulting", "percentage": 8.0}, {"value": "Advertising Services", "percentage": 7.0}, {"value": "Financial Services", "percentage": 7.0}, {"value": "Business Consulting and Services", "percentage": 4.0}, {"value": "Software Development", "percentage": 4.0}, {"value": "Venture Capital and Private Equity Principals", "percentage": 3.0}, {"value": "Marketing Services", "percentage": 3.0}, {"value": "Staffing and Recruiting", "percentage": 3.0}, {"value": "Investment Management", "percentage": 2.0}]};
 const followerDaily = [{"date": "3/5/2026", "new_followers": 1}, {"date": "3/6/2026", "new_followers": 3}, {"date": "3/7/2026", "new_followers": 1}, {"date": "3/8/2026", "new_followers": 3}, {"date": "3/9/2026", "new_followers": 11}, {"date": "3/10/2026", "new_followers": 11}, {"date": "3/11/2026", "new_followers": 9}, {"date": "3/12/2026", "new_followers": 12}, {"date": "3/13/2026", "new_followers": 16}, {"date": "3/14/2026", "new_followers": 20}, {"date": "3/15/2026", "new_followers": 4}, {"date": "3/16/2026", "new_followers": 22}, {"date": "3/17/2026", "new_followers": 5}, {"date": "3/18/2026", "new_followers": 9}, {"date": "3/19/2026", "new_followers": 0}, {"date": "3/20/2026", "new_followers": 9}, {"date": "3/21/2026", "new_followers": 1}, {"date": "3/22/2026", "new_followers": 2}, {"date": "3/23/2026", "new_followers": 2}, {"date": "3/24/2026", "new_followers": 1}, {"date": "3/25/2026", "new_followers": 6}, {"date": "3/26/2026", "new_followers": 8}, {"date": "3/27/2026", "new_followers": 2}, {"date": "3/28/2026", "new_followers": 2}, {"date": "3/29/2026", "new_followers": 0}, {"date": "3/30/2026", "new_followers": 2}, {"date": "3/31/2026", "new_followers": 1}, {"date": "4/1/2026", "new_followers": 0}, {"date": "4/2/2026", "new_followers": 4}, {"date": "4/3/2026", "new_followers": 0}, {"date": "4/4/2026", "new_followers": 0}, {"date": "4/5/2026", "new_followers": 1}, {"date": "4/6/2026", "new_followers": 0}, {"date": "4/7/2026", "new_followers": 1}, {"date": "4/8/2026", "new_followers": 1}, {"date": "4/9/2026", "new_followers": 7}, {"date": "4/10/2026", "new_followers": 6}, {"date": "4/11/2026", "new_followers": 0}, {"date": "4/12/2026", "new_followers": 3}, {"date": "4/13/2026", "new_followers": 3}, {"date": "4/14/2026", "new_followers": 3}, {"date": "4/15/2026", "new_followers": 4}, {"date": "4/16/2026", "new_followers": 4}, {"date": "4/17/2026", "new_followers": 1}, {"date": "4/18/2026", "new_followers": 0}, {"date": "4/19/2026", "new_followers": 0}, {"date": "4/20/2026", "new_followers": 1}, {"date": "4/21/2026", "new_followers": 3}, {"date": "4/22/2026", "new_followers": 1}, {"date": "4/23/2026", "new_followers": 8}, {"date": "4/24/2026", "new_followers": 2}, {"date": "4/25/2026", "new_followers": 3}, {"date": "4/26/2026", "new_followers": 0}, {"date": "4/27/2026", "new_followers": 0}, {"date": "4/28/2026", "new_followers": 2}, {"date": "4/29/2026", "new_followers": 1}, {"date": "4/30/2026", "new_followers": 0}, {"date": "5/1/2026", "new_followers": 0}, {"date": "5/2/2026", "new_followers": 1}, {"date": "5/3/2026", "new_followers": 0}, {"date": "5/4/2026", "new_followers": 0}, {"date": "5/5/2026", "new_followers": 4}, {"date": "5/6/2026", "new_followers": 3}, {"date": "5/7/2026", "new_followers": 1}, {"date": "5/8/2026", "new_followers": 2}, {"date": "5/9/2026", "new_followers": 2}, {"date": "5/10/2026", "new_followers": 0}, {"date": "5/11/2026", "new_followers": 3}, {"date": "5/12/2026", "new_followers": 6}, {"date": "5/13/2026", "new_followers": 1}, {"date": "5/14/2026", "new_followers": 13}, {"date": "5/15/2026", "new_followers": 2}, {"date": "5/16/2026", "new_followers": 1}, {"date": "5/17/2026", "new_followers": 0}, {"date": "5/18/2026", "new_followers": 0}, {"date": "5/19/2026", "new_followers": 4}, {"date": "5/20/2026", "new_followers": 3}, {"date": "5/21/2026", "new_followers": 2}, {"date": "5/22/2026", "new_followers": 3}, {"date": "5/23/2026", "new_followers": 3}, {"date": "5/24/2026", "new_followers": 0}, {"date": "5/25/2026", "new_followers": 3}, {"date": "5/26/2026", "new_followers": 2}, {"date": "5/27/2026", "new_followers": 5}, {"date": "5/28/2026", "new_followers": 5}, {"date": "5/29/2026", "new_followers": 1}, {"date": "5/30/2026", "new_followers": 1}, {"date": "5/31/2026", "new_followers": 0}, {"date": "6/1/2026", "new_followers": 1}, {"date": "6/2/2026", "new_followers": 14}, {"date": "6/3/2026", "new_followers": 6}, {"date": "6/4/2026", "new_followers": 2}, {"date": "6/5/2026", "new_followers": 4}, {"date": "6/6/2026", "new_followers": 0}, {"date": "6/7/2026", "new_followers": 1}, {"date": "6/8/2026", "new_followers": 1}, {"date": "6/9/2026", "new_followers": 4}, {"date": "6/10/2026", "new_followers": 5}, {"date": "6/11/2026", "new_followers": 2}, {"date": "6/12/2026", "new_followers": 0}, {"date": "6/13/2026", "new_followers": 3}, {"date": "6/14/2026", "new_followers": 0}, {"date": "6/15/2026", "new_followers": 2}, {"date": "6/16/2026", "new_followers": 21}, {"date": "6/17/2026", "new_followers": 7}];
 
-// === ENGAGEMENT CHART (daily, full date range) ===
-(() => {
-  new Chart(document.getElementById('engagementChart'), {
+// === PERIOD CONTROL (shared across overview + engagement + post performance) ===
+const __NOW = new Date(2026, 5, 18).getTime(), __DAY = 86400000;
+function __cutoff(p){ if(p==='L30D') return __NOW-30*__DAY; if(p==='L90D') return __NOW-90*__DAY; if(p==='YTD') return new Date(2026,0,1).getTime(); return 0; }
+function __tsOf(d){ const a=String(d).split('/'); return new Date(a[2], a[0]-1, a[1]).getTime(); }
+function __median(arr){ if(!arr.length) return 0; const s=[...arr].sort((x,y)=>x-y), m=s.length>>1; return s.length%2 ? s[m] : Math.round((s[m-1]+s[m])/2); }
+let __curPeriod = 'L90D', __curSort = 'impressions';
+
+// === ENGAGEMENT CHART (period-aware) ===
+let __engChart = null;
+function renderEngagement(){
+  const c = __cutoff(__curPeriod);
+  const d = dailyEngagement.filter(x => __tsOf(x.date) >= c);
+  if (__engChart) __engChart.destroy();
+  __engChart = new Chart(document.getElementById('engagementChart'), {
     type: 'bar',
     data: {
-      labels: dailyEngagement.map(d => d.date),
+      labels: d.map(x => x.date),
       datasets: [
-        { label: 'Impressions', data: dailyEngagement.map(d => d.impressions), backgroundColor: 'rgba(1,125,142,0.6)', borderRadius: 1, barPercentage: 1.0, categoryPercentage: 1.0 },
-        { label: 'Engagements', data: dailyEngagement.map(d => d.engagements), backgroundColor: 'rgba(22,163,74,0.5)', borderRadius: 1, barPercentage: 1.0, categoryPercentage: 1.0 },
+        { label: 'Impressions', data: d.map(x => x.impressions), backgroundColor: 'rgba(1,125,142,0.6)', borderRadius: 1, barPercentage: 1.0, categoryPercentage: 1.0 },
+        { label: 'Engagements', data: d.map(x => x.engagements), backgroundColor: 'rgba(22,163,74,0.5)', borderRadius: 1, barPercentage: 1.0, categoryPercentage: 1.0 },
       ]
     },
     options: {
@@ -437,7 +432,7 @@ const followerDaily = [{"date": "3/5/2026", "new_followers": 1}, {"date": "3/6/2
       }
     }
   });
-})();
+}
 
 // === POST CARDS (sortable) ===
 (() => {
@@ -456,7 +451,9 @@ const followerDaily = [{"date": "3/5/2026", "new_followers": 1}, {"date": "3/6/2
   byDate.forEach((p, i) => { p._postNum = i + 1; });
 
   function renderPosts(sortKey) {
-    const sorted = [...posts];
+    if (sortKey) __curSort = sortKey;
+    sortKey = __curSort;
+    const sorted = posts.filter(p => p._ts >= __cutoff(__curPeriod));
     if (sortKey === 'date') {
       sorted.sort((a, b) => b._ts - a._ts);
     } else if (sortKey === 'media') {
@@ -525,8 +522,8 @@ const followerDaily = [{"date": "3/5/2026", "new_followers": 1}, {"date": "3/6/2
     });
   });
 
-  // Initial render
-  renderPosts('impressions');
+  // Expose for the period controller (initial render handled by setPeriod)
+  window.__renderPosts = renderPosts;
 })();
 
 // === DEMOGRAPHICS ===
@@ -602,6 +599,43 @@ const followerDaily = [{"date": "3/5/2026", "new_followers": 1}, {"date": "3/6/2
     }
   });
 })();
+
+// === OVERVIEW KPIs + PERIOD WIRING ===
+function renderKPIs(){
+  const c = __cutoff(__curPeriod);
+  const ps = posts.filter(p => p._ts >= c);
+  const imp = ps.reduce((s,p)=>s+p.impressions,0);
+  const eng = ps.reduce((s,p)=>s+p.engagements,0);
+  const er = imp ? (eng/imp*100) : 0;
+  const avg = ps.length ? Math.round(imp/ps.length) : 0;
+  const wb = ps.filter(p => p.buyer_count !== undefined);
+  const buyers = wb.reduce((s,p)=>s+p.buyer_count,0);
+  const dens = __median(wb.map(p=>p.buyer_pct));
+  const fg = followerDaily.filter(d => __tsOf(d.date) >= c).reduce((s,d)=>s+(d.new_followers||0),0);
+  const cards = [
+    ['accent', ps.length.toLocaleString(), 'Posts', __curPeriod==='ALL'?'all time':'in period'],
+    ['', imp.toLocaleString(), 'Impressions', avg.toLocaleString()+' avg/post'],
+    ['', er.toFixed(1)+'%', 'Engagement Rate', eng.toLocaleString()+' engagements'],
+    ['accent', buyers.toLocaleString(), 'Buyers Reached', wb.length+' of '+ps.length+' posts w/ data'],
+    ['', dens+'%', 'Median Buyer Density', 'true-buyer share / post'],
+    ['', (fg>=0?'+':'')+fg.toLocaleString(), 'Followers Gained', '3,939 total'],
+  ];
+  document.getElementById('kpiGrid').innerHTML = cards.map(k =>
+    `<div class="kpi"><div class="kpi-value ${k[0]}">${k[1]}</div><div class="kpi-label">${k[2]}</div>${k[3]?'<div class="kpi-sub">'+k[3]+'</div>':''}</div>`
+  ).join('');
+}
+const __PLABEL = {L30D:'last 30 days', L90D:'last 90 days', YTD:'year to date', ALL:'all time'};
+function setPeriod(p){
+  __curPeriod = p;
+  document.querySelectorAll('.period-btn').forEach(b => b.classList.toggle('active', b.dataset.period === p));
+  const note = document.getElementById('periodNote');
+  if (note) note.textContent = 'Showing ' + __PLABEL[p] + ' · per-post buyer data covers the last 90 days';
+  renderKPIs();
+  renderEngagement();
+  if (window.__renderPosts) window.__renderPosts();
+}
+document.querySelectorAll('.period-btn').forEach(b => b.addEventListener('click', () => setPeriod(b.dataset.period)));
+setPeriod('L90D');
 </script>
 </body>
 </html>
