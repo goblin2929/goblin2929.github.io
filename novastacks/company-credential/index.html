@@ -348,6 +348,15 @@
   .sitem .sh{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
   .sitem .sd{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.36;margin:7px 0 0}
 
+  /* AI-transformation 3-layer model */
+  .tmodel{margin-top:30px;flex:1;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .tmrow{display:grid;grid-template-columns:88px 380px 1fr;gap:44px;align-items:center;
+    padding:24px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);flex:1}
+  .tmrow .tnum{font-family:var(--font-display);font-weight:600;font-size:52px;color:var(--accent);line-height:1;letter-spacing:-.02em}
+  .tmrow .tname{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);letter-spacing:-.01em;line-height:1.12}
+  .tmrow .tdesc{font-family:var(--font-body);font-size:21px;color:var(--ink-3);line-height:1.4;margin:0;max-width:980px}
+  .tmrow .tdesc b{color:var(--ink-1);font-weight:600}
+
 </style>
 </head>
 <body>
@@ -512,11 +521,16 @@
       <div class="crumb t-eyebrow anim">04 · Proof Before Pitch</div>
       <h2 class="t-action anim d1">New firm, seasoned team &mdash; real P&amp;L growth across markets at category leaders.</h2>
       <hr class="accent-rule anim d1">
-      <div class="stat-grid anim d2" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat-grid anim d2" style="grid-template-columns:repeat(4,1fr)">
         <div class="stat">
           <div class="se">D2C portfolio exits</div>
           <div class="sn">$10M</div>
-          <div class="sl">Dunwell, Cranberry and Sentinol &mdash; D2C brands built from zero over four years.</div>
+          <div class="sl">Dunwell, Cranberry, Sentinol &mdash; built from zero over four years.</div>
+        </div>
+        <div class="stat">
+          <div class="se">Ad spend managed</div>
+          <div class="sn">&gt;$50M</div>
+          <div class="sl">Performance budgets steered across paid channels in APAC.</div>
         </div>
         <div class="stat">
           <div class="se">Growth acceleration</div>
@@ -631,21 +645,31 @@
   </section>
 
   <!-- 10 CASE — TIKET -->
-  <section data-label="Case — Tiket.com">
+  <section data-label="AI Transformation">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">07 · Client Case · Tiket.com &mdash; AI Transformation</div>
-      <h2 class="t-action anim d1">We delivered an enterprise AI transformation for tiket.com.</h2>
+      <div class="crumb t-eyebrow anim">07 · AI Transformation</div>
+      <h2 class="t-action anim d1">How we run AI transformation &mdash; three layers, from tech stack to future capability.</h2>
       <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">Claude-partnered delivery &mdash; from internal prompt fluency to deployed, governed agentic workflows.</p>
-      <div class="scope-grid anim d2">
-        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Prompt Engineering Course</p><p class="sd">Hands-on training to build internal AI fluency across teams.</p></div></div>
-        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Build &amp; Configure Agents</p><p class="sd">Agentic workflows designed and deployed against Tiket&rsquo;s real business cases.</p></div></div>
-        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Generative Action Configuration</p><p class="sd">Multi-step workflow design with conditional logic and decision branching.</p></div></div>
-        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Knowledge Orchestration</p><p class="sd">Business processes mapped to AI use cases, connecting internal knowledge to agent outputs.</p></div></div>
-        <div class="sitem"><span class="ar">&rarr;</span><div><p class="sh">Responsible AI &amp; Governance</p><p class="sd">Governance for agents and workflows &mdash; accountability, auditability and risk controls.</p></div></div>
+      <p class="t-lede subhead anim d1">Several mid-market engagements with non-technical and marketing organisations &mdash; Claude-partnered, built around real workflows rather than generic tool training.</p>
+      <div class="tmodel anim d2">
+        <div class="tmrow">
+          <div class="tnum">01</div>
+          <div class="tname">Build the AI tech stack &amp; remap the workflow</div>
+          <p class="tdesc">Stand up the AI tooling and redesign how work actually flows around it &mdash; <b>where most of the value sits, not the tools themselves.</b></p>
+        </div>
+        <div class="tmrow">
+          <div class="tnum">02</div>
+          <div class="tname">Redesign the org &amp; upskill the team</div>
+          <p class="tdesc">Restructure roles and run hands-on, role-specific training on your real workflows &mdash; so people <b>lead the change instead of resisting it.</b></p>
+        </div>
+        <div class="tmrow">
+          <div class="tnum">03</div>
+          <div class="tname">Build capability for the agentic internet</div>
+          <p class="tdesc">Read buyer intent from unstructured data and act on it with agentic workflows &mdash; <b>the capability that compounds as search and buying move into AI.</b></p>
+        </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · TIKET.COM AI TRANSFORMATION · youtube.com/shorts/KQBdmOxKl3E</span><span class="t-footer">10 / 11</span></div>
+      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">10 / 11</span></div>
     </div>
   </section>
 
