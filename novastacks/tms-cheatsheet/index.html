@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic AI Masterclass — Class Cheatsheet · Novastacks × TMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EEE5;
+    --paper-2:#EBE4D6;
+    --ink:#141210;
+    --muted:#6E6659;
+    --rule:#1C1915;
+    --accent:#B8502A;       /* terracotta */
+    --accent-soft:#E8B49A;
+    --sage:#5C7A5E;
+    --sage-soft:#D5DECE;
+    --paper-dark:#1A1714;
+    --good:#3E6A48;
+    --bad:#9E2A1E;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#cfc8bb;color:var(--ink);
+    font-family:'IBM Plex Sans',-apple-system,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;}
+
+  .serif{font-family:'Instrument Serif',serif;font-weight:400;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  em,.italic{font-family:'Instrument Serif',serif;font-style:italic;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;}
+
+  .page{
+    width:210mm;min-height:296mm;margin:18px auto;background:var(--paper);
+    padding:18mm 18mm 15mm;position:relative;
+    box-shadow:0 8px 40px rgba(0,0,0,.22);
+  }
+  .page-foot{position:absolute;left:18mm;right:18mm;bottom:10mm;
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);border-top:1px solid #d8cfbf;padding-top:8px;}
+
+  .masthead{display:flex;justify-content:space-between;align-items:center;
+    border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:22px;}
+  .lockup{display:flex;align-items:center;gap:15px;}
+  .lockup img.nova{height:27px;width:auto;display:block;}
+  .lockup .tms-chip{background:var(--ink);border-radius:6px;padding:6px 11px;
+    display:inline-flex;align-items:center;}
+  .lockup .tms-chip img{height:22px;width:auto;display:block;}
+  .lockup .x{font-family:'Instrument Serif',serif;font-style:italic;font-size:23px;
+    color:var(--muted);line-height:1;}
+  .masthead .meta{text-align:right;font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.7;}
+
+  h1.title{font-family:'Instrument Serif',serif;font-weight:400;font-size:54px;
+    line-height:1.0;letter-spacing:-.015em;margin:4px 0 9px;}
+  h1.title em{color:var(--accent);}
+  .standfirst{font-size:14px;line-height:1.55;color:#3a3530;margin:0 0 4px;}
+  .standfirst b{color:var(--ink);}
+
+  section{margin-top:20px;}
+  .sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);
+    padding-bottom:7px;margin-bottom:13px;}
+  .sec-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:25px;color:var(--accent);line-height:1;}
+  .sec-title{font-family:'Instrument Serif',serif;font-size:26px;line-height:1;letter-spacing:-.01em;}
+  .lead{font-size:13px;line-height:1.5;color:#3a3530;margin:0 0 11px;}
+  .lead b{color:var(--ink);}
+
+  .bigidea{background:var(--paper-dark);color:var(--paper);border-radius:4px;padding:20px 24px;margin:4px 0;}
+  .bigidea .q{font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;
+    line-height:1.12;letter-spacing:-.01em;margin:0 0 9px;color:#fff;}
+  .bigidea p{font-size:12.5px;line-height:1.55;color:#cdc4b4;margin:0;}
+  .bigidea p b{color:var(--accent-soft);}
+
+  .cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;}
+  .cols2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+  .card{border:1px solid #d6ccbb;border-radius:4px;padding:14px 15px 15px;background:#faf7f0;}
+  .card .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+  .card h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:23px;margin:0 0 7px;letter-spacing:-.01em;}
+  .card.accent h3{color:var(--accent);}
+  .card p{font-size:11.5px;line-height:1.48;margin:0 0 7px;color:#3a3530;}
+  .card .use{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--sage);
+    border-top:1px dashed #d0c6b4;padding-top:6px;letter-spacing:.02em;}
+  .card .use b{color:var(--accent);}
+
+  table.k{width:100%;border-collapse:collapse;margin-top:4px;}
+  table.k th{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;
+    letter-spacing:.12em;color:var(--muted);font-weight:500;text-align:left;
+    border-bottom:1.5px solid var(--ink);padding:0 10px 7px 0;}
+  table.k td{font-size:11.5px;line-height:1.4;padding:8px 10px 8px 0;border-bottom:1px solid #ddd3c2;
+    vertical-align:top;color:#332e29;}
+  table.k td:first-child{font-family:'IBM Plex Mono',monospace;font-weight:500;color:var(--ink);white-space:nowrap;}
+  table.k td b{color:var(--ink);}
+
+  /* emphasized feature block (CLAUDE.md / hooks) */
+  .feature{border:1.5px solid var(--ink);border-radius:5px;overflow:hidden;}
+  .feature .top{background:var(--ink);color:var(--paper);padding:12px 18px;
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px;}
+  .feature .top .k{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--accent-soft);}
+  .feature .top .k b{color:#fff;}
+  .feature .top .why{font-size:11px;color:#cdc4b4;text-align:right;line-height:1.4;max-width:54%;}
+  .feature .body{padding:14px 18px 16px;}
+
+  /* tree */
+  .tree{font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.7;white-space:pre;
+    background:#f6f1e8;border:1px solid #e0d6c4;border-radius:4px;padding:12px 14px;color:#2a2620;overflow-x:auto;}
+  .tree .c{color:var(--accent);}
+  .tree .s{color:var(--sage);}
+
+  .gv{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+  .gv .b{border-left:2px solid var(--accent);padding-left:12px;}
+  .gv .b.sage{border-left-color:var(--sage);}
+  .gv .b .h{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink);font-weight:500;margin-bottom:3px;}
+  .gv .b .h span{color:var(--muted);font-weight:400;}
+  .gv .b ul{margin:0;padding-left:14px;}
+  .gv .b li{font-size:11px;line-height:1.45;color:#3a3530;margin-bottom:1px;}
+
+  .rules-inline{display:flex;gap:18px;flex-wrap:wrap;margin-top:11px;
+    font-size:11px;color:#3a3530;line-height:1.4;}
+  .rules-inline span{flex:1;min-width:150px;}
+  .rules-inline .ok{color:var(--good);font-weight:600;}
+  .rules-inline .no{color:var(--bad);font-weight:600;}
+
+  /* trio */
+  .trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+  .trio .t{background:#faf7f0;border:1px solid #d6ccbb;border-radius:4px;padding:12px 13px;}
+  .trio .t .n{font-family:'Instrument Serif',serif;font-size:22px;letter-spacing:-.01em;margin-bottom:1px;}
+  .trio .t .n.a{color:var(--accent);}
+  .trio .t .sub{font-size:11px;font-style:italic;font-family:'Instrument Serif',serif;color:var(--muted);margin-bottom:6px;}
+  .trio .t p{font-size:10.5px;line-height:1.45;color:#3a3530;margin:0;}
+  .trio .t p b{color:var(--ink);}
+
+  .codebox{font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.55;
+    background:var(--paper-dark);color:#d7ccba;border-radius:4px;padding:11px 14px;white-space:pre;overflow-x:auto;}
+  .codebox .g{color:var(--accent-soft);}
+  .codebox .b{color:#e0837a;}
+  .codebox .ok{color:#8fb98f;}
+
+  /* principles */
+  .princ{display:grid;grid-template-columns:1fr 1fr;gap:9px 20px;}
+  .princ .p{display:flex;gap:10px;}
+  .princ .n{font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:var(--accent);line-height:.9;min-width:24px;}
+  .princ .b .h{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:2px;}
+  .princ .b .d{font-size:10.5px;line-height:1.4;color:#4a443d;}
+
+  .try{background:var(--sage-soft);border-radius:4px;padding:14px 18px;margin-top:14px;}
+  .try h3{font-family:'Instrument Serif',serif;font-size:21px;margin:0 0 8px;color:var(--ink);}
+  .try ol{margin:0;padding-left:18px;}
+  .try li{font-size:11.5px;line-height:1.45;margin-bottom:5px;color:#28332a;}
+  .try li b{color:var(--sage);}
+
+  .connect{background:var(--paper-dark);color:var(--paper);border-radius:4px;
+    padding:20px 24px;margin-top:18px;display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:center;}
+  .connect h3{font-family:'Instrument Serif',serif;font-size:27px;margin:0 0 8px;color:#fff;line-height:1.05;}
+  .connect p{font-size:12px;line-height:1.55;color:#cdc4b4;margin:0 0 5px;}
+  .connect p b{color:var(--accent-soft);}
+  .connect p a{color:var(--accent-soft);text-decoration:underline;text-underline-offset:2px;}
+  .connect p a b{color:var(--accent-soft);}
+  .connect .links{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;
+    line-height:1.95;border-left:1px solid #3a352f;padding-left:20px;}
+  .connect .links a{color:var(--accent-soft);text-decoration:none;display:block;}
+  .connect .links .lbl{color:#8a8276;text-transform:uppercase;font-size:9px;letter-spacing:.14em;margin-top:5px;}
+
+  .note{font-size:10.5px;color:var(--muted);font-style:italic;font-family:'Instrument Serif',serif;margin-top:9px;}
+
+  /* compact try-this-week */
+  .try.compact{padding:11px 18px;margin-top:12px;}
+  .try.compact h3{font-size:17px;margin:0 0 5px;}
+  .try.compact p{font-size:11px;line-height:1.55;margin:0;color:#28332a;}
+  .try.compact p b{color:var(--sage);}
+
+  /* popping AEO-report CTA */
+  .cta{margin-top:14px;border-radius:6px;overflow:hidden;display:grid;
+    grid-template-columns:1.25fr .92fr;background:linear-gradient(135deg,#C0552D 0%,#993B1C 100%);color:#fff;}
+  .cta .l{padding:20px 24px;}
+  .cta .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:#F4D9CC;margin-bottom:8px;}
+  .cta h3{font-family:'Instrument Serif',serif;font-size:29px;line-height:1.04;margin:0 0 8px;color:#fff;}
+  .cta p{font-size:11.5px;line-height:1.5;color:#fbe7dd;margin:0 0 13px;}
+  .cta .btn{display:inline-flex;align-items:center;gap:8px;background:var(--paper);color:var(--accent);
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500;letter-spacing:.03em;
+    text-transform:uppercase;text-decoration:none;padding:11px 20px;border-radius:999px;}
+  .cta .mock{background:rgba(0,0,0,.16);padding:16px 20px;display:flex;flex-direction:column;
+    justify-content:center;gap:9px;border-left:1px solid rgba(255,255,255,.16);}
+  .cta .mock .mh{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:#f4d9cc;text-transform:uppercase;}
+  .cta .mock .score{display:flex;align-items:center;gap:11px;}
+  .cta .mock .ring{width:46px;height:46px;border-radius:50%;border:3px solid #F4D9CC;flex:none;
+    display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:22px;color:#fff;}
+  .cta .mock .score b{font-size:12px;color:#fff;display:block;line-height:1.2;}
+  .cta .mock .score small{font-size:9.5px;color:#f4d9cc;}
+  .cta .mock .bar{font-size:9.5px;color:#fbe7dd;font-family:'IBM Plex Mono',monospace;}
+  .cta .mock .bar .track{display:block;height:5px;background:rgba(255,255,255,.22);border-radius:3px;margin-top:3px;position:relative;}
+  .cta .mock .bar .track i{position:absolute;left:0;top:0;height:5px;background:#F4D9CC;border-radius:3px;}
+
+  @media print{
+    html,body{background:#fff;}
+    .page{margin:0;box-shadow:none;width:auto;min-height:auto;padding:13mm 13mm 11mm;page-break-after:always;}
+    .page:last-child{page-break-after:auto;}
+    section,.connect,.try,.bigidea,.feature{break-inside:avoid;}
+  }
+  @page{size:A4;margin:0;}
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE 1 ============================ -->
+<div class="page">
+  <div class="masthead">
+    <div class="lockup">
+      <img class="nova" src="screenshots/novastacks-logo.png" alt="Novastacks AI">
+      <span class="x">×</span>
+      <span class="tms-chip"><img src="screenshots/tms-logo.png" alt="The Marketing Society"></span>
+    </div>
+    <div class="meta">Class cheatsheet · 2-part masterclass<br>Agentic AI for Marketers<br>Facilitated by Tina Chu</div>
+  </div>
+
+  <div class="eyebrow">Take-home summary</div>
+  <h1 class="title">Agentic&nbsp;AI, <em>without the hype</em></h1>
+  <p class="standfirst">Everything from the masterclass, distilled. The headline of the whole class: <b>the model is already smart enough — what's missing is context.</b> Get the context right and one prompt comes back 90–95% ready. Pages 2–3 are the heart of it: <b>CLAUDE.md</b> (how AI boots into your world) and <b>hooks &amp; gates</b> (how it stays reliable and gets better every run).</p>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">i</span><span class="sec-title">The one idea everything hangs on</span></div>
+    <div class="bigidea">
+      <p class="q">"AI is like the partner in <em>50 First Dates</em> — brilliant, but forgets you every morning. Your job is to give it a memory."</p>
+      <p>AI has <b>no memory by default</b>. Without context it guesses, sounds confident, and hands you generic work — <b>garbage in, garbage out</b>. The skill that changes your output isn't a cleverer prompt — it's <b>context engineering</b>: onboarding AI like a new hire who already knows your business, your rules, your taste, and your past decisions before it says a word.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">1</span><span class="sec-title">The three A's — Automation · Augmentation · Agency</span></div>
+    <p class="lead">Three different ways to work with AI. Most disappointment comes from using the wrong one for the task. <b>Decide the mode first — the tool follows.</b></p>
+    <div class="cols3">
+      <div class="card">
+        <div class="tag">Mode A</div>
+        <h3>Automation</h3>
+        <p>A fixed flow that runs the <b>exact same steps every time</b>. Rule-based and deterministic — zero deviation. Don't use a reasoning model here; it drifts ~10% of the time.</p>
+        <div class="use">WHEN: it must be 100% consistent.<br><b>e.g.</b> scan invoices → Airtable, every time.<br>TOOLS: n8n · Zapier</div>
+      </div>
+      <div class="card accent">
+        <div class="tag">Mode B · most of your day</div>
+        <h3>Augmentation</h3>
+        <p>Human does the work <b>with</b> AI. You prompt, it drafts / researches / reasons, you stay in the loop and edit. "50% me, 50% Claude" — where most real output happens.</p>
+        <div class="use">WHEN: judgment + speed together.<br><b>e.g.</b> drafting, analysis, research.<br>TOOLS: Claude Cowork · ChatGPT</div>
+      </div>
+      <div class="card">
+        <div class="tag">Mode C</div>
+        <h3>Agency <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);">· agents</span></h3>
+        <p>AI works toward a goal <b>without step-by-step direction</b> — the "runs while you sleep" promise. Real today, but needs setup; start with a recurring task you already have.</p>
+        <div class="use">WHEN: a recurring 80% can run itself.<br><b>e.g.</b> a daily report that just appears.<br>TOOLS: Claude Code agents · cron</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">2</span><span class="sec-title">The three Claude "rooms" — and why they don't talk</span></div>
+    <p class="lead">Same brain, three setups. The trap is switching between them mid-task — <b>they don't share memory</b>. Pick one main room and stay there.</p>
+    <table class="k">
+      <tr><th style="width:15%">Room</th><th style="width:26%">What it is</th><th style="width:33%">Can do</th><th>Watch out</th></tr>
+      <tr><td>Chat</td><td>A smart colleague you talk to</td><td>Thinking, drafting, research — fast, cheap on tokens</td><td>No access to your files or stack; won't do the work for you</td></tr>
+      <tr><td>Cowork</td><td>A personal assistant in a sandbox</td><td>Real tasks via <b>authorised connectors</b>; remembers connections</td><td>Limited to Anthropic-approved connectors</td></tr>
+      <tr><td>Claude&nbsp;Code</td><td>Fully personalised to you</td><td>Full computer access; build custom skills, agents, hooks</td><td>Most power, most setup; <b>no vision</b> — can't see screens</td></tr>
+    </table>
+    <p class="note">The reasoning model is an <em>orchestrator</em>: it plans, then calls specialists it can't do itself — Nano Banana / GPT Image for images, Sora / Veo 3 / Seedance for video — and reaches your stack (Ahrefs, HubSpot, GSC…) through connectors / MCP.</p>
+  </section>
+
+  <div class="page-foot"><span>Novastacks AI × The Marketing Society</span><span>Agentic AI Masterclass · Cheatsheet</span><span>1 / 3</span></div>
+</div>
+
+<!-- ============================ PAGE 2 ============================ -->
+<div class="page">
+  <div class="masthead">
+    <div class="lockup">
+      <img class="nova" src="screenshots/novastacks-logo.png" alt="Novastacks AI">
+      <span class="x">×</span>
+      <span class="tms-chip"><img src="screenshots/tms-logo.png" alt="The Marketing Society"></span>
+    </div>
+    <div class="meta">Class cheatsheet · 2-part masterclass<br>The system · part 1 of 2</div>
+  </div>
+
+  <!-- CLAUDE.md — emphasized -->
+  <section style="margin-top:4px;">
+    <div class="sec-head"><span class="sec-num">3</span><span class="sec-title">CLAUDE.md — the briefing AI reads before it says a word</span></div>
+    <p class="lead">This is the single highest-leverage file you'll build. Skills, agents and hooks load <em>on demand</em> — <b>CLAUDE.md loads every single turn.</b> It's the one place guaranteed to be read. Put your business context here and the model boots into your world: new session → blank brain → reads CLAUDE.md automatically → shows up knowing your voice, rules and playbooks before turn one.</p>
+
+    <div class="feature">
+      <div class="top">
+        <div class="k"><b>Layer it like an onion.</b> &nbsp;Claude reads the nearest file, then walks up the chain.</div>
+        <div class="why">Broad at the top, specific at the bottom — and <b>more-specific wins</b>. Nested context that loads only when relevant beats one giant file.</div>
+      </div>
+      <div class="body">
+<div class="tree"><span class="c">~/.claude/CLAUDE.md</span>            ← you · every project (who you are, how you write)
+└─ <span class="c">~/business/CLAUDE.md</span>         ← the business · voice + brand rules
+   ├─ <span class="s">company/CLAUDE.md</span>        ← content register
+   ├─ <span class="s">clients/acme/CLAUDE.md</span>   ← client facts · analytics IDs · competitors
+   │  └─ <span class="s">content/CLAUDE.md</span>     ← workstream specifics
+   └─ <span class="s">prospects/…/CLAUDE.md</span>    ← one file per prospect</div>
+
+        <div class="gv">
+          <div class="b">
+            <div class="h">~/.claude/CLAUDE.md &nbsp;<span>· global · every project</span></div>
+            <ul>
+              <li>Who you are · how you communicate</li>
+              <li>Universal rules &amp; file/tool conventions</li>
+              <li><em>"Be brutally honest. Plain language. Never dump files in the wrong place."</em></li>
+            </ul>
+          </div>
+          <div class="b sage">
+            <div class="h">./CLAUDE.md &nbsp;<span>· project · this client only</span></div>
+            <ul>
+              <li>Overview · brand voice</li>
+              <li>Data sources &amp; IDs (e.g. GA4 property)</li>
+              <li>Known quirks &amp; gotchas for this account</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rules-inline">
+          <span><span class="ok">✓ Keep it tight.</span> Loads every turn — aim &lt; 300 lines. Scrolling = too long.</span>
+          <span><span class="no">✕ Repeatable steps?</span> That's a <b>skill</b> (loads on demand), not CLAUDE.md.</span>
+          <span><span class="no">✕ A reusable fact?</span> Put it in <b>MEMORY.md</b>, not a wall of text.</span>
+        </div>
+        <p class="note" style="margin-top:10px;">Not just Claude — every tool reads a context file: <b>AGENTS.md</b> (Codex, and the shared standard most tools read) · <b>GEMINI.md</b> · <b>.cursor/rules</b> · <b>copilot-instructions.md</b>. Mixed-tool team? Put shared context in AGENTS.md; keep tool-specific rules in that tool's own file.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & AGENTS -->
+  <section>
+    <div class="sec-head"><span class="sec-num">4</span><span class="sec-title">Two reusable workers: Skills &amp; Agents</span></div>
+    <div class="cols2">
+      <div class="card">
+        <div class="tag">A saved recipe · /command</div>
+        <h3>Skill</h3>
+        <p>A step-by-step procedure you froze after it worked, invoked with a <b>slash command</b>. Tina's bookkeeping skill replays steps 1–20 exactly as she did them the first time. <em>Rule: anything you've done the same way twice should be a /command, not a conversation.</em> She has 100+.</p>
+      </div>
+      <div class="card">
+        <div class="tag">An employee · its own context</div>
+        <h3>Agent</h3>
+        <p>A role with a persistent profile — your tone, your past emails, one specialty. You don't re-brief it. Tina runs 16: chief-of-staff, technical-SEO, writer, linkedin-writer. <em>A focused agent beats a generalist — same reason you hire a copywriter, not ask your accountant to write copy.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-foot"><span>Novastacks AI × The Marketing Society</span><span>Agentic AI Masterclass · Cheatsheet</span><span>2 / 3</span></div>
+</div>
+
+<!-- ============================ PAGE 3 ============================ -->
+<div class="page">
+  <div class="masthead">
+    <div class="lockup">
+      <img class="nova" src="screenshots/novastacks-logo.png" alt="Novastacks AI">
+      <span class="x">×</span>
+      <span class="tms-chip"><img src="screenshots/tms-logo.png" alt="The Marketing Society"></span>
+    </div>
+    <div class="meta">Class cheatsheet · 2-part masterclass<br>The system · part 2 of 2</div>
+  </div>
+
+  <!-- HOOKS & GATES — emphasized -->
+  <section style="margin-top:4px;">
+    <div class="sec-head"><span class="sec-num">5</span><span class="sec-title">Hooks &amp; Gates — make "good" a file + a check, not a hope</span></div>
+    <p class="lead">This is what turns a clever demo into something you can trust unattended. Don't <em>hope</em> for quality — put a deterministic check in the path. Three pieces work together as the <b>harness</b>:</p>
+    <div class="trio">
+      <div class="t">
+        <div class="n a">Agent</div>
+        <div class="sub">one job per worker</div>
+        <p>Each agent gets a <b>fresh start and one clear task</b>. The collect-agent never sees the report-agent's mess. Hire a specialist per job, not one generalist doing everything.</p>
+      </div>
+      <div class="t">
+        <div class="n a">Hook</div>
+        <div class="sub">runs without you watching</div>
+        <p>An <b>automatic tripwire your computer runs</b> — not Claude. Fires on events: before risky moves (block writes to secrets), after every edit (catch breakage), when Claude stops (capture the lesson). You don't have to be in the room.</p>
+      </div>
+      <div class="t">
+        <div class="n a">Gate</div>
+        <div class="sub">it can't talk its way past</div>
+        <p>A <b>real code check, not a prompt</b>. "Report says 27,659 keywords. Raw file says 15,164. Don't match → fail → retry." The model cannot argue with an exit code.</p>
+      </div>
+    </div>
+
+    <div class="cols2" style="margin-top:13px;">
+      <div class="card">
+        <div class="tag">Live example · the slop check</div>
+        <h3 style="font-size:20px;">A hook that guards your voice</h3>
+        <p>Edit any content file → a <b>PostToolUse hook fires automatically</b> → runs <span class="mono" style="font-size:11px;">slop-check.py</span> → injects the score + flagged phrases back into context. <em>"I never have to remember to run it. I never have to ask Claude nicely."</em></p>
+<div class="codebox"><span class="g">// ~/.claude/settings.json</span>
+"PostToolUse": [{
+  "matcher": "Edit|Write",
+  "command": "python3 slop-check.py"
+}]
+<span class="b">FAIL — 3 violations:</span>
+ [isnt-its]   "isn't X. It's Y"
+ [todays]     "In today's fast-paced…"
+ [banned]     game-changer</div>
+      </div>
+      <div class="card">
+        <div class="tag">Principle 1 · corrections compound</div>
+        <h3 style="font-size:20px;">The learnings loop</h3>
+        <p>When Claude stops, a hook writes <b>one line</b> to CLAUDE.md / MEMORY.md — and the next session reads it back. The agent walks in already knowing the lesson.</p>
+        <p>It isn't fine-tuning — <b>no weights, no GPU, no data team.</b> It just changes what the model knows <em>before</em> it starts. A text file does the job.</p>
+        <p style="margin-bottom:0;"><b>The payoff:</b> most agents stay flat — run 10 looks like run 1. This one is measurably sharper at run 10. Every correction logged = one less repeated mistake, forever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 PRINCIPLES -->
+  <section>
+    <div class="sec-head"><span class="sec-num">6</span><span class="sec-title">Tina's 6 principles, in one breath</span></div>
+    <div class="princ">
+      <div class="p"><div class="n">1</div><div class="b"><div class="h">Corrections are permanent, not per-session.</div><div class="d">Catch a mistake → write it to CLAUDE.md → it never repeats. A toy vs a tool is whether corrections compound.</div></div></div>
+      <div class="p"><div class="n">2</div><div class="b"><div class="h">Encode your taste as code, not vibes.</div><div class="d">Don't hope for on-brand output — a hook enforces it. When quality matters, put a deterministic gate in the path.</div></div></div>
+      <div class="p"><div class="n">3</div><div class="b"><div class="h">Layer your context like an onion.</div><div class="d">Global → project → live state. One giant file doesn't scale; nested context that loads when relevant does.</div></div></div>
+      <div class="p"><div class="n">4</div><div class="b"><div class="h">Promote a procedure to a skill the moment you repeat it twice.</div><div class="d">Done it twice the same way? It's a /command, not a conversation.</div></div></div>
+      <div class="p"><div class="n">5</div><div class="b"><div class="h">Delegate to specialists, not one generalist.</div><div class="d">A focused agent beats a general one — hire a copywriter, not your accountant.</div></div></div>
+      <div class="p"><div class="n">6</div><div class="b"><div class="h">Make Claude work when you're not there.</div><div class="d">The frontier isn't "answers faster." It's "runs the recurring 80% on its own, pings you on novelty."</div></div></div>
+    </div>
+  </section>
+
+  <!-- TRY THIS WEEK -->
+  <div class="try compact">
+    <h3>Try this week</h3>
+    <p><b>1 ·</b> Pick one room — Cowork or Claude Code, not both. &nbsp; <b>2 ·</b> Write one 5-line CLAUDE.md (who you are, how you write, what you never want). &nbsp; <b>3 ·</b> Capture one correction, then freeze a twice-repeated task into a skill.</p>
+  </div>
+
+  <!-- CONNECT -->
+  <div class="connect">
+    <div>
+      <h3>Thank you for building with us.</h3>
+      <p>This was peer-sharing, not a pitch — keep this sheet, forward it, steal the principles. If anything sparked a question, the door's open, no agenda.</p>
+      <p><b>Novastacks is an AI-native growth marketing agency</b> — a lean team running growth strategy + execution on the same agent workflows you saw today. Current focus: <a href="https://www.novastacks-ai.com/aeo"><b>AI SEO</b></a> — getting your brand cited by ChatGPT, Perplexity &amp; Google's AI.</p>
+    </div>
+    <div class="links">
+      <span class="lbl">Novastacks</span>
+      <a href="https://www.novastacks-ai.com/">novastacks-ai.com · home</a>
+      <a href="https://www.novastacks-ai.com/aeo">AI SEO services →</a>
+      <a href="mailto:tchu@novastacks-ai.com">tchu@novastacks-ai.com</a>
+      <span class="lbl">Tina Chu</span>
+      <a href="https://www.linkedin.com/in/huilanchu">linkedin.com/in/huilanchu</a>
+      <span class="lbl">Free tool</span>
+      <a href="https://www.novastacks-ai.com/free-tools/free-aeo-audit">Free AEO audit →</a>
+    </div>
+  </div>
+
+  <!-- POPPING AEO CTA -->
+  <div class="cta">
+    <div class="l">
+      <div class="eyebrow">Free · powered by Claude</div>
+      <h3>See exactly how AI describes your brand.</h3>
+      <p>The most in-depth AEO report on the market. Run your site through ChatGPT, Perplexity &amp; Google's AI to see where you're cited, missed, or misread — with the specific fixes that move you up.</p>
+      <a class="btn" href="https://www.novastacks-ai.com/free-tools/free-aeo-audit">Run my free AEO audit →</a>
+    </div>
+    <div class="mock">
+      <div class="mh">AEO REPORT · yoursite.com</div>
+      <div class="score"><span class="ring">72</span><div><b>AEO Score</b><small>AI-visibility index</small></div></div>
+      <div class="bar">Cited by ChatGPT <span class="track"><i style="width:38%"></i></span></div>
+      <div class="bar">Perplexity coverage <span class="track"><i style="width:64%"></i></span></div>
+      <div class="bar">Schema &amp; structure <span class="track"><i style="width:81%"></i></span></div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Novastacks AI × The Marketing Society</span><span>© 2026 · Shared with class participants</span><span>3 / 3</span></div>
+</div>
+
+</body>
+</html>
