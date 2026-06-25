@@ -125,6 +125,24 @@
   .team .cred{margin:24px 0 0;display:flex;flex-direction:column;gap:16px}
   .team .cred p{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-3);margin:0}
   .team .cred p b{color:var(--ink-1);font-weight:600}
+  /* Team — 4-up grid (ported from company-credential) */
+  .team.quad{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+  .team.quad .prof{grid-template-columns:140px 1fr;gap:28px;padding:28px 38px}
+  .team.quad .prof:nth-child(odd){border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .team.quad .prof:nth-child(-n+2){border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .team.quad .photo{width:140px;height:172px}
+  .team.quad .pname{font-size:30px}
+  .team.quad .prole{font-size:16px;margin-top:8px}
+  .team.quad .cred{margin-top:16px;gap:11px}
+  .team.quad .cred p{font-size:19px;line-height:1.34}
+  .avatar{width:140px;height:172px;display:flex;align-items:center;justify-content:center;
+    background:var(--paper-deep);border:var(--rule-w-hair) solid var(--rule-hair);
+    font-family:var(--font-display);font-weight:600;font-size:54px;color:var(--accent-deep);letter-spacing:.02em}
+  .callout{margin-top:30px;background:var(--ink-1);color:var(--paper);
+    padding:20px 28px;display:flex;align-items:center;gap:16px;
+    font-family:var(--font-body);font-size:23px;line-height:1.35}
+  .callout .dot{flex:0 0 auto;width:12px;height:12px;border-radius:2px;background:var(--accent)}
+  .callout b{color:#fff;font-weight:600}
   .logo-row{display:flex;align-items:center;gap:42px;margin-top:48px;padding-top:24px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
   .logo-row .lab{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
   .logo-row img{height:30px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.55}
@@ -495,8 +513,8 @@
   <section data-label="開場 · 被低估的資產">
     <div class="co paper co-edge">
       <div class="co-kicker anim">被低估的資產 · UNDERVALUED</div>
-      <p class="uv-setup anim d1">被 <span class="hl">AI 推薦</span>的客戶，目前被市場——</p>
-      <p class="uv-big anim d2">嚴重低估。</p>
+      <p class="l1 anim d1">被 <span class="hl">AI 推薦</span>的客戶，<br>目前被市場<span class="hl-red">嚴重低估</span>。</p>
+      <p class="sub anim d2">他們的轉換、信任與購買意圖，遠高於一般流量——<br>多數品牌卻還沒把它當成獲客資產。</p>
       <p class="co-gloss anim d3">SIMILARWEB · &ldquo;The Downstream Impact of AI Visibility&rdquo; (2026)</p>
     </div>
   </section>
@@ -628,17 +646,28 @@
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">02 · The Team</div>
-      <h2 class="t-action anim d1">Your strategy is set by senior operators, not handed to junior staff.</h2>
+      <h2 class="t-action anim d1" style="font-family:'Inter Tight','Noto Sans TC',sans-serif">百萬專家 ＋ AI OS</h2>
       <hr class="accent-rule anim d1">
-      <div class="team anim d2">
+      <div class="team quad anim d2">
         <div class="prof">
           <div class="photo" style="background-image:url(assets/team-tina.jpg)"></div>
           <div>
             <p class="pname">Tina Chu</p>
             <p class="prole">Founder &amp; CEO</p>
             <div class="cred">
-              <p><b>Strategy.</b> 20 years of marketing leadership at Expedia, Tencent and Klook sets your direction right the first time.</p>
-              <p><b>Builder &amp; trainer.</b> Certified SMU AI-marketing trainer; runs corporate agentic-system workshops for brands including tiket.com.</p>
+              <p>Ex-VP Marketing &mdash; <b>Traveloka, Klook, Tencent, Expedia.</b> Led a 100+ global acquisition team and $50M+ in ad spend.</p>
+              <p>Award-winning marketer and Wharton MBA &mdash; AI-marketing masterclass trainer at SMU.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="avatar">YH</div>
+          <div>
+            <p class="pname">YaoHong</p>
+            <p class="prole">CTO</p>
+            <div class="cred">
+              <p>Ex-CTO, <b>StashAway &amp; January Capital.</b> Writes the code; ships AI systems in days.</p>
+              <p>Business intelligence, data unification and agentic-workflow engineering.</p>
             </div>
           </div>
         </div>
@@ -648,20 +677,24 @@
             <p class="pname">Eki Riandra</p>
             <p class="prole">Head of Search &amp; Commerce</p>
             <div class="cred">
-              <p><b>Search authority.</b> Ex-Tech SEO Head of Traveloka and Tokopedia; Google Product Expert.</p>
-              <p><b>Proven with Google.</b> Co-authored the Tokopedia growth case study with Google.</p>
+              <p>Ex-Tech SEO Head of <b>Traveloka &amp; Tokopedia;</b> Google Product Expert.</p>
+              <p>Co-authored the Tokopedia growth case study with Google.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="avatar">RK</div>
+          <div>
+            <p class="pname">Raka</p>
+            <p class="prole">Creative Director</p>
+            <div class="cred">
+              <p>Ex-Creative Director, <b>Traveloka.</b> Founder of ArtGenie Studio.</p>
+              <p>Brand strategy, creative direction and visual storytelling.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="logo-row anim d3">
-        <span class="lab">Where they operated</span>
-        <span class="wm">Expedia</span>
-        <span class="wm">Tencent</span>
-        <span class="wm">Klook</span>
-        <span class="wm">Traveloka</span>
-        <span class="wm">Tokopedia</span>
-      </div>
+      <div class="callout anim d3"><span class="dot"></span><span>At market salaries this team is worth <b>~$500K/year combined</b> &mdash; you&rsquo;re not getting a junior team behind a senior sales face.</span></div>
       <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">05 / 11</span></div>
     </div>
   </section>
@@ -707,7 +740,7 @@
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">05 · Client Use Case · GoFreight — Freight-Tech SaaS</div>
-      <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-family:'Inter Tight','Noto Sans TC',sans-serif">三個月內，Google AI Overviews 聲量佔比衝上近四成。 <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
+      <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-family:'Inter Tight','Noto Sans TC',sans-serif">三個月內，Google AI Overviews 聲量佔比成長近三倍！ <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
       <hr class="accent-rule anim d1">
       <div class="stat-grid anim d2">
         <div class="stat"><div class="se">Monthly organic clicks</div><div class="sn">+88%</div><div class="sl">in three months</div></div>
