@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Novastacks — AEO Deck (CN cold-open)</title>
+<title>Novastacks — AEO Deck (Taiwan AI Expo)</title>
 <meta property="og:title" content="Novastacks - Leading SEO &amp; AEO Service">
 <meta property="og:type" content="website">
 <meta name="twitter:title" content="Novastacks - Leading SEO &amp; AEO Service">
@@ -49,6 +49,14 @@
   .cover-right .ce{position:absolute;left:48px;bottom:44px;color:var(--dark-fg-2)}
   .cover-right .tealrule{border:0;border-top:2px solid var(--accent);width:120px;margin:0}
   .cover-right .ct{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-fg-2)}
+  /* cover homepage browser frame */
+  .cover-right .site-frame{width:82%;max-width:700px;background:#0d0d0d;border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,.55)}
+  .cover-right .site-bar{display:flex;align-items:center;gap:9px;padding:14px 18px;background:#1b1b1b;border-bottom:1px solid rgba(255,255,255,.08)}
+  .cover-right .site-bar i{width:11px;height:11px;border-radius:50%;background:#3a3a3a}
+  .cover-right .site-bar b{margin-left:14px;font-family:var(--font-mono);font-size:15px;font-weight:400;letter-spacing:.04em;color:var(--dark-fg-2)}
+  .cover-right .site-shot{aspect-ratio:16/11;overflow:hidden;background:#0d0d0d}
+  .cover-right .site-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .cover-right .site-cap{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--dark-fg-2)}
 
   /* ---- Charts (slide 2) ---- */
   .chart-row{margin-top:28px;border-top:var(--rule-w-strong) solid var(--ink-1);
@@ -366,8 +374,14 @@
   /* Slide C — leverage */
   .co-edge .l1{font-weight:900;font-size:104px;line-height:1.2;letter-spacing:.005em;margin:0;color:var(--ink-1);max-width:1640px}
   .co-edge .l1 .hl{color:var(--accent-deep)}
+  .co-edge .l1 .hl-red{color:#D7263D}
   .co-edge .sub{font-weight:500;font-size:34px;color:var(--ink-3);margin:40px 0 0;line-height:1.45;max-width:1320px}
   .co-edge .sub .fwd{color:var(--accent-deep);font-weight:700}
+  /* Undervalued slide — oversized punch line for attention */
+  .co-undervalued{justify-content:center}
+  .co-undervalued .uv-setup{font-family:var(--font-cjk);font-weight:600;font-size:72px;line-height:1.28;color:var(--ink-3);margin:0}
+  .co-undervalued .uv-setup .hl{color:var(--accent-deep)}
+  .co-undervalued .uv-big{font-family:var(--font-cjk);font-weight:900;font-size:300px;line-height:1;letter-spacing:.02em;color:#D7263D;margin:14px 0 0;text-shadow:0 8px 36px rgba(215,38,61,.18)}
 
   /* Slide — AI-referred performance (big loud stats + fire) */
   .co-stats{background:var(--dark-bg);color:var(--dark-fg);justify-content:center}
@@ -459,9 +473,9 @@
   <section data-label="開場 · 被低估的資產">
     <div class="co paper co-edge">
       <div class="co-kicker anim">被低估的資產 · UNDERVALUED</div>
-      <p class="l1 anim d1">被 <span class="hl">AI 推薦</span>的客戶，<br>目前被市場<span class="hl">嚴重低估</span>。</p>
-      <p class="sub anim d2">他們的轉換、信任與購買意圖，遠高於一般流量——<br>多數品牌卻還沒把它當成獲客資產。</p>
-      <p class="co-gloss anim d3">SIMILARWEB · &ldquo;the downstream impact of AI visibility&rdquo;</p>
+      <p class="uv-setup anim d1">被 <span class="hl">AI 推薦</span>的客戶，目前被市場——</p>
+      <p class="uv-big anim d2">嚴重低估。</p>
+      <p class="co-gloss anim d3">SIMILARWEB · &ldquo;The Downstream Impact of AI Visibility&rdquo; (2026)</p>
     </div>
   </section>
 
@@ -494,7 +508,7 @@
   <section data-label="開場 · 你的籌碼">
     <div class="co paper co-edge">
       <div class="co-kicker anim">先行者優勢 · YOUR WINDOW</div>
-      <p class="l1 anim d1">競爭對手對 AI 獲客能力的<span class="hl">誤判</span>，<br>是你<span class="hl">最大的籌碼</span>。</p>
+      <p class="l1 anim d1">競爭對手對 AI 獲客能力的<span class="hl-red">誤判</span>，<br>是你<span class="hl">最大的籌碼</span>。</p>
       <p class="co-gloss anim d3">Your rivals are misreading AI-driven acquisition. That gap is your edge.</p>
     </div>
   </section>
@@ -505,17 +519,18 @@
       <div class="cover-left">
         <img class="cover-logo anim" src="assets/novastacks-logo.png" alt="Novastacks">
         <div>
-          <h1 class="t-cover-h1 anim d1" style="font-size:88px">The AI SEO Agency<br>for Singapore.</h1>
+          <h1 class="t-cover-h1 anim d1" style="font-size:92px">We help brands grow on the agentic internet.</h1>
           <hr class="accent-rule anim d2">
-          <p class="t-lede anim d2" style="max-width:880px">We get Singapore brands ranked on Google — and recommended by ChatGPT, Perplexity, and Google AI Overviews. One agency. Search and AI search, together.</p>
+          <p class="t-lede anim d2" style="font-family:'Inter Tight','Noto Sans TC',sans-serif;font-weight:600;font-size:40px;color:var(--ink-1);line-height:1.3;max-width:880px">NOVASTACKS · 亞太市場技術領先的 AI SEO 服務商</p>
         </div>
-        <div class="t-eyebrow anim d3">NOVASTACKS · SINGAPORE · AI SEO / AEO / GEO</div>
+        <div class="t-eyebrow anim d3">新加坡 SINGAPORE · AI SEO / AEO / GEO</div>
       </div>
       <div class="cover-right">
-        <p class="rtag">Search and<br>AI search,<br>together.</p>
-        <hr class="tealrule">
-        <div class="ct">novastacks-ai.com · Singapore</div>
-        <div class="ce" style="font-family:var(--font-mono)">see_what_we_do() →</div>
+        <div class="site-frame anim d2">
+          <div class="site-bar"><i></i><i></i><i></i><b>novastacks-ai.com</b></div>
+          <div class="site-shot"><img src="assets/homepage-cover.png" alt="Novastacks homepage — The AI SEO Agency for Singapore"></div>
+        </div>
+        <div class="site-cap anim d3">Live · Singapore</div>
       </div>
     </div>
   </section>
@@ -681,7 +696,7 @@
     <div class="mslide bleed method-grid">
       <div class="method-left">
         <div class="crumb t-eyebrow anim">03 · The Source &amp; Echo Method</div>
-        <h2 class="t-action anim d1">The Source &amp; Echo Method is Novastacks' own AEO methodology.</h2>
+        <h2 class="t-action anim d1" style="font-family:'Inter Tight','Noto Sans TC',sans-serif">NOVASTACKS 自主開發的 AEO 系統</h2>
         <hr class="accent-rule anim d1">
         <div class="anim d2" style="display:flex;flex-direction:column;gap:16px">
           <p class="t-lede" style="max-width:none">Every AI answer is assembled from content worth quoting — the source — and from what the rest of the internet says about you — the echo. We engineer both, with five systems that are built and running, not advised.</p>
@@ -717,11 +732,11 @@
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">05 · Client Use Case · GoFreight — Freight-Tech SaaS</div>
-      <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">In three months we took a freight-tech SaaS from invisible to fastest-rising in AI answers. <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
+      <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-family:'Inter Tight','Noto Sans TC',sans-serif">三個月內，Google AI Overviews 聲量佔比衝上近四成。 <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
       <hr class="accent-rule anim d1">
       <div class="stat-grid anim d2">
         <div class="stat"><div class="se">Monthly organic clicks</div><div class="sn">+88%</div><div class="sl">in three months</div></div>
-        <div class="stat"><div class="se">AI visibility</div><div class="sn range">13.7% <span class="ar">→</span> 23.5%</div><div class="sl">#5 → #4 vs competitors</div></div>
+        <div class="stat"><div class="se">AI SOV · Google AI Overviews</div><div class="sn range">16.2% <span class="ar">→</span> 39.1%</div><div class="sl">blended 10.9% → 25.4%</div></div>
         <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">→</span> 8.4</div><div class="sl">Page 3 → page 1</div></div>
         <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
       </div>
@@ -819,9 +834,10 @@
       <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">06 · Close</div>
       <div class="close-wrap">
         <div>
-          <div class="close-q anim d1">See what AI says about your brand today — <em>we'll run the first audit free.</em></div>
+          <div class="close-q anim d1" style="font-family:'Inter Tight','Noto Sans TC',sans-serif">不用百萬預算，<br>幾分鐘告訴你：如何讓 <span style="color:var(--accent)">AI 主動推薦你</span>。</div>
           <hr class="accent-rule anim d2" style="margin-top:44px">
           <a class="cta-btn anim d2" href="https://calendar.app.google/3tk45A3Wq7UwgJef9" target="_blank" rel="noopener">Book a meeting →</a>
+          <div class="anim d2" style="margin-top:28px;font-family:var(--font-mono);font-size:22px;letter-spacing:.1em;color:var(--accent)">展位 G2-31 · TAIWAN AI EXPO</div>
         </div>
         <div class="anim d2">
           <div class="close-contact">
