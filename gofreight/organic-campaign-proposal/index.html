@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoFreight — Organic Campaign Optimization Proposal | Novastacks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#01aac1; --teal-dk:#017d8e; --ink:#0f1b23; --ink2:#33424c;
+    --muted:#6b7a84; --line:#e4e9ec; --bg:#f6f8f9; --card:#ffffff;
+    --clay:#C4A08A; --navy:#020617; --good:#1f8f7a; --bad:#c2503c; --warn:#c98a1e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',-apple-system,'Segoe UI',sans-serif;color:var(--ink2);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--ink);line-height:1.2;margin:0;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+  .section{padding:56px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dk);margin-bottom:14px;}
+  p{margin:0 0 14px;}
+  strong{color:var(--ink);}
+  a{color:var(--teal-dk);}
+  .lead{font-size:19px;color:var(--ink2);}
+  /* cover */
+  .cover{background:linear-gradient(160deg,#020617 0%,#06323a 55%,#017d8e 120%);color:#eaf5f7;padding:74px 0 66px;border-bottom:none;}
+  .cover .wrap{max-width:1040px;}
+  .cover h1{color:#fff;font-size:42px;font-weight:700;letter-spacing:-.5px;max-width:820px;}
+  .cover .sub{font-size:19px;color:#a9d9e1;margin-top:18px;max-width:720px;}
+  .cover .meta{margin-top:30px;font-size:13px;color:#7fb9c4;letter-spacing:.04em;}
+  .brandrow{display:flex;align-items:center;gap:10px;margin-bottom:34px;font-weight:700;color:#fff;font-size:15px;letter-spacing:.02em;}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--teal);display:inline-block;}
+  /* kpi strip */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.14);margin-top:40px;border-radius:12px;overflow:hidden;}
+  .kpi{background:rgba(3,20,28,.55);padding:20px 18px;}
+  .kpi .n{font-family:'Space Grotesk';font-size:27px;font-weight:700;color:#fff;}
+  .kpi .l{font-size:12.5px;color:#9fd0d9;margin-top:4px;line-height:1.35;}
+  /* claim title */
+  h2{font-size:27px;font-weight:700;}
+  h2 .num{color:var(--teal);font-weight:700;margin-right:12px;}
+  h3{font-size:19px;font-weight:600;margin:26px 0 8px;}
+  /* cards */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:14px 0;}
+  .defect{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .defect:last-child{border-bottom:none;}
+  .defect .idx{flex:0 0 30px;height:30px;border-radius:50%;background:#fdecea;color:var(--bad);font-weight:700;font-family:'Space Grotesk';display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .defect .t{font-weight:700;color:var(--ink);}
+  /* scq */
+  .scq{display:grid;grid-template-columns:120px 1fr;gap:0;}
+  .scq .k{font-family:'Space Grotesk';font-weight:700;color:var(--teal-dk);padding:14px 0;border-bottom:1px solid var(--line);}
+  .scq .v{padding:14px 0 14px 20px;border-bottom:1px solid var(--line);}
+  .scq .answer .k,.scq .answer .v{background:#eef8f5;border-bottom:none;border-radius:0 8px 8px 0;}
+  .scq .answer .k{border-radius:8px 0 0 8px;padding-left:14px;}
+  /* table */
+  table.grid{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:14.5px;}
+  table.grid th{background:#eef3f4;color:var(--ink);text-align:left;padding:11px 13px;font-family:'Space Grotesk';font-weight:600;font-size:13px;border:1px solid var(--line);}
+  table.grid td{padding:10px 13px;border:1px solid var(--line);vertical-align:top;}
+  table.grid tr:nth-child(even) td{background:#fbfcfc;}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;}
+  .p-move{background:#e7f6f1;color:var(--good);}
+  .p1{background:#fff4e6;color:var(--warn);}
+  .num-b{font-family:'Space Grotesk';font-weight:700;color:var(--ink);}
+  /* priorities */
+  .prio{border-left:4px solid var(--teal);background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;padding:18px 22px;margin:14px 0;}
+  .prio .tag{font-family:'Space Grotesk';font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dk);}
+  .prio h4{font-size:17px;margin:5px 0 8px;}
+  /* optimization levers */
+  .lever{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:10px 0;}
+  .lever .h{font-family:'Space Grotesk';font-weight:700;color:var(--ink);font-size:15.5px;}
+  .lever .m{font-size:12px;font-weight:700;color:var(--teal-dk);text-transform:uppercase;letter-spacing:.06em;}
+  /* before/after emails */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px;}
+  .mock{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;font-size:13px;}
+  .mock .bar{padding:9px 14px;font-family:'Space Grotesk';font-weight:700;font-size:12px;letter-spacing:.05em;color:#fff;}
+  .mock.before .bar{background:var(--bad);}
+  .mock.after .bar{background:var(--good);}
+  .mock .subj{padding:12px 16px 4px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--line);}
+  .mock .subj b{color:var(--ink);font-size:13.5px;display:block;margin-top:3px;font-family:'Space Grotesk';}
+  .mock .em{padding:16px;color:#2b2b3d;line-height:1.5;}
+  .mock .accent{height:5px;background:linear-gradient(90deg,#7fd8c4,#1f8f7a);}
+  .mock .logo{font-weight:800;color:#1c1b3a;font-size:16px;margin-bottom:12px;}
+  .mock .btn{display:inline-block;background:#1f8f7a;color:#fff;font-weight:700;padding:10px 18px;border-radius:7px;text-decoration:none;margin:8px 0;font-size:13px;}
+  .mock .btnghost{color:#8890a0;font-size:12px;font-style:italic;}
+  .mock .q{background:#f7f7fa;border-left:3px solid #d3d3de;padding:8px 12px;margin:8px 0;color:#6b6b80;font-size:12px;}
+  .mock .proof{background:#f4f8f7;border:1px solid #e0eae7;border-radius:7px;padding:11px 13px;margin:10px 0;font-size:12px;}
+  .flag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;margin:2px 4px 2px 0;display:inline-block;}
+  .flag.bad{background:#fdecea;color:var(--bad);} .flag.good{background:#e7f6f1;color:var(--good);}
+  .tgt .up{color:var(--good);font-weight:700;}
+  ul.clean{margin:6px 0 14px;padding-left:20px;} ul.clean li{margin-bottom:7px;}
+  .callout{background:#eef8f5;border:1px solid #cfe9e1;border-radius:10px;padding:18px 22px;margin:16px 0;}
+  .callout.warn{background:#fff8ec;border-color:#f0dcb4;}
+  .footer{background:var(--navy);color:#8fa3ac;padding:34px 0;font-size:13px;}
+  .footer strong{color:#fff;}
+  @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr);}.ba{grid-template-columns:1fr;}.cover h1{font-size:31px;}.scq{grid-template-columns:1fr;}.scq .k{padding-bottom:2px;border-bottom:none;}.scq .v{padding:2px 0 12px;border-bottom:1px solid var(--line);}}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<header class="cover">
+  <div class="wrap">
+    <div class="brandrow"><span class="dot"></span> NOVASTACKS &nbsp;·&nbsp; for GoFreight</div>
+    <div class="eyebrow" style="color:#7fd8c4;">Inbound Email · Proposal 01</div>
+    <h1>Turn GoFreight's best-performing emails into a demo-booking engine</h1>
+    <p class="sub">The "Organic" auto-responder campaign already beats every B2B benchmark on engagement — yet it's built to file acknowledgments, not to convert. Here's how we rebuild it.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="n">42–62%</div><div class="l">open rate today — 5–7× the account average</div></div>
+      <div class="kpi"><div class="n">7 emails</div><div class="l">the entire triggered library — shallow &amp; under-optimized</div></div>
+      <div class="kpi"><div class="n">1–2 deep</div><div class="l">sequences dead-end before a demo is booked</div></div>
+      <div class="kpi"><div class="n">$0</div><div class="l">expansion pipeline — upsell workflow switched OFF</div></div>
+    </div>
+    <div class="meta">Prepared by Novastacks · Data: GoFreight HubSpot export (portal 20002082), trailing 12 months · June 2026</div>
+  </div>
+</header>
+
+<!-- ============ 00 BASELINE: THE 7 EMAILS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Baseline</div>
+    <h2 style="margin-bottom:6px;">The 7 emails in the "Organic" campaign</h2>
+    <p style="margin-top:10px;">Every automated, behaviorally-triggered email in the campaign, with its trigger, audience, drip depth, and HubSpot-reported performance. This table is the evidence base for the diagnosis that follows.</p>
+    <div style="overflow-x:auto;">
+    <table class="grid" style="font-size:12.5px;min-width:920px;">
+      <tr>
+        <th style="min-width:150px;">Email &amp; subject</th>
+        <th>Branch · drip</th>
+        <th style="min-width:190px;">Trigger logic</th>
+        <th>Audience</th>
+        <th>Sent</th>
+        <th>Opened (rate)</th>
+        <th>Clicked (CTR)</th>
+        <th>Demos booked</th>
+        <th>Owner</th>
+        <th>HubSpot</th>
+      </tr>
+      <tr style="background:#eef8f5 !important;">
+        <td><strong>Non-MQL – First</strong> <span style="color:var(--muted);">"Your Inquiry About GoFreight's Platform"</span> <span class="flag good" style="margin-top:4px;">HERO / rebuild target</span></td>
+        <td>Non-MQL · <strong>1 of 2</strong></td>
+        <td>Contact submits a marketing form &amp; is <em>not</em> yet marketing-qualified → non-MQL branch, email 1. <span style="color:var(--muted);">(Workflow 248008459)</span></td>
+        <td>New inbound leads, unqualified fit (often outside US/Canada)</td>
+        <td><strong>2,401</strong></td>
+        <td>1,297 (54.0%)</td>
+        <td>358 (14.9%)</td>
+        <td style="color:var(--bad);font-weight:600;">Not tracked ²</td>
+        <td>Alice Zhou <span style="color:var(--muted);">(inactive)</span></td>
+        <td><a href="https://app.hubspot.com/email/20002082/details/136121114943/performance">Open ↗</a></td>
+      </tr>
+      <tr>
+        <td><strong>Non-MQL – Second</strong> <span style="color:var(--muted);">"Thank You for Your Interest… Someone Will Reach Out Soon!"</span></td>
+        <td>Non-MQL · <strong>2 of 2</strong></td>
+        <td>~2 days after email 1, if still in non-MQL branch → email 2.</td>
+        <td>Same non-MQL leads, 2nd touch</td>
+        <td>456</td>
+        <td>199 (43.7%)</td>
+        <td>28 (6.2%)</td>
+        <td style="color:var(--bad);font-weight:600;">Not tracked ²</td>
+        <td>Alice Zhou <span style="color:var(--muted);">(inactive)</span></td>
+        <td><a href="https://app.hubspot.com/email/20002082/details/194288909981/performance">Open ↗</a></td>
+      </tr>
+      <tr>
+        <td><strong>MQL – First</strong> <span style="color:var(--muted);">"Thank You for Your Interest… Someone Will Reach Out Soon!"</span></td>
+        <td>MQL · <strong>1 of 1</strong> <span class="flag bad">thin</span></td>
+        <td>Contact submits a form &amp; <em>is</em> marketing-qualified → MQL branch (single email).</td>
+        <td>Marketing-qualified inbound leads (sales-ready)</td>
+        <td>1,058</td>
+        <td>446 (42.1%)</td>
+        <td>134 (12.7%)</td>
+        <td style="color:var(--bad);font-weight:600;">Not tracked ²</td>
+        <td>Andy Fu</td>
+        <td><a href="https://app.hubspot.com/email/20002082/details/136018784397/performance">Open ↗</a></td>
+      </tr>
+      <tr>
+        <td><strong>Pricing MQL – First</strong> <span style="color:var(--muted);">"Thank You for Your Interest… Someone Will Reach Out Soon!"</span></td>
+        <td>Pricing · <strong>1 of 1</strong> <span class="flag bad">thin</span></td>
+        <td>Contact submits the <em>pricing</em> form → single email.</td>
+        <td>Pricing-form leads (highest commercial intent)</td>
+        <td>237</td>
+        <td>116 (48.9%)</td>
+        <td>32 (13.7%)</td>
+        <td style="color:var(--bad);font-weight:600;">Not tracked ²</td>
+        <td>Andy Fu</td>
+        <td><a href="https://app.hubspot.com/email/20002082/details/178916138111/performance">Open ↗</a></td>
+      </tr>
+      <tr style="background:#fff4e6 !important;">
+        <td><strong>Upsell – First</strong> <span style="color:var(--muted);">"Following Up on Your GoFreight Request"</span><br><span class="flag bad" style="margin-top:4px;">⚠ MISLABELED — not inbound</span> <span class="flag bad">WORKFLOW OFF</span></td>
+        <td>Upsell · 1 <span style="color:var(--muted);">(out of scope — customer expansion)</span></td>
+        <td><strong>Not a new lead.</strong> Fires when an existing customer's DEAL enters the "Upsell – New Request" stage w/ owner → email + owner task. <span style="color:var(--muted);">(Workflow 1624755512, disabled)</span></td>
+        <td><strong>Existing customers</strong> flagged for expansion</td>
+        <td>135</td>
+        <td>84 (62.2%)</td>
+        <td>10 (7.4%)</td>
+        <td style="color:var(--muted);">n/a (workflow off)</td>
+        <td>Andy Fu</td>
+        <td><a href="https://app.hubspot.com/email/20002082/details/185206048317/performance">Open ↗</a></td>
+      </tr>
+      <tr>
+        <td><strong>LP – Get a demo</strong> <span style="color:var(--muted);">"Thank You for Requesting a Demo…"</span></td>
+        <td>LP · 1</td>
+        <td>Contact submits the "Get a demo" form on the Forwarder landing page. <span style="color:var(--muted);">(Workflow 1636841781)</span></td>
+        <td>Demo requesters (explicit intent)</td>
+        <td>9</td>
+        <td>5 (57.1%)</td>
+        <td>1 (14.3%)</td>
+        <td style="color:var(--bad);font-weight:600;">Not tracked ²</td>
+        <td>Hank Wu <span style="color:var(--muted);">(inactive)</span></td>
+        <td><a href="https://app.hubspot.com/email/20002082/details/187090926107/performance">Open ↗</a></td>
+      </tr>
+      <tr>
+        <td><strong>LP – Get started</strong> <span style="color:var(--muted);">"Your Request Has Been Received…"</span></td>
+        <td>LP · 1</td>
+        <td>Contact submits the "Get started" form on the Forwarder landing page. <span style="color:var(--muted);">(Workflow 1636844173)</span></td>
+        <td>"Get started" requesters (top intent)</td>
+        <td>6</td>
+        <td>3 (50.0%)</td>
+        <td>0 (0%)</td>
+        <td style="color:var(--bad);font-weight:600;">Not tracked ²</td>
+        <td>Hank Wu <span style="color:var(--muted);">(inactive)</span></td>
+        <td><a href="https://app.hubspot.com/email/20002082/details/187091053651/performance">Open ↗</a></td>
+      </tr>
+    </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:10px;">What the table proves: <strong>(1) Effort is inverted</strong> — the colder Non-MQL branch runs 2 emails; the hotter MQL and pricing-intent branches run 1 each. <strong>(2) The Upsell email is mislabeled and out of scope</strong> — it's a customer-expansion motion (deal-stage trigger, existing-customer audience), not new-lead inbound, and its workflow is off. <strong>This proposal optimizes the other 6 new-lead emails</strong>; the upsell belongs in a separate expansion workstream. <strong>(3)</strong> Every email clears benchmark on open (42–62%); the ceiling on value is depth + a working demo CTA, not engagement. Sends are HubSpot cumulative lifetime; opened/clicked counts derived from reported rates.</p>
+    <p style="font-size:13px;color:var(--muted);margin-top:6px;">² <strong>Demos booked — the metric that matters — is not tracked, and is structurally ~zero from these emails:</strong> no email contains a booking link, so any demos from these leads were booked off-thread by manual sales follow-up and never attributed to the email. Nearest available proxies for the campaign over the last 12 months (HubSpot attribution): <strong>843 contacts influenced → 19 contacts &amp; 22 deals attributed → $1,197 attributed revenue</strong>. The exact demo count requires GoFreight's data (cross-reference of these leads against “1st demo booked date” / the sales calendar) — requested from Trenton; see §07.</p>
+  </div>
+</section>
+
+<!-- ============ EXEC SUMMARY ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">The governing insight</div>
+    <p class="lead">These 7 emails are the <strong>only place GoFreight already has the buyer's attention</strong> — people who just raised their hand. The move isn't to tweak subject lines at the margin. It's to <strong>convert acknowledgment auto-responders into intent-tiered nurture sequences that carry one next action all the way to a booked demo</strong>, and to weight sequence depth toward the hottest leads. GoFreight has already cleared the engagement bar; the opportunity is turning a 15%-click asset into a demo engine and re-lighting a dormant expansion channel.</p>
+    <div class="callout">
+      <strong>What we propose to do first:</strong> rebuild the highest-leverage email end-to-end (the Non-MQL "First" email — 56% of all campaign volume), prove the lift, then extend the pattern across four intent-tiered sequences and re-enable the upsell flow.
+    </div>
+  </div>
+</section>
+
+<!-- ============ 1. PROBLEM ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">01</span>The problem: a receipt system, not a conversion system</h2>
+    <p style="margin-top:16px;">Structured as Situation → Complication → Question:</p>
+    <div class="scq card" style="padding:8px 22px;">
+      <div class="k">Situation</div><div class="v">The "Organic" campaign — 7 behaviorally-triggered auto-responders, ~4,300 sends/12 months — is the single best-performing asset in the account: <strong>42–62% open, 7–15% click</strong>, versus ~1% open on cold broadcasts and 0.52% account-wide click. It already beats B2B SaaS benchmarks on click by 5–7×.</div>
+      <div class="k">Complication</div><div class="v">It's engineered to acknowledge, not to convert. Five defects cap its value (below).</div>
+      <div class="k">Question</div><div class="v">How does GoFreight convert its highest-intent, best-engaging audience — people who just raised their hand — into <strong>booked demos and expansion revenue</strong>, instead of into filed acknowledgments?</div>
+      <div class="answer" style="display:contents;"><div class="k">Answer</div><div class="v"><strong>Rebuild the acknowledgment auto-responders into intent-tiered nurture sequences, each carrying a single CTA to a booked demo — and weight depth by lead heat.</strong> Deepening attention GoFreight has already paid to acquire is higher-leverage than any net-new channel.</div></div>
+    </div>
+
+    <h3>The five defects</h3>
+    <div class="card">
+      <div class="defect"><div class="idx">1</div><div><span class="t">No conversion path to a booked demo.</span> The trigger path exists (form submit → auto-email fires), but <strong>no email carries a book-a-demo action</strong>. The hero email's only CTA is a passive "feel free to watch the demo below" (a video, not a booked meeting); the rest say "someone will reach out soon." A ready-to-buy lead can't self-book — conversion depends on manual sales follow-up, and the sequence stops after 1–2 emails.</div></div>
+      <div class="defect"><div class="idx">2</div><div><span class="t">5 of 7 subject lines are passive acknowledgments</span> ("Thank You for Your Interest… Someone Will Reach Out Soon!"). Zero value, no CTA, no proof, no next step — a dead end wearing a greeting.</div></div>
+      <div class="defect"><div class="idx">3</div><div><span class="t">Effort is inverted against lead value.</span> The colder Non-MQL branch is 2 emails deep; the hotter MQL and pricing-intent branches are 1 email each. GoFreight nurtures its coldest leads hardest and its sales-ready leads least.</div></div>
+      <div class="defect"><div class="idx">4</div><div><span class="t">The Upsell email — a customer-expansion motion — is switched OFF.</span> Note it is <em>not</em> a new-lead email: it fires when an existing customer's deal enters the "Upsell – New Request" stage. It posts the highest open rate in the set (62.2%) and targets the cheapest revenue GoFreight can earn (expansion), yet generates zero pipeline while off. It sits in this campaign by tagging accident and belongs in its own workstream.</div></div>
+      <div class="defect"><div class="idx">5</div><div><span class="t">The hero email ("Form Submission Non-MQL – First") is a qualification form in disguise.</span> Subject "Your Inquiry About GoFreight's Platform" (HubSpot ID 136121114943). It thanks the lead, asks three gating questions (US/Canada entity? import/export? current software?), then buries a passive "feel free to watch the demo below." It extracts from the lead at the exact moment attention is highest.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. STRATEGY ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">02</span>Strategy: four intent-tiered sequences, depth weighted to heat</h2>
+    <div class="callout warn" style="margin-top:18px;">
+      <span class="pill p1">OBJECTIVE</span><br><br>
+      <strong style="font-size:17px;">Increase demos booked from inbound email — the primary metric this program is managed on.</strong><br>
+      Opens and clicks are diagnostics; demos booked is the outcome. Today it is <strong>not tracked and structurally ~0</strong> (no email carries a booking link). The program therefore has two jobs: <strong>(1) instrument it</strong> — embedded scheduler links + HubSpot meeting attribution so every booking is counted per email — and <strong>(2) grow it</strong> — 90-day target: 10–15% of clickers self-book; run-rate ~65–120 incremental demos/yr from the hero sequence alone (derivation in §06).
+    </div>
+    <div class="callout"><span class="pill p-move">HIGHEST-LEVERAGE MOVE</span><br><br><strong>Rebuild two shallow drips into four intent-tiered nurture sequences, each carrying one CTA to a booked demo — and weight sequence depth by lead heat (MQL/pricing ≥ non-MQL), not against it.</strong></div>
+
+    <h3>The three ranked priorities</h3>
+    <div class="prio"><div class="tag">Priority 1 · do now</div><h4>Rebuild the Non-MQL "First" (hero) email into a nurture opener with one demo CTA</h4><p style="margin:0;">Highest volume (2,401 sends = 56% of the campaign) × best engagement (54% open / 14.9% click) × weakest current design. Every point of click-to-demo improvement here outweighs a full rebuild of any other email — and it's the template the other six inherit.</p></div>
+    <div class="prio"><div class="tag">Priority 2 · fastest payback</div><h4>Re-enable and rebuild the Upsell sequence</h4><p style="margin:0;">It's off, it targets existing customers (lowest-CAC revenue), and it already earns the highest open rate in the set. Turning it on is a switch; rebuilding it into a 3-email expansion sequence is fast, cheap, and directly revenue-attached.</p></div>
+    <div class="prio"><div class="tag">Priority 3 · correct the imbalance</div><h4>Deepen the MQL &amp; pricing-intent branches</h4><p style="margin:0;">Add 2–3 emails to each hotter branch so sales-ready leads receive <em>more</em> nurture than cold ones. Pricing-intent leads — the highest commercial signal — should reach a sales conversation fastest.</p></div>
+
+    <h3>Segmentation logic &amp; sequence depth</h3>
+    <table class="grid">
+      <tr><th>Segment</th><th>Signal / heat</th><th>Job of the sequence</th><th>Depth</th></tr>
+      <tr><td><strong>Non-MQL</strong></td><td>Cold, unqualified, form-submitted</td><td>Educate, build trust, self-qualify without gating, warm to demo</td><td>4 emails</td></tr>
+      <tr><td><strong>MQL</strong></td><td>Fit/behavior-qualified, sales-ready</td><td>Accelerate to booked demo; sell the outcome</td><td>4 (faster cadence)</td></tr>
+      <tr><td><strong>Pricing-intent</strong></td><td>Explicitly asked price — top commercial intent</td><td>Deliver on transparent-pricing differentiator; route to sales fastest</td><td>3 emails</td></tr>
+      <tr><td><strong>Upsell</strong> (customers)</td><td>Deal in expansion stage</td><td>Re-engage on the specific request, book expansion call</td><td>3 emails</td></tr>
+      <tr><td><strong>LP get-demo / get-started</strong></td><td>Explicit demo/trial request</td><td>Remove scheduling friction, book immediately</td><td>3 emails each</td></tr>
+    </table>
+
+    <h3>The message arc (against legacy on-prem TMS)</h3>
+    <p>Anchor every sequence to GoFreight's real differentiators vs CargoWise / Magaya / Descartes: <strong>cloud-native, modern purpose-built UX, transparent pricing, 4–8 week implementation vs 6–12 months.</strong> Across a sequence: <strong>1) Acknowledge + orient</strong> → <strong>2) Prove</strong> (G2 standing, named forwarder testimonial, quantified outcome) → <strong>3) De-risk</strong> (fast implementation, transparent pricing) → <strong>4) Ask</strong> (book the demo, with a lead-time reason to act now).</p>
+  </div>
+</section>
+
+<!-- ============ 3. SEND PLAN ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">03</span>Send plan — per-branch sequences</h2>
+
+    <h3>Non-MQL <span style="font-weight:400;color:var(--muted);font-size:14px;">· trigger: non-MQL lead submits a form</span></h3>
+    <table class="grid">
+      <tr><th>#</th><th>Email job / CTA</th><th>Delay</th></tr>
+      <tr><td>1</td><td><strong>Orient + book</strong> — replace gating questions with one demo CTA; light social proof. Goal: demo booked or warm reply.</td><td>Immediate</td></tr>
+      <tr><td>2</td><td><strong>Prove</strong> — named forwarder/NVOCC testimonial + G2 standing; the switch-off-legacy story. CTA: demo.</td><td>+2 days</td></tr>
+      <tr><td>3</td><td><strong>De-risk</strong> — 4–8 wk implementation + transparent pricing vs 6–12 mo legacy. CTA: demo.</td><td>+3 days</td></tr>
+      <tr><td>4</td><td><strong>Last value + soft close</strong> — "still exploring? here's the 5-min tour" + peak-season lead-time nudge. CTA: demo/reply.</td><td>+4 days</td></tr>
+    </table>
+
+    <h3>MQL <span style="font-weight:400;color:var(--muted);font-size:14px;">· trigger: MQL lead submits form (faster cadence)</span></h3>
+    <table class="grid">
+      <tr><th>#</th><th>Email job / CTA</th><th>Delay</th></tr>
+      <tr><td>1</td><td><strong>Accelerate</strong> — assume interest; lead with the outcome + calendar link.</td><td>Immediate</td></tr>
+      <tr><td>2</td><td><strong>Proof for the sales-ready</strong> — quantified forwarder/NVOCC result. CTA: demo.</td><td>+1 day</td></tr>
+      <tr><td>3</td><td><strong>Objection pre-empt</strong> — migration effort + pricing transparency. CTA: demo.</td><td>+2 days</td></tr>
+      <tr><td>4</td><td><strong>Direct ask</strong> — "worth 20 minutes?" reply-driven close, sales-owner signature.</td><td>+3 days</td></tr>
+    </table>
+
+    <h3>Pricing-intent <span style="font-weight:400;color:var(--muted);font-size:14px;">· trigger: pricing form submit</span></h3>
+    <table class="grid">
+      <tr><th>#</th><th>Email job / CTA</th><th>Delay</th></tr>
+      <tr><td>1</td><td><strong>Deliver on transparency</strong> — honest pricing expectations, framed vs opaque legacy quoting. CTA: pricing/demo call.</td><td>Immediate</td></tr>
+      <tr><td>2</td><td><strong>Value-justify</strong> — ROI / implementation-speed frame so price lands against value. CTA: book call.</td><td>+1 day</td></tr>
+      <tr><td>3</td><td><strong>Direct close</strong> — sales-owner personal note, book the call.</td><td>+2 days</td></tr>
+    </table>
+
+    <h3>Upsell <span style="font-weight:400;color:var(--muted);font-size:14px;">· trigger: deal enters "Upsell – New Request" stage — </span><span class="flag bad">RE-ENABLE WORKFLOW</span></h3>
+    <table class="grid">
+      <tr><th>#</th><th>Email job / CTA</th><th>Delay</th></tr>
+      <tr><td>1</td><td><strong>Re-engage on the specific request</strong> — reference the module/expansion; owner signature. CTA: book expansion call.</td><td>Immediate</td></tr>
+      <tr><td>2</td><td><strong>Adjacent value</strong> — what similar customers gained from this module. CTA: call.</td><td>+3 days</td></tr>
+      <tr><td>3</td><td><strong>Close the loop</strong> — light nudge + direct ask.</td><td>+4 days</td></tr>
+    </table>
+
+    <h3>LP get-demo &amp; get-started <span style="font-weight:400;color:var(--muted);font-size:14px;">· trigger: form on Forwarder landing page (3 emails each: confirm → reduce no-show / clarify path → recover-reschedule)</span></h3>
+    <div class="callout warn" style="font-size:14px;"><strong>Note:</strong> the LP forms drove only 9 and 6 sends in 12 months. The auto-responder can only reach people who <em>submit</em> — visitors who bounce are unreachable by email. The upstream lever is landing-page form-conversion (a separate CRO workstream); this sequence removes friction for those who do convert.</div>
+  </div>
+</section>
+
+<!-- ============ 4. OPTIMIZATION ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">04</span>Optimization principles — the levers we apply to every email</h2>
+    <div class="lever"><span class="m">Moves click · click-to-demo</span><div class="h">A. One CTA per email</div>A single, active, first-person action (embedded calendar link where possible). Kill the plural passive "feel free to watch the demo below." One decision per email.</div>
+    <div class="lever"><span class="m">Moves click · reply</span><div class="h">B. Social proof GoFreight actually has</div>G2 4.8/5 (88 reviews, above CargoWise/Magaya/Descartes); named forwarder/NVOCC testimonials; quantified outcomes (50% time saved, 2× shipments, 53% demurrage cut). Placed adjacent to the CTA, not in a footer.</div>
+    <div class="lever"><span class="m">Moves click · demo-booked</span><div class="h">C. B2B-appropriate urgency</div>No fake countdowns. Use real freight levers: peak-season readiness ("onboarding runs 4–8 weeks — start now to be live before peak") and implementation lead-time vs legacy 6–12 month migrations.</div>
+    <div class="lever"><span class="m">Moves open</span><div class="h">D. Subject-line rewrites for the 5 "thank you" lines</div>
+      <ul class="clean" style="margin-top:8px;">
+        <li>→ "How forwarders go live on GoFreight in 4–8 weeks"</li>
+        <li>→ "Your GoFreight demo — here's what you'll see"</li>
+        <li>Pricing: "GoFreight pricing — straight answers, no procurement runaround"</li>
+        <li>Upsell: "Ready to add [module]? Here's what changes for your ops"</li>
+        <li>Non-MQL #2: "The 5-minute GoFreight tour (no sales call required)"</li>
+      </ul></div>
+    <div class="lever"><span class="m">Moves open · click</span><div class="h">E. Personalization</div>Insert company name, lead source, and (upsell) the specific requested module. Sign hotter branches from the named deal owner — not "GoFreight Sales Team."</div>
+    <div class="lever"><span class="m">Moves click</span><div class="h">F. Mobile &amp; scannability</div>Single column, ~50–125 word body, one bold CTA above the fold, subject &lt;40 chars front-loading value. Forwarding ops read on mobile between tasks.</div>
+  </div>
+</section>
+
+<!-- ============ 5. HERO REBUILD ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">05</span>End-to-end rebuild: the Non-MQL "First" email</h2>
+    <p style="margin-top:14px;">Why this one first: <strong>volume × performance × leverage.</strong> 2,401 sends (56% of the campaign), the best engagement GoFreight has (54% open / 14.9% click), and the widest gap between current design and best practice. Fix it and the marginal return is highest — and the other six inherit the template.</p>
+
+    <div class="ba">
+      <!-- BEFORE -->
+      <div class="mock before">
+        <div class="bar">✕ BEFORE — current</div>
+        <div class="subj">Subject:<b>Your Inquiry About GoFreight's Platform</b></div>
+        <div class="em">
+          <div class="logo">◆ GoFreight</div>
+          <p style="margin:0 0 8px;">Hello there,</p>
+          <p style="margin:0 0 8px;color:#6b6b80;">Thank you for reaching out and for considering GoFreight… We truly appreciate your interest in our product.</p>
+          <p style="margin:0 0 6px;color:#6b6b80;">GoFreight is primarily designed for forwarders in the US or Canada. If your company is based outside… could you answer a few quick questions?</p>
+          <div class="q">• Do you have an entity or offices in the US or Canada?<br>• Do you handle import/export to/from the US or Canada?<br>• What software are you currently using?</div>
+          <p style="margin:6px 0;color:#6b6b80;">In the meantime, <span class="btnghost">please feel free to watch the GoFreight demo below.</span></p>
+          <p style="margin:8px 0 0;color:#6b6b80;">— GoFreight Sales Team</p>
+        </div>
+        <div style="padding:0 14px 14px;">
+          <span class="flag bad">3 gating questions</span><span class="flag bad">no clear CTA</span><span class="flag bad">no social proof</span><span class="flag bad">no urgency</span><span class="flag bad">impersonal sign-off</span>
+        </div>
+      </div>
+      <!-- AFTER -->
+      <div class="mock after">
+        <div class="bar">✓ AFTER — rebuilt</div>
+        <div class="subj">Subject:<b>See your shipments run in GoFreight (20 min)</b><span style="color:#9a9ab0;">Preview: Forwarders go live in 4–8 weeks… &nbsp;|&nbsp; A/B variant: “See GoFreight on your lanes (20 min)”</span></div>
+        <div class="accent"></div>
+        <div class="em">
+          <div class="logo">▬◆ GoFreight</div>
+          <p style="margin:0 0 8px;">Hi {first name},</p>
+          <p style="margin:0 0 8px;">Choosing a forwarding platform usually means weeks of canned demos — and pricing you only find out on a sales call. We’ll keep it simpler than that.</p>
+          <p style="margin:0 0 6px;">The fastest way to know if we fit: a <strong>20-minute demo on your actual shipments</strong> — ocean, air, NVOCC, customs — pricing and timeline included. No slides.</p>
+          <a class="btn" href="#">Book my 20-minute demo →</a>
+          <div class="proof">
+            <b style="color:#1f8f7a;">★ 4.8/5 on G2</b> (88 reviews) — above CargoWise, Magaya &amp; Descartes.<br>
+            <span style="font-style:italic;color:#43435a;">"100 to 200 shipments a month." — Joan Chou, VP, Headwin Global</span><br>
+            <b>Live in 4–8 weeks</b>, not 6–12 months.
+          </div>
+          <p style="margin:6px 0;">Peak season fills the calendar fast — start now to be live <strong>before the crunch</strong>.</p>
+          <p style="margin:8px 0 0;">Bonnie Chen · Growth, GoFreight</p>
+        </div>
+        <div style="padding:0 14px 14px;">
+          <span class="flag good">one CTA</span><span class="flag good">G2 + named proof</span><span class="flag good">real urgency</span><span class="flag good">named sender</span><span class="flag good">~90 words, mobile-first</span>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:18px;font-size:14px;color:var(--muted);">Production-ready, email-client-safe HTML for the rebuilt version is delivered alongside this proposal (<code>gofreight-nonmql-first-rebuild.html</code>) — ready to paste into HubSpot. The three gating questions are not deleted but demoted to an optional one-click progressive-profiling link, so qualification happens as a side effect of engagement rather than a toll gate.</p>
+  </div>
+</section>
+
+<!-- ============ 6. TARGETS ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">06</span>Success metrics &amp; 90-day targets</h2>
+    <table class="grid tgt">
+      <tr><th>KPI</th><th>Definition</th><th>Baseline</th><th>90-day target</th></tr>
+      <tr><td><strong>Open rate</strong></td><td>Unique opens / delivered</td><td>42–54%</td><td>Lift "thank you" emails to <span class="up">50–55%</span>; hold hero 54–58%</td></tr>
+      <tr><td><strong>Click rate</strong></td><td>Unique clicks / delivered</td><td>6–15%</td><td>Hero <span class="up">18–22%</span>; thinner emails <span class="up">12–18%</span></td></tr>
+      <tr><td><strong>Click-to-demo-booked</strong> <span class="flag good">NEW</span></td><td>Demos booked / clicks</td><td>~0 systematic</td><td><span class="up">10–15%</span> of clickers self-book</td></tr>
+      <tr><td><strong>Reply rate</strong> <span class="flag good">NEW</span></td><td>Replies / delivered</td><td>~0 (no ask)</td><td><span class="up">3–6%</span> on MQL / pricing / upsell</td></tr>
+      <tr><td><strong>Sequence completion</strong></td><td>Reaching final email / entered</td><td>N/A (1–2 emails)</td><td><span class="up">60–70%</span> reach final send</td></tr>
+      <tr><td><strong>Incremental demos (hero sequence)</strong></td><td>Demos attributable to the 4-email hero sequence</td><td>~0 systematic</td><td><span class="up">~65–120 / yr</span> (derivation below ³)</td></tr>
+      <tr><td><strong>Expansion pipeline (upsell)</strong></td><td>Expansion calls booked</td><td>$0 (OFF)</td><td>Re-enabled + booking within 30 days</td></tr>
+    </table>
+    <p style="font-size:13px;color:var(--muted);">Targets are ranges by design. They assume inbound form-conversion volume holds — this campaign only reaches form-submitters (see risks).</p>
+    <div class="callout" style="font-size:13.5px;">³ <strong>How the demo number is derived (driver tree):</strong> Email 1: 2,401 delivered/yr × 18–22% click (target) × 10–15% of clickers self-book = <strong>43–79 demos</strong>. Emails 2–4 (new follow-ups to non-bookers, at 60–70% sequence completion) typically add ~50–75% on top of email 1 = <strong>+22–45</strong>. Total ≈ <strong>65–120/yr</strong>; reaching 80+ requires mid-range-or-better on both click and booking steps. The 10–15% click-to-book figure is a B2B benchmark for calendar-link emails to warm inbound — not yet a GoFreight-observed number; it becomes measurable the day booking links are instrumented (Objective, §02).</div>
+  </div>
+</section>
+
+<!-- ============ 7. RISKS ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">07</span>What would change the answer — and the data we need first</h2>
+    <table class="grid">
+      <tr><th>Risk / falsifier</th><th>Check before we build</th></tr>
+      <tr><td><strong>Blind spot — most website visitors never enter this campaign at all.</strong> These emails only go to people who complete a form. B2B pages typically convert 2–5% of visitors, so roughly 95%+ of demo-page visitors likely leave without submitting — and are unreachable by any email in this campaign. This unreached majority is almost certainly the larger pool.</td><td>Pull demo-page traffic from GA4 and divide form fills (~2,400/yr) by visitors. If under ~2% of visitors submit, the bigger win is fixing the page/form first (CRO workstream), and this email rebuild becomes the second move — the emails would then convert a larger stream. <em>(GA4 auth pending — one login command re-enables the pull.)</em></td></tr>
+      <tr><td><strong>Sales already converts hero clicks manually at a high rate.</strong> <em>Partially answered:</em> HubSpot attributes 19 contacts / 22 deals / $1,197 revenue to this campaign (L12M) — but demo bookings themselves are untracked (no booking link in any email).</td><td>Ask GoFreight (Trenton) to cross-reference these leads against “1st demo booked date” + the sales calendar. If manual follow-up already books &gt;15% of clickers, value shifts to speed-to-lead over sequence depth.</td></tr>
+      <tr><td><strong>The Upsell workflow is off for a reason</strong> (deal-stage noise / hygiene).</td><td>Confirm with the deal owner that "Upsell – New Request" is clean and owner-assigned before re-enabling.</td></tr>
+      <tr><td><strong>Testimonial / G2 usage rights.</strong></td><td>Confirm named forwarder/NVOCC testimonials are cleared for outbound email. If not, proof reverts to G2 aggregate + anonymized outcomes.</td></tr>
+    </table>
+    <div class="callout" style="margin-top:20px;"><strong>Recommended next step:</strong> approve Priority 1 (hero rebuild — draft delivered), and grant a 30-minute working session to pull the four data points above so we size the full rollout on evidence, not assumption.</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <strong>Novastacks</strong> — AI marketing studio &nbsp;·&nbsp; GoFreight inbound email, Proposal 01 &nbsp;·&nbsp; June 2026<br>
+    Source: GoFreight HubSpot export (portal 20002082), trailing 12 months. Performance figures are HubSpot-reported opens/clicks over delivered.
+  </div>
+</footer>
+
+</body>
+</html>
