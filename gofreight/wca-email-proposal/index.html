@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoFreight — WCA Email Campaign Proposal | Novastacks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#01aac1; --teal-dk:#017d8e; --ink:#0f1b23; --ink2:#33424c;
+    --muted:#6b7a84; --line:#e4e9ec; --bg:#f6f8f9; --card:#ffffff;
+    --navy:#020617; --good:#1f8f7a; --bad:#c2503c; --warn:#c98a1e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',-apple-system,'Segoe UI',sans-serif;color:var(--ink2);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--ink);line-height:1.2;margin:0;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+  .section{padding:52px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dk);margin-bottom:14px;}
+  p{margin:0 0 14px;} strong{color:var(--ink);} a{color:var(--teal-dk);}
+  .lead{font-size:18.5px;}
+  .cover{background:linear-gradient(160deg,#020617 0%,#06323a 55%,#017d8e 120%);color:#eaf5f7;padding:70px 0 62px;border-bottom:none;}
+  .cover h1{color:#fff;font-size:40px;font-weight:700;letter-spacing:-.5px;max-width:840px;}
+  .cover .sub{font-size:18.5px;color:#a9d9e1;margin-top:16px;max-width:760px;}
+  .cover .meta{margin-top:28px;font-size:13px;color:#7fb9c4;}
+  .brandrow{display:flex;align-items:center;gap:10px;margin-bottom:32px;font-weight:700;color:#fff;font-size:15px;}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--teal);display:inline-block;}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.14);margin-top:38px;border-radius:12px;overflow:hidden;}
+  .kpi{background:rgba(3,20,28,.55);padding:19px 17px;}
+  .kpi .n{font-family:'Space Grotesk';font-size:25px;font-weight:700;color:#fff;}
+  .kpi .l{font-size:12.5px;color:#9fd0d9;margin-top:4px;line-height:1.35;}
+  h2{font-size:26px;font-weight:700;}
+  h2 .num{color:var(--teal);font-weight:700;margin-right:12px;}
+  h3{font-size:18.5px;font-weight:600;margin:24px 0 8px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin:14px 0;}
+  table.grid{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:14px;}
+  table.grid th{background:#eef3f4;color:var(--ink);text-align:left;padding:10px 13px;font-family:'Space Grotesk';font-weight:600;font-size:12.5px;border:1px solid var(--line);}
+  table.grid td{padding:10px 13px;border:1px solid var(--line);vertical-align:top;}
+  table.grid tr:nth-child(even) td{background:#fbfcfc;}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;}
+  .p-move{background:#e7f6f1;color:var(--good);} .p1{background:#fff4e6;color:var(--warn);}
+  .flag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;margin:2px 4px 2px 0;display:inline-block;}
+  .flag.bad{background:#fdecea;color:var(--bad);} .flag.good{background:#e7f6f1;color:var(--good);} .flag.warn{background:#fff4e6;color:var(--warn);}
+  .callout{background:#eef8f5;border:1px solid #cfe9e1;border-radius:10px;padding:18px 22px;margin:16px 0;}
+  .callout.warn{background:#fff8ec;border-color:#f0dcb4;}
+  .playbook{counter-reset:pb;}
+  .pbitem{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 20px;margin:10px 0;}
+  .pbitem .h{font-family:'Space Grotesk';font-weight:700;color:var(--ink);font-size:15px;}
+  /* email mockups */
+  .email{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin:26px 0;box-shadow:0 1px 4px rgba(15,27,35,.05);}
+  .email .head{background:#0f1b23;color:#fff;padding:14px 22px;font-family:'Space Grotesk';font-weight:700;font-size:14px;letter-spacing:.03em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+  .email .head .when{color:#7fd8c4;font-weight:600;}
+  .email .meta{padding:14px 22px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted);background:#fbfcfc;}
+  .email .meta b{color:var(--ink);font-family:'Space Grotesk');}
+  .email .meta .row{margin:3px 0;}
+  .email .body{padding:22px 26px;font-size:14.5px;color:#2b2b3d;max-width:720px;}
+  .email .body p{margin:0 0 12px;}
+  .email .body ul{margin:0 0 12px;padding-left:20px;} .email .body li{margin-bottom:6px;}
+  .email .cta{display:inline-block;background:#1f8f7a;color:#fff;font-weight:700;padding:11px 22px;border-radius:8px;text-decoration:none;margin:6px 0 12px;font-size:14px;}
+  .email .sig{color:#5a5a70;font-size:13.5px;border-top:1px solid #eceef2;padding-top:10px;margin-top:14px;}
+  .email .why{background:#f4f8f7;border-top:1px solid var(--line);padding:14px 22px;font-size:13px;color:var(--muted);}
+  .email .why b{color:var(--good);}
+  .tgt .up{color:var(--good);font-weight:700;}
+  ul.clean{margin:6px 0 14px;padding-left:20px;} ul.clean li{margin-bottom:7px;}
+  .footer{background:var(--navy);color:#8fa3ac;padding:32px 0;font-size:13px;}
+  .footer strong{color:#fff;}
+  @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr);}.cover h1{font-size:30px;}}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brandrow"><span class="dot"></span> NOVASTACKS &nbsp;·&nbsp; for GoFreight</div>
+    <div class="eyebrow" style="color:#7fd8c4;">Outbound Email · WCA Campaign</div>
+    <h1>Three emails to turn the WCA network into booked demos</h1>
+    <p class="sub">Cold outreach to WCA-member forwarders, rebuilt on validated evidence: what closed-won customers actually said, what the AI engines actually answer, and what the 2026 cold-outreach playbook demands.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="n">15–25</div><div class="l">demos booked per 2,500 sends — the campaign goal</div></div>
+      <div class="kpi"><div class="n">30–40%</div><div class="l">open-rate goal (plain-text, CEO-signed, affinity list)</div></div>
+      <div class="kpi"><div class="n">2–4%</div><div class="l">click-rate goal on the single CTA per email</div></div>
+      <div class="kpi"><div class="n">1.5–3%</div><div class="l">reply-rate goal — replies seed next quarter's pipeline</div></div>
+    </div>
+    <div class="meta">Prepared by Novastacks · Sources: HubSpot export, Gong closed-won analysis (27 transcripts), live ChatGPT/Google tests (2 Jul 2026), WorkDuo June tracking · July 2026</div>
+  </div>
+</header>
+
+<!-- 01 EVIDENCE -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">01</span>What the evidence says</h2>
+    <table class="grid" style="margin-top:16px;">
+      <tr><th>Source</th><th>Finding</th><th>Implication</th></tr>
+      <tr><td>2021 WCA broadcast (perf. sheet)</td><td>~40 named leads → 17 MQL → 13 demos scheduled → <span style="color:var(--good);font-weight:700;">4 demos done</span></td><td>The WCA channel converts. This is the benchmark to beat.</td></tr>
+      <tr><td>Mar 2026 "[WCA2026] All Member"</td><td>2,530 sent, 18.7% open, <strong>0.25% click (6 clicks)</strong></td><td>Affinity gets the open; <span style="color:var(--bad);font-weight:700;">the email doesn't convert. Weak CTA, no proof.</span></td></tr>
+      <tr><td>Historical WCA copy</td><td>"Trust" narrative, long, no named proof, buried "Learn More"</td><td>Right moment (pricing shock), wrong execution.</td></tr>
+      <tr><td>/wcapartner landing page</td><td>"Your TMS Shouldn't Cost You a Fortune" · 100–300% legacy price hikes · Get Demo form · named testimonials · G2 badges · <strong>no pricing numbers on page</strong></td><td><strong>Recommended as the campaign's primary destination</strong> (its hook, proof and demo form match the emails), conditional on two fixes: add "WCA" above the fold (item 5) and publish pricing (item 8). Pricing references link to the pricing-explainer blog, which has real numbers.</td></tr>
+      <tr><td>GoFreight cold sends ([TOFU] 2025)</td><td>~1% open on cold generic lists</td><td>Last time GoFreight emailed cold lists (HTML blasts from the main domain), ~1 in 100 opened: the emails landed in spam, not inboxes. The playbook's deliverability setup (separate sending domain, warm-up, plain text, throttling) exists to prevent a repeat.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 02 GONG -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">02</span>Validated conversion evidence — what real buyers said</h2>
+    <p style="margin-top:14px;">From the Gong analysis: 15 sales calls (Apr–May 2026) plus 27 closed-won transcripts across 6 customers ($21K–$165K). Every quote used in the emails is masked per attribution rules.</p>
+    <table class="grid">
+      <tr><th>Validated signal</th><th>Evidence (masked)</th><th>Used in</th></tr>
+      <tr><td><strong>Pricing shock = the #1 acquisition trigger</strong></td><td>"We went from paying $300–400 a month to $1,400 a month, light switch flip overnight" · per-shipment tiers called "mousetraps"</td><td>Email 2 hook</td></tr>
+      <tr><td><strong>Contract renewal = the buying window</strong></td><td>Deals close in 2–4 weeks when the incumbent contract is expiring (Sovana, Allegro, EURASIA all closed against a renewal clock)</td><td>Email 2 CTA</td></tr>
+      <tr><td><strong>"Hand-jamming" is the loudest pain (10+ calls)</strong></td><td>One firm employed a full-timer whose only job was updating the daily spreadsheet</td><td>Email 2</td></tr>
+      <tr><td style="background:#eef8f5;"><strong>CLOSED-WON $140K: AI shortlisted GoFreight top-2</strong></td><td style="background:#eef8f5;">"I dug into a conversation with AI… it narrowed it down to like a top five. And then… you guys were a top two" — export ops manager, US NVOCC + rail-terminal operator</td><td style="background:#eef8f5;">Email 1 story</td></tr>
+      <tr><td><strong>CLOSED-WON: cost of one data-entry error</strong></td><td>"Someone fat fingers the month for an ETA… you lost your margin after one day"; demurrage "at least 300 dollars a day"</td><td>Email 2</td></tr>
+      <tr><td><strong>CLOSED-WON: GoNEXUS week-1 reaction</strong></td><td>"There's going to be benefit with this GoNEXUS hub because we don't have to rewrite all the information" — ocean manager, 100-person Canadian forwarder</td><td>Email 3</td></tr>
+      <tr><td><strong>AI adoption is the C-suite mandate</strong></td><td>"AI is blowing up… we need to head in this direction"; leadership pushing ChatGPT-for-business</td><td>Email 3 angle</td></tr>
+      <tr><td><strong>ICP sweet spot</strong></td><td>5–50 person US/Canada forwarders, ocean-import primary, on Magaya/CargoWise/Excel</td><td>Wave-1 targeting</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 03 AI CLAIM -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">03</span>The AI-recommendation claim, validated live (2 Jul 2026)</h2>
+    <table class="grid" style="margin-top:14px;">
+      <tr><th>Instrument</th><th>Result</th></tr>
+      <tr><td>ChatGPT (live scrape): "best TMS for freight forwarders in 2026"</td><td>GoFreight in the 6-platform comparison table; named <strong>first</strong> for mid-market and for small forwarders; verdict: <strong>"Best value for mid-market: GoFreight"</strong>; gofreight.com/blog/best-tms-software is the <strong>top cited source</strong> in the answer</td></tr>
+      <tr><td>Google (same day): "best freight forwarding software"</td><td>AI Overview present on the query; GoFreight assets rank (YouTube demo #5 organic)</td></tr>
+      <tr><td>WorkDuo tracked prompts, June 2026 (604 answers)</td><td>Google AI <strong>18.5%</strong> mention rate · Perplexity 12.7% · ChatGPT 11.3% — Google AI is GoFreight's strongest engine</td></tr>
+      <tr><td>Gong closed-won ($140K, Mar 2026)</td><td>Customer's own AI research shortlisted GoFreight <strong>top-2</strong> before she ever spoke to sales</td></tr>
+    </table>
+    <div class="callout warn"><strong>Claim policy:</strong> a flat "top-2 TMS in AI" is not supportable (enterprise shortlists still lead with CargoWise/Descartes). What the emails use instead, all date-stamped and screenshot-able: the ChatGPT "best value for mid-market" quote, the shortlist-anchored line, Google AI citing gofreight.com as a source, and the closed-won customer's top-2 story told as a story. Re-validate via the citation loop before each send wave.</div>
+  </div>
+</section>
+
+<!-- 04 PLAYBOOK -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">04</span>The 2026 cold-outreach playbook, applied</h2>
+    <div class="playbook" style="margin-top:14px;">
+      <div class="pbitem"><span class="h">1 · Deliverability before copy.</span> Dedicated sending subdomain, SPF/DKIM/DMARC aligned, 2-week warm-up. Gmail/Yahoo bulk rules: one-click unsubscribe, spam &lt;0.3%. Verify the list before send; suppress role accounts; throttle 200–400/day.</div>
+      <div class="pbitem"><span class="h">2 · Plain-text format.</span> No HTML template, no images, one main CTA. The 18.7%-open March send was HTML; plain-text from a person should clear 30%+ on an affinity list.</div>
+      <div class="pbitem"><span class="h">3 · Sender: Trenton Chen, CEO.</span> CEO-signed reads owner-to-owner and matches the Gong finding that the owner is the economic buyer. Replies triaged daily from a monitored inbox. Never marketing@.</div>
+      <div class="pbitem"><span class="h">4 · Personalization.</span> {{first name}}, {{company}}, "WCA" in subject or first line; cargo-type variant line (ocean vs air splits) per the 2 Jul meeting directive.</div>
+      <div class="pbitem"><span class="h">5 · One main CTA per email.</span> Email 1 brand intro → LP · Email 2 pain + pricing → 15-min call (supporting link: CargoWise-pricing blog) · Email 3 AI → demo ask. Standalone broadcasts: each email is fully self-contained.</div>
+      <div class="pbitem"><span class="h">6 · Compliance.</span> CAN-SPAM footer. WCA is global: wave 1 = US + Canada members (ICP fit AND compliance-safe); EU only after legitimate-interest sign-off.</div>
+      <div class="pbitem"><span class="h">7 · System tie-in.</span> Clickers/repliers imported to HubSpot → the rebuilt Organic nurture takes over. UTM <code>wca_broadcast</code> matches 2021 tracking so results are comparable.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 EMAILS -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">05</span>The three standalone emails</h2>
+    <p style="margin-top:12px;">Three self-contained broadcasts, 7–10 days apart, order recommended but not a dependency. Any recipient may see only one, so each carries full context and its own CTA.</p>
+
+    <!-- EMAIL 1 -->
+    <div class="email">
+      <div class="head"><span>EMAIL 1 — Who GoFreight is (positioning + proof)</span><span class="when">Send 1</span></div>
+      <div class="meta">
+        <div class="row"><b>Subject options (pick one):</b> a note for WCA forwarders · the TMS your peers keep mentioning</div>
+        <div class="row"><b>Preheader:</b> Rated above CargoWise, Magaya and Descartes. Built only for forwarders.</div>
+        <div class="row"><b>From:</b> Trenton Chen, CEO</div>
+      </div>
+      <div class="body">
+        <p>Hi {{first name}},</p>
+        <p>Reaching out because {{company}} is part of the WCA network, and GoFreight works with forwarders across the alliance.</p>
+        <p>Most forwarding teams we meet run their day across four or five tools: a TMS from another era, Excel, email, a customs portal, a tracking site. Quotes take hours. New hires take months to get useful. And customers still call to ask where their container is.</p>
+        <p>GoFreight exists to collapse that into one unified system: quoting, ocean and air documentation, customs filing, live tracking, accounting and a branded customer portal. It is the highest-rated freight forwarding TMS on G2 (4.8/5, ahead of CargoWise, Magaya and Descartes), trusted by <span class="flag warn">[hundreds / 1,000+ — confirm]</span> forwarders across North America.</p>
+        <p>One export operations manager told us she asked an AI assistant to shortlist a TMS for her company's needs. It narrowed the market to five, then to two. GoFreight was one of them. Her team switched from CargoWise this spring.</p>
+        <p>"I save at least 50% of my time." — Jason Hsu, Owner, Whale US</p>
+        <p>If your team spends more time fighting its tools than moving freight, the two-minute overview is here: <a href="https://gofreight.com/wcapartner"><strong>gofreight.com/wcapartner</strong></a></p>
+        <div class="sig">Trenton Chen<br>CEO, GoFreight · working with WCA-member forwarders<br>[postal address] · [unsubscribe]</div>
+      </div>
+      <div class="why"><b>Why it converts:</b> opens in the reader's world (fragmented tools, slow quotes, training cliff, "where's my container" calls — all validated Gong themes), compresses the positioning to two sentences, then lets two customer stories carry the proof. The AI-shortlist story doubles as the AI claim. <span class="flag warn">1 claim flagged for confirmation before send</span></div>
+    </div>
+
+    <!-- EMAIL 2 -->
+    <div class="email">
+      <div class="head"><span>EMAIL 2 — The pain, and the pricing moment</span><span class="when">Send 2 (+7–10 days)</span></div>
+      <div class="meta">
+        <div class="row"><b>Subject options (pick one):</b> did your TMS bill triple too? · still hand-keying shipment data?</div>
+        <div class="row"><b>Preheader:</b> Forwarders tell us their bill jumped from a few hundred to $1,400 a month, overnight.</div>
+        <div class="row"><b>From:</b> Trenton Chen, CEO</div>
+      </div>
+      <div class="body">
+        <p>Hi {{first name}},</p>
+        <p>In our conversations with forwarders this year, two frustrations come up on almost every call.</p>
+        <p>The first is manual work: skilled people re-keying the same shipment data between Excel, email and an aging system. One firm had a full-time employee whose only job was updating the daily ops spreadsheet. Another lost a shipment's whole margin to a single mis-keyed ETA; demurrage runs about $300 a day.</p>
+        <p>The second is pricing. Legacy TMS bills that jumped from a few hundred dollars a month to $1,400 overnight, and per-shipment pricing tiers one ops manager described as "mousetraps." Another told us they use maybe 25% of the functionality they pay for.</p>
+        <p>GoFreight's answer is simple: one system, per-user pricing, no per-shipment tiers that reprice your busiest months. We broke the new per-container pricing model down line by line, with the actual numbers: <a href="https://gofreight.com/blog/cargowise-pricing-2025">gofreight.com/blog/cargowise-pricing-2025</a></p>
+        <p>If your TMS contract renews in the next 12 months, a quick 15-minute call now beats scrambling three days before the deadline.</p>
+        <a class="cta" href="#">Book 15 minutes →</a>
+        <div class="sig">Trenton Chen<br>CEO, GoFreight<br>[postal address] · [unsubscribe]</div>
+      </div>
+      <div class="why"><b>Why it converts:</b> every pain line is verbatim (masked) buyer language from Gong; the pricing link goes to a page with real numbers so the promise is honest; the CTA targets the validated buying window (contract renewal), and the pricing blog is AEO content already cited by AI engines.</div>
+    </div>
+
+    <!-- EMAIL 3 -->
+    <div class="email">
+      <div class="head"><span>EMAIL 3 — The AI angle (GoNEXUS)</span><span class="when">Send 3 (+7–10 days)</span></div>
+      <div class="meta">
+        <div class="row"><b>Subject:</b> how forwarders actually use AI</div>
+        <div class="row"><b>Preheader:</b> GoFreight's AI turns your emails and documents into shipments. See it in 20 minutes.</div>
+        <div class="row"><b>From:</b> Trenton Chen, CEO</div>
+      </div>
+      <div class="body">
+        <p>Hi {{first name}},</p>
+        <p>The thing forwarders ask us about most this year: AI.</p>
+        <p>GoFreight's latest AI solution, GoNEXUS, is built directly into the TMS. It reads the emails and documents before your team does: pre-alerts, master bills, arrival notices, invoices. It extracts the details and drafts the shipment or the update, so your team just reviews and approves. No copy-pasting, no separate AI tool to manage. A copilot for your operation that does the work, while your team keeps control.</p>
+        <p>Forwarders tell us their leadership wants AI adopted this year. This is the practical version: it removes the re-keying first.</p>
+        <p>In her first week on it, an ocean manager at a 100-person Canadian forwarder put it simply: "we don't have to rewrite all the information."</p>
+        <p>The AI engines have noticed too. Ask ChatGPT which TMS forwarders should shortlist in 2026 and GoFreight is in the answer, and Google's AI results cite gofreight.com as a source on the topic (June 2026).</p>
+        <p>See it on your own documents: a 20-minute demo, GoNEXUS included, pricing included.</p>
+        <a class="cta" href="#">Grab 20 minutes →</a>
+        <p>If the timing is wrong, reply "later" and I'll check back next quarter.</p>
+        <div class="sig">Trenton Chen<br>CEO, GoFreight<br>[postal address] · [unsubscribe]</div>
+      </div>
+      <div class="why"><b>Why it converts:</b> rides the validated C-suite AI mandate; reuses the GoNEXUS angle from HubSpot's own best-performing 2026 emails (45–57% open, up to 23% click on warm lists); week-1 customer quote (masked) + date-stamped AI-engine standing; the "reply later" line seeds next quarter's pipeline and reduces spam flags.</div>
+    </div>
+
+    <h3>Cargo-type variant line (Email 3, per the meeting's segmentation directive)</h3>
+    <ul class="clean">
+      <li><strong>Ocean list:</strong> "FCL, LCL, consolidation and NVOCC workflows are the core of the platform, with ISF filing built in."</li>
+      <li><strong>Air list:</strong> "HAWB/MAWB documentation, flight tracking and split-shipment handling are built in."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 06 TARGETS -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">06</span>KPIs &amp; estimated outcomes — per 2,500 sends</h2>
+    <h3>Historical benchmarks (what the goals are measured against)</h3>
+    <ul class="clean">
+      <li><strong>2021 WCA broadcast:</strong> ~40 named leads → 17 MQL → <strong>13 demos scheduled → <span style="color:var(--good);">4 demos done</span></strong>. Proof the channel converts.</li>
+      <li><strong>Mar 2026 "[WCA2026] All Member" blast:</strong> 2,530 sent · 18.7% open · <strong>0.25% click</strong> (6 clicks). The execution ceiling to beat.</li>
+    </ul>
+    <h3>KPIs and goals</h3>
+    <table class="grid tgt" style="margin-top:14px;">
+      <tr><th>Metric</th><th>Benchmark</th><th>Target</th></tr>
+      <tr><td><strong>Deliverability</strong></td><td>n/a</td><td><span class="up">&gt;97%</span> delivered, &lt;0.3% spam complaints</td></tr>
+      <tr><td><strong>Open rate</strong></td><td>18.7% (Mar 2026 HTML blast)</td><td><span class="up">30–40%</span> (plain-text, CEO sender, affinity subject)</td></tr>
+      <tr><td><strong>Click rate</strong></td><td>0.25%</td><td><span class="up">2–4%</span></td></tr>
+      <tr><td><strong>Reply rate</strong></td><td>~0 today</td><td><span class="up">1.5–3%</span> (incl. "later" replies, which seed next quarter)</td></tr>
+      <tr><td><strong>Demos booked</strong></td><td>13 scheduled / 4 done (2021)</td><td><span class="up">15–25 booked</span> across the three sends</td></tr>
+      <tr><td><strong>System handoff</strong></td><td>n/a</td><td>100% of clickers/repliers into HubSpot → Organic nurture</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 07 OPEN ITEMS -->
+<section class="section">
+  <div class="wrap">
+    <h2><span class="num">07</span>Open items for GoFreight</h2>
+    <table class="grid" style="margin-top:14px;">
+      <tr><th style="width:36px;">#</th><th>Item</th><th>Owner</th></tr>
+      <tr><td>1</td><td>Sending infrastructure: dedicated subdomain + cold-outreach tool, or HubSpot with legal-basis documentation for the import</td><td>GoFreight ops</td></tr>
+      <tr><td>2</td><td>WCA list source, size, cargo-type/region split (segmentation + EU compliance)</td><td>GoFreight</td></tr>
+      <tr><td>3</td><td>Sender confirmed: Trenton Chen (CEO). Set up monitored mailbox + reply-triage owner</td><td>GoFreight</td></tr>
+      <tr><td>4</td><td>Scheduler link to embed (same ask as the Organic proposal)</td><td>GoFreight</td></tr>
+      <tr><td>5</td><td>LP tweak: add "WCA" above the fold on /wcapartner for message match</td><td>Novastacks + GoFreight</td></tr>
+      <tr><td>6</td><td>New asset: one-page ROI case ("the CFO case") on prospect shipment volume, for post-demo follow-up — validated need ("help me build that case… my challenge is convincing my bosses")</td><td>Novastacks</td></tr>
+      <tr><td>7</td><td>Claim confirmation (Email 1): install-base figure (LP says "hundreds"); re-validate AI-recommendation lines against WorkDuo before each wave</td><td>GoFreight + Novastacks</td></tr>
+      <tr><td>8</td><td>LP gap: /wcapartner leads with cost but shows no pricing numbers — publish the pricing model + a starting-at figure; actually showing numbers is the differentiator the Gong calls validate</td><td>GoFreight</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <strong>Novastacks</strong> — AI marketing studio &nbsp;·&nbsp; GoFreight WCA email campaign proposal &nbsp;·&nbsp; July 2026<br>
+    Sources: GoFreight HubSpot export (portal 20002082) · Gong closed-won analysis (27 transcripts, 6 customers) · live ChatGPT/Google tests 2 Jul 2026 · WorkDuo June 2026 tracking. Gong quotes masked per attribution rules.
+  </div>
+</footer>
+
+</body>
+</html>
