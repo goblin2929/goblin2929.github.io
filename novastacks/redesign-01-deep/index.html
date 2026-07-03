@@ -36,7 +36,7 @@
     .staging { background:var(--ink); color:#fff; text-align:center; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; padding:.5rem 1rem; font-weight:600; }
     .staging span { color:#7fd6e2; }
 
-    header { position:sticky; top:0; z-index:60; background:var(--paper); border-bottom:3px solid var(--ink); }
+    header { position:sticky; top:0; z-index:60; background:var(--paper); border-bottom:1px solid var(--hair); }
     .nav { max-width:var(--max); margin:0 auto; padding:0 2.2rem; display:flex; align-items:center; justify-content:space-between; height:4.5rem; }
     .nav .wm { font-family:'Bricolage Grotesque'; font-weight:700; font-size:1.25rem; letter-spacing:.04em; color:var(--ink); text-decoration:none; }
     .nav-links { display:flex; gap:1.8rem; }
@@ -52,7 +52,7 @@
     .pad { padding:3.2rem 0 4.8rem; }
 
     /* ---------- HERO (split: bold type left, real proof exhibit right) ---------- */
-    .hero { position:relative; overflow:hidden; border-bottom:3px solid var(--ink); }
+    .hero { position:relative; overflow:hidden; }
     .hero .geo-c { position:absolute; width:30rem; height:30rem; border-radius:50%; background:var(--teal); right:-9rem; top:8rem; opacity:.9; }
     .hero .geo-s { position:absolute; width:7rem; height:7rem; background:var(--clay); left:42%; top:3rem; }
     .hero .inner { position:relative; z-index:10; padding:5rem 0 5.5rem; display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
@@ -154,7 +154,7 @@
     @media (max-width:560px){ .exh .sprint ol{columns:1;} }
 
     /* ---------- §06 LEDGER ---------- */
-    .ll { display:flex; flex-wrap:wrap; align-items:center; gap:2.4rem 3.4rem; margin-top:2rem; padding-top:1.6rem; border-top:3px solid var(--ink); }
+    .ll { display:flex; flex-wrap:wrap; align-items:center; gap:2.4rem 3.4rem; margin-top:2rem; padding-top:1.6rem; }
     .ll img { height:1.9rem; filter:brightness(0); opacity:.6; }
 
     /* ---------- §07 RETAINER — statement + color-bar columns ---------- */
@@ -239,7 +239,7 @@
     @media (max-width:560px){ .qa summary{grid-template-columns:2.5rem 1fr auto;} .qa .ans{padding-left:1.4rem;} }
 
     /* ---------- CTA ---------- */
-    .cta { position:relative; overflow:hidden; border-top:3px solid var(--ink); text-align:center; padding:6rem 0; }
+    .cta { position:relative; overflow:hidden; text-align:center; padding:6rem 0; }
     .cta .geo { position:absolute; width:18rem; height:18rem; border-radius:50%; background:var(--teal); right:-6rem; bottom:-8rem; }
     .cta .geo2 { position:absolute; width:8rem; height:8rem; background:var(--clay); left:-3rem; top:-3rem; }
     .cta .inner { position:relative; z-index:2; }
