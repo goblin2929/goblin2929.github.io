@@ -503,6 +503,64 @@
     .exh .stats { background:transparent; gap:0; border-top:none; padding:.4rem 1rem .8rem; }
     .exh .stats > div + div { border-left:none; }
     .exh .stats > div { padding:1.2rem 1.2rem; }
+
+    /* ===== Interiors rebuild 2026-07-03 ("reach 8 first"): modules redesigned
+       from their content outward in the document language — no more designed
+       frames around default card interiors. Fig numbers now follow page order. ===== */
+    /* Fig. 03 — case file (replaces the default case-study card innards) */
+    .cfile { position:relative; margin-top:2.4rem; border-radius:16px; background:#fff; box-shadow:0 24px 70px rgba(21,23,27,.07); }
+    .cfile .figtag { position:absolute; z-index:3; top:-.9rem; left:-.9rem; background:var(--teal); color:var(--ink); font-family:'Bricolage Grotesque'; font-size:.72rem; font-weight:700; letter-spacing:.08em; padding:.35rem .8rem; text-transform:uppercase; border-radius:8px; }
+    .cf-head { padding:2.4rem 2.4rem 0; }
+    .cf-meta { display:flex; gap:.6rem; margin-bottom:1.1rem; }
+    .cf-tag { display:inline-block; border:1.5px solid var(--tealdeep); color:var(--tealdeep); border-radius:3px; padding:.08rem .55rem; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; font-weight:600; }
+    .cf-head h3 { font-size:1.55rem; margin-bottom:.9rem; }
+    .cf-head p { font-size:1rem; max-width:68ch; }
+    .cf-figs { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; margin:1.8rem 2.4rem 0; padding:1.4rem 0 1.5rem; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+    @media (max-width:820px){ .cf-figs { grid-template-columns:1fr 1fr; } }
+    .cf-figs .n { font-family:'Bricolage Grotesque'; font-size:2.5rem; font-weight:700; color:var(--tealdeep); position:relative; display:inline-block; line-height:1; }
+    .cf-figs > div:first-child .ring { position:absolute; width:5rem; left:-.7rem; top:-1.05rem; opacity:.85; z-index:0; }
+    .cf-figs .n span { position:relative; z-index:1; }
+    .cf-figs .l { font-size:.82rem; color:var(--ink3); margin-top:.4rem; }
+    .cf-sprint { padding:1.7rem 2.4rem 2.2rem; }
+    .cf-sprint .sh { font-family:'Bricolage Grotesque'; font-weight:600; font-size:.95rem; margin-bottom:.4rem; }
+    .cf-ledger { list-style:none; }
+    .cf-ledger li { display:grid; grid-template-columns:2.6rem 1fr; gap:.6rem; padding:.55rem 0; border-bottom:1px solid var(--hair); font-size:.94rem; color:var(--ink2); align-items:baseline; }
+    .cf-ledger li:last-child { border-bottom:none; }
+    .cf-ledger b { font-family:'Bricolage Grotesque'; font-weight:700; color:var(--clay); font-size:.85rem; }
+    .cf-res { margin-top:1rem; font-weight:500; color:var(--ink); font-size:.98rem; display:flex; gap:.7rem; align-items:baseline; }
+    .cf-res .tick { width:1.25rem; height:1.05rem; flex:none; color:var(--teal); overflow:visible; }
+    .cfile .cap { background:var(--ink); color:#fff; font-size:.82rem; line-height:1.4; padding:.8rem 1.2rem; border-radius:0 0 16px 16px; }
+    .cfile .cap b { color:#7fd6e2; font-weight:600; }
+    /* Fig. 02 system drawing — open entries, flagship circled on the blueprint */
+    .f3sys, .f3sys.f3aeo { background:transparent; border:none; border-radius:0; padding:.5rem .3rem; position:relative; }
+    .f3sys h3 { font-size:1.02rem; }
+    .f3sys p { color:var(--ink3); }
+    .f3sys.f3aeo h3 { color:var(--ink); }
+    .f3sys.f3aeo p { color:var(--ink3); }
+    .f3sys.f3aeo .f3k { display:none; }
+    .f3circle { position:absolute; inset:-.9rem -.8rem; width:calc(100% + 1.6rem); height:calc(100% + 1.8rem); overflow:visible; pointer-events:none; color:var(--teal); }
+    .f3circle ellipse { fill:none; stroke:currentColor; stroke-width:3; }
+    .f3flag { position:absolute; top:-1.15rem; right:-.3rem; font-family:'Bricolage Grotesque'; font-style:italic; font-weight:600; font-size:.78rem; color:var(--tealdeep); }
+    .f3out { background:transparent; border:none; padding:.5rem .3rem; }
+    .f3out .f3k { color:var(--tealdeep); }
+    .f3out h3 { position:relative; display:inline-block; padding-bottom:.35rem; }
+    .f3out h3::after { content:""; position:absolute; left:0; right:-4%; bottom:0; height:.34rem; background:url('assets/cut-swash-underline-teal.png') no-repeat left center / 100% 100%; opacity:.9; }
+    /* team — personnel index rows (no cards) */
+    .pidx { margin-top:2.6rem; }
+    .pidx .prow { display:grid; grid-template-columns:5.2rem 11rem 1fr; gap:1.8rem; align-items:center; padding:1.25rem 0; border-bottom:1px solid var(--hair); }
+    .pidx .prow:last-child { border-bottom:none; }
+    .pidx img { width:5.2rem; height:5.2rem; object-fit:cover; object-position:top; border-radius:6px; display:block; }
+    .pidx .pname { font-family:'Bricolage Grotesque'; font-weight:600; font-size:1.15rem; display:block; }
+    .pidx .prole { display:inline-block; border:1.5px solid var(--tealdeep); color:var(--tealdeep); border-radius:3px; padding:.06rem .5rem; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; font-weight:600; margin-top:.35rem; }
+    .pidx .pbio { font-size:.94rem; color:var(--ink2); margin:0; }
+    @media (max-width:820px){ .pidx .prow { grid-template-columns:4.2rem 1fr; } .pidx .pbio { grid-column:1 / -1; } }
+    /* §Why: brush clears the teal line (contrast) */
+    .ret .ret-brush { top:-.8rem; width:118%; opacity:.42; }
+    /* logo ledger: optical balance */
+    .ll img[alt="Cabital"] { height:1.4rem; }
+    .ll img[alt="Tencent"] { height:1.75rem; }
+    .ll img[alt="Klook"] { height:2.15rem; }
+    .ll img[alt="Traveloka"] { height:2.05rem; }
   </style>
 </head>
 <body>
@@ -573,15 +631,15 @@
       <h2 style="max-width:24ch;">Custom agentic marketing systems</h2>
       <p class="lede" style="max-width:54ch; margin-top:1rem;">We do not sell software. We design, build, and operate AI-powered workflows tailored to your business. Here is the machine, drawn:</p>
       <div class="fig3">
-        <span class="figtag">Fig. 03 — the system, drawn</span>
+        <span class="figtag">Fig. 02 — the system, drawn</span>
         <div class="f3wrap">
           <div class="f3human"><span class="f3k">Human judgment</span><h3>Senior operators</h3><p>Tina and named experts direct every system. Nothing ships unreviewed.</p></div>
           <svg class="f3arrow" viewBox="0 0 90 40" aria-hidden="true"><g filter="url(#roughA)"><path d="M4 21 C30 15,54 25,78 20"/><path d="M68 11 L80 20 L67 29"/></g></svg>
           <div class="f3sysgrid">
-            <div class="f3sys f3aeo"><span class="f3k">Flagship</span><h3>AEO Systems</h3><p>Be the answer ChatGPT, Perplexity, and Google AI give.</p></div>
-            <div class="f3sys"><h3>Content Systems</h3><p>Your brand voice, produced at scale.</p></div>
-            <div class="f3sys"><h3>Analytics Systems</h3><p>What to do next, not just what happened.</p></div>
-            <div class="f3sys"><h3>Performance Systems</h3><p>Paid media that learns in real time.</p></div>
+            <div class="f3sys f3aeo"><svg class="f3circle" viewBox="0 0 240 110" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="120" cy="55" rx="112" ry="48" filter="url(#roughA)"/></svg><span class="f3flag">flagship</span><h3>AEO systems</h3><p>Be the answer ChatGPT, Perplexity, and Google AI give.</p></div>
+            <div class="f3sys"><h3>Content systems</h3><p>Your brand voice, produced at scale.</p></div>
+            <div class="f3sys"><h3>Analytics systems</h3><p>What to do next, not just what happened.</p></div>
+            <div class="f3sys"><h3>Performance systems</h3><p>Paid media that learns in real time.</p></div>
           </div>
           <svg class="f3arrow" viewBox="0 0 90 40" aria-hidden="true"><g filter="url(#roughA)"><path d="M4 19 C28 24,56 14,78 21"/><path d="M68 12 L80 21 L67 30"/></g></svg>
           <div class="f3out"><span class="f3k">Output</span><h3>Google rankings &middot; AI citations &middot; pipeline</h3></div>
@@ -622,29 +680,31 @@
     <div class="blk-head"><span class="bignum">05</span><span class="tag">Results</span></div>
     <div class="pad">
       <h2 style="margin-bottom:.4rem;"><span class="hswash">Outcomes<img src="assets/cut-swash-underline-clay.png" alt=""></span>, not activity reports.</h2>
-      <div class="exh">
-        <div class="exh-head">
-          <p class="kk">Case study &middot; B2B SaaS</p>
-          <h3>Logistics SaaS: 0 &rarr; 43 AI Citations in 60 Days</h3>
+      <div class="cfile">
+        <span class="figtag">Fig. 03 — case file</span>
+        <div class="cf-head">
+          <div class="cf-meta"><span class="cf-tag">B2B SaaS &middot; logistics</span><span class="cf-tag">60-day sprint</span></div>
+          <h3>Logistics SaaS: 0 &rarr; 43 AI citations in 60 days</h3>
           <p>Ranked #3 on Google for "logistics software for mid-market." Good SEO, solid content. But sales kept hearing about a competitor "that came recommended." We tested their buyer queries in ChatGPT: the competitor was cited every time. They were not. The competitor had FAQ schema, Q&amp;A structured content, and named credentials. Our client had none of it.</p>
         </div>
-        <div class="stats">
+        <div class="cf-figs">
           <div><div class="n"><img class="ring" src="assets/cut-enso-circle-ink.png" alt=""><span>43</span></div><div class="l">AI citations in 60 days, from zero</div></div>
           <div><div class="n"><span>+178%</span></div><div class="l">non-branded organic traffic</div></div>
           <div><div class="n"><span>2.3&times;</span></div><div class="l">higher conversion, AI-referred</div></div>
           <div><div class="n"><span>8</span></div><div class="l">queries with first-page AI citation</div></div>
         </div>
-        <div class="sprint">
+        <div class="cf-sprint">
           <p class="sh">The 60-day sprint</p>
-          <ol>
-            <li>FAQ schema added across 12 product and use-case pages</li>
-            <li>Comparison pages restructured against 4 main competitors</li>
-            <li>Named credentials and author bios added to technical content</li>
-            <li>Integration pages reformatted into a clear Q&amp;A structure</li>
-            <li>Citeable statistics surfaced from the client's proprietary data</li>
+          <ol class="cf-ledger">
+            <li><b>01</b> FAQ schema added across 12 product and use-case pages</li>
+            <li><b>02</b> Comparison pages restructured against 4 main competitors</li>
+            <li><b>03</b> Named credentials and author bios added to technical content</li>
+            <li><b>04</b> Integration pages reformatted into a clear Q&amp;A structure</li>
+            <li><b>05</b> Citeable statistics surfaced from the client's proprietary data</li>
           </ol>
-          <p class="res">Result: AEO amplified their SEO. Same rankings, a brand-new discovery channel.</p>
+          <p class="cf-res"><svg class="tick" viewBox="0 0 28 24" aria-hidden="true"><use href="#btick"/></svg> Result: AEO amplified their SEO. Same rankings, a brand-new discovery channel.</p>
         </div>
+        <div class="cap">All figures above are from <b>the client's own analytics</b>, verified before publication.</div>
       </div>
     </div>
   </div></section>
@@ -717,7 +777,7 @@
           <p class="role">FOUNDER &amp; CEO</p><p class="name">Tina Chu</p>
         </div>
         <div class="exhibit">
-          <span class="figtag">Fig. 02 — the real terminal</span>
+          <span class="figtag">Fig. 04 — the real terminal</span>
           <div class="term">
             <div class="tbar"><i></i><i></i><i></i><span>tina@novastacks ~ claude</span></div>
             <div class="tbody">
@@ -733,10 +793,10 @@
           <div class="cap">Not a mockup. <b>This is the actual workspace</b> your account runs through.</div>
         </div>
       </div>
-      <div class="experts">
-        <div class="c"><img src="assets/team-yaohong.avif" alt="Yaohong"><div class="tx"><p class="name">Yaohong</p><p class="role">CTO</p><p class="b">20+ years in finance and tech, building data teams at StashAway and January Capital.</p></div></div>
-        <div class="c"><img src="assets/team-eki.jpg" alt="Eki"><div class="tx"><p class="name">Eki</p><p class="role">HEAD OF AEO</p><p class="b">Google Product Expert, featured in Google's Core Web Vitals case study. Former SEO lead at Tokopedia.</p></div></div>
-        <div class="c"><img src="assets/team-raka.jpg" alt="Raka"><div class="tx"><p class="name">Raka</p><p class="role">CREATIVE DIRECTOR</p><p class="b">15 years in motion design across broadcast, tech, and creative production.</p></div></div>
+      <div class="pidx">
+        <div class="prow"><img src="assets/team-yaohong.avif" alt="Yaohong"><div><span class="pname">Yaohong</span><span class="prole">CTO</span></div><p class="pbio">20+ years in finance and tech, building data teams at StashAway and January Capital.</p></div>
+        <div class="prow"><img src="assets/team-eki.jpg" alt="Eki"><div><span class="pname">Eki</span><span class="prole">Head of AEO</span></div><p class="pbio">Google Product Expert, featured in Google's Core Web Vitals case study. Former SEO lead at Tokopedia.</p></div>
+        <div class="prow"><img src="assets/team-raka.jpg" alt="Raka"><div><span class="pname">Raka</span><span class="prole">Creative Director</span></div><p class="pbio">15 years in motion design across broadcast, tech, and creative production.</p></div>
       </div>
     </div>
   </div></section>
@@ -814,7 +874,7 @@
     var st=document.createElement('style');
     st.textContent='.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);}.rv.in{opacity:1;transform:none;}';
     document.head.appendChild(st);
-    var sel='.hero .copy,.hero .proof,.blk-head,section>.wrap>h2,.shift-grid,.disc>a,.fig3,.fitb>div,.exh,.ll,.ret-lead,.ret-cols>div,.loop,.eng>a,.founder,.experts>.c,.sg,.qa,.cta .inner';
+    var sel='.hero .copy,.hero .proof,.blk-head,section>.wrap>h2,.shift-grid,.disc>a,.fig3,.fitb>div,.cfile,.ll,.ret-lead,.ret-cols>div,.loop,.eng>a,.founder,.pidx .prow,.sg,.qa,.cta .inner';
     var els=[].slice.call(document.querySelectorAll(sel));
     els.forEach(function(el){el.classList.add('rv');});
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target,p=el.parentNode,sibs=p?[].slice.call(p.children).filter(function(c){return c.classList.contains('rv');}):[el],i=sibs.indexOf(el);el.style.transitionDelay=(Math.min(i,5)*70)+'ms';el.classList.add('in');io.unobserve(el);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
