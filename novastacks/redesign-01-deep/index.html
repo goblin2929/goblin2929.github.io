@@ -479,6 +479,30 @@
     .experts .role { display:inline-block; border:1.5px solid var(--tealdeep); border-radius:3px; padding:.08rem .5rem; transform:rotate(-1.6deg); font-size:.7rem; letter-spacing:.08em; margin:.2rem 0 .55rem; }
     /* logo ledger: ink-print erosion (real rubber-stamped feel) */
     .ll img { filter:brightness(0) opacity(.6) url(#roughA); }
+
+    /* ===== Coherence pass 2026-07-03 (Tina: "reads a bit too cute; sections
+       don't coordinate — different blocks"). Straighten the hand devices to
+       ONE physical moment per section; one heading system; tighter geometry;
+       and kill the stat-grid lines in the case study. ===== */
+    /* de-cute: team cards straight, aligned, no tape, uniform crops */
+    .experts .c, .experts .c:nth-child(2), .experts .c:nth-child(3) { transform:none; margin-top:0; }
+    .experts .c::before { display:none; }
+    .experts img { aspect-ratio:4/3.8; }
+    .experts .role { transform:none; }
+    /* Fig.03: tight and level — the hand lives in the drawn arrows, not tilted boxes */
+    .f3sys, .f3sysgrid .f3sys:nth-child(2n), .f3human, .f3out { transform:none; }
+    .f3sys { border-radius:10px; border-color:rgba(21,23,27,.45); }
+    .f3human, .f3out { border-radius:12px; }
+    .fig3 { border-radius:16px; }
+    .fig3 .cap { border-radius:0 0 16px 16px; }
+    /* founder print: one tape, near-straight — a kept object, not a scrapbook */
+    .founder .pf { transform:rotate(-1.2deg); }
+    .founder .pf::after { display:none; }
+    .founder .pf::before { left:50%; margin-left:-3.1rem; transform:rotate(-2deg); top:-.75rem; }
+    /* case study: NO grid lines between stats — whitespace only (Tina) */
+    .exh .stats { background:transparent; gap:0; border-top:none; padding:.4rem 1rem .8rem; }
+    .exh .stats > div + div { border-left:none; }
+    .exh .stats > div { padding:1.2rem 1.2rem; }
   </style>
 </head>
 <body>
@@ -533,7 +557,7 @@
   <section class="blk" id="services"><div class="wrap">
     <div class="blk-head"><span class="bignum">02</span><span class="tag">What We Do</span></div>
     <div class="pad">
-      <h2 style="max-width:20ch;">Three Disciplines. One Search Practice.</h2>
+      <h2 style="max-width:20ch;">Three disciplines, one search practice.</h2>
       <div class="disc">
         <a href="#"><span class="dn">01</span><h3>Search Engine Optimization</h3><p>Technical SEO, content, and authority that win Google rankings in the Singapore market.</p><span class="go">SEO services &rarr;</span></a>
         <a href="#"><span class="dn">02</span><h3>Answer Engine Optimization</h3><p>Get cited by ChatGPT, Perplexity, and Google AI Overviews when buyers ask about your category.</p><span class="go">AEO agency &rarr;</span></a>
@@ -546,7 +570,7 @@
   <section class="blk"><div class="wrap">
     <div class="blk-head"><span class="bignum">03</span><span class="tag">What We Build</span></div>
     <div class="pad">
-      <h2 style="max-width:24ch;">Custom Agentic Marketing Systems</h2>
+      <h2 style="max-width:24ch;">Custom agentic marketing systems</h2>
       <p class="lede" style="max-width:54ch; margin-top:1rem;">We do not sell software. We design, build, and operate AI-powered workflows tailored to your business. Here is the machine, drawn:</p>
       <div class="fig3">
         <span class="figtag">Fig. 03 — the system, drawn</span>
@@ -597,7 +621,7 @@
   <section class="blk"><div class="wrap">
     <div class="blk-head"><span class="bignum">05</span><span class="tag">Results</span></div>
     <div class="pad">
-      <h2 style="margin-bottom:.4rem;"><span class="hswash">Outcomes<img src="assets/cut-swash-underline-clay.png" alt=""></span>, Not Activity Reports.</h2>
+      <h2 style="margin-bottom:.4rem;"><span class="hswash">Outcomes<img src="assets/cut-swash-underline-clay.png" alt=""></span>, not activity reports.</h2>
       <div class="exh">
         <div class="exh-head">
           <p class="kk">Case study &middot; B2B SaaS</p>
@@ -629,7 +653,7 @@
   <section class="blk"><div class="wrap">
     <div class="blk-head"><span class="bignum">06</span><span class="tag">Track Record</span></div>
     <div class="pad">
-      <h2 style="font-size:clamp(1.6rem,2.8vw,2.2rem);">Where We've Shaped Marketing at Scale</h2>
+      <h2 style="font-size:clamp(1.6rem,2.8vw,2.2rem);">Where we've shaped marketing at scale</h2>
       <p style="color:var(--ink3); max-width:54ch; margin-top:.6rem;">20 years leading growth across Asia-Pacific. Now building AI systems for growth-stage companies.</p>
       <div class="ll"><img src="assets/tencent-logo.avif" alt="Tencent"><img src="assets/expedia-group-logo.svg" alt="Expedia Group"><img src="assets/klook-logo.avif" alt="Klook"><img src="assets/cabital-logo.png" alt="Cabital"><img src="assets/traveloka-logo.webp" alt="Traveloka"></div>
     </div>
@@ -654,7 +678,7 @@
   <section class="blk"><div class="wrap">
     <div class="blk-head"><span class="bignum">08</span><span class="tag">How We Work</span></div>
     <div class="pad">
-      <h2>The Compounding Loop.</h2>
+      <h2>The compounding loop.</h2>
       <p class="lede" style="max-width:52ch; margin-top:.8rem;">Four moves that feed each other. The fourth returns to the first, and the system compounds.</p>
       <div class="loop">
         <div class="track">
@@ -672,7 +696,7 @@
   <section class="blk"><div class="wrap">
     <div class="blk-head"><span class="bignum">09</span><span class="tag">Engagements</span></div>
     <div class="pad">
-      <h2 style="font-size:clamp(1.6rem,2.8vw,2.2rem);">Ways to Work Together</h2>
+      <h2 style="font-size:clamp(1.6rem,2.8vw,2.2rem);">Ways to work together</h2>
       <div class="eng">
         <a href="#"><div class="bar"></div><h3>Answer Engine Optimization (AEO)</h3><p>Get cited by AI answer engines like ChatGPT, Perplexity, and Google AI Overviews when buyers ask about your category.</p></a>
         <a href="#"><div class="bar"></div><h3>Generative Engine Optimization (GEO)</h3><p>Shape how generative AI describes, ranks, and recommends your brand so you become the trusted choice.</p></a>
@@ -685,8 +709,8 @@
   <section class="blk" id="founder"><div class="wrap">
     <div class="blk-head"><span class="bignum">10</span><span class="tag">The Team</span></div>
     <div class="pad">
-      <h2 style="max-width:20ch;">Four humans run your account.</h2>
-      <p class="lede" style="max-width:54ch; margin-top:1rem;">Twelve AI agents work for them. Real, named people, listed below. Most agencies in Singapore will not tell you who actually does the work.</p>
+      <h2 style="max-width:22ch;">Battle-tested growth leaders, armed with an AI stack.</h2>
+      <p class="lede" style="max-width:54ch; margin-top:1rem;">One founder, three experts, twelve AI agents. Real, named people. Most agencies in Singapore will not tell you who actually does the work.</p>
       <div class="founder">
         <div>
           <div class="pf"><img src="assets/founder-photo.jpg" alt="Portrait of Tina Chu"><span class="pf-cap">the human in the loop</span></div>
@@ -723,7 +747,7 @@
     <div class="pad">
       <div class="sg">
         <div class="body">
-          <h2 style="max-width:18ch;">An SEO Agency That Knows the Singapore Market.</h2>
+          <h2 style="max-width:18ch;">An SEO agency that knows the Singapore market.</h2>
           <p style="margin-top:1.1rem;">We are a Singapore based agency working with local brands and APAC companies entering the market.</p>
           <p>That means search behaviour, language, competitor sets, and the AI platforms your buyers actually use here, not a generic global playbook.</p>
           <div class="sg-tags"><span>Singapore SMEs &amp; startups</span><span>APAC market entry</span><span>B2B &amp; SaaS</span></div>
@@ -748,7 +772,7 @@
   <section class="blk"><div class="wrap">
     <div class="blk-head"><span class="bignum">12</span><span class="tag">Questions</span></div>
     <div class="pad">
-      <h2>Questions Singapore Brands Ask Us</h2>
+      <h2>Questions Singapore brands ask us</h2>
       <div class="qa">
         <details><summary><span class="qn">Q1</span><span class="qt">What is an AI SEO agency?</span><span class="pl">+</span></summary><div class="ans">An AI SEO agency optimizes your visibility in two places at once: traditional search engines like Google, and AI answer engines like ChatGPT, Perplexity, and Google AI Overviews. A conventional SEO agency stops at Google rankings. Novastacks runs both as one practice, because the same content, structure, and authority signals increasingly feed both.</div></details>
         <details><summary><span class="qn">Q2</span><span class="qt">What is AEO, and how is it different from SEO?</span><span class="pl">+</span></summary><div class="ans">SEO earns you rankings and clicks in Google's results. AEO earns you citations and recommendations inside AI-generated answers. SEO optimizes for the ten blue links; AEO optimizes for the moment ChatGPT or an AI Overview names a brand. You need both, and they reinforce each other.</div></details>
@@ -766,7 +790,7 @@
   <section class="cta">
     <img class="brush-bg" src="assets/cut-slash-diagonal-teal.png" alt="" aria-hidden="true">
     <div class="wrap inner">
-      <h2>Ready to Win Search<br>and <span class="uline">AI Search?<img class="ctaline" src="assets/cut-swash-underline-teal.png" alt=""></span></h2>
+      <h2>Ready to win search<br>and <span class="uline">AI search?<img class="ctaline" src="assets/cut-swash-underline-teal.png" alt=""></span></h2>
       <p>Book a strategy call. We will show you where you stand in Google and across AI platforms today.</p>
       <a class="btn" href="https://calendar.app.google/kFcXYGMDD7cY3boHA">Book a Strategy Call</a>
       <p class="alt">Not ready to talk? <a href="#">Try our free AI visibility tools &rarr;</a></p>
