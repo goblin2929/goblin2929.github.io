@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoFreight Reddit Listening: July 2026 (Feb to Jul Comparison)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#01aac1; --teal-dark:#017d8e; --ink:#0f172a; --body:#334155; --muted:#64748b;
+    --line:#e2e8f0; --bg:#f8fafc; --card:#ffffff; --teal-tint:#e6f7fa; --amber:#b45309; --amber-bg:#fffbeb;
+    --green:#15803d; --green-bg:#f0fdf4; --red:#b91c1c; --red-bg:#fef2f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;color:var(--body);background:var(--bg);line-height:1.6;font-size:15px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px 80px}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;color:var(--ink)}
+  a{color:var(--teal-dark);text-decoration:none;border-bottom:1px solid rgba(1,170,193,.35)}
+  a:hover{border-bottom-color:var(--teal-dark)}
+
+  .cover{background:linear-gradient(135deg,#031c21 0%,#054a56 60%,var(--teal-dark) 100%);color:#fff;padding:56px 0 44px;margin-bottom:44px}
+  .cover .wrap{padding-bottom:0}
+  .kicker{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7fd6e3;font-weight:600;margin-bottom:14px}
+  .cover h1{color:#fff;font-size:34px;line-height:1.2;font-weight:700;max-width:820px}
+  .cover p.sub{color:#c8e9ef;margin-top:14px;max-width:760px;font-size:16px}
+  .statrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:36px}
+  .stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:16px 18px}
+  .stat .n{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#fff}
+  .stat .l{font-size:12px;color:#a9dde7;margin-top:2px;line-height:1.4}
+
+  section{margin-bottom:52px}
+  h2{font-size:24px;font-weight:700;margin-bottom:6px;padding-top:8px}
+  .h2sub{color:var(--muted);margin-bottom:22px;font-size:14.5px;max-width:820px}
+  h3{font-size:16.5px;font-weight:600;margin:26px 0 12px}
+  .eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:600;margin-bottom:6px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:16px}
+  .card h3{margin-top:0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px}
+  .tablewrap{overflow-x:auto;border-radius:12px;margin-bottom:14px}
+  th{background:var(--teal-tint);color:var(--teal-dark);font-family:'Space Grotesk',sans-serif;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+  td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td b,li b,p b{color:var(--ink)}
+
+  ul.tight{list-style:none}
+  ul.tight li{padding:7px 0 7px 20px;position:relative}
+  ul.tight li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:2px;background:var(--teal)}
+
+  .pill{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:99px;white-space:nowrap}
+  .pill.neg{background:var(--red-bg);color:var(--red)}
+  .pill.pos{background:var(--green-bg);color:var(--green)}
+  .pill.mix{background:var(--amber-bg);color:var(--amber)}
+  .pill.neu{background:#f1f5f9;color:var(--muted)}
+  .pill.new{background:var(--teal-tint);color:var(--teal-dark)}
+
+  blockquote{border-left:3px solid var(--teal);background:var(--teal-tint);padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:14px;color:var(--ink)}
+  blockquote .src{display:block;margin-top:6px;font-size:12.5px;color:var(--muted);font-style:normal}
+
+  .approval{background:var(--amber-bg);border:1px solid #fcd34d;border-radius:10px;padding:14px 18px;margin-bottom:18px;font-size:14px}
+  .approval b{color:var(--amber)}
+  .draft{background:#f8fafc;border:1px dashed #94a3b8;border-radius:10px;padding:16px 18px;font-size:14px;white-space:pre-wrap;font-family:'Inter',sans-serif;color:var(--ink);margin-top:12px}
+  .drafthead{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:14px}
+
+  .rank{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--teal-dark);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px}
+
+  .thread{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:0}
+  .thread h3{margin:0 0 4px;font-size:15px;line-height:1.45}
+  .thread .meta{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+  .thread p.sum{font-size:13.5px;color:var(--ink);margin-bottom:4px}
+  .thread .lbl{font-family:'Space Grotesk',sans-serif;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:600;margin:10px 0 3px}
+  .thread ul{list-style:none;font-size:13px;color:var(--body)}
+  .thread ul li{padding:2px 0 2px 15px;position:relative}
+  .thread ul li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:2px;background:var(--teal)}
+  .method{border-top:2px solid var(--line);padding-top:22px;font-size:13px;color:var(--muted)}
+  .method b{color:var(--body)}
+  .flag{background:var(--red-bg);border:1px solid #fecaca;border-radius:10px;padding:14px 18px;font-size:13.5px;margin-top:12px}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="wrap">
+    <div class="kicker">Novastacks · Social Listening · Reddit · Recurring Run</div>
+    <h1>GoFreight Reddit Listening, July 2026: the conversation moved from "software is too expensive" to "software vendors might not survive"</h1>
+    <p class="sub">Second listening cycle for GoFreight (baseline: February 2026). Same market queries plus two fresh AI-angle queries, deduplicated against the existing corpus, with every insight traced to a scraped thread. Prepared 3 July 2026.</p>
+    <div class="statrow">
+      <div class="stat"><div class="n">6</div><div class="l">search queries run (4 baseline + 2 new AI/pricing angles)</div></div>
+      <div class="stat"><div class="n">60</div><div class="l">organic SERP results reviewed (20-deep per query)</div></div>
+      <div class="stat"><div class="n">16</div><div class="l">net-new threads after dedup vs the 16-URL Feb baseline</div></div>
+      <div class="stat"><div class="n">16</div><div class="l">new threads scraped and analyzed this run</div></div>
+      <div class="stat"><div class="n">32</div><div class="l">unique threads now in the GoFreight corpus (34 Airtable records)</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ================= COMPARISON ================= -->
+<section>
+  <div class="eyebrow">Section 1 · February → July comparison</div>
+  <h2>Four of six February pain themes persist unchanged; three genuinely new ones appeared</h2>
+  <p class="h2sub">The February baseline (16 threads, written 2026-02-11) centered on legacy-TMS cost and lock-in. Those complaints have not moved. What changed is the buyer's risk model: after freight-tech shutdowns, users now screen vendors for survival odds, and the sharpest articulated pain shifted from rate-request volume to invoicing leakage.</p>
+
+  <h3>Pain points: recurring vs new</h3>
+  <div class="tablewrap"><table>
+    <tr><th style="width:26%">Theme</th><th style="width:12%">Status</th><th>February evidence</th><th>July evidence</th></tr>
+    <tr>
+      <td><b>CargoWise / Magaya cost + implementation weight</b></td>
+      <td><span class="pill neu">Recurring</span></td>
+      <td>CW billing "gone through the roof"; one user cut spend from $10K/mo (CW) to $3K/mo (GoFreight) (<a href="https://www.reddit.com/r/CargoWise/comments/1q8lr9m/anyone_actually_switched_from_cargowise_seeking/">r/CargoWise</a>); Magaya "insanely expensive", $300–450/mo per license (<a href="https://www.reddit.com/r/logistics/comments/17asgxu/does_anyone_here_have_any_experience_with/">r/logistics</a>)</td>
+      <td>"The only two other options that are not dinosaurs are Cargowise and Magaya, both of which are very expensive and monsters to implement" (<a href="https://www.reddit.com/r/freightforwarding/comments/1o18u8w/could_you_please_suggest_best_freight_forwarding/">r/freightforwarding</a>); CW "sometimes twice the price of smaller TMS providers" (<a href="https://www.reddit.com/r/logistics/comments/1ktc426/why_do_you_choose_the_expensive_cargowise/">r/logistics</a>)</td>
+    </tr>
+    <tr>
+      <td><b>Manual ops: spreadsheets, email, WhatsApp</b></td>
+      <td><span class="pill neu">Recurring</span></td>
+      <td>"WhatsApp, Excel, emails, PDFs, phone calls still dominate operations" (<a href="https://www.reddit.com/r/freightforwarding/comments/1oscwbg/whats_really_stopping_digitization_in_freight/">r/freightforwarding</a>)</td>
+      <td>Dispatchers "shadow-running the operation in spreadsheets or WhatsApp" (<a href="https://www.reddit.com/r/logistics/comments/1txr1ik/what_are_the_biggest_day_to_day_problems_in/">r/logistics</a>); multi-version Excel logs cost one shipper a ~$50K air-freight recovery (<a href="https://www.reddit.com/r/shipping/comments/1pm7kaz/genuine_question_for_people_working_in_freight/">r/shipping</a>)</td>
+    </tr>
+    <tr>
+      <td><b>Digitization blocked by process trust, not tech</b></td>
+      <td><span class="pill neu">Recurring</span></td>
+      <td>"Real blocker isn't tech, it's process trust" (<a href="https://www.reddit.com/r/freightforwarding/comments/1oscwbg/whats_really_stopping_digitization_in_freight/">r/freightforwarding</a>)</td>
+      <td>"Adoption is high at the system level but shallow at the process level" (<a href="https://www.reddit.com/r/logistics/comments/1txr1ik/what_are_the_biggest_day_to_day_problems_in/">r/logistics</a>); tools fail when they replace workflows instead of sitting on top (<a href="https://www.reddit.com/r/shipping/comments/1pm7kaz/genuine_question_for_people_working_in_freight/">r/shipping</a>)</td>
+    </tr>
+    <tr>
+      <td><b>Legacy UX and bloat</b></td>
+      <td><span class="pill neu">Recurring</span></td>
+      <td>MercuryGate "looks and operates like Windows 98"; small forwarder uses "less than 5% of CW capability" (<a href="https://www.reddit.com/r/logistics/comments/1dkm8u7/what_transportation_management_system_tms_does/">r/logistics</a>, <a href="https://www.reddit.com/r/freightforwarding/comments/1fksu5t/we_hate_our_current_logistics_software_what_is/">r/freightforwarding</a>)</td>
+      <td>"Click on 5 windows just to find a pickup#"; "TMS's look like they were built in the 80's" (<a href="https://www.reddit.com/r/FreightBrokers/comments/1qenlgo/has_anyone_tried_building_their_own_tms_with_an/">r/FreightBrokers</a>); top-50 brokerage "operating in 1995 on the sales side" (<a href="https://www.reddit.com/r/FreightBrokers/comments/1lek369/back_office_work_sucks/">r/FreightBrokers</a>)</td>
+    </tr>
+    <tr>
+      <td><b>Ops–finance disconnect / invoicing leakage</b></td>
+      <td><span class="pill new">NEW in July</span></td>
+      <td>Adjacent only: "drowning in rate requests" was the sharpest ops pain (<a href="https://www.reddit.com/r/freightforwarding/comments/1inj6ww/what_software_keeps_you_sane/">r/freightforwarding</a>)</td>
+      <td>"We're completing shipments that never get invoiced"; vendor invoices across a dozen channels; shifting charges "triple the work on every file"; their cloud TMS "actually made things worse" (<a href="https://www.reddit.com/r/freightforwarding/comments/1sccovu/anyone_been_through_operational_chaos_in_a_small/">r/freightforwarding, Apr 2026</a>)</td>
+    </tr>
+    <tr>
+      <td><b>Vendor viability as a buying criterion</b></td>
+      <td><span class="pill new">NEW in July</span></td>
+      <td>No signal in the Feb corpus</td>
+      <td>"Be SURE whoever you go with is profitable and sound. Zuum and others just went under and more will follow" (<a href="https://www.reddit.com/r/logistics/comments/1pkvdq7/tms_reviews/">r/logistics</a>); "don't be a beta tester... lots of log tech going under right now" (<a href="https://www.reddit.com/r/FreightBrokers/comments/1nitrj6/small_brokerage_team_seeking_the_best_tms_system/">r/FreightBrokers</a>)</td>
+    </tr>
+    <tr>
+      <td><b>DIY TMS built with AI coding tools</b></td>
+      <td><span class="pill new">NEW in July</span></td>
+      <td>Feb had DIY via Airtable/Zapier/Sheets (<a href="https://www.reddit.com/r/freightforwarding/comments/1gsei1o/why_are_you_using_gofreight_why_not/">r/freightforwarding</a>), not AI-built systems</td>
+      <td>Brokers experimenting with Replit/Lovable to vibe-code a TMS; builders concede results are buggy; consensus lands on "custom layers around an existing TMS deliver 80% of the benefit with 20% of the effort" (<a href="https://www.reddit.com/r/FreightBrokers/comments/1qenlgo/has_anyone_tried_building_their_own_tms_with_an/">r/FreightBrokers, Jan 2026, 32 comments</a>)</td>
+    </tr>
+  </table></div>
+
+  <h3>Keyword shifts: what real buyers say now that they didn't say in February</h3>
+  <div class="grid2">
+    <div class="card">
+      <h3>Still live from February</h3>
+      <ul class="tight">
+        <li><b>"CargoWise alternative"</b> and price-anchored comparisons: the CW premium framing is intact (<a href="https://www.reddit.com/r/logistics/comments/1ktc426/why_do_you_choose_the_expensive_cargowise/">1 thread this run</a>, 4 in Feb).</li>
+        <li><b>"Bloat" / feature overload</b>: now sharpened into UX specifics like "5 windows to find a pickup#".</li>
+        <li><b>Spreadsheet + WhatsApp persistence</b>: identical vocabulary in both runs.</li>
+        <li><b>Implementation weight</b>: Feb's "month-to-month" praise maps to July's "not a burden to implement".</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Newly emerged in July</h3>
+      <ul class="tight">
+        <li><b>"Going under" / vendor viability</b>: post-Zuum, financial soundness is a stated screen in 2 threads.</li>
+        <li><b>"Build your own TMS with AI"</b>: Replit and Lovable named as escape routes from bad software.</li>
+        <li><b>"Shipments that never get invoiced" / time-to-invoice</b>: quote-to-cash vocabulary, not just ops vocabulary.</li>
+        <li><b>"System says vs ground reality"</b>: trust-gap language for tracking and status data.</li>
+        <li><b>"Dinosaurs" / "monsters to implement"</b>: the incumbent label hardened.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Sentiment: negativity share fell, but read the mix honestly</h3>
+  <div class="card">
+    <ul class="tight">
+      <li><b>February:</b> 10 of 18 records Negative (56%), 6 Mixed, 1 Positive, 1 Neutral. The corpus skewed toward complaint threads by query design.</li>
+      <li><b>July:</b> 5 of 16 new threads Negative (31%), 5 Mixed, 5 Neutral, 1 Positive. The drop partly reflects query mix: this run surfaced more selection-advice and business-case threads (Neutral by nature) alongside complaint threads.</li>
+      <li><b>Directional shift that is real:</b> AI sentiment softened. February: "Who would trust AI for customs brokerage? One doesn't f around with compliance" (<a href="https://www.reddit.com/r/logistics/comments/1lyi5sc/has_anyone_tried_any_ai_tools_for/">r/logistics</a>). July: consensus is augment-not-replace: "AI could help streamline documentation or more quickly identify errors... but has no agency to act on it without human input" (<a href="https://www.reddit.com/r/logistics/comments/1ktekvu/is_freight_forwardershipping_agent_a_job_thats/">r/logistics</a>), and buyers are actively experimenting with AI tooling (<a href="https://www.reddit.com/r/FreightBrokers/comments/1qenlgo/has_anyone_tried_building_their_own_tms_with_an/">r/FreightBrokers</a>).</li>
+      <li><b>No change detected</b> in sentiment toward incumbents: CargoWise and Magaya complaints are as negative in July as in February.</li>
+    </ul>
+  </div>
+
+  <h3>GoFreight brand trajectory: from mixed with a product complaint to organically recommended</h3>
+  <div class="card">
+    <p><b>February position.</b> One dedicated thread ("<a href="https://www.reddit.com/r/freightforwarding/comments/1gsei1o/why_are_you_using_gofreight_why_not/">Why are you using GoFreight? Why not?</a>", Positive) plus a strong switcher story ($10K/mo CW to $3K/mo GoFreight, <a href="https://www.reddit.com/r/CargoWise/comments/1q8lr9m/anyone_actually_switched_from_cargowise_seeking/">r/CargoWise</a>) and month-to-month praise (<a href="https://www.reddit.com/r/freightforwarding/comments/1kic5sb/is_there_anything_that_works_as_good_as_cargowise/">r/freightforwarding</a>). One direct product complaint: "GoFreight isn't too accounting friendly" (<a href="https://www.reddit.com/r/logistics/comments/1ifagtb/why_do_you_choose_cargowisedescartes_over_new/">r/logistics</a>).</p>
+    <p style="margin-top:10px"><b>July position.</b> GoFreight is named in 4 of the 16 new threads, and the tone is recommendation, not defense:</p>
+    <blockquote>"GoFreight is your best bet. It's a great system that is not a burden to implement. It's also very modern and will give your customers online tracking."<span class="src"><a href="https://www.reddit.com/r/freightforwarding/comments/1o18u8w/could_you_please_suggest_best_freight_forwarding/">r/freightforwarding, best-software-for-SMB thread</a></span></blockquote>
+    <blockquote>"You should look at gofreight.com... It seemed very good, reasonably priced, and light." · "I'd go with gofreight if I had to use an off the shelf product."<span class="src">Two separate users, <a href="https://www.reddit.com/r/freightforwarding/comments/1g0jztr/tms_for_freight_forwarders/">r/freightforwarding, TMS-for-forwarders thread</a></span></blockquote>
+    <ul class="tight">
+      <li><b>Zero new product complaints this run.</b> The February "accounting friendly" criticism did not recur in the new threads.</li>
+      <li><b>The remaining objection is enterprise depth:</b> the same user who called GoFreight "very good" chose CargoWise because "we needed something more heavy duty that supported US customs and other integrations" (<a href="https://www.reddit.com/r/freightforwarding/comments/1g0jztr/tms_for_freight_forwarders/">r/freightforwarding</a>).</li>
+      <li><b>Ecosystem signal:</b> an AI-automation vendor names GoFreight as a standard integration target alongside CargoWise and Descartes in two research threads (<a href="https://www.reddit.com/r/logistics/comments/1ktc426/why_do_you_choose_the_expensive_cargowise/">r/logistics</a>, <a href="https://www.reddit.com/r/shipping/comments/1gz5nax/is_anyone_using_gofreight_or_magaya_here_why/">r/shipping</a>).</li>
+      <li><b>Caveat:</b> 2 of the 4 mention-threads predate the Feb run chronologically (Oct–Nov 2024) but were newly surfaced by this run's brand query; the trajectory read rests on tone across the full corpus, not on posting dates alone.</li>
+    </ul>
+  </div>
+
+  <h3>Competitor share of conversation (threads mentioning each vendor)</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Vendor</th><th>Feb run (16 threads)</th><th>Jul run (16 new threads)</th><th>Reading</th></tr>
+    <tr><td><b>CargoWise</b></td><td>7</td><td>4</td><td>Still the reference incumbent; tone unchanged (expensive, heavy, safe-by-inertia)</td></tr>
+    <tr><td><b>Magaya</b></td><td>3</td><td>3</td><td>Now bracketed with CW as a "dinosaur"; Feb's "avoid at all costs" support complaints did not recur but no positive mentions either</td></tr>
+    <tr><td><b>Descartes</b></td><td>2</td><td>3</td><td>Cited for integration gravity: "plug-and-play" EDI ecosystem is its defense</td></tr>
+    <tr><td><b>GoFreight</b></td><td>5</td><td>4</td><td>Only vendor in the set whose July mentions are organic recommendations</td></tr>
+    <tr><td><b>Shipthis</b></td><td>0</td><td>2</td><td>Appears in recommendation lists, no user experience reports yet</td></tr>
+    <tr><td><b>GoComet / Neurored / Freightview</b></td><td>0</td><td>0</td><td>No change detected: absent from both corpora</td></tr>
+    <tr><td><b>Broker-segment tools (Ascend, McLeod, Aljex, Tai)</b></td><td>1</td><td>5</td><td>July's broker threads are crowded with these; adjacent segment, not head-to-head with GoFreight</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= WHAT'S NEW ================= -->
+<section>
+  <div class="eyebrow">Section 2 · What's new this run</div>
+  <h2>Three market shifts and one channel shift GoFreight can act on</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>1 · Vendor survival is now part of the pitch</h3>
+      <p>The Zuum shutdown put vendor financials on the checklist: "be SURE whoever you go with is profitable and sound... more will follow" (<a href="https://www.reddit.com/r/logistics/comments/1pkvdq7/tms_reviews/">r/logistics</a>); "don't be a beta tester" (<a href="https://www.reddit.com/r/FreightBrokers/comments/1nitrj6/small_brokerage_team_seeking_the_best_tms_system/">r/FreightBrokers</a>). Stability, customer count, and backing are now sales assets GoFreight should state explicitly.</p>
+    </div>
+    <div class="card">
+      <h3>2 · Frustrated buyers are vibe-coding their own TMS</h3>
+      <p>A 32-comment r/FreightBrokers thread documents brokers building TMS replacements with Replit and Lovable, and concluding it's harder than it looks: AI-built systems "had a lot of bugs and would do things it shouldn't" (<a href="https://www.reddit.com/r/FreightBrokers/comments/1qenlgo/has_anyone_tried_building_their_own_tms_with_an/">thread</a>). The demand signal is real: incumbents are bad enough that DIY feels rational.</p>
+    </div>
+    <div class="card">
+      <h3>3 · The sharpest pain moved to quote-to-cash</h3>
+      <p>The single richest thread of the run is a small forwarder describing shipments "that never get invoiced," vendor invoices across a dozen channels, and a cloud TMS migration that made it worse (<a href="https://www.reddit.com/r/freightforwarding/comments/1sccovu/anyone_been_through_operational_chaos_in_a_small/">r/freightforwarding, Apr 2026</a>). This is GoFreight's integrated ops+accounting story, and it directly counters February's lone product criticism.</p>
+    </div>
+    <div class="card">
+      <h3>4 · Recommendation threads are astroturf-saturated</h3>
+      <p>July's selection threads carry 15+ vendor pitches each, and users have adapted: "if an answer is without the why, it is probably an ad" (<a href="https://www.reddit.com/r/FreightBrokers/comments/1nitrj6/small_brokerage_team_seeking_the_best_tms_system/">r/FreightBrokers</a>). Feb flagged astroturfing once; it is now the norm. Implication: value-first, disclosure-based participation is the only Reddit posture that works, and third-party organic mentions (which GoFreight already gets) are worth far more than vendor replies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTENT IDEAS ================= -->
+<section>
+  <div class="eyebrow">Section 3 · Content opportunities</div>
+  <h2>Six content ideas ranked by thread evidence and funnel position</h2>
+  <p class="h2sub">Ranked by strength of demand signal in the scraped threads, tie-broken by fit with GoFreight's differentiators. Tier placement follows the GoFreight content architecture (competitor names in Compare Hub only; Blog stays problem-focused).</p>
+  <div class="tablewrap"><table>
+    <tr><th style="width:44px">Rank</th><th>Idea</th><th>Evidence</th><th>Placement</th></tr>
+    <tr>
+      <td><span class="rank">1</span></td>
+      <td><b>The invoicing leak: why growing forwarders complete shipments they never bill</b><br>Quote-to-cash walkthrough: locked cost sheets at booking, single AP intake, billing KPIs, and where an integrated TMS closes the gap.</td>
+      <td><a href="https://www.reddit.com/r/freightforwarding/comments/1sccovu/anyone_been_through_operational_chaos_in_a_small/">1sccovu</a> (29 comments), reinforced by <a href="https://www.reddit.com/r/freightforwarding/comments/1o18u8w/could_you_please_suggest_best_freight_forwarding/">1o18u8w</a> (manual work + errors)</td>
+      <td>Blog + Resources (checklist)</td>
+    </tr>
+    <tr>
+      <td><span class="rank">2</span></td>
+      <td><b>Will your TMS vendor still exist in 3 years? A due-diligence checklist</b><br>Vendor-viability screen: profitability signals, customer base, roadmap cadence. GoFreight answers its own checklist.</td>
+      <td><a href="https://www.reddit.com/r/logistics/comments/1pkvdq7/tms_reviews/">1pkvdq7</a>, <a href="https://www.reddit.com/r/FreightBrokers/comments/1nitrj6/small_brokerage_team_seeking_the_best_tms_system/">1nitrj6</a></td>
+      <td>Blog + Resources (checklist)</td>
+    </tr>
+    <tr>
+      <td><span class="rank">3</span></td>
+      <td><b>Should you build your own TMS with AI? What operators who tried actually found</b><br>Honest build-vs-buy piece riding the Replit/Lovable wave; lands on "buy the tested core, customize the edges."</td>
+      <td><a href="https://www.reddit.com/r/FreightBrokers/comments/1qenlgo/has_anyone_tried_building_their_own_tms_with_an/">1qenlgo</a> (32 comments)</td>
+      <td>Blog</td>
+    </tr>
+    <tr>
+      <td><span class="rank">4</span></td>
+      <td><b>The TMS business case: two numbers that convince a CFO</b><br>Hours per week consumed by manual process × fully loaded labor cost; headcount-at-+30%-volume framing. Natural ROI-calculator lead magnet.</td>
+      <td><a href="https://www.reddit.com/r/logistics/comments/1p0wwrt/transportation_management_system_business_case/">1p0wwrt</a> (39 comments), <a href="https://www.reddit.com/r/logistics/comments/1pkvdq7/tms_reviews/">1pkvdq7</a></td>
+      <td>Resources (calculator) + Blog</td>
+    </tr>
+    <tr>
+      <td><span class="rank">5</span></td>
+      <td><b>GoFreight for US customs and integrations: answering the "heavy duty" objection</b><br>The one recurring reason forwarders default to CargoWise despite preferring GoFreight's weight and price.</td>
+      <td><a href="https://www.reddit.com/r/freightforwarding/comments/1g0jztr/tms_for_freight_forwarders/">1g0jztr</a>; echoes Feb's CW-for-customs framing (<a href="https://www.reddit.com/r/logistics/comments/1ifagtb/why_do_you_choose_cargowisedescartes_over_new/">1ifagtb</a>)</td>
+      <td>Compare Hub</td>
+    </tr>
+    <tr>
+      <td><span class="rank">6</span></td>
+      <td><b>The system-vs-ground gap: why your TMS says "departed" while the box sits at the terminal</b><br>Visibility thought leadership using the gate-out, telex-release, and documentation-sequencing examples operators gave.</td>
+      <td><a href="https://www.reddit.com/r/logistics/comments/1txr1ik/what_are_the_biggest_day_to_day_problems_in/">1txr1ik</a> (35 comments)</td>
+      <td>Blog</td>
+    </tr>
+  </table></div>
+</section>
+
+<!-- ================= THREAD DETAIL ================= -->
+<section>
+  <div class="eyebrow">Section 4 · Thread-by-thread detail</div>
+  <h2>The 16 new threads: what people said</h2>
+  <p class="h2sub">One card per net-new thread analyzed this run, matching the records written to Airtable. Quotes are verbatim from the scraped page text; points and comment counts are as displayed at scrape time (3 July 2026).</p>
+  <div class="grid2">
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/freightforwarding/comments/1sccovu/anyone_been_through_operational_chaos_in_a_small/">Anyone been through operational chaos in a small freight forwarding company?</a></h3>
+      <div class="meta">r/freightforwarding · 4 Apr 2026 · 14 points · 29 comments · <span class="pill neg">Negative</span></div>
+      <p class="sum">A decades-old small forwarder describes outgrowing its own infrastructure: "We're completing shipments that never get invoiced," vendor invoices arrive through a dozen channels, and their cloud TMS migration "actually made things worse." The richest thread of the run.</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Ops–finance disconnect; controller hunts invoices instead of managing costs</li><li>No standardized process; every operator works end-to-end their own way</li><li>Shifting charges (detention, demurrage) triple the work per file and delay invoicing</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>The invoicing leak: why growing forwarders complete shipments they never bill</li><li>Quote-to-cash for freight forwarders: closing the ops-finance gap</li><li>When a cloud TMS makes things worse: what to check before you migrate</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/logistics/comments/1txr1ik/what_are_the_biggest_day_to_day_problems_in/">What are the biggest day to day problems in logistics operations right now?</a></h3>
+      <div class="meta">r/logistics · 5 Jun 2026 · 7 points · 35 comments · <span class="pill neg">Negative</span></div>
+      <p class="sum">Operators name the daily leaks: "the gap between what technology reports and what actually happens on the ground is probably the single most consistent source of lost time and money." Tracking says "departed" while the container awaits gate-out; dispatchers shadow-run operations in spreadsheets and WhatsApp.</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Carrier, terminal, and customs systems don't talk in real time</li><li>Documentation cut-offs (VGM, SI, customs entry) cascade into demurrage</li><li>"Adoption is high at the system level but shallow at the process level"</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>The system-vs-ground gap: why your TMS says departed while the box sits at the terminal</li><li>Documentation sequencing: the cut-off clocks that quietly create demurrage</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/logistics/comments/1pkvdq7/tms_reviews/">TMS Reviews</a></h3>
+      <div class="meta">r/logistics · 12 Dec 2025 · 5 points · 38 comments · <span class="pill mix">Mixed</span></div>
+      <p class="sum">OP is "sick of looking at spreadsheets and manually copy pasting lookup reports" and needs to sell a TMS to their SVP. The standout advice: "Be SURE whoever you go with is profitable and sound. Zuum and others just went under and more will follow." The thread itself is flooded with 15+ vendor pitches.</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Spreadsheet copy-paste for kickouts, order entry, tracking</li><li>Vendor financial viability is now a stated selection screen</li><li>Astroturfing makes honest evaluation hard</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>Will your TMS vendor still exist in 3 years? A due-diligence checklist</li><li>The TMS business case template: numbers your CFO will accept</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/FreightBrokers/comments/1qenlgo/has_anyone_tried_building_their_own_tms_with_an/">Has anyone tried building their own TMS with an AI tool yet?</a></h3>
+      <div class="meta">r/FreightBrokers · 16 Jan 2026 · 0 points · 32 comments · <span class="pill neg">Negative</span></div>
+      <p class="sum">"Our company's software sucks!" Brokers are experimenting with Replit and Lovable to build their own TMS; a 27-year veteran explains why incumbents fail: "most are horrible with too much bloat and fluff. Click on 5 windows just to find a pickup# or address." Builders concede AI-built systems "had a lot of bugs."</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Legacy TMS UX: "TMS's look like they were built in the 80's"</li><li>"Oracle is hell... it's like a maze"</li><li>DIY builds are buggy; custom layers around an existing TMS emerge as the practical answer</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>Should you build your own TMS with AI? What brokers who tried actually found</li><li>Buy the core, build the edges: the custom-layer pattern in freight tech</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/freightforwarding/comments/1o18u8w/could_you_please_suggest_best_freight_forwarding/">Could You Please Suggest Best Freight Forwarding Software for Small and Medium Business?</a></h3>
+      <div class="meta">r/freightforwarding · 8 Oct 2025 · 1 point · 28 comments · <span class="pill mix">Mixed</span></div>
+      <p class="sum">An SMB forwarder wants to "cut down manual work and errors while keeping things affordable." The strongest reply is a direct GoFreight endorsement: "GoFreight is your best bet... not a burden to implement... very modern... The only two other options that are not dinosaurs are Cargowise and Magaya, both of which are very expensive and monsters to implement."</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Manual coordination and paperwork exhaust small teams</li><li>Fear of untested software: "avoid anyone who is building, launching, or offering to build you an app"</li><li>Heavy vendor flooding in replies</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>Freight forwarding software for SMBs: implementation weight as the deciding factor</li><li>Customer-facing tracking: the feature SMB forwarders underrate</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/freightforwarding/comments/1g0jztr/tms_for_freight_forwarders/">TMS for freight forwarders</a></h3>
+      <div class="meta">r/freightforwarding · 10 Oct 2024 · 1 point · 14 comments · <span class="pill pos">Positive</span></div>
+      <p class="sum">A 5–7 person forwarder evaluating LogistaaS gets two organic GoFreight recommendations: "You should look at gofreight.com... very good, reasonably priced, and light" and "I'd go with gofreight if I had to use an off the shelf product." The first recommender still chose CargoWise for "heavy duty... US customs and other integrations."</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>CW1 called a "slow mess"; LogistaaS "wasn't ready for full serious use"</li><li>US customs depth still pulls buyers to CargoWise</li><li>Some forwarders give up and build their own app</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>GoFreight and US customs workflows: answering the heavy-duty objection</li><li>Light vs heavy TMS: matching system weight to forwarder size</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/logistics/comments/1p0wwrt/transportation_management_system_business_case/">Transportation Management System - Business Case</a></h3>
+      <div class="meta">r/logistics · 19 Nov 2025 · 14 points · 39 comments · <span class="pill neu">Neutral</span></div>
+      <p class="sum">A buyer with "not a ton of appetite" from leadership collects business-case inputs. Best framing in the thread: "The strongest business cases aren't 'we need a TMS.' They're 'we're spending X hours/week and Y dollars/year on manual processes that don't scale.'"</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Internal champions must quantify manual dispatch, tracking, invoice-matching hours</li><li>"Feature lists don't move leadership. Dollar amounts attached to time do"</li><li>Headcount-vs-volume growth is the argument that lands</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>The TMS business case: two numbers that end the debate</li><li>Hidden cost audit: pricing your manual booking, tracking, and invoice matching</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/FreightBrokers/comments/1nitrj6/small_brokerage_team_seeking_the_best_tms_system/">Small brokerage team seeking the best TMS system</a></h3>
+      <div class="meta">r/FreightBrokers · 16 Sep 2025 · 7 points · 68 comments · <span class="pill mix">Mixed</span></div>
+      <p class="sum">A 5-agent brokerage asks for value TMS picks and gets a tour of legacy frustration: Ascend's QuickBooks export is "clunky and wrought with problems... routinely results in double payments to factors," and "not sure McLeod and user friendly belong in the same sentence." Repeated warning: "lots of log tech going under right now."</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Accounting integration is the recurring dealbreaker</li><li>Legacy tools "built by industry vets" whose UX "seems far from that"</li><li>Anti-astroturf reflex: "if an answer is without the why, it is probably an ad"</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>Accounting integration is the TMS dealbreaker: what double-payments actually cost</li><li>Legacy UX: why software built by industry vets still feels like 1995</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/FreightBrokers/comments/1lek369/back_office_work_sucks/">Back Office Work Sucks</a></h3>
+      <div class="meta">r/FreightBrokers · 18 Jun 2025 · 12 points · 36 comments · <span class="pill neg">Negative</span></div>
+      <p class="sum">An ex-broker turned developer lists the back-office jobs everyone hates (chasing PODs, unpaid invoices, ghosted quotes). A top-50 brokerage employee confirms: "it feels like we're operating in 1995 on the sales side. 0 automation and bad lead management... We have a CRM but it's pretty much useless."</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>POD chasing, invoice chasing, quote follow-ups all manual</li><li>Automation exists at big firms, "not for all the smaller firms tho"</li><li>Owner apathy: "owners don't really care if it's a bad process as long as the money works"</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>The back-office automation gap: what big brokerages have that small ones can't afford</li><li>POD chasing, invoice chasing, quote ghosting: automating the three worst hours of the day</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/shipping/comments/1pm7kaz/genuine_question_for_people_working_in_freight/">Genuine question for people working in freight forwarding and logistics</a></h3>
+      <div class="meta">r/shipping · 14 Dec 2025 · 3 points · 22 comments · <span class="pill mix">Mixed</span></div>
+      <p class="sum">A digitization-blockers discussion: Excel, email, and WhatsApp persist because "most tools try to replace existing workflows instead of sitting on top of them. As soon as a system requires every stakeholder to log in and behave differently, adoption dies." One commenter's Excel-version chaos ended in a ~$50K air-freight recovery for cargo that would have cost ~$12K by sea.</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Resistance to change, especially among veteran operators</li><li>Fragmented processes with too many stakeholders</li><li>China-based forwarders blocked by VPN requirements</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>Why freight software fails: replacing workflows vs sitting on top of them</li><li>The real cost of Excel-run forwarding: one missed consolidation = $38K</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/logistics/comments/1ktc426/why_do_you_choose_the_expensive_cargowise/">Why Do You Choose the Expensive CargoWise?</a></h3>
+      <div class="meta">r/logistics · 23 May 2025 · 5 points · 18 comments · <span class="pill neu">Neutral</span></div>
+      <p class="sum">An AI-integration vendor asks why enterprises pay for CargoWise/Descartes when options like GoFreight cost "sometimes twice" less. Answers: proven value, integration gravity ("If we had used Descartes it would have been a simple plug-and-play integration"), and relationships. One user is actively "thinking to change CargoWise to another system."</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Incumbents win on perceived safety, not experience quality</li><li>EDI ecosystems lock buyers in</li><li>Software sometimes chosen through executive relationships</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>The safety tax: what forwarders pay CargoWise for feeling safe</li><li>Switching from CargoWise: a de-risked migration path</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/logistics/comments/1ktekvu/is_freight_forwardershipping_agent_a_job_thats/">Is freight forwarder/shipping agent a job that's threatened by AI in the coming years?</a></h3>
+      <div class="meta">r/logistics · 23 May 2025 · 13 points · 15 comments · <span class="pill mix">Mixed</span></div>
+      <p class="sum">A career-changer asks whether AI will erase forwarding jobs. Consensus is augmentation: "AI could help streamline documentation or more quickly identify errors... but has no agency to act on it without human input." One operator: bots for repetitive TMS actions "failed miserably and the job is still done by people."</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Rate volatility (4/kg to 18.5/kg within 6 months) demands human judgment</li><li>Compliance and liability keep humans accountable</li><li>Only large companies can afford serious AI automation</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>Will AI replace freight forwarders? What operators on the ground say</li><li>Augment not replace: where AI actually saves forwarder hours in 2026</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/logistics/comments/1pndqqi/which_tms_should_i_integrate_into_my_company/">Which TMS should I integrate into my company?</a></h3>
+      <div class="meta">r/logistics · 15 Dec 2025 · 2 points · 26 comments · <span class="pill neu">Neutral</span></div>
+      <p class="sum">A solo logistics hire picks a first TMS. The useful advice under the vendor noise: broker-, shipper-, and forwarder-focused tools are different animals; "whichever you choose, ensure it can integrate with your ERP or financial system"; and "pick based on what pain you actually need fixed first... not on all the features."</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>First-time buyers can't tell segment-fit apart</li><li>Finance/ERP integration decides long-term success</li><li>Vendor reps openly pitching in-thread</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>Broker, shipper, or forwarder software? Picking the TMS built for your job</li><li>Why finance should co-sign your TMS choice</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/shipping/comments/1gz5nax/is_anyone_using_gofreight_or_magaya_here_why/">Is anyone using GoFreight or Magaya here? Why?</a></h3>
+      <div class="meta">r/shipping · 25 Nov 2024 · 2 points · 3 comments · <span class="pill neu">Neutral</span></div>
+      <p class="sum">Thin thread from the same AI-integration vendor researching why forwarders pick GoFreight or Magaya over Descartes, CargoWise, and ShipThis. The one substantive user reply was removed; the follow-up suggests it called a platform "clunky." Signal: AI vendors treat GoFreight as a named integration target.</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Low engagement; no user experience reports survived moderation</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>GoFreight vs Magaya: the honest comparison users keep asking for</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/freightforwarding/comments/1gmfwwg/how_has_ai_or_automation_in_freight_forwarding/">How has AI or automation in freight forwarding software impacted your operations?</a></h3>
+      <div class="meta">r/freightforwarding · 8 Nov 2024 · 3 points · 6 comments · <span class="pill neu">Neutral</span></div>
+      <p class="sum">A direct question about measurable AI gains gets no practitioner success stories, only vendor plugs (KlearNow.AI, Wisor). The one operator reply is telling: they're improvising with Outlook tips from TikTok because their company lacks Copilot.</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>No measurable AI wins reported by real operators</li><li>Ground-level AI gap: staff self-serve with consumer tips</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>What AI in freight forwarding actually automates today (and what it doesn't)</li><li>From TikTok Outlook hacks to real automation: the SMB forwarder AI gap</li></ul>
+    </div>
+
+    <div class="thread">
+      <h3><a href="https://www.reddit.com/r/freightforwarding/comments/1irnibq/how_do_you_feel_about_your_freight_forwarding/">How do you feel about your freight forwarding software?</a></h3>
+      <div class="meta">r/freightforwarding · 17 Feb 2025 · 3 points · 6 comments · <span class="pill neg">Negative</span></div>
+      <p class="sum">A vendor-research thread with one substantive verdict on current freight forwarding software: "Complicated, do not like it." Thin, but consistent with the complexity complaints across the corpus.</p>
+      <div class="lbl">Pain points</div>
+      <ul><li>Back-office complexity is the default complaint even in low-engagement threads</li></ul>
+      <div class="lbl">Content ideas</div>
+      <ul><li>Freight software UX: why "complicated" is the default review</li></ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ENGAGEMENT ================= -->
+<section>
+  <div class="eyebrow">Section 5 · Engagement opportunities</div>
+  <h2>Two threads qualify for participation; both drafts require approval before anything is posted</h2>
+  <div class="approval"><b>Suggestions only.</b> These drafts are for GoFreight/Novastacks review. Nothing gets posted without explicit client approval, a named poster, and a check of each subreddit's self-promotion rules on the day of posting. r/logistics enforces zero-tolerance spam removal; disclosure is mandatory in both drafts.</div>
+
+  <div class="card">
+    <h3>Opportunity 1 · "Anyone been through operational chaos in a small freight forwarding company?"</h3>
+    <ul class="tight">
+      <li><b>Thread:</b> <a href="https://www.reddit.com/r/freightforwarding/comments/1sccovu/anyone_been_through_operational_chaos_in_a_small/">r/freightforwarding, posted 4 Apr 2026</a> · 14 points · 29 comments · OP actively replying and asking follow-ups</li>
+      <li><b>Why it qualifies:</b> under 6 months old; OP's stated pains (uninvoiced shipments, fragmented vendor invoices, charges that shift mid-shipment) map directly to integrated ops+accounting; OP explicitly asked "what actually moved the needle?"; existing vendor replies are drive-by pitches, leaving the value-first lane open.</li>
+      <li><b>Suggested poster:</b> GoFreight team member with open disclosure (preferred), or a GoFreight customer who lived through the same phase.</li>
+    </ul>
+    <div class="drafthead">Draft response (adapt before posting)</div>
+    <div class="draft">Been through almost exactly this at a mid-size forwarder. Three things actually moved the needle for us, in order:
+
+1. No booking without a locked cost sheet. If the cost trail doesn't start at booking, finance is reconstructing it after the fact, forever.
+2. One intake channel for vendor invoices. We killed the dozen-inboxes problem by forcing everything (carriers, truckers, destination agents) into a single AP inbox that fed the file. Your controller stops hunting and starts checking.
+3. Billing KPIs with a hard clock: invoice exports within 3 days of departure, imports within a week of arrival. Simple, but it surfaces the never-invoiced files while they're still fresh.
+
+Full disclosure, I work at GoFreight, so weigh this accordingly: the reason we build accounting into the TMS itself rather than bolting it on is exactly the failure mode you described. When ops and finance look at the same file, a completed-but-uninvoiced shipment shows up as an exception instead of disappearing. Whatever system you end up on, that's the test I'd apply: can your controller see billing status per shipment without asking anyone.
+
+Happy to share the checklist we give teams your size if useful.</div>
+  </div>
+
+  <div class="card">
+    <h3>Opportunity 2 · "What are the biggest day to day problems in logistics operations right now?"</h3>
+    <ul class="tight">
+      <li><b>Thread:</b> <a href="https://www.reddit.com/r/logistics/comments/1txr1ik/what_are_the_biggest_day_to_day_problems_in/">r/logistics, posted 5 Jun 2026</a> · 35 comments · still active in the last 3 weeks</li>
+      <li><b>Why it qualifies:</b> 4 weeks old; the highest-value comment thread (system-vs-ground gap, documentation sequencing) is squarely GoFreight territory; no forwarder-TMS vendor has answered the forwarding-side points.</li>
+      <li><b>Caution:</b> r/logistics has the strictest anti-promotion culture in the set. Recommendation: educational reply only, product named once at most under disclosure, or skip the mention entirely and let the flair/profile carry it.</li>
+      <li><b>Suggested poster:</b> GoFreight solutions/ops person with practitioner credibility.</li>
+    </ul>
+    <div class="drafthead">Draft response (adapt before posting)</div>
+    <div class="draft">From the forwarding side: the biggest daily leak is the gap between what systems report and what's physically true. Carrier tracking says "departed" while the container is still waiting on gate-out. The B/L is surrendered at origin but the destination agent hasn't seen the telex release. Customs shows "accepted" while a query sits in a separate government portal. Each of those gaps gets paid for in demurrage or emergency escalation, usually by whoever noticed last.
+
+The fix that's worked in practice isn't another dashboard, it's collapsing the number of places a fact can live. Every time a status exists in two systems, someone is reconciling it by hand, and that person becomes the real integration layer. (I work on TMS software for forwarders, so I see the failure patterns across a lot of teams; take the vendor bias into account.)
+
+For anyone evaluating tools: ask where each status originates and how it gets corrected when the ground truth disagrees. The honest answers are more revealing than any feature list.</div>
+  </div>
+
+  <div class="card">
+    <h3>Considered and excluded</h3>
+    <ul class="tight">
+      <li><a href="https://www.reddit.com/r/logistics/comments/1pkvdq7/tms_reviews/">TMS Reviews (r/logistics)</a>: right pain, but 6.5 months old and already saturated with 15+ vendor pitches; a GoFreight reply would read as one more.</li>
+      <li><a href="https://www.reddit.com/r/FreightBrokers/comments/1qenlgo/has_anyone_tried_building_their_own_tms_with_an/">DIY TMS with AI (r/FreightBrokers)</a>: broker-segment audience, not freight forwarders; better served by the build-vs-buy content piece than a comment.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= NEXT STEPS ================= -->
+<section>
+  <div class="eyebrow">Section 6 · Next steps</div>
+  <h2>What happens next</h2>
+  <div class="card">
+    <ul class="tight">
+      <li><b>1 · Review Airtable.</b> 16 new records in "Reddit Insights" (corpus: 34 records, 32 unique threads) plus the July run summary in "Listening Reports". Mark the content ideas worth producing as Queued.</li>
+      <li><b>2 · Decision: engagement.</b> Approve, edit, or decline the two draft responses above; assign a named poster before any posting.</li>
+      <li><b>3 · Feed the pipeline.</b> Push ranked ideas 1–2 (invoicing leak, vendor viability) into the content strategist flow for brief creation; both are whitespace no competitor is writing to.</li>
+      <li><b>4 · Decision: the customs objection.</b> Idea 5 needs product input (current US customs workflow + integration coverage) before a Compare Hub page can be scoped honestly.</li>
+      <li><b>5 · Tooling fix before the next run.</b> Reddit's public JSON endpoint now blocks this scraper's requests (persistent HTTP 503/403). This run fell back to old.reddit HTML page text, same threads and quotes, different fetch path. Update reddit_scraper.py before the October run.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= METHOD ================= -->
+<div class="method">
+  <p><b>Method.</b> Recurring run per the Novastacks Reddit listening procedure (v1.2). Queries: 4 reused from the GoFreight baseline set (freight forwarding software problems · logistics TMS software review · freight broker technology frustrations · GoFreight software review) plus 2 new angles (AI freight forwarding software · freight forwarder TMS pricing increase), all scoped to site:reddit.com via DataForSEO Google SERP (US, English, 20-deep). 60 organic results were deduplicated against the 16-URL February baseline; subreddit index pages, cross-query duplicates, and off-topic results were removed, leaving 16 net-new threads. The pricing-increase query surfaced only baseline duplicates and off-topic rate threads, contributing 0 unique threads.</p>
+  <p style="margin-top:8px"><b>Scraping note.</b> Reddit's JSON API returned persistent HTTP 503/403 for this run (anti-bot blocking, verified across user agents and 60-second retry). Threads were fetched as old.reddit.com server-rendered HTML and converted to plain text; all quotes are verbatim from that page text. Comment sampling: pages capture roughly the top 100 comments per thread.</p>
+  <p style="margin-top:8px"><b>Reading guidance.</b> Every quote links to its source thread. Upvote and comment counts are as displayed at scrape time (3 July 2026). Sentiment labels are analyst judgments per thread. February figures come from the 18 baseline records written to Airtable on 2026-02-11. Analysis prepared by Novastacks; AI-assisted, human review recommended before client forwarding.</p>
+</div>
+
+</div>
+</body>
+</html>
