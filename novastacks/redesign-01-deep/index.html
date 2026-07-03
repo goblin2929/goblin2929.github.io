@@ -59,7 +59,7 @@
     .hero .ctas { display:flex; gap:1.6rem; align-items:center; }
     .hero .proof { position:relative; }
     /* hero slash: real inline SVG that draws itself (rough brush edge via feTurbulence) */
-    .hero .proof .slash { position:absolute; width:24rem; height:24rem; right:-6.5rem; top:-7rem; transform:rotate(8deg); z-index:0; opacity:.92; pointer-events:none; overflow:visible; }
+    .hero .proof .slash { position:absolute; width:19rem; height:19rem; right:-1.8rem; top:-6.2rem; transform:rotate(8deg); z-index:0; opacity:.92; pointer-events:none; overflow:visible; }
     .hero .proof .slash path { fill:none; stroke:var(--ink); stroke-width:27; stroke-linecap:round; stroke-dasharray:100; stroke-dashoffset:0; }
     @media (prefers-reduced-motion: no-preference){
       .hero .proof .slash path { stroke-dashoffset:100; animation:slashdraw 1.1s cubic-bezier(.2,.6,.2,1) .45s forwards; }
@@ -538,13 +538,14 @@
     .f3sys.f3aeo h3 { color:var(--ink); }
     .f3sys.f3aeo p { color:var(--ink3); }
     .f3sys.f3aeo .f3k { display:none; }
-    .f3circle { position:absolute; inset:-.9rem -.8rem; width:calc(100% + 1.6rem); height:calc(100% + 1.8rem); overflow:visible; pointer-events:none; color:var(--teal); }
+    .f3ttl { position:relative; display:inline-block; }
+    .f3circle { position:absolute; inset:-.5rem -1rem; width:calc(100% + 2rem); height:calc(100% + 1rem); overflow:visible; pointer-events:none; color:var(--teal); }
     .f3circle ellipse { fill:none; stroke:currentColor; stroke-width:3; }
     .f3flag { position:absolute; top:-1.15rem; right:-.3rem; font-family:'Bricolage Grotesque'; font-style:italic; font-weight:600; font-size:.78rem; color:var(--tealdeep); }
     .f3out { background:transparent; border:none; padding:.5rem .3rem; }
     .f3out .f3k { color:var(--tealdeep); }
-    .f3out h3 { position:relative; display:inline-block; padding-bottom:.35rem; }
-    .f3out h3::after { content:""; position:absolute; left:0; right:-4%; bottom:0; height:.34rem; background:url('assets/cut-swash-underline-teal.png') no-repeat left center / 100% 100%; opacity:.9; }
+    .f3u { position:relative; display:inline-block; }
+    .f3u::after { content:""; position:absolute; left:-2%; right:-4%; bottom:-.12em; height:.3em; background:url('assets/cut-swash-underline-teal.png') no-repeat left center / 100% 100%; opacity:.9; }
     /* team — personnel index rows (no cards) */
     .pidx { margin-top:2.6rem; }
     .pidx .prow { display:grid; grid-template-columns:5.2rem 11rem 1fr; gap:1.8rem; align-items:center; padding:1.25rem 0; border-bottom:1px solid var(--hair); }
@@ -636,13 +637,13 @@
           <div class="f3human"><span class="f3k">Human judgment</span><h3>Senior operators</h3><p>Tina and named experts direct every system. Nothing ships unreviewed.</p></div>
           <svg class="f3arrow" viewBox="0 0 90 40" aria-hidden="true"><g filter="url(#roughA)"><path d="M4 21 C30 15,54 25,78 20"/><path d="M68 11 L80 20 L67 29"/></g></svg>
           <div class="f3sysgrid">
-            <div class="f3sys f3aeo"><svg class="f3circle" viewBox="0 0 240 110" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="120" cy="55" rx="112" ry="48" filter="url(#roughA)"/></svg><span class="f3flag">flagship</span><h3>AEO systems</h3><p>Be the answer ChatGPT, Perplexity, and Google AI give.</p></div>
+            <div class="f3sys f3aeo"><span class="f3flag">flagship</span><h3 class="f3ttl"><svg class="f3circle" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="100" cy="30" rx="93" ry="25" filter="url(#roughA)"/></svg>AEO systems</h3><p>Be the answer ChatGPT, Perplexity, and Google AI give.</p></div>
             <div class="f3sys"><h3>Content systems</h3><p>Your brand voice, produced at scale.</p></div>
             <div class="f3sys"><h3>Analytics systems</h3><p>What to do next, not just what happened.</p></div>
             <div class="f3sys"><h3>Performance systems</h3><p>Paid media that learns in real time.</p></div>
           </div>
           <svg class="f3arrow" viewBox="0 0 90 40" aria-hidden="true"><g filter="url(#roughA)"><path d="M4 19 C28 24,56 14,78 21"/><path d="M68 12 L80 21 L67 30"/></g></svg>
-          <div class="f3out"><span class="f3k">Output</span><h3>Google rankings &middot; AI citations &middot; pipeline</h3></div>
+          <div class="f3out"><span class="f3k">Output</span><h3>Google rankings &middot; AI citations &middot; <span class="f3u">pipeline</span></h3></div>
         </div>
         <p class="f3pool">one pool — every system runs off the same operators and agent stack</p>
         <div class="f3foot">
@@ -756,7 +757,7 @@
   <section class="blk"><div class="wrap">
     <div class="blk-head"><span class="bignum">09</span><span class="tag">Engagements</span></div>
     <div class="pad">
-      <h2 style="font-size:clamp(1.6rem,2.8vw,2.2rem);">Ways to work together</h2>
+      <h2>Ways to work together</h2>
       <div class="eng">
         <a href="#"><div class="bar"></div><h3>Answer Engine Optimization (AEO)</h3><p>Get cited by AI answer engines like ChatGPT, Perplexity, and Google AI Overviews when buyers ask about your category.</p></a>
         <a href="#"><div class="bar"></div><h3>Generative Engine Optimization (GEO)</h3><p>Shape how generative AI describes, ranks, and recommends your brand so you become the trusted choice.</p></a>
