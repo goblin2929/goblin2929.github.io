@@ -460,6 +460,25 @@
     .founder .pf::after { top:-.65rem; right:-1.6rem; transform:rotate(34deg); }
     .founder .pf .pf-cap { position:absolute; left:0; right:0; bottom:.75rem; text-align:center; font-family:'Bricolage Grotesque'; font-style:italic; font-weight:500; font-size:.95rem; color:var(--ink2); }
     .founder .role { margin-top:1.4rem; }
+    /* ===== Round 2 (2026-07-03): the motif moves INTO the components ===== */
+    /* squared editorial button (kills the framework pill) */
+    .btn { border-radius:3px; letter-spacing:.01em; }
+    /* Fig.03 nodes: hand-ruled boxes, not default rounded cards */
+    .f3sys { border:2px solid rgba(21,23,27,.5); border-radius:14px 19px 15px 21px / 19px 14px 21px 15px; }
+    .f3sys.f3aeo { border-color:rgba(21,23,27,.5); }
+    .f3human { border-radius:16px 22px 17px 23px / 22px 16px 23px 17px; }
+    .f3out { border:2px solid rgba(21,23,27,.35); border-radius:15px 20px 16px 22px / 20px 15px 22px 16px; }
+    /* team = dossier index cards: taped prints, stamped roles, hand-placed tilts */
+    .experts { gap:1.9rem; }
+    .experts .c { background:#fff; border-radius:6px; overflow:visible; position:relative; padding:1rem 1rem 1.3rem; transform:rotate(-.8deg); box-shadow:0 12px 34px rgba(21,23,27,.08); }
+    .experts .c:nth-child(2) { transform:rotate(.7deg); margin-top:1rem; }
+    .experts .c:nth-child(3) { transform:rotate(-.4deg); margin-top:.4rem; }
+    .experts .c::before { content:""; position:absolute; top:-.7rem; left:50%; transform:translateX(-50%) rotate(-3deg); width:5.4rem; height:1.4rem; background:rgba(232,224,205,.65); border:1px solid rgba(21,23,27,.05); box-shadow:0 2px 6px rgba(21,23,27,.1); z-index:2; border-radius:1px; }
+    .experts img { aspect-ratio:4/3.6; border-radius:3px; }
+    .experts .tx { padding:1.1rem .4rem 0; }
+    .experts .role { display:inline-block; border:1.5px solid var(--tealdeep); border-radius:3px; padding:.08rem .5rem; transform:rotate(-1.6deg); font-size:.7rem; letter-spacing:.08em; margin:.2rem 0 .55rem; }
+    /* logo ledger: ink-print erosion (real rubber-stamped feel) */
+    .ll img { filter:brightness(0) opacity(.6) url(#roughA); }
   </style>
 </head>
 <body>
@@ -557,7 +576,7 @@
   <section class="blk"><div class="wrap">
     <div class="blk-head"><span class="bignum">04</span><span class="tag">Who We Work With</span></div>
     <div class="pad">
-      <h2>Is This You?</h2>
+      <h2>Who we work with (and who we don't)</h2>
       <div class="fitb">
         <div class="good"><h3>A good fit</h3><ul>
           <li><svg class="tick" viewBox="0 0 28 24" aria-hidden="true"><use href="#btick"/></svg> Series A+ with customer data and traction</li>
@@ -621,7 +640,7 @@
     <div class="blk-head"><span class="bignum">07</span><span class="tag">Why Novastacks</span></div>
     <div class="pad">
       <img class="ret-brush" src="assets/cut-stroke-horizontal-clay.png" alt="" aria-hidden="true">
-      <p class="ret-lead">Not a retainer.<span class="l2">An AI-native system.</span></p>
+      <p class="ret-lead">A growth system,<span class="l2">installed and operated.</span></p>
       <p class="ret-body">A traditional SEO agency bills you for hours. We build you a system: senior operators plus an AI agent team that runs analysis, content, and monitoring at a scale a human-only agency cannot match.</p>
       <div class="ret-cols">
         <div><h3>Senior operators, not juniors</h3><p>Run by people who led marketing at Expedia, Tencent, and Klook, not handed to a trainee.</p></div>
@@ -666,8 +685,8 @@
   <section class="blk" id="founder"><div class="wrap">
     <div class="blk-head"><span class="bignum">10</span><span class="tag">The Team</span></div>
     <div class="pad">
-      <h2 style="max-width:20ch;">One Founder. Three Experts. Twelve AI Agents.</h2>
-      <p class="lede" style="max-width:54ch; margin-top:1rem;">Real, named operators run your account. Most agencies in Singapore will not tell you who actually does the work.</p>
+      <h2 style="max-width:20ch;">Four humans run your account.</h2>
+      <p class="lede" style="max-width:54ch; margin-top:1rem;">Twelve AI agents work for them. Real, named people, listed below. Most agencies in Singapore will not tell you who actually does the work.</p>
       <div class="founder">
         <div>
           <div class="pf"><img src="assets/founder-photo.jpg" alt="Portrait of Tina Chu"><span class="pf-cap">the human in the loop</span></div>
