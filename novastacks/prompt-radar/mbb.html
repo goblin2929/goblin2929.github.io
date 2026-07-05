@@ -239,13 +239,17 @@
   <div class="layer">
     <div class="lbar"><span class="lt">// <span class="n">action</span> · overlay + observe</span><span class="cnt">how a topic becomes real questions</span></div>
     <div class="lbody">
-      <p class="subhd"><b>Objective:</b> turn a generic topic into this buyer's real questions, and capture the actual sub-questions engines generate. <b>Why it matters:</b> guessing the fan-out tracks the wrong questions. Reading the real fan-out, and overlaying the client's buyer profile, is the rare technical step that makes the tracked set match how engines truly assemble an answer.</p>
+      <p class="subhd"><b>Objective:</b> turn a generic topic into this buyer's real questions, then capture the sub-questions engines actually generate. <b>Three overlays are applied together</b> &mdash; the client's buyers (ICP), their product taxonomy, and their market and competitors &mdash; so every tracked question is <b>this buyer's</b>, about <b>this product</b>, in <b>their competitive context</b>. <b>Why it matters:</b> guessing the fan-out tracks the wrong questions; reading the real fan-out through these overlays is the rare step that makes the set match how engines truly assemble an answer.</p>
       <div class="procwrap">
-        <div class="proctag">ICP overlay → observe fan-out</div>
+        <div class="proctag">apply 3 overlays → observe fan-out</div>
         <div class="pipe">
-          <div class="pstage" style="flex:1 1 0;min-width:0"><div class="pk">ICP overlay</div><div class="pv">apply persona × industry × company-size × buying trigger, so the topic reads as <b>this buyer's</b> question</div></div>
+          <div style="flex:2.7;display:flex;gap:8px;min-width:0">
+            <div class="pstage" style="flex:1 1 0;min-width:0"><div class="pk">ICP overlay</div><div class="pv">persona × industry × company-size × buying trigger × objection</div></div>
+            <div class="pstage" style="flex:1 1 0;min-width:0"><div class="pk">product overlay</div><div class="pv">product &amp; feature taxonomy · capability vocabulary · per-product coverage</div></div>
+            <div class="pstage" style="flex:1 1 0;min-width:0"><div class="pk">business overlay</div><div class="pv">market · competitor set &amp; priority · the KPI</div></div>
+          </div>
           <div class="parrow"><svg width="40" height="20" viewBox="0 0 40 20"><path d="M2 10h30" stroke="#131313" stroke-width="1.5"/><path d="M28 4l8 6-8 6" stroke="#131313" stroke-width="1.5" fill="none"/></svg></div>
-          <div class="pstage" style="flex:1 1 0;min-width:0"><div class="pk">observe fan-out</div><div class="pv">read the real sub-questions engines produce: Google People Also Ask / Related / AI Overview, plus the searches ChatGPT actually runs</div></div>
+          <div class="pstage" style="flex:1.5 1 0;min-width:0"><div class="pk">observe fan-out</div><div class="pv">read the real sub-questions engines produce: Google People Also Ask / Related / AI Overview, plus the searches ChatGPT actually runs</div></div>
         </div>
       </div>
     </div>
@@ -262,15 +266,15 @@
       <div class="fanwrap">
         <div class="headq"><div class="hk">cluster head</div><div class="hv">Best column-level lineage tool for a bank</div></div>
         <div class="branches">
-          <div class="br"><span class="bq">What is column-level data lineage, and why does it matter?</span><span class="bs">PAA</span></div>
-          <div class="br"><span class="bq">Column lineage vs table lineage</span><span class="bs">Related</span></div>
-          <div class="br"><span class="bq">How does automated data lineage work?</span><span class="bs">AI Overview</span></div>
-          <div class="br"><span class="bq">Best data lineage tool for Snowflake</span><span class="bs cg">ChatGPT</span></div>
-          <div class="br"><span class="bq">Lineage tool that needs no manual mapping</span><span class="bs cg">ChatGPT</span></div>
-          <div class="br"><span class="bq">Lineage for regulatory reporting in a bank</span><span class="bs cg">ICP branch</span></div>
+          <div class="br"><span class="bq">What is column-level data lineage, and why does it matter?</span><span class="bs">Google · People Also Ask</span></div>
+          <div class="br"><span class="bq">Column lineage vs table lineage</span><span class="bs">Google · Related searches</span></div>
+          <div class="br"><span class="bq">How does automated data lineage work?</span><span class="bs">Google · AI Overview</span></div>
+          <div class="br"><span class="bq">Best data lineage tool for Snowflake</span><span class="bs cg">ChatGPT · ran this search</span></div>
+          <div class="br"><span class="bq">Lineage tool that needs no manual mapping</span><span class="bs cg">ChatGPT · ran this search</span></div>
+          <div class="br"><span class="bq">Lineage for regulatory reporting in a bank</span><span class="bs cg">Added from buyer profile</span></div>
         </div>
       </div>
-      <p class="fanfoot">This one cluster opens into <b>~15–25 real prompts</b>. Every cluster together builds the <b>300+ prompt universe</b> &mdash; the widest point, before any scoring.</p>
+      <p class="fanfoot">Each tag shows <b>where the sub-question came from</b>: observed from a real engine, or added from the buyer profile. This one cluster opens into <b>~15–25 real prompts</b>. Every cluster together builds the <b>300+ prompt universe</b> &mdash; the widest point, before any scoring.</p>
     </div>
   </div>
 
