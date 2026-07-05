@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Radar — How we build the AI-prompt set we track</title>
+<meta name="description" content="Novastacks Prompt Radar (System 01 of the Source & Echo method): how a client's data becomes the prioritised set of AI-search prompts we track daily, per engine.">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#FAF8F4;--ink1:#131313;--ink3:#4A4A4A;--ink4:#707070;--hair:#D9D5CC;--accent:#01AAC1;--deep:#017D8E;--tint:#EAF6F8;--dark:#131313;--dfg:#FAF8F4;--dfg2:#B8B5AE;
+    --fd:'Inter Tight',system-ui,sans-serif;--fb:'Inter',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink3);font-family:var(--fb);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  .wrap{max-width:860px;margin:0 auto;padding:72px 28px 40px;flex:1}
+  img.logo{height:26px;margin-bottom:52px}
+  .eb{font-family:var(--fm);font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--deep)}
+  h1{font-family:var(--fd);font-weight:600;font-size:40px;line-height:1.08;letter-spacing:-.02em;color:var(--ink1);margin:14px 0 0}
+  p.lede{font-size:18px;line-height:1.55;color:var(--ink3);margin:18px 0 0;max-width:640px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:44px 0 0}
+  @media(max-width:680px){.cards{grid-template-columns:1fr}}
+  a.card{display:block;text-decoration:none;border:1px solid var(--hair);background:#fff;border-radius:10px;padding:26px 26px 24px;transition:border-color .15s,transform .15s}
+  a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  a.card .tag{font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--deep);background:var(--tint);border-radius:3px;padding:3px 9px;display:inline-block}
+  a.card h2{font-family:var(--fd);font-weight:600;font-size:23px;color:var(--ink1);letter-spacing:-.01em;margin:16px 0 0}
+  a.card p{font-size:14.5px;line-height:1.5;color:var(--ink4);margin:8px 0 0}
+  a.card .go{font-family:var(--fm);font-size:12.5px;color:var(--deep);margin:16px 0 0;display:inline-block}
+  .note{font-family:var(--fm);font-size:12px;color:var(--ink4);margin:36px 0 0;line-height:1.6}
+  footer{background:var(--dark);padding:22px 28px}
+  footer .fi{max-width:860px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+  footer img{height:18px}
+  footer p{font-family:var(--fm);font-size:12px;color:var(--dfg2)}
+  footer p b{color:var(--accent);font-weight:500}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="assets/logo-color.png" alt="Novastacks">
+    <div class="eb">SYS·01 // SOURCE &amp; ECHO METHOD</div>
+    <h1>Prompt Radar</h1>
+    <p class="lede">How a client's data becomes the prioritised set of AI-search prompts we track daily, per engine — worked end to end on one real feature. Two views of the same method:</p>
+    <div class="cards">
+      <a class="card" href="mbb.html">
+        <span class="tag">Explainer view</span>
+        <h2>The method, stage by stage</h2>
+        <p>Sources → merge/dedupe/cluster → clusters → fan-out → scoring → tracked set, each step laid out and explained in plain language.</p>
+        <span class="go">Open →</span>
+      </a>
+      <a class="card" href="pipeline.html">
+        <span class="tag">Pipeline view</span>
+        <h2>The pipeline as a graph</h2>
+        <p>The same method drawn as an engineering data-flow: nodes, ports, and connectors, the way the pipeline actually runs.</p>
+        <span class="go">Open →</span>
+      </a>
+    </div>
+    <p class="note">Prompt Radar is System 01 of the Source &amp; Echo method. Worked example: Decube (data-governance platform, US market).</p>
+  </div>
+  <footer><div class="fi"><img src="assets/logo-white.png" alt="Novastacks"><p><b>Prompt Radar</b> · novastacks-ai.com</p></div></footer>
+</body>
+</html>
