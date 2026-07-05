@@ -131,7 +131,7 @@
   <div class="title">
     <div class="eb">SYS·01 &nbsp;//&nbsp; <b>SOURCE &amp; ECHO METHOD</b></div>
     <h1>Prompt Radar — the prompt-selection pipeline</h1>
-    <p>The directed graph that turns a client's data into the AI-prompt set we track. <b>Many sources fan in, merge into topic clusters, one cluster fans out into the real questions engines ask, then scoring narrows it to the tracked tier.</b> Worked on Decube's hero feature, column-level lineage.</p>
+    <p>The directed graph that turns a client's data into the AI-prompt set we track. <b>Many sources fan in, merge into topic clusters, one cluster fans out into the real questions engines ask, then scoring narrows it to the tracked tier.</b> Worked on one of Decube's core features, column-level lineage.</p>
   </div>
 
   <!-- canvas -->
@@ -170,7 +170,7 @@
     <span class="flag" style="left:150px;top:430px">emit · ~40–60 topic clusters</span>
 
     <!-- STAGE 2: CLUSTERS -->
-    <div class="node clu hero" id="c1" style="left:30px;top:472px;width:132px"><div class="nhd"><span class="ty"></span><span class="id">col_level_lineage</span></div><div class="nbd">hero · this run</div><div class="port in"></div><div class="port out"></div></div>
+    <div class="node clu hero" id="c1" style="left:30px;top:472px;width:132px"><div class="nhd"><span class="ty"></span><span class="id">col_level_lineage</span></div><div class="nbd">the one we trace</div><div class="port in"></div><div class="port out"></div></div>
     <div class="node clu" id="c2" style="left:182px;top:472px;width:132px"><div class="nhd"><span class="ty"></span><span class="id">data_catalog</span></div><div class="nbd">cluster_02</div><div class="port in"></div></div>
     <div class="node clu" id="c3" style="left:334px;top:472px;width:132px"><div class="nhd"><span class="ty"></span><span class="id">observability</span></div><div class="nbd">cluster_03</div><div class="port in"></div></div>
     <div class="node clu" id="c4" style="left:486px;top:472px;width:132px"><div class="nhd"><span class="ty"></span><span class="id">governance</span></div><div class="nbd">cluster_04</div><div class="port in"></div></div>
@@ -244,10 +244,10 @@
     <table class="tbl">
       <thead><tr><th>prompt</th><th class="c">demand</th><th class="c">names vendors?</th><th class="c">fit</th><th class="c">funnel</th><th class="c">tier</th></tr></thead>
       <tbody>
-        <tr><td class="pq">Which tool gives the most accurate column-level data lineage?</td><td class="c">high · ~2,400/mo</td><td class="c"><span class="yes">yes</span></td><td class="c">hero</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
-        <tr><td class="pq">Which data lineage tool is best for regulatory reporting in a bank?</td><td class="c">high</td><td class="c"><span class="yes">yes</span></td><td class="c">hero+ICP</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
+        <tr><td class="pq">Which tool gives the most accurate column-level data lineage?</td><td class="c">high · ~2,400/mo</td><td class="c"><span class="yes">yes</span></td><td class="c">core</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
+        <tr><td class="pq">Which data lineage tool is best for regulatory reporting in a bank?</td><td class="c">high</td><td class="c"><span class="yes">yes</span></td><td class="c">core+ICP</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
         <tr><td class="pq">What is data lineage and how is it used for compliance?</td><td class="c">high · ~8,100/mo</td><td class="c"><span class="mb">rising</span></td><td class="c">category</td><td class="c">TOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
-        <tr><td class="pq">What is column-level data lineage and why is it important?</td><td class="c">medium</td><td class="c"><span class="mb">sometimes</span></td><td class="c">hero</td><td class="c">TOFU</td><td class="c"><span class="tier t1">P1</span></td></tr>
+        <tr><td class="pq">What is column-level data lineage and why is it important?</td><td class="c">medium</td><td class="c"><span class="mb">sometimes</span></td><td class="c">core</td><td class="c">TOFU</td><td class="c"><span class="tier t1">P1</span></td></tr>
         <tr class="drop"><td class="pq">Column lineage vs table lineage</td><td class="c">—</td><td class="c">—</td><td class="c">near-dup</td><td class="c">—</td><td class="c"><span class="tier tdp">dropped</span></td></tr>
       </tbody>
     </table>

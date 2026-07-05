@@ -150,16 +150,16 @@
   <!-- HEADER -->
   <div class="head">
     <img class="logo" src="assets/logo-color.png" alt="Novastacks">
-    <div class="eb">SYS·01 &nbsp;//&nbsp; <b>SOURCE &amp; ECHO METHOD</b></div>
+    <div class="eb">SYS·01 &nbsp;//&nbsp; <b>SOURCE &amp; ECHO STACK FRAME</b></div>
     <h1 class="h1">How we build the AI-prompt set we track for a <u>client</u></h1>
-    <p class="lede">A data pipeline, drawn the way an engineer would draw it, explained the way a marketer reads it. <b>Many private and public sources</b> flow in, get merged and clustered into topics, expand into the real questions AI engines ask, and are scored down to the priority set we track daily per engine. Worked on Decube, a data-governance platform.</p>
+    <p class="lede">Prompt Radar decides which buyer questions to track inside AI answers, and proves whether the brand is cited, per engine, every day. It rests on two things a rival can't assemble. <b>First, demand data mined from behind the client's own walls</b>, not the public keyword data everyone can buy. <b>Second, a selection method that mirrors how generative engines actually retrieve</b>, by observing the real question fan-out instead of guessing it. Private questions in, engine-tested prompts out, measured against a fixed baseline. Shown here on one Decube feature: column-level lineage.</p>
   </div>
 
   <!-- LAYER 1 · SOURCES -->
   <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">stage_1</span> · data_sources</span><span class="cnt">MANY IN · <b>2 public + walled-garden</b></span></div>
+    <div class="lbar"><span class="lt">// <span class="n">stage_1</span> · data_sources</span><span class="cnt">MANY IN · <b>public + first-party walled-garden</b></span></div>
     <div class="lbody">
-      <p class="subhd">We ingest every question-carrying source the client has. The public sources anyone can buy, so they only calibrate demand. <b>The private, walled-garden sources are the moat: no competitor or tool can see them.</b></p>
+      <p class="subhd"><b>Objective:</b> assemble demand from every question-carrying source, weighted to the client's own first-party data. <b>Why it matters:</b> public keyword data is a blind spot. It shows only what is already high-volume and typed into a search box, missing the natural-language questions buyers put to AI and everything held behind the client's walls. Using primary, first-party information corrects that blind spot, and it cannot be copied because no competitor or tool can see it.</p>
       <div class="lanes">
         <div class="lane">
           <div class="lanelab pub">PUBLIC<small>calibration layer</small></div>
@@ -178,10 +178,11 @@
             <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 4.5-3.4 7.6-8 9-4.6-1.4-8-4.5-8-9V7l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><div class="nx"><div class="nn">CRM win / loss</div><div class="nd">why deals turn</div></div></div>
             <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">On-site search</div><div class="nd">what visitors look for</div></div></div>
             <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H9l-4 3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Chat logs</div><div class="nd">pre-sale questions</div></div></div>
+            <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 20V11M9.3 20V5M14.6 20v-6M20 20V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="nx"><div class="nn">Google Ads intel</div><div class="nd">first-party demand signals</div></div></div>
+            <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/><path d="M5 12a7 7 0 0 1 7 7M5 6a13 13 0 0 1 13 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="nx"><div class="nn">Social listening</div><div class="nd">audience conversations</div></div></div>
           </div>
         </div>
       </div>
-      <div class="roadmap"><span class="rl">roadmap</span><span class="rc">More feeds plug in the same way: <b>Google Ads intelligence</b>, <b>social-listening intel</b>, and other first-party systems. The more sources a client shares, the deeper the edge.</span></div>
     </div>
   </div>
 
@@ -190,9 +191,9 @@
 
   <!-- PROCESS · merge → dedupe → cluster -->
   <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">process</span> · normalize</span><span class="cnt">the transformation, step by step</span></div>
+    <div class="lbar"><span class="lt">// <span class="n">action</span> · normalize</span><span class="cnt">builds stage 2 from stage 1</span></div>
     <div class="lbody">
-      <p class="subhd">The pooled questions run through three processing steps in order. <b>This is a pipeline, not a database</b> &mdash; each step transforms the data and hands it to the next.</p>
+      <p class="subhd"><b>What this is:</b> an action between stage 1 and stage 2, not a stored table. <b>Objective:</b> merge every stage-1 source into one pool, drop duplicates, and group what remains into ranked <b>topic clusters</b> (that is stage 2). <b>Why it matters:</b> questions arrive from many systems, overlapping and unstructured; this is the step that turns scattered signal into the clean set of topics the rest of the pipeline runs on. Without it there is no way to guarantee coverage or set priorities.</p>
       <div class="procwrap">
         <div class="proctag">merge → dedupe → cluster</div>
         <div class="pipe">
@@ -213,9 +214,9 @@
   <div class="layer">
     <div class="lbar"><span class="lt">// <span class="n">stage_2</span> · topic_clusters</span><span class="cnt"><b>~40–60 clusters</b>, organized by product</span></div>
     <div class="lbody">
-      <p class="subhd">The pipeline emits <b>many clusters</b>, one per buying topic, mapped to the client's products so none is starved of coverage. Decube's resolve to eight areas. <b>We follow one cluster the rest of the way.</b></p>
+      <p class="subhd"><b>Objective:</b> organize the topics by the client's own products, and guarantee every product a floor of coverage. <b>Why it matters:</b> clustering by popularity alone over-serves the big topics and starves the rest, so whole product lines go invisible in AI answers. Compartmentalizing by product fixes that. Decube's topics resolve to eight areas; <b>we follow one the rest of the way.</b></p>
       <div class="clusters">
-        <div class="cl hero"><div class="ck">cluster_01 · hero</div><div class="cn">Column-level lineage</div><div class="cd">this example</div></div>
+        <div class="cl hero"><div class="ck">cluster_01</div><div class="cn">Column-level lineage</div><div class="cd">the one we trace →</div></div>
         <div class="cl"><div class="ck">cluster_02</div><div class="cn">Data catalog</div></div>
         <div class="cl"><div class="ck">cluster_03</div><div class="cn">Data observability</div></div>
         <div class="cl"><div class="ck">cluster_04</div><div class="cn">Data governance</div></div>
@@ -226,7 +227,7 @@
       </div>
       <div class="zoom">
         <svg width="24" height="24" viewBox="0 0 26 26" fill="none"><circle cx="11" cy="11" r="8" stroke="#017D8E" stroke-width="1.6"/><path d="M17 17l6 6" stroke="#017D8E" stroke-width="1.6"/></svg>
-        <div class="zt">Following <b>cluster_01 · column-level lineage</b> (Decube's hero product) through fan-out and scoring. Every other cluster runs the identical path.</div>
+        <div class="zt">All eight are core Decube products. We trace just one, <b>cluster_01 · column-level lineage</b>, through fan-out and scoring as the worked example. <b>Every cluster runs the identical path.</b></div>
       </div>
     </div>
   </div>
@@ -236,9 +237,9 @@
 
   <!-- PROCESS · overlay + observe -->
   <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">process</span> · overlay + observe</span><span class="cnt">how a topic becomes real questions</span></div>
+    <div class="lbar"><span class="lt">// <span class="n">action</span> · overlay + observe</span><span class="cnt">how a topic becomes real questions</span></div>
     <div class="lbody">
-      <p class="subhd">Two steps turn a generic cluster into the actual questions an AI engine will be asked. <b>Both are done to every tracked cluster</b> &mdash; the overlay makes the questions this client's, the observation makes them real instead of guessed.</p>
+      <p class="subhd"><b>Objective:</b> turn a generic topic into this buyer's real questions, and capture the actual sub-questions engines generate. <b>Why it matters:</b> guessing the fan-out tracks the wrong questions. Reading the real fan-out, and overlaying the client's buyer profile, is the rare technical step that makes the tracked set match how engines truly assemble an answer.</p>
       <div class="procwrap">
         <div class="proctag">ICP overlay → observe fan-out</div>
         <div class="pipe">
@@ -257,7 +258,7 @@
   <div class="layer">
     <div class="lbar"><span class="lt">// <span class="n">stage_3</span> · query_fan-out</span><span class="cnt">this cluster → <b>~15–25 prompts</b></span></div>
     <div class="lbody">
-      <p class="subhd"><b>Query fan-out</b> is the set of sub-questions an AI engine invents from one question before it answers. We don't guess them &mdash; we read the real ones the engines produce, tagged by where each came from.</p>
+      <p class="subhd"><b>Query fan-out</b> is the set of sub-questions an AI engine invents from one question before it answers. <b>Objective:</b> capture the full branch set one topic explodes into. <b>Why it matters:</b> brands compete at the sub-question level, not the headline phrase, so you have to be present on every branch to appear in the answer. We read the real branches, tagged by where each came from, never guessed.</p>
       <div class="fanwrap">
         <div class="headq"><div class="hk">cluster head</div><div class="hv">Best column-level lineage tool for a bank</div></div>
         <div class="branches">
@@ -278,9 +279,9 @@
 
   <!-- PROCESS · gate → rank → diversify -->
   <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">process</span> · prioritize</span><span class="cnt">the same rule every time, defensible to a client</span></div>
+    <div class="lbar"><span class="lt">// <span class="n">action</span> · prioritize</span><span class="cnt">the same rule every time, defensible to a client</span></div>
     <div class="lbody">
-      <p class="subhd">The 300+ universe is narrowed by three ordered steps, run in code so the same inputs always produce the same priorities. <b>This is the step that takes opinion out of the list.</b></p>
+      <p class="subhd"><b>Objective:</b> narrow the 300+ universe to the tracked tier by a fixed, coded rule. <b>Why it matters:</b> it removes opinion. The same inputs always produce the same priorities, and every tracked prompt is non-branded, likely to earn a recommendation, spread across the funnel, and defensible to the client.</p>
       <div class="procwrap">
         <div class="proctag">gate → rank → diversify</div>
         <div class="gaterow" style="margin:0">
@@ -299,14 +300,14 @@
   <div class="layer">
     <div class="lbar"><span class="lt">// <span class="n">stage_4</span> · tracked_set</span><span class="cnt"><b>300+</b> → the priority tier we track</span></div>
     <div class="lbody">
-      <p class="subhd">The scored result for the column-level-lineage cluster. Each survivor keeps the numbers behind its tier, and is tracked daily on every engine.</p>
+      <p class="subhd"><b>Objective:</b> the scored output, tracked daily on every engine. <b>Why it matters:</b> this is the measurable surface. Each survivor carries the numbers behind its tier, so any movement in the brand's mention rate is attributable and reportable. Below: the result for the column-level-lineage cluster.</p>
       <table class="tbl">
         <thead><tr><th>Prompt (column-level lineage cluster)</th><th class="c">Demand</th><th class="c">Names vendors?</th><th class="c">Fit</th><th class="c">Funnel</th><th class="c">Tier</th></tr></thead>
         <tbody>
-          <tr><td class="pq">Which tool gives the most accurate column-level data lineage?</td><td class="c">high · ~2,400/mo</td><td class="c"><span class="yes">yes</span></td><td class="c">hero</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
-          <tr><td class="pq">Which data lineage tool is best for regulatory reporting in a bank?</td><td class="c">high</td><td class="c"><span class="yes">yes</span></td><td class="c">hero+ICP</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
+          <tr><td class="pq">Which tool gives the most accurate column-level data lineage?</td><td class="c">high · ~2,400/mo</td><td class="c"><span class="yes">yes</span></td><td class="c">core</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
+          <tr><td class="pq">Which data lineage tool is best for regulatory reporting in a bank?</td><td class="c">high</td><td class="c"><span class="yes">yes</span></td><td class="c">core+ICP</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
           <tr><td class="pq">What is data lineage and how is it used for compliance?</td><td class="c">high · ~8,100/mo</td><td class="c"><span class="mb">rising</span></td><td class="c">category</td><td class="c">TOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
-          <tr><td class="pq">What is column-level data lineage and why is it important?</td><td class="c">medium</td><td class="c"><span class="mb">sometimes</span></td><td class="c">hero</td><td class="c">TOFU</td><td class="c"><span class="tier t1">P1</span></td></tr>
+          <tr><td class="pq">What is column-level data lineage and why is it important?</td><td class="c">medium</td><td class="c"><span class="mb">sometimes</span></td><td class="c">core</td><td class="c">TOFU</td><td class="c"><span class="tier t1">P1</span></td></tr>
           <tr class="drop"><td class="pq">Column lineage vs table lineage</td><td class="c">—</td><td class="c">—</td><td class="c">near-dup</td><td class="c">—</td><td class="c"><span class="tier td">dropped</span></td></tr>
         </tbody>
       </table>
@@ -319,7 +320,7 @@
       <!-- FINAL -->
       <div class="final">
         <div class="fh">final tracked set · this cluster</div>
-        <div class="fr"><span class="ft p0">P0</span><span class="fq">Which tool gives the most accurate column-level data lineage?</span><span class="fm">BOFU · hero</span></div>
+        <div class="fr"><span class="ft p0">P0</span><span class="fq">Which tool gives the most accurate column-level data lineage?</span><span class="fm">BOFU · core</span></div>
         <div class="fr"><span class="ft p0">P0</span><span class="fq">Which data lineage tool is best for regulatory reporting in a bank?</span><span class="fm">BOFU · ICP</span></div>
         <div class="fr"><span class="ft p0">P0</span><span class="fq">What is data lineage and how is it used for compliance?</span><span class="fm">TOFU · category</span></div>
         <div class="fr"><span class="ft p1">P1</span><span class="fq">What is column-level data lineage and why is it important?</span><span class="fm">TOFU</span></div>
