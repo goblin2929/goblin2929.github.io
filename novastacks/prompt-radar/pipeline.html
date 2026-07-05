@@ -55,6 +55,18 @@
   .node .nbd{padding:7px 10px 9px;font-family:var(--fb);font-size:11.5px;color:var(--ink3);line-height:1.3}
   .node .nbd .val{font-family:var(--fm);font-size:11px;color:var(--deep)}
   .node .nhd .id.long{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.15}
+  /* stacked overlays layered on a clusters base */
+  .ovstack{display:flex;flex-direction:column;align-items:stretch;flex:1.5;position:relative}
+  .ovc{display:flex;align-items:baseline;gap:8px;border:1.3px solid var(--accent);background:rgba(1,170,193,.12);border-radius:5px;padding:7px 12px 9px;box-shadow:0 2px 5px rgba(19,19,19,.10);position:relative}
+  .ovc + .ovc,.ovb{margin-top:-7px}
+  .ovb{display:flex;align-items:baseline;gap:8px;border:1.4px solid var(--ink1);background:var(--pure);border-radius:5px;padding:7px 12px;position:relative}
+  .ovstack .ck{font-family:var(--fm);font-size:10.5px;font-weight:600;color:var(--ink1);white-space:nowrap}
+  .ovstack .cv{font-family:var(--fb);font-size:9px;color:var(--ink4);line-height:1.2}
+  .ovb .ck{color:var(--deep)}
+  /* example prompts quoted + italic */
+  .tbl .pq{font-style:italic}
+  .tbl .pq::before{content:'\201C'} .tbl .pq::after{content:'\201D'}
+  .qprompt{font-style:italic}
   /* type colors */
   .src .ty{background:var(--ink4)} .src .nhd{background:#F3EFE7}
   .wall .ty{background:var(--accent)} .wall .nhd{background:var(--tint)}
@@ -184,12 +196,15 @@
     <div class="group" id="overlay" style="left:210px;top:614px;width:820px">
       <span class="glab">process · overlays + observe</span>
       <span class="port in" style="left:50%"></span>
-      <div class="mini">
-        <div class="chip"><div class="ck">icp_overlay</div><div class="cv">persona × industry × size × trigger</div></div>
-        <div class="chip"><div class="ck">product_overlay</div><div class="cv">product taxonomy · capability terms</div></div>
-        <div class="chip"><div class="ck">business_overlay</div><div class="cv">market · competitors · KPI</div></div>
-        <div class="marw"><svg width="24" height="14" viewBox="0 0 24 14"><path d="M1 7h16" stroke="#131313" stroke-width="1.4"/><path d="M15 2l6 5-6 5" stroke="#131313" stroke-width="1.4" fill="none"/></svg></div>
-        <div class="chip"><div class="ck">observe_fanout</div><div class="cv">real sub-questions: PAA / Related / AIO + ChatGPT</div></div>
+      <div class="mini" style="align-items:center">
+        <div class="ovstack">
+          <div class="ovc" style="z-index:4"><div class="ck">icp_overlay</div><div class="cv">persona × industry × size × trigger</div></div>
+          <div class="ovc" style="z-index:3"><div class="ck">product_overlay</div><div class="cv">product taxonomy · capability terms</div></div>
+          <div class="ovc" style="z-index:2"><div class="ck">business_overlay</div><div class="cv">market · competitors · KPI</div></div>
+          <div class="ovb" style="z-index:1"><div class="ck">topic_clusters · ~40–60</div><div class="cv">the base each overlay is layered onto</div></div>
+        </div>
+        <div class="marw" style="flex:0 0 40px"><svg width="24" height="14" viewBox="0 0 24 14"><path d="M1 7h16" stroke="#131313" stroke-width="1.4"/><path d="M15 2l6 5-6 5" stroke="#131313" stroke-width="1.4" fill="none"/></svg></div>
+        <div class="chip" style="flex:1"><div class="ck">observe_fanout</div><div class="cv">real sub-questions: PAA / Related / AIO + ChatGPT</div></div>
       </div>
       <span class="port out" style="left:50%"></span>
     </div>
@@ -197,12 +212,12 @@
     <span class="flag" style="left:150px;top:748px">fan-out · one head → the universe</span>
 
     <!-- STAGE 3: FAN-OUT SUB-QUESTIONS -->
-    <div class="node clu" id="q1" style="left:35px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">Google · People Also Ask</span></div><div class="nbd">What is column-level lineage?</div><div class="port in"></div><div class="port out"></div></div>
-    <div class="node clu" id="q2" style="left:228px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">Google · Related searches</span></div><div class="nbd">Column vs table lineage</div><div class="port in"></div><div class="port out"></div></div>
-    <div class="node clu" id="q3" style="left:421px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">Google · AI Overview</span></div><div class="nbd">How does automated lineage work?</div><div class="port in"></div><div class="port out"></div></div>
-    <div class="node wall" id="q4" style="left:614px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">ChatGPT · ran this search</span></div><div class="nbd">Best lineage tool for Snowflake</div><div class="port in"></div><div class="port out"></div></div>
-    <div class="node wall" id="q5" style="left:807px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">ChatGPT · ran this search</span></div><div class="nbd">Lineage without manual mapping</div><div class="port in"></div><div class="port out"></div></div>
-    <div class="node wall" id="q6" style="left:1000px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">Added from buyer profile</span></div><div class="nbd">Lineage for reporting in a bank</div><div class="port in"></div><div class="port out"></div></div>
+    <div class="node clu" id="q1" style="left:35px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">Google · People Also Ask</span></div><div class="nbd qprompt">"What is column-level lineage?"</div><div class="port in"></div><div class="port out"></div></div>
+    <div class="node clu" id="q2" style="left:228px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">Google · Related searches</span></div><div class="nbd qprompt">"Column vs table lineage"</div><div class="port in"></div><div class="port out"></div></div>
+    <div class="node clu" id="q3" style="left:421px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">Google · AI Overview</span></div><div class="nbd qprompt">"How does automated lineage work?"</div><div class="port in"></div><div class="port out"></div></div>
+    <div class="node wall" id="q4" style="left:614px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">ChatGPT · ran this search</span></div><div class="nbd qprompt">"Best lineage tool for Snowflake"</div><div class="port in"></div><div class="port out"></div></div>
+    <div class="node wall" id="q5" style="left:807px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">ChatGPT · ran this search</span></div><div class="nbd qprompt">"Lineage without manual mapping"</div><div class="port in"></div><div class="port out"></div></div>
+    <div class="node wall" id="q6" style="left:1000px;top:790px;width:178px"><div class="nhd"><span class="ty"></span><span class="id long">Added from buyer profile</span></div><div class="nbd qprompt">"Lineage for reporting in a bank"</div><div class="port in"></div><div class="port out"></div></div>
 
     <!-- PROCESS GROUP: prioritize -->
     <div class="group" id="prioritize" style="left:335px;top:888px;width:570px">
