@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Prompt Radar — Methodology Pipeline</title>
+<title>Prompt Radar Pro (PRP) — Method Pipeline</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,91 +14,79 @@
     --hair:#D9D5CC; --strong:#131313;
     --accent:#01AAC1; --deep:#017D8E; --tint:#EAF6F8; --tint2:#D4EDF2;
     --good:#2F7A4F; --warn:#B88030; --bad:#B04545;
+    /* engine (bronze) — the deterministic machine, distinct from teal data layers */
+    --engine:#B88030; --engine-deep:#7E5718; --engine-tint:#FAF2E0; --engine-tint2:#E9D6AC;
     --dark:#131313; --dfg:#FAF8F4; --dfg2:#B8B5AE; --dhair:#2A2A2A;
     --fd:'Inter Tight',system-ui,sans-serif; --fb:'Inter',system-ui,sans-serif; --fm:'JetBrains Mono',ui-monospace,monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:#EDE9E1;font-family:var(--fb);color:var(--ink-2);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  .sheet{width:1240px;margin:0 auto;background:var(--paper)}
+  .sheet{width:1240px;margin:0 auto;background:var(--paper);padding-bottom:2px}
   .mono{font-family:var(--fm)}
 
   /* ---------- header ---------- */
-  .head{padding:60px 72px 34px}
+  .head{padding:60px 72px 30px}
   .logo{height:26px;display:block;margin-bottom:40px}
   .eb{font-family:var(--fm);font-size:13px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-4)}
   .eb b{color:var(--deep);font-weight:500}
   .h1{font-family:var(--fd);font-weight:600;font-size:46px;line-height:1.06;letter-spacing:-.02em;color:var(--ink-1);margin:14px 0 0;max-width:940px}
   .h1 u{text-decoration:none;box-shadow:inset 0 -.28em 0 var(--tint2)}
   .lede{font-family:var(--fb);font-size:18px;line-height:1.5;color:var(--ink-3);margin:18px 0 0;max-width:900px}
+  .lede + .lede{margin-top:13px}
   .lede b{color:var(--ink-1);font-weight:600}
 
-  /* ---------- layer panel (devgram lineage, recolored) ---------- */
-  .layer{margin:0 72px;border:1px solid var(--hair);background:var(--paper-pure)}
-  .lbar{border-bottom:1px solid var(--hair);background:var(--paper-deep);padding:11px 20px;display:flex;justify-content:space-between;align-items:center}
-  .lbar .lt{font-family:var(--fm);font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--ink-2);text-transform:lowercase}
-  .lbar .lt .n{color:var(--deep)}
-  .lbar .cnt{font-family:var(--fm);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-4)}
-  .lbar .cnt b{color:var(--deep);font-weight:500}
-  .lbody{padding:26px 30px 30px}
-  .subhd{font-family:var(--fb);font-size:14px;font-weight:600;color:var(--ink-3);letter-spacing:.01em;margin-bottom:20px;line-height:1.45}
-  .subhd b{color:var(--ink-1)}
+  /* ---------- section label ---------- */
+  .seclab{margin:6px 72px 0;font-family:var(--fm);font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:lowercase}
+  .seclab .n{color:var(--deep)}
+  .seclab.eng .n{color:var(--engine-deep)}
+  .seclab .cnt{color:var(--ink-4);font-weight:500;text-transform:uppercase;font-size:11px;letter-spacing:.06em}
 
-  /* vertical connector between layers */
+  /* vertical flow connector */
   .flow{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 0}
   .flow .op{font-family:var(--fm);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}
+  .flow.efeed .op{color:var(--engine-deep)}
 
-  /* ---------- ML data-store source nodes ---------- */
-  .lanes{display:flex;flex-direction:column;gap:16px}
-  .lane{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:18px}
-  .lanelab{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;line-height:1.35}
-  .lanelab.pub{color:var(--ink-4)}
-  .lanelab.wall{color:var(--deep)}
-  .lanelab small{display:block;font-weight:400;font-size:9.5px;letter-spacing:.04em;color:var(--ink-5);margin-top:3px}
-  .nodes{display:flex;flex-wrap:wrap;gap:10px}
-  .node{display:flex;align-items:center;gap:9px;border:1px solid var(--hair);background:var(--paper-pure);border-radius:3px;padding:9px 13px 9px 11px}
-  .node.wall{border-color:var(--tint2);background:var(--tint)}
-  .node .ic{width:16px;height:16px;flex:0 0 16px;color:var(--ink-4)}
-  .node.wall .ic{color:var(--deep)}
-  .node .nx .nn{font-family:var(--fb);font-size:13.5px;font-weight:600;color:var(--ink-1);line-height:1.15}
-  .node .nx .nd{font-family:var(--fb);font-size:11px;color:var(--ink-4);line-height:1.2;margin-top:2px}
-  .roadmap{margin-top:16px;border:1px dashed var(--ink-5);border-radius:3px;padding:11px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-  .roadmap .rl{font-family:var(--fm);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}
-  .roadmap .rc{font-family:var(--fb);font-size:12.5px;color:var(--ink-4)}
-  .roadmap .rc b{color:var(--ink-3);font-weight:600}
+  /* ---------- intelligence layer boxes (teal) ---------- */
+  .feedrow{margin:12px 72px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .lyrsolo{margin:12px 72px 0}
+  .lyrbox{border:1px solid var(--hair);border-top:3px solid var(--accent);background:var(--paper-pure);border-radius:5px;padding:18px 22px}
+  .lyrbox .lh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .lyrbox .li{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-5)}
+  .lyrbox .ln{font-family:var(--fd);font-weight:600;font-size:19px;color:var(--ink-1);line-height:1.1}
+  .lyrbox .lsub{font-family:var(--fb);font-size:13px;color:var(--ink-3);margin:5px 0 14px;line-height:1.4}
+  .lyrbox .lsub b{color:var(--ink-1);font-weight:600}
+  .nodes{display:flex;flex-wrap:wrap;gap:9px}
+  .node{display:flex;align-items:center;gap:9px;border:1px solid var(--tint2);background:var(--tint);border-radius:3px;padding:8px 12px 8px 10px}
+  .node .ic{width:16px;height:16px;flex:0 0 16px;color:var(--deep)}
+  .node .nx .nn{font-family:var(--fb);font-size:13px;font-weight:600;color:var(--ink-1);line-height:1.15}
+  .node .nx .nd{font-family:var(--fb);font-size:10.5px;color:var(--ink-4);line-height:1.2;margin-top:2px}
 
-  /* ---------- process pipeline (merge → dedupe → cluster) ---------- */
-  .pipe{display:flex;align-items:stretch;justify-content:center;gap:0;margin:2px 0 0}
-  .pstage{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:center;border:1.5px solid var(--ink-1);background:var(--paper-pure);border-radius:4px;padding:13px 18px;text-align:center}
-  .pstage .pk{font-family:var(--fm);font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--ink-1)}
-  .pstage .pv{font-family:var(--fb);font-size:11.5px;color:var(--ink-4);margin-top:4px;line-height:1.3}
-  .parrow{flex:0 0 46px;display:flex;align-items:center;justify-content:center}
-  .procwrap{border:1px solid var(--tint2);background:var(--tint);border-radius:5px;padding:16px 18px}
-  .proctag{font-family:var(--fm);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--deep);text-align:center;margin-bottom:12px}
+  /* ---------- engine container (bronze) ---------- */
+  .engine{margin:12px 72px 0;border:1.5px solid var(--engine-tint2);background:var(--engine-tint);border-radius:6px;overflow:hidden}
+  .ehead{background:var(--engine);padding:13px 24px;display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .ehead .ek{font-family:var(--fm);font-size:12.5px;font-weight:700;letter-spacing:.05em;color:#fff;text-transform:lowercase}
+  .ehead .ekn{font-family:var(--fd);font-weight:600;font-size:17px;color:#fff}
+  .ehead .ecnt{font-family:var(--fm);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+  .ebody{padding:24px 26px 26px}
+  .eintro{font-family:var(--fb);font-size:14.5px;line-height:1.5;color:var(--ink-2);margin-bottom:20px;max-width:940px}
+  .eintro b{color:var(--ink-1);font-weight:600}
+  .esub{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--engine-deep);margin:22px 0 12px}
 
-  /* stacked overlays sitting on a clusters base */
-  .ovstack{flex:1.55;display:flex;flex-direction:column;align-items:stretch;position:relative;gap:14px;padding:30px 0 2px}
-  .ovcard{border:1.4px solid var(--accent);background:rgba(1,170,193,.10);border-radius:7px;padding:12px 15px;position:relative;box-shadow:0 3px 8px rgba(19,19,19,.08)}
-  .ovbase{margin-top:-14px;border:1.6px solid var(--ink-1);background:var(--paper-pure);border-radius:7px;padding:11px 15px 10px;position:relative}
-  .ovstack .pk{font-family:var(--fm);font-size:12.5px;font-weight:700;color:var(--ink-1)}
-  .ovstack .pv{font-family:var(--fb);font-size:11px;color:var(--ink-4);margin-top:3px;line-height:1.3}
-  .ovbase .pk{color:var(--deep)} .ovbase .pv{color:var(--ink-3)}
-  .ovtag{position:absolute;top:2px;left:0;right:0;text-align:center;font-family:var(--fm);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--deep)}
-  /* clusters base rendered as many mini boxes (not one box) */
-  .ovbase{margin-top:0 !important;padding:13px 15px 13px !important}
-  .ovbase .obcap{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
-  .ovbase .obcap .pk{font-family:var(--fm);font-size:12.5px;font-weight:700;color:var(--deep)}
-  .ovbase .obsub{font-family:var(--fb);font-size:11px;color:var(--ink-4)}
-  .clrow{display:flex;gap:6px;align-items:stretch}
-  .clmini{flex:1 1 0;min-width:0;border:1px solid var(--tint2);background:var(--paper-pure);border-radius:3px;padding:8px 4px;text-align:center;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--deep)}
-  .clmore{flex:1.5 1 0;min-width:0;display:flex;align-items:center;justify-content:center;border:1px dashed var(--ink-5);border-radius:3px;padding:8px 4px;text-align:center;font-family:var(--fm);font-size:10.5px;letter-spacing:.05em;color:var(--ink-4)}
+  /* bronze move pills (engine 1 pipeline) */
+  .moves{display:flex;align-items:stretch;flex-wrap:wrap;gap:0}
+  .mv{flex:1 1 0;min-width:0;border:1.5px dashed var(--engine);background:var(--paper-pure);border-radius:4px;padding:11px 14px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+  .mv .mk{font-family:var(--fm);font-size:12.5px;font-weight:700;color:var(--ink-1);letter-spacing:.02em}
+  .mv .mm{font-family:var(--fb);font-size:10.5px;color:var(--ink-4);margin-top:3px;line-height:1.3}
+  .mvar{flex:0 0 40px;display:flex;align-items:center;justify-content:center}
+  .eout{margin-top:16px;font-family:var(--fm);font-size:11.5px;letter-spacing:.03em;color:var(--engine-deep)}
+  .eout b{color:var(--ink-1);font-weight:700}
 
-  /* example keywords & prompts → quoted + italic, so readers know they're examples/variables */
-  .src .sig{font-style:italic}
+  /* example keywords/prompts → quoted + italic */
   .cn,.bq,.hv,.tbl .pq,.fr .fq{font-style:italic}
   .cn::before,.bq::before,.hv::before,.tbl .pq::before,.fr .fq::before{content:'\201C'}
   .cn::after,.bq::after,.hv::after,.tbl .pq::after,.fr .fq::after{content:'\201D'}
 
-  /* ---------- cluster output grid ---------- */
+  /* ---------- knowledge-graph cluster grid ---------- */
   .clusters{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
   .cl{border:1px solid var(--hair);background:var(--paper-pure);border-radius:3px;padding:12px 14px}
   .cl .ck{font-family:var(--fm);font-size:10.5px;letter-spacing:.06em;color:var(--ink-5);text-transform:uppercase}
@@ -106,8 +94,8 @@
   .cl.hero{border:1.5px solid var(--accent);background:var(--tint)}
   .cl.hero .ck{color:var(--deep)} .cl.hero .cn{color:var(--deep)}
   .cl .cd{font-family:var(--fb);font-size:11px;color:var(--ink-4);margin-top:4px}
-  .zoom{margin-top:18px;display:flex;align-items:center;gap:13px;background:var(--wash);border-left:2px solid var(--accent);padding:13px 16px}
-  .zoom .zt{font-family:var(--fb);font-size:14.5px;color:var(--ink-2);line-height:1.4}
+  .zoom{margin-top:16px;display:flex;align-items:center;gap:13px;background:var(--wash);border-left:2px solid var(--accent);padding:13px 16px}
+  .zoom .zt{font-family:var(--fb);font-size:14px;color:var(--ink-2);line-height:1.45}
   .zoom .zt b{color:var(--deep);font-weight:600}
 
   /* ---------- fan-out branch ---------- */
@@ -120,13 +108,16 @@
   .br .bq{font-family:var(--fb);font-size:12.5px;color:var(--ink-2);line-height:1.3}
   .br .bs{font-family:var(--fm);font-size:9.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-4);white-space:nowrap;border:1px solid var(--hair);padding:3px 6px;border-radius:2px}
   .br .bs.cg{color:var(--deep);border-color:var(--tint2);background:var(--tint)}
-  .fanfoot{margin-top:16px;font-family:var(--fb);font-size:14px;color:var(--ink-3);line-height:1.5}
+  .fanfoot{margin-top:16px;font-family:var(--fb);font-size:13.5px;color:var(--ink-3);line-height:1.5}
   .fanfoot b{color:var(--ink-1);font-weight:600}
 
-  /* ---------- priority scoring ---------- */
-  .gaterow{display:flex;align-items:stretch;gap:0;margin-bottom:22px}
-  .gate{flex:1;border:1px solid var(--hair);background:var(--paper-pure);border-radius:4px;padding:14px 16px}
-  .gate .gk{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--deep)}
+  /* ---------- priority scoring (engine 2) ---------- */
+  .gaterow{display:flex;align-items:stretch;gap:0;margin:0}
+  .gate{flex:1;border:1px solid var(--engine-tint2);background:var(--paper-pure);padding:14px 16px}
+  .gate:first-child{border-radius:4px 0 0 4px}
+  .gate:last-child{border-radius:0 4px 4px 0}
+  .gate + .gate{border-left:none}
+  .gate .gk{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--engine-deep)}
   .gate .gv{font-family:var(--fb);font-size:12.5px;color:var(--ink-3);margin-top:6px;line-height:1.4}
   .tbl{width:100%;border-collapse:collapse;font-family:var(--fb)}
   .tbl th{font-family:var(--fm);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-4);text-align:left;padding:0 10px 10px;border-bottom:2px solid var(--strong)}
@@ -137,31 +128,26 @@
   .tbl tr.drop td{color:var(--ink-5)}
   .tbl tr.drop .pq{text-decoration:line-through;text-decoration-color:var(--ink-5)}
   .tier{display:inline-block;font-family:var(--fm);font-size:11px;font-weight:500;padding:3px 8px;border-radius:2px}
-  .t0{background:var(--accent);color:#fff} .t1{background:var(--tint2);color:var(--deep)} .t2{background:var(--paper-deep);color:var(--ink-4)} .td{background:transparent;border:1px solid var(--ink-5);color:var(--ink-5)}
-  .yes{color:var(--good);font-weight:600} .mb{color:var(--warn);font-weight:600} .no{color:var(--ink-5)}
+  .t0{background:var(--accent);color:#fff} .t1{background:var(--tint2);color:var(--deep)} .td{background:transparent;border:1px solid var(--ink-5);color:var(--ink-5)}
+  .yes{color:var(--good);font-weight:600} .mb{color:var(--warn);font-weight:600}
 
-  /* tracked engines strip */
-  .track{margin-top:22px;border-top:1px solid var(--hair);padding-top:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-  .track .tk{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
-  .eng{font-family:var(--fb);font-size:12.5px;font-weight:500;border:1px solid var(--hair);background:var(--paper-pure);border-radius:3px;padding:6px 11px;color:var(--ink-2)}
-  .leg{display:flex;gap:14px;margin-left:auto;font-family:var(--fb);font-size:11.5px;color:var(--ink-4)}
-  .leg span{display:flex;align-items:center;gap:6px}
-  .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
-
-  /* ---------- final tracked set ---------- */
-  .final{background:var(--dark);color:var(--dfg);margin:24px 0 0;padding:24px 30px}
-  .final .fh{font-family:var(--fm);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  /* ---------- tracked set output (dark) ---------- */
+  .out{margin:14px 72px 0;background:var(--dark);color:var(--dfg);border-radius:6px;padding:26px 30px}
+  .out .oh{font-family:var(--fm);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
   .fr{display:flex;align-items:center;gap:15px;padding:11px 0;border-bottom:1px solid var(--dhair)}
-  .fr:last-child{border-bottom:none}
+  .fr:first-of-type{border-top:1px solid var(--dhair)}
   .fr .ft{font-family:var(--fm);font-size:11px;font-weight:500;padding:3px 8px;border-radius:2px}
   .fr .ft.p0{background:var(--accent);color:#fff} .fr .ft.p1{background:#204a52;color:var(--accent)}
   .fr .fq{font-family:var(--fd);font-weight:500;font-size:17px;color:var(--dfg);flex:1;line-height:1.25}
   .fr .fm{font-family:var(--fm);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--dfg2);white-space:nowrap}
+  .track{margin-top:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .track .tk{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--dfg2)}
+  .eng{font-family:var(--fb);font-size:12.5px;font-weight:500;border:1px solid var(--dhair);border-radius:3px;padding:6px 11px;color:var(--dfg)}
   .payoff{font-family:var(--fd);font-weight:500;font-size:20px;line-height:1.35;color:var(--dfg);margin:20px 0 0;text-wrap:balance}
   .payoff b{color:var(--accent)}
 
   /* ---------- footer ---------- */
-  .foot{background:var(--dark);border-top:1px solid var(--dhair);padding:24px 72px;display:flex;justify-content:space-between;align-items:center}
+  .foot{margin-top:26px;background:var(--dark);border-top:1px solid var(--dhair);padding:24px 72px;display:flex;justify-content:space-between;align-items:center}
   .foot img{height:19px}
   .foot p{font-family:var(--fm);font-size:12px;letter-spacing:.04em;color:var(--dfg2)}
   .foot p b{color:var(--accent);font-weight:500}
@@ -175,132 +161,75 @@
     <img class="logo" src="assets/logo-color.png" alt="Novastacks">
     <div class="eb">SYS·01 &nbsp;//&nbsp; <b>SOURCE &amp; ECHO STACK FRAME</b></div>
     <h1 class="h1">Prompt Radar Pro <u>(PRP)</u></h1>
-    <p class="lede"><b>Prompt Radar Pro (PRP)</b> is Novastacks' proprietary system for building the AI-prompt set we track for a client &mdash; deciding which buyer questions to follow inside AI answers, and proving whether the brand is cited, per engine, every day. <b>First, demand data mined from the client's first-party data intelligence</b>, not the public keyword data everyone can buy. <b>Second, a selection method that mirrors how generative engines actually retrieve</b>, by observing the real question fan-out instead of guessing it like most AEO visibility tools. In practice, it combines <b>deep product understanding, search demand, internet-scale question behavior, and a proprietary ranking model</b> to identify the prompts most likely to influence AI-driven discovery, consideration, and purchase.</p>
+    <p class="lede"><b>Prompt Radar Pro (PRP)</b> is Novastacks' proprietary system for identifying the prompts most likely to influence AI-driven discovery, consideration, and purchase &mdash; and proving whether the brand is cited on them.</p>
+    <p class="lede">It's built on <b>three proprietary intelligence layers</b> &mdash; first-party buyer signal, search demand, and product-market fit &mdash; and <b>two deterministic engines</b>: a generation engine that grounds demand into a <b>topical knowledge graph</b> and fans out the real questions AI engines ask, and a prioritization engine that ranks them to the tracked set.</p>
+    <p class="lede">Every prompt is observed from how engines actually retrieve &mdash; never guessed.</p>
   </div>
 
-  <!-- LAYER 1 · SOURCES -->
-  <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">stage_1</span> · data_sources</span><span class="cnt">MANY IN · <b>public + first-party data intelligence</b></span></div>
-    <div class="lbody">
-      <p class="subhd"><b>Objective:</b> assemble demand from every question-carrying source, weighted to the client's own first-party data. <b>Why it matters:</b> public keyword data is a blind spot. It shows only what is already high-volume and typed into a search box, missing the natural-language questions buyers put to AI and the signals inside the client's own first-party data intelligence. Drawing on that primary, first-party information corrects the blind spot and grounds every prompt in how this client's buyers actually ask.</p>
-      <div class="lanes">
-        <div class="lane">
-          <div class="lanelab pub">PUBLIC<small>calibration layer</small></div>
-          <div class="nodes">
-            <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" stroke="currentColor" stroke-width="1.6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Search Console</div><div class="nd">queries they rank close to</div></div></div>
-            <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" stroke="currentColor" stroke-width="1.6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Competitor gap</div><div class="nd">rivals' keywords, Ahrefs</div></div></div>
-            <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" stroke="currentColor" stroke-width="1.6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Keyword volume</div><div class="nd">demand + difficulty</div></div></div>
-            <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Product pages</div><div class="nd">what they sell</div></div></div>
-          </div>
-        </div>
-        <div class="lane">
-          <div class="lanelab wall">FIRST-PARTY<small>data intelligence</small></div>
-          <div class="nodes">
-            <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 20l4-2 4 2" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Sales-call transcripts</div><div class="nd">buyers' own words</div></div></div>
-            <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H9l-4 3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><div class="nx"><div class="nn">Support tickets</div><div class="nd">real problems, real terms</div></div></div>
-            <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 4.5-3.4 7.6-8 9-4.6-1.4-8-4.5-8-9V7l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><div class="nx"><div class="nn">CRM win / loss</div><div class="nd">why deals turn</div></div></div>
-            <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">On-site search</div><div class="nd">what visitors look for</div></div></div>
-            <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H9l-4 3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Chat logs</div><div class="nd">pre-sale questions</div></div></div>
-            <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 20V11M9.3 20V5M14.6 20v-6M20 20V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="nx"><div class="nn">Google Ads intel</div><div class="nd">first-party demand signals</div></div></div>
-            <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/><path d="M5 12a7 7 0 0 1 7 7M5 6a13 13 0 0 1 13 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="nx"><div class="nn">Social listening</div><div class="nd">audience conversations</div></div></div>
-          </div>
-        </div>
+  <!-- ENGINE 1 · inputs: Layer 1 + Layer 2 -->
+  <div class="seclab">// <span class="n">intelligence layers 1 &amp; 2</span> · <span class="cnt">feed engine 1 · generation</span></div>
+  <div class="feedrow">
+    <div class="lyrbox">
+      <div class="lh"><span class="li">Layer 1</span><span class="ln">First-Party Intelligence</span></div>
+      <div class="lsub">The client's own buyer signal &mdash; <b>unique, and not buyable.</b></div>
+      <div class="nodes">
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 20l4-2 4 2" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Sales-call transcripts</div><div class="nd">buyers' own words</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H9l-4 3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><div class="nx"><div class="nn">Support tickets</div><div class="nd">real problems, real terms</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 4.5-3.4 7.6-8 9-4.6-1.4-8-4.5-8-9V7l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><div class="nx"><div class="nn">CRM win / loss</div><div class="nd">why deals turn</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">On-site search</div><div class="nd">what visitors look for</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H9l-4 3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Chat logs</div><div class="nd">pre-sale questions</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 20V11M9.3 20V5M14.6 20v-6M20 20V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="nx"><div class="nn">Google Ads intel</div><div class="nd">first-party demand</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/><path d="M5 12a7 7 0 0 1 7 7M5 6a13 13 0 0 1 13 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="nx"><div class="nn">Social listening</div><div class="nd">audience conversations</div></div></div>
+      </div>
+    </div>
+    <div class="lyrbox">
+      <div class="lh"><span class="li">Layer 2</span><span class="ln">Search Demand Intelligence</span></div>
+      <div class="lsub">Market-wide commercial intent &mdash; <b>two decades of real search behavior.</b></div>
+      <div class="nodes">
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" stroke="currentColor" stroke-width="1.6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Search Console</div><div class="nd">queries they rank close to</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" stroke="currentColor" stroke-width="1.6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Keyword volume</div><div class="nd">demand + difficulty</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 20V11M9.3 20V5M14.6 20v-6M20 20V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><div class="nx"><div class="nn">Competitor gap</div><div class="nd">rivals' keywords, Ahrefs</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M11 7v4l3 2" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Related &amp; PAA</div><div class="nd">how demand branches</div></div></div>
       </div>
     </div>
   </div>
 
-  <div class="flow"><span class="op">converge</span>
-    <svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 0v18" stroke="#131313" stroke-width="1.4"/><path d="M3 14l6 7 6-7" stroke="#131313" stroke-width="1.4" fill="none"/></svg></div>
+  <div class="flow efeed"><span class="op">feed engine 1</span>
+    <svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 0v18" stroke="#7E5718" stroke-width="1.4"/><path d="M3 14l6 7 6-7" stroke="#7E5718" stroke-width="1.4" fill="none"/></svg></div>
 
-  <!-- PROCESS · merge → dedupe → cluster -->
-  <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">action</span> · normalize</span><span class="cnt">builds stage 2 from stage 1</span></div>
-    <div class="lbody">
-      <p class="subhd"><b>What this is:</b> an action between stage 1 and stage 2, not a stored table. <b>Objective:</b> merge every stage-1 source into one pool, drop duplicates, and group what remains into ranked <b>topic clusters</b> (that is stage 2). <b>Why it matters:</b> questions arrive from many systems, overlapping and unstructured; this is the step that turns scattered signal into the clean set of topics the rest of the pipeline runs on. Without it there is no way to guarantee coverage or set priorities.</p>
-      <div class="procwrap">
-        <div class="proctag">merge → dedupe → cluster</div>
-        <div class="pipe">
-          <div class="pstage"><div class="pk">merge</div><div class="pv">pool every source<br>into one list</div></div>
-          <div class="parrow"><svg width="40" height="20" viewBox="0 0 40 20"><path d="M2 10h30" stroke="#131313" stroke-width="1.5"/><path d="M28 4l8 6-8 6" stroke="#131313" stroke-width="1.5" fill="none"/></svg></div>
-          <div class="pstage"><div class="pk">dedupe</div><div class="pv">collapse the same<br>question said twice</div></div>
-          <div class="parrow"><svg width="40" height="20" viewBox="0 0 40 20"><path d="M2 10h30" stroke="#131313" stroke-width="1.5"/><path d="M28 4l8 6-8 6" stroke="#131313" stroke-width="1.5" fill="none"/></svg></div>
-          <div class="pstage"><div class="pk">cluster</div><div class="pv">group by topic,<br>ranked by demand × fit</div></div>
-        </div>
+  <!-- ENGINE 1 · GENERATION -->
+  <div class="engine">
+    <div class="ehead"><div><span class="ek">// engine_1</span> &nbsp;<span class="ekn">Generation</span></div><span class="ecnt">ground demand → knowledge graph → fan-out</span></div>
+    <div class="ebody">
+      <p class="eintro">Grounds first-party and search demand into a <b>topical knowledge graph</b> &mdash; every topic mapped to its product, entities, and relationships &mdash; then fans out each node into the real questions AI engines generate. Rather than relying on marketer-written prompts, PRP reads real question behavior across billions of web pages, so every prompt is observed, never guessed.</p>
+
+      <div class="moves">
+        <div class="mv"><div class="mk">Structure</div><div class="mm">merge · dedupe · cluster the grounded demand</div></div>
+        <div class="mvar"><svg width="30" height="16" viewBox="0 0 30 16"><path d="M2 8h22" stroke="#7E5718" stroke-width="1.5"/><path d="M20 3l6 5-6 5" stroke="#7E5718" stroke-width="1.5" fill="none"/></svg></div>
+        <div class="mv"><div class="mk">Knowledge graph</div><div class="mm">topics × products × entities</div></div>
+        <div class="mvar"><svg width="30" height="16" viewBox="0 0 30 16"><path d="M2 8h22" stroke="#7E5718" stroke-width="1.5"/><path d="M20 3l6 5-6 5" stroke="#7E5718" stroke-width="1.5" fill="none"/></svg></div>
+        <div class="mv"><div class="mk">Fan-Out</div><div class="mm">the real sub-questions engines ask</div></div>
       </div>
-    </div>
-  </div>
 
-  <div class="flow"><span class="op">emit clusters</span>
-    <svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 0v18" stroke="#131313" stroke-width="1.4"/><path d="M3 14l6 7 6-7" stroke="#131313" stroke-width="1.4" fill="none"/></svg></div>
-
-  <!-- LAYER 2 · CLUSTERS -->
-  <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">stage_2</span> · topic_clusters</span><span class="cnt"><b>~40–60 clusters</b>, organized by product</span></div>
-    <div class="lbody">
-      <p class="subhd"><b>Objective:</b> organize the topics by the client's own products, and guarantee every product a floor of coverage. <b>Why it matters:</b> clustering by popularity alone over-serves the big topics and starves the rest, so whole product lines go invisible in AI answers. Compartmentalizing by product fixes that. This client's topics resolve to eight areas; <b>we follow one the rest of the way.</b></p>
+      <div class="esub">// the topical knowledge graph — this client's topics as nodes</div>
       <div class="clusters">
-        <div class="cl hero"><div class="ck">cluster_01</div><div class="cn">Column-level lineage</div><div class="cd">the one we trace →</div></div>
-        <div class="cl"><div class="ck">cluster_02</div><div class="cn">Data catalog</div></div>
-        <div class="cl"><div class="ck">cluster_03</div><div class="cn">Data observability</div></div>
-        <div class="cl"><div class="ck">cluster_04</div><div class="cn">Data governance</div></div>
-        <div class="cl"><div class="ck">cluster_05</div><div class="cn">Business glossary</div></div>
-        <div class="cl"><div class="ck">cluster_06</div><div class="cn">Data products</div></div>
-        <div class="cl"><div class="ck">cluster_07</div><div class="cn">Trust / AI-readiness</div></div>
-        <div class="cl"><div class="ck">cluster_08</div><div class="cn">Homepage &amp; category</div></div>
+        <div class="cl hero"><div class="ck">node_01</div><div class="cn">Column-level lineage</div><div class="cd">the one we trace →</div></div>
+        <div class="cl"><div class="ck">node_02</div><div class="cn">Data catalog</div></div>
+        <div class="cl"><div class="ck">node_03</div><div class="cn">Data observability</div></div>
+        <div class="cl"><div class="ck">node_04</div><div class="cn">Data governance</div></div>
+        <div class="cl"><div class="ck">node_05</div><div class="cn">Business glossary</div></div>
+        <div class="cl"><div class="ck">node_06</div><div class="cn">Data products</div></div>
+        <div class="cl"><div class="ck">node_07</div><div class="cn">Trust / AI-readiness</div></div>
+        <div class="cl"><div class="ck">node_08</div><div class="cn">Homepage &amp; category</div></div>
       </div>
       <div class="zoom">
         <svg width="24" height="24" viewBox="0 0 26 26" fill="none"><circle cx="11" cy="11" r="8" stroke="#017D8E" stroke-width="1.6"/><path d="M17 17l6 6" stroke="#017D8E" stroke-width="1.6"/></svg>
-        <div class="zt">All eight are core products of this client. We trace just one, <b>cluster_01 · column-level lineage</b>, through fan-out and scoring as the worked example. <b>Every cluster runs the identical path.</b></div>
+        <div class="zt">The graph resolves to this client's real topics. We trace one node, <b>column-level lineage</b>, through fan-out and scoring as the worked example. <b>Every node runs the identical path.</b></div>
       </div>
-    </div>
-  </div>
 
-  <div class="flow"><span class="op">take one cluster</span>
-    <svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 0v18" stroke="#131313" stroke-width="1.4"/><path d="M3 14l6 7 6-7" stroke="#131313" stroke-width="1.4" fill="none"/></svg></div>
-
-  <!-- PROCESS · overlay + observe -->
-  <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">action</span> · overlay + observe</span><span class="cnt">how a topic becomes real questions</span></div>
-    <div class="lbody">
-      <p class="subhd"><b>Objective:</b> turn a generic topic into this buyer's real questions, then capture the sub-questions engines actually generate. <b>Three overlays are applied together</b> &mdash; the client's buyers (ICP), their product taxonomy, and their market and competitors &mdash; so every tracked question is <b>this buyer's</b>, about <b>this product</b>, in <b>their competitive context</b>. <b>Why it matters:</b> guessing the fan-out tracks the wrong questions; reading the real fan-out through these overlays is the rare step that makes the set match how engines truly assemble an answer.</p>
-      <div class="procwrap">
-        <div class="proctag">3 overlays layered onto the clusters → observe fan-out</div>
-        <div class="pipe">
-          <div class="ovstack">
-            <div class="ovtag">overlays layered on ↓</div>
-            <div class="ovcard" style="z-index:4"><div class="pk">ICP overlay</div><div class="pv">persona × industry × company-size × buying trigger × objection</div></div>
-            <div class="ovcard" style="z-index:3"><div class="pk">product overlay</div><div class="pv">product &amp; feature taxonomy · capability vocabulary · per-product coverage</div></div>
-            <div class="ovcard" style="z-index:2"><div class="pk">business overlay</div><div class="pv">market · competitor set &amp; priority · the KPI</div></div>
-            <div class="ovbase" style="z-index:1">
-              <div class="obcap"><span class="pk">topic clusters · ~40–60</span><span class="obsub">the base each overlay is layered onto</span></div>
-              <div class="clrow">
-                <span class="clmini">01</span>
-                <span class="clmini">02</span>
-                <span class="clmini">03</span>
-                <span class="clmini">04</span>
-                <span class="clmini">05</span>
-                <span class="clmini">06</span>
-                <span class="clmore">···  more</span>
-              </div>
-            </div>
-          </div>
-          <div class="parrow"><svg width="40" height="20" viewBox="0 0 40 20"><path d="M2 10h30" stroke="#131313" stroke-width="1.5"/><path d="M28 4l8 6-8 6" stroke="#131313" stroke-width="1.5" fill="none"/></svg></div>
-          <div class="pstage" style="flex:1.25 1 0;min-width:0"><div class="pk">observe fan-out</div><div class="pv">read the real sub-questions engines produce: Google People Also Ask / Related / AI Overview, plus the searches ChatGPT actually runs</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="flow"><span class="op">expand into the universe</span>
-    <svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 0v18" stroke="#131313" stroke-width="1.4"/><path d="M3 14l6 7 6-7" stroke="#131313" stroke-width="1.4" fill="none"/></svg></div>
-
-  <!-- LAYER 3 · FAN-OUT -->
-  <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">stage_3</span> · query_fan-out</span><span class="cnt">this cluster → <b>~15–25 prompts</b></span></div>
-    <div class="lbody">
-      <p class="subhd"><b>Query fan-out</b> is the set of sub-questions an AI engine invents from one question before it answers. <b>Objective:</b> capture the full branch set one topic explodes into. <b>Why it matters:</b> brands compete at the sub-question level, not the headline phrase, so you have to be present on every branch to appear in the answer. We read the real branches, tagged by where each came from, never guessed.</p>
+      <div class="esub">// fan-out — one node explodes into the real questions engines generate</div>
       <div class="fanwrap">
-        <div class="headq"><div class="hk">cluster head</div><div class="hv">Best column-level lineage tool for a bank</div></div>
+        <div class="headq"><div class="hk">graph node</div><div class="hv">Best column-level lineage tool for a bank</div></div>
         <div class="branches">
           <div class="br"><span class="bq">What is column-level data lineage, and why does it matter?</span><span class="bs">Google · People Also Ask</span></div>
           <div class="br"><span class="bq">Column lineage vs table lineage</span><span class="bs">Google · Related searches</span></div>
@@ -310,39 +239,47 @@
           <div class="br"><span class="bq">Lineage for regulatory reporting in a bank</span><span class="bs cg">Added from buyer profile</span></div>
         </div>
       </div>
-      <p class="fanfoot">Each tag shows <b>where the sub-question came from</b>: observed from a real engine, or added from the buyer profile. This one cluster opens into <b>~15–25 real prompts</b>. Every cluster together builds the <b>300+ prompt universe</b> &mdash; the widest point, before any scoring.</p>
+      <p class="fanfoot">Each tag shows <b>where the sub-question came from</b> &mdash; observed from a real engine, or added from the buyer profile. Every node fans out this way to build the full prompt universe, the widest point before any scoring.</p>
+
+      <div class="eout">→ <b>the full universe of real buyer prompts</b></div>
     </div>
   </div>
 
-  <div class="flow"><span class="op">score the universe</span>
+  <!-- ENGINE 2 · input: Layer 3 -->
+  <div class="flow"><span class="op">then apply fit</span>
     <svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 0v18" stroke="#131313" stroke-width="1.4"/><path d="M3 14l6 7 6-7" stroke="#131313" stroke-width="1.4" fill="none"/></svg></div>
 
-  <!-- PROCESS · gate → rank → diversify -->
-  <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">action</span> · prioritize</span><span class="cnt">the same rule every time, defensible to a client</span></div>
-    <div class="lbody">
-      <p class="subhd"><b>Objective:</b> narrow the 300+ universe to the tracked tier by a fixed, coded rule. <b>Why it matters:</b> it removes opinion. The same inputs always produce the same priorities, and every tracked prompt is non-branded, likely to earn a recommendation, spread across the funnel, and defensible to the client.</p>
-      <div class="procwrap">
-        <div class="proctag">gate → rank → diversify</div>
-        <div class="gaterow" style="margin:0">
-          <div class="gate" style="border-radius:4px 0 0 4px"><div class="gk">1 · gate</div><div class="gv">Keep only non-branded questions where engines actually name vendors. The rest route to the content plan.</div></div>
-          <div class="gate" style="border-left:none;border-radius:0"><div class="gk">2 · rank</div><div class="gv">Order by demand × winnability × product &amp; buyer fit. A high-intent, low-volume question can still reach the top.</div></div>
-          <div class="gate" style="border-left:none;border-radius:0 4px 4px 0"><div class="gk">3 · diversify</div><div class="gv">Spread across the funnel; collapse any two prompts that are really one bet (same answer, same sources).</div></div>
-        </div>
+  <div class="seclab">// <span class="n">intelligence layer 3</span> · <span class="cnt">feeds engine 2 · prioritization</span></div>
+  <div class="lyrsolo">
+    <div class="lyrbox">
+      <div class="lh"><span class="li">Layer 3</span><span class="ln">Product-Market Fit Intelligence</span></div>
+      <div class="lsub">Who the buyer is and what the product does &mdash; <b>so the ranking reflects this buyer, this product, this market.</b></div>
+      <div class="nodes">
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-3 2.2-5 5-5s5 2 5 5" stroke="currentColor" stroke-width="1.6"/><path d="M16 11l2 2 4-4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg><div class="nx"><div class="nn">ICP &amp; buyer intent</div><div class="nd">persona · trigger · objection</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="13" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Product &amp; feature taxonomy</div><div class="nd">capability vocabulary · coverage</div></div></div>
+        <div class="node"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 4.5-3.4 7.6-8 9-4.6-1.4-8-4.5-8-9V7l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg><div class="nx"><div class="nn">Competitive set</div><div class="nd">market · rivals · priority</div></div></div>
       </div>
     </div>
   </div>
 
-  <div class="flow"><span class="op">emit the tracked set</span>
-    <svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 0v18" stroke="#131313" stroke-width="1.4"/><path d="M3 14l6 7 6-7" stroke="#131313" stroke-width="1.4" fill="none"/></svg></div>
+  <div class="flow efeed"><span class="op">feed engine 2</span>
+    <svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 0v18" stroke="#7E5718" stroke-width="1.4"/><path d="M3 14l6 7 6-7" stroke="#7E5718" stroke-width="1.4" fill="none"/></svg></div>
 
-  <!-- LAYER 4 · TRACKED SET -->
-  <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">stage_4</span> · tracked_set</span><span class="cnt"><b>300+</b> → the priority tier we track</span></div>
-    <div class="lbody">
-      <p class="subhd"><b>Objective:</b> the scored output, tracked daily on every engine. <b>Why it matters:</b> this is the measurable surface. Each survivor carries the numbers behind its tier, so any movement in the brand's mention rate is attributable and reportable. Below: the result for the column-level-lineage cluster.</p>
+  <!-- ENGINE 2 · PRIORITIZATION -->
+  <div class="engine">
+    <div class="ehead"><div><span class="ek">// engine_2</span> &nbsp;<span class="ekn">Prioritization</span></div><span class="ecnt">gate → rank → diversify</span></div>
+    <div class="ebody">
+      <p class="eintro">Applies <b>product-market fit</b> to score the universe down to the tracked tier, by a fixed, coded rule. It removes opinion: <b>the same inputs always produce the same priorities</b>, and every tracked prompt is non-branded, likely to earn a recommendation, and spread across the funnel.</p>
+
+      <div class="gaterow">
+        <div class="gate"><div class="gk">1 · gate</div><div class="gv">Keep only non-branded questions where engines actually name vendors. The rest route to the content plan.</div></div>
+        <div class="gate"><div class="gk">2 · rank</div><div class="gv">Order by demand × winnability × product &amp; buyer fit. A high-intent, low-volume question can still reach the top.</div></div>
+        <div class="gate"><div class="gk">3 · diversify</div><div class="gv">Spread across the funnel; collapse any two prompts that are really one bet (same answer, same sources).</div></div>
+      </div>
+
+      <div class="esub">// the scored result — column-level lineage node</div>
       <table class="tbl">
-        <thead><tr><th>Prompt (column-level lineage cluster)</th><th class="c">Demand</th><th class="c">Names vendors?</th><th class="c">Fit</th><th class="c">Funnel</th><th class="c">Tier</th></tr></thead>
+        <thead><tr><th>Prompt</th><th class="c">Demand</th><th class="c">Names vendors?</th><th class="c">Fit</th><th class="c">Funnel</th><th class="c">Tier</th></tr></thead>
         <tbody>
           <tr><td class="pq">Which tool gives the most accurate column-level data lineage?</td><td class="c">high · ~2,400/mo</td><td class="c"><span class="yes">yes</span></td><td class="c">core</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
           <tr><td class="pq">Which data lineage tool is best for regulatory reporting in a bank?</td><td class="c">high</td><td class="c"><span class="yes">yes</span></td><td class="c">core+ICP</td><td class="c">BOFU</td><td class="c"><span class="tier t0">P0</span></td></tr>
@@ -351,28 +288,32 @@
           <tr class="drop"><td class="pq">Column lineage vs table lineage</td><td class="c">—</td><td class="c">—</td><td class="c">near-dup</td><td class="c">—</td><td class="c"><span class="tier td">dropped</span></td></tr>
         </tbody>
       </table>
-      <div class="track">
-        <span class="tk">tracked daily · per engine</span>
-        <span class="eng">ChatGPT</span><span class="eng">Gemini</span><span class="eng">Perplexity</span><span class="eng">Google AI Overviews</span>
-        <span class="leg"><span><span class="dot" style="background:var(--accent)"></span>cited</span><span><span class="dot" style="background:var(--warn)"></span>appears</span><span><span class="dot" style="border:1.4px solid var(--ink-4)"></span>absent</span></span>
-      </div>
 
-      <!-- FINAL -->
-      <div class="final">
-        <div class="fh">final tracked set · this cluster</div>
-        <div class="fr"><span class="ft p0">P0</span><span class="fq">Which tool gives the most accurate column-level data lineage?</span><span class="fm">BOFU · core</span></div>
-        <div class="fr"><span class="ft p0">P0</span><span class="fq">Which data lineage tool is best for regulatory reporting in a bank?</span><span class="fm">BOFU · ICP</span></div>
-        <div class="fr"><span class="ft p0">P0</span><span class="fq">What is data lineage and how is it used for compliance?</span><span class="fm">TOFU · category</span></div>
-        <div class="fr"><span class="ft p1">P1</span><span class="fq">What is column-level data lineage and why is it important?</span><span class="fm">TOFU</span></div>
-        <p class="payoff">The survivors: spread across the funnel, no duplicates, all non-branded. These are the questions that move the client's <b>AI mention rate from 0.3% to 3%.</b></p>
-      </div>
+      <div class="eout">→ <b>the tracked set</b></div>
     </div>
+  </div>
+
+  <div class="flow"><span class="op">emit the tracked set</span>
+    <svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 0v18" stroke="#131313" stroke-width="1.4"/><path d="M3 14l6 7 6-7" stroke="#131313" stroke-width="1.4" fill="none"/></svg></div>
+
+  <!-- OUTPUT · TRACKED SET -->
+  <div class="out">
+    <div class="oh">the tracked prompt set · column-level lineage node</div>
+    <div class="fr"><span class="ft p0">P0</span><span class="fq">Which tool gives the most accurate column-level data lineage?</span><span class="fm">BOFU · core</span></div>
+    <div class="fr"><span class="ft p0">P0</span><span class="fq">Which data lineage tool is best for regulatory reporting in a bank?</span><span class="fm">BOFU · ICP</span></div>
+    <div class="fr"><span class="ft p0">P0</span><span class="fq">What is data lineage and how is it used for compliance?</span><span class="fm">TOFU · category</span></div>
+    <div class="fr"><span class="ft p1">P1</span><span class="fq">What is column-level data lineage and why is it important?</span><span class="fm">TOFU</span></div>
+    <div class="track">
+      <span class="tk">tracked daily · per engine</span>
+      <span class="eng">ChatGPT</span><span class="eng">Gemini</span><span class="eng">Perplexity</span><span class="eng">Google AI Overviews</span>
+    </div>
+    <p class="payoff">Spread across the funnel, no duplicates, all non-branded &mdash; the questions that move this client's <b>AI mention rate from 0.3% to 3%.</b></p>
   </div>
 
   <!-- FOOTER -->
   <div class="foot">
     <img src="assets/logo-white.png" alt="Novastacks">
-    <p><b>Prompt Radar</b> · System 01 of the Source &amp; Echo method · novastacks-ai.com</p>
+    <p><b>Prompt Radar Pro</b> · System 01 of the Source &amp; Echo method · novastacks-ai.com</p>
   </div>
 </div>
 </body>
