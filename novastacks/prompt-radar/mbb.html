@@ -76,16 +76,15 @@
   .proctag{font-family:var(--fm);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--deep);text-align:center;margin-bottom:12px}
 
   /* stacked overlays sitting on a clusters base */
-  .ovstack{flex:1.55;display:flex;flex-direction:column;align-items:stretch;position:relative;padding:14px 0 2px}
-  .ovcard{border:1.4px solid var(--accent);background:rgba(1,170,193,.10);border-radius:7px;padding:9px 15px;position:relative;box-shadow:0 3px 8px rgba(19,19,19,.10)}
-  .ovcard + .ovcard{margin-top:-14px}
+  .ovstack{flex:1.55;display:flex;flex-direction:column;align-items:stretch;position:relative;gap:14px;padding:30px 0 2px}
+  .ovcard{border:1.4px solid var(--accent);background:rgba(1,170,193,.10);border-radius:7px;padding:12px 15px;position:relative;box-shadow:0 3px 8px rgba(19,19,19,.08)}
   .ovbase{margin-top:-14px;border:1.6px solid var(--ink-1);background:var(--paper-pure);border-radius:7px;padding:11px 15px 10px;position:relative}
   .ovstack .pk{font-family:var(--fm);font-size:12.5px;font-weight:700;color:var(--ink-1)}
   .ovstack .pv{font-family:var(--fb);font-size:11px;color:var(--ink-4);margin-top:3px;line-height:1.3}
   .ovbase .pk{color:var(--deep)} .ovbase .pv{color:var(--ink-3)}
   .ovtag{position:absolute;top:2px;left:0;right:0;text-align:center;font-family:var(--fm);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--deep)}
   /* clusters base rendered as many mini boxes (not one box) */
-  .ovbase{margin-top:8px !important;padding:12px 14px 12px !important}
+  .ovbase{margin-top:0 !important;padding:13px 15px 13px !important}
   .ovbase .obcap{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
   .ovbase .obcap .pk{font-family:var(--fm);font-size:12.5px;font-weight:700;color:var(--deep)}
   .ovbase .obsub{font-family:var(--fb);font-size:11px;color:var(--ink-4)}
@@ -175,15 +174,15 @@
   <div class="head">
     <img class="logo" src="assets/logo-color.png" alt="Novastacks">
     <div class="eb">SYS·01 &nbsp;//&nbsp; <b>SOURCE &amp; ECHO STACK FRAME</b></div>
-    <h1 class="h1">How we build the AI-prompt set we track for a <u>client</u></h1>
-    <p class="lede">Prompt Radar decides which buyer questions to track inside AI answers, and proves whether the brand is cited, per engine, every day. It rests on two things a rival can't assemble. <b>First, demand data mined from behind the client's own walls</b>, not the public keyword data everyone can buy. <b>Second, a selection method that mirrors how generative engines actually retrieve</b>, by observing the real question fan-out instead of guessing it. Private questions in, engine-tested prompts out, measured against a fixed baseline. Shown here on one feature of a data-governance platform: column-level lineage.</p>
+    <h1 class="h1">Prompt Radar Pro <u>(PRP)</u></h1>
+    <p class="lede"><b>Prompt Radar Pro (PRP)</b> is Novastacks' proprietary system for building the AI-prompt set we track for a client &mdash; deciding which buyer questions to follow inside AI answers, and proving whether the brand is cited, per engine, every day. <b>First, demand data mined from the client's first-party data intelligence</b>, not the public keyword data everyone can buy. <b>Second, a selection method that mirrors how generative engines actually retrieve</b>, by observing the real question fan-out instead of guessing it like most AEO visibility tools. In practice, it combines <b>deep product understanding, search demand, internet-scale question behavior, and a proprietary ranking model</b> to identify the prompts most likely to influence AI-driven discovery, consideration, and purchase.</p>
   </div>
 
   <!-- LAYER 1 · SOURCES -->
   <div class="layer">
-    <div class="lbar"><span class="lt">// <span class="n">stage_1</span> · data_sources</span><span class="cnt">MANY IN · <b>public + first-party walled-garden</b></span></div>
+    <div class="lbar"><span class="lt">// <span class="n">stage_1</span> · data_sources</span><span class="cnt">MANY IN · <b>public + first-party data intelligence</b></span></div>
     <div class="lbody">
-      <p class="subhd"><b>Objective:</b> assemble demand from every question-carrying source, weighted to the client's own first-party data. <b>Why it matters:</b> public keyword data is a blind spot. It shows only what is already high-volume and typed into a search box, missing the natural-language questions buyers put to AI and everything held behind the client's walls. Using primary, first-party information corrects that blind spot, and it cannot be copied because no competitor or tool can see it.</p>
+      <p class="subhd"><b>Objective:</b> assemble demand from every question-carrying source, weighted to the client's own first-party data. <b>Why it matters:</b> public keyword data is a blind spot. It shows only what is already high-volume and typed into a search box, missing the natural-language questions buyers put to AI and the signals inside the client's own first-party data intelligence. Drawing on that primary, first-party information corrects the blind spot and grounds every prompt in how this client's buyers actually ask.</p>
       <div class="lanes">
         <div class="lane">
           <div class="lanelab pub">PUBLIC<small>calibration layer</small></div>
@@ -195,7 +194,7 @@
           </div>
         </div>
         <div class="lane">
-          <div class="lanelab wall">WALLED&nbsp;GARDEN<small>the moat</small></div>
+          <div class="lanelab wall">FIRST-PARTY<small>data intelligence</small></div>
           <div class="nodes">
             <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 20l4-2 4 2" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.6"/></svg><div class="nx"><div class="nn">Sales-call transcripts</div><div class="nd">buyers' own words</div></div></div>
             <div class="node wall"><svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H9l-4 3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><div class="nx"><div class="nn">Support tickets</div><div class="nd">real problems, real terms</div></div></div>
