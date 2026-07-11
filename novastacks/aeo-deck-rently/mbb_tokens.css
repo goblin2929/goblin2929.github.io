@@ -76,7 +76,7 @@
   --fs-lede:         28px;    /* subhead under action title */
   --fs-body:         24px;    /* body floor */
   --fs-small:        20px;    /* table cells, captions where unavoidable */
-  --fs-eyebrow:      18px;    /* mono eyebrow / crumb */
+  --fs-eyebrow:      18px;    /* mono eyebrow / crumb — bolder + darker for legibility as the per-slide problem/section identifier (Tina, 2026-07-11) */
   --fs-footer:       20px;    /* page numbers, source line — sized to stay legible; the source/context line is the connective thread between slides (Tina, 2026-07-11) */
 
   /* =====================================================================
@@ -241,11 +241,11 @@ html, body {
 
 .t-eyebrow {
   font-family: var(--font-mono);
-  font-weight: 500;
+  font-weight: 600;
   font-size: var(--fs-eyebrow);
   letter-spacing: var(--tr-mono);
   text-transform: uppercase;
-  color: var(--ink-4);
+  color: var(--ink-3);
 }
 
 .t-eyebrow-accent {
