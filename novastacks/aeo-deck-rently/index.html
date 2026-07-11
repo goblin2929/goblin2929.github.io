@@ -334,6 +334,11 @@
   .sg-table.big td{font-size:27px;padding:17px 18px}
   .sg-table.big th{font-size:17px;padding:14px 18px}
   /* Proposal slide compression (2026-07-11): bullets made the Growth card taller */
+  /* Exec-summary compression (2026-07-11): 2-paragraph lede needs room for the 3 boxes + footer */
+  section[data-label="Rently — Executive Summary"] .subhead{font-size:22px;line-height:1.4;margin-top:10px;max-width:1640px}
+  section[data-label="Rently — Executive Summary"] .sg-probs{margin-top:16px !important}
+  section[data-label="Rently — Executive Summary"] .sg-prob .ph{font-size:22px}
+  section[data-label="Rently — Executive Summary"] .sg-prob .pp{font-size:19px;line-height:1.34}
   section[data-label="Rently — Proposal"] .partner{margin-top:14px;gap:32px}
   section[data-label="Rently — Proposal"] .pcard{padding:22px 28px}
   section[data-label="Rently — Proposal"] .pcard .pd{font-size:19px;line-height:1.35}
@@ -806,7 +811,8 @@
       <div class="crumb t-eyebrow anim">06 · Rently · Executive Summary</div>
       <h2 class="t-action long anim d1">AI already names Rently — but the two sites beneath the brand can't hold or convert that visibility.</h2>
       <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">AI already knows Rently: across the tested buyer questions it names the brand at every stage. But that visibility rests only on Rently's own pages, on two websites built to different depths, with a blog that earns almost no clicks and conversion tools buried in less-visible sections where AI cannot cite them. So renters hear about Rently from AI for now — but algorithms change frequently, and that makes the dominance fragile. More importantly, the money pages are not capturing their full traffic potential in search results or AI answers, limited by technical errors. The three problems below are, in order, the foundation, the content, and the packaging.</p>
+      <p class="t-lede subhead anim d1">AI already knows Rently: across the tested buyer questions, it names the brand at every stage. But that visibility rests on Rently's own blog pages, across two distinctly built websites of different depths. The blog covers extensive content, yet a significant share of those pages drives no clicks or leads, and the conversion tools are buried in less-visible sections where AI cannot cite them.</p>
+      <p class="t-lede subhead anim d1" style="margin-top:10px">So renters hear about Rently from AI for now — but algorithms change frequently, and that makes the dominance fragile. More importantly, the money pages are not capturing their full traffic potential in search results or AI answers, limited by technical errors. The three problems below are, in order, the foundation, the content, and the packaging.</p>
       <div class="sg-probs anim d2" style="grid-template-columns:repeat(3,1fr);gap:22px 40px">
         <div class="sg-prob">
           <div class="pn">01 · One Brand, Two Half-Built Sites</div>
@@ -887,7 +893,7 @@
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">06 · Rently · The Standing</div>
-      <h2 class="t-action anim d1">Rently's blog earns the AI citations — but almost none of the traffic.</h2>
+      <h2 class="t-action anim d1">Rently's blog earns AI citations, but many of its pages drive no direct organic traffic.</h2>
       <hr class="accent-rule anim d1">
       <p class="sg-cap anim d2">Singapore · monthly organic traffic by type (Ahrefs)</p>
       <table class="sg-table anim d2">
@@ -907,7 +913,8 @@
           <p class="sg-note" style="margin-top:0">Blog is just 402 of Rently's 2,949 SG visits (~14%) despite being the bulk of the pages and carrying the AI citations — the traffic is mostly branded. On non-branded discovery Rently (1,090) is already level with CardUp (1,216). Same paradox in the UAE: Rently out-cites the organic leader Keyper 70&nbsp;:&nbsp;21 despite ~10× less traffic.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · AHREFS (SINGAPORE, LIKE-FOR-LIKE) + 30 BUYER PROMPTS</span><span class="t-footer">19 / 26</span></div>
+      <p class="sg-note" style="margin-top:14px;color:var(--ink-4);font-size:15px">Directional read. Based on Ahrefs estimates and a sample of buyer prompts, without the client’s first-party Google Search Console data — figures are indicative, not confirmed.</p>
+      <div class="footer"><span class="t-footer">SRC · AHREFS + SAMPLE BUYER PROMPTS · DIRECTIONAL, NO GSC</span><span class="t-footer">19 / 26</span></div>
     </div>
   </section>
 
@@ -947,16 +954,16 @@
       <hr class="accent-rule anim d1">
       <div class="sg-cmp anim d2">
         <div class="sg-box good">
-          <p class="bl">Singapore · rently.sg — 3 clean product pages</p>
-          <div class="line">Earn Rewards</div>
-          <div class="line">Delay Rent</div>
-          <div class="line">Lower Move-In Costs · ~1 landing page</div>
+          <p class="bl">Singapore · rently.sg — 3 clean product-page paths</p>
+          <div class="line"><span style="font-family:var(--font-mono)">/earn-rewards</span></div>
+          <div class="line"><span style="font-family:var(--font-mono)">/delay-rent</span></div>
+          <div class="line"><span style="font-family:var(--font-mono)">/lower-move-in-costs</span></div>
         </div>
         <div class="sg-box bad">
-          <p class="bl">UAE · rently-uae.com — a different structure</p>
-          <div class="line miss">None of those 3 product pages</div>
-          <div class="line">87 scattered /uses landing pages instead</div>
-          <div class="line miss">No clean money pages, no structure shared with SG</div>
+          <p class="bl">UAE · rently-uae.com — a different path structure</p>
+          <div class="line miss">Those same 3 paths don&rsquo;t exist (all 404)</div>
+          <div class="line">Instead: <span style="font-family:var(--font-mono)">/rent-now-pay-later</span> + <span style="font-family:var(--font-mono)">/uses/&hellip;</span> &times; 87</div>
+          <div class="line miss">No shared paths with Singapore</div>
         </div>
       </div>
       <p class="sg-note anim d2" style="margin-top:16px">Mature multi-market brands keep the same page structure in every market — Traveloka runs <b>/id-id/hotel</b> and <b>/en-sg/hotel</b>, so the pages to optimise are always known. Rently's two markets are different sites, so there is no consistent set of money pages to optimise per market.</p>
