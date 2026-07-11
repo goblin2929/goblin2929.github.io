@@ -77,7 +77,7 @@
   --fs-body:         24px;    /* body floor */
   --fs-small:        20px;    /* table cells, captions where unavoidable */
   --fs-eyebrow:      18px;    /* mono eyebrow / crumb */
-  --fs-footer:       16px;    /* page numbers, source line */
+  --fs-footer:       20px;    /* page numbers, source line — sized to stay legible; the source/context line is the connective thread between slides (Tina, 2026-07-11) */
 
   /* =====================================================================
      TYPE — TRACKING / LEADING
@@ -259,11 +259,11 @@ html, body {
 
 .t-footer {
   font-family: var(--font-mono);
-  font-weight: 400;
+  font-weight: 500;
   font-size: var(--fs-footer);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-4);
+  color: var(--ink-3);
 }
 
 /* Numerals — tabular for tables and stat grids */
