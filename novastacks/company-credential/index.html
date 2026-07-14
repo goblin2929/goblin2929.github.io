@@ -360,6 +360,25 @@
   .logo-row.clients{margin-top:26px;gap:52px}
   .logo-row.clients img{height:42px;opacity:.72}
 
+  /* Scope strip — mono, dot-separated (agentic advisory) */
+  .scopestrip{font-family:var(--font-mono);font-size:19px;letter-spacing:.03em;color:var(--accent-deep);margin:20px 0 0;line-height:1.6}
+  .scopestrip .s{color:var(--ink-5);margin:0 9px}
+
+  /* Client logo marquee — infinite auto-scroll (agentic advisory) */
+  .marquee{margin-top:auto;padding-top:30px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .marquee .mq-lab{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0 0 20px}
+  .mq-window{overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%)}
+  .mtrack{display:flex;width:max-content;animation:mqscroll 32s linear infinite}
+  .mgroup{display:flex;align-items:center;flex:0 0 auto}
+  .mlogo{flex:0 0 460px;height:152px;display:flex;align-items:center;justify-content:center;margin-right:120px}
+  .mlogo img{width:100%;height:132px;object-fit:contain;filter:grayscale(1);opacity:.78}
+  /* logos authored for dark backgrounds (white/lime artwork) — invert so they read on paper */
+  .mlogo img.on-dark{filter:grayscale(1) invert(1);opacity:.72}
+  @keyframes mqscroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+  @media (prefers-reduced-motion:reduce){.mtrack{animation:none}}
+
 </style>
 </head>
 <body>
@@ -412,7 +431,7 @@
           <div class="ev" style="margin-top:auto">AI workshops · AI growth consultancy · Agentic workflow builds</div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">CORE SERVICES · THREE WAYS WE ENGAGE</span><span class="t-footer">02 / 12</span></div>
+      <div class="footer"><span class="t-footer">CORE SERVICES · THREE WAYS WE ENGAGE</span><span class="t-footer">02 / 13</span></div>
     </div>
   </section>
 
@@ -455,7 +474,7 @@
           </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">03 / 12</span></div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">03 / 13</span></div>
     </div>
   </section>
 
@@ -513,7 +532,7 @@
         </div>
       </div>
       <div class="callout anim d3"><span class="dot"></span><span>At market salaries this team is worth <b>~$500K/year combined</b> &mdash; you&rsquo;re not getting a junior team behind a senior sales face.</span></div>
-      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">04 / 12</span></div>
+      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">04 / 13</span></div>
     </div>
   </section>
 
@@ -556,7 +575,7 @@
         <span class="wm">January Capital</span>
         <span class="wm">Carro</span>
       </div>
-      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">05 / 12</span></div>
+      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">05 / 13</span></div>
     </div>
   </section>
 
@@ -585,15 +604,55 @@
         </div>
       </div>
       <div class="callout anim d3"><span class="dot"></span><span>The gap between those three forces is exactly where <b>Novastacks</b> sits.</span></div>
-      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">06 / 12</span></div>
+      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">06 / 13</span></div>
     </div>
   </section>
 
-  <!-- 07 CASE — GOFREIGHT RESULTS -->
+  <!-- 07 AGENTIC AI ADVISORY -->
+  <section data-label="Agentic AI Advisory">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · Agentic AI Advisory</div>
+      <h2 class="t-action anim d1">We advise on agentic AI: designing systems that plan, use tools and finish multi-step work with limited supervision.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">Chatbots plug in; agentic systems fail quietly when they are bolted on without design. Gartner projects 33% of enterprise software will embed agentic AI by 2028. We assess the operation, design the architecture, roadmap the rollout, and enable the team to run it without us.</p>
+      <div class="scopestrip anim d2">Agentic workflow design<span class="s">·</span>AI system architecture<span class="s">·</span>Tooling &amp; orchestration<span class="s">·</span>Team enablement</div>
+      <div class="marquee anim d2">
+        <p class="mq-lab">Advisory clients</p>
+        <div class="mq-window">
+          <div class="mtrack">
+            <div class="mgroup">
+              <div class="mlogo"><img src="assets/tiket-logo.svg" alt="Tiket.com"></div>
+              <div class="mlogo"><img class="on-dark" src="assets/marketing-society-logo.svg" alt="The Marketing Society"></div>
+              <div class="mlogo"><img src="assets/smu-academy-logo.png" alt="SMU Academy"></div>
+            </div>
+            <div class="mgroup" aria-hidden="true">
+              <div class="mlogo"><img src="assets/tiket-logo.svg" alt=""></div>
+              <div class="mlogo"><img class="on-dark" src="assets/marketing-society-logo.svg" alt=""></div>
+              <div class="mlogo"><img src="assets/smu-academy-logo.png" alt=""></div>
+            </div>
+            <div class="mgroup" aria-hidden="true">
+              <div class="mlogo"><img src="assets/tiket-logo.svg" alt=""></div>
+              <div class="mlogo"><img class="on-dark" src="assets/marketing-society-logo.svg" alt=""></div>
+              <div class="mlogo"><img src="assets/smu-academy-logo.png" alt=""></div>
+            </div>
+            <div class="mgroup" aria-hidden="true">
+              <div class="mlogo"><img src="assets/tiket-logo.svg" alt=""></div>
+              <div class="mlogo"><img class="on-dark" src="assets/marketing-society-logo.svg" alt=""></div>
+              <div class="mlogo"><img src="assets/smu-academy-logo.png" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · GARTNER · NOVASTACKS ADVISORY ENGAGEMENTS</span><span class="t-footer">07 / 13</span></div>
+    </div>
+  </section>
+
+  <!-- 08 CASE — GOFREIGHT RESULTS -->
   <section data-label="Case — GoFreight Results">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">06 · Client Case · GoFreight &mdash; Freight-Tech SaaS</div>
+      <div class="crumb t-eyebrow anim">07 · Client Case · GoFreight &mdash; Freight-Tech SaaS</div>
       <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">In three months we took a freight-tech SaaS from invisible to fastest-rising in AI answers. <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
       <hr class="accent-rule anim d1">
       <div class="stat-grid anim d2">
@@ -602,7 +661,7 @@
         <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">&rarr;</span> 8.4</div><div class="sl">Page 3 &rarr; page 1</div></div>
         <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">07 / 12</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">08 / 13</span></div>
     </div>
   </section>
 
@@ -610,7 +669,7 @@
   <section data-label="The Source &amp; Echo Method">
     <div class="mslide bleed method-grid">
       <div class="method-left">
-        <div class="crumb t-eyebrow anim">06 · How We Did It · The Source &amp; Echo Method</div>
+        <div class="crumb t-eyebrow anim">07 · How We Did It · The Source &amp; Echo Method</div>
         <h2 class="t-action anim d1">The Source &amp; Echo Method is Novastacks&rsquo; own AEO system.</h2>
         <hr class="accent-rule anim d1">
         <div class="anim d2" style="display:flex;flex-direction:column;gap:16px">
@@ -624,7 +683,7 @@
           <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Echo Network</span><span class="sysnum">SYS·04</span></div>
           <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Proof Loop</span><span class="sysnum">SYS·05</span></div>
         </div>
-        <div class="footer"><span class="t-footer">METHOD · THE SOURCE &amp; ECHO METHOD · FIVE SYSTEMS</span><span class="t-footer">08 / 12</span></div>
+        <div class="footer"><span class="t-footer">METHOD · THE SOURCE &amp; ECHO METHOD · FIVE SYSTEMS</span><span class="t-footer">09 / 13</span></div>
       </div>
       <div class="method-right anim d2">
         <div class="dia"><img src="assets/full-system-light.png" alt="The Source &amp; Echo Method system diagram"></div>
@@ -637,7 +696,7 @@
   <section data-label="Case — GoFreight Proof">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">06 · Client Case · GoFreight &mdash; Proof</div>
+      <div class="crumb t-eyebrow anim">07 · Client Case · GoFreight &mdash; Proof</div>
       <h2 class="t-action anim d1">The CEO saw it in the pipeline before he saw it in a dashboard.</h2>
       <hr class="accent-rule anim d1">
       <div class="proof anim d2">
@@ -656,7 +715,7 @@
           <p class="cap">AI visibility climbing across every engine &mdash; <b>Google AI Overviews, Perplexity and ChatGPT</b> &mdash; tracked live in NovaLens through the engagement.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">09 / 12</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">10 / 13</span></div>
     </div>
   </section>
 
@@ -664,13 +723,13 @@
   <section data-label="Case — GoFreight Buyer">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">06 · Client Case · GoFreight &mdash; The Buyer&rsquo;s Words</div>
+      <div class="crumb t-eyebrow anim">07 · Client Case · GoFreight &mdash; The Buyer&rsquo;s Words</div>
       <div class="quote-wrap">
         <p class="t-h2 anim d1" style="color:var(--ink-3);font-weight:500;max-width:1500px">1 of the client&rsquo;s 6 most recent enterprise wins started with an AI shortlist.</p>
         <p class="bigq anim d1">&ldquo;I had a conversation with AI&hellip; it narrowed it down to a top five. <em>You guys were a top two.</em>&rdquo;</p>
         <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
       </div>
-      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">10 / 12</span></div>
+      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">11 / 13</span></div>
     </div>
   </section>
 
@@ -678,7 +737,7 @@
   <section data-label="AI Transformation">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">07 · AI Transformation</div>
+      <div class="crumb t-eyebrow anim">08 · AI Transformation</div>
       <h2 class="t-action anim d1">How we run AI transformation &mdash; three layers, from tech stack to future capability.</h2>
       <hr class="accent-rule anim d1">
       <p class="t-lede subhead anim d1">Several mid-market engagements with non-technical and marketing teams &mdash; built around real workflows, Claude-partnered.</p>
@@ -702,10 +761,10 @@
       <div class="logo-row clients anim d3">
         <span class="lab">Worked with</span>
         <img src="assets/smu-academy-logo.png" alt="SMU Academy">
-        <img src="assets/marketing-society-logo.svg" alt="The Marketing Society">
+        <img class="on-dark" src="assets/marketing-society-logo.svg" alt="The Marketing Society">
         <img src="assets/tiket-logo.svg" alt="Tiket.com">
       </div>
-      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">11 / 12</span></div>
+      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">12 / 13</span></div>
     </div>
   </section>
 
@@ -713,7 +772,7 @@
   <section class="dark" data-label="Close">
     <div class="mslide dark">
       <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">08 · Close</div>
+      <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">09 · Close</div>
       <div class="close-wrap">
         <div>
           <div class="close-q anim d1">Let&rsquo;s build something that compounds together.</div>
@@ -727,7 +786,7 @@
           </div>
           <div class="footer" style="margin-top:40px">
             <span class="t-footer" style="color:var(--dark-fg-2)">NOVASTACKS · AI-NATIVE GROWTH PARTNER</span>
-            <span class="t-footer" style="color:var(--accent)">12 / 12</span>
+            <span class="t-footer" style="color:var(--accent)">13 / 13</span>
           </div>
         </div>
       </div>
