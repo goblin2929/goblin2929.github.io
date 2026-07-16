@@ -1,0 +1,1949 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novastacks — AEO Deck (MBB)</title>
+<meta property="og:title" content="Novastacks - Leading SEO &amp; AEO Service">
+<meta property="og:type" content="website">
+<meta name="twitter:title" content="Novastacks - Leading SEO &amp; AEO Service">
+<link rel="stylesheet" href="mbb_tokens.css">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;background:#1a1a1a}
+  deck-stage:not(:defined){visibility:hidden}
+
+  /* ---- Slide shells ---- */
+  .mslide{
+    height:100%;background:var(--paper);color:var(--ink-2);
+    padding:var(--margin-y) var(--margin-x);
+    display:flex;flex-direction:column;overflow:hidden;position:relative;
+  }
+  .corner-logo{position:absolute;top:var(--margin-y);right:var(--margin-x);height:38px;width:auto;z-index:5}
+  .mslide.bleed{padding:0;display:grid}
+  .mslide.dark{background:var(--dark-bg);color:var(--dark-fg)}
+
+  .crumb{margin-bottom:22px}
+  /* Category tag → prominent filled chip (bigger than h3), so the section topic reads at a glance */
+  .crumb.t-eyebrow{
+    display:inline-block;
+    font-size:34px;font-weight:600;
+    letter-spacing:.03em;line-height:1.12;
+    color:var(--accent-deep);
+    background:var(--accent-tint);
+    padding:9px 22px;border-radius:10px;
+  }
+  .mslide.dark .crumb.t-eyebrow,.sg-div .crumb.t-eyebrow{
+    color:#fff;background:rgba(1,170,193,.24);
+  }
+  .accent-rule{border:0;border-top:var(--rule-w-strong) solid var(--accent);width:64px;margin:24px 0}
+  .subhead{max-width:1320px;margin-top:14px}
+  .t-action.long{font-size:52px}
+
+  /* Footer */
+  .footer{
+    margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;
+    padding-top:18px;border-top:var(--rule-w-hair) solid var(--rule-hair);
+  }
+  .dark .footer{border-top-color:var(--dark-rule)}
+  .dark .footer .t-footer{color:var(--dark-fg-2)}
+  .footer .t-footer{white-space:nowrap}
+
+  /* ---- Cover ---- */
+  .cover-grid{grid-template-columns:1.12fr 1fr}
+  .cover-left{padding:var(--margin-y) var(--margin-x);display:flex;flex-direction:column;justify-content:space-between}
+  .cover-logo{height:76px;width:auto;align-self:flex-start}
+  .cover-right{background:var(--ink-1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;position:relative}
+  .cover-right .rtag{font-family:var(--font-display);font-weight:600;font-size:60px;line-height:1.05;letter-spacing:-.02em;color:var(--dark-fg);text-align:center;margin:0}
+  .cover-right .ce{position:absolute;left:48px;bottom:44px;color:var(--dark-fg-2)}
+  .cover-right .tealrule{border:0;border-top:2px solid var(--accent);width:120px;margin:0}
+  .cover-right .ct{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-fg-2)}
+
+  /* ---- Charts (slide 2) ---- */
+  .chart-row{margin-top:28px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    display:grid;grid-template-columns:repeat(3,1fr);flex:1}
+  .chart-col{padding:26px 36px;display:flex;flex-direction:column;
+    border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .chart-col:last-child{border-right:0}
+  .chart-col .ce{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin:0 0 auto}
+  .chart-col .cw{flex:1;display:flex;align-items:flex-end;justify-content:center;margin:14px 0;min-height:0}
+  .chart-col .cw svg{max-height:230px;width:100%}
+  .chart-col .claim{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);line-height:1.18;letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance}
+  .chart-col .src{font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin:0}
+  .subhead .pq{display:block;font-family:var(--font-display);font-weight:500;font-size:26px;color:var(--accent-deep);letter-spacing:-.01em;margin:8px 0 0}
+
+  /* ---- SEO vs AEO split (slide 3) ---- */
+  .vs-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+  .vs-half{padding:64px 72px 56px;display:flex;flex-direction:column;gap:22px;min-width:0}
+  .vs-half.light{background:var(--paper);border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .vs-half.dark{background:var(--dark-bg);color:var(--dark-fg)}
+  .vs-half .vh{font-family:var(--font-display);font-weight:600;font-size:42px;letter-spacing:-.02em;line-height:1.05;margin:0;color:var(--ink-1)}
+  .vs-half.dark .vh{color:var(--dark-fg)}
+  .vs-half .vshot{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);overflow:hidden}
+  .vs-half.dark .vshot{border-color:var(--dark-rule);background:#0d0d0d}
+  .vs-half .vshot img{max-width:100%;max-height:100%;object-fit:contain}
+  .vs-half .vcap2{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:0}
+  .vs-half.dark .vcap2{color:var(--dark-fg-2)}
+  .vs-half .vfoot{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}
+  .vs-half.dark .vfoot{color:var(--dark-fg-2)}
+
+  /* ---- Venn (slide 3) ---- */
+  .venn-grid{margin-top:32px;flex:1;display:grid;grid-template-columns:720px 1fr;gap:72px;align-items:center}
+  .venn{position:relative;width:640px;height:520px;margin:0 auto}
+  .venn .c{position:absolute;width:360px;height:360px;border-radius:50%;
+    border:1.5px solid var(--ink-3);display:flex;align-items:center;justify-content:center;text-align:center}
+  .venn .c1{top:0;left:140px}
+  .venn .c2{bottom:0;left:0}
+  .venn .c3{bottom:0;right:0}
+  .venn .c .lab{font-family:var(--font-display);font-weight:600;font-size:25px;color:var(--ink-1);line-height:1.15;width:140px}
+  .venn .c1 .lab{margin-bottom:140px}
+  .venn .c2 .lab{margin:140px 120px 0 0}
+  .venn .c3 .lab{margin:140px 0 0 120px}
+  .venn .core{position:absolute;width:128px;height:128px;border-radius:50%;left:256px;top:196px;
+    background:var(--accent);display:flex;align-items:center;justify-content:center;text-align:center;z-index:3}
+  .venn .core span{font-family:var(--font-mono);font-size:19px;font-weight:500;color:#fff;letter-spacing:.04em;line-height:1.2}
+  .venn-legend{border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .venn-legend .row{padding:26px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .venn-legend .row .n{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .venn-legend .row .d{font-family:var(--font-body);font-size:22px;color:var(--ink-3);margin:8px 0 0;line-height:1.35}
+  /* slide 3 convergence claim */
+  .venn-claim{display:flex;flex-direction:column}
+  .venn-claim .vrow{display:flex;align-items:baseline;gap:24px;padding:20px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .venn-claim .vrow:first-child{border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .venn-claim .vrow .vnum{font-family:var(--font-mono);font-size:18px;letter-spacing:.1em;color:var(--accent-deep)}
+  .venn-claim .vrow .vname{font-family:var(--font-display);font-weight:600;font-size:34px;color:var(--ink-1);letter-spacing:-.01em}
+  .venn-claim .vpayoff{font-family:var(--font-display);font-weight:500;font-size:32px;line-height:1.2;letter-spacing:-.01em;color:var(--accent-deep);margin:32px 0 0;text-wrap:balance}
+
+  /* ---- Team (slide 4) ---- */
+  .team{margin-top:44px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    display:grid;grid-template-columns:1fr 1fr}
+  .team .prof{padding:40px 44px;display:grid;grid-template-columns:240px 1fr;gap:36px;align-items:start}
+  .team .prof:first-child{border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .team .photo{width:240px;height:296px;background:var(--paper-deep) center/cover;
+    border:var(--rule-w-hair) solid var(--rule-hair);filter:saturate(.82)}
+  .team .pname{font-family:var(--font-display);font-weight:600;font-size:38px;color:var(--ink-1);margin:0;letter-spacing:-.02em}
+  .team .prole{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:10px 0 0}
+  .team .cred{margin:24px 0 0;display:flex;flex-direction:column;gap:16px}
+  .team .cred p{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-3);margin:0}
+  .team .cred p b{color:var(--ink-1);font-weight:600}
+  .logo-row{display:flex;align-items:center;gap:42px;margin-top:48px;padding-top:24px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .logo-row .lab{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+  .logo-row img{height:30px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.55}
+  .logo-row .wm{font-family:var(--font-display);font-weight:600;font-size:25px;color:var(--ink-3);letter-spacing:-.01em}
+
+  /* ---- Method ranked list (slide 5) ---- */
+  .ranked{margin-top:12px;border-top:var(--rule-w-strong) solid var(--ink-1);flex:1;display:flex;flex-direction:column;justify-content:space-between}
+  .rrow{display:grid;grid-template-columns:300px 1fr;gap:44px;padding:5px 0;
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start}
+  .rrow .rname{display:flex;flex-direction:column;gap:10px}
+  .rrow .rname .nm{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);letter-spacing:-.01em;line-height:1.1}
+  .rrow .rname .tag{align-self:flex-start;white-space:nowrap;font-family:var(--font-mono);font-size:15px;font-weight:500;
+    letter-spacing:.06em;color:var(--paper);background:var(--ink-1);padding:4px 9px}
+  .rrow .rname .tag.us{background:var(--accent-deep)}
+  .rrow .sentence{font-family:var(--font-body);font-size:21px;line-height:1.36;color:var(--ink-2);margin:0}
+  .rrow .strip{font-family:var(--font-mono);font-size:16px;letter-spacing:.03em;color:var(--accent-deep);margin:6px 0 0;line-height:1.4}
+  .rrow .strip .s{color:var(--ink-5);margin:0 7px}
+
+  /* ---- Method: featured USP + supporting (slide 5) ---- */
+  .method2{margin-top:14px;flex:1;display:grid;grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr);gap:50px}
+  .feat{background:var(--accent-tint);border-top:4px solid var(--accent);padding:40px 42px;display:flex;flex-direction:column}
+  .feat .fe{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:0}
+  .feat .fn{font-family:var(--font-display);font-weight:600;font-size:52px;color:var(--ink-1);letter-spacing:-.02em;margin:16px 0 0;line-height:1}
+  .feat .fs{font-family:var(--font-body);font-size:25px;line-height:1.42;color:var(--ink-2);margin:22px 0 0}
+  .feat .ffeed{font-family:var(--font-body);font-size:22px;line-height:1.4;color:var(--ink-3);margin:20px 0 0;padding-top:20px;border-top:1px solid rgba(1,170,193,.3)}
+  .feat .ffeed b{color:var(--ink-1);font-weight:600}
+  .feat .fstrip{font-family:var(--font-mono);font-size:17px;letter-spacing:.03em;color:var(--accent-deep);margin:auto 0 0;padding-top:24px;line-height:1.6}
+  .feat .fstrip .s{color:var(--ink-5);margin:0 7px}
+  .supp{display:flex;flex-direction:column;border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .srow{display:grid;grid-template-columns:118px 1fr;gap:28px;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start;flex:1}
+  .srow .stag{font-family:var(--font-mono);font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);margin-top:7px}
+  .srow .sname{font-family:var(--font-display);font-weight:600;font-size:29px;color:var(--ink-1);letter-spacing:-.01em;margin:0;line-height:1.05}
+  .srow .sbadge{display:inline-block;white-space:nowrap;font-family:var(--font-mono);font-size:14px;letter-spacing:.04em;color:var(--paper);background:var(--accent-deep);padding:3px 9px;margin:9px 0 0}
+  .srow .sline{font-family:var(--font-body);font-size:22px;line-height:1.34;color:var(--ink-3);margin:10px 0 0}
+  .srow .sstrip{font-family:var(--font-mono);font-size:16px;letter-spacing:.02em;color:var(--ink-4);margin:9px 0 0}
+  .srow .sstrip .s{color:var(--ink-5);margin:0 6px}
+
+
+  /* ---- Three-up (slide 7) ---- */
+  .three-up{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .three-up.fill{flex:1;margin-top:44px}
+  .three-up.fill .card3{min-height:0}
+  .card3{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);
+    border-top:4px solid var(--accent);padding:36px 32px;display:flex;flex-direction:column;gap:18px;min-height:300px}
+  .card3 .n{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
+  .card3 .h{font-family:var(--font-display);font-weight:600;font-size:32px;color:var(--ink-1);margin:0;letter-spacing:-.01em;line-height:1.12}
+  .card3 .d{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.4;margin:auto 0 0}
+  .card3 .ev{font-family:var(--font-mono);font-size:17px;letter-spacing:.04em;color:var(--accent-deep);line-height:1.4;margin:22px 0 0;padding-top:18px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .card3 .dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin:0 3px 0 5px;vertical-align:baseline}
+  .card3 .dot.g{background:var(--good)}
+  .card3 .dot.a{background:var(--warn)}
+  .card3 .dot.r{background:var(--bad)}
+
+  /* ---- Stat grid (slide 8) ---- */
+  .stat-grid{margin-top:56px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair);display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:40px 30px;border-right:var(--rule-w-hair) solid var(--rule-hair);display:flex;flex-direction:column;gap:16px}
+  .stat:last-child{border-right:0}
+  .stat .se{font-family:var(--font-mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4)}
+  .stat .sn{font-family:var(--font-display);font-weight:600;font-size:var(--fs-stat);letter-spacing:var(--tr-display);line-height:1;color:var(--ink-1);font-feature-settings:"tnum" 1,"lnum" 1}
+  .stat .sn.range{font-size:58px}
+  .stat .sn .ar{color:var(--accent-deep)}
+  .stat .sl{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.35}
+
+  /* ---- Proof / evidence (slide 9) ---- */
+  .proof{margin-top:16px;flex:1;display:grid;grid-template-columns:0.88fr 1.12fr;gap:56px;align-items:center}
+  .artifact{display:flex;flex-direction:column}
+  .artifact .alabel{font-family:var(--font-mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 14px}
+  .frame{border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);overflow:hidden}
+  .frame.email img{display:block;width:100%;height:auto;padding:16px 18px}
+  .frame.answer img{display:block;width:100%;height:380px;object-fit:cover;object-position:top center}
+  .frame.shot{background:var(--paper-pure);padding:20px 22px}
+  .frame.shot img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain}
+  .frame.chart{background:var(--paper-pure);padding:26px 30px 20px}
+  .frame.chart svg{display:block;width:100%;height:auto}
+  .artifact .cap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:18px 0 0}
+  .artifact .cap b{color:var(--ink-1);font-weight:600}
+
+  /* ---- System breakout slides ---- */
+  .sysslide .crumb{margin-bottom:18px}
+  .sysslide .t-action{margin:8px 0 0}
+  .sysslide .accent-rule{margin:16px 0}
+  .sysslide .subhead{margin:10px 0 0}
+  .sysslide .feat{padding:32px 42px}
+  .sysslide .cmp{margin-top:14px}
+  .sysslide .crow{padding:12px 0}
+  .sysslide .fstrip{padding-top:16px}
+  .sysslide .fbadge{margin:0 0 10px}
+  .sysgrid{margin-top:24px;flex:1;display:grid;grid-template-columns:0.88fr 1.12fr;gap:48px;align-content:start}
+  .sysgrid .feat{min-height:0}
+  .sysviz{display:flex;flex-direction:column;min-width:0}
+  .sysviz .vframe{border:var(--rule-w-hair) solid var(--rule-hair);background:#020617;padding:14px;display:flex;align-items:center;justify-content:center}
+  .sysviz .vframe img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain}
+  .sysviz .vcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:16px 0 0}
+  .sysviz .vcap b{color:var(--ink-1);font-weight:600}
+  .feat .cmp{margin-top:20px;display:flex;flex-direction:column}
+  .feat .crow{padding:16px 0;border-top:1px solid rgba(1,170,193,.30)}
+  .feat .crow .cl{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0 0 6px}
+  .feat .crow.us .cl{color:var(--accent-deep)}
+  .feat .crow .ct{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-3);margin:0}
+  .feat .crow.us .ct{color:var(--ink-1);font-weight:500}
+  .feat .fbadge{align-self:flex-start;white-space:nowrap;font-family:var(--font-mono);font-size:15px;letter-spacing:.06em;color:var(--paper);background:var(--accent-deep);padding:4px 10px;margin:0 0 14px}
+
+  /* ---- Product lockup (system nameplates, slides 6-11) ---- */
+  .plock{display:flex;align-items:center;gap:18px;margin:14px 0 0}
+  .plock .pmark{flex:0 0 auto}
+  .plock .pname{font-family:var(--font-display);font-weight:700;font-size:44px;color:var(--ink-1);letter-spacing:-.015em;line-height:1;margin:0}
+  .plock .pchip{font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.08em;color:var(--accent-deep);border:1px solid var(--accent-deep);border-radius:var(--radius-1);padding:4px 9px;white-space:nowrap}
+  .pmark{position:relative;display:inline-block;width:32px;height:32px;border:1.5px solid var(--ink-1);border-radius:var(--radius-1)}
+  .pmark::after{content:"";position:absolute;right:4px;bottom:4px;width:12px;height:12px;background:var(--accent);border-radius:1px}
+  .pmark.sm{width:18px;height:18px;border-width:1.5px}
+  .pmark.sm::after{right:2px;bottom:2px;width:7px;height:7px}
+
+  /* ---- Method overview split-bleed (slide 6) ---- */
+  .method-grid{grid-template-columns:42fr 58fr}
+  .method-left{padding:var(--margin-y) 56px var(--margin-y) var(--margin-x);display:flex;flex-direction:column;min-width:0;border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .method-left .t-action{font-size:50px;margin:12px 0 0}
+  .method-left .accent-rule{margin:18px 0}
+  .method-left .t-lede{font-size:25px}
+  .method-right{background:var(--paper-pure);display:flex;flex-direction:column;min-width:0}
+  .method-right .dia{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:36px 44px 20px}
+  .method-right .dia img{width:100%;height:100%;object-fit:contain}
+  .method-right .dcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:0;padding:18px 44px 28px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .syslist{margin-top:24px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .syslist .srow2{display:flex;align-items:center;gap:16px;padding:7px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .syslist .sysnm{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);letter-spacing:-.01em}
+  .syslist .sysnum{margin-left:auto;font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;color:var(--accent-deep)}
+
+  /* ---- Day-to-day NovaLens shots ---- */
+  .dayshots{margin-top:36px;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-content:start}
+  .dayshots .dshot{display:flex;flex-direction:column}
+  .dayshots .dshot img{display:block;width:100%;height:auto;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .dayshots .dcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:16px 0 0}
+  .dayshots .dcap b{color:var(--ink-1);font-weight:600}
+
+  /* ---- Big quote (slide 10) ---- */
+  .quote-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:40px}
+  .bigq{font-family:var(--font-display);font-weight:500;font-size:84px;letter-spacing:-.03em;line-height:1.06;color:var(--ink-1);margin:0;max-width:1640px;text-wrap:balance}
+  .bigq em{font-style:normal;color:var(--accent-deep)}
+  .qattr{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0}
+
+  /* ---- Partner (slide 11) ---- */
+  .partner{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-content:start}
+  .pcard{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);padding:30px 40px;display:flex;flex-direction:column}
+  .pcard.lead{border-top:4px solid var(--accent)}
+  .pcard .pk{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0}
+  .pcard h3{font-family:var(--font-display);font-weight:600;font-size:38px;color:var(--ink-1);margin:14px 0 0;letter-spacing:-.02em}
+  .pcard .pd{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.4;margin:18px 0 0}
+  .pcard .price{margin-top:30px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .prow{display:flex;justify-content:space-between;align-items:baseline;gap:32px;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .prow .tier{font-family:var(--font-mono);font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);white-space:nowrap}
+  .pcard .prow .scope{font-family:var(--font-body);font-size:21px;color:var(--ink-2);line-height:1.35;text-align:right;max-width:420px}
+  .pcard .single{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);letter-spacing:-.02em;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .note{font-family:var(--font-mono);font-size:17px;letter-spacing:.04em;color:var(--ink-4);margin:14px 0 0}
+  /* three-offer variant */
+  .partner.three{grid-template-columns:repeat(3,1fr);gap:36px}
+  .partner.three .pcard{padding:28px 30px}
+  .partner.three .pcard h3{font-size:29px;margin:12px 0 0}
+  .partner.three .pcard .pd{font-size:21px}
+  .partner.three .prow{gap:20px;padding:15px 0}
+  .partner.three .prow .scope{font-size:19px;max-width:none}
+  .partner.three .pcard .single{font-size:25px;padding:15px 0}
+  .partner.three .pcard .note{font-size:15px}
+  .partner.three .pcard .price{margin-top:22px}
+  .pcard .pbadge{align-self:flex-start;font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.12em;color:var(--paper);background:var(--accent-deep);padding:4px 10px;border-radius:var(--radius-1);margin:0 0 14px}
+  .pcard .single .tbd{font-family:var(--font-mono);font-size:22px;letter-spacing:.08em;color:var(--accent-deep)}
+
+  /* ---- Partner card tags ---- */
+  .pcard .ptitle{font-family:var(--font-display);font-weight:600;font-size:33px;color:var(--ink-1);margin:0;letter-spacing:-.015em;line-height:1.12}
+  .pcard .psub{font-family:var(--font-body);font-weight:600;font-size:21px;color:var(--ink-3);margin:14px 0 0;line-height:1.3}
+  .pprice{margin-top:auto;padding-top:20px;border-top:var(--rule-w-hair) solid var(--rule-hair);display:flex;flex-direction:column;gap:4px}
+  .pprice .plab{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+  .pprice .pnum{font-family:var(--font-display);font-weight:600;font-size:38px;letter-spacing:-.02em;color:var(--ink-1);font-feature-settings:"tnum" 1}
+  .pprice .pnum .pmo{font-size:21px;font-weight:500;color:var(--ink-3)}
+  .ptags{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+  .ptag{font-family:var(--font-mono);font-size:15px;letter-spacing:.04em;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:5px 11px;border-radius:var(--radius-1);white-space:nowrap}
+  .ptag.em{background:var(--accent-deep);color:var(--paper)}
+
+  /* ---- Close (slide 12) ---- */
+  .close-wrap{height:100%;display:flex;flex-direction:column;justify-content:space-between}
+  .close-q{font-family:var(--font-display);font-weight:500;font-size:84px;letter-spacing:-.03em;line-height:1.04;color:var(--dark-fg);max-width:1560px;text-wrap:balance}
+  .close-q em{font-style:normal;color:var(--accent)}
+  .cta-btn{display:inline-block;background:var(--accent);color:#08131a;font-family:var(--font-display);font-weight:600;font-size:26px;letter-spacing:-.01em;padding:20px 44px;border-radius:var(--radius-1);text-decoration:none;margin-top:44px}
+  .cta-btn:hover{background:var(--accent-deep);color:var(--dark-fg)}
+    .close-contact{display:flex;gap:26px;align-items:baseline;font-family:var(--font-mono);font-size:26px;color:var(--dark-fg);letter-spacing:.02em;flex-wrap:wrap;margin-top:30px}
+  .close-contact .sep{color:var(--accent)}
+  .close-contact .nm{color:var(--dark-fg);white-space:nowrap}
+
+  /* ---- Entrance (visible base; animate from hidden) ---- */
+  @media (prefers-reduced-motion:no-preference){
+    [data-deck-active] .anim{animation:mrise .55s cubic-bezier(.4,0,.2,1) both}
+    [data-deck-active] .anim.d1{animation-delay:.07s}
+    [data-deck-active] .anim.d2{animation-delay:.14s}
+    [data-deck-active] .anim.d3{animation-delay:.21s}
+    @keyframes mrise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  }
+
+  /* ============ Singtel live-diagnosis section ============ */
+  /* Section divider */
+  .sg-div{background:var(--dark-bg);color:var(--dark-fg);display:flex;flex-direction:column;justify-content:center}
+  .sg-div .crumb{color:var(--accent)}
+  .sg-div h2{font-family:var(--font-display);font-weight:600;font-size:104px;line-height:1.02;letter-spacing:-.03em;color:var(--dark-fg);margin:0;max-width:1500px}
+  .sg-div .subhead{color:var(--dark-fg-2);max-width:1180px}
+  .sg-div .footer{border-top-color:var(--dark-rule)}
+  .sg-div .footer .t-footer{color:var(--dark-fg-2)}
+  .sg-logo-dark{position:absolute;top:var(--margin-y);right:var(--margin-x);height:34px;width:auto;z-index:5}
+
+  /* MBB data tables */
+  .sg-table{width:100%;border-collapse:collapse;font-family:var(--font-body)}
+  .sg-cap{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0 0 12px}
+  .sg-table th{font-family:var(--font-mono);font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);text-align:left;font-weight:500;padding:11px 16px;border-bottom:var(--rule-w-strong) solid var(--rule-strong)}
+  .sg-table td{font-size:21px;color:var(--ink-2);padding:12px 16px;border-bottom:var(--rule-w-hair) solid var(--rule-hair);vertical-align:middle;line-height:1.28}
+  .sg-table th.num,.sg-table td.num{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .sg-table tr.hl td{background:var(--accent-tint);color:var(--ink-1);font-weight:600}
+  .sg-table tr.hl td.num{color:var(--accent-deep)}
+  .sg-table .pos{color:var(--good);font-weight:600}
+  .sg-table .neg{color:var(--bad);font-weight:600}
+  .sg-table .amb{color:var(--warn);font-weight:600}
+  .sg-table.compact td{padding:9px 14px;font-size:19px}
+  .sg-table.compact th{padding:9px 14px}
+  /* SingSaver sponsored-link table (slide 28) — dense: 7 rows + note + callout */
+  .ss-tbl.compact td{padding:9px 14px;font-size:20px}
+  .ss-tbl td .q{color:var(--ink-4);font-weight:400}
+  .ss-tbl tr.hl td .q{color:var(--ink-3)}
+  .ss-tbl td b{color:var(--ink-1)}
+
+  /* 4-problem grid (exec summary) */
+  .sg-probs{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 44px;margin-top:26px}
+  .sg-prob{padding-left:22px;border-left:3px solid var(--accent)}
+  .sg-prob .pn{display:inline-block;font-family:var(--font-mono);font-size:22px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-tint);padding:4px 12px;border-radius:6px;margin-bottom:4px}
+  .sg-prob .ph{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);line-height:1.14;letter-spacing:-.01em;margin:6px 0 7px;text-wrap:balance}
+  .sg-prob .pp{font-size:19px;color:var(--ink-3);line-height:1.34;margin:0}
+  .sg-prob .pfix{font-size:18px;color:var(--accent-deep);font-weight:600;margin:8px 0 0}
+
+  /* two tables / two columns side by side */
+  .sg-two{display:grid;grid-template-columns:1fr 1fr;gap:54px;margin-top:14px;flex:1;min-height:0;align-content:start}
+  .sg-two.wide-l{grid-template-columns:1.25fr 1fr}
+  .sg-col{display:flex;flex-direction:column;min-height:0}
+  .sg-note{font-size:20px;color:var(--ink-3);line-height:1.4;margin:20px 0 0;max-width:1500px}
+  .sg-note b{color:var(--ink-1)}
+
+  /* strength callouts */
+  .sg-stats{display:flex;gap:56px;margin-top:6px}
+  .sg-stat .sn{font-family:var(--font-display);font-weight:600;font-size:62px;line-height:1;letter-spacing:-.02em;color:var(--accent-deep)}
+  .sg-stat .sl{font-size:19px;color:var(--ink-3);line-height:1.3;margin-top:8px;max-width:320px}
+
+  /* what AI sees vs what buyers see (before/after) */
+  .sg-cmp{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:14px}
+  .sg-box{border-radius:var(--radius-2);padding:26px 30px;display:flex;flex-direction:column}
+  .sg-box .bl{font-family:var(--font-mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px}
+  .sg-box .line{font-size:22px;padding:9px 0;border-bottom:1px dashed rgba(0,0,0,.14);color:var(--ink-2)}
+  .sg-box .line:last-child{border-bottom:0}
+  .sg-box .miss{color:var(--bad);font-style:italic}
+  .sg-box.bad{background:var(--bad-tint)}
+  .sg-box.bad .bl{color:var(--bad)}
+  .sg-box.good{background:var(--good-tint)}
+  .sg-box.good .bl{color:var(--good)}
+
+  /* plan columns */
+  .sg-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:18px;border-top:var(--rule-w-strong) solid var(--rule-strong);flex:1}
+  .sg-pcol{padding:24px 32px 8px;border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .sg-pcol:last-child{border-right:0}
+  .sg-pcol h3{font-family:var(--font-mono);font-size:17px;letter-spacing:.10em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 18px}
+  .sg-pcol li{font-size:20px;color:var(--ink-2);line-height:1.34;margin-bottom:16px;list-style:none;padding-left:22px;position:relative}
+  .sg-pcol li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;background:var(--accent);border-radius:1px}
+  .sg-pcol ul{margin:0;padding:0}
+  .sg-pcol li b{color:var(--ink-1)}
+
+  /* ---- Sentiment funnel slide ---- */
+  .fnl{display:flex;align-items:stretch;margin-top:20px;flex:1;min-height:0}
+  .fnl-stage{flex:1;display:flex;flex-direction:column;background:var(--paper-pure);
+    border:var(--rule-w-hair) solid var(--rule-hair);border-radius:var(--radius-2);padding:20px 22px 18px}
+  .fnl-stage.decision{border:2px solid var(--accent);background:var(--accent-tint)}
+  .fnl-stage .st-tag{font-family:var(--font-mono);font-size:15px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-4);margin:0}
+  .fnl-stage.decision .st-tag{color:var(--accent-deep);font-weight:600}
+  .fnl-stage .st-num{font-family:var(--font-display);font-weight:600;font-size:84px;line-height:1;
+    letter-spacing:-.03em;color:var(--ink-1);margin:10px 0 8px;font-variant-numeric:tabular-nums}
+  .fnl-stage.decision .st-num{color:var(--accent-deep)}
+  .fnl-stage .st-cap{font-size:18px;color:var(--ink-3);line-height:1.32;margin:0}
+  .fnl-stage .st-cap b{color:var(--ink-1)}
+  .fnl-barwrap{margin-top:auto;padding-top:16px}
+  .fnl-bar{display:flex;height:28px;width:100%;border-radius:3px;overflow:hidden}
+  .fnl-bar .seg{height:100%}
+  .fnl-bar .pos{background:#2E7D5B}
+  .fnl-bar .neu{background:#707070}
+  .fnl-bar .con{background:#C99A2E}
+  .fnl-bar .neg{background:#C0392B}
+  .fnl-barcap{font-family:var(--font-mono);font-size:14px;letter-spacing:.03em;color:var(--ink-4);margin:8px 0 0}
+  .fnl-call{margin-top:14px;background:var(--paper-pure);border:1px solid var(--accent);
+    border-radius:var(--radius-2);padding:10px 13px;font-family:var(--font-body);font-size:18px;
+    line-height:1.34;color:var(--ink-1)}
+  .fnl-call .big{font-weight:700;color:var(--bad)}
+  /* connectors between stages */
+  .fnl-arrow{flex:0 0 66px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 6px}
+  .fnl-arrow .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-5);text-align:center;line-height:1.25;margin-bottom:6px}
+  .fnl-arrow .gl{font-size:40px;line-height:1;color:var(--ink-4);font-weight:300}
+  .fnl-arrow.out .gl{color:var(--accent-deep)}
+  /* legend + takeaway */
+  .fnl-foot{display:flex;align-items:center;gap:26px;margin-top:18px;flex-wrap:wrap}
+  .fnl-legend{display:flex;gap:20px}
+  .fnl-legend .lg{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:14px;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-4)}
+  .fnl-legend .sw{width:14px;height:14px;border-radius:3px;display:inline-block}
+  .fnl-take{font-size:22px;color:var(--ink-2);line-height:1.36;margin:16px 0 0;max-width:1560px}
+  .fnl-take b{color:var(--ink-1)}
+
+  /* ---- Channel opportunity: one partner per page ---- */
+  /* bullet lists inside sg-col / sg-box */
+  .sg-bul{margin:0;padding:0;list-style:none}
+  .sg-bul li{font-size:21px;color:var(--ink-2);line-height:1.36;margin-bottom:14px;padding-left:22px;position:relative}
+  .sg-bul li:last-child{margin-bottom:0}
+  .sg-bul li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:8px;background:var(--accent);border-radius:1px}
+  .sg-bul li b{color:var(--ink-1);font-weight:600}
+  .sg-bul.neg li::before{background:var(--bad)}
+  .sg-bul.neg li b{color:var(--bad)}
+
+  /* callout strip (accent / bad / good) */
+  .sg-call{margin-top:16px;padding:16px 24px;border-radius:var(--radius-2);flex:0 0 auto;
+    font-family:var(--font-display);font-weight:600;font-size:26px;line-height:1.28;letter-spacing:-.01em}
+  .sg-call.accent{background:var(--accent-tint);border-left:5px solid var(--accent);color:var(--ink-1)}
+  .sg-call.bad{background:var(--bad-tint);border-left:5px solid var(--bad);color:var(--ink-1)}
+  .sg-call.good{background:var(--good-tint);border-left:5px solid var(--good);color:var(--ink-1)}
+
+  /* three evidence screenshots side by side (top-cropped, no distortion) */
+  .ev3{margin-top:16px;flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .ev3 .evcard{display:flex;flex-direction:column;min-height:0}
+  .ev3 .evlab{font-family:var(--font-mono);font-size:16px;letter-spacing:.10em;text-transform:uppercase;
+    color:var(--accent-deep);margin:0 0 10px}
+  .ev3 .evshot{flex:1;min-height:0;border:var(--rule-w-hair) solid var(--rule-hair);
+    background:var(--paper-pure);overflow:hidden}
+  .ev3 .evshot img{display:block;width:100%;height:100%;max-width:100%;object-fit:cover;object-position:top center}
+  .ev3 .evcap{font-size:19px;color:var(--ink-3);line-height:1.34;margin:12px 0 0}
+  .ev3 .evcap b{color:var(--ink-1);font-weight:600}
+.pglink{color:var(--accent-deep);text-decoration:none;border-bottom:1.5px dotted var(--accent);font-weight:600}
+.pglink:hover{color:var(--accent);border-bottom-style:solid;background:var(--accent-tint)}
+.ext{font-size:.8em;margin-left:4px;opacity:.75}
+.kpibox{margin-top:auto;border-top:2px solid var(--accent);padding-top:11px}
+.kpibox .kl{display:block;font-family:var(--font-mono);font-size:14px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.kpibox .kv{display:block;font-size:21px;font-weight:600;line-height:1.32;color:var(--accent-deep)}
+#sg-partner .sg-table th,#sg-partner .sg-table td{padding-top:6px;padding-bottom:6px}
+#sg-partner .sg-cap{margin-bottom:6px}
+#sg-partner .sg-note{margin-top:10px}
+.livelink{display:inline-block;margin-top:10px;font-size:17px;line-height:1.3}
+
+.mosaic{display:inline-block;height:.95em;vertical-align:-.12em;border-radius:3px;
+  background:repeating-conic-gradient(#cdd2da 0% 25%,#b3bac6 0% 50%);background-size:9px 9px}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 COVER -->
+  <section data-label="Cover">
+    <div class="mslide bleed cover-grid">
+      <div class="cover-left">
+        <img class="cover-logo anim" src="assets/novastacks-logo.png" alt="Novastacks">
+        <div>
+          <h1 class="t-cover-h1 anim d1" style="font-size:108px">We help brands grow on the agentic internet.</h1>
+          <hr class="accent-rule anim d2">
+          <p class="t-lede anim d2" style="max-width:840px">We know how to get your brand chosen by AI</p>
+        </div>
+        <div class="t-eyebrow anim d3">PREPARED BY · NOVASTACKS · SINGAPORE</div>
+      </div>
+      <div class="cover-right">
+        <p class="rtag">Get your brand<br>chosen by AI.</p>
+        <hr class="tealrule">
+        <div class="ct">Agentic AEO/SEO · Singapore</div>
+      </div>
+    </div>
+  </section>
+  <!-- 02 THE SHIFT -->
+  <section data-label="The Shift">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">01 · The Shift</div>
+      <h2 class="t-action anim d1">Buying decisions moved inside AI answers this year.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">AI now answers the query before anyone reaches a link.
+        <span class="pq">"The click is now optional." — Amanda Natividad, SparkToro</span></p>
+      <div class="chart-row anim d2">
+        <div class="chart-col">
+          <p class="ce">Google searches showing an AI answer</p>
+          <div class="cw">
+            <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+              <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
+              <polygon points="28,150 164,96 300,70 300,184 28,184" fill="#01AAC1" opacity="0.10"/>
+              <polyline points="28,150 164,96 300,70" fill="none" stroke="#01AAC1" stroke-width="4"/>
+              <circle cx="28" cy="150" r="5" fill="#01AAC1"/>
+              <circle cx="164" cy="96" r="5" fill="#01AAC1"/>
+              <circle cx="300" cy="70" r="6" fill="#017D8E"/>
+              <text x="28" y="138" text-anchor="start" font-family="Inter Tight" font-weight="600" font-size="26" fill="#4A4A4A">13%</text>
+              <text x="300" y="56" text-anchor="end" font-family="Inter Tight" font-weight="600" font-size="30" fill="#017D8E">25%</text>
+              <text x="28" y="204" text-anchor="start" font-family="JetBrains Mono" font-size="14" fill="#707070">Q1 2025</text>
+              <text x="300" y="204" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#707070">Q1 2026</text>
+            </svg>
+          </div>
+          <p class="claim">One in four Google searches now opens with an AI answer, nearly double a year ago.</p>
+          <p class="src">Conductor · 21.9M queries</p>
+        </div>
+        <div class="chart-col">
+          <p class="ce">US searches ending without a click</p>
+          <div class="cw">
+            <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+              <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
+              <polygon points="28,118 300,78 300,184 28,184" fill="#01AAC1" opacity="0.10"/>
+              <polyline points="28,118 300,78" fill="none" stroke="#01AAC1" stroke-width="4"/>
+              <circle cx="28" cy="118" r="5" fill="#01AAC1"/>
+              <circle cx="300" cy="78" r="6" fill="#017D8E"/>
+              <text x="28" y="106" text-anchor="start" font-family="Inter Tight" font-weight="600" font-size="26" fill="#4A4A4A">60%</text>
+              <text x="300" y="64" text-anchor="end" font-family="Inter Tight" font-weight="600" font-size="30" fill="#017D8E">68%</text>
+              <text x="28" y="204" text-anchor="start" font-family="JetBrains Mono" font-size="14" fill="#707070">2024</text>
+              <text x="300" y="204" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#707070">2026</text>
+            </svg>
+          </div>
+          <p class="claim">Two-thirds of US searches now end without any click.</p>
+          <p class="src">SparkToro · clickstream</p>
+        </div>
+        <div class="chart-col">
+          <p class="ce">Conversion rate by traffic source</p>
+          <div class="cw">
+            <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+              <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
+              <rect x="54" y="104" width="80" height="80" fill="#4A4A4A"/>
+              <text x="94" y="94" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="28" fill="#4A4A4A">1.0×</text>
+              <rect x="192" y="70" width="80" height="114" fill="#01AAC1"/>
+              <text x="232" y="60" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="28" fill="#017D8E">1.42×</text>
+              <text x="94" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#707070">Other traffic</text>
+              <text x="232" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#707070">AI-referred</text>
+            </svg>
+          </div>
+          <p class="claim">AI-referred visitors convert 42% more often than other traffic.</p>
+          <p class="src">Adobe Analytics</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · Conductor 2026 · SparkToro 2026 · Adobe Analytics</span><span class="t-footer">2 / 41</span></div>
+    </div>
+  </section>
+  <!-- 02B SEO VS AEO -->
+  <section data-label="SEO vs AEO">
+    <div class="mslide bleed vs-grid" style="padding:0">
+      <div class="vs-half light">
+        <div class="t-eyebrow">SEO — TRADITIONAL SEARCH</div>
+        <p class="vh">Classic SEO: ten blue links compete for a click.</p>
+        <div class="vshot"><img src="assets/seo-bluelinks.png" alt="Google results page — ten ranked blue links"></div>
+        <p class="vcap2">Google, "what is seo" — ranked pages, every visit a click away.</p>
+        <div class="vfoot"><span>SRC · LIVE GOOGLE RESULTS</span><span>03 / 41</span></div>
+      </div>
+      <div class="vs-half dark">
+        <div class="t-eyebrow" style="color:var(--accent)">AEO — AI SEARCH</div>
+        <p class="vh">AI SEO / AEO / GEO: the AI answer mentions a few brands.</p>
+        <div class="vshot"><img src="assets/aeo-mention-sg.jpg" alt="Google AI Overview naming Novastacks as a recommended AEO agency"></div>
+        <p class="vcap2">Google AI Overview, "aeo agency singapore" — the answer names Novastacks. Cited, not ranked.</p>
+        <div class="vfoot"><span>LIVE RESULT · JUN 2026</span><span>&nbsp;</span></div>
+      </div>
+    </div>
+  </section>
+  <!-- 03 WHY WE'RE DIFFERENT -->
+  <section data-label="Why We're Different">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">02 · Why We're Different</div>
+      <h2 class="t-action long anim d1">Winning AI answers takes three disciplines. Most have one. Some have two. We run all three.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="venn-grid anim d2">
+        <div class="venn">
+          <div class="c c1"><span class="lab">Domain<br>Expertise</span></div>
+          <div class="c c2"><span class="lab">AI<br>Augmentation</span></div>
+          <div class="c c3"><span class="lab">Context<br>Engineering</span></div>
+          <div class="core"><span>All<br>three</span></div>
+        </div>
+        <div class="venn-claim">
+          <div class="vrow"><span class="vnum">01</span><span class="vname">Domain expertise</span></div>
+          <div class="vrow"><span class="vnum">02</span><span class="vname">AI augmentation</span></div>
+          <div class="vrow"><span class="vnum">03</span><span class="vname">Context engineering</span></div>
+          <p class="vpayoff">Run all three together and your brand becomes the answer AI gives — not just a link it lists.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">POSITIONING · OUTCOME = BEING CHOSEN BY AI</span><span class="t-footer">4 / 41</span></div>
+    </div>
+  </section>
+  <!-- 04 TEAM -->
+  <section data-label="The Team">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">02 · The Team</div>
+      <h2 class="t-action anim d1">Your strategy is set by senior operators, not handed to junior staff.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="team anim d2">
+        <div class="prof">
+          <div class="photo" style="background-image:url(assets/team-tina.jpg)"></div>
+          <div>
+            <p class="pname">Tina Chu</p>
+            <p class="prole">Founder &amp; CEO</p>
+            <div class="cred">
+              <p><b>Strategy.</b> 20 years of marketing leadership at Expedia, Tencent and Klook sets your direction right the first time.</p>
+              <p><b>Builder &amp; trainer.</b> Certified SMU AI-marketing trainer; runs corporate agentic-system workshops for brands including tiket.com.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="photo" style="background-image:url(assets/team-eki.jpg)"></div>
+          <div>
+            <p class="pname">Eki Riandra</p>
+            <p class="prole">Head of Search &amp; Commerce</p>
+            <div class="cred">
+              <p><b>Search authority.</b> Ex-Tech SEO Head of Traveloka and Tokopedia; Google Product Expert.</p>
+              <p><b>Proven with Google.</b> Co-authored the Tokopedia growth case study with Google.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="logo-row anim d3">
+        <span class="lab">Where they operated</span>
+        <span class="wm">Expedia</span>
+        <span class="wm">Tencent</span>
+        <span class="wm">Klook</span>
+        <span class="wm">Traveloka</span>
+        <span class="wm">Tokopedia</span>
+      </div>
+      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">5 / 41</span></div>
+    </div>
+  </section>
+  <!-- 05 THE METHOD — OVERVIEW -->
+  <section data-label="The Source & Echo Method">
+    <div class="mslide bleed method-grid">
+      <div class="method-left">
+        <div class="crumb t-eyebrow anim">03 · The Source &amp; Echo Method</div>
+        <h2 class="t-action anim d1">The Source &amp; Echo Method is Novastacks' own AEO methodology.</h2>
+        <hr class="accent-rule anim d1">
+        <div class="anim d2" style="display:flex;flex-direction:column;gap:16px">
+          <p class="t-lede" style="max-width:none">Every AI answer is assembled from content worth quoting — the source — and from what the rest of the internet says about you — the echo. We engineer both, with five systems that are built and running, not advised.</p>
+          <p class="t-lede" style="max-width:none;color:var(--ink-2)">Prompt Radar Pro finds every question worth winning. Two source systems and the Echo Network go win them. The Proof Loop measures daily and reports in pipeline.</p>
+        </div>
+        <div class="syslist anim d2">
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Prompt Radar Pro</span><span class="sysnum">SYS·01</span></div>
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Answer Architecture</span><span class="sysnum">SYS·02</span></div>
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">First-Party Answers</span><span class="sysnum">SYS·03</span></div>
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Echo Network</span><span class="sysnum">SYS·04</span></div>
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Proof Loop</span><span class="sysnum">SYS·05</span></div>
+        </div>
+        <div class="footer"><span class="t-footer">METHOD · THE SOURCE &amp; ECHO METHOD · FIVE SYSTEMS</span><span class="t-footer">6 / 41</span></div>
+      </div>
+      <div class="method-right anim d2">
+        <div class="dia"><img src="assets/full-system-light.png" alt="The Source &amp; Echo Method system diagram"></div>
+        <p class="dcap">One buyer prompt through the method: the radar detects it, the source and echo tracks win it, the loop proves it.</p>
+      </div>
+    </div>
+  </section>
+  <!-- 05A SYSTEM 01 PROMPT RADAR -->
+  <section data-label="System 01 — Prompt Radar Pro">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 01 of 05</div>
+      <h2 class="t-action anim d1">Prompt Radar Pro: built from your first-party data &mdash; the most intelligent system for query generation.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">Under 20% of brands are cited by both ChatGPT and Google for the same question — visibility only counts if it is tracked per engine.</p>
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <span class="fbadge">★ The system only we run</span>
+          <p class="fe">Source track</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname"><a href="https://goblin2929.github.io/novastacks/prompt-radar/mbb.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px">Prompt Radar Pro</a></p><span class="pchip">SYS·01</span></div>
+          <div class="cmp">
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Three proprietary intelligence layers — first-party buyer signal, search demand, and product-market fit — run through two deterministic engines: one grounds demand into a topical knowledge graph and fans out the real questions AI engines ask; the other ranks them to the tracked set. Every prompt is observed from how engines actually retrieve, never guessed — then tracked daily per engine.</p></div>
+          </div>
+          <p class="fstrip">three intelligence layers<span class="s">·</span>topical knowledge graph<span class="s">·</span>two deterministic engines<span class="s">·</span>tracked per engine</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe"><img src="assets/novalens-shots/novalens-prompt-table-slidecut.png" alt="NovaLens prompt portfolio panel — top movers" style="max-height:500px"></div>
+          <p class="vcap"><b>Live in NovaLens.</b> The week’s top visibility movers: per-engine cited / appears / absent status across the tracked prompt set.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED</span><span class="t-footer">7 / 41</span></div>
+    </div>
+  </section>
+  <!-- 05B SYSTEM 02 ANSWER ARCHITECTURE -->
+  <section data-label="System 02 — Answer Architecture">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 02 of 05</div>
+      <h2 class="t-action anim d1">Answer Architecture: proven in your server logs, not promised in an audit.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <span class="fbadge">★ Led by the ex-Tech SEO Head, Traveloka &amp; Tokopedia</span>
+          <p class="fe">Source track</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Answer Architecture</p><span class="pchip">SYS·02</span></div>
+          <div class="cmp">
+            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Lead with content and PR because deep technical work is scarce; schema is a checkbox.</p></div>
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Entities, schema, llms.txt and passage structure led by the ex-Tech SEO Head of Traveloka and Tokopedia — then validated in your server logs, where AI crawler reads are visible.</p></div>
+          </div>
+          <p class="fstrip">entity disambiguation<span class="s">·</span>schema / JSON-LD<span class="s">·</span>llms.txt<span class="s">·</span>passage extraction<span class="s">·</span>AI bot log analysis</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe"><img src="assets/answer-architecture.png" alt="Answer Architecture system view"></div>
+          <p class="vcap"><b>System view.</b> Schema brackets, entity tags and passage-first structure on a page, with AI crawler reads confirmed in the logs.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 02</span><span class="t-footer">8 / 41</span></div>
+    </div>
+  </section>
+  <!-- 05C SYSTEM 03 FIRST-PARTY ANSWERS -->
+  <section data-label="System 03 — First-Party Answers">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 03 of 05</div>
+      <h2 class="t-action anim d1">First-Party Answers: your data, not recycled content.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <p class="fe">Source track</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">First-Party Answers</p><span class="pchip">SYS·03</span></div>
+          <div class="cmp">
+            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Say unique data earns citations, but never say where it comes from; ship AI-written volume.</p></div>
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">We mine the underutilised proprietary data in your business — sales and support conversations, usage benchmarks, pricing intelligence — and turn it into tiers of content that shape how AI describes and recommends you. Engines cite what they cannot find elsewhere.</p></div>
+          </div>
+          <p class="fstrip">first-party data mining<span class="s">·</span>sales-transcript insights<span class="s">·</span>comparison pages<span class="s">·</span>refresh cadence</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe"><img src="assets/first-party-answers.png" alt="First-Party Answers system view"></div>
+          <p class="vcap"><b>System view.</b> Sales calls, win/loss notes and support tickets assembled into comparison pages no competitor holds — the pages AI ends up citing.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 03</span><span class="t-footer">9 / 41</span></div>
+    </div>
+  </section>
+  <!-- 05D SYSTEM 04 ECHO NETWORK -->
+  <section data-label="System 04 — Echo Network">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 04 of 05</div>
+      <h2 class="t-action anim d1">Echo Network: the exact domains AI cites, not a generic media list.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">60% of AI Overview citations come from URLs outside the top 20 organic results, and 85% of brand mentions sit on third-party pages. The echo decides who gets recommended.</p>
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <p class="fe">Echo track</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Echo Network</p><span class="pchip">SYS·04</span></div>
+          <div class="cmp">
+            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Generic link building against a standard media list.</p></div>
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Citation mining first: the outreach list is the exact set of domains each engine already cites for your prompts — and unlinked mentions count.</p></div>
+          </div>
+          <p class="fstrip">citation mining<span class="s">·</span>digital PR<span class="s">·</span>unlinked brand mentions<span class="s">·</span>review platforms</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe" style="background:var(--paper-pure)"><img src="assets/echo-outreach-masked.png" alt="AI-citation publisher outreach table — targets, lists and placement models" style="max-height:470px"></div>
+          <p class="vcap"><b>The outreach table, live.</b> Eleven publisher targets mined from AI citations — each with the exact list to enter and the placement model quoted. Client masked.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · BRAINLABS PUBLISHED RESEARCH · ECHO TRACK · SYSTEM 04</span><span class="t-footer">10 / 41</span></div>
+    </div>
+  </section>
+  <!-- 05E SYSTEM 05 PROOF LOOP -->
+  <section data-label="System 05 — Proof Loop">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 05 of 05</div>
+      <h2 class="t-action anim d1">Proof Loop: daily agents, not quarterly reports.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <p class="fe">Operate</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Proof Loop</p><span class="pchip">SYS·05</span></div>
+          <div class="cmp">
+            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Quarterly audits, monthly PDFs, and a junior account team running execution.</p></div>
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Agents pull visibility data daily into NovaLens; senior strategists carry every meeting decision straight into execution.</p></div>
+          </div>
+          <p class="fstrip">daily prompt runs<span class="s">·</span>NovaLens platform<span class="s">·</span>AI share of voice<span class="s">·</span>pipeline attribution</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe"><img src="assets/novalens-shots/novalens-clicks-mtd-slidecut.png" alt="NovaLens daily traffic panel" style="max-height:490px"></div>
+          <p class="vcap"><b>Live in NovaLens.</b> The morning traffic read: daily clicks, brand / non-brand split, pacing against last month.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED, VOLUMES INDEXED</span><span class="t-footer">11 / 41</span></div>
+    </div>
+  </section>
+  <!-- 08 CASE NUMBERS -->
+  <section data-label="Case Study — Results">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Client Use Case · GoFreight</div>
+      <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">In three months we took a freight-tech SaaS from invisible to fastest-rising in AI answers. <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
+      <hr class="accent-rule anim d1">
+      <div class="stat-grid anim d2">
+        <div class="stat"><div class="se">Monthly organic clicks</div><div class="sn">+88%</div><div class="sl">in three months</div></div>
+        <div class="stat"><div class="se">AI visibility</div><div class="sn range">13.7% <span class="ar">→</span> 23.5%</div><div class="sl">#5 → #4 vs competitors</div></div>
+        <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">→</span> 8.4</div><div class="sl">Page 3 → page 1</div></div>
+        <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">12 / 41</span></div>
+    </div>
+  </section>
+  <!-- 09 PROOF -->
+  <section data-label="Case Study — Proof">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">05 · Case Study — Proof</div>
+      <h2 class="t-action anim d1">The CEO saw it in the pipeline before he saw it in a dashboard.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="proof anim d2">
+        <div class="artifact">
+          <p class="alabel">The email</p>
+          <div class="frame email">
+            <img src="assets/proof-email.jpg" alt="Inbound lead email — ChatGPT recommended the client">
+          </div>
+          <p class="cap">Inbound enterprise lead — the prospect found them through ChatGPT, which recommended them over the market leader. <b>January 2026.</b></p>
+        </div>
+        <div class="artifact">
+          <p class="alabel">The visibility that drove it</p>
+          <div class="frame shot" style="padding:0;background:#020617">
+            <img src="assets/novalens-shots/novalens-sov-trend-slidecut.png" alt="NovaLens — AI visibility by engine climbing weekly across Google AI Overviews, Perplexity and ChatGPT" style="max-height:500px">
+          </div>
+          <p class="cap">AI visibility climbing across every engine — <b>Google AI Overviews, Perplexity and ChatGPT</b> — tracked live in NovaLens through the engagement.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">13 / 41</span></div>
+    </div>
+  </section>
+  <!-- 10 QUOTE -->
+  <section data-label="Case Study — The Buyer">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">05 · Case Study — The Buyer's Words</div>
+      <div class="quote-wrap">
+        <p class="t-h2 anim d1" style="color:var(--ink-3);font-weight:500;max-width:1500px">1 of the client's 6 most recent enterprise wins started with an AI shortlist.</p>
+        <p class="bigq anim d1">“I had a conversation with AI… it narrowed it down to a top five. <em>You guys were a top two.</em>”</p>
+        <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">14 / 41</span></div>
+    </div>
+  </section>
+  <!-- ============ SG-0 · SINGTEL SECTION DIVIDER ============ -->
+  <section class="sg-div-sec" data-label="Singtel — Live Diagnosis">
+    <div class="mslide sg-div">
+      <img class="sg-logo-dark" src="assets/logo-white.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Live Diagnosis · Singtel</div>
+      <h2 class="anim d1">How to get AI<br>to recommend Singtel.</h2>
+      <hr class="accent-rule anim d2" style="margin-top:36px">
+      <p class="t-lede subhead anim d2">AI already knows Singtel — it names the brand in two-thirds of buyer questions, cites it, mentions it. It just doesn't recommend it. A preliminary SEO &amp; AEO read — 50 buyer prompts across Google AI Overview, ChatGPT and Gemini, traffic via Ahrefs — shows why, and what changes it.</p>
+      <div class="footer" style="margin-top:56px"><span class="t-footer">PRELIMINARY ANALYSIS · 4 JULY 2026</span><span class="t-footer">15 / 41</span></div>
+    </div>
+  </section>
+  <!-- SG-1 · EXECUTIVE SUMMARY -->
+  <section data-label="Singtel — Executive Summary">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Singtel · Executive Summary</div>
+      <h2 class="t-action long anim d1">Singtel leads Singapore telco organic search — but that SEO lead hasn't become an AI-era advantage yet.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">AI already names Singtel in 67% of buyer questions. Yet 71% of the sources AI cites about the brand are third-party, and Singtel's content is thinner than StarHub's. Four fixable gaps stand between today's search lead and an AI-era lead.</p>
+      <div class="sg-probs anim d2">
+        <div class="sg-prob">
+          <div class="pn">01 · Content Leadership</div>
+          <p class="ph">StarHub owns the how-tos buyers search.</p>
+          <p class="pp">StarHub earns 2.8× Singtel's article traffic from fewer pages by covering telco how-tos — scam-number lookup, WiFi fixes, IDD. Singtel's blog runs on appliance reviews.</p>
+          <p class="pfix">Fix → win the telco how-to track.</p>
+        </div>
+        <div class="sg-prob">
+          <div class="pn">02 · Technical Foundation</div>
+          <p class="ph">Singtel's best product pages can't be read by AI.</p>
+          <p class="pp">The phone pages that lead the market on traffic hide price, plans and specs from crawlers — the content loads only in the browser.</p>
+          <p class="pfix">Fix → server-side render + valid schema.</p>
+        </div>
+        <div class="sg-prob">
+          <div class="pn">03 · AEO Citation</div>
+          <p class="ph">Known everywhere, cited nowhere at the top of the funnel.</p>
+          <p class="pp">AI names Singtel 67% of the time but cites third parties 71% of the time. The leak is worst at awareness, where new customers discover the category — Singtel owns just 5% of citations there.</p>
+          <p class="pfix">Fix → convert brand awareness into citations.</p>
+        </div>
+        <div class="sg-prob">
+          <div class="pn">04 · Entity Reputation</div>
+          <p class="ph">The "Singtel" conversation is owned by complaints, not by Singtel.</p>
+          <p class="pp">Branded search and Reddit are dominated by outages — "is singtel down" is 3,500/mo — with no official page answering them, so third parties fill the gap.</p>
+          <p class="pfix">Fix → publish the answers, give AI a Singtel source.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · AHREFS + 50 BUYER PROMPTS (AI OVERVIEW · CHATGPT)</span><span class="t-footer">16 / 41</span></div>
+    </div>
+  </section>
+  <!-- SG-2 · SEO LANDSCAPE -->
+  <section data-label="Singtel — SEO Position">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Singtel · SEO Position</div>
+      <h2 class="t-action anim d1">In search, Singtel isn't behind — it leads on traffic, discovery and product.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sg-two wide-l anim d2">
+        <div class="sg-col">
+          <p class="sg-cap">Organic traffic by telco · monthly</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Telco</th><th class="num">Overall</th><th class="num">Non-branded</th><th class="num">NB share</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Singtel</td><td class="num">379,309</td><td class="num">121,298</td><td class="num">32%</td></tr>
+              <tr><td>M1</td><td class="num">164,680</td><td class="num">55,156</td><td class="num">33%</td></tr>
+              <tr><td>StarHub</td><td class="num">156,062</td><td class="num">65,893</td><td class="num">42%</td></tr>
+              <tr><td>GOMO</td><td class="num">56,020</td><td class="num">1,210</td><td class="num">2%</td></tr>
+              <tr><td>MyRepublic</td><td class="num">30,919</td><td class="num">11,181</td><td class="num">36%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sg-col" style="justify-content:center">
+          <div class="sg-stats" style="flex-direction:column;gap:32px">
+            <div class="sg-stat"><div class="sn">121,298</div><div class="sl">non-branded visits a month — the largest non-branded footprint of any telco. Brand strong, not brand dependent.</div></div>
+            <div class="sg-stat"><div class="sn">3×</div><div class="sl">the non-branded product-search traffic of M1 and StarHub. Singtel's product SEO already leads.</div></div>
+          </div>
+          <p class="sg-note"><b>The one clear weakness:</b> editorial content, where StarHub does more with fewer pages — the gap we open next.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · AHREFS (V2, LIKE-FOR-LIKE INCL. SHOP.SINGTEL)</span><span class="t-footer">17 / 41</span></div>
+    </div>
+  </section>
+  <!-- SG-3 · PROBLEM 1 · CONTENT -->
+  <section data-label="Singtel — Problem 1 · Content">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Problem 1 · Content Leadership</div>
+      <h2 class="t-action anim d1">StarHub earns 2.8× the article traffic from fewer pages — by owning the how-tos buyers search.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sg-two anim d2">
+        <div class="sg-col">
+          <p class="sg-cap">Article (blog) traffic · monthly</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Telco</th><th class="num">Article traffic</th><th class="num">Pages</th><th class="num">Per page</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>StarHub</td><td class="num">48,585</td><td class="num">46</td><td class="num">1,056</td></tr>
+              <tr><td>Singtel</td><td class="num">17,235</td><td class="num">79</td><td class="num">218</td></tr>
+              <tr><td>M1</td><td class="num">17,167</td><td class="num">77</td><td class="num">223</td></tr>
+              <tr><td>MyRepublic</td><td class="num">1,926</td><td class="num">109</td><td class="num">18</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note">~5× StarHub's traffic per page — fewer pages, far more traffic.</p>
+        </div>
+        <div class="sg-col">
+          <p class="sg-cap">The opportunity — how-tos StarHub wins, Singtel misses</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Topic</th><th class="num">StarHub/mo</th><th>Singtel</th></tr></thead>
+            <tbody>
+              <tr><td>Spam / scam number lookup</td><td class="num">5,934</td><td class="neg">None</td></tr>
+              <tr><td>WiFi / router troubleshooting</td><td class="num">3,410</td><td class="neg">Weak</td></tr>
+              <tr><td>IDD / call overseas</td><td class="num">2,735</td><td class="neg">None</td></tr>
+              <tr><td>Prepaid / SIM education</td><td class="num">2,166</td><td class="neg">Weak</td></tr>
+              <tr><td>Device data transfer</td><td class="num">1,788</td><td class="neg">None</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note"><b>Solution — build the how-to track.</b> Each topic ties to a product: scam protection, broadband, roaming, prepaid, device sales.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · AHREFS · SEASONAL HOLIDAY CONTENT EXCLUDED</span><span class="t-footer">18 / 41</span></div>
+    </div>
+  </section>
+  <!-- SG-4 · PROBLEM 2 · TECHNICAL -->
+  <section data-label="Singtel — Problem 2 · Technical">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Problem 2 · Technical Foundation</div>
+      <h2 class="t-action anim d1">Singtel's highest-traffic product pages hide their price and specs from AI.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">The phone pages load their content in the browser only. Buyers see everything; crawlers and AI see almost nothing — on the pages that already lead the market on product traffic.</p>
+      <div class="sg-cmp anim d2">
+        <div class="sg-box good">
+          <p class="bl">What buyers see</p>
+          <div class="line">Colours &amp; variants</div>
+          <div class="line">Price displayed</div>
+          <div class="line">Plan pricing &amp; options</div>
+          <div class="line">Full tech specs</div>
+        </div>
+        <div class="sg-box bad">
+          <p class="bl">What AI &amp; crawlers see</p>
+          <div class="line">"Choose your colour"</div>
+          <div class="line miss">Price — missing</div>
+          <div class="line miss">Plan pricing — missing</div>
+          <div class="line miss">Specs — missing</div>
+        </div>
+      </div>
+      <p class="sg-note anim d2"><b>Solution — server-side render the phone pages and fix their schema.</b> The phones AI cites <em>least</em> today (Honor Magic V5 50%, Galaxy S26 Ultra 67%) are the exact newest pages held back this way — so the fix protects the product lead <em>and</em> directly lifts AI citations. <span style="color:var(--ink-4)">Plus: homepage Organization schema + a single H1, valid product Offer schema, crawlable product links and canonicals.</span></p>
+      <div class="footer"><span class="t-footer">SRC · SERVER HTML INSPECTION · shop.singtel.com PHONE PAGES</span><span class="t-footer">19 / 41</span></div>
+    </div>
+  </section>
+  <!-- SG-5 · PROBLEM 3 · AEO -->
+  <section data-label="Singtel — Problem 3 · AEO">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Problem 3 · AEO Citation</div>
+      <h2 class="t-action anim d1">AI mentions Singtel — but 71% of the sources it cites are third parties.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sg-two anim d2">
+        <div class="sg-col">
+          <p class="sg-cap">Who owns Singtel's citations in AI answers</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Source</th><th class="num">Citations</th><th class="num">Share</th></tr></thead>
+            <tbody>
+              <tr><td>Third party (aggregators, forums, reviews)</td><td class="num">2,528</td><td class="num neg">71%</td></tr>
+              <tr><td>Competitors</td><td class="num">610</td><td class="num">17%</td></tr>
+              <tr class="hl"><td>Singtel (own domains)</td><td class="num">436</td><td class="num">12%</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note">The brand is known but not the cited source — Singtel owns just 12% of what AI cites, behind competitors at 17%.</p>
+        </div>
+        <div class="sg-col">
+          <p class="sg-cap">Singtel's citation share by funnel stage</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Stage</th><th class="num">Owned share</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Branded</td><td class="num pos">25%</td></tr>
+              <tr><td>Decision (BOFU)</td><td class="num">16%</td></tr>
+              <tr><td>Consideration (MOFU)</td><td class="num">7%</td></tr>
+              <tr><td>Awareness (TOFU)</td><td class="num neg">5%</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note"><b>Weakest at awareness, strongest on branded questions.</b> Singtel owns just 5% of the citations where new customers first discover the category, versus 25% on direct-brand questions — the ownership leak is worst at the top of the funnel.</p>
+        </div>
+      </div>
+      <p class="sg-note anim d2" style="margin-top:12px"><b>Solution — seed Singtel's own answers into the awareness and comparison questions</b> so AI cites Singtel, not the aggregators. The content and technical fixes above are what make those pages citable.</p>
+      <div class="footer"><span class="t-footer">SRC · 50 BUYER PROMPTS · AI OVERVIEW · CHATGPT</span><span class="t-footer">20 / 41</span></div>
+    </div>
+  </section>
+  <!-- SG-6 · PROBLEM 4 · REPUTATION -->
+  <section data-label="Singtel — Problem 4 · Reputation">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Problem 4 · Entity Reputation</div>
+      <h2 class="t-action long anim d1">The conversation about Singtel is negative — and no official page answers it.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sg-two anim d2">
+        <div class="sg-col">
+          <p class="sg-cap">Branded-search sentiment · 18,500 real customer searches/mo</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Sentiment</th><th class="num">Searches/mo</th><th class="num">Share</th></tr></thead>
+            <tbody>
+              <tr><td>Neutral (how-to / account)</td><td class="num">9,440</td><td class="num">51%</td></tr>
+              <tr class="hl"><td>Negative (problems / churn)</td><td class="num">8,680</td><td class="num neg">47%</td></tr>
+              <tr><td>Positive (value / buying)</td><td class="num">380</td><td class="num">2%</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note"><b>"is singtel down"</b> alone is 3,500/mo — with no official Singtel status page.</p>
+        </div>
+        <div class="sg-col">
+          <p class="sg-cap">The conversation lives on Reddit, not singtel.com</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Recurring theme</th><th>Sentiment</th></tr></thead>
+            <tbody>
+              <tr><td>Recurring 5G outages</td><td class="neg">Negative</td></tr>
+              <tr><td>Bridge-mode fee anger &amp; misinformation</td><td class="neg">Negative</td></tr>
+              <tr><td>Scam calls impersonating Singtel</td><td class="neg">Negative</td></tr>
+              <tr><td>Home WiFi / router quality</td><td class="neg">Negative</td></tr>
+              <tr><td>Churn to cheaper SIM-only plans</td><td>Mixed</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note">~84% of curated 2026 threads are negative or mixed — and AI cites them.</p>
+        </div>
+      </div>
+      <p class="sg-note anim d2" style="margin-top:12px"><b>Solution — publish the answers and engage honestly.</b> A live network-status page, a bridge-mode explainer, scam-awareness and WiFi guides, plus one disclosed customer-care account on the threads that matter. The same work fixes the complaint <em>and</em> hands AI a Singtel source to cite.</p>
+      <div class="footer"><span class="t-footer">SRC · 2,500 BRANDED QUERIES + 25 CURATED REDDIT THREADS · 2026</span><span class="t-footer">21 / 41</span></div>
+    </div>
+  </section>
+  <!-- SG-6B · PROBLEM 4 · AI SENTIMENT -->
+  <section data-label="Off-Page — Sentiment">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Problem 4 · AI Sentiment</div>
+      <h2 class="t-action long anim d1">…and AI repeats it back to buyers, hedging on 9 of 10 direct questions.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">Of 73 AI answers to questions asked directly about Singtel, 90% frame it as premium-but-expensive or worth-it-only-if — just 8% a clean recommendation.</p>
+      <div class="sg-two anim d2" style="flex:0 0 auto;margin-top:6px">
+        <div class="sg-col">
+          <p class="sg-cap">The value flank</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Price / value signal in Singtel answers</th><th class="num">Count</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Answers carrying explicit price / value language</td><td class="num neg">42%</td></tr>
+              <tr><td>"Premium"</td><td class="num">85&times;</td></tr>
+              <tr><td>"Expensive" / "overpriced"</td><td class="num">16&times;</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note"><b>The cannibalization leak:</b> AI routes value-seekers to Singtel's own GOMO (124 mentions) — "Singtel's network without Singtel's price" — plus M1 and StarHub. ARPU leaks to a sub-brand.</p>
+        </div>
+        <div class="sg-col">
+          <p class="sg-cap">AI-answer sentiment split · 315 Singtel answers</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Framing</th><th class="num">Share</th></tr></thead>
+            <tbody>
+              <tr><td>Positive</td><td class="num pos">25%</td></tr>
+              <tr><td>Neutral wallpaper</td><td class="num">47%</td></tr>
+              <tr><td>Conditional ("worth it if…")</td><td class="num">26%</td></tr>
+              <tr><td>Negative</td><td class="num">2%</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note"><b>The reputation drag AI repeats:</b> Trustpilot 1.4–1.5 / 5 and the IMDA S$1M fine surface as the negative core.</p>
+        </div>
+      </div>
+      <div class="sg-box good anim d2" style="margin-top:8px;padding:14px 26px">
+        <p class="bl" style="margin:0 0 6px">Honest counterweight — keeps it credible</p>
+        <div class="line" style="border:0;padding:2px 0">Singtel wins reliability, roaming and enterprise cleanly and repeatedly — fine on <b>quality</b> perception, exposed on <b>value</b>, exactly at the high-intent decision.</div>
+        <div class="line" style="border:0;font-style:italic;color:var(--ink-3);padding:2px 0">"Singtel offers the most reliable 5G coverage but is the most expensive." — verbatim AI answer</div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · 315 SINGTEL AI ANSWERS · WORKDUO · FRAMING CLASSIFIED BY NOVASTACKS</span><span class="t-footer">22 / 41</span></div>
+    </div>
+  </section>
+  <!-- SG-6C · PROBLEM 4 · SENTIMENT METHOD (DERIVATION) -->
+  <section data-label="Off-Page — Sentiment Method">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Problem 4 · Sentiment Method</div>
+      <h2 class="t-action long anim d1">From 50 tracked prompts, 9 in 10 answers to direct 'Singtel' questions withhold the recommendation.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="fnl anim d2">
+        <div class="fnl-stage">
+          <p class="st-tag">Stage 1 · Tracked</p>
+          <div class="st-num">50</div>
+          <p class="st-cap">Buyer prompts — <b>WorkDuo, SG, funnel-tagged</b></p>
+        </div>
+        <div class="fnl-arrow out">
+          <span class="lab">1 prompt →<br>many answers<br><b>fans out</b></span>
+          <span class="gl">&rsaquo;</span>
+        </div>
+        <div class="fnl-stage">
+          <p class="st-tag">Stage 2 · Collected</p>
+          <div class="st-num">474</div>
+          <p class="st-cap">AI answers — <b>7-day window</b> · Google AI Overview + ChatGPT</p>
+        </div>
+        <div class="fnl-arrow">
+          <span class="lab">narrows</span>
+          <span class="gl">&rsaquo;</span>
+        </div>
+        <div class="fnl-stage">
+          <p class="st-tag">Stage 3 · Mention Singtel</p>
+          <div class="st-num">315</div>
+          <p class="st-cap">318 name it; <b>315 with an evaluable statement</b></p>
+          <div class="fnl-barwrap">
+            <div class="fnl-bar" role="img" aria-label="Sentiment split of 315 answers">
+              <span class="seg pos" style="width:24.76%"></span>
+              <span class="seg neu" style="width:46.98%"></span>
+              <span class="seg con" style="width:26.03%"></span>
+              <span class="seg neg" style="width:2.22%"></span>
+            </div>
+            <p class="fnl-barcap">POS 78 (25%) · NEU 148 (47%) · COND 82 (26%) · NEG 7 (2%)</p>
+          </div>
+        </div>
+        <div class="fnl-arrow">
+          <span class="lab">narrows</span>
+          <span class="gl">&rsaquo;</span>
+        </div>
+        <div class="fnl-stage decision">
+          <p class="st-tag">Stage 4 · Branded — the decision moment</p>
+          <div class="st-num">73</div>
+          <p class="st-cap">Asked <b>directly about Singtel</b> by name</p>
+          <div class="fnl-barwrap">
+            <div class="fnl-bar" role="img" aria-label="Sentiment split of 73 branded answers">
+              <span class="seg pos" style="width:8.22%"></span>
+              <span class="seg neu" style="width:1.37%"></span>
+              <span class="seg con" style="width:84.93%"></span>
+              <span class="seg neg" style="width:5.48%"></span>
+            </div>
+            <p class="fnl-barcap">POS 6 (8%) · NEU 1 (1%) · COND 62 (85%) · NEG 4 (5%)</p>
+            <div class="fnl-call"><span class="big">66 / 73 (90%)</span> not a clean recommendation · only <b>6 / 73 (8%)</b> a clean yes.</div>
+          </div>
+        </div>
+      </div>
+      <div class="fnl-foot anim d2">
+        <div class="fnl-legend">
+          <span class="lg"><span class="sw" style="background:#2E7D5B"></span>Positive</span>
+          <span class="lg"><span class="sw" style="background:#707070"></span>Neutral</span>
+          <span class="lg"><span class="sw" style="background:#C99A2E"></span>Conditional</span>
+          <span class="lg"><span class="sw" style="background:#C0392B"></span>Negative</span>
+        </div>
+      </div>
+      <p class="fnl-take anim d2">The broader you look, the milder it seems. <b>At the moment a buyer asks about Singtel by name, 9 in 10 answers withhold the recommendation.</b></p>
+      <div class="footer"><span class="t-footer">SRC · 50 WORKDUO PROMPTS → 474 AI ANSWERS (7-DAY WINDOW) · FRAMING CLASSIFIED BY NOVASTACKS; POS/NEU/COND/NEG RUBRIC</span><span class="t-footer">23 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-0 · PROPOSAL EXECUTIVE SUMMARY -->
+  <section data-label="Off-Page — Executive Summary">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Off-Page GEO · Our Proposal</div>
+      <h2 class="t-action long anim d1">Win the third-party narrative AI repeats — with Novastacks as your off-page AEO lead.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">AI names Singtel in 67% of answers, so the brand is known. Two things then decide the sale: who supplies the evidence AI cites, and how AI frames Singtel when it does. Singtel controls neither. Both sit off Singtel's own website — which is exactly why they can be moved.</p>
+      <div class="sg-two anim d2" style="grid-template-columns:0.95fr 1.05fr;flex:0 0 auto;margin-top:20px">
+        <div class="sg-col">
+          <p class="sg-cap">The gap AI creates</p>
+          <div class="sg-probs" style="grid-template-columns:1fr;gap:16px;margin-top:8px">
+            <div class="sg-prob">
+              <div class="pn">Citations</div>
+              <p class="ph">Singtel doesn't own the evidence AI cites.</p>
+              <p class="pp">71% of cited sources are third-party, 17% competitors, only <b>12% Singtel's own</b>. Reddit is the single most-cited source.</p>
+            </div>
+            <div class="sg-prob">
+              <div class="pn">Sentiment</div>
+              <p class="ph">The narrative hedges at the decision.</p>
+              <p class="pp">On direct "Singtel" questions, <b>90% frame it premium-but-not-best-value</b> — only 8% a clean recommendation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="sg-col">
+          <p class="sg-cap">The mandate — Novastacks as off-page AEO lead</p>
+          <div style="display:flex;flex-direction:column;gap:13px;margin-top:8px">
+            <div style="font-size:21px;color:var(--ink-2);line-height:1.36"><span style="font-family:var(--font-display);font-weight:600;color:var(--accent-deep)">Strategy.</span> The off-page GEO operating model, priority targets, and the citation spec per target.</div>
+            <div style="font-size:21px;color:var(--ink-2);line-height:1.36"><span style="font-family:var(--font-display);font-weight:600;color:var(--accent-deep)">Prompt intelligence.</span> Prompt Radar + sentiment tracking — which sources own which prompts, and how AI frames Singtel vs competitors.</div>
+            <div style="font-size:21px;color:var(--ink-2);line-height:1.36"><span style="font-family:var(--font-display);font-weight:600;color:var(--accent-deep)">Operations.</span> Reddit engagement, editorial and citation work — gated to Singtel's approval before anything posts.</div>
+          </div>
+          <div class="sg-box" style="background:var(--accent-tint);border-left:5px solid var(--accent);margin-top:16px;padding:16px 20px">
+            <div class="line" style="border:0;padding:0;font-size:19px"><b style="color:var(--accent-deep)">Operating partner:</b> <span class="mosaic" style="width:130px" aria-label="redacted"></span> — years of Reddit community management for major consumer brands. We direct; they add capacity; you approve.</div>
+          </div>
+        </div>
+      </div>
+      <div class="sg-box anim d2" style="background:var(--ink-1);color:#fff;margin-top:18px;padding:16px 24px;flex:0 0 auto">
+        <div class="line" style="border:0;padding:0;font-size:20px;color:#fff"><b>Measured monthly:</b> how AI frames Singtel (sentiment) and Singtel's share of voice against competitors, on the priority targets — baseline captured day one.</div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS · OFF-PAGE GEO · PROPOSAL SUMMARY</span><span class="t-footer">24 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-4 · OUR ROLE · TWO LAYERS -->
+  <section data-label="Off-Page — Our Role">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Off-Page GEO · Our Role</div>
+      <h2 class="t-action long anim d1">Novastacks operates as Singtel's off-page GEO intelligence and operational layer, working closely with your channel teams.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">Two layers: one decides what narrative to move, the other moves it through Singtel's existing teams.</p>
+      <div class="three-up fill anim d2" style="grid-template-columns:1fr 1fr">
+        <div class="card3">
+          <span class="n">Layer 1 · The brain</span>
+          <h3 class="h">Prompt &amp; Cited-Domain Intelligence Partner</h3>
+          <p class="d"><b>We strategise action initiatives through the lens of GEO intelligence and AI-channel brand positioning.</b> AEO tracking plus off-page strategy advisory — the analytical layer that decides which narratives and which domains to move.</p>
+          <p class="ev">Prompt Radar · citation-source + sentiment map · target list</p>
+        </div>
+        <div class="card3">
+          <span class="n">Layer 2 · The hands</span>
+          <h3 class="h">Echo Network Operation Layer</h3>
+          <p class="d">Provides the solution and the execution to improve sentiment, online reputation and penetration on the channels AI cites.</p>
+          <p class="ev">Reddit · affiliate intelligence · editorial SEO</p>
+        </div>
+      </div>
+      <p class="sg-note anim d2" style="margin-top:24px"><b>The boundary:</b> Novastacks owns the intelligence and connective operations; Singtel's teams keep commercial terms and paid PR. We complement, not replace.</p>
+      <div class="footer"><span class="t-footer">NOVASTACKS · OFF-PAGE GEO OPERATING MODEL · TWO LAYERS</span><span class="t-footer">25 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-5 · LAYER 1 · INTELLIGENCE -->
+  <section data-label="Off-Page — Layer 1">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Off-Page GEO · Layer 1</div>
+      <h2 class="t-action anim d1">Layer 1 — the map no one at Singtel holds today.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">The intelligence partner: a continuously maintained view of which sources own Singtel's prompts, how AI frames the brand, and what it takes to move each one.</p>
+      <div class="sg-probs anim d2">
+        <div class="sg-prob">
+          <div class="pn">01 · Tracking</div>
+          <p class="ph">Prompt Radar + sentiment tracking</p>
+          <p class="pp">Maintained and expanded across product lines — broadband first, then mobile, roaming, 5G, TV and enterprise.</p>
+          <a class="pglink livelink" href="http://localhost:8921/singtel-sentiment-analysis.html#sentiment" target="_blank" rel="noopener">See it live — how AI frames Singtel today<span class="ext">↗</span></a>
+        </div>
+        <div class="sg-prob">
+          <div class="pn">02 · Strategy</div>
+          <p class="ph">Monthly citation-source + sentiment map</p>
+          <p class="pp">Which domains own which prompts, how AI frames Singtel, and movement versus competitors.</p>
+          <a class="pglink livelink" href="http://localhost:8921/singtel-sentiment-analysis.html#citations" target="_blank" rel="noopener">See it live — every cited URL, by prompt<span class="ext">↗</span></a>
+        </div>
+        <div class="sg-prob">
+          <div class="pn">03 · Priorities</div>
+          <p class="ph">Priority target list + recommended lever</p>
+          <p class="pp">The domains and threads worth moving first, each with the specific lever to pull.</p>
+          <a class="pglink livelink" href="http://localhost:8921/singtel-sentiment-analysis.html#outreach" target="_blank" rel="noopener">See it live — SingSaver target list + the ask<span class="ext">↗</span></a>
+        </div>
+        <div class="sg-prob">
+          <div class="pn">04 · The brief</div>
+          <p class="ph">Citation spec per target</p>
+          <p class="pp">Exactly what must be true for AI to cite — and favourably frame — Singtel on that target.</p>
+          <a class="pglink livelink" href="http://localhost:8921/singtel-sentiment-analysis.html#method" target="_blank" rel="noopener">See it live — how the spec is derived<span class="ext">↗</span></a>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS · LAYER 1 · INTELLIGENCE PARTNER · MONTHLY CADENCE</span><span class="t-footer">26 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-6 · LAYER 2 · OPERATIONS -->
+  <section data-label="Off-Page — Layer 2">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Off-Page GEO · Layer 2</div>
+      <h2 class="t-action anim d1">Layer 2 — three operating tracks, each gated to Singtel's team.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="three-up fill anim d2">
+        <div class="card3">
+          <span class="n">Track 01 · Community</span>
+          <h3 class="h">Reddit / community narrative</h3>
+          <p class="d">Reddit shapes <b>86%</b> of Singtel's AI prompts. Monthly listening read — sentiment and share-of-conversation vs competitors, ranked threads — then we surface, draft, and <b>your team approves in a dashboard before we post.</b></p>
+          <p class="ev">Monthly read · draft → approve → post</p>
+        </div>
+        <div class="card3">
+          <span class="n">Track 02 · Affiliate</span>
+          <h3 class="h">Affiliate-partner intelligence</h3>
+          <p class="d">We track each partner's share-of-voice and flag status —<span class="dot g"></span> good ·<span class="dot a"></span> needs work ·<span class="dot r"></span> alert. We don't touch commercial terms (many are CPA); your team acts on sponsored-content budget where flagged.</p>
+          <p class="ev">SOV tracking · status flags · no commercial terms</p>
+        </div>
+        <div class="card3">
+          <span class="n">Track 03 · Editorial</span>
+          <h3 class="h">Editorial SEO partnership</h3>
+          <p class="d">Backlinks and sponsored listings on the editorial and authority domains AI already cites — so the pages AI reads carry current, accurate, favourably-positioned Singtel data.</p>
+          <p class="ev">Authority domains · sponsored placements + accurate Singtel data</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS · LAYER 2 · ECHO NETWORK OPERATIONS · TEAM-GATED</span><span class="t-footer">27 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-1 · THE GOAL + PAINPOINT 1 -->
+  <section data-label="Off-Page — The Goal">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Off-Page GEO · The Goal</div>
+      <h2 class="t-action anim d1">The goal isn't more mentions — it's owning the narrative AI repeats.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">AI doesn't form opinions — it echoes the third-party narrative and cites its sources. Singtel is already named in 67% of AI answers, so mentions aren't the problem. Shape the narrative and you shape how AI surfaces Singtel.</p>
+      <div class="sg-two wide-l anim d2">
+        <div class="sg-col">
+          <p class="sg-cap">Painpoint 1 — who supplies the sources AI cites</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Source of the cited evidence</th><th class="num">Share</th></tr></thead>
+            <tbody>
+              <tr><td>Third party (aggregators, forums, reviews)</td><td class="num neg">71%</td></tr>
+              <tr><td>Competitors</td><td class="num">17%</td></tr>
+              <tr class="hl"><td>Singtel (owned domains)</td><td class="num">12%</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note">The evidence behind "Singtel is good" comes from MoneySmart, WhistleOut and Reddit — <b>not from Singtel.</b></p>
+        </div>
+        <div class="sg-col" style="justify-content:center">
+          <div class="sg-stats" style="flex-direction:column;gap:34px">
+            <div class="sg-stat"><div class="sn">67%</div><div class="sl">of AI answers already name Singtel — the brand is known, not invisible.</div></div>
+            <div class="sg-stat"><div class="sn">12%</div><div class="sl">of the sources AI cites are Singtel's own — the evidence base is effectively outsourced.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · PROMPT RADAR · SINGTEL CITED-URL FORENSICS · 2026</span><span class="t-footer">28 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-3a · CHANNEL OPPORTUNITY · OVERVIEW -->
+  <section data-label="Off-Page — Channel · Overview">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Off-Page GEO · Channel Opportunity</div>
+      <h2 class="t-action long anim d1">Singtel is not contesting any of the five sites that decide its AI answers.</h2>
+      <hr class="accent-rule anim d1" style="margin:14px 0">
+      <p class="t-lede subhead anim d1" style="font-size:22px;max-width:1728px;margin-top:0">Four of these five sites sell an Apply Now button: the paid slot, where the telco pays the site a commission each time someone signs up through it. A plain "Read More" link earns the site nothing, and gives the buyer nowhere to go. OpenSignal sells nothing — it is independent. Singtel's position on each site is below.</p>
+      <div class="anim d2" style="margin-top:14px;flex:1;display:flex;flex-direction:column;min-height:0">
+        <table class="sg-table compact">
+          <thead><tr><th style="width:215px">Cited site</th><th style="width:305px">Singtel's Apply Now button</th><th>The problem</th><th style="width:255px">Move</th></tr></thead>
+          <tbody>
+            <tr><td><b>SingSaver</b></td><td class="pos">Yes — plus a sponsored page</td><td>But the working button sits on an article for <b>GOMO</b>, Singtel's own $18 budget brand. Singtel's own pages date from <b>2015–2021</b>.</td><td style="color:var(--accent-deep);font-weight:600">Move the buttons to the pages AI reads</td></tr>
+            <tr><td><b>MoneySmart</b></td><td class="neg">None — "Read More" only</td><td><b>16 competitor plans</b> have one: StarHub 7, ViewQwest 5, MyRepublic 4.</td><td style="color:var(--accent-deep);font-weight:600">Buy the button</td></tr>
+            <tr><td><b>WhistleOut</b></td><td class="pos">Yes — on one plan</td><td>M1, Eight and SIMBA have <b>3–6 each</b>. The "Top Pick" badge belongs to Eight.</td><td style="color:var(--accent-deep);font-weight:600">Buy more plans</td></tr>
+            <tr><td><b>DollarsAndSense</b></td><td class="neg">None — rows aren't even clickable</td><td>But StarHub, M1 and ViewQwest are absent too. Only <b>3 challenger brands</b> pay.</td><td style="color:var(--accent-deep);font-weight:600">Cheapest win — uncontested</td></tr>
+            <tr class="hl"><td><b>OpenSignal</b> (independent)</td><td>Not for sale</td><td>Singtel <b>WON Best Network</b> in Dec 2025. The pages AI reads still say StarHub leads.</td><td style="color:var(--accent-deep)">Tell people you won</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sg-box anim d2" style="background:var(--accent-tint);border-left:5px solid var(--accent);margin-top:14px;padding:14px 24px;flex:0 0 auto">
+        <p class="bl" style="color:var(--accent-deep);margin:0 0 6px">How we work the two channel types</p>
+        <div class="line" style="border:0;padding:3px 0;font-size:20px"><b style="color:var(--accent-deep)">Contractual channels.</b> Novastacks builds the intelligence and runs operational project management. Singtel’s team holds the commercial relationship.</div>
+        <div class="line" style="border:0;padding:3px 0;font-size:20px"><b style="color:var(--accent-deep)">Non-contractual channels.</b> Novastacks takes the full agency role and manages them end to end.</div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · LIVE AUDIT OF APPLY NOW BUTTONS · 5 SITES · JULY 2026</span><span class="t-footer">29 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-3b · SINGSAVER · THE STORY -->
+  <section data-label="Off-Page — Channel · SingSaver">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Channel · SingSaver</div>
+      <h2 class="t-action anim d1">Singtel's brand does the selling. GOMO takes the sale.</h2>
+      <hr class="accent-rule anim d1" style="margin:12px 0">
+      <p class="t-lede subhead anim d1" style="font-size:21px;max-width:1728px;margin-top:0">A sponsored link is one that pays SingSaver a commission when someone signs up through it. A plain link pays SingSaver nothing, so it has no reason to keep that page current. This is who holds the sponsored link on each page AI reads.</p>
+      <div class="anim d2" style="margin-top:12px;flex:1;display:flex;flex-direction:column;min-height:0">
+        <table class="sg-table compact ss-tbl">
+          <thead>
+            <tr>
+              <th class="num" style="width:120px">Times AI cites it</th>
+              <th style="width:435px">SingSaver page <span style="font-weight:400;text-transform:none;letter-spacing:0;opacity:.65">— top page opens live</span></th>
+              <th style="width:375px">Singtel's sponsored link</th>
+              <th>Competitor's sponsored link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hl">
+              <td class="num">123</td>
+              <td><a class="pglink" href="https://www.singsaver.com.sg/telco/blog/best-sim-only-no-contract-plans-for-light-moderate-and-heavy-data-users" target="_blank" rel="noopener">SIM-only guide<span class="ext">↗</span></a> <span class="q">(editorial)</span></td>
+              <td><span class="neg">None</span> — plain links only</td>
+              <td><span class="neg">None either</span> — no telco has one</td>
+            </tr>
+            <tr class="hl">
+              <td class="num">38</td>
+              <td><a class="pglink" href="https://www.singsaver.com.sg/telco/blog/best-home-fibre-broadband-plan" target="_blank" rel="noopener">Home fibre broadband<span class="ext">↗</span></a> <span class="q">(editorial)</span></td>
+              <td><span class="neg">Not even linked</span></td>
+              <td><span class="neg">None</span> — StarHub linked 5×, but plain</td>
+            </tr>
+            <tr>
+              <td class="num">8</td>
+              <td><a class="pglink" href="https://www.singsaver.com.sg/page/best-broadband-plans" target="_blank" rel="noopener">Best broadband plans<span class="ext">↗</span></a> <span class="q">(comparison page)</span></td>
+              <td><span class="pos">Apply Now</span></td>
+              <td>Apply Now — all providers</td>
+            </tr>
+            <tr>
+              <td class="num">4</td>
+              <td><a class="pglink" href="https://www.singsaver.com.sg/blog/best-value-best-coverage-why-you-should-check-out-gomos-mobile-plans" target="_blank" rel="noopener">GOMO article<span class="ext">↗</span></a> <span class="q">(editorial)</span></td>
+              <td>Only as “Backed by Singtel”</td>
+              <td><b>GOMO</b> — sponsored link</td>
+            </tr>
+            <tr>
+              <td class="num">4</td>
+              <td><a class="pglink" href="https://www.singsaver.com.sg/blog/guide-to-switch-from-postpaid-plan-to-sim-only" target="_blank" rel="noopener">Switching guide<span class="ext">↗</span></a> <span class="q">(editorial)</span></td>
+              <td><span class="neg">Stale, no sponsored link</span></td>
+              <td><b>Circles.Life</b> — sponsored link + exclusive promo code</td>
+            </tr>
+            <tr>
+              <td class="num">3</td>
+              <td><a class="pglink" href="https://www.singsaver.com.sg/telco/blog/singtel-wifi-7" target="_blank" rel="noopener">Singtel WiFi-7<span class="ext">↗</span></a> <span class="q">(editorial)</span></td>
+              <td><span class="pos">SPONSORED</span> — Singtel paid for this</td>
+              <td><span class="neg">None</span></td>
+            </tr>
+            <tr>
+              <td class="num">1</td>
+              <td><a class="pglink" href="https://www.singsaver.com.sg/page/best-sim-only-plans" target="_blank" rel="noopener">Best SIM-only plans<span class="ext">↗</span></a> <span class="q">(comparison page)</span></td>
+              <td><span class="pos">Apply Now</span> — most expensive row</td>
+              <td>MyRepublic top 3, Circles.Life ×3</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="sg-note" style="font-size:17px;margin-top:10px;max-width:1728px">The only sponsored links on the two biggest pages are credit cards — Citi, UOB, OCBC, Standard Chartered. The SIM-only guide recommends a credit card for paying your telco bill, and puts the Apply button on the card.</p>
+      </div>
+      <div class="sg-call bad anim d2" style="font-size:22px;margin-top:12px;padding:14px 22px">Singtel has bought three sponsored links on SingSaver. All three sit on pages worth 12 citations out of 207. On the two pages worth 161 citations, no telco has a sponsored link at all — so Singtel is not losing an auction. There is no auction on those pages.</div>
+      <div class="footer"><span class="t-footer">SRC · SINGSAVER LIVE AUDIT · 14 PAGES READ · JULY 2026</span><span class="t-footer">30 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-3c · SINGSAVER · THE RECEIPTS -->
+  <section data-label="Off-Page — Channel · SingSaver Receipts">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Channel · SingSaver — The Receipts</div>
+      <h2 class="t-action anim d1">This is what AI is reading about Singtel.</h2>
+      <div class="ev3 anim d2">
+        <div class="evcard">
+          <p class="evlab">SingSaver · Singtel broadband</p>
+          <div class="evshot"><img src="assets/ev-2015-page.png" alt="SingSaver Singtel broadband page, last updated 5 November 2015"></div>
+          <p class="evcap">SingSaver's Singtel broadband page. <b>Last updated 5 November 2015</b> — it still quotes Singtel 1Gbps at $50 and puts M1 top of the price table. AI cites this page today.</p>
+        </div>
+        <div class="evcard">
+          <p class="evlab">SingSaver · GOMO — updated Feb 2025</p>
+          <div class="evshot"><img src="assets/ev-gomo.png" alt="SingSaver GOMO article with a working Apply Now button"></div>
+          <p class="evcap">The GOMO article, <b>updated February 2025</b> — current, unlike the Singtel pages. It carries a working <b>Apply Now button</b> and sells GOMO with the line “Backed by Singtel”.</p>
+        </div>
+        <div class="evcard">
+          <p class="evlab">SingSaver · SIM-only — the most-cited page</p>
+          <div class="evshot"><img src="assets/ev-simonly.png" alt="SingSaver SIM-only comparison page, the most-cited page"></div>
+          <p class="evcap">The SIM-only page — the one AI cites most (<b>123 times, 16 buyer questions</b>). No telco has an Apply Now button on it. The only buttons are credit cards.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · LIVE PAGE CAPTURES · SINGSAVER · JULY 2026</span><span class="t-footer">31 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-3d · MONEYSMART -->
+  <section data-label="Off-Page — Channel · MoneySmart">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Channel · MoneySmart</div>
+      <h2 class="t-action long anim d1">Singtel's only sponsored link on MoneySmart sits on a page worth 4 citations.</h2>
+      <hr class="accent-rule anim d1" style="margin:12px 0">
+      <p class="t-lede subhead anim d1" style="font-size:21px;max-width:1728px;margin-top:0">A sponsored link is one that pays MoneySmart a commission when someone signs up through it. An "Apply Now" button is a sponsored link. A "Read More" link pays nothing and leads nowhere.</p>
+      <div class="anim d2" style="margin-top:12px;flex:1;display:flex;flex-direction:column;min-height:0">
+        <table class="sg-table compact ss-tbl">
+          <thead>
+            <tr>
+              <th class="num" style="width:120px">Times AI cites it</th>
+              <th style="width:470px">MoneySmart page <span style="font-weight:400;text-transform:none;letter-spacing:0;opacity:.65">— top page opens live</span></th>
+              <th style="width:400px">Singtel's sponsored link</th>
+              <th>Competitor's sponsored link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hl">
+              <td class="num">44</td>
+              <td><a class="pglink" href="https://blog.moneysmart.sg/budgeting/cheapest-sim-only-plans" target="_blank" rel="noopener">Cheapest SIM-only plans<span class="ext">↗</span></a> <span class="q">(editorial)</span></td>
+              <td><span class="neg">Not even linked</span></td>
+              <td><span class="neg">None either</span> — no telco has one</td>
+            </tr>
+            <tr class="hl">
+              <td class="num">37</td>
+              <td><a class="pglink" href="https://blog.moneysmart.sg/budgeting/best-fibre-broadband-singapore" target="_blank" rel="noopener">Best fibre broadband<span class="ext">↗</span></a> <span class="q">(editorial)</span></td>
+              <td><span class="neg">None</span> — plain link only</td>
+              <td><b>ViewQwest</b> — 1 sponsored plan</td>
+            </tr>
+            <tr>
+              <td class="num">18</td>
+              <td><a class="pglink" href="https://www.moneysmart.sg/broadband" target="_blank" rel="noopener">Broadband hub<span class="ext">↗</span></a> <span class="q">(comparison page)</span></td>
+              <td><span class="neg">“Read More” only</span></td>
+              <td>StarHub 7, ViewQwest 5, MyRepublic 4</td>
+            </tr>
+            <tr>
+              <td class="num">5</td>
+              <td><a class="pglink" href="https://blog.moneysmart.sg/budgeting/data-travel-roaming" target="_blank" rel="noopener">Data + travel roaming<span class="ext">↗</span></a> <span class="q">(editorial)</span></td>
+              <td><span class="neg">None</span> — plain link only</td>
+              <td><span class="neg">None either</span></td>
+            </tr>
+            <tr>
+              <td class="num">4</td>
+              <td><a class="pglink" href="https://www.moneysmart.sg/broadband/broadband-types-ms" target="_blank" rel="noopener">Broadband types<span class="ext">↗</span></a> <span class="q">(comparison page)</span></td>
+              <td><span class="pos">Apply Now</span> — Singtel's ONLY one</td>
+              <td><span class="neg">None</span></td>
+            </tr>
+            <tr>
+              <td class="num">2</td>
+              <td><a class="pglink" href="https://www.moneysmart.sg/broadband/starhub-10gbps" target="_blank" rel="noopener">StarHub 10Gbps<span class="ext">↗</span></a> <span class="q">(comparison page)</span></td>
+              <td><span class="neg">Absent</span></td>
+              <td><b>StarHub</b> — sponsored link</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="sg-note" style="font-size:17px;margin-top:10px;max-width:1728px">The broadband hub renders each button four times, for desktop and mobile. The human-visible count is 20 plan cards, 16 carrying Apply Now.</p>
+      </div>
+      <div class="sg-call accent anim d2" style="font-size:22px;margin-top:12px;padding:14px 22px">The slot on the pages AI reads is already for sale. ViewQwest bought a sponsored link inside the fibre guide AI cites 37 times. Singtel has not bought one there. That is a purchasing decision Singtel can reverse this quarter.</div>
+      <div class="footer"><span class="t-footer">SRC · MONEYSMART LIVE AUDIT · 8 PAGES READ · JULY 2026</span><span class="t-footer">32 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-3e · WHISTLEOUT -->
+  <section data-label="Off-Page — Channel · WhistleOut">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Channel · WhistleOut</div>
+      <h2 class="t-action long anim d1">On WhistleOut every plan is sponsored. Singtel holds 9% of them.</h2>
+      <hr class="accent-rule anim d1" style="margin:12px 0">
+      <p class="t-lede subhead anim d1" style="font-size:21px;max-width:1728px;margin-top:0">WhistleOut is different. Its sponsored buttons sit inside the guides AI cites, and every plan on the page carries one. Singtel is already in the programme. It is simply outnumbered.</p>
+      <div class="anim d2" style="margin-top:12px;flex:1;display:flex;flex-direction:column;min-height:0">
+        <table class="sg-table compact ss-tbl">
+          <thead>
+            <tr>
+              <th class="num" style="width:120px">Times AI cites it</th>
+              <th style="width:430px">WhistleOut guide <span style="font-weight:400;text-transform:none;letter-spacing:0;opacity:.65">— top page opens live</span></th>
+              <th style="width:420px">Singtel's sponsored plans</th>
+              <th>Competitors' sponsored plans</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">27</td>
+              <td><a class="pglink" href="https://www.whistleout.com.sg/MobilePhones/Guides/best-mobile-network-singapore" target="_blank" rel="noopener">Best mobile network<span class="ext">↗</span></a></td>
+              <td><span class="pos">1 plan</span> — holds an Editor's Pick badge</td>
+              <td>18 plans across 12 brands — SIMBA 6</td>
+            </tr>
+            <tr>
+              <td class="num">23</td>
+              <td><a class="pglink" href="https://www.whistleout.com.sg/Broadband/Guides/cheapest-broadband-plans-singapore" target="_blank" rel="noopener">Cheapest broadband plans<span class="ext">↗</span></a></td>
+              <td><span class="pos">1 plan</span></td>
+              <td>7 plans — Editor's Pick is <b>ViewQwest</b></td>
+            </tr>
+            <tr>
+              <td class="num">21</td>
+              <td><a class="pglink" href="https://www.whistleout.com.sg/Broadband/Guides/best-fibre-broadband-plans-in-singapore" target="_blank" rel="noopener">Best fibre broadband plans<span class="ext">↗</span></a></td>
+              <td><span class="pos">1 plan</span></td>
+              <td>13 plans — TOP PICK is <b>Eight</b></td>
+            </tr>
+            <tr>
+              <td class="num">14</td>
+              <td><a class="pglink" href="https://www.whistleout.com.sg/Broadband/Guides/best-internet-provider-in-singapore" target="_blank" rel="noopener">Best internet provider<span class="ext">↗</span></a></td>
+              <td><span class="pos">4 plans</span></td>
+              <td>25 plans — TOP PICK is <b>MyRepublic</b></td>
+            </tr>
+            <tr>
+              <td class="num">13</td>
+              <td><a class="pglink" href="https://www.whistleout.com.sg/MobilePhones/Guides/best-sim-only-byo-mobile-phone-plans" target="_blank" rel="noopener">Best SIM-only BYO plans<span class="ext">↗</span></a></td>
+              <td><span class="pos">2 plans</span> — both hero cards</td>
+              <td>19 plans across 10 brands</td>
+            </tr>
+            <tr>
+              <td class="num">11</td>
+              <td><a class="pglink" href="https://www.whistleout.com.sg/Broadband/Guides/early-termination-fees-cancelling-your-broadband" target="_blank" rel="noopener">Early termination fees<span class="ext">↗</span></a></td>
+              <td><span class="neg">Absent</span> — no plans on page</td>
+              <td><span class="neg">None either</span></td>
+            </tr>
+            <tr>
+              <td class="num">9</td>
+              <td><a class="pglink" href="https://www.whistleout.com.sg/MobilePhones/Guides/cheapest-SIM-only-plans-singapore" target="_blank" rel="noopener">Cheapest SIM-only plans<span class="ext">↗</span></a></td>
+              <td><span class="pos">2 plans</span></td>
+              <td>27 plans — MyRepublic 5, Eight 4</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="sg-note" style="font-size:17px;margin-top:10px;max-width:1728px">Singtel's 5Gbps Enhanced WiFi 7 at $39.90 is live here and ranked #3. Its prices on this site are current, not stale.</p>
+      </div>
+      <div class="sg-call accent anim d2" style="font-size:22px;margin-top:12px;padding:14px 22px">Across the 8 guides we read: 13 Singtel sponsored plans against 126 competitor plans. A 9% share of what sits on the exact pages AI reads. This is the one partner where the fix is simply to buy more.</div>
+      <div class="footer"><span class="t-footer">SRC · WHISTLEOUT LIVE AUDIT · 8 GUIDES READ · JULY 2026</span><span class="t-footer">33 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-3f · DOLLARSANDSENSE -->
+  <section data-label="Off-Page — Channel · DollarsAndSense">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Channel · DollarsAndSense</div>
+      <h2 class="t-action anim d1">Singtel bought the wrong pages, and none of them pay a commission.</h2>
+      <hr class="accent-rule anim d1" style="margin:12px 0">
+      <p class="t-lede subhead anim d1" style="font-size:21px;max-width:1728px;margin-top:0">DollarsAndSense pays commission through one route only. Singtel has paid for two articles here. Neither is on that route, and both sit on pages almost nobody cites.</p>
+      <div class="anim d2" style="margin-top:12px;flex:1;display:flex;flex-direction:column;min-height:0">
+        <table class="sg-table compact ss-tbl">
+          <thead>
+            <tr>
+              <th class="num" style="width:120px">Times AI cites it</th>
+              <th style="width:455px">DollarsAndSense page <span style="font-weight:400;text-transform:none;letter-spacing:0;opacity:.65">— top page opens live</span></th>
+              <th style="width:490px">Singtel's sponsored link</th>
+              <th>Competitor's sponsored link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hl">
+              <td class="num">26</td>
+              <td><a class="pglink" href="https://dollarsandsense.sg/complete-guide-to-choosing-the-best-broadband-plan-for-your-home" target="_blank" rel="noopener">Complete guide to broadband<span class="ext">↗</span></a> <span class="q">(editorial)</span></td>
+              <td><span class="neg">None</span> — plain link; not linked at all in the comparison table</td>
+              <td><b>MyRepublic</b> only — 4 sponsored links</td>
+            </tr>
+            <tr>
+              <td class="num">8</td>
+              <td><span class="mosaic" style="width:250px" aria-label="redacted"></span> <span class="q">(editorial)</span></td>
+              <td><span class="neg">Not even linked</span></td>
+              <td>Circles.Life 4, VIVIFI 4, MyRepublic 3</td>
+            </tr>
+            <tr>
+              <td class="num">4</td>
+              <td><span class="mosaic" style="width:230px" aria-label="redacted"></span> <span class="q">(editorial)</span></td>
+              <td><span class="neg">Not even linked</span></td>
+              <td><span class="neg">None either</span> — no rows are linked</td>
+            </tr>
+            <tr>
+              <td class="num">2</td>
+              <td><span class="mosaic" style="width:225px" aria-label="redacted"></span> <span class="q">(editorial)</span></td>
+              <td><span class="neg">Not even linked</span></td>
+              <td>VIVIFI 3, Circles.Life 1</td>
+            </tr>
+            <tr>
+              <td class="num">2</td>
+              <td><span class="mosaic" style="width:265px" aria-label="redacted"></span> <span class="q">(paid article)</span></td>
+              <td><span class="amb">Paid article (GOMO)</span> — campaign tags, no commission</td>
+              <td><span class="neg">None</span></td>
+            </tr>
+            <tr>
+              <td class="num">1</td>
+              <td><span class="mosaic" style="width:210px" aria-label="redacted"></span> <span class="q">(paid article)</span></td>
+              <td><span class="amb">Paid article (Singtel)</span> — campaign tags, no commission</td>
+              <td><span class="neg">None</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="sg-note" style="font-size:17px;margin-top:10px;max-width:1728px">Commission on this site runs through one link shortener only. MyRepublic, Circles.Life and VIVIFI are on it. StarHub, M1, ViewQwest and SIMBA are not.</p>
+      </div>
+      <div class="sg-call bad anim d2" style="font-size:22px;margin-top:12px;padding:14px 22px">Singtel has bought two paid articles here. Both sit on pages worth 3 citations between them, and neither earns DollarsAndSense a commission. On the guide worth 26 citations, Singtel is a plain link.</div>
+      <div class="footer"><span class="t-footer">SRC · DOLLARSANDSENSE LIVE AUDIT · 6 PAGES READ · JULY 2026</span><span class="t-footer">34 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-3g · OPENSIGNAL -->
+  <section data-label="Off-Page — Channel · OpenSignal">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Channel · OpenSignal</div>
+      <h2 class="t-action long anim d1">Singtel won Best Network. AI is still reading the report where it didn't.</h2>
+      <hr class="accent-rule anim d1" style="margin:14px 0">
+      <p class="t-lede subhead anim d1" style="font-size:22px;max-width:1720px;margin-top:0">OpenSignal is an independent network-testing firm — you cannot buy a place in its report. Singtel won its December 2025 award. The problem is which report AI actually reads.</p>
+      <div class="sg-two wide-l anim d2" style="margin-top:16px;flex:1;min-height:0">
+        <div class="sg-col">
+          <p class="sg-cap">Which OpenSignal report AI cites</p>
+          <table class="sg-table compact">
+            <thead><tr><th style="width:106px">Report</th><th>What it says</th><th style="width:196px">How often AI cites it</th></tr></thead>
+            <tbody>
+              <tr><td><b>June 2025</b></td><td>StarHub and Singtel <b>tie</b>. StarHub wins Video outright.</td><td class="neg" style="font-size:18px">11 buyer questions · 42 citations</td></tr>
+              <tr class="hl"><td><b>December 2025</b></td><td>Singtel <b>WINS Best Network</b> — 10 awards, 7 won outright, the only winner of both Consistent Quality and Reliability, 2.6 points clear of StarHub.</td><td style="font-size:18px">5 buyer questions · 19 citations</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note" style="margin-top:16px;font-size:19px;color:var(--bad)"><b style="color:var(--bad)">The report where Singtel loses is cited more than twice as often as the report where Singtel wins.</b></p>
+        </div>
+        <div class="sg-col">
+          <p class="sg-cap">And the sites with more influence never updated</p>
+          <div class="sg-box bad" style="flex:1;padding:22px 26px">
+            <ul class="sg-bul neg">
+              <li style="font-size:20px">WhistleOut is cited across <b>94 buyer questions</b> — more than every OpenSignal report combined (<b>25</b>).</li>
+              <li style="font-size:20px">Its live page still tells buyers: <b>“StarHub has a noticeable lead over Singtel.”</b></li>
+              <li style="font-size:20px">Singtel's own website <b>does not announce the award</b> — so AI has no Singtel page to cite for it.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sg-call accent anim d2">Singtel already won. The pages AI reads are a cycle behind, and Singtel is not the one telling anyone.</div>
+      <div class="footer"><span class="t-footer">SRC · OPENSIGNAL SG REPORTS + WORKDUO CITATION COUNTS · JULY 2026</span><span class="t-footer">35 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-6B · REDDIT EXECUTION PARTNER -->
+  <section data-label="Off-Page — Reddit Partner">
+    <div class="mslide" id="sg-partner">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Off-Page GEO · Reddit Execution Partner</div>
+      <h2 class="t-action anim d1">We recommend active Reddit content management, run by a specialist community partner for leading consumer brands.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1"><span class="mosaic" style="width:160px" aria-label="redacted"></span> is a Reddit-native, officially certified Reddit agency — they specialise in managing branded subreddits, content and comment programmes, and Reddit media — and they are the execution partner behind our Echo Network layer.</p>
+      <div class="sg-two anim d2" style="grid-template-columns:0.9fr 1.1fr;align-items:stretch;flex:1">
+        <div class="sg-col">
+          <p class="sg-cap">Share of each category's top brands that are <span class="mosaic" style="width:86px" aria-label="redacted"></span> clients</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Category</th><th class="num"><span class="mosaic" style="width:72px" aria-label="redacted"></span> share of the leaders</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Pet care</td><td class="num">90% of Top 10</td></tr>
+              <tr><td>Footwear</td><td class="num">65% of Top 20</td></tr>
+              <tr><td>Outdoor</td><td class="num">60% of Top 20</td></tr>
+              <tr><td>Apparel</td><td class="num">50% of Top 10</td></tr>
+              <tr><td>Beauty</td><td class="num">50% of Top 10</td></tr>
+              <tr><td>Maternal &amp; baby</td><td class="num">50% of Top 10</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note" style="font-size:16px;color:var(--ink-4);margin-bottom:0">Source: 2025 Tmall Double 11 full-period brand transaction ranking.</p>
+        </div>
+        <div class="sg-col" style="justify-content:center">
+          <div style="border:1px solid var(--rule-hair);background:var(--paper-pure);padding:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:1;min-height:0">
+            <img src="assets/partner-clients.jpg" alt="Partner benchmark clients — Budweiser, Casio, Samsonite, Estée Lauder, Nivea, Clarins, Suntory, Hennessy and more" style="max-width:100%;max-height:100%;object-fit:contain">
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS · REDDIT EXECUTION PARTNER · <span class="mosaic" style="width:96px" aria-label="redacted"></span></span><span class="t-footer">36 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-6C · PARTNER SERVICE MENU -->
+  <section data-label="Off-Page — Reddit Services">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Off-Page GEO · Reddit Services</div>
+      <h2 class="t-action long anim d1">Reddit management typically consists of three streams; content management is the one we recommend.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="three-up fill anim d2" style="margin-top:28px">
+        <div class="card3">
+          <span class="n">01 · Community</span>
+          <h3 class="h">Official subreddit</h3>
+          <p class="d">Build a branded user community on Reddit — accumulate real fans and strengthen user trust.</p>
+          <div class="kpibox"><span class="kl">How it is measured</span><span class="kv">Fans and followers in the official subreddit</span></div>
+        </div>
+        <div class="card3" style="border:2px solid var(--accent);border-top:5px solid var(--accent);background:var(--accent-tint);gap:12px">
+          <span style="align-self:flex-start;white-space:nowrap;font-family:var(--font-mono);font-size:15px;letter-spacing:.06em;color:var(--paper);background:var(--accent-deep);padding:4px 11px;border-radius:4px;margin:0">RECOMMENDED</span>
+          <span class="n">02 · Content</span>
+          <h3 class="h">Content management</h3>
+          <p class="d" style="margin:0">Builds word-of-mouth naturally in your target audience; high-performing posts drive organic traffic and lift Google search rankings at the same time.</p>
+          <div style="margin:0;font-size:17px;color:var(--ink-2);line-height:1.42">
+            <div>&bull;&nbsp; Plan monthly content themes and posting cadence ahead</div>
+            <div>&bull;&nbsp; Craft high-quality posts that spark interest and discussion</div>
+            <div>&bull;&nbsp; Engage in the comments to build an authentic community</div>
+          </div>
+          <div class="kpibox"><span class="kl">How it is measured</span><span class="kv">Reddit sentiment and mention volume — the same numbers we showed you earlier</span></div>
+        </div>
+        <div class="card3">
+          <span class="n">03 · Media</span>
+          <h3 class="h">Ad — media buy</h3>
+          <p class="d">Reddit users trust ads more and buy with stronger intent than on other platforms; ads and content operations compound for outsized results.</p>
+          <div class="kpibox"><span class="kl">How it is measured</span><span class="kv">Cost per acquisition and cost per click</span></div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS · REDDIT SERVICE MENU</span><span class="t-footer">37 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-7 · DIVISION OF LABOR + PILOT -->
+  <section data-label="Off-Page — Division &amp; Pilot">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Off-Page GEO · Division & Pilot</div>
+      <h2 class="t-action anim d1">Singtel keeps the commercials; Novastacks runs the intelligence and connective ops.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sg-two wide-l anim d2">
+        <div class="sg-col">
+          <p class="sg-cap">Division of labor</p>
+          <table class="sg-table compact">
+            <thead><tr><th>Partnership type</th><th>Who executes</th><th>Novastacks role</th></tr></thead>
+            <tbody>
+              <tr><td>Affiliate / comparison</td><td>Singtel commercial team</td><td>SOV + status + citation spec + QA</td></tr>
+              <tr><td>Reddit / community</td><td>Novastacks draft → Singtel approves</td><td>Surface, draft, post on approval</td></tr>
+              <tr><td>Editorial / blog</td><td>Novastacks</td><td>Identify → pitch → place → refine</td></tr>
+              <tr><td>PR / news</td><td>Singtel comms + agency</td><td>GEO angle + data hooks</td></tr>
+              <tr><td>SEO / backlinks + listings</td><td>Novastacks</td><td>Execute</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sg-col">
+          <div class="feat" style="flex:1;justify-content:flex-start">
+            <p class="fe">The pilot</p>
+            <p class="fn" style="font-size:34px">Broadband-first · 6-month test</p>
+            <p class="fs" style="font-size:20px;margin-top:12px"><b style="color:var(--accent-deep)">The three KPIs:</b> online reputation sentiment in AI answers · sponsored-link count · PGC feed count.</p>
+            <p class="fs" style="font-size:20px;margin-top:10px">Matches the radar; GOMO folds in. Measured on <b>sentiment lift + share of voice against competitors</b> on the top ~10 targets over the window — baseline captured day one — with a monthly intelligence refresh and the two-layer operating rhythm.</p>
+            <div style="margin-top:auto;padding-top:22px;border-top:1px solid rgba(1,170,193,.3)">
+              <span style="font-family:var(--font-mono);font-size:16px;letter-spacing:.10em;color:var(--ink-4);text-transform:uppercase">Commercials</span>
+              <div style="font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--accent-deep);margin-top:10px;letter-spacing:-.01em">Pricing → next slide</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS · OFF-PAGE GEO RETAINER · PILOT SCOPE</span><span class="t-footer">38 / 41</span></div>
+    </div>
+  </section>
+  <!-- OFF-PAGE · PRICING -->
+  <section data-label="Off-Page — Pricing">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim" style="margin-bottom:14px">Off-Page GEO · Pricing</div>
+      <h2 class="t-action anim d1">What the retainer buys, and what it costs.</h2>
+      <hr class="accent-rule anim d1" style="margin:14px 0">
+      <p class="t-lede subhead anim d1">The intelligence layer is a flat monthly fee. Reddit is billed by the comment, so Singtel sets the volume.</p>
+      <div class="sg-two anim d2" style="grid-template-columns:2.2fr 1fr;gap:40px;flex:0 0 auto;margin-top:12px">
+        <div class="sg-col">
+          <p class="sg-cap">Scope of work · monthly retainer</p>
+          <table class="sg-table compact">
+            <thead><tr><th style="width:210px">Line item</th><th>What's included</th><th class="num" style="width:150px">Monthly</th></tr></thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--ink-1);font-weight:600">Base — Layer 1 + Layer 2<div style="font-weight:600;font-size:15px;color:var(--accent-deep);margin-top:5px">Pilot rate · 6 months</div></td>
+                <td>
+                  <div style="font-size:18px;line-height:1.36;color:var(--ink-2);padding-left:19px">
+                    <div style="text-indent:-19px">&bull;&nbsp; Weekly AI citation + sentiment report, with an action plan</div>
+                    <div style="text-indent:-19px">&bull;&nbsp; Monthly intelligence refresh — the full citation-source and sentiment map</div>
+                    <div style="text-indent:-19px">&bull;&nbsp; 4-channel operation — SingSaver · MoneySmart · WhistleOut · DollarsAndSense</div>
+                    <div style="text-indent:-19px">&bull;&nbsp; Weekly surveillance of those comparison pages — sponsored-link and plan changes, acted on the same week</div>
+                    <div style="text-indent:-19px">&bull;&nbsp; 300 prompts · 2 LLMs (ChatGPT + Google AI Overview) · 3 domains</div>
+                    <div style="text-indent:-19px">&bull;&nbsp; Reddit reputation strategy — monthly listening read (sentiment + share-of-conversation vs competitors), ranked threads worth engaging</div>
+                  </div>
+                </td>
+                <td class="num">US$4,000</td>
+              </tr>
+              <tr>
+                <td style="color:var(--ink-1);font-weight:600">Reddit UGC content</td>
+                <td>
+                  <div style="font-size:18px;line-height:1.36;color:var(--ink-2);padding-left:19px">
+                    <div style="text-indent:-19px">&bull;&nbsp; We draft the responses on the threads the strategy surfaces</div>
+                    <div style="text-indent:-19px">&bull;&nbsp; Your team approves in a dashboard before anything is posted</div>
+                    <div style="text-indent:-19px">&bull;&nbsp; US$170 per comment · suggested 20 / mo (no cap)</div>
+                  </div>
+                </td>
+                <td class="num">US$3,400</td>
+              </tr>
+              <tr class="hl"><td>Total — at the suggested volume</td><td></td><td class="num">US$7,400 / mo</td></tr>
+            </tbody>
+          </table>
+          <p class="sg-note" style="font-size:16px;color:var(--ink-4);margin-top:10px"><b style="color:var(--accent-deep)">US$4,000 is a pilot rate, held for the 6-month term; the standard rate applies on renewal.</b> Overage: additional Reddit comments billed at US$170 each. All figures monthly, USD.</p>
+        </div>
+        <div class="sg-col" style="justify-content:center">
+          <div class="sg-box" style="background:var(--accent-tint);border-left:5px solid var(--accent)">
+            <p class="bl" style="color:var(--accent-deep)">At the suggested volume</p>
+            <div class="line" style="border:0;padding-bottom:0"><b style="color:var(--accent-deep)">US$7,400 / mo</b> at the suggested 20 Reddit comments. Scale the comment volume up or down; the base and the four-channel operation stay fixed.</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS · OFF-PAGE GEO · SCOPE + PRICE · MONTHLY (USD)</span><span class="t-footer">39 / 41</span></div>
+    </div>
+  </section>
+  <!-- 11 PARTNER -->
+  <section data-label="How to Work Together">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Engagement</div>
+      <h2 class="t-action anim d1">Three ways to work with us.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">Each option is shaped to how you want to work — we run it for you, hand you the strategy, or build the capability inside your team. Same senior operators and the same standard behind all three, so the outcome holds: your leads arrive pre-sold — AI already did their research and put you on the shortlist.</p>
+      <div class="partner three anim d2">
+        <div class="pcard lead">
+          <span class="pbadge">RECOMMENDED</span>
+          <h3 class="ptitle">SEO &amp; AEO Solution —<br>Done For You</h3>
+          <p class="psub">We run the Source &amp; Echo Method end to end.</p>
+          <p class="pd">Business-outcome focused. Your account stays with senior operators — never outsourced, never handed to juniors.</p>
+          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Depends on scope</span></div>
+          <div class="ptags">
+            <span class="ptag em">Monthly retainer</span><span class="ptag">Technical SEO</span><span class="ptag">AEO</span><span class="ptag">Content SEO</span><span class="ptag">Local SEO</span>
+          </div>
+        </div>
+        <div class="pcard">
+          <h3 class="ptitle">SEO &amp; AEO Strategy<br>Advisory</h3>
+          <p class="psub">The strategy and roadmap, without the operation.</p>
+          <p class="pd">Strategy-focused. Prompt portfolio baseline, the method strategy and a 90-day plan — handed to your team to run.</p>
+          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Customised</span></div>
+          <div class="ptags">
+            <span class="ptag em">Strategy-focused</span><span class="ptag">Roadmap</span><span class="ptag">Handover</span>
+          </div>
+        </div>
+        <div class="pcard">
+          <h3 class="ptitle">Agentic System<br>Building &amp; Advisory</h3>
+          <p class="psub">We build the capability with you.</p>
+          <p class="pd">Workshops and implementation that leave the system — and the skills — inside your team.</p>
+          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Customised</span></div>
+          <div class="ptags">
+            <span class="ptag em">Project-based</span><span class="ptag">Workshops</span><span class="ptag">Implementation</span><span class="ptag">Custom agent builds</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">ENGAGE · DONE-FOR-YOU · STRATEGY · BUILD-WITH-YOU</span><span class="t-footer">40 / 41</span></div>
+    </div>
+  </section>
+  <!-- 12 CLOSE -->
+  <section class="dark" data-label="Close">
+    <div class="mslide dark">
+      <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">06 · Close</div>
+      <div class="close-wrap">
+        <div>
+          <div class="close-q anim d1">See what AI says about your brand today — <em>we'll run the first audit free.</em></div>
+          <hr class="accent-rule anim d2" style="margin-top:44px">
+          <a class="cta-btn anim d2" href="https://calendar.app.google/3tk45A3Wq7UwgJef9" target="_blank" rel="noopener">Book a meeting →</a>
+        </div>
+        <div class="anim d2">
+          <div class="close-contact">
+            <span class="nm">Tina Chu</span><span class="sep">·</span>tchu@novastacks-ai.com<span class="sep">·</span>novastacks-ai.com
+          </div>
+          <div class="footer" style="margin-top:40px">
+            <span class="t-footer" style="color:var(--dark-fg-2)">FULL CASE STUDY · goblin2929.github.io/prospect-docs</span>
+            <span class="t-footer" style="color:var(--accent)">41 / 41</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>
