@@ -121,7 +121,6 @@ font-family:'Space Grotesk',sans-serif;padding:10px 16px;border-radius:8px;white
   <button class="tab on" data-p="sentiment">AI-answer sentiment</button>
   <button class="tab" data-p="citations">Citations by prompt</button>
   <button class="tab" data-p="outreach">SingSaver outreach <span style="opacity:.6">· demo</span></button>
-  <button class="tab" data-p="method">Method</button>
 </div>
 <div class="pane on" id="pane-sentiment">
 <div class="eyebrow">Novastacks · Off-Page GEO · Evidence Sheet</div>
@@ -284,31 +283,7 @@ what's missing) so the click returns instantly. In production this runs live per
   </div>
 </div></div>
 
-<div class="pane" id="pane-method">
-<div class="method">
-  <h2>How this analysis is produced — so it survives a skeptical read</h2>
-  <ol>
-    <li><b>Source.</b> 50 buyer prompts tracked in WorkDuo (region SG), tagged by funnel stage. Each prompt is
-    re-run across AI engines on a rolling schedule; the full answer text is stored. WorkDuo retains ~7 days of history for
-    this project, so a pull returns a rolling ~7-day window — <b>474 answers</b> across Google AI Overview + ChatGPT in the snapshot.</li>
-    <li><b>Corpus.</b> <b>318</b> of those answers name Singtel (67%). Those are the rows above. <b>315</b> carry an
-    evaluable sentence about Singtel (3 empty snippets excluded).</li>
-    <li><b>Deterministic floor (no AI judgment).</b> The <code>Price</code>, <code>premium</code>,
-    <code>expensive</code> and <code>GOMO</code> flags are keyword matches over the stored Singtel sentence —
-    fully reproducible. They regenerate the headline counts exactly: premium 85×, expensive/overpriced 16×,
-    GOMO named in 73 answers (23%).</li>
-    <li><b>Judgment layer.</b> The 25/47/26/2 framing split and the 90% Branded figure are a model-assisted
-    analyst read of the passages — the defensible headline. The per-row <code>Keyword hint</code> column is only
-    a rough keyword signal; it undercounts contextual hedging ("reliable but expensive"), so it is directional,
-    not a reconstruction of the analyst read. Lead with the counts and the analyst split; treat the keyword hint
-    as a scan aid.</li>
-  </ol>
-  <div class="caveat">Caveats stated up front: two snapshots pulled a day apart on a rolling window (re-run on one fixed
-  window for the final client cut); engine coverage is Google AIO + ChatGPT only (add Perplexity/Gemini before
-  generalizing to "all AI"); corpus is consumer-telco heavy — findings are about consumer value perception.
-  Counterweight, kept in: on reliability, roaming and enterprise, AI backs Singtel cleanly.</div>
-</div>
-</div>
+
 <div class="foot">NOVASTACKS · SINGTEL AI ANSWER CORPUS · SOURCE: WORKDUO 7-DAY PULL · GOOGLE AIO + CHATGPT · CONFIDENTIAL</div>
 </div>
 <script>
