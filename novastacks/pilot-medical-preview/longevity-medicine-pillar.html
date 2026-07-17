@@ -96,7 +96,10 @@
   nav ul{display:flex;gap:30px;list-style:none;font-size:16px}
   nav ul .active{text-decoration:underline;text-underline-offset:6px}
   /* HERO */
-  .hero{position:relative;color:#fff;text-align:center;padding:130px 24px 150px;background:linear-gradient(rgba(20,22,16,.45),rgba(20,22,16,.55)),url('https://images.squarespace-cdn.com/content/v1/6961d46859ae6c5c4c375db7/1722372461.887995-NWKJTQPGXNVZBMWAVHGF/imgg-od3-4omozdz6.png') center/cover}
+  .hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:130px 24px 150px;background:url('https://images.squarespace-cdn.com/content/v1/6961d46859ae6c5c4c375db7/1722372461.887995-NWKJTQPGXNVZBMWAVHGF/imgg-od3-4omozdz6.png') center/cover}
+  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero .hero-veil{position:absolute;inset:0;background:linear-gradient(rgba(20,22,16,.45),rgba(20,22,16,.55));z-index:1}
+  .hero .hero-inner{position:relative;z-index:2}
   .crumbs{font-size:14px;opacity:.85;margin-bottom:22px}
   .hero h1{font-size:60px;line-height:1.15;margin-bottom:18px}
   .hero p{max-width:620px;margin:0 auto 34px;font-size:19px}
@@ -167,11 +170,24 @@
 </header>
 
 <div class="hero">
-  <div class="crumbs">Home &rsaquo; Longevity Medicine</div>
-  <h1>Longevity Medicine in Singapore</h1>
-  <p>Don't just age. Evolve. Clinical precision, predictive insights, and a personalised roadmap at Camden Medical Centre, Orchard — so you can live longer and live better.</p>
-  <a class="pill" href="#book">Book a Longevity Consultation</a>
+  <video id="herovid" autoplay muted loop playsinline></video>
+  <div class="hero-veil"></div>
+  <div class="hero-inner">
+    <div class="crumbs">Home &rsaquo; Longevity Medicine</div>
+    <h1>Longevity Medicine in Singapore</h1>
+    <p>Don't just age. Evolve. Clinical precision, predictive insights, and a personalised roadmap at Camden Medical Centre, Orchard — so you can live longer and live better.</p>
+    <a class="pill" href="#book">Book a Longevity Consultation</a>
+  </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+<script>
+  (function(){
+    var v = document.getElementById('herovid');
+    var src = 'https://video.squarespace-cdn.com/content/v1/6961d46859ae6c5c4c375db7/1e4b92eb-b535-44b0-b194-0bbea96b8832/playlist.m3u8';
+    if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; }
+    else if (window.Hls && Hls.isSupported()) { var h = new Hls(); h.loadSource(src); h.attachMedia(v); }
+  })();
+</script>
 
 <section>
   <div class="wrap two-col">
@@ -201,7 +217,6 @@
 </section>
 
 <div class="video-band">
-  <video id="clinicvid" autoplay muted loop playsinline></video>
   <div class="veil"></div>
   <div class="inner">
     <div class="kicker" style="color:#E7D9CB">Inside the clinic</div>
@@ -210,15 +225,6 @@
     <a class="pill light" href="#book">See How a Visit Works</a>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
-<script>
-  (function(){
-    var v = document.getElementById('clinicvid');
-    var src = 'https://video.squarespace-cdn.com/content/v1/6961d46859ae6c5c4c375db7/1e4b92eb-b535-44b0-b194-0bbea96b8832/playlist.m3u8';
-    if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; }
-    else if (window.Hls && Hls.isSupported()) { var h = new Hls(); h.loadSource(src); h.attachMedia(v); }
-  })();
-</script>
 
 <section>
   <div class="wrap">
