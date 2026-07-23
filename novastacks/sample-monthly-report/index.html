@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Client A — AEO Performance Report (Sample) — May / June 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --teal: #017d8e;
+    --teal-d: #0e7490;
+    --slate-9: #0f172a;
+    --slate-7: #334155;
+    --slate-5: #64748b;
+    --slate-3: #cbd5e1;
+    --slate-1: #f1f5f9;
+    --green: #16a34a;
+    --amber: #d97706;
+    --red: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: #ffffff;
+    color: var(--slate-9);
+    margin: 0;
+    padding: 28px 36px;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+  .page {
+    width: 1280px;
+    margin: 0 auto;
+  }
+  html { min-width: 1320px; }
+  header {
+    border-bottom: 2px solid var(--teal);
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 {
+    font-size: 22px;
+    margin: 0;
+    color: var(--slate-9);
+    letter-spacing: -0.01em;
+  }
+  header .meta {
+    font-size: 12px;
+    color: var(--slate-5);
+    text-align: right;
+  }
+  header .meta strong { color: var(--slate-7); }
+
+  .hook {
+    background: linear-gradient(90deg, #ecfeff 0%, #f0fdfa 100%);
+    border-left: 4px solid var(--teal);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    font-size: 14px;
+  }
+  .hook strong { color: var(--teal-d); }
+
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .kpi {
+    border: 1px solid var(--slate-3);
+    border-radius: 6px;
+    padding: 10px 14px;
+    background: #fff;
+  }
+  .kpi .label { font-size: 11px; color: var(--slate-5); text-transform: uppercase; letter-spacing: 0.04em; }
+  .kpi .val { font-size: 20px; font-weight: 700; color: var(--slate-9); margin-top: 2px; }
+  .kpi .delta { font-size: 12px; margin-top: 2px; }
+  .delta.flat { color: var(--amber); }
+  .delta.up { color: var(--green); }
+  .delta.down { color: var(--red); }
+
+  .chart-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .chart-card {
+    border: 1px solid var(--slate-3);
+    border-radius: 6px;
+    padding: 12px 14px 10px;
+    background: #fff;
+  }
+  .chart-card h3 {
+    font-size: 13px;
+    margin: 0 0 2px;
+    color: var(--slate-9);
+  }
+  .chart-card .sub {
+    font-size: 11px;
+    color: var(--slate-5);
+    margin-bottom: 8px;
+  }
+  .chart-canvas-wrap {
+    height: 200px;
+    position: relative;
+  }
+  .chart-card .takeaway {
+    margin-top: 8px;
+    font-size: 11.5px;
+    color: var(--slate-7);
+    background: var(--slate-1);
+    padding: 6px 8px;
+    border-radius: 4px;
+  }
+  .chart-card .takeaway b { color: var(--slate-9); }
+
+  section { margin-bottom: 22px; }
+  section h2 {
+    font-size: 13px;
+    margin: 0 0 8px;
+    color: var(--teal-d);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--slate-3);
+    padding-bottom: 4px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  /* Compact tables in the one-pager register */
+  table.t {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: #fff;
+  }
+  table.t th {
+    text-align: left;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--slate-5);
+    border-bottom: 1.5px solid var(--slate-3);
+    padding: 5px 8px;
+    font-weight: 600;
+  }
+  table.t th.num, table.t td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.t th.aeo, table.t td.aeo { background: #ecfeff; }
+  table.t th.aeo { color: var(--teal-d); }
+  table.t td {
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--slate-1);
+    color: var(--slate-7);
+  }
+  table.t td:first-child { color: var(--slate-9); }
+  table.t tr.subtotal td {
+    background: var(--slate-1);
+    font-weight: 700;
+    color: var(--slate-9);
+    border-top: 1.5px solid var(--slate-3);
+  }
+  table.t a { color: var(--teal-d); text-decoration: none; }
+  table.t a:hover { text-decoration: underline; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .win-row td { background: #f0fdf4; }
+
+  .note {
+    font-size: 11px;
+    color: var(--slate-5);
+    margin-top: 6px;
+  }
+
+  .takeaway-box {
+    margin-top: 8px;
+    font-size: 11.5px;
+    color: var(--slate-7);
+    background: var(--slate-1);
+    padding: 8px 10px;
+    border-radius: 4px;
+  }
+  .takeaway-box b { color: var(--slate-9); }
+  .takeaway-box.win { background: #f0fdf4; border-left: 3px solid var(--green); }
+  .takeaway-box.watch { background: #fffbeb; border-left: 3px solid var(--amber); }
+  .takeaway-box ul { margin: 4px 0 0; padding-left: 18px; }
+  .takeaway-box li { margin-bottom: 3px; }
+
+  .focus-status { font-weight: 700; font-size: 11px; }
+  .focus-status.done { color: var(--green); }
+  .focus-status.wip { color: var(--amber); }
+
+  .prio-list { margin: 0; padding-left: 20px; }
+  .prio-list li { margin-bottom: 6px; font-size: 12.5px; }
+  .prio-list li b { color: var(--teal-d); }
+  .tag {
+    display: inline-block;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 1px 6px;
+    border-radius: 8px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .tag.aeo { background: #ecfeff; color: var(--teal-d); border: 1px solid #a5f3fc; }
+  .tag.content { background: #f0fdf4; color: var(--green); border: 1px solid #bbf7d0; }
+  .tag.technical { background: #fffbeb; color: var(--amber); border: 1px solid #fde68a; }
+
+  footer {
+    margin-top: 16px;
+    font-size: 10.5px;
+    color: var(--slate-5);
+    text-align: center;
+    border-top: 1px solid var(--slate-3);
+    padding-top: 6px;
+  }
+
+  @media print {
+    body { padding: 16px 20px; font-size: 11.5px; }
+    .chart-canvas-wrap { height: 160px; }
+    header h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>Client A — AEO Channel Progress Update</h1>
+      <div style="font-size:11px; color:var(--slate-5); margin-top:2px;">May 2026 monthly review + June month-to-date trends · Sample report — client identity masked for confidentiality</div>
+    </div>
+    <div class="meta">
+      <div><strong>June 11, 2026 · Thursday</strong></div>
+      <div>Monthly tables: May 1–31 vs April · Weekly trends: Jan 5 – Jun 7</div>
+    </div>
+  </header>
+
+  <div class="hook">
+    <strong>Headline:</strong> May was a broad-based growth month — clicks <strong>+13.1%</strong> (3,611), non-brand <strong>+23.8%</strong> (2,511), and <strong>AI-referred sessions doubled (235 → 476 in GA4)</strong>. June is opening stronger: the Jun 1–7 week delivered <strong>881 non-brand clicks (best since early March)</strong> and Google AI visibility hit a series-high <strong>39.1%</strong>. The AEO flywheel (content → citations → AI traffic) is now visible in all three charts.
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">Total Clicks · May</div>
+      <div class="val">3,611</div>
+      <div class="delta up">+418 (+13.1%) vs Apr · Non-brand 2,511 (69.5%)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Non-Brand Clicks · May</div>
+      <div class="val">2,511</div>
+      <div class="delta up">+482 (+23.8%) MoM</div>
+    </div>
+    <div class="kpi">
+      <div class="label">AI Visibility · May (WorkDuo)</div>
+      <div class="val">24.0%</div>
+      <div class="delta up">+2.2 pts vs Apr · SOV 19.9% (+1.3 pts)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">AI Sessions · May (GA4)</div>
+      <div class="val">476</div>
+      <div class="delta up">+102.6% vs Apr 235 · Jun MTD 188 (10 days)</div>
+    </div>
+  </div>
+
+  <div class="chart-row">
+
+    <div class="chart-card">
+      <h3>① Total Clicks vs Non-Brand Clicks (Weekly)</h3>
+      <div class="sub">GSC sc-domain, date-dim · non-brand = total minus brand-regex queries</div>
+      <div class="chart-canvas-wrap"><canvas id="chart1"></canvas></div>
+      <div class="takeaway"><b>Read:</b> The April trough (516–599 non-brand/wk) has fully recovered. <b>Jun 1–7 hit 881 non-brand clicks — the best week since early March</b> — and W22–W23 non-brand share is at a series high (75–77% of total). Total clicks back above 1,100/wk for the first time since March.</div>
+    </div>
+
+    <div class="chart-card">
+      <h3>② AEO Visibility · Non-Brand by Engine (Weekly)</h3>
+      <div class="sub">WorkDuo · 28 non-brand prompts (pool expanded from 21 in early Jun; all weeks restated — levels read ~3pts lower than prior reports, trend unaffected)</div>
+      <div class="chart-canvas-wrap"><canvas id="chart2"></canvas></div>
+      <div class="takeaway"><b>Read:</b> <b>Google AI Overview at a series-high 39.1%</b> (Jun 1–7) and still climbing. ChatGPT made a step-change in late May (27.1% W22 peak, settling ~19%). <b>Watch: Perplexity softened from its mid-May peak (32% → 18%)</b> — worth a citation-source check this month.</div>
+    </div>
+
+    <div class="chart-card">
+      <h3>③ AI Traffic Sessions (Weekly · GA4)</h3>
+      <div class="sub">GA4 sessions, sessionSource = AI platforms (ChatGPT, Gemini, Claude, Perplexity, Copilot…)</div>
+      <div class="chart-canvas-wrap"><canvas id="chart3"></canvas></div>
+      <div class="takeaway"><b>Read:</b> Now pulled directly from GA4 (previously dashboard estimates). AI sessions grew ~10× since January: 14/wk → <b>130+/wk through late May and into June</b>. May totaled 476 sessions (+102.6% vs April 235); June is pacing ahead at 188 in the first 10 days. <b>This is the AEO ROI signal</b> — visibility converting to visits.</div>
+    </div>
+
+  </div>
+
+  <div class="two-col">
+    <section>
+      <h2>May Focus Areas — What Was Done</h2>
+      <table class="t">
+        <thead><tr><th>Category</th><th>What was done</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><b>1. Content Production</b></td><td>7 new articles published · 56 existing re-optimized / refreshed · Gong call analysis drafted for blog use</td><td><span class="focus-status done">DONE</span></td></tr>
+          <tr><td><b>2. Page &amp; On-Page Strategy</b></td><td>Product Hub &amp; Product Attribute page suggestions (Ocean Freight + others) · Homepage SEO tag updates (title, meta, headings)</td><td><span class="focus-status done">DONE</span></td></tr>
+          <tr><td><b>3. Authority &amp; E-E-A-T</b></td><td>Real author credentials + LinkedIn links added to all high-traffic blogs — trust signals for Google and AI engines</td><td><span class="focus-status done">DONE</span></td></tr>
+          <tr><td><b>4. AEO Strategy</b></td><td>New AEO content strategy built from GSC long-tail queries · prompt list review + content strategy discussion (publishing in progress)</td><td><span class="focus-status wip">IN&nbsp;PROGRESS</span></td></tr>
+          <tr><td><b>5. Technical</b></td><td>Added llm.txt to expose key content to AI crawlers</td><td><span class="focus-status done">DONE</span></td></tr>
+          <tr><td><b>6. Attribution &amp; Analytics</b></td><td>Self-reported channel attribution live (form + first sales call) — closes the loop between organic / AI discovery and pipeline</td><td><span class="focus-status done">DONE</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>June 2026 Strategy &amp; Priorities (incl. AEO Focus Areas)</h2>
+      <ol class="prio-list">
+        <li><b>Submit sitemap in Bing Webmaster</b> — feeds ChatGPT indexation (ChatGPT retrieves from Bing's index); direct lever for AEO discovery<span class="tag technical">Technical</span><span class="tag aeo">AEO</span></li>
+        <li><b>Publish the Gong call analysis blog</b> — voice-of-customer content AI engines favor for buyer-intent questions<span class="tag content">Content</span><span class="tag aeo">AEO</span></li>
+        <li><b>Fan-out query expansion — Solution pages</b> — capture the question variants AI engines branch into; Solutions impressions already +202%<span class="tag content">Content</span><span class="tag aeo">AEO</span></li>
+        <li><b>Fan-out query expansion — Product pages</b> — same treatment; Product moved 2 → 22 clicks and 1k → 7k impressions in May<span class="tag content">Content</span><span class="tag aeo">AEO</span></li>
+        <li><b>Keep building comparison content</b> (Client A vs CargoWise, vs Magaya) — already winning both classic search and AI citations<span class="tag aeo">AEO</span></li>
+      </ol>
+      <div class="takeaway-box watch" style="margin-top:12px;"><b>Items to monitor:</b> blended avg position softened 9.7 → 11.3 (long-tail expansion side effect — impressions +17%, watch CTR stability) · homepage/branded clicks −85 (brand-demand fluctuation, rankings held) · two high-impression pages with near-zero CTR (supply-chain-optimization 112k impr / 0.00%, best-freight-management-software 42k / 0.06%) are priority title-meta-schema refreshes.</div>
+    </section>
+  </div>
+
+  <section>
+    <h2>Query Segment Breakdown (May vs April)</h2>
+    <table class="t">
+      <thead>
+        <tr><th>Segment</th><th class="num">May Clicks</th><th class="num">Apr Clicks</th><th class="num">Click Δ</th><th class="num">Δ %</th><th class="num">May Impr</th><th class="num">Apr Impr</th><th class="num">Impr Δ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Exact "clienta"</td><td class="num">922</td><td class="num">957</td><td class="num down">-35</td><td class="num down">-3.7%</td><td class="num">2,415</td><td class="num">2,771</td><td class="num down">-356</td></tr>
+        <tr><td>Branded related</td><td class="num">178</td><td class="num">207</td><td class="num down">-29</td><td class="num down">-14.0%</td><td class="num">2,270</td><td class="num">2,037</td><td class="num up">+233</td></tr>
+        <tr><td>Non-branded</td><td class="num">2,511</td><td class="num">2,029</td><td class="num up">+482</td><td class="num up">+23.8%</td><td class="num">1,270,515</td><td class="num">1,085,073</td><td class="num up">+185,442</td></tr>
+        <tr class="subtotal"><td>TOTAL</td><td class="num">3,611</td><td class="num">3,193</td><td class="num up">+418</td><td class="num up">+13.1%</td><td class="num">1,275,200</td><td class="num">1,089,881</td><td class="num up">+185,319</td></tr>
+      </tbody>
+    </table>
+    <div class="takeaway-box"><b>Read:</b> Non-branded grew <b>+23.8% MoM</b> (+482) while branded declined −5.5% (−64) — exactly the shift the content program is built for. Non-branded now stands at <b>69.5% of all clicks</b>, up from 63.5% in April.</div>
+  </section>
+
+  <section>
+    <h2>Subfolder Performance (May vs April) — with AI Citation Coverage</h2>
+    <table class="t" id="subfolderTable">
+      <thead>
+        <tr><th>Subfolder</th><th class="num">Apr Clicks</th><th class="num">May Clicks</th><th class="num">Click Δ</th><th class="num">Δ %</th><th class="num">Apr Impr</th><th class="num">May Impr</th><th class="num aeo">Pages Cited by AI · Apr</th><th class="num aeo">Pages Cited by AI · May</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Blog</td><td class="num">1,476</td><td class="num">1,857</td><td class="num up">+381</td><td class="num up">+25.8%</td><td class="num">967,142</td><td class="num">1,096,761</td><td class="num aeo">45 <span style="color:var(--slate-5)">(3,022)</span></td><td class="num aeo">47 <span style="color:var(--slate-5)">(3,478)</span></td></tr>
+        <tr><td>Homepage</td><td class="num">1,400</td><td class="num">1,315</td><td class="num down">-85</td><td class="num down">-6.1%</td><td class="num">43,742</td><td class="num">45,722</td><td class="num aeo">1 <span style="color:var(--slate-5)">(100)</span></td><td class="num aeo">1 <span style="color:var(--slate-5)">(70)</span></td></tr>
+        <tr><td>Glossary</td><td class="num">208</td><td class="num">247</td><td class="num up">+39</td><td class="num up">+18.8%</td><td class="num">54,957</td><td class="num">89,198</td><td class="num aeo">2 <span style="color:var(--slate-5)">(4)</span></td><td class="num aeo">2 <span style="color:var(--slate-5)">(6)</span></td></tr>
+        <tr><td>Solutions</td><td class="num">11</td><td class="num">12</td><td class="num up">+1</td><td class="num up">+9.1%</td><td class="num">4,290</td><td class="num">12,999</td><td class="num aeo">9 <span style="color:var(--slate-5)">(129)</span></td><td class="num aeo">8 <span style="color:var(--slate-5)">(34)</span></td></tr>
+        <tr><td>Product</td><td class="num">2</td><td class="num">22</td><td class="num up">+20</td><td class="num up">+1,000%</td><td class="num">1,039</td><td class="num">7,037</td><td class="num aeo">3 <span style="color:var(--slate-5)">(52)</span></td><td class="num aeo">3 <span style="color:var(--slate-5)">(390)</span></td></tr>
+        <tr><td>Pricing</td><td class="num">57</td><td class="num">43</td><td class="num down">-14</td><td class="num down">-24.6%</td><td class="num">5,164</td><td class="num">5,034</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td>Other (Company, Tools, etc.)</td><td class="num">39</td><td class="num">115</td><td class="num up">+76</td><td class="num up">+194.9%</td><td class="num">13,547</td><td class="num">18,449</td><td class="num aeo">16 <span style="color:var(--slate-5)">(216)</span></td><td class="num aeo">14 <span style="color:var(--slate-5)">(253)</span></td></tr>
+        <tr class="subtotal"><td>TOTAL (clienta.com)</td><td class="num">3,193</td><td class="num">3,611</td><td class="num up">+418</td><td class="num up">+13.1%</td><td class="num">1,089,881</td><td class="num">1,275,200</td><td class="num aeo">76 <span style="color:var(--slate-5)">(3,523)</span></td><td class="num aeo">75 <span style="color:var(--slate-5)">(4,231)</span></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Totals reflect the primary clienta.com property; support/api/archive subdomains tracked separately (support.clienta.com delivered 274 clicks in May). <b>Pages Cited by AI</b> = distinct pages cited as a source by ChatGPT, Perplexity, or Google AI in WorkDuo-tracked responses that month, shown as <i>pages (total citations)</i>. Subdomains add a further Apr 36 pages (856 citations) / May 33 pages (706) — mostly support docs and api/developer docs.</p>
+    <div class="takeaway-box"><b>Read:</b> <b>Blog is the engine</b> (+381 clicks, +25.8%, +130k impressions) · <b>Glossary recovering</b> (+18.8%, impressions +62%) · <b>Product &amp; Solutions surfacing</b> — impressions +577% / +202%; the impression base is the leading indicator before clicks follow, and June fan-out work targets exactly this. <b>AI citation coverage:</b> Blog dominates (3,478 of 4,231 primary-domain citations in May), <b>/product/integrations spiked 10 → 244 citations — the biggest single-page AEO gain of the month</b>; watch Solutions, whose citations fell 129 → 34.</div>
+  </section>
+
+  <section>
+    <h2>Top 30 Pages by Clicks (May vs April) — with AI Citations per Page</h2>
+    <table class="t" id="topPagesTable">
+      <thead>
+        <tr><th>#</th><th>Page</th><th class="num">May Clicks</th><th class="num">Apr Clicks</th><th class="num">Δ Clicks</th><th class="num">May Impr</th><th class="num aeo">AI Citations · Apr</th><th class="num aeo">AI Citations · May</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">1</td><td><a href="https://clienta.com/" target="_blank">clienta.com/ (homepage)</a></td><td class="num">1,315</td><td class="num">1,400</td><td class="num down">-85</td><td class="num">44,255</td><td class="num aeo">100</td><td class="num aeo">70</td></tr>
+        <tr><td class="num">2</td><td><a href="https://clienta.com/blog/education/how-to-do-custom-clearance-in-usa-for-goods.html" target="_blank">/blog/…/how-to-do-custom-clearance-in-usa-for-goods</a></td><td class="num">297</td><td class="num">178</td><td class="num up">+119</td><td class="num">178,246</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">3</td><td><a href="https://clienta.com/blog/education/top-freight-forwarding-training-courses" target="_blank">/blog/…/top-freight-forwarding-training-courses</a></td><td class="num">174</td><td class="num">5</td><td class="num up">+169</td><td class="num">9,960</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">4</td><td><a href="https://clienta.com/blog/education/shipping-container-dimensions-everything-you-need-to-know.html" target="_blank">/blog/…/shipping-container-dimensions-everything-you-need-to</a></td><td class="num">127</td><td class="num">51</td><td class="num up">+76</td><td class="num">134,304</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">5</td><td><a href="https://support.clienta.com/hc/en-us/articles/14378165476751-Check-Bond-Status-Importer-Bond-Details-Overview" target="_blank">support: 14378165476751-Check-Bond-Status-Importer-Bond-D</a></td><td class="num">107</td><td class="num">142</td><td class="num down">-35</td><td class="num">2,267</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">6</td><td><a href="https://clienta.com/blog/industry-insights/top-10-reasons-of-shipping-delays.html" target="_blank">/blog/…/top-10-reasons-of-shipping-delays</a></td><td class="num">100</td><td class="num">84</td><td class="num up">+16</td><td class="num">32,567</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">7</td><td><a href="https://clienta.com/blog/freights-snap/global-top-freight-forwarders-of-2021.html" target="_blank">/blog/…/global-top-freight-forwarders-of-2021</a></td><td class="num">74</td><td class="num">9</td><td class="num up">+65</td><td class="num">13,449</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">8</td><td><a href="https://clienta.com/blog/education/how-to-apply-for-nvocc-license.html" target="_blank">/blog/…/how-to-apply-for-nvocc-license</a></td><td class="num">58</td><td class="num">41</td><td class="num up">+17</td><td class="num">8,817</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">9</td><td><a href="https://clienta.com/glossary/fenix-marine-terminal-tracking" target="_blank">/glossary/fenix-marine-terminal-tracking</a></td><td class="num">56</td><td class="num">58</td><td class="num down">-2</td><td class="num">9,750</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">10</td><td><a href="https://clienta.com/blog/cargowise-pricing-2025" target="_blank">/blog/cargowise-pricing-2025</a></td><td class="num">53</td><td class="num">43</td><td class="num up">+10</td><td class="num">5,313</td><td class="num aeo">24</td><td class="num aeo">40</td></tr>
+        <tr><td class="num">11</td><td><a href="https://clienta.com/glossary/garden-city-terminal-tracking" target="_blank">/glossary/garden-city-terminal-tracking</a></td><td class="num">45</td><td class="num">23</td><td class="num up">+22</td><td class="num">5,996</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">12</td><td><a href="https://clienta.com/pricing" target="_blank">/pricing</a></td><td class="num">43</td><td class="num">57</td><td class="num down">-14</td><td class="num">5,034</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">13</td><td><a href="https://clienta.com/blog/best-tms-trucking-companies" target="_blank">/blog/best-tms-trucking-companies</a></td><td class="num">41</td><td class="num">18</td><td class="num up">+23</td><td class="num">26,305</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">14</td><td><a href="https://clienta.com/blog/education/what-is-the-profit-margin-for-freight-forwarders.html" target="_blank">/blog/…/what-is-the-profit-margin-for-freight-forwarders</a></td><td class="num">41</td><td class="num">36</td><td class="num up">+5</td><td class="num">9,508</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">15</td><td><a href="https://clienta.com/blog/education/10-best-books-on-freight-forwarding-to-read-in-2021.html" target="_blank">/blog/…/10-best-books-on-freight-forwarding-to-read-in-2021</a></td><td class="num">37</td><td class="num">57</td><td class="num down">-20</td><td class="num">935</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">16</td><td><a href="https://clienta.com/blog/best-logistics-crm-software" target="_blank">/blog/best-logistics-crm-software</a></td><td class="num">34</td><td class="num">34</td><td class="num ">0</td><td class="num">12,447</td><td class="num aeo">4</td><td class="num aeo">26</td></tr>
+        <tr><td class="num">17</td><td><a href="https://clienta.com/blog/education/10-best-books-on-freight-forwarding-to-read.html" target="_blank">/blog/…/10-best-books-on-freight-forwarding-to-read</a></td><td class="num">33</td><td class="num">0</td><td class="num up">+33</td><td class="num">1,040</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">18</td><td><a href="https://clienta.com/glossary/savannah-terminal-tracking" target="_blank">/glossary/savannah-terminal-tracking</a></td><td class="num">31</td><td class="num">44</td><td class="num down">-13</td><td class="num">4,114</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">19</td><td><a href="https://clienta.com/glossary/what-is-incoterms" target="_blank">/glossary/what-is-incoterms</a></td><td class="num">31</td><td class="num">1</td><td class="num up">+30</td><td class="num">5,263</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">20</td><td><a href="https://clienta.com/blog/industry-insights/mastering-fob-in-shipping-a-complete-guide.html" target="_blank">/blog/…/mastering-fob-in-shipping-a-complete-guide</a></td><td class="num">30</td><td class="num">14</td><td class="num up">+16</td><td class="num">57,158</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">21</td><td><a href="https://clienta.com/company" target="_blank">/company</a></td><td class="num">30</td><td class="num">19</td><td class="num up">+11</td><td class="num">5,774</td><td class="num aeo">1</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">22</td><td><a href="https://clienta.com/blog/education/the-complete-guide-to-ddu-and-delivery-duty-unpaid.html" target="_blank">/blog/…/the-complete-guide-to-ddu-and-delivery-duty-unpaid</a></td><td class="num">27</td><td class="num">33</td><td class="num down">-6</td><td class="num">24,724</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">23</td><td><a href="https://support.clienta.com/hc/en-us/articles/6811503691279-Welcome-to-the-ClientA-Knowledge-Center" target="_blank">support: 6811503691279-Welcome-to-the-ClientA-Knowledge</a></td><td class="num">26</td><td class="num">15</td><td class="num up">+11</td><td class="num">282</td><td class="num aeo">2</td><td class="num aeo">7</td></tr>
+        <tr><td class="num">24</td><td><a href="https://clienta.com/blog/education/5-sales-strategies-for-freight-forwarding-company.html" target="_blank">/blog/…/5-sales-strategies-for-freight-forwarding-company</a></td><td class="num">25</td><td class="num">21</td><td class="num up">+4</td><td class="num">3,038</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">25</td><td><a href="https://clienta.com/blog/solution/how-to-track-freight-shipment.html" target="_blank">/blog/…/how-to-track-freight-shipment</a></td><td class="num">25</td><td class="num">12</td><td class="num up">+13</td><td class="num">2,054</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">26</td><td><a href="https://clienta.com/blog/best-freight-management-software" target="_blank">/blog/best-freight-management-software</a></td><td class="num">25</td><td class="num">31</td><td class="num down">-6</td><td class="num">41,931</td><td class="num aeo">547</td><td class="num aeo">506</td></tr>
+        <tr><td class="num">27</td><td><a href="https://clienta.com/blog/best-tms-software" target="_blank">/blog/best-tms-software</a></td><td class="num">24</td><td class="num">24</td><td class="num ">0</td><td class="num">35,251</td><td class="num aeo">398</td><td class="num aeo">372</td></tr>
+        <tr><td class="num">28</td><td><a href="https://clienta.com/blog/education/bill-of-lading-vs-packing-slip.html" target="_blank">/blog/…/bill-of-lading-vs-packing-slip</a></td><td class="num">24</td><td class="num">28</td><td class="num down">-4</td><td class="num">7,356</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">29</td><td><a href="https://clienta.com/blog/education/your-guide-to-ocean-freight-transit-times.html" target="_blank">/blog/…/your-guide-to-ocean-freight-transit-times</a></td><td class="num">24</td><td class="num">21</td><td class="num up">+3</td><td class="num">12,691</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr><td class="num">30</td><td><a href="https://support.clienta.com/hc/en-us/articles/12159457908495-How-to-Generate-an-ATME-for-Air-Import-Shipments-to-the-US" target="_blank">support: 12159457908495-How-to-Generate-an-ATME-for-Air-I</a></td><td class="num">23</td><td class="num">15</td><td class="num up">+8</td><td class="num">449</td><td class="num aeo">0</td><td class="num aeo">0</td></tr>
+        <tr class="subtotal"><td colspan="2">SUBTOTAL (Top 30)</td><td class="num">2,980</td><td class="num">2,514</td><td class="num up">+466</td><td class="num">—</td><td class="num aeo">1,076</td><td class="num aeo">1,021</td></tr>
+      </tbody>
+    </table>
+    <p class="note"><b>AI Citations</b> = number of WorkDuo-tracked AI responses (ChatGPT, Perplexity, Google AI) citing this page as a source in the month.</p>
+  </section>
+
+  <section>
+    <h2>Top 15 Most-Cited Pages by AI — A Different List Than the Click Winners</h2>
+    <table class="t">
+      <thead>
+        <tr><th>#</th><th>Page</th><th class="num aeo">AI Citations · Apr</th><th class="num aeo">AI Citations · May</th><th class="num">Δ</th><th class="num">May Clicks</th><th class="num">In Click Top 30?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">1</td><td><a href="https://clienta.com/blog/best-freight-management-software" target="_blank">/blog/best-freight-management-software</a></td><td class="num aeo">547</td><td class="num aeo">506</td><td class="num down">-41</td><td class="num">25</td><td class="num" style="color:var(--slate-5)">yes</td></tr>
+        <tr><td class="num">2</td><td><a href="https://clienta.com/blog/best-tms-software" target="_blank">/blog/best-tms-software</a></td><td class="num aeo">398</td><td class="num aeo">372</td><td class="num down">-26</td><td class="num">24</td><td class="num" style="color:var(--slate-5)">yes</td></tr>
+        <tr><td class="num">3</td><td><a href="https://clienta.com/blog/clienta-vs-magaya" target="_blank">/blog/clienta-vs-magaya</a></td><td class="num aeo">424</td><td class="num aeo">336</td><td class="num down">-88</td><td class="num">2</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">4</td><td><a href="https://clienta.com/blog/cargowise-vs-clienta" target="_blank">/blog/cargowise-vs-clienta</a></td><td class="num aeo">247</td><td class="num aeo">305</td><td class="num up">+58</td><td class="num">22</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">5</td><td><a href="https://clienta.com/blog/clienta-platform-overview" target="_blank">/blog/clienta-platform-overview</a></td><td class="num aeo">251</td><td class="num aeo">283</td><td class="num up">+32</td><td class="num">6</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">6</td><td><a href="https://clienta.com/blog/magaya-alternatives" target="_blank">/blog/magaya-alternatives</a></td><td class="num aeo">205</td><td class="num aeo">254</td><td class="num up">+49</td><td class="num">2</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">7</td><td><a href="https://clienta.com/product/integrations" target="_blank">/product/integrations</a></td><td class="num aeo">10</td><td class="num aeo">244</td><td class="num up">+234</td><td class="num">10</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">8</td><td><a href="https://clienta.com/service-level-agreement" target="_blank">/service-level-agreement</a></td><td class="num aeo">124</td><td class="num aeo">178</td><td class="num up">+54</td><td class="num">0</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">9</td><td><a href="https://clienta.com/blog/best-tms-small-business" target="_blank">/blog/best-tms-small-business</a></td><td class="num aeo">35</td><td class="num aeo">145</td><td class="num up">+110</td><td class="num">13</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">10</td><td><a href="https://clienta.com/blog/cargowise-alternative" target="_blank">/blog/cargowise-alternative</a></td><td class="num aeo">16</td><td class="num aeo">145</td><td class="num up">+129</td><td class="num">10</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">11</td><td><a href="https://clienta.com/blog/descartes-alternatives" target="_blank">/blog/descartes-alternatives</a></td><td class="num aeo">83</td><td class="num aeo">137</td><td class="num up">+54</td><td class="num">5</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">12</td><td><a href="https://clienta.com/blog/switch-from-cargowise" target="_blank">/blog/switch-from-cargowise</a></td><td class="num aeo">147</td><td class="num aeo">127</td><td class="num down">-20</td><td class="num">2</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">13</td><td><a href="https://clienta.com/blog/freight-tracking-software-comparison" target="_blank">/blog/freight-tracking-software-comparison</a></td><td class="num aeo">100</td><td class="num aeo">114</td><td class="num up">+14</td><td class="num">2</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">14</td><td><a href="https://api.clienta.com" target="_blank">api.clienta.com</a></td><td class="num aeo">100</td><td class="num aeo">103</td><td class="num up">+3</td><td class="num">22</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+        <tr><td class="num">15</td><td><a href="https://clienta.com/blog/clienta-reviews-testimonials" target="_blank">/blog/clienta-reviews-testimonials</a></td><td class="num aeo">69</td><td class="num aeo">100</td><td class="num up">+31</td><td class="num">1</td><td class="num" style="color:var(--slate-5)">—</td></tr>
+      </tbody>
+    </table>
+    <div class="takeaway-box"><b>Read: SEO winners and AEO winners are different pages.</b> Only 1,021 of May's 4,937 AI citations (~21%) sit on the top-30-by-clicks pages — the other ~79% land on pages that barely register in click reports. Of the 15 most-cited pages, just 2 crack the click top 30. Google clicks flow to educational long-tail content (customs guides, container dimensions); AI engines answering buying-intent prompts cite the <b>commercial pages</b> — clienta-vs-magaya (336 citations, 2 clicks), platform-overview (283, 6), magaya-alternatives (254, 2), /product/integrations (244, 10), even the SLA page (178 citations, 0 clicks). <b>The pages doing the persuasion work inside AI answers are invisible in a click-ranked view</b> — which is why this report tracks both axes, and why the June comparison-content and fan-out priorities target exactly these pages.</div>
+  </section>
+
+  <section>
+    <h2>Core Keyword Tracking — Commercial Cluster (GSC avg position, May vs April)</h2>
+    <table class="t">
+      <thead>
+        <tr><th>Core Keyword</th><th class="num">May Impr</th><th class="num">Apr Pos</th><th class="num">May Pos</th><th class="num">Δ Position</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr class="win-row"><td><b>freight forwarding crm</b></td><td class="num">88</td><td class="num">9.1</td><td class="num">7.5</td><td class="num up">+1.6 ▲</td><td>Moved onto page 1</td></tr>
+        <tr class="win-row"><td><b>logistics crm software</b></td><td class="num">241</td><td class="num">10.3</td><td class="num">8.8</td><td class="num up">+1.5 ▲</td><td>Improved into page 1</td></tr>
+        <tr class="win-row"><td><b>best tms software</b></td><td class="num">555</td><td class="num">24.3</td><td class="num">20.3</td><td class="num up">+4.0 ▲</td><td>New TMS article gaining</td></tr>
+        <tr><td><b>freight management system</b></td><td class="num">2,200</td><td class="num">8.4</td><td class="num">9.0</td><td class="num down">-0.6 ▼</td><td>Page 1, impressions +22%</td></tr>
+        <tr><td><b>freight management software</b></td><td class="num">3,522</td><td class="num">9.3</td><td class="num">10.4</td><td class="num down">-1.1 ▼</td><td>Was a content gap in Jan, now visible</td></tr>
+        <tr><td><b>freight forwarding software</b></td><td class="num">2,015</td><td class="num">7.1</td><td class="num">9.1</td><td class="num down">-2.0 ▼</td><td>Page 1 held, broader query set</td></tr>
+        <tr><td><b>freight forwarder software</b></td><td class="num">895</td><td class="num">4.1</td><td class="num">7.1</td><td class="num down">-3.0 ▼</td><td>Softened, still page 1</td></tr>
+        <tr><td><b>best freight management software</b></td><td class="num">243</td><td class="num">6.7</td><td class="num">7.1</td><td class="num down">-0.4 ▼</td><td>Held page 1</td></tr>
+        <tr><td><b>freight software</b></td><td class="num">1,249</td><td class="num">9.4</td><td class="num">10.7</td><td class="num down">-1.3 ▼</td><td>Top-of-page-2</td></tr>
+        <tr><td><b>freight tracking software</b></td><td class="num">603</td><td class="num">16.5</td><td class="num">18.0</td><td class="num down">-1.5 ▼</td><td>Page 2, fan-out target</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Lower = better. GSC average position blends every impression, so it sits lower than a single-result rank check; the MoM direction and impression base are the reliable signals.</p>
+
+    <div class="two-col" style="margin-top:10px;">
+      <div class="takeaway-box win">
+        <b>✓ Core keyword wins</b>
+        <ul>
+          <li><b>The freight-management cluster is now live.</b> "freight management software" (3,522 impr) and "freight management system" (2,200 impr) were zero-ranking content gaps in January; the new best-freight-management-software and best-TMS articles now put Client A on page 1 for both.</li>
+          <li><b>CRM intent improving:</b> "freight forwarding crm" (9.1 → 7.5) and "logistics crm software" (10.3 → 8.8) both moved onto page 1.</li>
+          <li><b>"best tms software"</b> climbed four spots (24.3 → 20.3) as the dedicated TMS comparison gathers authority.</li>
+        </ul>
+      </div>
+      <div class="takeaway-box watch">
+        <b>⚠ Watch: established terms softened as coverage widened</b>
+        <ul>
+          <li><b>"freight forwarding software"</b> and <b>"freight forwarder software"</b> slipped 2–3 spots in average position, yet both held page 1 and grew impressions. The dip reflects Client A surfacing for a wider, more competitive set of related queries — not a loss of core ranking.</li>
+          <li>June fan-out work on Solution and Product pages is the direct fix: tighter, intent-matched landing pages should re-tighten these averages while keeping the wider reach.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>AEO Metrics — Month over Month</h2>
+    <table class="t" id="aeoMomTable">
+      <thead>
+        <tr><th>Metric</th><th class="num">Apr 2026</th><th class="num">May 2026</th><th class="num">Change</th><th>Source</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>AI Visibility</td><td class="num">21.8%</td><td class="num">24.0%</td><td class="num up">+2.2 pts</td><td>WorkDuo</td></tr>
+        <tr><td>Share of Voice</td><td class="num">18.6%</td><td class="num">19.9%</td><td class="num up">+1.3 pts</td><td>WorkDuo</td></tr>
+        <tr><td>Brand Mentions</td><td class="num">406</td><td class="num">441</td><td class="num up">+35</td><td>WorkDuo</td></tr>
+        <tr><td>AI Platform Sessions</td><td class="num">235</td><td class="num">476</td><td class="num up">+102.6%</td><td>GA4 (direct)</td></tr>
+        <tr><td>Client A Pages Cited by AI (all properties)</td><td class="num">112</td><td class="num">108</td><td class="num down">-4</td><td>WorkDuo citations</td></tr>
+        <tr><td>Total AI Citations of Client A Pages</td><td class="num">4,379</td><td class="num">4,937</td><td class="num up">+12.7%</td><td>WorkDuo citations</td></tr>
+      </tbody>
+    </table>
+    <p class="note">AI Platform Sessions now pulled directly from GA4 (sessionSource = AI platforms; definition in data lineage below). Prior reports cited 228 → 463 from a narrower source list — same +103% growth, restated here on the auditable GA4 basis.</p>
+    <div class="takeaway-box win">
+      <b>AEO performance: momentum building.</b> After months of flat AI visibility while content matured, May is the inflection point — every AEO metric moved in the right direction:
+      <ul>
+        <li><b>AI platform sessions more than doubled</b> (235 → 476 in GA4). Real users arriving from ChatGPT, Gemini, Claude, and Perplexity — not just appearing in answers. ChatGPT alone drives ~2/3 of all AI referrals.</li>
+        <li><b>AI visibility reached 24%</b> (+2.2 pts) and share of voice 19.9% (+1.3 pts), with brand mentions up 35 to 441.</li>
+        <li>This matches the expected 2–3 month lag between content work and AEO payoff: the Jan–Mar content plus the new llm.txt and author-credential signals are now being picked up by AI engines.</li>
+        <li><b>June MTD signal:</b> Google AI visibility hit a series-high 39.1% in the Jun 1–7 week, and AI sessions are pacing ahead of May (188 in the first 10 days).</li>
+        <li><b>Citations are deepening, not widening:</b> total citations +12.7% (4,379 → 4,937) on a slightly smaller page set (112 → 108). The comparison/listicle blogs carry the load — best-freight-management-software (506), best-tms-software (372), clienta-vs-magaya (336), cargowise-vs-clienta (305) — validating the June comparison-content priority.</li>
+        <li><b>Biggest single-page gain: /product/integrations, 10 → 244 citations.</b> Watch item: Solutions citations fell 129 → 34 — investigate which pages lost coverage in June.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="note" style="border-top: 1px solid var(--slate-3); padding-top: 8px; margin-top: 18px;">
+    <b>How AI citation counts work (methodology &amp; validation).</b>
+    A "response" is one engine's answer to one tracked prompt on one day — WorkDuo re-asks every prompt on ChatGPT, Perplexity, and Google AI roughly daily, so 28 active prompts produced 2,352 responses in April and 2,404 in May (~flat sampling; May simply has one more day). A "citation" is each time a Client A page appears in a response's source list; "pages cited" counts distinct pages. The May citation increase (4,379 → 4,937, +12.7%) is <b>not</b> an artifact of expanded prompt tracking: the 11 prompts added to the project were created June 5 and contributed zero April/May data, so the comparison runs on an identical 28-prompt panel. With sampling flat, citations <i>per response</i> rose 1.86 → 2.05 (+10.3%) — the engines are citing Client A more per answer, concentrated in specific pages (/product/integrations 10 → 244; cargowise-vs-clienta 247 → 305). All citation figures were independently recounted from the WorkDuo API (both months reproduced exactly) and homepage URL variants are deduplicated. June-onward comparisons will be on the 39-prompt basis and will be annotated accordingly.
+  </div>
+
+  <footer>
+    Sources: GSC (sc-domain:clienta.com, date-dim for totals; page-dim for page/subfolder relative comparison) · WorkDuo project (Client A) (28 non-brand prompts, restated basis; AI Visibility/SOV/Mentions from WorkDuo dashboard) · GA4 property (Client A) (sessions, sessionSource ~ chatgpt|gemini|claude|perplexity|copilot|deepseek|grok|…, pulled 2026-06-11) · Monthly tables reproduce the May 2026 draft report (primary-domain basis) · Generated 2026-06-11
+  </footer>
+
+</div>
+
+<script>
+const fmt = (n) => n.toLocaleString();
+// Complete ISO weeks W02–W23 (Jan 5 – Jun 7, 2026)
+// Sources: data/v2-refresh-2026-06-11/{gsc_v2,wd_visibility,ai_traffic}.json
+const weekLabels = ["Jan 5","Jan 12","Jan 19","Jan 26","Feb 2","Feb 9","Feb 16","Feb 23","Mar 2","Mar 9","Mar 16","Mar 23","Mar 30","Apr 6","Apr 13","Apr 20","Apr 27","May 4","May 11","May 18","May 25","Jun 1"];
+const clicks   = [699, 693, 845, 988, 1058, 1083, 1078, 1222, 1201, 1149, 1126, 1116, 867, 813, 820, 755, 881, 827, 898, 936, 999, 1163];
+const nbClicks = [406, 396, 583, 701, 807, 843, 848, 916, 896, 848, 867, 833, 599, 542, 521, 516, 596, 533, 640, 686, 772, 881];
+const chatGpt    = [8.33, 5.71, 7.14, 5.71, 9.29, 10.71, 10.0, 15.0, 17.14, 17.14, 13.57, 15.71, 15.0, 13.57, 17.86, 14.29, 13.57, 14.29, 16.43, 12.14, 27.14, 18.9];
+const perplexity = [11.67, 10.71, 7.14, 13.57, 20.71, 22.86, 19.29, 25.0, 26.43, 21.43, 23.57, 22.86, 22.86, 29.29, 25.71, 26.43, 27.86, 29.29, 32.14, 21.43, 18.57, 18.29];
+const googleAi   = [16.67, 14.29, 16.54, 21.26, 21.71, 25.0, 25.2, 30.71, 20.77, 27.87, 26.67, 29.75, 27.42, 27.87, 25.2, 28.12, 30.95, 31.5, 33.33, 29.2, 36.61, 39.06];
+const aiSessions = [14, 27, 39, 42, 49, 53, 43, 35, 39, 47, 59, 75, 51, 58, 53, 47, 64, 79, 102, 138, 136, 132];
+
+// Chart 1 — Total + Non-brand clicks
+new Chart(document.getElementById('chart1'), {
+  type: 'line',
+  data: {
+    labels: weekLabels,
+    datasets: [
+      {
+        label: 'Total clicks',
+        data: clicks,
+        borderColor: '#94a3b8',
+        backgroundColor: 'rgba(148,163,184,0.08)',
+        borderWidth: 2,
+        borderDash: [4,3],
+        tension: 0.25,
+        fill: false,
+        pointRadius: 2.5,
+        pointBackgroundColor: '#94a3b8',
+      },
+      {
+        label: 'Non-brand clicks',
+        data: nbClicks,
+        borderColor: '#017d8e',
+        backgroundColor: 'rgba(1,125,142,0.12)',
+        borderWidth: 2.8,
+        tension: 0.25,
+        fill: true,
+        pointRadius: 3,
+        pointBackgroundColor: '#017d8e',
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: {position:'bottom', labels:{font:{size:10}, boxWidth:14, padding:6}},
+      tooltip: {callbacks:{label:(c)=>`${c.dataset.label}: ${fmt(c.parsed.y)}`}},
+    },
+    scales: {
+      y: {beginAtZero:true, ticks:{font:{size:10}, callback:(v)=>v.toLocaleString()}, grid:{color:'#f1f5f9'}},
+      x: {ticks:{font:{size:10}, maxRotation:0, autoSkip:true, maxTicksLimit:7}, grid:{display:false}}
+    }
+  }
+});
+
+// Chart 2 — AEO non-brand visibility by engine
+new Chart(document.getElementById('chart2'), {
+  type: 'line',
+  data: {
+    labels: weekLabels,
+    datasets: [
+      {label:'Google AI Overview', data:googleAi,   borderColor:'#0891b2', backgroundColor:'rgba(8,145,178,0.08)', borderWidth:2.2, tension:0.3, pointRadius:2},
+      {label:'Perplexity',         data:perplexity, borderColor:'#16a34a', backgroundColor:'rgba(22,163,74,0.08)', borderWidth:2.2, tension:0.3, pointRadius:2},
+      {label:'ChatGPT',            data:chatGpt,    borderColor:'#d97706', backgroundColor:'rgba(217,119,6,0.08)', borderWidth:2.2, tension:0.3, pointRadius:2}
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: {position:'bottom', labels:{font:{size:10}, boxWidth:10, padding:6}},
+      tooltip: {callbacks:{label:(c)=>`${c.dataset.label}: ${c.parsed.y.toFixed(1)}%`}}
+    },
+    scales: {
+      y: {beginAtZero:true, max:45, ticks:{font:{size:10}, callback:(v)=>v+'%'}, grid:{color:'#f1f5f9'}},
+      x: {ticks:{font:{size:10}, maxRotation:0, autoSkip:true, maxTicksLimit:7}, grid:{display:false}}
+    }
+  }
+});
+
+// Chart 3 — AI Traffic sessions weekly (GA4 direct)
+new Chart(document.getElementById('chart3'), {
+  type: 'line',
+  data: {
+    labels: weekLabels,
+    datasets: [{
+      label: 'AI sessions',
+      data: aiSessions,
+      borderColor: '#7c3aed',
+      backgroundColor: 'rgba(124,58,237,0.15)',
+      borderWidth: 2.5,
+      tension: 0.3,
+      fill: true,
+      pointRadius: 3,
+      pointBackgroundColor: '#7c3aed'
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: {display:false},
+      tooltip: {callbacks:{label:(c)=>`${c.parsed.y} AI sessions`}}
+    },
+    scales: {
+      y: {beginAtZero:true, suggestedMax:150, ticks:{stepSize:25, font:{size:10}}, grid:{color:'#f1f5f9'}},
+      x: {ticks:{font:{size:10}, maxRotation:0, autoSkip:true, maxTicksLimit:7}, grid:{display:false}}
+    }
+  }
+});
+</script>
+</body>
+</html>
