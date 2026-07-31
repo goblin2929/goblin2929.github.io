@@ -1,0 +1,6 @@
+# Secrets and local runtime — never commit
+.env
+node_modules/
+.wwebjs_auth/
+.wwebjs_cache/
+*.log

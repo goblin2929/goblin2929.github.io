@@ -1,6 +1,7 @@
 # Bianca — Business Card → Follow-up Flow (Build Spec)
 
-Owner: Tina · Agent: **Bianca** (BD agent) · Last updated: 2026-07-31
+Owner: Tina · Agent: **Bianca** (BD agent, runs as Claude Code on the Mac mini)
+Last updated: 2026-07-31
 
 Bianca captures a business card from the phone, records the contact in the BD
 Mastersheet, drafts a customised follow-up, waits for one-tap approval, and
@@ -12,57 +13,58 @@ sends it by **WhatsApp or email**.
 
 | Decision | Choice |
 |---|---|
-| Capture + approval surface | **Claude app on phone** (attach card photo + type prompt) |
+| Where Bianca runs | **Mac mini**, as a Claude Code instance (has shell + Chrome) |
+| Capture + approval surface | **Telegram** (phone → bot the mini watches) |
 | Approval | **Approve every send** — nothing leaves without a tap |
 | BD Mastersheet | **Airtable** — the base Bianca already built |
-| Email send | **Gmail** (cloud connector) |
-| WhatsApp send | **Chrome / WhatsApp Web on the Mac mini** (logged-in session) |
-| Cross-device hand-off | **Airtable is the bridge** (approved rows queue for the Mac mini) |
+| Email send | **Gmail** |
+| WhatsApp send | **Chrome / WhatsApp Web on the Mac mini** |
 
-### Why this shape
-Almost everything Bianca does is cloud (OCR, Airtable, Gmail, drafting), so the
-Claude app alone handles capture → record → draft → approve → **email**.
-WhatsApp-via-Chrome can only run on the logged-in Mac mini, so the **send step
-for WhatsApp** hands off to Bianca on the Mac mini via an Airtable queue.
+### Why Telegram (verified)
+The phone's Claude Code app runs in Anthropic's **cloud**, and the account has
+only one environment (`Default Cloud Environment`, anthropic_cloud). The Mac
+mini is **not** a registered remote environment, so the phone app cannot open a
+session on the mini. To get a card from the phone into Bianca-on-the-mini, the
+mini must watch an outside channel. **Telegram is that channel**, and it lets
+one process on the mini do everything — receive, draft, approve, and send
+(including Chrome/WhatsApp Web) — with no cloud→mini hand-off.
 
 ---
 
 ## 2. End-to-end flow
 
 ```
-📱 Claude app (cloud)              📊 Airtable (BD Mastersheet)        🖥️ Bianca on Mac mini
-──────────────────────            ────────────────────────────        ──────────────────────
+📱 Phone (Telegram)        ☁️ Cloud (Airtable/Gmail)     🖥️ Mac mini — Bianca (Claude Code)
+────────────────────       ─────────────────────────     ──────────────────────────────────
 
-1 Snap/upload card photo
+1 Send card photo
   + caption:
-  "hot lead, mention the
-   pilot, WhatsApp"
+  "hot lead, mention
+   the pilot, WhatsApp"  ───────────────────────────────▶ 2 Telegram bot receives it
 
-2 OCR extracts:
-  name, company, title,
-  phone, email, website
-  + parses intent
-  (tone / channel / hook)
+                                                           3 Bianca (Claude Code) OCRs:
+                                                             name, company, title,
+                                                             phone, email, website
+                                                             + parses intent
 
-3 Write / update row  ──────────▶  Contact recorded
-  (dedupe on email/phone)          status: "Drafted"
+                           BD Mastersheet ◀──────────────  4 write / update row
+                           (Airtable)                         (dedupe on email/phone)
+                           status: "Drafted"
 
-4 Draft follow-up in
-  your voice (card + caption
-  + hook). Email = subject+body,
-  WhatsApp = shorter + warmer
+                                                           5 draft follow-up in
+                                                             Tina's voice (card +
+                                                             caption + hook)
 
-5 Send draft back to phone
-  [✅ Send] [✏️ Edit] [❌ Cancel]
+6 Draft + buttons     ◀──────────────────────────────────  6 send draft to Telegram
+  [✅ Send] [✏️ Edit]                                          with approval buttons
+  [❌ Cancel]
 
-6 You tap ✅
-   ├─ EMAIL  ───────────────────▶  send via Gmail now
-   │                                status: "Sent"
-   └─ WHATSAPP ─────────────────▶  status: "Ready · WhatsApp"  ──▶ 7 Mac mini sees the row
-                                    (approved message stored)          drives Chrome/WhatsApp
-                                                                        Web, sends message
-                                    status ◀───────────────────────    8 writes back "Sent"
-                                    "Sent" + channel + timestamp           + logs sent copy
+7 Tap ✅              ────────────────────────────────────▶ 7 send now:
+                           Gmail ◀────────────────────────    • EMAIL → Gmail
+                                                              • WHATSAPP → Chrome/
+                                                                WhatsApp Web
+                           Mastersheet ◀──────────────────  8 update row → "Sent"
+                           "Sent" + channel + time             + log sent copy
 ```
 
 ---
@@ -77,81 +79,74 @@ Bianca's existing BD Mastersheet + these working fields:
 | Phone / Email / Website | text | from card OCR |
 | Source | single select | `Card scan` |
 | Card Image | attachment | the original photo |
-| My Note | long text | your caption/instruction |
+| My Note | long text | your Telegram caption/instruction |
 | Channel | single select | `Email` / `WhatsApp` |
 | Draft Message | long text | proposed follow-up (+ subject for email) |
-| Status | single select | `Drafted` → `Ready · WhatsApp` → `Sent` (also `Cancelled`) |
+| Status | single select | `Drafted` → `Sent` (also `Cancelled`, `Send failed`) |
 | Sent Message | long text | exact copy that went out |
 | Sent At | date/time | timestamp |
 
-`Status` doubles as the follow-up tracker and the Mac mini's send queue.
+`Status` doubles as the follow-up tracker.
 
 ---
 
 ## 4. Component checklist
 
-| Piece | Status | Action |
+| Piece | Where | Status |
 |---|---|---|
-| Vision OCR | ✅ built-in | Bianca reads card images |
-| BD Mastersheet | ✅ exists | add the working fields above |
-| Gmail send | ✅ connected | email follow-ups |
-| **Bianca as a Skill** | ⬜ to build | pins her voice, rules, mastersheet ID so every fresh app session *is* Bianca (see §5) |
-| **Chrome + WhatsApp Web on Mac mini** | ⬜ to set up | log in once (QR); keep session alive |
-| **Mac mini queue-watcher** | ⬜ to build | polls Airtable for `Ready · WhatsApp`, sends via Chrome, marks `Sent` (see §6) |
+| Claude Code (Bianca) | Mac mini | ✅ installed |
+| Bianca **Skill** | repo → mini | ⬜ this repo (`.claude/skills/bianca-card-flow/`) |
+| Telegram bot token | @BotFather → mini | ⬜ 2 min |
+| Telegram receive + approval buttons | Mac mini | ⬜ built on mini |
+| Airtable BD Mastersheet | cloud | ✅ exists (add fields above) |
+| Gmail send | cloud | ✅ connected |
+| Chrome + WhatsApp Web login | Mac mini | ⬜ scan QR once |
+| WhatsApp send (whatsapp-web.js or Chrome drive) | Mac mini | ⬜ built + tested on mini |
 
 ---
 
-## 5. Bianca Skill (makes any session behave as Bianca)
+## 5. Division of labour
 
-Because each Claude-app session starts fresh, Bianca's identity must live in a
-Skill that auto-loads. It should contain:
-
-- **Identity + voice** — Tina's BD tone; warm, concise, no corporate filler.
-- **Mastersheet pointer** — the Airtable base ID + table + field names.
-- **OCR rules** — required fields; flag low-confidence values (handwriting) for
-  correction before saving.
-- **Dedupe rule** — match on email, else phone; update existing row instead of
-  creating a duplicate.
-- **Drafting rules** — email = subject + body; WhatsApp = shorter, warmer, no
-  subject; always weave in the caption's hook.
-- **Channel rule** — use the channel named in the caption; else email if an
-  email exists, else WhatsApp.
-- **Approval rule** — never send without an explicit ✅; WhatsApp sends are
-  queued to Airtable (`Ready · WhatsApp`), not sent from the app session.
+- **Authored in this repo (cloud session):** the Bianca **Skill**
+  (`.claude/skills/bianca-card-flow/SKILL.md`) — her identity, voice, and the
+  full flow logic — plus the **setup playbook** (`bianca/SETUP.md`).
+- **Done on the Mac mini by Bianca (Claude Code):** `git pull` this repo, then
+  follow the playbook — create the Telegram bot, install the WhatsApp bits,
+  scan the WhatsApp Web QR, and test one card end-to-end. The Chrome/WhatsApp
+  login and browser-driving must be built and tested on the mini.
 
 ---
 
-## 6. Mac mini WhatsApp sender (queue-watcher)
+## 6. Bianca Skill (what makes a mini session *be* Bianca)
 
-Runs continuously on the Mac mini:
+See `.claude/skills/bianca-card-flow/SKILL.md`. It pins:
+- **Identity + voice** — Tina's BD tone: warm, concise, no corporate filler.
+- **Mastersheet pointer** — the Airtable BD Mastersheet + field names.
+- **OCR rules** — required fields; flag low-confidence values for correction.
+- **Dedupe rule** — match on email, else phone; update, don't duplicate.
+- **Drafting rules** — email = subject + body; WhatsApp = shorter, warmer.
+- **Channel rule** — use the caption's channel; else email if present, else WhatsApp.
+- **Approval rule** — never send without an explicit ✅ in Telegram.
 
-1. Poll Airtable every ~30–60s for rows where `Status = Ready · WhatsApp`.
-2. For each, open Chrome/WhatsApp Web (or `whatsapp-web.js`), go to the
-   contact's number, send `Draft Message`.
-3. On success: set `Status = Sent`, copy `Draft Message` → `Sent Message`,
-   stamp `Sent At`.
-4. On failure (not logged in, number invalid): set `Status = Send failed` and
-   note the reason so it surfaces on the phone.
+---
 
-### Honest caveats for WhatsApp-via-Chrome
+## 7. WhatsApp-via-Chrome — honest caveats
+
 - **Unofficial** — automating WhatsApp Web is against WhatsApp ToS. Low-volume
-  1-to-1 BD follow-ups are low-risk; do **not** use it for mass sending (ban risk).
-- **Session upkeep** — the WhatsApp Web login drops occasionally and needs a
-  re-scan on the Mac mini.
-- **Fragile to UI changes** — WhatsApp web updates can break automation; expect
-  occasional maintenance.
-- **Upgrade path** — if volume grows, switch WhatsApp to the **official Cloud
-  API** (Meta Business account + sender number). Then WhatsApp can send straight
-  from the cloud session and the Mac mini is no longer needed for sending.
+  1-to-1 BD follow-ups are low-risk; do **not** mass-send (ban risk).
+- **Session upkeep** — the WhatsApp Web login drops occasionally; re-scan on the mini.
+- **Fragile to UI changes** — WhatsApp web updates can break automation.
+- **Upgrade path** — if volume grows, switch to the official **WhatsApp Cloud
+  API** (Meta Business account + sender number).
 
 ---
 
-## 7. Rollout
+## 8. Rollout
 
-1. **Phase 1 — email only (today).** Bianca Skill + Airtable fields. Capture,
-   record, draft, approve, send email. Fully cloud, nothing on the Mac mini yet.
-2. **Phase 2 — WhatsApp via Chrome.** Log Chrome into WhatsApp Web on the Mac
-   mini; add the queue-watcher. Approve on phone → Mac mini sends.
+1. **Phase 1 — email only.** Skill + Airtable fields + Telegram bot. Capture,
+   record, draft, approve, send email.
+2. **Phase 2 — WhatsApp via Chrome.** Log Chrome into WhatsApp Web on the mini;
+   add the send step. Approve in Telegram → mini sends.
 3. **Phase 3 (optional) — background follow-ups.** Bianca auto-nudges day-3
    non-repliers (still approve-every-send), and/or move WhatsApp to the official
-   Cloud API to drop the Mac-mini dependency.
+   Cloud API.
