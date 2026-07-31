@@ -54,16 +54,28 @@ Choose the sender:
 
 Test a send to your own number **before** wiring it into the flow.
 
-## 6. Build & run (let Bianca do it)
-Ask Claude Code on the mini:
-> *"Using the bianca-card-flow Skill, build the Telegram bot in `bianca/`: it
-> receives a photo + caption from my chat ID, runs the card flow (OCR → Airtable
-> → draft), replies with the draft and Send/Edit/Cancel buttons, and on ✅ sends
-> via Gmail or WhatsApp Web, then logs the row. Then run it and we'll test one
-> card."*
+## 6. Build & run
+A working **scaffold** already exists — `bianca/bot.js` + `bianca/package.json`.
+It's a tested *shape*, not verified end-to-end, so run it on the mini and adjust
+(search `bot.js` for `TODO(mini)`).
 
-Bianca has the shell to `npm install`, test the WhatsApp login, and iterate —
-things that can only be done here on the mini.
+How it splits the work on the mini:
+- **`bot.js` (Node):** Telegram in/out + approval buttons + WhatsApp Web send.
+- **Claude Code (`claude -p`, loads this Skill):** OCR, Airtable record,
+  drafting, Gmail send. The bot shells out to it, so your Claude Code login and
+  connectors stay the only place holding Airtable/Gmail creds.
+
+```bash
+cd bianca
+cp .env.example .env      # fill in token, your chat id, REPO_DIR
+npm install
+npm start                 # first run prints the WhatsApp QR — scan it
+```
+
+Then just talk to Claude Code on the mini to iterate:
+> *"Run bianca/bot.js, send a test card in Telegram, and fix any TODO(mini)
+> spots — confirm `claude -p --output-format json` returns what the bot expects,
+> and that a WhatsApp send to my own number works."*
 
 ## 7. Test end-to-end
 1. Photo a real card in Telegram with a caption ("warm lead, mention the pilot,
