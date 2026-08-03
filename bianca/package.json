@@ -1,16 +1,15 @@
 {
   "name": "bianca-card-flow",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Bianca's business-card -> follow-up bot (Telegram in, WhatsApp Web / Gmail out). Runs on the Mac mini.",
+  "description": "Bianca's WhatsApp Web sender for the card -> follow-up flow. Runs on the Mac mini alongside `claude remote-control`.",
   "type": "module",
-  "main": "bot.js",
+  "main": "wa-sender.js",
   "scripts": {
-    "start": "node bot.js"
+    "sender": "node wa-sender.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "node-telegram-bot-api": "^0.66.0",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.26.0"
   }

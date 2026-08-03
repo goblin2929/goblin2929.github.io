@@ -1,96 +1,83 @@
-# Bianca — Mac mini setup playbook
+# Bianca — Mac mini setup playbook (Claude Code Remote Control)
 
-Run these on the **Mac mini**, where Claude Code (Bianca) lives. Everything the
-phone sends arrives over Telegram; Bianca does the thinking and sends via
-Gmail / WhatsApp Web.
+Run these on the **Mac mini**. Tina drives Bianca from her phone via **Claude
+Code Remote Control** — she attaches a card photo in the Claude app, Claude Code
+downloads it to the mini, and Bianca (this local session, with the Skill) does
+the rest: OCR → Airtable → draft → approve-in-chat → send (Gmail / WhatsApp Web).
 
-> Hand this to Claude Code on the mini: open the repo and say
-> *"Follow bianca/SETUP.md to set up the card follow-up flow."*
-> The `bianca-card-flow` Skill loads automatically and tells you the flow logic.
+No Telegram, no bot. Two things run on the mini:
+1. **`claude remote-control`** — Bianca's brain, controlled from the phone.
+2. **`bianca/wa-sender.js`** — a localhost WhatsApp Web sender Bianca calls on approval.
 
 ---
 
-## 0. Prereqs (already true)
-- Claude Code installed and signed in on the mini.
+## 0. Prereqs
+- Claude Code installed and signed in with a **full-scope `/login`** (Remote
+  Control needs this — an API key alone won't work) on a Claude.ai plan.
 - Airtable + Gmail connected in Claude Code.
-- Chrome installed on the mini.
+- Chrome installed. Node 18+ installed.
 
 ## 1. Get the code
 ```bash
-git clone <this-repo-url>          # or: git pull, if already cloned
-cd <repo>
+git clone https://github.com/goblin2929/goblin2929.github.io.git
+cd goblin2929.github.io
+git checkout claude/business-card-capture-flow-u7pk5n
 ```
 The Skill at `.claude/skills/bianca-card-flow/SKILL.md` loads automatically when
 Claude Code runs in this repo.
 
 ## 2. Prep the BD Mastersheet
-In Airtable, on the BD Mastersheet Bianca built, make sure these fields exist
-(add any missing — see `BIANCA_CARD_FLOW.md` §3):
-`Source, Card Image, My Note, Channel, Draft Message, Status, Sent Message,
-Sent At`. `Status` options: `Drafted, Sent, Cancelled, Send failed`.
+On the BD Mastersheet Bianca built, ensure these fields exist (see
+`BIANCA_CARD_FLOW.md` §3): `Source, Card Image, My Note, Channel, Draft Message,
+Status, Sent Message, Sent At`. `Status` options: `Drafted, Sent, Cancelled,
+Send failed`.
 
-## 3. Create the Telegram bot (~2 min)
-1. In Telegram, message **@BotFather** → `/newbot` → follow prompts.
-2. Copy the **bot token** it gives you.
-3. Message your new bot once, then note **your own chat ID** (send `/start`; the
-   bot code below prints the chat ID of whoever messages it — lock it to yours
-   so only you can drive Bianca).
-
-## 4. Set secrets (local, never commit)
-Create `bianca/.env` (this folder is gitignored):
-```
-TELEGRAM_BOT_TOKEN=xxxxx
-TELEGRAM_ALLOWED_CHAT_ID=xxxxx     # your chat ID — reject everyone else
-```
-
-## 5. WhatsApp Web on the mini (Phase 2)
-Choose the sender:
-- **Recommended: `whatsapp-web.js`** — a Node library that runs its own
-  Chromium and persists the login. Ask Bianca (Claude Code) to scaffold it in
-  `bianca/`, then run it once and **scan the QR** shown in the terminal with
-  your phone's WhatsApp (Linked Devices). Session persists after that.
-- Alternative: drive your existing logged-in Chrome via Playwright to
-  `web.whatsapp.com`. More fragile; only if you prefer not to add Node deps.
-
-Test a send to your own number **before** wiring it into the flow.
-
-## 6. Build & run
-A working **scaffold** already exists — `bianca/bot.js` + `bianca/package.json`.
-It's a tested *shape*, not verified end-to-end, so run it on the mini and adjust
-(search `bot.js` for `TODO(mini)`).
-
-How it splits the work on the mini:
-- **`bot.js` (Node):** Telegram in/out + approval buttons + WhatsApp Web send.
-- **Claude Code (`claude -p`, loads this Skill):** OCR, Airtable record,
-  drafting, Gmail send. The bot shells out to it, so your Claude Code login and
-  connectors stay the only place holding Airtable/Gmail creds.
-
+## 3. Start the WhatsApp Web sender (Phase 2 — skip if email-only to start)
 ```bash
 cd bianca
-cp .env.example .env      # fill in token, your chat id, REPO_DIR
+cp .env.example .env          # set REPO_DIR to this repo's absolute path
+echo "REPO_DIR=$(cd .. && pwd)" >> .env
 npm install
-npm start                 # first run prints the WhatsApp QR — scan it
+node wa-sender.js             # prints a QR — scan: WhatsApp > Linked Devices
+```
+Leave it running (see §6). Test it once from another terminal:
+```bash
+curl -s localhost:8787/health          # {"ready":true} after you scan
+curl -s -X POST localhost:8787/send -H 'content-type: application/json' \
+  -d '{"phone":"<your own intl number, digits only>","text":"Bianca test ✅"}'
 ```
 
-Then just talk to Claude Code on the mini to iterate:
-> *"Run bianca/bot.js, send a test card in Telegram, and fix any TODO(mini)
-> spots — confirm `claude -p --output-format json` returns what the bot expects,
-> and that a WhatsApp send to my own number works."*
+## 4. Turn on Remote Control (Bianca's brain)
+In the repo root on the mini:
+```bash
+claude                        # run once, accept the workspace-trust dialog, then /exit
+claude remote-control         # prints a session URL + QR; keep this running
+```
+On your **phone**: open the Claude app → **Code** tab → scan the QR (or pick the
+session by name; green dot = online).
 
-## 7. Test end-to-end
-1. Photo a real card in Telegram with a caption ("warm lead, mention the pilot,
-   WhatsApp").
-2. Confirm: row appears in the Mastersheet, draft comes back in Telegram.
-3. Tap ✅ → confirm the message sends and the row flips to `Sent`.
+## 5. Use it
+From your phone, in that session:
+1. Attach the **business-card photo** + a caption
+   (e.g. "hot lead, mention the AI pilot, WhatsApp").
+2. Bianca OCRs it, writes the Airtable row, and shows you the **draft**.
+3. Reply **"send"** (or "make it shorter", or "cancel"). On send she emails via
+   Gmail or fires the WhatsApp sender, then logs the row.
 
-## 8. Keep it running
-Run the bot as a background service so it survives reboots (e.g. a `launchd`
-`LaunchAgent` on macOS, or `pm2 start`). Ask Bianca to set this up once the
-manual test passes.
+## 6. Keep both alive across disconnects/reboots
+Run each in its own `tmux` window so they survive you closing the terminal:
+```bash
+tmux new -s wa    'cd ~/goblin2929.github.io/bianca && node wa-sender.js'
+tmux new -s bianca 'cd ~/goblin2929.github.io && claude remote-control'
+```
+For auto-start on reboot, wrap each in a `launchd` LaunchAgent. (Ask Bianca to
+generate the plists once the manual flow works.) If the mini loses network,
+Remote Control times out after ~10 min and reconnects automatically when it's back.
 
 ---
 
 ### Notes
-- Secrets live only in `bianca/.env` on the mini — never commit them.
+- Secrets/login state stay on the mini: `.env` and `.wwebjs_auth/` are gitignored.
 - WhatsApp automation = low-volume 1-to-1 BD follow-ups only (ToS + ban risk).
-- If the WhatsApp Web login drops, re-run the sender and re-scan the QR.
+- If the WhatsApp login drops, restart `wa-sender.js` and re-scan the QR.
+- Start **email-first** (skip §3) to prove the flow with zero WhatsApp risk.
