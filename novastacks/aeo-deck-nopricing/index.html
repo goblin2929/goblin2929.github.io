@@ -303,30 +303,29 @@
   .close-contact .nm{color:var(--dark-fg);white-space:nowrap}
 
 
-  /* ---- Live-SERP proof split (slide 4) ---- */
-  .proofsplit{margin-top:14px;flex:1;display:grid;grid-template-columns:700px 1fr;gap:56px;min-height:0}
-  .pcol{display:flex;flex-direction:column;min-width:0;min-height:0}
-  .pcol .peb{font-family:var(--font-mono);font-size:18px;font-weight:600;letter-spacing:.14em;
-             text-transform:uppercase;color:var(--ink-4);margin:0}
-  .pcol.ai .peb{color:var(--accent-deep)}
-  .pcol .ph{font-family:var(--font-display);font-weight:600;font-size:32px;line-height:1.14;
-            letter-spacing:-.015em;color:var(--ink-1);margin:12px 0 0}
-  .pcol .pshot{margin-top:16px;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .pcol .pshot img{max-width:100%;max-height:100%;object-fit:contain;
-                   border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);padding:8px}
-  .pcol .pcap{font-family:var(--font-body);font-size:20px;line-height:1.4;color:var(--ink-3);margin:16px 0 0}
-  .pcol .psrc{font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;
-              color:var(--ink-4);margin:14px 0 0}
-    .cited{margin:20px 0 0;padding-top:18px;border-top:var(--rule-w-strong) solid var(--ink-1)}
-  .cited .clab{font-family:var(--font-mono);font-size:17px;font-weight:500;letter-spacing:.16em;
-               text-transform:uppercase;color:var(--ink-4);margin:0}
-  .cited ul{list-style:none;margin:14px 0 0;padding:0}
-  .cited li{font-family:var(--font-display);font-weight:600;font-size:27px;letter-spacing:-.01em;color:var(--ink-1);
-            padding:10px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
-  .payoff{margin-top:auto;background:var(--accent-tint);border-top:4px solid var(--accent);padding:24px 30px}
-  .payoff p{font-family:var(--font-body);font-size:22px;line-height:1.36;color:var(--ink-2);margin:0}
-  .payoff p b{color:var(--ink-1);font-weight:600}
-  .payoff .psrc{margin:14px 0 0;color:var(--ink-4)}
+  /* ---- Scope grid: SEO only / Shared / GEO only (slide 4) ---- */
+  .scope{margin-top:20px;flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .scol{display:flex;flex-direction:column;min-width:0}
+  .schead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+          padding-bottom:12px;border-bottom:var(--rule-w-strong) solid}
+  .schead .sclab{font-family:var(--font-mono);font-size:17px;font-weight:600;letter-spacing:.1em;
+                 text-transform:uppercase;line-height:1.35;margin:0}
+  .schead .scount{font-family:var(--font-display);font-weight:600;font-size:26px;line-height:1;
+                  padding:5px 12px;color:var(--paper);white-space:nowrap}
+  .scol.seo .schead{border-color:var(--rule-hair)}
+  .scol.seo .sclab{color:var(--ink-4)}
+  .scol.seo .scount{background:var(--ink-4)}
+  .scol.shr .schead{border-color:var(--ink-1)}
+  .scol.shr .sclab{color:var(--ink-1)}
+  .scol.shr .scount{background:var(--ink-1)}
+  .scol.geo .schead{border-color:var(--accent)}
+  .scol.geo .sclab{color:var(--accent-deep)}
+  .scol.geo .scount{background:var(--accent-deep)}
+  .stiles{margin-top:12px;display:flex;flex-direction:column;gap:3px}
+  .stile{font-family:var(--font-body);font-size:22px;line-height:1.2;margin:0;padding:6px 14px}
+  .scol.seo .stile{background:var(--paper-deep);color:var(--ink-3)}
+  .scol.shr .stile{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);color:var(--ink-2)}
+  .scol.geo .stile{background:var(--accent-tint);border-left:3px solid var(--accent);color:var(--ink-1);font-weight:500}
 
   /* ---- Partner / client logo wall (marquee) ---- */
   .lwall{flex:1;min-height:0;margin-top:30px;display:flex;align-items:stretch;overflow:hidden;background:var(--paper-pure);
@@ -460,41 +459,53 @@
     </div>
   </section>
 
-  <!-- 02C RANK #1 VS THE AI ANSWER — LIVE SERP PROOF -->
-  <section data-label="Ranking #1 vs the AI answer">
+  <!-- 02C SCOPE — GEO VS SEO INPUT WORK -->
+  <section data-label="GEO scope vs SEO">
     <div class="mslide">
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim" style="margin-bottom:14px">01 &middot; The Shift</div>
-      <h2 class="t-action long anim d1" style="font-size:46px">Ranking #1 no longer means being chosen: the AI answer above OCBC's top result recommends five competitors instead.</h2>
+      <h2 class="t-action anim d1">GEO has broader scope than classic SEO.</h2>
       <hr class="accent-rule anim d1" style="margin:16px 0">
-      <div class="proofsplit anim d2">
-        <div class="pcol">
-          <p class="peb">SEO, classic search</p>
-          <p class="ph">OCBC ranks #1 for &ldquo;kredit usaha tanpa agunan.&rdquo;</p>
-          <div class="pshot"><img src="assets/ocbc-aio-kredit-usaha-notcited.png" alt="Google results for kredit usaha tanpa agunan: an AI Overview citing five other lenders, with OCBC Cash Biz ranked first in the organic results below it"></div>
-          <p class="pcap">Google, &ldquo;kredit usaha tanpa agunan.&rdquo; OCBC Cash Biz is the top organic result, sitting directly under an AI Overview that never names it.</p>
-          <p class="psrc">Live Google result &middot; Jul 2026</p>
-        </div>
-        <div class="pcol ai">
-          <p class="peb">AEO, the AI answer</p>
-          <p class="ph">The AI Overview above your link recommends five other lenders. OCBC is not one of them.</p>
-          <div class="cited">
-            <p class="clab">Cited instead</p>
-            <ul>
-              <li>PNM Mekaar</li>
-              <li>Modalku</li>
-              <li>Bank Saqu</li>
-              <li>CIMB Niaga</li>
-              <li>Kementerian Keuangan</li>
-            </ul>
+      <p class="t-lede anim d1">Six of these 21 inputs are shared. Eleven belong to GEO alone, and the outcome you buy is different at the top.</p>
+      <div class="scope anim d2">
+        <div class="scol seo">
+          <div class="schead"><p class="sclab">SEO only &mdash; work GEO never asks for</p><span class="scount">4</span></div>
+          <div class="stiles">
+          <p class="stile">Keyword and intent research</p>
+          <p class="stile">On-page optimisation</p>
+          <p class="stile">Link equity management</p>
+          <p class="stile">Local profile management</p>
           </div>
-          <div class="payoff">
-            <p>OCBC holds the <b>#1 organic position</b> for this query, the strongest classic SEO slot on the page. The buyer reads the AI answer and decides <b>before ever reaching your link.</b></p>
-            <p class="psrc">Google AI Overview &middot; live Jul 2026</p>
+        </div>
+        <div class="scol shr">
+          <div class="schead"><p class="sclab">Shared &mdash; one job, both payoffs</p><span class="scount">6</span></div>
+          <div class="stiles">
+          <p class="stile">Audience and competitive set</p>
+          <p class="stile">Crawl and index management</p>
+          <p class="stile">Internal linking and architecture</p>
+          <p class="stile">Structured data markup</p>
+          <p class="stile">Digital PR and media relations</p>
+          <p class="stile">Third-party listicle and review placement</p>
+          </div>
+        </div>
+        <div class="scol geo">
+          <div class="schead"><p class="sclab">GEO only &mdash; work SEO never asked for</p><span class="scount">11</span></div>
+          <div class="stiles">
+          <p class="stile">Prompt and conversation research</p>
+          <p class="stile">AI crawler access control</p>
+          <p class="stile">Raw-HTML retrieval readiness</p>
+          <p class="stile">Passage-level chunking</p>
+          <p class="stile">Entity consistency</p>
+          <p class="stile">Original research and first-party data</p>
+          <p class="stile">Content refresh cadence</p>
+          <p class="stile">Unlinked mention cultivation</p>
+          <p class="stile">Community and UGC presence</p>
+          <p class="stile">Multimodal asset distribution</p>
+          <p class="stile">Training-corpus presence</p>
           </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">THE SHIFT &middot; A #1 RANKING NO LONGER OWNS THE DECISION</span><span class="t-footer">04 / 18</span></div>
+      <div class="footer"><span class="t-footer">SCOPE &middot; WHERE SEO AND GEO WORK DIVERGE</span><span class="t-footer">04 / 18</span></div>
     </div>
   </section>
 
