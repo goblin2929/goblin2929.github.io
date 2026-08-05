@@ -289,6 +289,8 @@
   .ptags{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
   .ptag{font-family:var(--font-mono);font-size:15px;letter-spacing:.04em;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:5px 11px;border-radius:var(--radius-1);white-space:nowrap}
   .ptag.em{background:var(--accent-deep);color:var(--paper)}
+  .ptags.wide{gap:12px;margin-top:20px}
+  .ptags.wide .ptag{font-size:20px;letter-spacing:.08em;padding:9px 16px}
 
   /* ---- Close (slide 12) ---- */
   .close-wrap{height:100%;display:flex;flex-direction:column;justify-content:space-between}
@@ -327,7 +329,7 @@
   .payoff .psrc{margin:14px 0 0;color:var(--ink-4)}
 
   /* ---- Partner / client logo wall (marquee) ---- */
-  .lwall{flex:1;min-height:0;margin-top:44px;display:flex;align-items:stretch;overflow:hidden;background:var(--paper-pure);
+  .lwall{flex:1;min-height:0;margin-top:30px;display:flex;align-items:stretch;overflow:hidden;background:var(--paper-pure);
          border-top:var(--rule-w-strong) solid var(--ink-1);border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
   .lview{flex:1;display:flex;align-items:center;overflow:hidden;min-width:0;
          -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 110px,#000 calc(100% - 110px),transparent 100%);
@@ -570,7 +572,19 @@
       <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">02 &middot; Partners &amp; Clients</div>
       <h2 class="t-action anim d1">Partners and clients we help to scale their growth.</h2>
-      <hr class="accent-rule anim d1">
+      <hr class="accent-rule anim d1" style="margin:18px 0 20px">
+      <p class="t-lede anim d2">Practice areas we cover.</p>
+      <div class="ptags wide anim d2">
+        <span class="ptag">DATA-TECH</span>
+        <span class="ptag">LOGISTICS</span>
+        <span class="ptag">HOSPITALITY</span>
+        <span class="ptag">INVESTMENT</span>
+        <span class="ptag">ACADEMIC</span>
+        <span class="ptag">FINTECH</span>
+        <span class="ptag">B2B SAAS</span>
+        <span class="ptag">B2C MARKETPLACE</span>
+        <span class="ptag">HEALTHCARE</span>
+      </div>
       <div class="lwall anim d2">
         <div class="lview">
         <div class="ltrack">
