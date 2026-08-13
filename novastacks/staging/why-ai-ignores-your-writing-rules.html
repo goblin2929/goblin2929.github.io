@@ -56,7 +56,7 @@
         "description": "Writing rules kept in a skill file get ignored, because the model that drops them also grades them. The five controls that make them binding, plus a copy-paste prompt to build the checker.",
         "articleSection": "AI Search",
         "inLanguage": "en",
-        "wordCount": 3502,
+        "wordCount": 3513,
         "datePublished": "2026-08-13",
         "dateModified": "2026-08-13",
         "author": { "@id": "https://www.novastacks-ai.com/#tina-chu" },
@@ -157,7 +157,7 @@
 <nav aria-label="Article contents">
 <ol>
 <li><a href="#the-cheat-sheet">The cheat sheet: build it yourself</a></li>
-<li><a href="#why-rules-get-ignored">Why the rule you wrote gets ignored</a></li>
+<li><a href="#why-rules-get-ignored">Why your AI ignores the rules you wrote</a></li>
 <li><a href="#five-controls">The five controls</a></li>
 <li><a href="#how-it-learns">How it learns from your edits</a></li>
 <li><a href="#receipts">What the gate caught on this article</a></li>
@@ -337,8 +337,8 @@ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.write
 </section>
 
 <section aria-labelledby="why-rules-get-ignored">
-<h2 id="why-rules-get-ignored">Why the rule you wrote gets ignored</h2>
-<p>Your rule is competing with everything else in the model's context, and it holds no special standing. Sooner or later it gets dropped. Then the same model that dropped it tells you the draft is clean, because nothing outside the model ever read the output.</p>
+<h2 id="why-rules-get-ignored">Why your AI ignores the rules you wrote in your skill file</h2>
+<p>The rules you wrote in your SKILL.md are competing with everything else in the model's context, and they hold no special standing there. Sooner or later they get dropped. Then the same model that dropped them tells you the draft is clean, because nothing outside the model ever read the output.</p>
 <p>Your rules are advice, and the thing taking the advice is also the thing grading it.</p>
 <p>That is why longer banned-word lists keep failing. You can write the rule perfectly and still watch it get ignored on a long session, because writing it down was never the part that binds.</p>
 <p>This matters commercially, not just aesthetically. Graphite analysed 65,000 URLs published between 2020 and 2025 and found that 86% of articles ranking in Google Search are human-written, and 82% of articles cited by ChatGPT and Perplexity are human-written. AI-generated articles briefly passed human ones in November 2024, then settled back to roughly level, and they tend to rank lower when they do appear. The engines are still disproportionately citing work that reads like a person wrote it.</p>
