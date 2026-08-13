@@ -56,7 +56,7 @@
         "description": "Writing rules kept in a skill file get ignored, because the model that drops them also grades them. The five controls that make them binding, plus a copy-paste prompt to build the checker.",
         "articleSection": "AI Search",
         "inLanguage": "en",
-        "wordCount": 3364,
+        "wordCount": 3502,
         "datePublished": "2026-08-13",
         "dateModified": "2026-08-13",
         "author": { "@id": "https://www.novastacks-ai.com/#tina-chu" },
@@ -186,11 +186,22 @@
 </div>
 <aside class="article-disclosure"><p><strong>Written by Tina Chu, Founder &amp; CEO of Novastacks</strong>. Written from our own production system. Independent analysis, no sponsored placements or affiliate links.</p></aside>
 
+<p>I had a rooftop dinner with friends last night, and people are still complaining about em dashes and "this is X, not Y" as the tell for AI writing.</p>
+<p>I get why people still run into this. Every one of those patterns is public by now, identified and shared a hundred times over. Knowing them has not been enough.</p>
+<p>Fixing that takes engineering.</p>
+<p>None of my writing rules live in a prompt, hoping to be remembered. They sit in a YAML file. A Python script reads that file and returns pass or fail. My editor runs the script on everything I write, whether I ask it to or not. The script decides, and the model doesn't get a vote.</p>
+<p>Below is the prompt that builds the whole thing, then the reasoning behind it.</p>
+
 <section aria-labelledby="the-cheat-sheet">
 <h2 id="the-cheat-sheet">The cheat sheet: build it yourself</h2>
 <p>This is the prompt I would hand a colleague. Paste it into Claude Code, Codex or Copilot. It interviews you on your own rules first, then builds the checker, the tests, the hook wiring, the publish-time block, and the loop that turns every miss you catch into a new rule.</p>
 <p>Do not skip the interview. It is the step that decides whether the checker catches anything you actually care about.</p>
-<div class="table-wrap"><pre style="white-space:pre;overflow:auto;max-height:30rem;font-size:0.8rem;line-height:1.6;padding:1.25rem;background:#0f172a;border:1px solid rgba(255,255,255,0.1);border-radius:6px;">I want you to build me a deterministic "house rules" gate for my written
+<div style="border:1px solid #1e293b;border-radius:6px;overflow:hidden;margin:1.5rem 0;background:#0f172a;">
+<div style="display:flex;align-items:center;gap:.75rem;padding:.6rem .9rem;background:#1e293b;border-bottom:1px solid #334155;">
+<span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#9fb0c3;flex:1;">build-rules-gate.prompt</span>
+<button id="copyPromptBtn" type="button" style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.05em;color:#fff;background:#017d8e;border:0;border-radius:3px;padding:.35rem .8rem;cursor:pointer;">Copy prompt</button>
+</div>
+<pre id="promptText" style="white-space:pre;overflow:auto;max-height:30rem;font-size:0.8rem;line-height:1.6;padding:1.15rem;margin:0;background:#0f172a;color:#cbd5e1;font-family:'JetBrains Mono',monospace;">I want you to build me a deterministic "house rules" gate for my written
 output. A system that enforces my writing rules mechanically instead of
 relying on you to remember them. Work through this in order and stop at
 each checkpoint.
@@ -313,7 +324,15 @@ must-PASS fixture, so the checker learns what my good writing looks like.
 
 Write a short README: how to run it by hand, what the exit codes mean,
 where rules get edited (rules.yaml, nowhere else), and a pointer to
-LEARNING.md. Then show me the file tree and one real run.</pre><p style="font-size:0.8rem;opacity:.7;margin-top:.5rem;">Scroll inside the box for the full prompt, then select all and copy.</p></div>
+LEARNING.md. Then show me the file tree and one real run.</pre>
+</div>
+<script>
+(function(){var b=document.getElementById('copyPromptBtn'),p=document.getElementById('promptText');if(!b||!p)return;var t;
+function done(l){b.textContent=l;clearTimeout(t);t=setTimeout(function(){b.textContent='Copy prompt';},2200);}
+b.addEventListener('click',function(){var x=p.textContent;
+function fb(){var a=document.createElement('textarea');a.value=x;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(a);done(ok?'Copied':'Select and copy');}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(x).then(function(){done('Copied');},fb);}else{fb();}});})();
+</script>
 <div class="takeaway"><p>Everything below is the reasoning. If you only wanted the tool, you already have it.</p></div>
 </section>
 
