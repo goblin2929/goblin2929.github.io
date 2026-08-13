@@ -56,7 +56,7 @@
         "description": "Writing rules kept in a skill file get ignored, because the model that drops them also grades them. The five controls that make them binding, plus a copy-paste prompt to build the checker.",
         "articleSection": "AI Search",
         "inLanguage": "en",
-        "wordCount": 3841,
+        "wordCount": 3792,
         "datePublished": "2026-08-13",
         "dateModified": "2026-08-13",
         "author": { "@id": "https://www.novastacks-ai.com/#tina-chu" },
@@ -120,7 +120,7 @@
   </script>
 </head>
 <body class="bg-slate-950 text-white font-sans">
-<div style="background:#01aac1;color:#04202a;font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.06em;text-align:center;padding:10px 16px;text-align:center;">STAGING PREVIEW &middot; not published &middot; /blog/why-ai-ignores-your-writing-rules</div>
+<div style="background:#01aac1;color:#04202a;font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.06em;padding:10px 16px;text-align:center;">STAGING PREVIEW &middot; not published &middot; /blog/why-ai-ignores-your-writing-rules</div>
 
 <div class="article-wrap">
 <article class="article-layout">
@@ -357,13 +357,13 @@ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.write
 <section aria-labelledby="vs-skill-file">
 <h2 id="vs-skill-file">What almost everyone else is missing: it's the enforcement layer</h2>
 <p>The most popular answer to AI slop is a skill file called <a href="https://github.com/hardikpandya/stop-slop" rel="noopener" target="_blank">stop-slop</a>, in the screenshot below. It carries 15,500 stars and 1,100 forks, which makes it the most widely shared anti-slop artifact on GitHub. The pattern library inside it is genuinely sharp.</p>
-<p>It also contains no executable code. The repository is markdown: SKILL.md plus reference files for phrases, structures and examples. No releases published. The model reads the rules, scores its own draft on five dimensions from 1 to 10, and the instruction is "below 35/50: revise". Claude is one of the three listed contributors, so the AI helped write the rules it is then asked to grade itself against.</p>
+<p>It also contains no executable code. The repository is markdown: SKILL.md plus reference files for phrases, structures and examples. No releases published. The model reads the rules, scores its own draft on five dimensions from 1 to 10, and the instruction is "below 35/50: revise".</p>
 <figure style="margin:1.5rem 0;">
-<img src="assets/images/stop-slop-repo.png" alt="The stop-slop GitHub repository, showing 15.5k stars, 12 commits, only markdown files (SKILL.md, README.md, CHANGELOG.md, LICENSE and a references folder), no releases published, and Claude listed as one of three contributors." loading="lazy" style="width:100%;height:auto;border:1px solid #e2e8f0;border-radius:6px;">
-<figcaption style="font-size:.8rem;opacity:.7;margin-top:.5rem;">The most-starred answer to AI slop. Every file is markdown, and Claude is one of the three listed contributors.</figcaption>
+<img src="assets/images/stop-slop-repo.png" alt="The stop-slop GitHub repository, showing 15.5k stars, 1.1k forks, 12 commits, only markdown files (SKILL.md, README.md, CHANGELOG.md, LICENSE and a references folder), and no releases published." loading="lazy" style="width:100%;height:auto;border:1px solid #e2e8f0;border-radius:6px;">
+<figcaption style="font-size:.8rem;opacity:.7;margin-top:.5rem;">The most-starred answer to AI slop. Every file in it is markdown.</figcaption>
 </figure>
 <p>That gap is worth sitting with. What gets starred, forked and shared is not what a working content practitioner actually runs. What is being distributed is a suggested rulebook.</p>
-<p>That is a rulebook, and a good one. It has no way to enforce itself, because the thing being graded is doing the grading.</p>
+<p>Don't get me wrong, that is a good rulebook to minimise AI slop. It has no way to enforce itself, because the thing being graded is doing the grading.</p>
 <p>An enforcement layer is the part that sits outside the model: it reads the finished output, applies the rules without being able to negotiate, and can stop the next step from happening. Run any rulebook against the five controls and you can see precisely where it stops.</p>
 <div class="table-wrap"><table>
 <thead><tr><th>Control</th><th>Rulebook alone</th><th>What the enforcement layer adds</th></tr></thead>
@@ -375,7 +375,6 @@ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.write
 <tr><td>5. Survives other people</td><td>Rules can be weakened with nothing to notice.</td><td>Fixtures with known verdicts, so a rule edit cannot quietly break another.</td></tr>
 </tbody>
 </table></div>
-<p>These are different jobs, and you want both. Keep the pattern library. Put a program behind it that your writing has to get past.</p>
 </section>
 
 <section aria-labelledby="how-it-learns">
