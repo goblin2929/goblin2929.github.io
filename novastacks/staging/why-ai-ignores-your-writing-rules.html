@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why AI Ignores Your Writing Rules | Novastacks</title>
+  <meta name="description" content="Writing rules kept in a skill file get ignored, because the model that drops them also grades them. The five controls that make them binding, plus a copy-paste prompt to build the checker.">
+  <link rel="canonical" href="https://www.novastacks-ai.com/blog/why-ai-ignores-your-writing-rules">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Why AI Ignores Your Writing Rules | Novastacks">
+  <meta property="og:description" content="Why a rule in your prompt has no enforcement, and the engineering that fixes it. Includes a copy-paste build prompt.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.novastacks-ai.com/blog/why-ai-ignores-your-writing-rules">
+  <meta property="og:image" content="https://www.novastacks-ai.com/lovable-uploads/favicon.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why AI Ignores Your Writing Rules | Novastacks">
+  <meta name="twitter:description" content="Why a rule in your prompt has no enforcement, and the engineering that fixes it. Includes a copy-paste build prompt.">
+  <meta name="twitter:image" content="https://www.novastacks-ai.com/lovable-uploads/favicon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://www.novastacks-ai.com/lovable-uploads/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="https://www.novastacks-ai.com/assets/css/styles.css">
+
+  <!-- Analytics -->
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="a6bNPCfvII1gVtf+GzOf3g" async></script>
+
+  <style>
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.novastacks-ai.com/blog/why-ai-ignores-your-writing-rules#article",
+        "isPartOf": { "@id": "https://www.novastacks-ai.com/blog/#blog" },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.novastacks-ai.com/blog/why-ai-ignores-your-writing-rules"
+        },
+        "headline": "Why AI Ignores Your Writing Rules",
+        "description": "Writing rules kept in a skill file get ignored, because the model that drops them also grades them. The five controls that make them binding, plus a copy-paste prompt to build the checker.",
+        "articleSection": "AI Search",
+        "inLanguage": "en",
+        "wordCount": 3351,
+        "datePublished": "2026-08-13",
+        "dateModified": "2026-08-13",
+        "author": { "@id": "https://www.novastacks-ai.com/#tina-chu" },
+        "publisher": { "@id": "https://www.novastacks-ai.com/#organization" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.novastacks-ai.com/#tina-chu",
+        "name": "Tina Chu",
+        "url": "https://www.novastacks-ai.com/team/tina-chu",
+        "jobTitle": "Founder &amp; CEO",
+        "worksFor": { "@id": "https://www.novastacks-ai.com/#organization" },
+        "sameAs": [ "https://www.linkedin.com/in/huilanchu" ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.novastacks-ai.com/#organization",
+        "name": "Novastacks",
+        "alternateName": "Novastacks AI",
+        "url": "https://www.novastacks-ai.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.novastacks-ai.com/#logo",
+          "url": "https://www.novastacks-ai.com/lovable-uploads/logo-white.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://sg.linkedin.com/company/novastacks-ai",
+          "https://www.instagram.com/novastacks.ai"
+        ]
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://www.novastacks-ai.com/blog/#blog",
+        "name": "Novastacks Blog",
+        "url": "https://www.novastacks-ai.com/blog/",
+        "publisher": { "@id": "https://www.novastacks-ai.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.novastacks-ai.com/blog/why-ai-ignores-your-writing-rules#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.novastacks-ai.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.novastacks-ai.com/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "Why AI Ignores Your Writing Rules" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.novastacks-ai.com/blog/why-ai-ignores-your-writing-rules#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Why does AI ignore my instructions?", "acceptedAnswer": { "@type": "Answer", "text": "Because an instruction in a prompt or skill file has no special standing. It competes with everything else in the model's context and gets dropped as the session grows. The same model then assesses its own compliance, so nothing outside the model ever checks the output. The fix is to move the rule into a program that returns a pass or fail verdict independently." } },
+{ "@type": "Question", "name": "Why is ChatGPT ignoring my custom instructions?", "acceptedAnswer": { "@type": "Answer", "text": "Custom instructions are context, not enforcement. They are weighed against the current task, the conversation history and any other instructions in play, and long sessions make it worse. If a rule genuinely must hold every time, it needs to be checked by something outside the model, such as a script wired into your editor or your publishing step." } },
+{ "@type": "Question", "name": "How do I stop AI slop in my writing?", "acceptedAnswer": { "@type": "Answer", "text": "Keep your banned words, phrases and structural patterns in one machine-readable rules file. Have a small script scan each draft against that file and exit non-zero when it finds a violation. Fire the script automatically on every file you write, and make your publish step refuse to run on a failure. Then add a rule every time you catch something the script missed." } },
+{ "@type": "Question", "name": "Do AI content detectors solve this?", "acceptedAnswer": { "@type": "Answer", "text": "No, and a rules checker is a different thing. A detector guesses whether a whole document was machine-written and produces false positives at rates that make it unsafe to act on. A deterministic checker makes no authorship claim. It reports which named rule matched at which line, so every finding can be checked by eye in a second." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-white font-sans">
+<div style="background:#01aac1;color:#04202a;font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.06em;text-align:center;padding:10px 16px;position:sticky;top:0;z-index:99">STAGING PREVIEW &middot; not published &middot; /blog/why-ai-ignores-your-writing-rules</div>
+
+<div class="article-wrap">
+<article class="article-layout">
+<header class="article-hero">
+<nav aria-label="Breadcrumb" class="article-breadcrumb">
+<ol>
+<li><a href="https://www.novastacks-ai.com/">Home</a></li>
+<li><a href="https://www.novastacks-ai.com/blog/">Blog</a></li>
+<li><span aria-current="page">Why AI Ignores Your Writing Rules</span></li>
+</ol>
+</nav>
+<span class="article-badge">Novastacks Field Note</span>
+<h1>Why AI ignores the writing rules you already wrote down</h1>
+<p class="article-deck">A rule in your skill file is a suggestion. The same rule in a YAML file, enforced by a script wired into your build, is deterministic.</p>
+<div class="article-meta">
+<span>7 min read</span>
+<span aria-hidden="true" class="sep"></span>
+<span>Published <time datetime="2026-08-13">13 August 2026</time></span>
+<span aria-hidden="true" class="sep"></span>
+<span>Updated <time datetime="2026-08-13">13 August 2026</time></span>
+</div>
+<div class="article-hero-rule"></div>
+</header>
+<aside aria-labelledby="contents-label" class="article-sidebar">
+<a class="article-author" href="https://www.novastacks-ai.com/team/tina-chu" rel="author">
+<img alt="Tina Chu, Founder &amp; CEO at Novastacks" height="48" loading="lazy" src="https://www.novastacks-ai.com/assets/images/founder-photo.jpg" width="48"/>
+<span class="article-author-name">By Tina Chu</span>
+<span class="article-author-role">Founder &amp; CEO, Novastacks</span>
+<span class="article-author-bio">Marketing leadership across Expedia, Tencent, Klook and Traveloka</span>
+</a>
+<div class="article-sidebar-divider"></div>
+<div class="article-contents">
+<p class="article-contents-label" id="contents-label">In this article</p>
+<nav aria-label="Article contents">
+<ol>
+<li><a href="#the-cheat-sheet">The cheat sheet: build it yourself</a></li>
+<li><a href="#why-rules-get-ignored">Why the rule you wrote gets ignored</a></li>
+<li><a href="#five-controls">The five controls</a></li>
+<li><a href="#how-it-learns">How it learns from your edits</a></li>
+<li><a href="#receipts">What the gate caught on this article</a></li>
+<li><a href="#objections">Two fair objections</a></li>
+<li><a href="#limits">What this will not do</a></li>
+<li><a href="#faq">Frequently asked questions</a></li>
+</ol>
+</nav>
+</div>
+<div class="article-cta">
+<p class="article-cta-title">See where you stand</p>
+<p class="article-cta-body">Run your brand through our free AEO audit and see which AI engines cite you today.</p>
+<a href="https://www.novastacks-ai.com/free-tools/free-aeo-audit">Get a free audit →</a>
+</div>
+</aside>
+<div class="article-prose">
+<div class="key-takeaways">
+<p class="kt-label">Key Takeaways</p>
+<ul>
+<li>A writing rule kept in a skill file or system prompt has no enforcement, because the model that drops it is also the model that grades whether it was followed.</li>
+<li>Move the rules into a machine-readable file, let a script return the verdict as an exit code, and fire that script from your editor or CI rather than from the prompt.</li>
+<li>Block at the point of no return. Editor hooks report; only the publish or deploy step can refuse.</li>
+<li>Graphite found 86% of articles ranking in Google and 82% of articles cited by ChatGPT and Perplexity are human-written, so the quality bar is doing commercial work.</li>
+<li>This article failed its own checker three times before passing, once for quoting the sentence that created the rule.</li>
+</ul>
+</div>
+<aside class="article-disclosure"><p><strong>Written by Tina Chu, Founder &amp; CEO of Novastacks</strong>. Written from our own production system. Independent analysis, no sponsored placements or affiliate links.</p></aside>
+
+<section aria-labelledby="the-cheat-sheet">
+<h2 id="the-cheat-sheet">The cheat sheet: build it yourself</h2>
+<p>This is the prompt I would hand a colleague. Paste it into Claude Code, Codex or Copilot. It interviews you on your own rules first, then builds the checker, the tests, the hook wiring, the publish-time block, and the loop that turns every miss you catch into a new rule.</p>
+<p>Do not skip the interview. It is the step that decides whether the checker catches anything you actually care about.</p>
+<div class="table-wrap"><pre style="white-space:pre;overflow-x:auto;font-size:0.82rem;line-height:1.6;padding:1.25rem;background:#0f172a;border:1px solid rgba(255,255,255,0.1);border-radius:6px;">I want you to build me a deterministic "house rules" gate for my written
+output. A system that enforces my writing rules mechanically instead of
+relying on you to remember them. Work through this in order and stop at
+each checkpoint.
+
+## The problem I'm solving
+
+I have writing rules: banned words, banned phrases, structural patterns
+I dislike. When those rules live only in a skill file or system prompt,
+they get ignored. You weigh them against everything else in context and
+quietly drop them. I want the rules moved out of prose and into a program
+with an exit code, so compliance stops being a judgment call.
+
+You must play NO part in the verdict. A plain text match decides.
+
+## STEP 1 - Interview me first. Do not write any code yet.
+
+Ask me, one topic at a time:
+1. What are my banned words? Single words that are always wrong.
+2. What are my banned phrases? Exact strings.
+3. What are my banned patterns? Structural ones, for example
+   "It isn't X. It's Y." Ask me for two real examples of each so you can
+   write an accurate regex.
+4. What are my mechanical limits? Max em dashes, max exclamation marks,
+   average sentence length.
+5. What TYPES of content do I produce, and how long does each run?
+6. For each type, absolute counts or rates per 1,000 words? Short pieces
+   get absolute caps. Long pieces get rates, otherwise length alone
+   trips the checker.
+7. Can I give you samples? One piece I am happy with, one I am not.
+
+Summarise back what you heard. STOP and wait for my approval.
+
+## STEP 2 - Build the rulebook
+
+Create rules.yaml as the single source of truth. Every rule gets:
+  id, kind (banned_word | banned_phrase | banned_pattern | mechanical),
+  regex, severity (fail | warn), applies_to, note (what to write instead)
+
+Add a profiles: section, one block per content type, holding that type's
+thresholds and whether the mode is absolute or per 1,000 words.
+
+Rules live in this file and nowhere else. If I later ask for a readable
+summary of my rules, generate it FROM this file. Two hand-maintained
+lists will drift, and once they disagree neither is authoritative.
+
+## STEP 3 - Build the checker
+
+Create check.py:
+- Usage: python3 check.py &lt;file&gt; [--type &lt;content-type&gt;]
+- Guess type from path or extension. --type overrides.
+- Read rules.yaml. Do not hardcode any rule in the script.
+- Accept .md, .txt and .html. Strip HTML tags before scanning.
+- Print every violation with line number, matching text, rule id, and
+  the note explaining what to do instead.
+- Exit 0 if clean, exit 1 if any fail-severity rule matched or a
+  threshold was exceeded. The exit code is the whole point.
+- Add --list-manual for rules I marked human-check-only, so the ones
+  too subtle for regex stay visible instead of being dropped.
+- Standard library only. No pip installs.
+
+## STEP 4 - Test the rules themselves
+
+Create fixtures/ and run-tests.sh. Put at least three files in fixtures:
+a piece I approved that must PASS, a piece I rejected that must FAIL, and
+one you write that violates every rule and must FAIL.
+
+run-tests.sh runs the checker against each, compares to the expected
+verdict, prints a table, and exits 1 if any expectation is missed.
+
+Run it now. If my approved sample FAILS, the rule is too aggressive. Tell
+me which rule and propose a narrower pattern. Do not loosen it silently.
+A checker that flags good writing gets ignored within a week.
+
+STOP and show me the table.
+
+## STEP 5 - Make it run automatically
+
+Ask which environment I use.
+If Claude Code: add a PostToolUse hook to settings.json matching
+Edit|Write that runs check.py on any written content file. Show me the
+exact JSON and where it goes.
+If Codex, Copilot, or anything without hooks: install a git pre-commit
+hook that blocks the commit on exit 1, plus a CI workflow that does the
+same on push.
+Either way, the check must fire without me asking for it.
+
+## STEP 6 - Block at the point of no return
+
+Ask me where my writing actually leaves my control: publishing,
+deploying, sending, exporting. Wire check.py into each so a non-zero exit
+stops the action. Check the FINAL artifact that ships, after any
+conversion, not the draft upstream of it.
+
+Add this to my project instructions, word for word:
+  "The agent that produced a piece of work never issues its own pass.
+  Run check.py and show the real output. If the checker does not fit the
+  artifact, report the mismatch. Never substitute your own judgment."
+
+## STEP 7 - Write down what this cannot catch
+
+Create LIMITS.md: anything I write outside these tools, any language the
+regex does not cover, and tone and register generally. State plainly that
+a green check means "no banned patterns found", not "this is good."
+
+## STEP 8 - Set up the learning loop
+
+Write this into LEARNING.md and follow it every time I report a miss:
+1. Find the PATTERN, not the instance. Ask me for a second example.
+2. Add the rule to rules.yaml with a note.
+3. Add the draft that slipped into fixtures/ as a must-FAIL case. This is
+   the step people skip, and it is what stops a future rule edit from
+   quietly re-opening the same hole.
+4. Re-run run-tests.sh. Confirm the new fixture fails and every existing
+   fixture holds its old verdict.
+5. Never fix only the draft. The draft is the symptom.
+Do the same in reverse when I approve something: offer to save it as a
+must-PASS fixture, so the checker learns what my good writing looks like.
+
+## STEP 9 - Hand it over
+
+Write a short README: how to run it by hand, what the exit codes mean,
+where rules get edited (rules.yaml, nowhere else), and a pointer to
+LEARNING.md. Then show me the file tree and one real run.</pre></div>
+<div class="takeaway"><p>Everything below is the reasoning. If you only wanted the tool, you already have it.</p></div>
+</section>
+
+<section aria-labelledby="why-rules-get-ignored">
+<h2 id="why-rules-get-ignored">Why the rule you wrote gets ignored</h2>
+<p>Your rule is competing with everything else in the model's context, and it holds no special standing. Sooner or later it gets dropped. Then the same model that dropped it tells you the draft is clean, because nothing outside the model ever read the output.</p>
+<p>Your rules are advice, and the thing taking the advice is also the thing grading it.</p>
+<p>That is why longer banned-word lists keep failing. You can write the rule perfectly and still watch it get ignored on a long session, because writing it down was never the part that binds.</p>
+<p>This matters commercially, not just aesthetically. Graphite analysed 65,000 URLs published between 2020 and 2025 and found that 86% of articles ranking in Google Search are human-written, and 82% of articles cited by ChatGPT and Perplexity are human-written. AI-generated articles briefly passed human ones in November 2024, then settled back to roughly level, and they tend to rank lower when they do appear. The engines are still disproportionately citing work that reads like a person wrote it.</p>
+</section>
+
+<section aria-labelledby="five-controls">
+<h2 id="five-controls">The five controls</h2>
+<p>These follow the life of one rule, from writing it down to it blocking a deploy.</p>
+<p><strong>1. Put every rule in one machine-readable file.</strong> Every rule gets an ID, a pattern, a severity, and the content types it applies to. Mine holds about 111 of them. Any readable summary is generated from that file rather than maintained beside it. The moment two lists disagree, the model stops treating either as authoritative and follows whichever it reads first.</p>
+<p><strong>2. Make the checker a program, and make it accurate.</strong> The script returns pass or fail as an exit code, and reads the rule file rather than hardcoding anything. Calibration matters as much as coverage. Thresholds are tuned per content type: hard caps for a short post, rates per thousand words for long articles, per-slide scoring for decks. Before I calibrated mine it threw 80 restricted-word violations at a 14,000-word audit document that was mostly quoting the client's own copy. That is how a tool teaches people to ignore it.</p>
+<p><strong>3. Let the environment run it, not the model.</strong> A PostToolUse hook fires the checker on every content file written. Without hooks, a git pre-commit hook plus a CI job cover the same ground. Running the check stops being something you have to remember when the session gets long. This is the single biggest lever against being ignored, because you removed the choice.</p>
+<p><strong>4. Block at the point of no return.</strong> Editor hooks can report, but they cannot stop anything. So the real refusal lives where work leaves your control: publish, deploy, send, export. One standing rule sits next to it. Whatever produced the work never issues its own pass. I learned that one the hard way, when an agent ran a post-scoped checker against a 31-slide deck, noticed the mismatch, and passed itself anyway on a targeted read. The slop shipped.</p>
+<p><strong>5. Make it survive other people.</strong> The rules get their own tests: saved files with known verdicts, one you approved, one you rejected, one deliberately bad. Re-run them after every rule edit, so tightening one pattern cannot quietly break another. The kit installs into any project with one script, so teammates get updates by pulling rather than by reading a doc.</p>
+</section>
+
+<section aria-labelledby="how-it-learns">
+<h2 id="how-it-learns">How it learns from your edits</h2>
+<p>Every rule in my file started as something I caught by eye. The regex has never found a new pattern first.</p>
+<p>One example. A post of mine closed on a reveal: the sharpest takeaway wasn't about the tools, it was about who actually gets to use them. Textbook slop. The checker passed it clean, because my reveal rule only matched the present-tense version of that shape. I caught it reading the draft aloud.</p>
+<p>So I did two things. Added the past-tense pattern to the rules file, and saved that post into the fixtures folder as a must-fail case. The rule stops it recurring. The fixture stops a future edit from re-opening the same hole.</p>
+<p>That is the loop. Every miss you catch turns into a rule, plus a test that holds it there. Do that for a year and the file becomes a record of your own taste, which is why you cannot download it from anyone else.</p>
+</section>
+
+<section aria-labelledby="receipts">
+<h2 id="receipts">What the gate caught on this article</h2>
+<p>I ran this piece through the same checker while writing it. It failed three times before it passed.</p>
+<p>The first fired on a banned buzzword I had quoted as an example of a banned buzzword. The checker cannot tell the difference between using a word and citing one.</p>
+<p>The second is the good one. To explain how the system learns, I quoted the exact sentence that created one of my rules, and the rule fired on it. The article was flagged for quoting its own origin story. I repunctuated the example rather than loosening the rule, because a failing check does not get argued with inside the deliverable.</p>
+<p>Then the human read caught two more things no regex can see: a balanced aphorism in the closing line, and a three-item list inside a sentence. Both are written in my rules. Neither is detectable by pattern matching, which is why a green check is the first gate and never the whole gate.</p>
+<p>Every run gets logged. On this file that is 16 so far, three of them failures. The log answers "was this actually checked", which is a question no amount of good intentions can settle.</p>
+</section>
+
+<section aria-labelledby="objections">
+<h2 id="objections">Two fair objections</h2>
+<p><strong>"AI detectors do not work."</strong> Correct, and this is not one. A detector guesses at authorship across a whole document and is wrong often enough to be useless. A deterministic checker makes no authorship claim at all. It reports that rule <code>wasnt-itwas</code> matched at line 344, and you can read line 344 and judge for yourself. Every finding is falsifiable in one look.</p>
+<p><strong>"No single tell is fatal, it is the co-occurrence."</strong> Also correct, and it converts into a feature rather than an objection. That is a density rule, and density is exactly what thresholds measure: em dashes per thousand words, restricted words per thousand words, scored per content type. One em dash is fine. Nine per thousand words is a different document.</p>
+<p>The competitive point sits here too. Plenty of people ship pattern lists and skill files, and some of those repositories have real code in them. What none of them ship is a checker that reads your draft and returns a non-zero exit code. The rules still live in prose the model is asked to obey and then grade itself against. Separating the writer from the grader is the whole idea.</p>
+</section>
+
+<section aria-labelledby="limits">
+<h2 id="limits">What this will not do</h2>
+<p>Write these down when you build yours. A green check is worth much less if people read it as approval.</p>
+<p><strong>It cannot see tone.</strong> Pattern matching catches banned words and structures. Whether a paragraph sounds like a person still needs your eyes.</p>
+<p><strong>It is language-bound.</strong> English regex does nothing for your Chinese content.</p>
+<p><strong>It starts weak.</strong> Version one catches your obvious rules. It gets good by absorbing every miss, which takes a few months of real use.</p>
+<p>That is a narrower promise than it sounds, and still worth having. Build the first version this week with the prompt above, then add a rule every time you catch something it missed. If you want help wiring this into a content operation rather than a personal workflow, that is the kind of system <a href="https://www.novastacks-ai.com/">Novastacks</a> builds for clients, and the same thinking shows up in our study of <a href="https://www.novastacks-ai.com/blog/pages-that-win-everywhere">what makes a page win across engines</a>.</p>
+</section>
+
+<section aria-labelledby="faq"><h2 id="faq">Frequently asked questions</h2><div class="article-faq">
+<details><summary>Why does AI ignore my instructions?</summary><p>Because an instruction in a prompt or skill file has no special standing. It competes with everything else in the model's context and gets dropped as the session grows. The same model then assesses its own compliance, so nothing outside the model ever checks the output. The fix is to move the rule into a program that returns a pass or fail verdict independently.</p></details>
+<details><summary>Why is ChatGPT ignoring my custom instructions?</summary><p>Custom instructions are context, not enforcement. They are weighed against the current task, the conversation history and any other instructions in play, and long sessions make it worse. If a rule genuinely must hold every time, it needs to be checked by something outside the model, such as a script wired into your editor or your publishing step.</p></details>
+<details><summary>How do I stop AI slop in my writing?</summary><p>Keep your banned words, phrases and structural patterns in one machine-readable rules file. Have a small script scan each draft against that file and exit non-zero when it finds a violation. Fire the script automatically on every file you write, and make your publish step refuse to run on a failure. Then add a rule every time you catch something the script missed.</p></details>
+<details><summary>Do AI content detectors solve this?</summary><p>No, and a rules checker is a different thing. A detector guesses whether a whole document was machine-written and produces false positives at rates that make it unsafe to act on. A deterministic checker makes no authorship claim. It reports which named rule matched at which line, so every finding can be checked by eye in a second.</p></details>
+</div></section>
+<div class="article-sources"><p class="article-sources-label">Sources</p><ol>
+<li>Graphite, <a href="https://graphite.io/five-percent/ai-content-in-search-and-llms" rel="noopener" target="_blank">AI Content in Search and LLMs</a>, analysis of 65,000 URLs published 2020 to 2025.</li>
+<li>Axios, <a href="https://www.axios.com/2025/10/14/ai-generated-writing-humans" rel="noopener" target="_blank">AI-written web pages haven't overwhelmed human-authored content, study finds</a>, 14 October 2025.</li>
+<li>Charlie Guo, <a href="https://www.ignorance.ai/p/the-field-guide-to-ai-slop" rel="noopener" target="_blank">The Field Guide to AI Slop</a>, on detector reliability.</li>
+<li>Momentic, <a href="https://momenticmarketing.com/blog/avoid-ai-slop" rel="noopener" target="_blank">34 types of AI slop you should avoid in your content</a>, on tell co-occurrence.</li>
+<li>hardikpandya, <a href="https://github.com/hardikpandya/stop-slop" rel="noopener" target="_blank">stop-slop</a>, a skill file that self-rates against a 35 of 50 threshold.</li>
+<li>petergyang, <a href="https://github.com/petergyang/no-ai-slop" rel="noopener" target="_blank">no-ai-slop</a>, whose evaluation checks are answered by the model itself.</li>
+</ol></div>
+<section class="service-cta"><h2>Want this wired into your content operation?</h2><p>We design and run AI search systems for brands that need their quality bar enforced, not just documented.</p><div class="service-cta-actions"><a class="service-cta-primary" href="https://www.novastacks-ai.com/contact">Talk to our team</a><a class="service-cta-secondary" href="https://www.novastacks-ai.com/free-tools/free-aeo-audit">Run a free AEO audit</a></div></section>
+</div>
+</article>
+</div>
+<aside aria-labelledby="related-label" class="article-related">
+<div class="article-related-inner">
+<p class="article-related-label" id="related-label">Related reading</p>
+<div class="article-related-list">
+<a class="article-related-card" href="https://www.novastacks-ai.com/blog/what-drives-ai-citations"><span class="article-related-card-title">What Drives AI Citations</span></a>
+<a class="article-related-card" href="https://www.novastacks-ai.com/blog/pages-that-win-everywhere"><span class="article-related-card-title">Pages That Win Everywhere</span></a>
+<a class="article-related-card" href="https://www.novastacks-ai.com/blog/one-deep-page-per-question"><span class="article-related-card-title">One Deep Page Per Question</span></a>
+</div>
+</div>
+</aside>
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-white py-12">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+<div>
+<h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wide">Services</h3>
+<ul class="space-y-2 text-sm">
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/aeo">AEO Services</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/free-aeo-audit">Free AEO Audit</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/aeo-for-saas">AEO for SaaS</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/fractional-growth-partner">Fractional CMO</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/agentic-marketing">AI Marketing Systems</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wide">AEO Resources</h3>
+<ul class="space-y-2 text-sm">
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog/what-is-aeo">What is AEO?</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog/aeo-vs-seo">AEO vs SEO</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog/technical-aeo-foundations">Technical AEO</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog/measuring-aeo">Measuring AEO</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog/what-drives-ai-citations">What Drives AI Citations?</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog/best-aeo-tools-2026">Best AEO Tools 2026</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wide">Growth Resources</h3>
+<ul class="space-y-2 text-sm">
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog/what-is-fractional-cmo">What is Fractional CMO?</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog/fractional-cmo-for-startups">Fractional CMO for Startups</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog/what-is-agentic-marketing">What is Agentic Marketing?</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wide">Company</h3>
+<ul class="space-y-2 text-sm">
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/methodology">Methodology</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/blog">Blog</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/#founder">About</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/contact">Contact</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/seo-agency-singapore">Singapore</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://www.novastacks-ai.com/privacy">Privacy Policy</a></li>
+<li><a class="text-slate-400 hover:text-novastacks transition-colors" href="https://calendar.app.google/ktnYyixysLuXeEJU8" rel="noopener noreferrer" target="_blank">Talk to Our Team</a></li>
+</ul>
+<div class="mt-6">
+<a class="inline-flex items-center gap-2 text-slate-400 hover:text-novastacks text-sm transition-colors" href="https://www.linkedin.com/company/novastacks-ai/" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+</svg>
+              LinkedIn
+            </a>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+<div class="flex items-center gap-2 mb-4 md:mb-0">
+<div class="w-32 h-8 bg-contain bg-no-repeat bg-center" style="background-image: url('/lovable-uploads/logo-white.png')"></div>
+<span class="text-slate-500 text-sm">· Singapore</span>
+</div>
+<p class="text-slate-500 text-sm">© 2026 NOVASTACKS. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script src="https://www.novastacks-ai.com/assets/js/mobile-menu.js"></script>
+<script async="" src="//code.tidio.co/lgqazsxxicmqb8rgpj7gvuydpeoizmrg.js"></script>
+</body>
+</html>
