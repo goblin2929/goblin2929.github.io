@@ -56,7 +56,7 @@
         "description": "Writing rules kept in a skill file get ignored, because the model that drops them also grades them. The five controls that make them binding, plus a copy-paste prompt to build the checker.",
         "articleSection": "AI Search",
         "inLanguage": "en",
-        "wordCount": 3513,
+        "wordCount": 3439,
         "datePublished": "2026-08-13",
         "dateModified": "2026-08-13",
         "author": { "@id": "https://www.novastacks-ai.com/#tina-chu" },
@@ -161,7 +161,6 @@
 <li><a href="#five-controls">The five controls</a></li>
 <li><a href="#how-it-learns">How it learns from your edits</a></li>
 <li><a href="#receipts">What the gate caught on this article</a></li>
-<li><a href="#objections">Two fair objections</a></li>
 <li><a href="#limits">What this will not do</a></li>
 <li><a href="#faq">Frequently asked questions</a></li>
 </ol>
@@ -366,16 +365,36 @@ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.write
 <h2 id="receipts">What the gate caught on this article</h2>
 <p>I ran this piece through the same checker while writing it. It failed three times before it passed.</p>
 <p>The first fired on a banned buzzword I had quoted as an example of a banned buzzword. The checker cannot tell the difference between using a word and citing one.</p>
-<p>The second is the good one. To explain how the system learns, I quoted the exact sentence that created one of my rules, and the rule fired on it. The article was flagged for quoting its own origin story. I repunctuated the example rather than loosening the rule, because a failing check does not get argued with inside the deliverable.</p>
-<p>Then the human read caught two more things no regex can see: a balanced aphorism in the closing line, and a three-item list inside a sentence. Both are written in my rules. Neither is detectable by pattern matching, which is why a green check is the first gate and never the whole gate.</p>
-<p>Every run gets logged. On this file that is 16 so far, three of them failures. The log answers "was this actually checked", which is a question no amount of good intentions can settle.</p>
-</section>
+<p>The second is the good one. To explain how the system learns, I quoted the exact sentence that created one of my rules, and the rule fired on it. The article was flagged for quoting its own origin story.</p>
+<figure style="margin:1.5rem 0;">
+<div style="border:1px solid #1e293b;border-radius:6px;overflow:hidden;background:#0f172a;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#01aac1;margin:0;padding:.55rem .9rem;background:#0b1120;border-bottom:1px solid #1e293b;overflow-x:auto;white-space:nowrap;">$ python3 slop-check.py why-ai-ignores-your-writing-rules.html --type blog</p>
+<pre style="margin:0;padding:1rem .9rem;font-family:'JetBrains Mono',monospace;font-size:.76rem;line-height:1.6;color:#cbd5e1;white-space:pre;overflow-x:auto;"><span style="color:#f87171;font-weight:600;">FAIL</span> &mdash; 1 violation(s) found:
 
-<section aria-labelledby="objections">
-<h2 id="objections">Two fair objections</h2>
-<p><strong>"AI detectors do not work."</strong> Correct, and this is not one. A detector guesses at authorship across a whole document and is wrong often enough to be useless. A deterministic checker makes no authorship claim at all. It reports that rule <code>wasnt-itwas</code> matched at line 344, and you can read line 344 and judge for yourself. Every finding is falsifiable in one look.</p>
-<p><strong>"No single tell is fatal, it is the co-occurrence."</strong> Also correct, and it converts into a feature rather than an objection. That is a density rule, and density is exactly what thresholds measure: em dashes per thousand words, restricted words per thousand words, scored per content type. One em dash is fine. Nine per thousand words is a different document.</p>
-<p>The competitive point sits here too. Plenty of people ship pattern lists and skill files, and some of those repositories have real code in them. What none of them ship is a checker that reads your draft and returns a non-zero exit code. The rules still live in prose the model is asked to obey and then grade itself against. Separating the writer from the grader is the whole idea.</p>
+  [BANNED_PATTERN] Line 344: 'X wasn't A. It was B'
+                   past-tense trite reframing / reveal
+    Rule: <span style="color:#fbbf24;">wasnt-itwas</span>
+    Text: "the sharpest takeaway wasn't about the tools.
+           It was about who actually gets to use them."</pre>
+</div>
+<figcaption style="font-size:.8rem;opacity:.7;margin-top:.5rem;">The checker flagging this article for quoting the sentence that created the rule.</figcaption>
+</figure>
+<p>I repunctuated the example rather than loosening the rule, because a failing check does not get argued with inside the deliverable.</p>
+<p>Then the human read caught two more things no regex can see: a balanced aphorism in the closing line, and a three-item list inside a sentence. Both are written in my rules. Neither is detectable by pattern matching, which is why a green check is the first gate and never the whole gate.</p>
+<figure style="margin:1.5rem 0;">
+<div style="border:1px solid #1e293b;border-radius:6px;overflow:hidden;background:#0f172a;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#01aac1;margin:0;padding:.55rem .9rem;background:#0b1120;border-bottom:1px solid #1e293b;overflow-x:auto;white-space:nowrap;">$ python3 slop-check.py why-ai-ignores-your-writing-rules.html --type blog</p>
+<pre style="margin:0;padding:1rem .9rem;font-family:'JetBrains Mono',monospace;font-size:.76rem;line-height:1.6;color:#cbd5e1;white-space:pre;overflow-x:auto;"><span style="color:#4ade80;font-weight:600;">PASS</span> &mdash; No fail-level violations found.
+
+Em dashes:           2   (0.57/1k, fail over 3.0)
+Restricted words:    0   (0.00/1k, fail over 8.0)
+Robotic transitions: 0   (0.00/1k, fail over 2.0)
+Exclamation marks:   0   (0.00/1k, fail over 0.5)
+Manual-only rules:   4   (voice read still required)</pre>
+</div>
+<figcaption style="font-size:.8rem;opacity:.7;margin-top:.5rem;">The run that let this article ship. A green check is the first gate, never the whole gate.</figcaption>
+</figure>
+<p>Every run gets logged. On this file that is 16 so far, three of them failures. The log answers "was this actually checked", which is a question no amount of good intentions can settle.</p>
 </section>
 
 <section aria-labelledby="limits">
