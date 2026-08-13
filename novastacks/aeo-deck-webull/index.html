@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webull Singapore × Novastacks — AI Search Proposal</title>
+<meta property="og:title" content="Novastacks - Leading SEO &amp; AEO Service">
+<meta property="og:type" content="website">
+<meta name="twitter:title" content="Novastacks - Leading SEO &amp; AEO Service">
+<link rel="stylesheet" href="mbb_tokens.css">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;background:#1a1a1a}
+  deck-stage:not(:defined){visibility:hidden}
+
+  /* ---- Slide shells ---- */
+  .mslide{
+    height:100%;background:var(--paper);color:var(--ink-2);
+    padding:var(--margin-y) var(--margin-x);
+    display:flex;flex-direction:column;overflow:hidden;position:relative;
+  }
+  .corner-logo{position:absolute;top:var(--margin-y);right:var(--margin-x);height:38px;width:auto;z-index:5}
+  .mslide.bleed{padding:0;display:grid}
+  .mslide.dark{background:var(--dark-bg);color:var(--dark-fg)}
+
+  .crumb{margin-bottom:22px}
+  .accent-rule{border:0;border-top:var(--rule-w-strong) solid var(--accent);width:64px;margin:24px 0}
+  .subhead{max-width:1320px;margin-top:14px}
+  .t-action.long{font-size:52px}
+
+  /* ---- Data tables (Webull diagnosis block) ---- */
+  .dt{width:100%;border-collapse:collapse;margin-top:18px;font-family:var(--font-body)}
+  .dt th{font-family:var(--font-mono);font-size:14px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-4);font-weight:500;text-align:left;padding:0 18px 10px 0;
+    border-bottom:2px solid var(--ink-1);vertical-align:bottom}
+  .dt th.r,.dt td.r{text-align:right}
+  .dt td{font-size:19px;line-height:1.32;color:var(--ink-2);padding:11px 18px 11px 0;
+    border-bottom:1px solid var(--rule-hair);vertical-align:top}
+  .dt td:last-child,.dt th:last-child{padding-right:0}
+  .dt .k{font-weight:600;color:var(--ink-1)}
+  .dt .n{font-family:var(--font-mono);font-size:19px;font-weight:600;color:var(--ink-1);white-space:nowrap}
+  .dt .dim{color:var(--ink-4)}
+  .dt .ac{color:var(--accent-deep);font-weight:600}
+  .dt .bad{color:var(--bad);font-weight:600}
+  .dt tr.tot td{border-bottom:2px solid var(--ink-1);border-top:2px solid var(--ink-1);
+    font-weight:600;color:var(--ink-1)}
+  .dt tr.tot td .n{font-size:21px}
+  .dt tr.hi td{background:var(--accent-tint)}
+  .dt.tight td{font-size:17px;padding:7px 16px 7px 0}
+  .dt.tight th{font-size:13px;padding-bottom:8px}
+
+  /* big-font two-column findings table */
+  .dt.big td{padding:12px 22px 12px 0}
+  .dt.big td.f{font-size:23px;font-weight:600;color:var(--ink-1);line-height:1.22;width:37%}
+  .dt.big td.e{font-size:17px;line-height:1.38;color:var(--ink-3)}
+  .dt.big td.e b{color:var(--ink-1);font-weight:600}
+  .dt.big td.e code{font-family:var(--font-mono);font-size:15px;background:var(--paper-deep);
+    padding:1px 5px;border-radius:2px}
+
+  .dt.big td.init{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--ink-1);
+    width:19%;border-right:2px solid var(--ink-1);padding-right:22px;line-height:1.2}
+  .dt.big td.init .solves{display:block;font-family:var(--font-body);font-size:15px;font-weight:400;
+    color:var(--ink-4);margin-top:5px;line-height:1.3}
+  .dt.big td.f{width:31%}
+
+  .methodnote{font-family:var(--font-mono);font-size:14px;letter-spacing:.06em;color:var(--ink-4);
+    margin:14px 0 0}
+  .modestrip{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px;
+    padding-top:18px;border-top:2px solid var(--ink-1)}
+  .modestrip .m .mh{font-family:var(--font-mono);font-size:14px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--accent-deep);margin:0 0 6px}
+  .modestrip .m p{margin:0;font-size:18px;line-height:1.36;color:var(--ink-3)}
+  .modestrip .m p b{color:var(--ink-1);font-weight:600}
+
+  /* ---- Approach package: three boxes ---- */
+  .pkg{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:26px;align-items:stretch}
+  .pkg .box{background:var(--paper-deep);border-top:4px solid var(--accent);padding:26px 26px 24px;
+    display:flex;flex-direction:column}
+  .pkg .box .n{font-family:var(--font-mono);font-size:13px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink-4);margin:0 0 10px}
+  .pkg .box h3{font-family:var(--font-display);font-size:26px;line-height:1.14;letter-spacing:-.015em;
+    color:var(--ink-1);margin:0 0 6px;font-weight:700}
+  .pkg .box .sub{font-size:16px;line-height:1.3;color:var(--ink-4);margin:0 0 18px;
+    padding-bottom:14px;border-bottom:1px solid var(--rule-hair)}
+  .pkg .box ul{list-style:none;margin:0;padding:0}
+  .pkg .box li{position:relative;padding:0 0 15px 17px;font-size:16px;line-height:1.38;color:var(--ink-3)}
+  .pkg .box li:last-child{padding-bottom:0}
+  .pkg .box li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:2px;background:var(--accent)}
+  .pkg .box li b{color:var(--ink-1);font-weight:600;display:block;margin-bottom:2px}
+  .pkg .box li code{font-family:var(--font-mono);font-size:14px;background:var(--paper-pure);padding:1px 4px}
+
+  /* Footer */
+  .footer{
+    margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;
+    padding-top:18px;border-top:var(--rule-w-hair) solid var(--rule-hair);
+  }
+  .dark .footer{border-top-color:var(--dark-rule)}
+  .dark .footer .t-footer{color:var(--dark-fg-2)}
+  .footer{gap:36px}
+  .footer .t-footer{white-space:nowrap}
+  .footer .t-footer:first-child{overflow:hidden;text-overflow:ellipsis;min-width:0}
+
+  /* ---- Cover ---- */
+  .cover-grid{grid-template-columns:1.12fr 1fr}
+  .cover-left{padding:var(--margin-y) var(--margin-x);display:flex;flex-direction:column;justify-content:space-between}
+  .cover-logo{height:76px;width:auto;align-self:flex-start}
+  .cover-right{background:var(--ink-1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;position:relative}
+  .cover-right .rtag{font-family:var(--font-display);font-weight:600;font-size:60px;line-height:1.05;letter-spacing:-.02em;color:var(--dark-fg);text-align:center;margin:0}
+  .cover-right .ce{position:absolute;left:48px;bottom:44px;color:var(--dark-fg-2)}
+  .cover-right .tealrule{border:0;border-top:2px solid var(--accent);width:120px;margin:0}
+  .cover-right .ct{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-fg-2)}
+
+  /* ---- Charts (slide 2) ---- */
+  .chart-row{margin-top:28px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    display:grid;grid-template-columns:repeat(3,1fr);flex:1}
+  .chart-col{padding:26px 36px;display:flex;flex-direction:column;
+    border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .chart-col:last-child{border-right:0}
+  .chart-col .ce{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin:0 0 auto}
+  .chart-col .cw{flex:1;display:flex;align-items:flex-end;justify-content:center;margin:14px 0;min-height:0}
+  .chart-col .cw svg{max-height:230px;width:100%}
+  .chart-col .claim{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);line-height:1.18;letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance}
+  .chart-col .src{font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin:0}
+  .subhead .pq{display:block;font-family:var(--font-display);font-weight:500;font-size:26px;color:var(--accent-deep);letter-spacing:-.01em;margin:8px 0 0}
+
+  /* ---- SEO vs AEO split (slide 3) ---- */
+  .vs-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+  .vs-half{padding:64px 72px 56px;display:flex;flex-direction:column;gap:22px;min-width:0}
+  .vs-half.light{background:var(--paper);border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .vs-half.dark{background:var(--dark-bg);color:var(--dark-fg)}
+  .vs-half .vh{font-family:var(--font-display);font-weight:600;font-size:42px;letter-spacing:-.02em;line-height:1.05;margin:0;color:var(--ink-1)}
+  .vs-half.dark .vh{color:var(--dark-fg)}
+  .vs-half .vshot{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);overflow:hidden}
+  .vs-half.dark .vshot{border-color:var(--dark-rule);background:#0d0d0d}
+  .vs-half .vshot img{max-width:100%;max-height:100%;object-fit:contain}
+  .vs-half .vcap2{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:0}
+  .vs-half.dark .vcap2{color:var(--dark-fg-2)}
+  .vs-half .vfoot{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}
+  .vs-half.dark .vfoot{color:var(--dark-fg-2)}
+
+  /* ---- Venn (slide 3) ---- */
+  .venn-grid{margin-top:32px;flex:1;display:grid;grid-template-columns:720px 1fr;gap:72px;align-items:center}
+  .venn{position:relative;width:640px;height:520px;margin:0 auto}
+  .venn .c{position:absolute;width:360px;height:360px;border-radius:50%;
+    border:1.5px solid var(--ink-3);display:flex;align-items:center;justify-content:center;text-align:center}
+  .venn .c1{top:0;left:140px}
+  .venn .c2{bottom:0;left:0}
+  .venn .c3{bottom:0;right:0}
+  .venn .c .lab{font-family:var(--font-display);font-weight:600;font-size:25px;color:var(--ink-1);line-height:1.15;width:140px}
+  .venn .c1 .lab{margin-bottom:140px}
+  .venn .c2 .lab{margin:140px 120px 0 0}
+  .venn .c3 .lab{margin:140px 0 0 120px}
+  .venn .core{position:absolute;width:128px;height:128px;border-radius:50%;left:256px;top:196px;
+    background:var(--accent);display:flex;align-items:center;justify-content:center;text-align:center;z-index:3}
+  .venn .core span{font-family:var(--font-mono);font-size:19px;font-weight:500;color:#fff;letter-spacing:.04em;line-height:1.2}
+  .venn-legend{border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .venn-legend .row{padding:26px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .venn-legend .row .n{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .venn-legend .row .d{font-family:var(--font-body);font-size:22px;color:var(--ink-3);margin:8px 0 0;line-height:1.35}
+  /* slide 3 convergence claim */
+  .venn-claim{display:flex;flex-direction:column}
+  .venn-claim .vrow{display:flex;align-items:baseline;gap:24px;padding:20px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .venn-claim .vrow:first-child{border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .venn-claim .vrow .vnum{font-family:var(--font-mono);font-size:18px;letter-spacing:.1em;color:var(--accent-deep)}
+  .venn-claim .vrow .vname{font-family:var(--font-display);font-weight:600;font-size:34px;color:var(--ink-1);letter-spacing:-.01em}
+  .venn-claim .vpayoff{font-family:var(--font-display);font-weight:500;font-size:32px;line-height:1.2;letter-spacing:-.01em;color:var(--accent-deep);margin:32px 0 0;text-wrap:balance}
+
+  /* ---- Team (slide 4) ---- */
+  .team{margin-top:44px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    display:grid;grid-template-columns:1fr 1fr}
+  .team .prof{padding:40px 44px;display:grid;grid-template-columns:240px 1fr;gap:36px;align-items:start}
+  .team .prof:first-child{border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .team .photo{width:240px;height:296px;background:var(--paper-deep) center/cover;
+    border:var(--rule-w-hair) solid var(--rule-hair);filter:saturate(.82)}
+  .team .pname{font-family:var(--font-display);font-weight:600;font-size:38px;color:var(--ink-1);margin:0;letter-spacing:-.02em}
+  .team .prole{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:10px 0 0}
+  .team .cred{margin:24px 0 0;display:flex;flex-direction:column;gap:16px}
+  .team .cred p{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-3);margin:0}
+  .team .cred p b{color:var(--ink-1);font-weight:600}
+  .logo-row{display:flex;align-items:center;gap:42px;margin-top:48px;padding-top:24px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .logo-row .lab{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+  .logo-row img{height:30px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.55}
+  .logo-row .wm{font-family:var(--font-display);font-weight:600;font-size:25px;color:var(--ink-3);letter-spacing:-.01em}
+
+  /* ---- Method ranked list (slide 5) ---- */
+  .ranked{margin-top:12px;border-top:var(--rule-w-strong) solid var(--ink-1);flex:1;display:flex;flex-direction:column;justify-content:space-between}
+  .rrow{display:grid;grid-template-columns:300px 1fr;gap:44px;padding:5px 0;
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start}
+  .rrow .rname{display:flex;flex-direction:column;gap:10px}
+  .rrow .rname .nm{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);letter-spacing:-.01em;line-height:1.1}
+  .rrow .rname .tag{align-self:flex-start;white-space:nowrap;font-family:var(--font-mono);font-size:15px;font-weight:500;
+    letter-spacing:.06em;color:var(--paper);background:var(--ink-1);padding:4px 9px}
+  .rrow .rname .tag.us{background:var(--accent-deep)}
+  .rrow .sentence{font-family:var(--font-body);font-size:21px;line-height:1.36;color:var(--ink-2);margin:0}
+  .rrow .strip{font-family:var(--font-mono);font-size:16px;letter-spacing:.03em;color:var(--accent-deep);margin:6px 0 0;line-height:1.4}
+  .rrow .strip .s{color:var(--ink-5);margin:0 7px}
+
+  /* ---- Method: featured USP + supporting (slide 5) ---- */
+  .method2{margin-top:14px;flex:1;display:grid;grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr);gap:50px}
+  .feat{background:var(--accent-tint);border-top:4px solid var(--accent);padding:40px 42px;display:flex;flex-direction:column}
+  .feat .fe{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:0}
+  .feat .fn{font-family:var(--font-display);font-weight:600;font-size:52px;color:var(--ink-1);letter-spacing:-.02em;margin:16px 0 0;line-height:1}
+  .feat .fs{font-family:var(--font-body);font-size:25px;line-height:1.42;color:var(--ink-2);margin:22px 0 0}
+  .feat .ffeed{font-family:var(--font-body);font-size:22px;line-height:1.4;color:var(--ink-3);margin:20px 0 0;padding-top:20px;border-top:1px solid rgba(1,170,193,.3)}
+  .feat .ffeed b{color:var(--ink-1);font-weight:600}
+  .feat .fstrip{font-family:var(--font-mono);font-size:17px;letter-spacing:.03em;color:var(--accent-deep);margin:auto 0 0;padding-top:24px;line-height:1.6}
+  .feat .fstrip .s{color:var(--ink-5);margin:0 7px}
+  .supp{display:flex;flex-direction:column;border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .srow{display:grid;grid-template-columns:118px 1fr;gap:28px;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start;flex:1}
+  .srow .stag{font-family:var(--font-mono);font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);margin-top:7px}
+  .srow .sname{font-family:var(--font-display);font-weight:600;font-size:29px;color:var(--ink-1);letter-spacing:-.01em;margin:0;line-height:1.05}
+  .srow .sbadge{display:inline-block;white-space:nowrap;font-family:var(--font-mono);font-size:14px;letter-spacing:.04em;color:var(--paper);background:var(--accent-deep);padding:3px 9px;margin:9px 0 0}
+  .srow .sline{font-family:var(--font-body);font-size:22px;line-height:1.34;color:var(--ink-3);margin:10px 0 0}
+  .srow .sstrip{font-family:var(--font-mono);font-size:16px;letter-spacing:.02em;color:var(--ink-4);margin:9px 0 0}
+  .srow .sstrip .s{color:var(--ink-5);margin:0 6px}
+
+
+  /* ---- Three-up (slide 7) ---- */
+  .three-up{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .three-up.fill{flex:1;margin-top:44px}
+  .three-up.fill .card3{min-height:0}
+  .card3{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);
+    border-top:4px solid var(--accent);padding:36px 32px;display:flex;flex-direction:column;gap:18px;min-height:300px}
+  .card3 .n{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
+  .card3 .h{font-family:var(--font-display);font-weight:600;font-size:32px;color:var(--ink-1);margin:0;letter-spacing:-.01em;line-height:1.12}
+  .card3 .d{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.4;margin:auto 0 0}
+  .card3 .ev{font-family:var(--font-mono);font-size:17px;letter-spacing:.04em;color:var(--accent-deep);line-height:1.4;margin:22px 0 0;padding-top:18px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+
+  /* ---- Stat grid (slide 8) ---- */
+  .stat-grid{margin-top:56px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair);display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:40px 30px;border-right:var(--rule-w-hair) solid var(--rule-hair);display:flex;flex-direction:column;gap:16px}
+  .stat:last-child{border-right:0}
+  .stat .se{font-family:var(--font-mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4)}
+  .stat .sn{font-family:var(--font-display);font-weight:600;font-size:var(--fs-stat);letter-spacing:var(--tr-display);line-height:1;color:var(--ink-1);font-feature-settings:"tnum" 1,"lnum" 1}
+  .stat .sn.range{font-size:58px}
+  .stat .sn .ar{color:var(--accent-deep)}
+  .stat .sl{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.35}
+
+  /* ---- Proof / evidence (slide 9) ---- */
+  .proof{margin-top:16px;flex:1;display:grid;grid-template-columns:0.88fr 1.12fr;gap:56px;align-items:center}
+  .artifact{display:flex;flex-direction:column}
+  .artifact .alabel{font-family:var(--font-mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 14px}
+  .frame{border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);overflow:hidden}
+  .frame.email img{display:block;width:100%;height:auto;padding:16px 18px}
+  .frame.answer img{display:block;width:100%;height:380px;object-fit:cover;object-position:top center}
+  .frame.shot{background:var(--paper-pure);padding:20px 22px}
+  .frame.shot img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain}
+  .frame.chart{background:var(--paper-pure);padding:26px 30px 20px}
+  .frame.chart svg{display:block;width:100%;height:auto}
+  .artifact .cap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:18px 0 0}
+  .artifact .cap b{color:var(--ink-1);font-weight:600}
+
+  /* ---- System breakout slides ---- */
+  .sysslide .crumb{margin-bottom:18px}
+  .sysslide .t-action{margin:8px 0 0}
+  .sysslide .accent-rule{margin:16px 0}
+  .sysslide .subhead{margin:10px 0 0}
+  .sysslide .feat{padding:32px 42px}
+  .sysslide .cmp{margin-top:14px}
+  .sysslide .crow{padding:12px 0}
+  .sysslide .fstrip{padding-top:16px}
+  .sysslide .fbadge{margin:0 0 10px}
+  .sysgrid{margin-top:24px;flex:1;display:grid;grid-template-columns:0.88fr 1.12fr;gap:48px;align-content:start}
+  .sysgrid .feat{min-height:0}
+  .sysviz{display:flex;flex-direction:column;min-width:0}
+  .sysviz .vframe{border:var(--rule-w-hair) solid var(--rule-hair);background:#020617;padding:14px;display:flex;align-items:center;justify-content:center}
+  .sysviz .vframe img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain}
+  .sysviz .vcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:16px 0 0}
+  .sysviz .vcap b{color:var(--ink-1);font-weight:600}
+  .sysviz .demolink{display:inline-block;margin:14px 0 0;font-family:var(--font-mono);font-size:18px;letter-spacing:.04em;
+    color:var(--accent-deep);text-decoration:none;border-bottom:2px dotted var(--accent);padding-bottom:3px}
+  .sysviz .demolink:hover{border-bottom-style:solid;background:var(--accent-tint)}
+  .feat .cmp{margin-top:20px;display:flex;flex-direction:column}
+  .feat .crow{padding:16px 0;border-top:1px solid rgba(1,170,193,.30)}
+  .feat .crow .cl{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0 0 6px}
+  .feat .crow.us .cl{color:var(--accent-deep)}
+  .feat .crow .ct{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-3);margin:0}
+  .feat .crow.us .ct{color:var(--ink-1);font-weight:500}
+  .feat .fbadge{align-self:flex-start;white-space:nowrap;font-family:var(--font-mono);font-size:15px;letter-spacing:.06em;color:var(--paper);background:var(--accent-deep);padding:4px 10px;margin:0 0 14px}
+
+  /* ---- Product lockup (system nameplates, slides 6-11) ---- */
+  .plock{display:flex;align-items:center;gap:18px;margin:14px 0 0}
+  .plock .pmark{flex:0 0 auto}
+  .plock .pname{font-family:var(--font-display);font-weight:700;font-size:44px;color:var(--ink-1);letter-spacing:-.015em;line-height:1;margin:0}
+  .plock .pchip{font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.08em;color:var(--accent-deep);border:1px solid var(--accent-deep);border-radius:var(--radius-1);padding:4px 9px;white-space:nowrap}
+  .pmark{position:relative;display:inline-block;width:32px;height:32px;border:1.5px solid var(--ink-1);border-radius:var(--radius-1)}
+  .pmark::after{content:"";position:absolute;right:4px;bottom:4px;width:12px;height:12px;background:var(--accent);border-radius:1px}
+  .pmark.sm{width:18px;height:18px;border-width:1.5px}
+  .pmark.sm::after{right:2px;bottom:2px;width:7px;height:7px}
+
+  /* ---- Method overview split-bleed (slide 6) ---- */
+  .method-grid{grid-template-columns:42fr 58fr}
+  .method-left{padding:var(--margin-y) 56px var(--margin-y) var(--margin-x);display:flex;flex-direction:column;min-width:0;border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .method-left .t-action{font-size:50px;margin:12px 0 0}
+  .method-left .accent-rule{margin:18px 0}
+  .method-left .t-lede{font-size:25px}
+  .method-right{background:var(--paper-pure);display:flex;flex-direction:column;min-width:0}
+  .method-right .dia{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:36px 44px 20px}
+  .method-right .dia img{width:100%;height:100%;object-fit:contain}
+  .method-right .dcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:0;padding:18px 44px 28px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .syslist{margin-top:24px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .syslist .srow2{display:flex;align-items:center;gap:16px;padding:7px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .syslist .sysnm{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);letter-spacing:-.01em}
+  .syslist .sysnum{margin-left:auto;font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;color:var(--accent-deep)}
+
+  /* ---- Day-to-day NovaLens shots ---- */
+  .dayshots{margin-top:36px;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-content:start}
+  .dayshots .dshot{display:flex;flex-direction:column}
+  .dayshots .dshot img{display:block;width:100%;height:auto;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .dayshots .dcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:16px 0 0}
+  .dayshots .dcap b{color:var(--ink-1);font-weight:600}
+
+  /* ---- Big quote (slide 10) ---- */
+  .quote-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:40px}
+  .bigq{font-family:var(--font-display);font-weight:500;font-size:84px;letter-spacing:-.03em;line-height:1.06;color:var(--ink-1);margin:0;max-width:1640px;text-wrap:balance}
+  .bigq em{font-style:normal;color:var(--accent-deep)}
+  .qattr{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0}
+
+  /* ---- Partner (slide 11) ---- */
+  .partner{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-content:start}
+  .pcard{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);padding:30px 40px;display:flex;flex-direction:column}
+  .pcard.lead{border-top:4px solid var(--accent)}
+  .pcard .pk{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0}
+  .pcard h3{font-family:var(--font-display);font-weight:600;font-size:38px;color:var(--ink-1);margin:14px 0 0;letter-spacing:-.02em}
+  .pcard .pd{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.4;margin:18px 0 0}
+  .pcard .price{margin-top:30px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .prow{display:flex;justify-content:space-between;align-items:baseline;gap:32px;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .prow .tier{font-family:var(--font-mono);font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);white-space:nowrap}
+  .pcard .prow .scope{font-family:var(--font-body);font-size:21px;color:var(--ink-2);line-height:1.35;text-align:right;max-width:420px}
+  .pcard .single{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);letter-spacing:-.02em;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .note{font-family:var(--font-mono);font-size:17px;letter-spacing:.04em;color:var(--ink-4);margin:14px 0 0}
+  /* three-offer variant */
+  .partner.three{grid-template-columns:repeat(3,1fr);gap:36px}
+  .partner.three .pcard{padding:28px 30px}
+  .partner.three .pcard h3{font-size:29px;margin:12px 0 0}
+  .partner.three .pcard .pd{font-size:21px}
+  .partner.three .prow{gap:20px;padding:15px 0}
+  .partner.three .prow .scope{font-size:19px;max-width:none}
+  .partner.three .pcard .single{font-size:25px;padding:15px 0}
+  .partner.three .pcard .note{font-size:15px}
+  .partner.three .pcard .price{margin-top:22px}
+  .pcard .pbadge{align-self:flex-start;font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.12em;color:var(--paper);background:var(--accent-deep);padding:4px 10px;border-radius:var(--radius-1);margin:0 0 14px}
+  .pcard .single .tbd{font-family:var(--font-mono);font-size:22px;letter-spacing:.08em;color:var(--accent-deep)}
+
+  /* ---- Partner card tags ---- */
+  .pcard .ptitle{font-family:var(--font-display);font-weight:600;font-size:33px;color:var(--ink-1);margin:0;letter-spacing:-.015em;line-height:1.12}
+  .pcard .psub{font-family:var(--font-body);font-weight:600;font-size:21px;color:var(--ink-3);margin:14px 0 0;line-height:1.3}
+  .pprice{margin-top:auto;padding-top:20px;border-top:var(--rule-w-hair) solid var(--rule-hair);display:flex;flex-direction:column;gap:4px}
+  .pprice .plab{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+  .pprice .pnum{font-family:var(--font-display);font-weight:600;font-size:38px;letter-spacing:-.02em;color:var(--ink-1);font-feature-settings:"tnum" 1}
+  .pprice .pnum .pmo{font-size:21px;font-weight:500;color:var(--ink-3)}
+  .ptags{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+  .ptag{font-family:var(--font-mono);font-size:15px;letter-spacing:.04em;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:5px 11px;border-radius:var(--radius-1);white-space:nowrap}
+  .ptag.em{background:var(--accent-deep);color:var(--paper)}
+  .ptags.wide{gap:12px;margin-top:20px}
+  .ptags.wide .ptag{font-size:20px;letter-spacing:.08em;padding:9px 16px}
+
+  /* ---- Close (slide 12) ---- */
+  .close-wrap{height:100%;display:flex;flex-direction:column;justify-content:space-between}
+  .close-q{font-family:var(--font-display);font-weight:500;font-size:84px;letter-spacing:-.03em;line-height:1.04;color:var(--dark-fg);max-width:1560px;text-wrap:balance}
+  .close-q em{font-style:normal;color:var(--accent)}
+  .cta-btn{display:inline-block;background:var(--accent);color:#08131a;font-family:var(--font-display);font-weight:600;font-size:26px;letter-spacing:-.01em;padding:20px 44px;border-radius:var(--radius-1);text-decoration:none;margin-top:44px}
+  .cta-btn:hover{background:var(--accent-deep);color:var(--dark-fg)}
+    .close-contact{display:flex;gap:26px;align-items:baseline;font-family:var(--font-mono);font-size:26px;color:var(--dark-fg);letter-spacing:.02em;flex-wrap:wrap;margin-top:30px}
+  .close-contact .sep{color:var(--accent)}
+  .close-contact .nm{color:var(--dark-fg);white-space:nowrap}
+
+
+  /* ---- Scope grid: SEO only / Shared / GEO only (slide 4) ---- */
+  .scope{margin-top:20px;flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .scol{display:flex;flex-direction:column;min-width:0}
+  .schead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+          padding-bottom:12px;border-bottom:var(--rule-w-strong) solid}
+  .schead .sclab{font-family:var(--font-mono);font-size:17px;font-weight:600;letter-spacing:.1em;
+                 text-transform:uppercase;line-height:1.35;margin:0}
+  .schead .scount{font-family:var(--font-display);font-weight:600;font-size:26px;line-height:1;
+                  padding:5px 12px;color:var(--paper);white-space:nowrap}
+  .scol.seo .schead{border-color:var(--rule-hair)}
+  .scol.seo .sclab{color:var(--ink-4)}
+  .scol.seo .scount{background:var(--ink-4)}
+  .scol.shr .schead{border-color:var(--ink-1)}
+  .scol.shr .sclab{color:var(--ink-1)}
+  .scol.shr .scount{background:var(--ink-1)}
+  .scol.geo .schead{border-color:var(--accent)}
+  .scol.geo .sclab{color:var(--accent-deep)}
+  .scol.geo .scount{background:var(--accent-deep)}
+  .stiles{margin-top:12px;display:flex;flex-direction:column;gap:3px}
+  .stile{font-family:var(--font-body);font-size:22px;line-height:1.2;margin:0;padding:6px 14px}
+  .scol.seo .stile{background:var(--paper-deep);color:var(--ink-3)}
+  .scol.shr .stile{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);color:var(--ink-2)}
+  .scol.geo .stile{background:var(--accent-tint);border-left:3px solid var(--accent);color:var(--ink-1);font-weight:500}
+
+  /* ---- Partner / client logo wall (marquee) ---- */
+  .lwall{flex:1;min-height:0;margin-top:30px;display:flex;align-items:stretch;overflow:hidden;background:var(--paper-pure);
+         border-top:var(--rule-w-strong) solid var(--ink-1);border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .lview{flex:1;display:flex;align-items:center;overflow:hidden;min-width:0;
+         -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 110px,#000 calc(100% - 110px),transparent 100%);
+         mask-image:linear-gradient(90deg,transparent 0,#000 110px,#000 calc(100% - 110px),transparent 100%)}
+  .ltrack{display:flex;width:max-content;animation:lscroll 46s linear infinite}
+  .lset{display:flex;align-items:center;gap:104px;padding-right:104px}
+  .lset img{display:block;width:auto;object-fit:contain}
+  @keyframes lscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---- Entrance (visible base; animate from hidden) ---- */
+  @media (prefers-reduced-motion:no-preference){
+    [data-deck-active] .anim{animation:mrise .55s cubic-bezier(.4,0,.2,1) both}
+    [data-deck-active] .anim.d1{animation-delay:.07s}
+    [data-deck-active] .anim.d2{animation-delay:.14s}
+    [data-deck-active] .anim.d3{animation-delay:.21s}
+    @keyframes mrise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 COVER -->
+  <section data-label="Cover">
+    <div class="mslide bleed cover-grid">
+      <div class="cover-left">
+        <img class="cover-logo anim" src="assets/novastacks-logo.png" alt="Novastacks">
+        <div>
+          <h1 class="t-cover-h1 anim d1" style="font-size:108px">We help brands grow on the agentic internet.</h1>
+          <hr class="accent-rule anim d2">
+          <p class="t-lede anim d2" style="max-width:840px">We know how to get your brand chosen by AI</p>
+        </div>
+        <div class="t-eyebrow anim d3">PREPARED BY · NOVASTACKS · SINGAPORE</div>
+      </div>
+      <div class="cover-right">
+        <p class="rtag">Get your brand<br>chosen by AI.</p>
+        <hr class="tealrule">
+        <div class="ct">Agentic AEO/SEO · Singapore</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 THE SHIFT -->
+  <section data-label="The Shift">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">01 · The Shift</div>
+      <h2 class="t-action anim d1">Buying decisions moved inside AI answers this year.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">AI now answers the query before anyone reaches a link.
+        <span class="pq">"The click is now optional." — Amanda Natividad, SparkToro</span></p>
+      <div class="chart-row anim d2">
+        <div class="chart-col">
+          <p class="ce">Google searches showing an AI answer</p>
+          <div class="cw">
+            <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+              <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
+              <polygon points="28,150 164,96 300,70 300,184 28,184" fill="#01AAC1" opacity="0.10"/>
+              <polyline points="28,150 164,96 300,70" fill="none" stroke="#01AAC1" stroke-width="4"/>
+              <circle cx="28" cy="150" r="5" fill="#01AAC1"/>
+              <circle cx="164" cy="96" r="5" fill="#01AAC1"/>
+              <circle cx="300" cy="70" r="6" fill="#017D8E"/>
+              <text x="28" y="138" text-anchor="start" font-family="Inter Tight" font-weight="600" font-size="26" fill="#4A4A4A">13%</text>
+              <text x="300" y="56" text-anchor="end" font-family="Inter Tight" font-weight="600" font-size="30" fill="#017D8E">25%</text>
+              <text x="28" y="204" text-anchor="start" font-family="JetBrains Mono" font-size="14" fill="#707070">Q1 2025</text>
+              <text x="300" y="204" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#707070">Q1 2026</text>
+            </svg>
+          </div>
+          <p class="claim">One in four Google searches now opens with an AI answer, nearly double a year ago.</p>
+          <p class="src">Conductor · 21.9M queries</p>
+        </div>
+        <div class="chart-col">
+          <p class="ce">US searches ending without a click</p>
+          <div class="cw">
+            <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+              <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
+              <polygon points="28,118 300,78 300,184 28,184" fill="#01AAC1" opacity="0.10"/>
+              <polyline points="28,118 300,78" fill="none" stroke="#01AAC1" stroke-width="4"/>
+              <circle cx="28" cy="118" r="5" fill="#01AAC1"/>
+              <circle cx="300" cy="78" r="6" fill="#017D8E"/>
+              <text x="28" y="106" text-anchor="start" font-family="Inter Tight" font-weight="600" font-size="26" fill="#4A4A4A">60%</text>
+              <text x="300" y="64" text-anchor="end" font-family="Inter Tight" font-weight="600" font-size="30" fill="#017D8E">68%</text>
+              <text x="28" y="204" text-anchor="start" font-family="JetBrains Mono" font-size="14" fill="#707070">2024</text>
+              <text x="300" y="204" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#707070">2026</text>
+            </svg>
+          </div>
+          <p class="claim">Two-thirds of US searches now end without any click.</p>
+          <p class="src">SparkToro · clickstream</p>
+        </div>
+        <div class="chart-col">
+          <p class="ce">Conversion rate by traffic source</p>
+          <div class="cw">
+            <svg viewBox="0 0 320 210" width="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+              <line x1="20" y1="184" x2="310" y2="184" stroke="#D9D5CC" stroke-width="1.5"/>
+              <rect x="54" y="104" width="80" height="80" fill="#4A4A4A"/>
+              <text x="94" y="94" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="28" fill="#4A4A4A">1.0×</text>
+              <rect x="192" y="70" width="80" height="114" fill="#01AAC1"/>
+              <text x="232" y="60" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="28" fill="#017D8E">1.42×</text>
+              <text x="94" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#707070">Other traffic</text>
+              <text x="232" y="204" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#707070">AI-referred</text>
+            </svg>
+          </div>
+          <p class="claim">AI-referred visitors convert 42% more often than other traffic.</p>
+          <p class="src">Adobe Analytics</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · Conductor 2026 · SparkToro 2026 · Adobe Analytics</span><span class="t-footer">2 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 02B SEO VS AEO -->
+  <section data-label="SEO vs AEO">
+    <div class="mslide bleed vs-grid" style="padding:0">
+      <div class="vs-half light">
+        <div class="t-eyebrow">SEO — TRADITIONAL SEARCH</div>
+        <p class="vh">Classic SEO: ten blue links compete for a click.</p>
+        <div class="vshot"><img src="assets/seo-bluelinks.png" alt="Google results page — ten ranked blue links"></div>
+        <p class="vcap2">Google, "what is seo" — ranked pages, every visit a click away.</p>
+        <div class="vfoot"><span>SRC · LIVE GOOGLE RESULTS</span><span>03 / 18</span></div>
+      </div>
+      <div class="vs-half dark">
+        <div class="t-eyebrow" style="color:var(--accent)">AEO — AI SEARCH</div>
+        <p class="vh">AI SEO / AEO / GEO: the AI answer mentions a few brands.</p>
+        <div class="vshot"><img src="assets/aeo-mention-sg.jpg" alt="Google AI Overview naming Novastacks as a recommended AEO agency"></div>
+        <p class="vcap2">Google AI Overview, "aeo agency singapore" — the answer names Novastacks. Cited, not ranked.</p>
+        <div class="vfoot"><span>LIVE RESULT · JUN 2026</span><span>&nbsp;</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02C SCOPE — GEO VS SEO INPUT WORK -->
+  <section data-label="GEO scope vs SEO">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim" style="margin-bottom:14px">01 &middot; The Shift</div>
+      <h2 class="t-action anim d1">GEO has broader scope than classic SEO.</h2>
+      <hr class="accent-rule anim d1" style="margin:16px 0">
+      <p class="t-lede anim d1">Six of these 21 inputs are shared. Eleven belong to GEO alone, and the outcome you buy is different at the top.</p>
+      <div class="scope anim d2">
+        <div class="scol seo">
+          <div class="schead"><p class="sclab">SEO only &mdash; work GEO never asks for</p><span class="scount">4</span></div>
+          <div class="stiles">
+          <p class="stile">Keyword and intent research</p>
+          <p class="stile">On-page optimisation</p>
+          <p class="stile">Link equity management</p>
+          <p class="stile">Local profile management</p>
+          </div>
+        </div>
+        <div class="scol shr">
+          <div class="schead"><p class="sclab">Shared &mdash; one job, both payoffs</p><span class="scount">6</span></div>
+          <div class="stiles">
+          <p class="stile">Audience and competitive set</p>
+          <p class="stile">Crawl and index management</p>
+          <p class="stile">Internal linking and architecture</p>
+          <p class="stile">Structured data markup</p>
+          <p class="stile">Digital PR and media relations</p>
+          <p class="stile">Third-party listicle and review placement</p>
+          </div>
+        </div>
+        <div class="scol geo">
+          <div class="schead"><p class="sclab">GEO only &mdash; work SEO never asked for</p><span class="scount">11</span></div>
+          <div class="stiles">
+          <p class="stile">Prompt and conversation research</p>
+          <p class="stile">AI crawler access control</p>
+          <p class="stile">Raw-HTML retrieval readiness</p>
+          <p class="stile">Passage-level chunking</p>
+          <p class="stile">Entity consistency</p>
+          <p class="stile">Original research and first-party data</p>
+          <p class="stile">Content refresh cadence</p>
+          <p class="stile">Unlinked mention cultivation</p>
+          <p class="stile">Community and UGC presence</p>
+          <p class="stile">Multimodal asset distribution</p>
+          <p class="stile">Training-corpus presence</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SCOPE &middot; WHERE SEO AND GEO WORK DIVERGE</span><span class="t-footer">4 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 03 WHY WE'RE DIFFERENT -->
+  <section data-label="Why We're Different">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">02 · Why We're Different</div>
+      <h2 class="t-action long anim d1">Winning AI answers takes three disciplines. Most have one. Some have two. We run all three.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="venn-grid anim d2">
+        <div class="venn">
+          <div class="c c1"><span class="lab">Domain<br>Expertise</span></div>
+          <div class="c c2"><span class="lab">AI<br>Augmentation</span></div>
+          <div class="c c3"><span class="lab">Context<br>Engineering</span></div>
+          <div class="core"><span>All<br>three</span></div>
+        </div>
+        <div class="venn-claim">
+          <div class="vrow"><span class="vnum">01</span><span class="vname">Domain expertise</span></div>
+          <div class="vrow"><span class="vnum">02</span><span class="vname">AI augmentation</span></div>
+          <div class="vrow"><span class="vnum">03</span><span class="vname">Context engineering</span></div>
+          <p class="vpayoff">Run all three together and your brand becomes the answer AI gives — not just a link it lists.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">POSITIONING · OUTCOME = BEING CHOSEN BY AI</span><span class="t-footer">5 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 04 TEAM -->
+  <section data-label="The Team">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">02 · The Team</div>
+      <h2 class="t-action anim d1">Your strategy is set by senior operators, not handed to junior staff.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="team anim d2">
+        <div class="prof">
+          <div class="photo" style="background-image:url(assets/team-tina.jpg)"></div>
+          <div>
+            <p class="pname">Tina Chu</p>
+            <p class="prole">Founder &amp; CEO</p>
+            <div class="cred">
+              <p><b>Strategy.</b> 20 years of marketing leadership at Expedia, Tencent and Klook sets your direction right the first time.</p>
+              <p><b>Builder &amp; trainer.</b> Certified SMU AI-marketing trainer; runs corporate agentic-system workshops for brands including tiket.com.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="photo" style="background-image:url(assets/team-eki.jpg)"></div>
+          <div>
+            <p class="pname">Eki Riandra</p>
+            <p class="prole">Head of Search &amp; Commerce</p>
+            <div class="cred">
+              <p><b>Search authority.</b> Ex-Tech SEO Head of Traveloka and Tokopedia; Google Product Expert.</p>
+              <p><b>Proven with Google.</b> Co-authored the Tokopedia growth case study with Google.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="logo-row anim d3">
+        <span class="lab">Where they operated</span>
+        <span class="wm">Expedia</span>
+        <span class="wm">Tencent</span>
+        <span class="wm">Klook</span>
+        <span class="wm">Traveloka</span>
+        <span class="wm">Tokopedia</span>
+      </div>
+      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">6 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 04B PARTNERS & CLIENTS -->
+  <section data-label="Partners &amp; Clients">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">02 &middot; Partners &amp; Clients</div>
+      <h2 class="t-action anim d1">Partners and clients we help to scale their growth.</h2>
+      <hr class="accent-rule anim d1" style="margin:18px 0 20px">
+      <p class="t-lede anim d2">Practice areas we cover.</p>
+      <div class="ptags wide anim d2">
+        <span class="ptag">DATA-TECH</span>
+        <span class="ptag">LOGISTICS</span>
+        <span class="ptag">HOSPITALITY</span>
+        <span class="ptag">INVESTMENT</span>
+        <span class="ptag">ACADEMIC</span>
+        <span class="ptag">FINTECH</span>
+        <span class="ptag">B2B SAAS</span>
+        <span class="ptag">B2C MARKETPLACE</span>
+        <span class="ptag">HEALTHCARE</span>
+      </div>
+      <div class="lwall anim d2">
+        <div class="lview">
+        <div class="ltrack">
+          <div class="lset">
+            <img src="assets/tiket-logo.svg" alt="tiket.com" style="height:130px">
+            <img src="assets/marketing-society-logo.svg" alt="The Marketing Society" style="height:142px">
+            <img src="assets/smu-academy-logo.png" alt="SMU Academy" style="height:136px">
+            <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:226px">
+            <img src="assets/flip-logo.svg" alt="Flip" style="height:178px">
+            <img src="assets/decube-logo.svg" alt="Decube" style="height:118px">
+            <img src="assets/mcsaatchi-logo.svg" alt="M&amp;C Saatchi Performance" style="height:182px">
+            <img src="assets/granite-asia-logo.svg" alt="Granite Asia" style="height:82px">
+          </div>
+          <div class="lset" aria-hidden="true">
+            <img src="assets/tiket-logo.svg" alt="" style="height:130px">
+            <img src="assets/marketing-society-logo.svg" alt="" style="height:142px">
+            <img src="assets/smu-academy-logo.png" alt="" style="height:136px">
+            <img src="assets/gofreight-logo.png" alt="" style="height:226px">
+            <img src="assets/flip-logo.svg" alt="" style="height:178px">
+            <img src="assets/decube-logo.svg" alt="" style="height:118px">
+            <img src="assets/mcsaatchi-logo.svg" alt="" style="height:182px">
+            <img src="assets/granite-asia-logo.svg" alt="" style="height:82px">
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PROOF &middot; BRANDS AND INSTITUTIONS THAT WORK WITH US</span><span class="t-footer">7 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 05 THE METHOD — OVERVIEW -->
+  <section data-label="The Source & Echo Method">
+    <div class="mslide bleed method-grid">
+      <div class="method-left">
+        <div class="crumb t-eyebrow anim">03 · The Source &amp; Echo Method</div>
+        <h2 class="t-action anim d1">The Source &amp; Echo Method is Novastacks' own AEO methodology.</h2>
+        <hr class="accent-rule anim d1">
+        <div class="anim d2" style="display:flex;flex-direction:column;gap:16px">
+          <p class="t-lede" style="max-width:none">Every AI answer is assembled from content worth quoting — the source — and from what the rest of the internet says about you — the echo. We engineer both, with five systems that are built and running, not advised.</p>
+          <p class="t-lede" style="max-width:none;color:var(--ink-2)">Prompt Radar Pro finds every question worth winning. Two source systems and the Echo Network go win them. The Proof Loop measures daily and reports in pipeline.</p>
+        </div>
+        <div class="syslist anim d2">
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Prompt Radar Pro</span><span class="sysnum">SYS·01</span></div>
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Answer Architecture</span><span class="sysnum">SYS·02</span></div>
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">First-Party Answers</span><span class="sysnum">SYS·03</span></div>
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Echo Network</span><span class="sysnum">SYS·04</span></div>
+          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Proof Loop</span><span class="sysnum">SYS·05</span></div>
+        </div>
+        <div class="footer"><span class="t-footer">METHOD · THE SOURCE &amp; ECHO METHOD</span><span class="t-footer">8 / 27</span></div>
+      </div>
+      <div class="method-right anim d2">
+        <div class="dia"><img src="assets/full-system-light.png" alt="The Source &amp; Echo Method system diagram"></div>
+        <p class="dcap">One buyer prompt through the method: the radar detects it, the source and echo tracks win it, the loop proves it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05A SYSTEM 01 PROMPT RADAR -->
+  <section data-label="System 01 — Prompt Radar Pro">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 01 of 05</div>
+      <h2 class="t-action anim d1">Prompt Radar Pro: built from your first-party data &mdash; the most intelligent system for query generation.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">Under 20% of brands are cited by both ChatGPT and Google for the same question — visibility only counts if it is tracked per engine.</p>
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <span class="fbadge">★ The system only we run</span>
+          <p class="fe">Source track</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Prompt Radar Pro</p><span class="pchip">SYS·01</span></div>
+          <div class="cmp">
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Three proprietary intelligence layers — first-party buyer signal, search demand, and product-market fit — run through two deterministic engines: one grounds demand into a topical knowledge graph and fans out the real questions AI engines ask; the other ranks them to the tracked set. Every prompt is observed from how engines actually retrieve, never guessed — then tracked daily per engine.</p></div>
+          </div>
+          <p class="fstrip">three intelligence layers<span class="s">·</span>topical knowledge graph<span class="s">·</span>two deterministic engines<span class="s">·</span>tracked per engine</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe"><img src="assets/novalens-shots/novalens-prompt-table-slidecut.png" alt="NovaLens prompt portfolio panel — top movers" style="max-height:500px"></div>
+          <p class="vcap"><b>Live in NovaLens.</b> The week’s top visibility movers: per-engine cited / appears / absent status across the tracked prompt set.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED</span><span class="t-footer">9 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 05B SYSTEM 02 ANSWER ARCHITECTURE -->
+  <section data-label="System 02 — Answer Architecture">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 02 of 05</div>
+      <h2 class="t-action anim d1">Answer Architecture: proven in your server logs, not promised in an audit.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <span class="fbadge">★ Led by the ex-Tech SEO Head, Traveloka &amp; Tokopedia</span>
+          <p class="fe">Source track</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Answer Architecture</p><span class="pchip">SYS·02</span></div>
+          <div class="cmp">
+            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Lead with content and PR because deep technical work is scarce; schema is a checkbox.</p></div>
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Entities, schema, llms.txt and passage structure led by the ex-Tech SEO Head of Traveloka and Tokopedia — then validated in your server logs, where AI crawler reads are visible.</p></div>
+          </div>
+          <p class="fstrip">entity disambiguation<span class="s">·</span>schema / JSON-LD<span class="s">·</span>llms.txt<span class="s">·</span>passage extraction<span class="s">·</span>AI bot log analysis</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe"><img src="assets/answer-architecture.png" alt="Answer Architecture system view"></div>
+          <p class="vcap"><b>System view.</b> Schema brackets, entity tags and passage-first structure on a page, with AI crawler reads confirmed in the logs.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 02</span><span class="t-footer">10 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 05C SYSTEM 03 FIRST-PARTY ANSWERS -->
+  <section data-label="System 03 — First-Party Answers">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 03 of 05</div>
+      <h2 class="t-action anim d1">First-Party Answers: your data, not recycled content.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <p class="fe">Source track</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">First-Party Answers</p><span class="pchip">SYS·03</span></div>
+          <div class="cmp">
+            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Say unique data earns citations, but never say where it comes from; ship AI-written volume.</p></div>
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">We mine the underutilised proprietary data in your business — sales and support conversations, usage benchmarks, pricing intelligence — and turn it into tiers of content that shape how AI describes and recommends you. Engines cite what they cannot find elsewhere.</p></div>
+          </div>
+          <p class="fstrip">first-party data mining<span class="s">·</span>sales-transcript insights<span class="s">·</span>comparison pages<span class="s">·</span>refresh cadence</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe"><img src="assets/first-party-answers.png" alt="First-Party Answers system view"></div>
+          <p class="vcap"><b>System view.</b> Sales calls, win/loss notes and support tickets assembled into comparison pages no competitor holds — the pages AI ends up citing.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">METHOD · SOURCE TRACK · SYSTEM 03</span><span class="t-footer">11 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 05D SYSTEM 04 ECHO NETWORK -->
+  <section data-label="System 04 — Echo Network">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 04 of 05</div>
+      <h2 class="t-action anim d1">Echo Network: the exact domains AI cites, not a generic media list.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">60% of AI Overview citations come from URLs outside the top 20 organic results, and 85% of brand mentions sit on third-party pages. The echo decides who gets recommended.</p>
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <p class="fe">Echo track</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Echo Network</p><span class="pchip">SYS·04</span></div>
+          <div class="cmp">
+            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Generic link building against a standard media list.</p></div>
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Citation mining first: the outreach list is the exact set of domains each engine already cites for your prompts — and unlinked mentions count.</p></div>
+          </div>
+          <p class="fstrip">citation mining<span class="s">·</span>digital PR<span class="s">·</span>unlinked brand mentions<span class="s">·</span>review platforms</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe" style="background:var(--paper-pure)"><img src="assets/echo-outreach-masked.png" alt="AI-citation publisher outreach table — targets, lists and placement models" style="max-height:470px"></div>
+          <p class="vcap"><b>The outreach table, live.</b> Eleven publisher targets mined from AI citations — each with the exact list to enter and the placement model quoted. Client masked.</p>
+          <a class="demolink" href="https://goblin2929.github.io/novastacks/echo-network-social-listening-dashboard/" target="_blank" rel="noopener">Open the live demo — Echo Network social listening dashboard →</a>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · BRAINLABS PUBLISHED RESEARCH · ECHO TRACK · SYSTEM 04</span><span class="t-footer">12 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 05E SYSTEM 05 PROOF LOOP -->
+  <section data-label="System 05 — Proof Loop">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Method — System 05 of 05</div>
+      <h2 class="t-action anim d1">Proof Loop: daily agents, not quarterly reports.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="sysgrid anim d2">
+        <div class="feat">
+          <p class="fe">Operate</p>
+          <div class="plock"><span class="pmark" aria-hidden="true"></span><p class="pname">Proof Loop</p><span class="pchip">SYS·05</span></div>
+          <div class="cmp">
+            <div class="crow"><p class="cl">Most agencies</p><p class="ct">Quarterly audits, monthly PDFs, and a junior account team running execution.</p></div>
+            <div class="crow us"><p class="cl">Novastacks</p><p class="ct">Agents pull visibility data daily into NovaLens; senior strategists carry every meeting decision straight into execution.</p></div>
+          </div>
+          <p class="fstrip">daily prompt runs<span class="s">·</span>NovaLens platform<span class="s">·</span>AI share of voice<span class="s">·</span>pipeline attribution</p>
+        </div>
+        <div class="sysviz">
+          <div class="vframe"><img src="assets/novalens-shots/novalens-clicks-mtd-slidecut.png" alt="NovaLens daily traffic panel" style="max-height:490px"></div>
+          <p class="vcap"><b>Live in NovaLens.</b> The morning traffic read: daily clicks, brand / non-brand split, pacing against last month.</p>
+          <a class="demolink" href="https://goblin2929.github.io/novastacks/sample-monthly-report/" target="_blank" rel="noopener">Open the live demo — sample monthly report →</a>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · NOVALENS · LIVE ENGAGEMENT · CLIENT MASKED, VOLUMES INDEXED</span><span class="t-footer">13 / 27</span></div>
+    </div>
+  </section>
+
+      <!-- WEBULL · Section transition -->
+  <section class="dark" data-label="Webull Proposal">
+    <div class="mslide dark">
+      <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">04 · Webull Singapore</div>
+      <div style="margin:auto 0">
+        <h2 class="t-action anim d1" style="font-size:104px;line-height:1.0;letter-spacing:-.03em;color:var(--dark-fg)">Webull Proposal</h2>
+        <hr class="accent-rule anim d1" style="width:96px;margin:34px 0">
+        <p class="t-lede anim d1" style="color:var(--dark-fg-2);max-width:1180px">Where the non-branded gap comes from, what is mechanically causing it, and the scope that closes it. Measured on the live site, 10&ndash;11 August 2026.</p>
+      </div>
+      <div class="footer"><span class="t-footer" style="color:var(--dark-fg-2)">DIAGNOSIS &amp; PROPOSAL &middot; WEBULL SINGAPORE</span><span class="t-footer" style="color:var(--dark-fg-2)">14 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- WEBULL · Webull — The problem -->
+  <section data-label="Webull — The problem">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">04 · Webull Singapore — Diagnosis</div>
+      <h2 class="t-action long anim d1">Webull relies on branded queries, with a large gap on non-branded queries against competitors &mdash; in both SEO and GEO.</h2>
+      <p class="t-lede subhead anim d1"><strong>89% of Webull&rsquo;s organic traffic comes from people who already typed the brand.</strong> For moomoo it is 15%. Every rival monetises demand it created; Webull harvests demand it already had.</p>
+      <div class="anim d2"><table class="dt">
+        <tr><th>Monthly organic traffic, Singapore</th><th class="r">Webull Singapore</th><th class="r">moomoo.com</th></tr>
+        <tr><td class="k">Total</td><td class="r"><span class="n">4,000</span></td><td class="r"><span class="n">153,000</span></td></tr>
+        <tr class="hi"><td class="k">Branded &mdash; people who already typed the name</td><td class="r"><span class="n bad">3,576</span> <span class="dim">89%</span></td><td class="r"><span class="n">22,405</span> <span class="dim">15%</span></td></tr>
+        <tr class="tot"><td>Non-branded &mdash; people describing what they want</td><td class="r"><span class="n bad">424</span> <span class="dim">11%</span></td><td class="r"><span class="n ac">130,595</span> <span class="dim">85%</span></td></tr>
+      </table>
+      <p class="methodnote">A 308&times; gap on the demand Webull does not yet own. AI-answer citations 33 against 1,825 &middot; ranked keywords 311 against 13,481.</p></div>
+      <div class="footer"><span class="t-footer">SRC · WEBULL TOTAL: CLIENT-REPORTED GSC, 5 AUG 2026 · MOOMOO + NON-BRANDED SPLIT: AHREFS, SINGAPORE</span><span class="t-footer">15 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- WEBULL · Webull — AI visibility baseline -->
+  <section data-label="Webull — AI visibility baseline">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">04 · Webull Singapore — Diagnosis</div>
+      <h2 class="t-action long anim d1">Further on AI visibility: the issue is low visibility at the discovery stage, as well as a low citation rate.</h2>
+      <p class="t-lede subhead anim d1">The headline 31.1% is carried entirely by branded prompts. On 8 non-branded prompts the AI names Webull and sources somebody else&rsquo;s page &mdash; the model already wants to recommend Webull and has no Webull page it can use.</p>
+      <div class="anim d2"><table class="dt">
+        <tr><th>Journey stage</th><th class="r">Prompts</th><th class="r">Cited</th><th class="r">Cited %</th><th class="r">Mentioned %</th><th class="r">Named, not cited</th></tr>
+        <tr><td class="k">Branded &mdash; buyer names Webull</td><td class="r"><span class="n">10</span></td><td class="r"><span class="n">9</span></td><td class="r"><span class="n ac">90.0%</span></td><td class="r"><span class="n">100.0%</span></td><td class="r"><span class="n">1</span></td></tr>
+        <tr><td class="k">Discovery &mdash; market and price questions</td><td class="r"><span class="n">11</span></td><td class="r"><span class="n">0</span></td><td class="r"><span class="n bad">0.0%</span></td><td class="r"><span class="n">0.0%</span></td><td class="r"><span class="n">0</span></td></tr>
+        <tr><td class="k">Evaluation &mdash; comparing brokers</td><td class="r"><span class="n">12</span></td><td class="r"><span class="n">4</span></td><td class="r"><span class="n">33.3%</span></td><td class="r"><span class="n">58.3%</span></td><td class="r"><span class="n">3</span></td></tr>
+        <tr><td class="k">Action &mdash; opening an account</td><td class="r"><span class="n">12</span></td><td class="r"><span class="n">1</span></td><td class="r"><span class="n bad">8.3%</span></td><td class="r"><span class="n">50.0%</span></td><td class="r"><span class="n">5</span></td></tr>
+        <tr class="tot"><td>All scored prompts</td><td class="r"><span class="n">45</span></td><td class="r"><span class="n">14</span></td><td class="r"><span class="n">31.1%</span></td><td class="r"><span class="n">51.1%</span></td><td class="r"><span class="n">9</span></td></tr>
+        <tr class="hi"><td class="k">Non-branded only</td><td class="r"><span class="n">35</span></td><td class="r"><span class="n">5</span></td><td class="r"><span class="n bad">14.3%</span></td><td class="r"><span class="n">37.1%</span></td><td class="r"><span class="n">8</span></td></tr>
+      </table></div>
+      <div class="footer"><span class="t-footer">SRC · 46 PROMPTS × GOOGLE AI OVERVIEW, CHATGPT, GEMINI · 11 AUG 2026 · 45 SCORED</span><span class="t-footer">16 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- WEBULL · Webull — Echo Network target list -->
+  <section data-label="Webull — Echo Network target list">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">04 · Webull Singapore — Diagnosis</div>
+      <h2 class="t-action long anim d1">Off-page citation management must be part of your winning formula.</h2>
+      <p class="t-lede subhead anim d1">Every domain below was cited in at least two of the 12 AI responses we ran on &ldquo;which broker should I use in Singapore.&rdquo; This is the answer layer for the category &mdash; and <strong>Webull&rsquo;s presence on them is unmanaged</strong>.</p>
+      <div class="anim d2"><table class="dt tight">
+        <tr><th>Domain</th><th>Type</th><th>Appears for</th><th>Webull today</th></tr>
+        <tr class=""><td class="k">reddit.com</td><td class="dim">Community forum</td><td>11 of 12 &mdash; every query type</td><td>Present, unmanaged</td></tr>
+        <tr class="hi"><td class="k">moneysmart.sg</td><td class="dim">Comparison publisher</td><td>9 of 12 &mdash; beginner, comparison, US stocks</td><td>188 pages</td></tr>
+        <tr class=""><td class="k">growbeansprout.com</td><td class="dim">Independent reviewer</td><td>6 of 12 &mdash; best-brokerage, comparison</td><td>Names you best for US stocks</td></tr>
+        <tr class=""><td class="k">singsaver.com.sg</td><td class="dim">Comparison publisher</td><td>6 of 12 &mdash; comparison tables</td><td>115 pages</td></tr>
+        <tr class=""><td class="k">youtube.com</td><td class="dim">Video</td><td>5 of 12 &mdash; reviews, walkthroughs</td><td>Third-party only</td></tr>
+        <tr class=""><td class="k">facebook.com</td><td class="dim">Social</td><td>4 of 12 &mdash; SingSaver and community posts</td><td>Not in cited posts</td></tr>
+        <tr class=""><td class="k">wise.com</td><td class="dim">Fintech publisher</td><td>3 of 12 &mdash; best platform for beginners</td><td>Named, not cited</td></tr>
+        <tr class=""><td class="k">ig.com</td><td class="dim">Competing broker editorial</td><td>3 of 12 &mdash; how to choose a broker</td><td><span class='bad'>No</span></td></tr>
+        <tr class=""><td class="k">brokerchooser.com</td><td class="dim">International broker review</td><td>3 of 12 &mdash; branded and comparison</td><td>40 pages</td></tr>
+        <tr class=""><td class="k">thekopinotes.com</td><td class="dim">Independent SG publisher</td><td>2 of 12 &mdash; best brokerage 2026</td><td><span class='bad'>No</span></td></tr>
+        <tr class=""><td class="k">misslobang.com</td><td class="dim">Independent SG publisher</td><td>2 of 12 &mdash; 5 best stock brokerages</td><td>In the headline</td></tr>
+        <tr class="hi"><td class="k">stashaway.sg</td><td class="dim">Robo-adviser editorial</td><td>#2 AI source in category &mdash; 506 citations</td><td>1 page</td></tr>
+      </table></div>
+      <div class="footer"><span class="t-footer">SRC · 12 AI RESPONSES · GOOGLE AI OVERVIEW + CHATGPT · SINGAPORE</span><span class="t-footer">17 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- WEBULL · Webull — Page-type readiness -->
+  <section data-label="Webull — Page-type readiness">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">04 · Webull Singapore — Diagnosis</div>
+      <h2 class="t-action long anim d1">Site readiness &mdash; the key technical issues preventing non-branded query growth.</h2>
+      <p class="t-lede subhead anim d1">Webull is not short of page types. <strong>Each page type we analysed presents a different operating issue.</strong> The 16 guides average over 2,000 words and Google&rsquo;s AI has quoted five of them, yet the blog appears nowhere in the eight-item main menu and the index links only 3 of 16. Every competitor advantage in this table is structural, not editorial.</p>
+      <div class="anim d2"><table class="dt tight">
+        <tr><th>Page type</th><th>Webull Singapore</th><th>moomoo.com</th><th>itiger.com</th></tr>
+        <tr><td class="k">Homepage</td><td>1 heading, 0 subheadings, no structured data</td><td class="dim">9 subheadings + FAQ &amp; company data</td><td class="dim">8 subheadings + 18 data types</td></tr>
+        <tr><td class="k">Product / Market</td><td>1,146 words, 0 subheadings, no canonical</td><td class="dim">2,812 words, 17 subheadings</td><td class="dim">1,246 words, 7 subheadings</td></tr>
+        <tr><td class="k">Pricing</td><td>894 words, 0 subheadings</td><td class="dim">1,644 words, 16 subheadings</td><td class="dim">2,965 words, breadcrumbs</td></tr>
+        <tr><td class="k">Ticker / Quote</td><td>Exists, ranks #24&ndash;#48 on SGX tickers</td><td class="dim">Top traffic engine; forum sub-pages rank</td><td class="dim">2 tickers carry 48,627 of top-150 traffic</td></tr>
+        <tr><td class="k">Learn / Education</td><td>0 headings, no dates, no bylines, no E-E-A-T signals &mdash; minimal traffic <span class="dim">(YMYL topic)</span></td><td class="dim">Courses + wiki, 6 topic tracks</td><td class="dim">3,822 words, 168 internal links</td></tr>
+        <tr><td class="k">Help / FAQ</td><td>Answers rank, 0 headings, no FAQ markup</td><td class="dim">Structured help centre + FAQ markup</td><td class="dim">~22 help URLs with breadcrumbs</td></tr>
+        <tr><td class="k">Blog / Editorial</td><td>16 articles, 1,918&ndash;3,541 words, 13 unlinked</td><td class="dim">24/7 news, video, topic hubs</td><td class="dim">News hub shared across markets</td></tr>
+        <tr><td class="k">Community / Forum</td><td><span class='bad'>Does not exist</span></td><td class="dim">Community + per-ticker forums that rank alone</td><td class="dim"><span class='dim'>Does not exist</span></td></tr>
+        <tr><td class="k">Video hub</td><td><span class='bad'>Does not exist</span></td><td class="dim">Dedicated video news hub</td><td class="dim"><span class='dim'>Does not exist</span></td></tr>
+      </table>
+      <p class="methodnote">Technical AI readiness 4.5 · Content extractability 4.0 · Structured data 2.5 &mdash; crawl, retrieve, understand.</p></div>
+      <div class="footer"><span class="t-footer">SRC · LIVE CRAWL OF SIX PAGE TYPES · 10–11 AUG 2026</span><span class="t-footer">18 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- WEBULL · Webull — Defect inventory -->
+  <section data-label="Webull — Defect inventory">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">04 · Webull Singapore — Diagnosis</div>
+      <h2 class="t-action long anim d1">Ten defects map to four initiatives &mdash; every one configuration, not content.</h2>
+      
+      <div class="anim d2"><table class="dt big">
+    <tr><th>Initiative</th><th>What we found</th><th>The evidence</th></tr>
+    <tr><td class="init" rowspan="3">Crawl access<span class="solves">Can machines reach the page at all?</span></td><td class="f">AI crawlers are barred from <code>/quote/</code> and <code>/news/</code></td><td class="e"><code>robots.txt</code> disallows both under <code>User-agent: *</code>. Googlebot and bingbot have named groups and ignore it, which is why Google looks healthy. <b>868 citations measured, zero from <code>/quote/</code> or <code>/ticker/</code></b></td></tr>
+    <tr><td class="f">Only page one of every stock and ETF list can be crawled</td><td class="e"><b>42 pagination controls</b> on <code>/quote/us/etfs</code> render with no anchor. A crawler reaches page 1 and stops</td></tr>
+    <tr><td class="f">The site&rsquo;s address list is dead</td><td class="e"><code>/sitemap.xml</code> <b>302s to a 404 with zero entries</b>; the <code>Sitemap:</code> line is present but empty. moomoo publishes 17 entries, Tiger 10</td></tr>
+    <tr><td class="init" rowspan="3">Indexation &amp; duplication<span class="solves">Does the right page get the credit?</span></td><td class="f">Singapore&rsquo;s ranking credit is sent to the global domain</td><td class="e">Every SG <code>/ticker/</code> and <code>/quote/</code> URL canonicals to <code>webull.com</code>. <b>6 of 6 URLs tested</b></td></tr>
+    <tr><td class="f">Four of six pages have no canonical address</td><td class="e">Including <code>/quote/sg</code> and <code>/paper-trading</code></td></tr>
+    <tr><td class="f">Singapore and US pages collide</td><td class="e">Identical titles with <b>no market word</b>; <code>/quote/sg</code> is titled &ldquo;Real-Time U.S. Stock Quotes&rdquo;</td></tr>
+    <tr><td class="init" rowspan="2">Internal linking &amp; navigation<span class="solves">Can anything be discovered from anywhere?</span></td><td class="f"><code>/ticker/</code> pages are dead ends</td><td class="e"><b>45 links on a ticker page, none</b> pointing to another <code>/ticker/</code> or <code>/quote/</code> page</td></tr>
+    <tr><td class="f">Thirteen long-form guides have no way in</td><td class="e">Blog absent from the 8-item menu; index links <b>3 of 16</b>. Google found five and quoted them in AI Overviews anyway</td></tr>
+    <tr><td class="init" rowspan="2">Machine readability<span class="solves">Can a passage be lifted and quoted?</span></td><td class="f">Five of six page types carry no subheadings</td><td class="e"><b>Zero H2s</b> on 5 of 6 crawled types; <b>3 return no H1 at all</b>. moomoo&rsquo;s US stocks page carries 17</td></tr>
+    <tr><td class="f">Commercial templates carry no structured data</td><td class="e"><b>Zero JSON-LD</b> on homepage, <code>/ticker/</code>, <code>/quote/</code>, hot-sector and paper-trading templates</td></tr>
+  </table></div>
+      <div class="footer"><span class="t-footer">METHOD · LIVE SERVER REQUESTS UNDER GOOGLEBOT, GPTBOT AND DEFAULT AGENTS · NO BROWSER, NO JAVASCRIPT, NO TOOL EXPORT</span><span class="t-footer">19 / 27</span></div>
+    </div>
+  </section>
+
+    <!-- WEBULL · Our approach -->
+  <section data-label="Our approach — enterprise SEO package">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">04 · Webull Singapore — Proposal</div>
+      <h2 class="t-action long anim d1">Our approach &mdash; the enterprise SEO package.</h2>
+      <p class="t-lede subhead anim d1">Everything below is a technical repair or product-class content, so none of it touches a single-stock page.</p>
+      <div class="pkg anim d2">
+        <div class="box">
+          <p class="n">Workstream 01</p>
+          <h3>Technical SEO &amp; Infrastructure</h3>
+          <p class="sub">Systemic control</p>
+          <ul>
+            <li><b>Crawl and bot evidence</b>Quarterly server-log review tracing which AI and search crawlers reach which templates, and where crawl budget is wasted.</li>
+            <li><b>Architecture and indexation</b>Internal linking frameworks and taxonomy patterns that give deep pages a discovery path &mdash; directly answering the 13 orphaned guides and the <code>/ticker/</code> dead ends.</li>
+            <li><b>Template integrity</b>Canonical logic, heading structure, structured data and crawlable pagination, fixed at template level.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <p class="n">Workstream 02</p>
+          <h3>Scalable Content &amp; Authority Architecture</h3>
+          <p class="sub">Estate-wide quality and off-page authority</p>
+          <ul>
+            <li><b>Programmatic content audit</b>Automated evaluation across <code>/ticker/</code> and <code>/quote/</code> to flag thin, duplicate and underperforming pages.</li>
+            <li><b>Cannibalisation cleanup</b>Canonical logic resolving competing internal URLs &mdash; the SG/US category collision is a live instance.</li>
+            <li><b>Template execution, 2 a month</b>Two page templates a month, so one fix propagates across the entire estate rather than page by page.</li>
+            <li><b>Authority integration &mdash; Echo Network</b>PR and brand placement aimed at the domains already cited for your prompts, routed to product and category hubs.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <p class="n">Workstream 03</p>
+          <h3>Core Keyword &amp; High-Value Pages</h3>
+          <p class="sub">Manual work on the pages that convert</p>
+          <ul>
+            <li><b>Near-miss recovery</b>The 21 keywords in positions 11&ndash;50 carrying 20,600 monthly searches &mdash; 78.6% of that volume lands on <code>/ticker/</code>.</li>
+            <li><b>Category head terms</b>The publisher-dominated SERPs where Webull has no page of its own to rank.</li>
+            <li><b>Dedicated focus, 10&ndash;30 pages a month</b>Homepage, <code>/pricing</code>, <code>/sgx</code> and the 16 guides &mdash; work the local team ships in days, without the central roadmap.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+      <div class="footer"><span class="t-footer">ENTERPRISE SEO PACKAGE · WEBULL SINGAPORE</span><span class="t-footer">20 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- WEBULL · Webull — Scope and the number -->
+  <section data-label="Webull — Scope and the number">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">04 · Webull Singapore — Proposal</div>
+      <h2 class="t-action long anim d1">Every workstream traced to clicks &mdash; and none of it writes about an individual stock.</h2>
+      
+      <div class="anim d2"><table class="dt">
+        <tr><th>Strategic scope</th><th>What it is for Webull specifically</th><th class="r">Base clicks / mo</th></tr>
+        <tr><td class="k">1. Technical SEO &amp; Infrastructure<br><span class="dim" style="font-weight:400;font-size:16px">Systemic control</span></td><td>Ticker inventory unlock &mdash; canonical repair and crawlable pagination across the <code>/ticker/</code> and <code>/quote/</code> pages</td><td class="r"><span class="n ac">1,800</span></td></tr>
+        <tr><td class="k" rowspan="4">2. Scalable Content &amp; Authority Architecture<br><span class="dim" style="font-weight:400;font-size:16px">Programmatic audit, cannibalisation, Echo Network</span></td><td>Reconnect the 13 orphaned guides Google already quotes, plus consideration content</td><td class="r"><span class="n">700</span></td></tr>
+        <tr><td>Repair 21 keywords in positions 11&ndash;50 carrying 20,600 monthly searches &mdash; 78.6% lands on <code>/ticker/</code></td><td class="r"><span class="n">505</span></td></tr>
+        <tr><td>Help centre and FAQ layer &mdash; 74 pages earning 921 visits today, none formatted as answers</td><td class="r"><span class="n">350</span></td></tr>
+        <tr><td>Category head terms in publisher-dominated SERPs &mdash; Echo Network</td><td class="r"><span class="n">60</span></td></tr>
+        <tr class="tot"><td>Total incremental</td><td class="dim">4,000 today + 3,415 incremental</td><td class="r"><span class="n">7,415 at month six</span></td></tr>
+      </table>
+      <div class="modestrip">
+        <div class="m"><p class="mh">Template execution · ~2 templates / month</p><p>One fix propagates across the whole estate. The only route that works under a <b>no-CMS, central tech team</b> constraint.</p></div>
+        <div class="m"><p class="mh">Dedicated high-value focus · 10&ndash;30 pages / month</p><p>The 21 near-miss keywords, the 16 guides, <b>/pricing</b> and <b>/sgx</b> &mdash; work the local team ships in days.</p></div>
+      </div></div>
+      <div class="footer"><span class="t-footer">MAS · EVERY LEVER IS A TECHNICAL REPAIR OR PRODUCT-CLASS CONTENT · LEVER B NEEDS COMPLIANCE SIGN-OFF</span><span class="t-footer">21 / 27</span></div>
+    </div>
+  </section>
+
+    <!-- Section transition · Case study -->
+  <section class="dark" data-label="Successful Case Study">
+    <div class="mslide dark">
+      <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">05 · Proof</div>
+      <div style="margin:auto 0">
+        <h2 class="t-action anim d1" style="font-size:104px;line-height:1.0;letter-spacing:-.03em;color:var(--dark-fg)">Successful Case Study</h2>
+        <hr class="accent-rule anim d1" style="width:96px;margin:34px 0">
+        <p class="t-lede anim d1" style="color:var(--dark-fg-2);max-width:1180px">The same three workstreams, run for a freight-tech SaaS client &mdash; and what moved in the first three months.</p>
+      </div>
+      <div class="footer"><span class="t-footer" style="color:var(--dark-fg-2)">PROOF &middot; CLIENT RESULTS</span><span class="t-footer" style="color:var(--dark-fg-2)">22 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 08 CASE NUMBERS -->
+  <section data-label="Case Study — Results">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">05 · Client Use Case · GoFreight — Freight-Tech SaaS</div>
+      <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">In three months we took a freight-tech SaaS from invisible to fastest-rising in AI answers. <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
+      <hr class="accent-rule anim d1">
+      <div class="stat-grid anim d2">
+        <div class="stat"><div class="se">Monthly organic clicks</div><div class="sn">+88%</div><div class="sl">in three months</div></div>
+        <div class="stat"><div class="se">AI visibility</div><div class="sn range">13.7% <span class="ar">→</span> 23.5%</div><div class="sl">#5 → #4 vs competitors</div></div>
+        <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">→</span> 8.4</div><div class="sl">Page 3 → page 1</div></div>
+        <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">23 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 09 PROOF -->
+  <section data-label="Case Study — Proof">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">05 · Case Study — Proof</div>
+      <h2 class="t-action anim d1">The CEO saw it in the pipeline before he saw it in a dashboard.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="proof anim d2">
+        <div class="artifact">
+          <p class="alabel">The email</p>
+          <div class="frame email">
+            <img src="assets/proof-email.jpg" alt="Inbound lead email — ChatGPT recommended the client">
+          </div>
+          <p class="cap">Inbound enterprise lead — the prospect found them through ChatGPT, which recommended them over the market leader. <b>January 2026.</b></p>
+        </div>
+        <div class="artifact">
+          <p class="alabel">The visibility that drove it</p>
+          <div class="frame shot" style="padding:0;background:#020617">
+            <img src="assets/novalens-shots/novalens-sov-trend-slidecut.png" alt="NovaLens — AI visibility by engine climbing weekly across Google AI Overviews, Perplexity and ChatGPT" style="max-height:500px">
+          </div>
+          <p class="cap">AI visibility climbing across every engine — <b>Google AI Overviews, Perplexity and ChatGPT</b> — tracked live in NovaLens through the engagement.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">24 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 10 QUOTE -->
+  <section data-label="Case Study — The Buyer">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">05 · Case Study — The Buyer's Words</div>
+      <div class="quote-wrap">
+        <p class="t-h2 anim d1" style="color:var(--ink-3);font-weight:500;max-width:1500px">1 of the client's 6 most recent enterprise wins started with an AI shortlist.</p>
+        <p class="bigq anim d1">“I had a conversation with AI… it narrowed it down to a top five. <em>You guys were a top two.</em>”</p>
+        <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">25 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 11 PARTNER -->
+  <section data-label="How to Work Together">
+    <div class="mslide sysslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · Engage</div>
+      <h2 class="t-action anim d1">Three ways to work with us.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">Each option is shaped to how you want to work — we run it for you, hand you the strategy, or build the capability inside your team. Same senior operators and the same standard behind all three, so the outcome holds: your leads arrive pre-sold — AI already did their research and put you on the shortlist.</p>
+      <div class="partner three anim d2">
+        <div class="pcard lead">
+          <span class="pbadge">RECOMMENDED</span>
+          <h3 class="ptitle">SEO &amp; AEO Solution —<br>Done For You</h3>
+          <p class="psub">We run the Source &amp; Echo Method end to end.</p>
+          <p class="pd">Business-outcome focused. Your account stays with senior operators — never outsourced, never handed to juniors.</p>
+          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Depends on scope</span></div>
+          <div class="ptags">
+            <span class="ptag em">Monthly retainer</span><span class="ptag">Technical SEO</span><span class="ptag">AEO</span><span class="ptag">Content SEO</span><span class="ptag">Local SEO</span>
+          </div>
+        </div>
+        <div class="pcard">
+          <h3 class="ptitle">SEO &amp; AEO Strategy<br>Advisory</h3>
+          <p class="psub">The strategy and roadmap, without the operation.</p>
+          <p class="pd">Strategy-focused. Prompt portfolio baseline, the method strategy and a 90-day plan — handed to your team to run.</p>
+          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Customised</span></div>
+          <div class="ptags">
+            <span class="ptag em">Strategy-focused</span><span class="ptag">Roadmap</span><span class="ptag">Handover</span>
+          </div>
+        </div>
+        <div class="pcard">
+          <h3 class="ptitle">Agentic System<br>Building &amp; Advisory</h3>
+          <p class="psub">We build the capability with you.</p>
+          <p class="pd">Workshops and implementation that leave the system — and the skills — inside your team.</p>
+          <div class="pprice"><span class="plab">Pricing</span><span class="pnum">Customised</span></div>
+          <div class="ptags">
+            <span class="ptag em">Project-based</span><span class="ptag">Workshops</span><span class="ptag">Implementation</span><span class="ptag">Custom agent builds</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">ENGAGE · DONE-FOR-YOU · STRATEGY · BUILD-WITH-YOU</span><span class="t-footer">26 / 27</span></div>
+    </div>
+  </section>
+
+  <!-- 12 CLOSE -->
+  <section class="dark" data-label="Close">
+    <div class="mslide dark">
+      <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">06 · Close</div>
+      <div class="close-wrap">
+        <div>
+          <div class="close-q anim d1">See what AI says about your brand today — <em>we'll run the first audit free.</em></div>
+          <hr class="accent-rule anim d2" style="margin-top:44px">
+          <a class="cta-btn anim d2" href="https://calendar.app.google/3tk45A3Wq7UwgJef9" target="_blank" rel="noopener">Book a meeting →</a>
+        </div>
+        <div class="anim d2">
+          <div class="close-contact">
+            <span class="nm">Tina Chu</span><span class="sep">·</span>tchu@novastacks-ai.com<span class="sep">·</span>novastacks-ai.com
+          </div>
+          <div class="footer" style="margin-top:40px">
+            <span class="t-footer" style="color:var(--dark-fg-2)">FULL CASE STUDY · goblin2929.github.io/prospect-docs</span>
+            <span class="t-footer" style="color:var(--accent)">18 / 18</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>
