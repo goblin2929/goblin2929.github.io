@@ -89,6 +89,13 @@
   .pkg .box li b{color:var(--ink-1);font-weight:600;display:block;margin-bottom:2px}
   .pkg .box li code{font-family:var(--font-mono);font-size:14px;background:var(--paper-pure);padding:1px 4px}
 
+  /* ---- redaction: evidence withheld from the shared copy ---- */
+  .mosaic{display:inline-block;height:.95em;vertical-align:-.12em;border-radius:3px;
+    background:repeating-conic-gradient(#cdd2da 0% 25%,#b3bac6 0% 50%);background-size:9px 9px;
+    margin:0 3px 4px 0}
+  .dt.big td.e .redact-note{display:block;margin-top:8px;font-family:var(--font-mono);
+    font-size:13px;letter-spacing:.06em;color:var(--ink-4)}
+
   /* Footer */
   .footer{
     margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;
@@ -963,17 +970,18 @@
       
       <div class="anim d2"><table class="dt big">
     <tr><th>Initiative</th><th>What we found</th><th>The evidence</th></tr>
-    <tr><td class="init" rowspan="3">Crawl access<span class="solves">Can machines reach the page at all?</span></td><td class="f">AI crawlers are barred from <code>/quote/</code> and <code>/news/</code></td><td class="e"><code>robots.txt</code> disallows both under <code>User-agent: *</code>. Googlebot and bingbot have named groups and ignore it, which is why Google looks healthy. <b>868 citations measured, zero from <code>/quote/</code> or <code>/ticker/</code></b></td></tr>
-    <tr><td class="f">Only page one of every stock and ETF list can be crawled</td><td class="e"><b>42 pagination controls</b> on <code>/quote/us/etfs</code> render with no anchor. A crawler reaches page 1 and stops</td></tr>
-    <tr><td class="f">The site&rsquo;s address list is dead</td><td class="e"><code>/sitemap.xml</code> <b>302s to a 404 with zero entries</b>; the <code>Sitemap:</code> line is present but empty. moomoo publishes 17 entries, Tiger 10</td></tr>
-    <tr><td class="init" rowspan="3">Indexation &amp; duplication<span class="solves">Does the right page get the credit?</span></td><td class="f">Singapore&rsquo;s ranking credit is sent to the global domain</td><td class="e">Every SG <code>/ticker/</code> and <code>/quote/</code> URL canonicals to <code>webull.com</code>. <b>6 of 6 URLs tested</b></td></tr>
-    <tr><td class="f">Four of six pages have no canonical address</td><td class="e">Including <code>/quote/sg</code> and <code>/paper-trading</code></td></tr>
-    <tr><td class="f">Singapore and US pages collide</td><td class="e">Identical titles with <b>no market word</b>; <code>/quote/sg</code> is titled &ldquo;Real-Time U.S. Stock Quotes&rdquo;</td></tr>
-    <tr><td class="init" rowspan="2">Internal linking &amp; navigation<span class="solves">Can anything be discovered from anywhere?</span></td><td class="f"><code>/ticker/</code> pages are dead ends</td><td class="e"><b>45 links on a ticker page, none</b> pointing to another <code>/ticker/</code> or <code>/quote/</code> page</td></tr>
-    <tr><td class="f">Thirteen long-form guides have no way in</td><td class="e">Blog absent from the 8-item menu; index links <b>3 of 16</b>. Google found five and quoted them in AI Overviews anyway</td></tr>
-    <tr><td class="init" rowspan="2">Machine readability<span class="solves">Can a passage be lifted and quoted?</span></td><td class="f">Five of six page types carry no subheadings</td><td class="e"><b>Zero H2s</b> on 5 of 6 crawled types; <b>3 return no H1 at all</b>. moomoo&rsquo;s US stocks page carries 17</td></tr>
-    <tr><td class="f">Commercial templates carry no structured data</td><td class="e"><b>Zero JSON-LD</b> on homepage, <code>/ticker/</code>, <code>/quote/</code>, hot-sector and paper-trading templates</td></tr>
-  </table></div>
+    <tr><td class="init" rowspan="3">Crawl access<span class="solves">Can machines reach the page at all?</span></td><td class="f">AI crawlers are barred from <code>/quote/</code> and <code>/news/</code></td><td class="e"><span class="mosaic" style="width:210px"></span><span class="mosaic" style="width:150px"></span><span class="mosaic" style="width:96px"></span><span class="mosaic" style="width:180px"></span><span class="mosaic" style="width:130px"></span><span class="mosaic" style="width:88px"></span></td></tr>
+    <tr><td class="f">Only page one of every stock and ETF list can be crawled</td><td class="e"><span class="mosaic" style="width:190px"></span><span class="mosaic" style="width:120px"></span><span class="mosaic" style="width:150px"></span></td></tr>
+    <tr><td class="f">The site&rsquo;s address list is dead</td><td class="e"><span class="mosaic" style="width:160px"></span><span class="mosaic" style="width:200px"></span><span class="mosaic" style="width:110px"></span><span class="mosaic" style="width:140px"></span></td></tr>
+    <tr><td class="init" rowspan="3">Indexation &amp; duplication<span class="solves">Does the right page get the credit?</span></td><td class="f">Singapore&rsquo;s ranking credit is sent to the global domain</td><td class="e"><span class="mosaic" style="width:175px"></span><span class="mosaic" style="width:140px"></span><span class="mosaic" style="width:190px"></span><span class="mosaic" style="width:120px"></span><span class="mosaic" style="width:96px"></span></td></tr>
+    <tr><td class="f">Four of six pages have no canonical address</td><td class="e"><span class="mosaic" style="width:150px"></span><span class="mosaic" style="width:185px"></span><span class="mosaic" style="width:120px"></span></td></tr>
+    <tr><td class="f">Singapore and US pages collide</td><td class="e"><span class="mosaic" style="width:200px"></span><span class="mosaic" style="width:130px"></span><span class="mosaic" style="width:165px"></span><span class="mosaic" style="width:90px"></span></td></tr>
+    <tr><td class="init" rowspan="2">Internal linking &amp; navigation<span class="solves">Can anything be discovered from anywhere?</span></td><td class="f"><code>/ticker/</code> pages are dead ends</td><td class="e"><span class="mosaic" style="width:140px"></span><span class="mosaic" style="width:175px"></span></td></tr>
+    <tr><td class="f">Thirteen long-form guides have no way in</td><td class="e"><span class="mosaic" style="width:195px"></span><span class="mosaic" style="width:120px"></span><span class="mosaic" style="width:150px"></span><span class="mosaic" style="width:105px"></span></td></tr>
+    <tr><td class="init" rowspan="2">Machine readability<span class="solves">Can a passage be lifted and quoted?</span></td><td class="f">Five of six page types carry no subheadings</td><td class="e"><span class="mosaic" style="width:165px"></span><span class="mosaic" style="width:140px"></span><span class="mosaic" style="width:200px"></span><span class="mosaic" style="width:115px"></span></td></tr>
+    <tr><td class="f">Commercial templates carry no structured data</td><td class="e"><span class="mosaic" style="width:180px"></span><span class="mosaic" style="width:150px"></span><span class="mosaic" style="width:125px"></span><span class="mosaic" style="width:190px"></span></td></tr>
+  </table>
+      <p class="methodnote">Evidence column withheld in this shared copy. Full findings, and the method behind each, are provided on engagement.</p></div>
       <div class="footer"><span class="t-footer">METHOD · LIVE SERVER REQUESTS UNDER GOOGLEBOT, GPTBOT AND DEFAULT AGENTS · NO BROWSER, NO JAVASCRIPT, NO TOOL EXPORT</span><span class="t-footer">19 / 27</span></div>
     </div>
   </section>

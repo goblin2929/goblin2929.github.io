@@ -1,2 +1,6 @@
 novastacks/aeo-deck-singtel/
 novastacks/aeo-deck-nopricing/_verify/
+
+# Unmasked Webull decks — internal only, never publish (masked copy: aeo-deck-webull-client)
+novastacks/aeo-deck-webull/
+novastacks/aeo-deck-webull-bold/
