@@ -56,7 +56,7 @@
         "description": "Writing rules kept in a skill file get ignored, because the model that drops them also grades them. The five controls that make them binding, plus a copy-paste prompt to build the checker.",
         "articleSection": "AI Search",
         "inLanguage": "en",
-        "wordCount": 3772,
+        "wordCount": 3848,
         "datePublished": "2026-08-13",
         "dateModified": "2026-08-13",
         "author": { "@id": "https://www.novastacks-ai.com/#tina-chu" },
@@ -357,7 +357,12 @@ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.write
 <section aria-labelledby="vs-skill-file">
 <h2 id="vs-skill-file">What almost everyone is missing is the enforcement layer</h2>
 <p>Nearly every answer to AI slop stops at the rulebook. Write down the patterns, hand them to the model, ask it to comply. The best-known version is <a href="https://github.com/hardikpandya/stop-slop" rel="noopener" target="_blank">stop-slop</a>, a skill file that teaches Claude or any LLM to catch its own tells. The pattern library in it is genuinely sharp.</p>
-<p>The repository contains no executable code. It is markdown: SKILL.md plus reference files for phrases, structures and examples. The model reads the rules, scores its own draft on five dimensions from 1 to 10, and the instruction is "below 35/50: revise".</p>
+<p>The repository contains no executable code. It is markdown: SKILL.md plus reference files for phrases, structures and examples. No releases published. The model reads the rules, scores its own draft on five dimensions from 1 to 10, and the instruction is "below 35/50: revise".</p>
+<figure style="margin:1.5rem 0;">
+<img src="assets/images/stop-slop-repo.png" alt="The stop-slop GitHub repository, showing 15.5k stars, 12 commits, only markdown files (SKILL.md, README.md, CHANGELOG.md, LICENSE and a references folder), no releases published, and Claude listed as one of three contributors." loading="lazy" style="width:100%;height:auto;border:1px solid #e2e8f0;border-radius:6px;">
+<figcaption style="font-size:.8rem;opacity:.7;margin-top:.5rem;">The most-starred answer to AI slop. Every file is markdown, and Claude is one of the three listed contributors.</figcaption>
+</figure>
+<p>Look at the contributor list. The AI helped write the rules for detecting AI writing, and is then asked to grade itself against them. That is the whole problem in one screenshot, and it is not a criticism of the project. It is what happens when the rulebook is the only layer you have.</p>
 <p>That is a rulebook, and a good one. It has no way to enforce itself, because the thing being graded is doing the grading.</p>
 <p>An enforcement layer is the part that sits outside the model: it reads the finished output, applies the rules without being able to negotiate, and can stop the next step from happening. Run any rulebook against the five controls and you can see precisely where it stops.</p>
 <div class="table-wrap"><table>
