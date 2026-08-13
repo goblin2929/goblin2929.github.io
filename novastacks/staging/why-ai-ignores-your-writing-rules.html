@@ -56,7 +56,7 @@
         "description": "Writing rules kept in a skill file get ignored, because the model that drops them also grades them. The five controls that make them binding, plus a copy-paste prompt to build the checker.",
         "articleSection": "AI Search",
         "inLanguage": "en",
-        "wordCount": 3439,
+        "wordCount": 3772,
         "datePublished": "2026-08-13",
         "dateModified": "2026-08-13",
         "author": { "@id": "https://www.novastacks-ai.com/#tina-chu" },
@@ -159,6 +159,7 @@
 <li><a href="#the-cheat-sheet">The cheat sheet: build it yourself</a></li>
 <li><a href="#why-rules-get-ignored">Why your AI ignores the rules you wrote</a></li>
 <li><a href="#five-controls">The five controls</a></li>
+<li><a href="#vs-skill-file">The missing enforcement layer</a></li>
 <li><a href="#how-it-learns">How it learns from your edits</a></li>
 <li><a href="#receipts">What the gate caught on this article</a></li>
 <li><a href="#limits">What this will not do</a></li>
@@ -351,6 +352,25 @@ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.write
 <p><strong>3. Let the environment run it, not the model.</strong> A PostToolUse hook fires the checker on every content file written. Without hooks, a git pre-commit hook plus a CI job cover the same ground. Running the check stops being something you have to remember when the session gets long. This is the single biggest lever against being ignored, because you removed the choice.</p>
 <p><strong>4. Block at the point of no return.</strong> Editor hooks can report, but they cannot stop anything. So the real refusal lives where work leaves your control: publish, deploy, send, export. One standing rule sits next to it. Whatever produced the work never issues its own pass. I learned that one the hard way, when an agent ran a post-scoped checker against a 31-slide deck, noticed the mismatch, and passed itself anyway on a targeted read. The slop shipped.</p>
 <p><strong>5. Make it survive other people.</strong> The rules get their own tests: saved files with known verdicts, one you approved, one you rejected, one deliberately bad. Re-run them after every rule edit, so tightening one pattern cannot quietly break another. The kit installs into any project with one script, so teammates get updates by pulling rather than by reading a doc.</p>
+</section>
+
+<section aria-labelledby="vs-skill-file">
+<h2 id="vs-skill-file">What almost everyone is missing is the enforcement layer</h2>
+<p>Nearly every answer to AI slop stops at the rulebook. Write down the patterns, hand them to the model, ask it to comply. The best-known version is <a href="https://github.com/hardikpandya/stop-slop" rel="noopener" target="_blank">stop-slop</a>, a skill file that teaches Claude or any LLM to catch its own tells. The pattern library in it is genuinely sharp.</p>
+<p>The repository contains no executable code. It is markdown: SKILL.md plus reference files for phrases, structures and examples. The model reads the rules, scores its own draft on five dimensions from 1 to 10, and the instruction is "below 35/50: revise".</p>
+<p>That is a rulebook, and a good one. It has no way to enforce itself, because the thing being graded is doing the grading.</p>
+<p>An enforcement layer is the part that sits outside the model: it reads the finished output, applies the rules without being able to negotiate, and can stop the next step from happening. Run any rulebook against the five controls and you can see precisely where it stops.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Control</th><th>Rulebook alone</th><th>What the enforcement layer adds</th></tr></thead>
+<tbody>
+<tr><td>1. Rules as machine-readable data</td><td>Written as prose for a model to read.</td><td>A format a program can execute, so the rules apply the same way twice.</td></tr>
+<tr><td>2. A program returns the verdict</td><td>The model scores itself 1 to 10 across five dimensions.</td><td>An exit code from something that was not involved in the writing.</td></tr>
+<tr><td>3. The environment fires it</td><td>Applies when the model chooses to invoke it.</td><td>A hook or CI job, so it runs when a long session makes it most necessary.</td></tr>
+<tr><td>4. Block at the point of no return</td><td>Nothing to block on.</td><td>Publish and deploy refuse to run on a failure.</td></tr>
+<tr><td>5. Survives other people</td><td>Rules can be weakened with nothing to notice.</td><td>Fixtures with known verdicts, so a rule edit cannot quietly break another.</td></tr>
+</tbody>
+</table></div>
+<p>These are different jobs, and you want both. Keep the pattern library. Put a program behind it that your writing has to get past.</p>
 </section>
 
 <section aria-labelledby="how-it-learns">
