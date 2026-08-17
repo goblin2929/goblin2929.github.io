@@ -248,6 +248,8 @@
   .fpage { display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; padding: 3px 0 3px 18px; border-left: 2px solid #eef0f3; margin-left: 4px; }
   .fpage .pt { color: #374151; }
   .fpage .pv { color: var(--muted); white-space: nowrap; }
+  .plink { cursor: pointer; }
+  .plink:hover { color: #2563eb; text-decoration: underline; }
   details.more-topics summary { font-size: 11.5px; font-weight: 600; color: #2563eb; cursor: pointer; list-style: none; margin-top: 6px; }
   details.more-topics[open] summary { display: none; }
   .comp-sec { padding: 10px 14px; border-bottom: 1px solid #eef0f3; }
@@ -440,7 +442,7 @@
 <!-- ============ SCREEN 2: PAGE DETAIL ============ -->
 <section id="s2" class="screen">
   <h1>Page detail</h1>
-  <p class="sub">Everything stored about one competitor page — every monthly version, what changed, and full provenance.</p>
+  <p class="sub">Everything stored about one competitor page — every monthly version, what changed, and full provenance. Opened by clicking any page in Topics, Search, or Competitors. Every page has its own stable URL (e.g. <span class="mono">/gofreight/pages/1423</span>) — ⌘-click opens it in a new browser tab, so any number of page details can be open at once.</p>
 
   <div class="panel">
     <div class="detail-head">
@@ -778,6 +780,13 @@
   // Deep-linking: ?screen=s2 or #s2 opens that tab directly
   var want = new URLSearchParams(location.search).get('screen') || location.hash.replace('#', '');
   if (want) showScreen(want);
+  // Any page title anywhere (topics table, search results, competitor subfolders)
+  // opens its Page detail. Real app: every page has a stable URL, so plain click
+  // navigates and cmd-click opens a new browser tab — any number can be open at once.
+  document.querySelectorAll('.page-title, .fpage .pt, .result .r-title').forEach(function (el) {
+    el.classList.add('plink');
+    el.addEventListener('click', function () { showScreen('s2'); });
+  });
 </script>
 
 </body>
