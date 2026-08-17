@@ -1,5 +1,6 @@
 # PRD — Content Intelligence (Beta): Scrape-Once Content Store & Competitive Research System
 
+> **Rev 6.3 — 17 Aug 2026.** Human-in-the-loop UI actions added after mockup review: topic curation with business value + approve/dismiss of suggested topics (FR-28), per-page "Refresh content now" with staleness note (FR-29), per-competitor SEO overview + site structure (FR-30); UI is now read-plus-scoped-actions, not read-only. Approved mockup: `mockup/ui-mockup.html` (screens in `mockup/screens/`).
 > **Rev 6.2 — 17 Aug 2026.** System ships as **Beta** (label carried in the UI header) — first internal release, iterated in production on real client projects. Cost section corrected: analysis runs on the existing Claude Code subscription; real dollar cost is under ~$1–2/mo per client.
 > **Rev 6.1 — 17 Aug 2026.** Technical PM format. Adds the **landscape layer** — the selector's API data stored as first-class queryable data, with every competitor URL **mapped back to the client's own topics** via the keywords it ranks for — and **topic-triggered capture** (third ingestion path: pick a client topic, capture just the top competing pages). Three evidence rules now govern analysis: coverage claims cite the landscape dataset; content claims cite stored page versions; rank-cause statements stay observable-only. Rev 5 recentered the system on scrape-once/use-many with a SQLite store and local UI. Full earlier revisions are in this file's git history.
 
@@ -60,7 +61,7 @@ Primary users: every scraping skill (prospect-audit, client-01-diagnosis, citati
 **Out of scope (v1)** — each returns only via a §9 trigger:
 - Embeddings, vector search, chunking, rerankers (FTS5 + direct reading suffices at 300–500 captured pages/project).
 - AI classification/tagging (topic grouping and page typing are deterministic; AI-assisted tagging is deferred).
-- Hosted multi-tenant SaaS, auth, client-facing UI. One local read-only app.
+- Hosted multi-tenant SaaS, auth, client-facing UI. One local app — read plus a small set of human actions (topic curation, capture/refresh triggers); no free-form editing of stored content.
 - Real-time / sub-day crawling. Live "right now" questions still use on-demand scraping under the same evidence rules.
 - Replacing the rank/traffic APIs — they feed the landscape; this stores what they return plus the page content they never see.
 
@@ -83,10 +84,10 @@ P0 = system is wrong without it · P1 = core value, ships in v1 · P2 = v1 if ti
 | FR-11 | P0 | Append-only history: versions never overwritten or deleted; failures stored with status, never blocking a run | No UPDATE/DELETE against document_versions in the codebase; dead-URL run completes with the failure row present |
 | FR-12 | P0 | Full provenance per version: crawler, adapter_version, fetched_at, hash, fetch_status, source, purpose, selection-run link (Path B) | Any version row answers who captured it, how, when, why |
 | FR-13 | P0 | FTS5 index over version markdown; filterable by project/site/month/taxonomy | Known phrase returns its page; `page_type=pricing` filter narrows correctly |
-| FR-14 | P0 | Read-only local web app (FastAPI, server-rendered, own port beside the Control Room): project → site → page → version history, screenshot displayed in page view | Three clicks from project list to any page's versions; screenshot renders |
+| FR-14 | P0 | Local web app (FastAPI, server-rendered, own port beside the Control Room): project → site → page → version history, screenshot displayed in page view. Read-mostly, plus the scoped human actions of FR-28/FR-29 and the capture trigger of FR-26 — no other writes | Three clicks from project list to any page's versions; screenshot renders |
 | FR-15 | P2 | Month-to-month diff view between any two versions of a page (markdown-level) | Fixture edit between runs → diff shows exactly that edit |
 | FR-16 | P0 | Search box (FTS) + taxonomy filters; results link to stored versions | Competitor slogan search lands on their stored page |
-| FR-17 | P0 | Every version shows provenance; failed captures visibly flagged "not captured"; UI read-only, unauthenticated, local-network, no DB writes | Dead-URL fixture shows a flagged entry; UI code path has no write statements |
+| FR-17 | P0 | Every version shows provenance; failed captures visibly flagged "not captured"; UI unauthenticated, local-network; DB writes limited to the named human actions (FR-26/28/29) — stored versions and history are never editable from the UI | Dead-URL fixture shows a flagged entry; the only UI write paths are topic curation and capture/refresh triggers |
 | FR-18 | P1 | Agent CLI/SQL over the same DB, seven ops: `lookup <url> [--max-age]`, `list <project> [--month]`, `get <version>`, `diff <url> <a> <b>`, `search <q> [filters]`, `export <project> <month>`, `landscape <site> [--month]` | Each op runs from a shell, returns <1 s at reference scale (~500 pages/month/project) |
 | FR-19 | P0 | Every analysis opens with a query-produced completeness statement: "N of M selected pages captured; these failed: …" | Every analysis output opens with it |
 | FR-20 | P0 | **Evidence rule (content):** claims about what a page says cite URL + capture date + version; no citation, no claim; never from live fetches or model knowledge of a brand | Spot-audit finds zero uncited page-content claims |
@@ -97,6 +98,9 @@ P0 = system is wrong without it · P1 = core value, ships in v1 · P2 = v1 if ti
 | FR-25 | P0 | **Evidence rule (coverage):** claims about what a competitor focuses on / what's winning cite the landscape dataset — never generalized from captured-page samples. (Rationale: on-demand scraping is a narrow sample; generalizing from it is how hallucinated competitor claims happen.) | Spot-audit: every coverage claim cites landscape rows labeled `est., <provider>` |
 | FR-26 | P1 | **Topic-triggered capture (Path C):** a topic question → the landscape's per-topic importance ranking (FR-23) yields the short list (~10–20) of top competing URLs → Playwright captures just those, tagged with the topic as `capture_purpose`. Caveat: pages ranking for nothing are invisible to topic queries; the refresh's citation signal + strategic URL patterns are the backstop | Topic run captures ≈10–20 pages, all tagged with the topic; no site-wide crawl occurs; captured pages reusable via `lookup` |
 | FR-27 | P0 | **Evidence rule (rank causes):** topic analyses report observable content attributes (structure, depth, coverage of the topic's queries, E-E-A-T signals) and available off-page data points (e.g. referring domains from the provider) — never a definitive causal "why they rank." Outputs are framed as "what the winning pages have that ours don't" | Spot-audit of a topic analysis finds zero unqualified causal rank claims; every attribute cited to a stored version or landscape/provider row |
+| FR-28 | P1 | **Human topic curation (pipelines propose, humans decide):** in the Topics view a human can (a) define a new topic and assign panel keywords to it, (b) set each topic's business value (HIGH/MED/LOW — drives topic ordering and capture depth), (c) review system-suggested topics — deterministic clustering of the `unmapped` keyword bucket proposes candidates with evidence (keyword count, which competitors rank) and the human approves or dismisses; nothing enters the topic list without an explicit approve | Suggested topic appears with evidence chips + Approve/Dismiss; approving moves its keywords out of `unmapped`; dismissing suppresses the suggestion; value changes reorder the topic list |
+| FR-29 | P1 | **On-demand page refresh:** every page view shows the stored version's age ("stored version is N days old — live page may differ") and a "Refresh content now" action (UI button + CLI op) that recaptures the page immediately through the normal capture path, creating a new version with `source: manual_refresh`; history is never replaced | Refresh on a fixture page creates a new version row with `manual_refresh` provenance; the old version remains; the staleness note shows the correct age |
+| FR-30 | P1 | **Per-competitor SEO overview + site structure** (derived from landscape data already fetched — no new API calls): pages in landscape, pages captured in our DB, est. site traffic/mo, keywords ranked; site structure aggregated by first URL path segment — per subfolder: page count, share of est. traffic, top URL slugs | Competitor view shows the four overview numbers and a subfolder table whose totals reconcile with the landscape rows by SQL; all traffic figures labeled `est., <provider>` |
 
 ## 6. Technical Design
 
@@ -118,7 +122,7 @@ P0 = system is wrong without it · P1 = core value, ships in v1 · P2 = v1 if ti
               pages: document_versions · map: landscape tables
                                    │
           ┌────────────────────────┼──────────────────────────┐
-    UI (read-only)          Agent CLI/SQL               ANALYZE (Claude)
+    UI (read + actions)          Agent CLI/SQL               ANALYZE (Claude)
     topic battlegrounds ·   lookup · list · get ·      landscape says WHERE
     browse · search ·       diff · search · export ·   to look; content says
     screenshots · diffs ·   landscape                  WHAT they did; claims
