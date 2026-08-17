@@ -1,6 +1,6 @@
 # PRD — Scrape-Once Content Store & Competitive Research System
 
-> **Rev 6 — 17 Aug 2026.** Technical PM format. Adds the **landscape layer** (the selector's API data stored as first-class queryable data — the bird's-eye view of what competitor pages and topics are working) and **topic-triggered capture** (third ingestion path: ask about a topic, capture just the relevant pages). Two evidence rules now govern analysis: coverage claims cite the landscape dataset; content claims cite stored page versions. Rev 5 recentered the system on scrape-once/use-many with a SQLite store and local UI. Full earlier revisions are in this file's git history.
+> **Rev 6.1 — 17 Aug 2026.** Technical PM format. Adds the **landscape layer** — the selector's API data stored as first-class queryable data, with every competitor URL **mapped back to the client's own topics** via the keywords it ranks for — and **topic-triggered capture** (third ingestion path: pick a client topic, capture just the top competing pages). Three evidence rules now govern analysis: coverage claims cite the landscape dataset; content claims cite stored page versions; rank-cause statements stay observable-only. Rev 5 recentered the system on scrape-once/use-many with a SQLite store and local UI. Full earlier revisions are in this file's git history.
 
 ---
 
@@ -14,7 +14,7 @@ Novastacks scrapes constantly — prospect audits, rival studies, citation diagn
 4. **No history.** Because nothing is kept, *what changed this month* and *what started working* are unanswerable at any price. Past versions of a page cannot be bought back.
 5. **Claims aren't defensible.** When a client pushes back ("their site doesn't say that"), there is no dated evidence — no stored page, no screenshot — of what the site showed on the day we analyzed it.
 
-**What we're building:** a database that keeps everything we scrape and makes it reusable, plus the bird's-eye layer above it. Scraping stays where it is today; every scrape's output (screenshot, raw HTML, extracted text) is saved, tagged, dated, and fingerprinted. Alongside the pages, the store keeps each competitor's monthly **landscape** — every page with estimated traffic and its keyword footprint grouped into topics — so analysis sees the whole map, not a keyhole. A small local web UI browses, searches, and diffs all of it; agents query the same database; before any skill scrapes, it checks the store first. **Scrape once, use many times.** Multi-project from day one (projects are rows, not code). Example project: GoFreight vs. CargoWise, Magaya, Descartes, FreightPOP.
+**What we're building:** a database that keeps everything we scrape and makes it reusable, plus the bird's-eye layer above it. Scraping stays where it is today; every scrape's output (screenshot, raw HTML, extracted text) is saved, tagged, dated, and fingerprinted. Alongside the pages, the store keeps the monthly **landscape** — every competitor page with estimated traffic and its keyword footprint, **mapped back to the client's own topics and keywords** — so the map is organized around the question that matters: *for the topics my client needs to win, who is winning them, with what content, and what does it take.* Analysis sees the whole map, not a keyhole. A small local web UI browses, searches, and diffs all of it; agents query the same database; before any skill scrapes, it checks the store first. **Scrape once, use many times.** Multi-project from day one (projects are rows, not code). Example project: GoFreight vs. CargoWise, Magaya, Descartes, FreightPOP.
 
 ## 2. Objectives & Success Metrics
 
@@ -39,8 +39,8 @@ Primary users: every scraping skill (prospect-audit, client-01-diagnosis, citati
 
 - **US-1 — Scrape once, reuse everywhere.** As any skill, I query the store before scraping so I don't re-scrape, re-pay, and re-risk anti-bot walls. *Done when:* a second run over the same pages within the staleness window hits the store, not the web.
 - **US-2 — Competitor messaging watch.** As the GoFreight AM, I want a monthly summary of what each competitor changed on their key pages. *Done when:* "what changed across the competitor set?" returns a page-cited summary in under 10 minutes after the refresh.
-- **US-3 — Bird's-eye competitor read.** As the strategist, I want to see what a competitor's site is actually winning with — top pages by estimated traffic, topic coverage weighted by performance, month-over-month shifts — before reading any page. *Done when:* the UI answers "what topics does CargoWise own and what's rising?" with no scraping and no Claude session.
-- **US-4 — Topic deep-dive on demand.** As a strategist (or skill) asking "what are competitors doing on freight visibility?", I want the system to find the relevant competitor pages from ranking data and capture just those. *Done when:* a topic question yields ~10–20 captured, tagged pages in one run — not a site-wide crawl.
+- **US-3 — Topic battleground view.** As the strategist, I pick one of MY client's topics and see every competitor page competing on it, sorted by importance (positions, est. traffic, breadth), with capture status — before reading any page. *Done when:* the UI answers "who is winning 'freight visibility' and with which pages?" with no scraping and no Claude session.
+- **US-4 — Topic deep-dive (the core flow).** As a strategist, from a topic battleground I capture the top competing pages (~10–20, not a site-wide crawl) and have Claude analyze what they wrote and the observable reasons they rank — content structure, depth, coverage of the topic's queries, E-E-A-T signals, available off-page data — citing stored versions. *Done when:* one topic run yields captured, topic-tagged pages plus an analysis framed as "what the winning pages have that ours don't," with zero definitive causal claims.
 - **US-5 — Content gap analysis.** As the content lead, I want Claude to name the buyer questions competitors answer that the client doesn't. *Done when:* the analysis names missing topics, citing the landscape for coverage and stored pages for content.
 - **US-6 — BD pitch evidence.** As Bianca, I want prospect-audit scrapes stored and browsable, so the pitch contains observations backed by pages I can show. *Done when:* the diagnosis cites at least three stored-page comparisons, each openable in the UI.
 - **US-7 — Claim provenance.** As Tina signing off a report, I want every competitor claim traceable to dated stored evidence. *Done when:* any claim traces to its version or landscape row in under a minute.
@@ -91,19 +91,21 @@ P0 = system is wrong without it · P1 = core value, ships in v1 · P2 = v1 if ti
 | FR-20 | P0 | **Evidence rule (content):** claims about what a page says cite URL + capture date + version; no citation, no claim; never from live fetches or model knowledge of a brand | Spot-audit finds zero uncited page-content claims |
 | FR-21 | P0 | Failed-capture pages reported "not captured" — never described, never inferred | Analysis over the dead-URL fixture names it as not captured |
 | FR-22 | P1 | Counts, URL lists, change lists come from SQL, never from asking an LLM to count; analysis prompts used per project are saved in the repo and reused on the next run | Numeric statements match direct query results; month-2 analysis references month-1's saved prompt file |
-| FR-23 | P1 | **Landscape storage:** the selector's monthly API data stored as first-class data per competitor domain — every page with est. traffic; keyword footprint grouped into topics by deterministic rule (shared head terms; no LLM) | For any competitor-month: top pages by est. traffic and topic totals answerable by SQL; grouping reproducible from stored keywords |
-| FR-24 | P1 | **Bird's-eye UI** per competitor: top pages by est. traffic, topic coverage weighted by performance, month-over-month shifts; all figures labeled `est., <provider>` | UI answers "what topics does CargoWise own / what rose this month?" without scraping; no unlabeled figures |
+| FR-23 | P1 | **Landscape storage, mapped to client topics:** monthly API data stored per competitor domain — every page with est. traffic and its ranked keywords, each keyword assigned to a CLIENT topic by the client's tracked panel's own grouping (deterministic; no LLM); out-of-panel keywords land in an `unmapped` bucket, never force-matched; a URL may map to multiple topics, weighted by position × search volume. Per-topic page **importance** is queryable: positions on the topic's keywords, est. traffic, breadth (how many of the topic's keywords the page ranks for) | For any client topic-month: competitor pages ranked by importance answerable by SQL; mapping reproducible from stored keywords + panel; unmapped bucket present and queryable |
+| FR-24 | P1 | **Topic-first bird's-eye UI:** client topic list → per-topic competitor page table (importance-sorted, capture status shown, one-click/one-command topic capture for uncaptured pages via FR-26) → drill-down into captured versions. Per-competitor view (top pages, topic coverage, MoM shifts) is the secondary lens. All figures labeled `est., <provider>` | From the topic list, two clicks reach an importance-sorted competitor page table and a third opens a captured version; uncaptured rows expose the capture trigger; no unlabeled figures |
 | FR-25 | P0 | **Evidence rule (coverage):** claims about what a competitor focuses on / what's winning cite the landscape dataset — never generalized from captured-page samples. (Rationale: on-demand scraping is a narrow sample; generalizing from it is how hallucinated competitor claims happen.) | Spot-audit: every coverage claim cites landscape rows labeled `est., <provider>` |
-| FR-26 | P1 | **Topic-triggered capture (Path C):** a topic question → selector queries ranked-keyword data filtered to the topic → short list (~10–20) of relevant competitor URLs → Playwright captures just those, tagged with the topic as `capture_purpose`. Caveat: pages ranking for nothing are invisible to topic queries; the refresh's citation signal + strategic URL patterns are the backstop | Topic run captures ≈10–20 pages, all tagged with the topic; no site-wide crawl occurs; captured pages reusable via `lookup` |
+| FR-26 | P1 | **Topic-triggered capture (Path C):** a topic question → the landscape's per-topic importance ranking (FR-23) yields the short list (~10–20) of top competing URLs → Playwright captures just those, tagged with the topic as `capture_purpose`. Caveat: pages ranking for nothing are invisible to topic queries; the refresh's citation signal + strategic URL patterns are the backstop | Topic run captures ≈10–20 pages, all tagged with the topic; no site-wide crawl occurs; captured pages reusable via `lookup` |
+| FR-27 | P0 | **Evidence rule (rank causes):** topic analyses report observable content attributes (structure, depth, coverage of the topic's queries, E-E-A-T signals) and available off-page data points (e.g. referring domains from the provider) — never a definitive causal "why they rank." Outputs are framed as "what the winning pages have that ours don't" | Spot-audit of a topic analysis finds zero unqualified causal rank claims; every attribute cited to a stored version or landscape/provider row |
 
 ## 6. Technical Design
 
 ```text
    ON-DEMAND SCRAPES          MONTHLY REFRESH            TOPIC QUESTIONS
-  (audits, diagnostics,    select.py + provider       "what are they doing
-   listening, studies)     adapter — 4 signals,        on <topic>?" →
-         │                 reasons, no LLM;            ranked-keyword query
-         │                 writes LANDSCAPE            → ~10–20 URLs
+  (audits, diagnostics,    select.py + provider       "who wins <client topic>
+   listening, studies)     adapter — 4 signals,        and how?" → landscape
+         │                 reasons, no LLM; writes     importance ranking
+         │                 LANDSCAPE (client-topic     → top ~10–20 URLs
+         │                 mapped)                            │
          │                        │ approved list             │
          ▼                        ▼                           ▼
    ┌────────────────────────────────────────────────────────────────┐
@@ -116,10 +118,10 @@ P0 = system is wrong without it · P1 = core value, ships in v1 · P2 = v1 if ti
                                    │
           ┌────────────────────────┼──────────────────────────┐
     UI (read-only)          Agent CLI/SQL               ANALYZE (Claude)
-    browse · search ·       lookup · list · get ·      landscape says WHERE
-    screenshots · diffs ·   diff · search · export ·   to look; content says
-    bird's-eye view         landscape                  WHAT they did; claims
-                                                       cite rows/versions
+    topic battlegrounds ·   lookup · list · get ·      landscape says WHERE
+    browse · search ·       diff · search · export ·   to look; content says
+    screenshots · diffs ·   landscape                  WHAT they did; claims
+    per-competitor lens                                cite rows/versions
 ```
 
 **Data model (SQLite):**
@@ -135,13 +137,17 @@ document_versions   id, document_id, snapshot_month, raw_html, markdown, screens
 selection_runs      id, project_id, month, provider, approved_by, approved_at
 selection_items     id, selection_run_id, url, reason, signal, dropped, drop_reason
 selection_raw       id, selection_run_id, provider_endpoint, response_json
+panel_keywords      id, project_id, keyword, client_topic   -- the client's tracked panel,
+                                                            -- topics per its own grouping
 landscape_pages     id, site_id, month, url, est_traffic, provider
-landscape_keywords  id, site_id, month, keyword, topic, position, est_volume,
-                    ranking_url, provider        -- topic = deterministic head-term group
+landscape_keywords  id, site_id, month, keyword, client_topic ('unmapped' if out-of-panel),
+                    position, est_volume, ranking_url, provider
+                    -- topic assignment = join against panel_keywords; deterministic, no LLM;
+                    -- a ranking_url may appear under multiple topics (weight: position × volume)
 fts_versions        FTS5 virtual table over document_versions.markdown
 ```
 
-Two load-bearing decisions: the **document/version split** (a page keeps one identity; every capture appends an immutable version — history, diffs, reuse, provenance become one-JOIN simple), and the **landscape/content split** (the map of what's working is data the APIs already return — storing it costs cents even for a 1,000-page competitor because no content is scraped; content capture stays small and targeted because the map says where to look). All three ingestion paths write the same version rows; Path B additionally writes landscape + selection tables.
+Two load-bearing decisions: the **document/version split** (a page keeps one identity; every capture appends an immutable version — history, diffs, reuse, provenance become one-JOIN simple), and the **landscape/content split** (the map of what's working is data the APIs already return — storing it costs cents even for a 1,000-page competitor because no content is scraped; content capture stays small and targeted because the map says where to look). The map's organizing dimension is the **client's topic set**: every competitor URL maps back to client topics through the keywords it ranks for, so importance, capture, and analysis all answer "who is winning the topics my client needs to win, with what content." All three ingestion paths write the same version rows; Path B additionally writes landscape + selection tables.
 
 Sizing: monthly refresh ≈ 300–500 captured pages/project (~15 small rival to ~50–70 large, × 6–8 sites) ≈ 400k–1M markdown tokens — loadable into a Claude context via one `export`; landscape tables add thousands of small rows, trivial for SQLite.
 
@@ -151,8 +157,8 @@ The landscape layer + bird's-eye view add ~1–2 days over Rev 5's estimate; sta
 
 - **M1 — Store + capture-on-scrape (3–4 days).** Schema (incl. landscape tables) frozen; shared capture path wired into web-scraping; taxonomy typing. Demo: one real prospect-audit scrape lands in the DB with screenshots, hashes, source/purpose; one dead URL stored as failed.
 - **M2 — UI core (3–4 days).** Browse, version history, screenshots, FTS search + filters, provenance display. Demo: Tina sees yesterday's scrape's screenshots and searches a phrase.
-- **M3 — Selector + landscape + first refresh (3–4 days).** Selector populates selection AND landscape tables for GoFreight; bird's-eye view in the UI; approved list captured; launchd schedules it. Demo: "what topics does CargoWise own?" answered from the UI; full competitor set stored; adds/drops delta on the second run.
-- **M4 — Reuse rule + topic capture + first analysis (2 days).** `lookup` live in web-scraping; Path C end-to-end; then ask *"What are competitors promising around implementation?"* Demo: repeat scrape hits the store; a topic question captures ~10–20 tagged pages; analysis opens with the completeness statement, coverage claims cite landscape rows, content claims cite versions. **This is the acceptance test.**
+- **M3 — Selector + landscape + first refresh (3–4 days).** Client keyword panel imported (`panel_keywords`); selector populates selection AND landscape tables for GoFreight with keyword→client-topic mapping; topic-first bird's-eye in the UI; approved list captured; launchd schedules it. Demo: pick a GoFreight topic → importance-sorted competitor page table; full competitor set stored; adds/drops delta on the second run.
+- **M4 — Reuse rule + topic capture + first analysis (2 days).** `lookup` live in web-scraping; Path C end-to-end from a topic battleground; then ask *"For 'freight visibility', what do the winning competitor pages have that GoFreight's don't?"* Demo: repeat scrape hits the store; the topic run captures ~10–20 tagged pages; analysis opens with the completeness statement, coverage claims cite landscape rows, content claims cite versions, rank-cause statements stay observable-only (FR-27). **This is the acceptance test.**
 - **M5 — SF importer + diff view (1–2 days, can trail).** SF export lands as version rows; month-to-month diff view.
 
 Order constraints: schema freezes at M1 (all three paths + importer write to it); the first Path-B selection is human-approved before the first refresh spends fetches.
@@ -183,7 +189,7 @@ Three-month proof: the M4 question against a historical month; a what-changed-th
 
 **Open questions**
 1. Staleness defaults per purpose: 30 days fits strategy work; do citation-diagnostics or BD audits need tighter windows? Settle at M4 with real usage.
-2. Topic grouping granularity: shared head terms is the v1 rule; if groups prove too coarse on real keyword sets, the fix is a better deterministic rule first, AI-assisted tagging only via the trigger below.
+2. The `unmapped` keyword bucket: out-of-panel keywords competitors rank for are themselves strategy signal (topics the client's panel doesn't track yet). Who reviews it, and on what cadence — fold into the monthly approval glance, or a quarterly panel-refresh step?
 3. Which consuming skills are in the first wiring pass (post-M4) — proposed: citation-diagnostics, client-01-diagnosis, prospect-audit-v3, content strategy.
 
 **Deferred (the scale-out platform)** — compressed record of the original Rev 2 design (full spec in git history). What this PRD builds is its load-bearing center; deferred parts are scale machinery: embeddings + pgvector hybrid search + query router; AI enrichment (topics/entities/typed claims) and AI-assisted tagging; Postgres migration; hosted multi-tenant backend with auth; client-facing product UI. (~$35–70k build, $50–270/mo infra.)
