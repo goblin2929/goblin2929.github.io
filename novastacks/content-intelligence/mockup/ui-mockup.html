@@ -238,10 +238,18 @@
   .seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; }
   .seo-grid .cell .num { display: block; font-size: 15px; font-weight: 700; }
   .seo-grid .cell .k { display: block; font-size: 10.5px; color: var(--muted); }
-  .folder-row { display: flex; justify-content: space-between; gap: 8px; margin-top: 7px; font-size: 12px; }
-  .folder-row .f { font-family: ui-monospace, monospace; font-weight: 650; }
-  .folder-row .fc { color: var(--muted); white-space: nowrap; }
-  .slugs { font-family: ui-monospace, monospace; font-size: 10.5px; color: var(--faint); margin-top: 2px; overflow-wrap: anywhere; }
+  .bar-row .cnt { color: var(--faint); font-size: 10.5px; white-space: nowrap; min-width: 34px; text-align: right; }
+  details.folder { margin-top: 6px; }
+  details.folder summary { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; cursor: pointer; list-style: none; }
+  details.folder summary::before { content: "▸"; color: var(--faint); margin-right: 4px; }
+  details.folder[open] summary::before { content: "▾"; }
+  details.folder summary .f { font-family: ui-monospace, monospace; font-weight: 650; flex: 1; }
+  details.folder summary .fc { color: var(--muted); white-space: nowrap; }
+  .fpage { display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; padding: 3px 0 3px 18px; border-left: 2px solid #eef0f3; margin-left: 4px; }
+  .fpage .pt { color: #374151; }
+  .fpage .pv { color: var(--muted); white-space: nowrap; }
+  details.more-topics summary { font-size: 11.5px; font-weight: 600; color: #2563eb; cursor: pointer; list-style: none; margin-top: 6px; }
+  details.more-topics[open] summary { display: none; }
   .comp-sec { padding: 10px 14px; border-bottom: 1px solid #eef0f3; }
   .comp-sec:last-child { border-bottom: none; }
   .comp-sec h4 { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 7px; }
@@ -560,26 +568,46 @@
         </div>
       </div>
       <div class="comp-sec">
-        <h4>Site structure · top subfolders by est. traffic</h4>
-        <div class="folder-row"><span class="f">/solutions/</span><span class="fc">64 pages · 41% of traffic</span></div>
-        <div class="slugs">freight-forwarding-software · tms-compare · customs-filing</div>
-        <div class="folder-row"><span class="f">/blog/</span><span class="fc">540 pages · 27% of traffic</span></div>
-        <div class="slugs">what-is-freight-forwarding-software · incoterms-guide</div>
-        <div class="folder-row"><span class="f">/compare/</span><span class="fc">22 pages · 14% of traffic</span></div>
-        <div class="slugs">tms-solutions · cargowise-vs-magaya</div>
+        <h4>Site structure · click a subfolder to expand</h4>
+        <details class="folder" open>
+          <summary><span class="f">/solutions/</span><span class="fc">64 pages · 41% of traffic</span></summary>
+          <div class="fpage"><span class="pt">Freight Forwarding Software</span><span class="pv">4,800</span></div>
+          <div class="fpage"><span class="pt">Customs Filing &amp; Compliance</span><span class="pv">1,400</span></div>
+          <div class="fpage"><span class="pt">Warehouse Management for Forwarders</span><span class="pv">760</span></div>
+          <div class="fpage"><span class="pt">Rating &amp; Quoting Automation</span><span class="pv">430</span></div>
+        </details>
+        <details class="folder">
+          <summary><span class="f">/blog/</span><span class="fc">540 pages · 27% of traffic</span></summary>
+          <div class="fpage"><span class="pt">What Is Freight Forwarding Software? A Guide</span><span class="pv">980</span></div>
+          <div class="fpage"><span class="pt">Incoterms 2026: The Complete Guide</span><span class="pv">720</span></div>
+        </details>
+        <details class="folder">
+          <summary><span class="f">/compare/</span><span class="fc">22 pages · 14% of traffic</span></summary>
+          <div class="fpage"><span class="pt">TMS Solutions Compared</span><span class="pv">2,300</span></div>
+          <div class="fpage"><span class="pt">CargoWise vs Magaya</span><span class="pv">610</span></div>
+        </details>
+        <details class="folder"><summary><span class="f">/products/</span><span class="fc">48 pages · 8% of traffic</span></summary><div class="fpage"><span class="pt">CargoWise One Platform</span><span class="pv">390</span></div></details>
+        <details class="folder"><summary><span class="f">/events/</span><span class="fc">120 pages · 4% of traffic</span></summary><div class="fpage"><span class="pt">CargoWise Horizons 2026</span><span class="pv">180</span></div></details>
+        <details class="folder"><summary><span class="f">/company/</span><span class="fc">35 pages · 2% of traffic</span></summary><div class="fpage"><span class="pt">About WiseTech Global</span><span class="pv">95</span></div></details>
       </div>
       <div class="comp-sec">
-        <h4>Top pages · est. traffic/mo</h4>
-        <div class="mini-row"><span class="t">Freight Forwarding Software</span><span class="v">4,800</span></div>
-        <div class="mini-row"><span class="t">TMS Solutions Compared</span><span class="v">2,300</span></div>
-        <div class="mini-row"><span class="t">What Is Freight Forwarding Software?</span><span class="v">980</span></div>
-      </div>
-      <div class="comp-sec">
-        <h4>Topic coverage · performance-weighted</h4>
-        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="bar"><i style="width:78%"></i></span><span class="pct">78%</span></div>
-        <div class="bar-row"><span class="lbl">Freight audit</span><span class="bar"><i style="width:52%"></i></span><span class="pct">52%</span></div>
-        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="bar"><i style="width:44%"></i></span><span class="pct">44%</span></div>
-        <div class="bar-row"><span class="lbl">Customs compliance</span><span class="bar"><i style="width:31%"></i></span><span class="pct">31%</span></div>
+        <h4>Topic coverage · pages per topic · performance-weighted</h4>
+        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="cnt">18 pg</span><span class="bar"><i style="width:78%"></i></span><span class="pct">78%</span></div>
+        <div class="bar-row"><span class="lbl">Freight audit</span><span class="cnt">9 pg</span><span class="bar"><i style="width:52%"></i></span><span class="pct">52%</span></div>
+        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="cnt">11 pg</span><span class="bar"><i style="width:44%"></i></span><span class="pct">44%</span></div>
+        <div class="bar-row"><span class="lbl">Customs compliance</span><span class="cnt">12 pg</span><span class="bar"><i style="width:31%"></i></span><span class="pct">31%</span></div>
+        <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="cnt">7 pg</span><span class="bar"><i style="width:26%"></i></span><span class="pct">26%</span></div>
+        <div class="bar-row"><span class="lbl">Customs brokerage software</span><span class="cnt">6 pg</span><span class="bar"><i style="width:24%"></i></span><span class="pct">24%</span></div>
+        <div class="bar-row"><span class="lbl">Warehouse management</span><span class="cnt">8 pg</span><span class="bar"><i style="width:19%"></i></span><span class="pct">19%</span></div>
+        <div class="bar-row"><span class="lbl">Freight rate management</span><span class="cnt">5 pg</span><span class="bar"><i style="width:15%"></i></span><span class="pct">15%</span></div>
+        <div class="bar-row"><span class="lbl">Shipment visibility</span><span class="cnt">6 pg</span><span class="bar"><i style="width:12%"></i></span><span class="pct">12%</span></div>
+        <div class="bar-row"><span class="lbl">Air freight software</span><span class="cnt">4 pg</span><span class="bar"><i style="width:9%"></i></span><span class="pct">9%</span></div>
+        <details class="more-topics">
+          <summary>show all 13 topics ▾</summary>
+          <div class="bar-row"><span class="lbl">Freight billing software</span><span class="cnt">3 pg</span><span class="bar"><i style="width:7%"></i></span><span class="pct">7%</span></div>
+          <div class="bar-row"><span class="lbl">Landed cost calculation</span><span class="cnt">2 pg</span><span class="bar"><i style="width:5%"></i></span><span class="pct">5%</span></div>
+          <div class="bar-row"><span class="lbl">Bonded warehouse software</span><span class="cnt">2 pg</span><span class="bar"><i style="width:3%"></i></span><span class="pct">3%</span></div>
+        </details>
       </div>
       <div class="comp-sec">
         <h4>Month over month</h4>
@@ -600,26 +628,39 @@
         </div>
       </div>
       <div class="comp-sec">
-        <h4>Site structure · top subfolders by est. traffic</h4>
-        <div class="folder-row"><span class="f">/solutions/</span><span class="fc">180 pages · 46% of traffic</span></div>
-        <div class="slugs">freight-forwarding · customs-compliance · ocean-visibility</div>
-        <div class="folder-row"><span class="f">/resources/</span><span class="fc">710 pages · 22% of traffic</span></div>
-        <div class="slugs">forwarding-software-checklist · hs-code-lookup</div>
-        <div class="folder-row"><span class="f">/industries/</span><span class="fc">44 pages · 9% of traffic</span></div>
-        <div class="slugs">freight-forwarders · customs-brokers</div>
+        <h4>Site structure · click a subfolder to expand</h4>
+        <details class="folder">
+          <summary><span class="f">/solutions/</span><span class="fc">180 pages · 46% of traffic</span></summary>
+          <div class="fpage"><span class="pt">Freight Forwarding &amp; Logistics Software</span><span class="pv">3,100</span></div>
+          <div class="fpage"><span class="pt">Customs Compliance Suite</span><span class="pv">2,700</span></div>
+          <div class="fpage"><span class="pt">Ocean Freight Visibility Suite</span><span class="pv">1,850</span></div>
+        </details>
+        <details class="folder">
+          <summary><span class="f">/resources/</span><span class="fc">710 pages · 22% of traffic</span></summary>
+          <div class="fpage"><span class="pt">Choosing Forwarding Software: Buyer's Checklist</span><span class="pv">720</span></div>
+          <div class="fpage"><span class="pt">HS Code Lookup Tool</span><span class="pv">640</span></div>
+        </details>
+        <details class="folder"><summary><span class="f">/industries/</span><span class="fc">44 pages · 9% of traffic</span></summary><div class="fpage"><span class="pt">Solutions for Freight Forwarders</span><span class="pv">410</span></div></details>
+        <details class="folder"><summary><span class="f">/news/</span><span class="fc">1,620 pages · 7% of traffic</span></summary><div class="fpage"><span class="pt">Descartes Acquires OCR Vision Co</span><span class="pv">120</span></div></details>
+        <details class="folder"><summary><span class="f">/partners/</span><span class="fc">60 pages · 3% of traffic</span></summary><div class="fpage"><span class="pt">Partner Directory</span><span class="pv">85</span></div></details>
       </div>
       <div class="comp-sec">
-        <h4>Top pages · est. traffic/mo</h4>
-        <div class="mini-row"><span class="t">Freight Forwarding &amp; Logistics Software</span><span class="v">3,100</span></div>
-        <div class="mini-row"><span class="t">Customs Compliance Suite</span><span class="v">2,700</span></div>
-        <div class="mini-row"><span class="t">Ocean Freight Visibility Suite</span><span class="v">1,850</span></div>
-      </div>
-      <div class="comp-sec">
-        <h4>Topic coverage · performance-weighted</h4>
-        <div class="bar-row"><span class="lbl">Customs compliance</span><span class="bar"><i style="width:71%"></i></span><span class="pct">71%</span></div>
-        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="bar"><i style="width:58%"></i></span><span class="pct">58%</span></div>
-        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="bar"><i style="width:49%"></i></span><span class="pct">49%</span></div>
-        <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="bar"><i style="width:36%"></i></span><span class="pct">36%</span></div>
+        <h4>Topic coverage · pages per topic · performance-weighted</h4>
+        <div class="bar-row"><span class="lbl">Customs compliance</span><span class="cnt">14 pg</span><span class="bar"><i style="width:71%"></i></span><span class="pct">71%</span></div>
+        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="cnt">9 pg</span><span class="bar"><i style="width:58%"></i></span><span class="pct">58%</span></div>
+        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="cnt">12 pg</span><span class="bar"><i style="width:49%"></i></span><span class="pct">49%</span></div>
+        <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="cnt">8 pg</span><span class="bar"><i style="width:36%"></i></span><span class="pct">36%</span></div>
+        <div class="bar-row"><span class="lbl">Customs brokerage software</span><span class="cnt">10 pg</span><span class="bar"><i style="width:33%"></i></span><span class="pct">33%</span></div>
+        <div class="bar-row"><span class="lbl">Shipment visibility</span><span class="cnt">9 pg</span><span class="bar"><i style="width:28%"></i></span><span class="pct">28%</span></div>
+        <div class="bar-row"><span class="lbl">Freight rate management</span><span class="cnt">6 pg</span><span class="bar"><i style="width:17%"></i></span><span class="pct">17%</span></div>
+        <div class="bar-row"><span class="lbl">Freight audit</span><span class="cnt">4 pg</span><span class="bar"><i style="width:11%"></i></span><span class="pct">11%</span></div>
+        <div class="bar-row"><span class="lbl">Air freight software</span><span class="cnt">3 pg</span><span class="bar"><i style="width:7%"></i></span><span class="pct">7%</span></div>
+        <details class="more-topics">
+          <summary>show all 12 topics ▾</summary>
+          <div class="bar-row"><span class="lbl">Warehouse management</span><span class="cnt">3 pg</span><span class="bar"><i style="width:6%"></i></span><span class="pct">6%</span></div>
+          <div class="bar-row"><span class="lbl">Landed cost calculation</span><span class="cnt">2 pg</span><span class="bar"><i style="width:4%"></i></span><span class="pct">4%</span></div>
+          <div class="bar-row"><span class="lbl">Freight billing software</span><span class="cnt">1 pg</span><span class="bar"><i style="width:2%"></i></span><span class="pct">2%</span></div>
+        </details>
       </div>
       <div class="comp-sec">
         <h4>Month over month</h4>
@@ -640,25 +681,32 @@
         </div>
       </div>
       <div class="comp-sec">
-        <h4>Site structure · top subfolders by est. traffic</h4>
-        <div class="folder-row"><span class="f">/platform/</span><span class="fc">38 pages · 44% of traffic</span></div>
-        <div class="slugs">digital-freight-platform · ocean-tracking</div>
-        <div class="folder-row"><span class="f">/compare/</span><span class="fc">9 pages · 18% of traffic</span></div>
-        <div class="slugs">legacy-systems · magaya-vs-cargowise</div>
-        <div class="folder-row"><span class="f">/blog/</span><span class="fc">310 pages · 15% of traffic</span></div>
-        <div class="slugs">freight-kpis · warehouse-automation</div>
+        <h4>Site structure · click a subfolder to expand</h4>
+        <details class="folder">
+          <summary><span class="f">/platform/</span><span class="fc">38 pages · 44% of traffic</span></summary>
+          <div class="fpage"><span class="pt">Digital Freight Platform for Forwarders</span><span class="pv">1,950</span></div>
+          <div class="fpage"><span class="pt">Ocean Tracking Dashboard</span><span class="pv">1,100</span></div>
+        </details>
+        <details class="folder"><summary><span class="f">/compare/</span><span class="fc">9 pages · 18% of traffic</span></summary><div class="fpage"><span class="pt">Magaya vs Legacy Forwarding Systems</span><span class="pv">540</span></div></details>
+        <details class="folder"><summary><span class="f">/blog/</span><span class="fc">310 pages · 15% of traffic</span></summary><div class="fpage"><span class="pt">Freight KPIs Every Forwarder Should Track</span><span class="pv">290</span></div></details>
+        <details class="folder"><summary><span class="f">/customers/</span><span class="fc">52 pages · 8% of traffic</span></summary><div class="fpage"><span class="pt">Case Study: 3PL Cuts Quoting Time 60%</span><span class="pv">140</span></div></details>
       </div>
       <div class="comp-sec">
-        <h4>Top pages · est. traffic/mo</h4>
-        <div class="mini-row"><span class="t">Digital Freight Platform for Forwarders</span><span class="v">1,950</span></div>
-        <div class="mini-row"><span class="t">Ocean Tracking Dashboard</span><span class="v">1,100</span></div>
-        <div class="mini-row"><span class="t">Magaya vs Legacy Forwarding Systems</span><span class="v">540</span></div>
-      </div>
-      <div class="comp-sec">
-        <h4>Topic coverage · performance-weighted</h4>
-        <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="bar"><i style="width:64%"></i></span><span class="pct">64%</span></div>
-        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="bar"><i style="width:41%"></i></span><span class="pct">41%</span></div>
-        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="bar"><i style="width:22%"></i></span><span class="pct">22%</span></div>
+        <h4>Topic coverage · pages per topic · performance-weighted</h4>
+        <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="cnt">9 pg</span><span class="bar"><i style="width:64%"></i></span><span class="pct">64%</span></div>
+        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="cnt">7 pg</span><span class="bar"><i style="width:41%"></i></span><span class="pct">41%</span></div>
+        <div class="bar-row"><span class="lbl">Warehouse management</span><span class="cnt">6 pg</span><span class="bar"><i style="width:29%"></i></span><span class="pct">29%</span></div>
+        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="cnt">4 pg</span><span class="bar"><i style="width:22%"></i></span><span class="pct">22%</span></div>
+        <div class="bar-row"><span class="lbl">Shipment visibility</span><span class="cnt">5 pg</span><span class="bar"><i style="width:18%"></i></span><span class="pct">18%</span></div>
+        <div class="bar-row"><span class="lbl">Freight rate management</span><span class="cnt">3 pg</span><span class="bar"><i style="width:12%"></i></span><span class="pct">12%</span></div>
+        <details class="more-topics">
+          <summary>show all 11 topics ▾</summary>
+          <div class="bar-row"><span class="lbl">Customs compliance</span><span class="cnt">3 pg</span><span class="bar"><i style="width:9%"></i></span><span class="pct">9%</span></div>
+          <div class="bar-row"><span class="lbl">Freight audit</span><span class="cnt">2 pg</span><span class="bar"><i style="width:6%"></i></span><span class="pct">6%</span></div>
+          <div class="bar-row"><span class="lbl">Customs brokerage software</span><span class="cnt">2 pg</span><span class="bar"><i style="width:5%"></i></span><span class="pct">5%</span></div>
+          <div class="bar-row"><span class="lbl">Air freight software</span><span class="cnt">1 pg</span><span class="bar"><i style="width:3%"></i></span><span class="pct">3%</span></div>
+          <div class="bar-row"><span class="lbl">Freight billing software</span><span class="cnt">1 pg</span><span class="bar"><i style="width:2%"></i></span><span class="pct">2%</span></div>
+        </details>
       </div>
       <div class="comp-sec">
         <h4>Month over month</h4>
@@ -678,24 +726,29 @@
         </div>
       </div>
       <div class="comp-sec">
-        <h4>Site structure · top subfolders by est. traffic</h4>
-        <div class="folder-row"><span class="f">/tms/</span><span class="fc">16 pages · 52% of traffic</span></div>
-        <div class="slugs">freight-forwarder-tms · rate-shopping</div>
-        <div class="folder-row"><span class="f">/blog/</span><span class="fc">150 pages · 31% of traffic</span></div>
-        <div class="slugs">outgrown-spreadsheets · carrier-selection</div>
-        <div class="folder-row"><span class="f">/integrations/</span><span class="fc">28 pages · 8% of traffic</span></div>
-        <div class="slugs">quickbooks · shopify</div>
+        <h4>Site structure · click a subfolder to expand</h4>
+        <details class="folder">
+          <summary><span class="f">/tms/</span><span class="fc">16 pages · 52% of traffic</span></summary>
+          <div class="fpage"><span class="pt">TMS Built for Freight Forwarders</span><span class="pv">1,200</span></div>
+          <div class="fpage"><span class="pt">Rate Shopping Across Carriers</span><span class="pv">280</span></div>
+        </details>
+        <details class="folder"><summary><span class="f">/blog/</span><span class="fc">150 pages · 31% of traffic</span></summary><div class="fpage"><span class="pt">5 Signs You've Outgrown Spreadsheet Freight Ops</span><span class="pv">310</span></div></details>
+        <details class="folder"><summary><span class="f">/integrations/</span><span class="fc">28 pages · 8% of traffic</span></summary><div class="fpage"><span class="pt">QuickBooks Integration</span><span class="pv">110</span></div></details>
+        <details class="folder"><summary><span class="f">/pricing/</span><span class="fc">3 pages · 5% of traffic</span></summary><div class="fpage"><span class="pt">FreightPOP Pricing</span><span class="pv">95</span></div></details>
       </div>
       <div class="comp-sec">
-        <h4>Top pages · est. traffic/mo</h4>
-        <div class="mini-row"><span class="t">TMS Built for Freight Forwarders</span><span class="v">1,200</span></div>
-        <div class="mini-row"><span class="t">Outgrown Spreadsheet Freight Ops</span><span class="v">310</span></div>
-        <div class="mini-row"><span class="t">Rate Shopping Across Carriers</span><span class="v">280</span></div>
-      </div>
-      <div class="comp-sec">
-        <h4>Topic coverage · performance-weighted</h4>
-        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="bar"><i style="width:33%"></i></span><span class="pct">33%</span></div>
-        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="bar"><i style="width:18%"></i></span><span class="pct">18%</span></div>
+        <h4>Topic coverage · pages per topic · performance-weighted</h4>
+        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="cnt">5 pg</span><span class="bar"><i style="width:33%"></i></span><span class="pct">33%</span></div>
+        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="cnt">3 pg</span><span class="bar"><i style="width:18%"></i></span><span class="pct">18%</span></div>
+        <div class="bar-row"><span class="lbl">Freight rate management</span><span class="cnt">4 pg</span><span class="bar"><i style="width:16%"></i></span><span class="pct">16%</span></div>
+        <div class="bar-row"><span class="lbl">Shipment visibility</span><span class="cnt">3 pg</span><span class="bar"><i style="width:11%"></i></span><span class="pct">11%</span></div>
+        <details class="more-topics">
+          <summary>show all 8 topics ▾</summary>
+          <div class="bar-row"><span class="lbl">Freight audit</span><span class="cnt">2 pg</span><span class="bar"><i style="width:7%"></i></span><span class="pct">7%</span></div>
+          <div class="bar-row"><span class="lbl">Warehouse management</span><span class="cnt">1 pg</span><span class="bar"><i style="width:4%"></i></span><span class="pct">4%</span></div>
+          <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="cnt">1 pg</span><span class="bar"><i style="width:3%"></i></span><span class="pct">3%</span></div>
+          <div class="bar-row"><span class="lbl">Customs compliance</span><span class="cnt">1 pg</span><span class="bar"><i style="width:2%"></i></span><span class="pct">2%</span></div>
+        </details>
       </div>
       <div class="comp-sec">
         <h4>Month over month</h4>
