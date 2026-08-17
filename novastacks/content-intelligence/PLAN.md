@@ -1,6 +1,8 @@
 # Multi-Brand AI Content Intelligence & Competitive Research System
 
-> **Rev 3 — 14 Aug 2026.** Plan right-sized around a **snapshot library**, not a retrieval platform. The decisive observation: for boutique-scale client projects, only ~70 pages per site actually matter. A whole project (client + 4–6 competitors + a few reference sites) is ~400–500 pages ≈ ~500k tokens — small enough for Claude to read directly. That removes the justification for pgvector, chunking, hybrid search, a search UI, and a FastAPI backend at current scale. What we keep is everything that cannot be retrofitted later: snapshot discipline, versioning, curation, and provenance. The full platform design survives as Appendix A with explicit upgrade triggers. (Rev 2, 13 Aug 2026, made Playwright the primary crawler and demoted Screaming Frog to an import adapter; that decision carries forward. The full Rev 2 platform spec is preserved in git history at this file's previous revision.)
+> **Rev 4 — 17 Aug 2026.** Page selection is now a **deterministic selector script driven by performance data** (AI citations, estimated traffic, head-to-head rankings), replacing human curation; the data provider behind it is swappable (DataForSEO default, Ahrefs alternate) and pinned per project. The analysis layer gains an explicit **anti-hallucination rule**: every page-content claim cites a snapshot file path, and failed fetches are reported as "not captured," never described. A lean pass confirmed the rest: hit ~95% of the goals with the simplest system that does so.
+>
+> (Rev 3, 14 Aug 2026, right-sized the plan around a snapshot library instead of a retrieval platform — the corpus at boutique client scale is small enough for Claude to read directly. Rev 2, 13 Aug 2026, made Playwright the primary crawler and demoted Screaming Frog to an import adapter. Both decisions carry forward; full earlier specs are in this file's git history.)
 
 ## 1. Objective
 
@@ -15,7 +17,19 @@ and lets Claude answer competitive research questions **by reading the corpus di
 
 The system is multi-tenant / multi-project from day one: per-project directories, no assumptions about competitor counts, nothing hard-coded for one client. Example project: GoFreight vs. CargoWise, Magaya, Descartes, FreightPOP.
 
-What it is NOT (at this scale): a database, a search UI, an API, or a chat product. Those live in Appendix A behind explicit upgrade triggers.
+### The three layers
+
+```text
+Layer 1 — SELECT   deterministic script; ranking/citation APIs decide WHICH
+                   pages matter (no LLM anywhere in selection)
+Layer 2 — CAPTURE  our own Playwright script snapshots those pages to disk
+                   (raw HTML + markdown + hashed manifest; no vendor crawler)
+Layer 3 — ANALYZE  Claude reads the saved files and answers with citations
+```
+
+AI appears **only in Layer 3**. Layers 1 and 2 are plain code: same inputs, same outputs, auditable after the fact.
+
+What the system is NOT (at this scale): a database, a search UI, an API, or a chat product. Those live in Appendix A behind explicit upgrade triggers.
 
 ---
 
@@ -24,17 +38,21 @@ What it is NOT (at this scale): a database, a search UI, an API, or a chat produ
 The sizing math that drives the whole design:
 
 ```text
-~70 pages that matter per site
+pages per site: selector-derived (no fixed number — see §4);
+                typically ~15 for a small rival, ~50–70 for a large one
 × 6–8 sites per project (brand + competitors + reference)
-= ~400–500 pages per project
-≈ ~500k tokens as markdown
+= roughly 300–500 pages per project
+≈ ~1–2k tokens per page as clean markdown (nav/footer stripped)
+= ~400k–1M tokens per project corpus; ~500k typical
 ```
 
-500k tokens is a corpus an AI can read in one or a few passes. At that scale:
+A corpus this size is one an AI can read in one or a few passes. At that scale:
 
 - **Retrieval infrastructure solves a problem we don't have.** pgvector, chunking, hybrid search, rerankers, and a query router exist to find the relevant 1% of a corpus too big to read. When the whole corpus fits in a few reads, retrieval is the read.
-- **The parts that CAN'T be retrofitted are cheap to build now.** If we don't snapshot competitor sites monthly starting today, that history is gone forever — no later platform can recover it. Curated URL lists, content hashes, and provenance fields cost days, not months.
-- **Cost honesty:** ~1 week to build, ~$5–20/mo per client to run (compute + storage are trivial; the cost is a monthly curation glance). The full platform was estimated at ~$35–70k to build. The lite system delivers the same research answers at this client scale.
+- **The parts that CAN'T be retrofitted are cheap to build now.** If we don't snapshot competitor sites monthly starting today, that history is gone forever — no later platform can recover it. Selection logs, content hashes, and provenance fields cost days, not months.
+- **Cost honesty:** ~1–1.5 weeks to build, ~$5–20/mo per client to run (selection API calls are cents; compute + storage are trivial; the main cost is analysis tokens plus a monthly approval glance). The full platform was estimated at ~$35–70k to build. The lite system delivers the same research answers at this client scale.
+
+**Project token budget: ≤1M tokens.** If the selector's output overshoots it, the lowest-signal pages are dropped and every drop is logged with its reason (§4). No silent caps — a truncated corpus that looks complete is the same disease as a hallucinated answer.
 
 Everything below is designed so that the corpus produced by the lite system is a valid input to the full platform later (Appendix A) — the snapshots, manifests, and provenance fields ARE the ingestion format.
 
@@ -48,17 +66,18 @@ One corpus repository (or one directory tree under the Novastacks estate), organ
 content-intelligence/
 ├── PLAN.md                        # this file
 ├── tools/
+│   ├── select.py                  # deterministic page selector (§4)
+│   ├── providers/                 # data adapters behind one input contract
+│   │   ├── dataforseo.py          #   default
+│   │   └── ahrefs.py              #   alternate
 │   ├── snapshot.py                # Playwright snapshot script (§5)
 │   └── sf_import.py               # Screaming Frog export import adapter (§6.3)
 └── projects/
     └── gofreight/
-        ├── project.yaml           # project config: sites, roles, cadence
-        ├── urls/                  # curated URL lists (§4), versioned with the repo
-        │   ├── gofreight.txt
-        │   ├── cargowise.txt
-        │   ├── magaya.txt
-        │   ├── descartes.txt
-        │   └── freightpop.txt
+        ├── project.yaml           # project config: sites, roles, provider pin, cadence
+        ├── selection/             # selector output, versioned with the repo
+        │   ├── 2026-08.json       # selected URLs + per-URL reason + drops log
+        │   └── raw/2026-08/       # raw API responses the selection was derived from
         └── snapshots/
             └── 2026-08/           # one directory per snapshot run
                 ├── manifest.json  # per-run manifest (§6)
@@ -72,44 +91,67 @@ content-intelligence/
 Rules:
 
 - Every artifact lives under exactly one `projects/<slug>/` — nothing shared, nothing global. A new client is a new directory; no config elsewhere changes.
-- URL lists and manifests are committed to git. Raw HTML snapshots are committed too at this scale (~500 pages/month/project is well within git comfort); if a project's snapshots outgrow the repo, move HTML to object storage and keep paths in the manifest — the manifest schema (§6) already carries paths, so nothing else changes.
+- Selection files, raw API responses, and manifests are committed to git. Raw HTML snapshots are committed too at this scale (~500 pages/month/project is well within git comfort); if a project's snapshots outgrow the repo, move HTML to object storage and keep paths in the manifest — the manifest schema (§6) already carries paths, so nothing else changes.
 - Do not hard-code a competitor count anywhere. `project.yaml` lists sites; the tools iterate over whatever is listed.
 
 `project.yaml` example:
 
 ```yaml
 project: gofreight
+provider: dataforseo          # pinned for the project lifetime (§4.3)
+keyword_panel: panel.txt      # the client's tracked keywords (head-to-head signal)
 sites:
   - name: GoFreight
     role: brand
     domain: gofreight.com
-    urls: urls/gofreight.txt
   - name: CargoWise
     role: competitor
     domain: cargowise.com
-    urls: urls/cargowise.txt
   # ... one entry per site; any number of competitors/reference sites
 cadence: monthly
 ```
 
 ---
 
-## 4. Curated URL Lists
+## 4. Page Selection: Deterministic Selector
 
-The corpus is **human-curated, not crawled**. Each site gets a plain-text URL list (~70 URLs) selected by whoever runs the project: product pages, pricing, feature pages, key blog posts, comparison pages, about/positioning pages.
+The corpus is **derived from performance data, not curated by hand and not crawled blind.** `tools/select.py` produces each site's URL list from four signals. It is plain code — no LLM anywhere in selection; same inputs, same output.
 
-Why curation instead of BFS crawling:
+### 4.1 Signals, in priority order
 
-- At ~70 pages/site, a human picks better than a crawler filters. Curation IS the relevance model.
-- It eliminates the crawler's hardest problems (scope control, trap avoidance, junk-page filtering) by not having them.
-- The list is versioned in git, so "what we track and since when" is itself provenance.
+1. **AI-cited pages — always in.** Any page of the site cited by AI engines in Novastacks' own citation testing (WorkDuo prompt runs). Highest-value signal for the business; non-negotiable regardless of site size.
+2. **Traffic coverage, not a page count.** The site's top pages by estimated organic traffic, taken in descending order until ~80% cumulative coverage of the domain's estimated traffic. The threshold is a config dial, not sacred. Because traffic concentrates in few pages, this is self-sizing: a small rival may hit 80% with 12 pages, a large one with 50.
+3. **Head-to-head pages.** Pages ranking top-10 for keywords in the client's tracked keyword panel — the pages beating (or contesting) the client on queries that matter.
+4. **Strategic pages by URL pattern.** Homepage, `/pricing`, `/product*`, `/about` — pattern-matched, not counted. These rarely rank or get cited but announce positioning changes.
 
-Maintaining the list:
+Merge, dedupe, attach a reason to every URL (`"cited: Perplexity 2026-08 run"`, `"traffic rank #7 (est., dataforseo)"`, `"head-to-head: top-10 for 'freight forwarding software'"`, `"strategic: /pricing"`).
 
-- Review at each monthly snapshot: the snapshot script reports fetch failures (404/redirects) so dead URLs get pruned, and a quick pass over the competitor's sitemap/nav catches important new pages. Budget ~15 minutes per project per month.
-- Adding a URL mid-cycle is fine — the next snapshot picks it up; `first_seen` in the manifest records when tracking began.
+**There is no fixed page count anywhere.** Site size self-adjusts through the signals.
 
-Seeding a new project: a one-off discovery pass (sitemap fetch or a shallow Playwright crawl of nav links) proposes candidates; a human trims to the ~70 that matter. The discovery pass is a convenience script, not part of the pipeline.
+- **Small-site fallback:** if a rival's marketing site has under ~30 pages total (sitemap count), take all of them — new/small rivals are invisible to traffic and citation data, and selection overhead isn't worth it below that size.
+- **Client's own site:** selected on **GSC real data** (actual clicks/impressions), not third-party estimates — we have the truth for our own side; use it.
+- **Budget enforcement:** if the project total exceeds the ≤1M-token budget (§2), drop lowest-signal pages (strategic and cited pages are never dropped first) and **log every drop with its reason** in the selection file.
+
+### 4.2 Monthly re-derivation
+
+The selector re-runs at each monthly snapshot. Adds and drops are logged with reasons ("entered: newly cited by ChatGPT" / "dropped: fell out of traffic top-80%"). **This log is itself strategy signal** — which pages the market started rewarding is precisely the "learn what's working" question the system exists to answer.
+
+Human role: **skim and approve the generated, reason-annotated list once per project** (and glance at the monthly adds/drops report). Pipelines propose; humans approve. This is a 2-minute read, not curation work.
+
+### 4.3 Provider adapters (DataForSEO default, Ahrefs alternate)
+
+The selector consumes one input contract — a table of `url, estimated_traffic, panel_rankings` — produced by a provider adapter:
+
+- **DataForSEO (default):** `dataforseo_labs/google/relevant_pages/live` for per-page estimated traffic on any domain; `dataforseo_labs/google/ranked_keywords/live` (filtered to the panel) for head-to-head positions. Pay-per-call (~$0.012/task + $0.00012/item — cents per run at our volumes); already integrated in the Novastacks stack.
+- **Ahrefs (alternate):** top-pages + organic-keywords equivalents behind the same contract.
+
+**The provider is pinned per project for its lifetime and recorded in the selection file.** Different providers estimate traffic differently; mixing them across months makes pages enter and leave the list because the ruler changed, not the market — the same phantom-diff disease the crawler provenance stamps (§6.2) prevent, with the same cure.
+
+**Estimate honesty:** all rival traffic figures are estimates and are labeled `est., <provider>` wherever they appear — in selection files, reports, and analysis output. Never stated as measured fact. (Client-side GSC numbers are measured and may be stated as such.)
+
+### 4.4 Auditability
+
+The selector saves the raw API responses alongside its output (`selection/raw/<YYYY-MM>/`). If a page's inclusion ever looks wrong, open the input file and see exactly what the provider said that day. Selection is reproducible and auditable, not just repeatable.
 
 ---
 
@@ -119,7 +161,7 @@ One small server-native script, `tools/snapshot.py`, run monthly per project:
 
 ```text
 for each site in project.yaml:
-    for each URL in the site's list:
+    for each URL in the site's current selection (§4):
         fetch with Playwright (rendered DOM, JS executed)
         save raw HTML            → snapshots/<YYYY-MM>/<site>/<page>.html
         convert to markdown      → snapshots/<YYYY-MM>/<site>/<page>.md
@@ -131,12 +173,10 @@ print run report (fetched / unchanged / changed / failed)
 Design points:
 
 - **Playwright, rendered DOM** — carried over from Rev 2. Modern marketing sites need JS rendering; a server-native browser keeps the whole run headless and schedulable (no desktop app in the loop).
-- **Polite by construction:** honor robots.txt, rate-limit per domain (1 request every few seconds is fine — 70 pages is minutes of work), identify with a real user agent. At this volume there is no load concern, but the manners are non-negotiable.
-- **Markdown conversion** strips navigation, footer, cookie banners, and repeated UI, keeping headings, body text, lists, tables, and FAQ content. This is the representation Claude reads; the raw HTML is the representation we preserve (never discard the original).
+- **Polite by construction:** honor robots.txt, rate-limit per domain (1 request every few seconds is fine — a site's pages are minutes of work), identify with a real user agent. At this volume there is no load concern, but the manners are non-negotiable.
+- **Markdown conversion via `trafilatura`** on the rendered HTML — the best-benchmarked maintained extractor (≈90% recall / >91% precision on content extraction), with native markdown output; Playwright supplies the JS-rendered DOM that trafilatura alone can't get. It strips navigation, footer, cookie banners, and repeated UI, keeping headings, body text, lists, tables, and FAQ content. Markdown is the representation Claude reads; the raw HTML is the representation we preserve (never discard the original).
 - **Content hash** is computed over the normalized markdown (not raw HTML), so cosmetic template changes don't register as content changes.
-- **Failures don't block the run:** a 404/timeout is recorded in the manifest with its status and the run continues. The run report lists failures for the curation pass (§4).
-
-Effort: this script plus the manifest writer is ~2–3 days of the ~1 week build.
+- **Failures don't block the run:** a 404/timeout is recorded in the manifest with its status and the run continues. The run report lists failures; the manifest's failure records feed the §8 "not captured" rule.
 
 ---
 
@@ -153,6 +193,7 @@ Every snapshot run produces one `manifest.json`. This is the simplified descenda
     "snapshot": "2026-08",
     "crawler": "playwright",
     "adapter_version": "1.0.0",
+    "selection": "selection/2026-08.json",
     "started_at": "2026-08-14T02:00:00Z",
     "completed_at": "2026-08-14T02:41:00Z"
   },
@@ -179,11 +220,11 @@ Required core per page: `url`, `http_status`, `fetched_at`, `raw_html_path`, `co
 
 ### 6.2 Provenance is mandatory
 
-`crawler` + `adapter_version` on every run, `fetched_at` + `content_hash` on every page. This is what makes month-over-month diffs trustworthy: when we compare snapshots, we can distinguish a real content change from an artifact of switching or upgrading the fetcher (rendered vs. raw HTML differences would otherwise show up as phantom changes). Any analysis output must cite `url` + `snapshot` so claims trace to an exact page at an exact date.
+`crawler` + `adapter_version` on every run, `fetched_at` + `content_hash` on every page, and a pointer to the selection file that chose the pages. This is what makes month-over-month diffs trustworthy: when we compare snapshots, we can distinguish a real content change from an artifact of switching or upgrading the fetcher — and a real list change from a change of data provider (§4.3). Any analysis output must cite `url` + `snapshot` so claims trace to an exact page at an exact date.
 
 ### 6.3 Screaming Frog: import adapter
 
-Screaming Frog stays useful for its SEO fields and for sites where a human has already run a crawl. `tools/sf_import.py` takes a manual SF export (CSV + saved rendered HTML), maps it into the same snapshot directory layout and manifest schema, and stamps `crawler: screaming_frog` with its own `adapter_version`. A human runs SF, exports, drops the files in a folder; the importer does the rest. No SF automation is assumed or required — if SF automation matures later, only the importer's input mechanism changes.
+Screaming Frog stays useful for its SEO fields and for sites where a human has already run a crawl. `tools/sf_import.py` takes a manual SF export (CSV + saved rendered HTML), maps it into the same snapshot directory layout and manifest schema, and stamps `crawler: screaming_frog` with its own `adapter_version`. A human runs SF, exports, drops the files in a folder; the importer does the rest. No SF automation is assumed or required.
 
 ---
 
@@ -191,7 +232,7 @@ Screaming Frog stays useful for its SEO fields and for sites where a human has a
 
 - **Never overwrite a snapshot.** Each month is a new `snapshots/<YYYY-MM>/` directory; history accumulates. This is the property that can't be retrofitted — the reason to build the lite system now rather than wait for the platform.
 - **Unchanged pages are cheap:** if `content_hash` matches the previous snapshot, the manifest marks the page unchanged. (Store the HTML anyway at this scale — dedup is an optimization we don't need yet, and full monthly directories keep every snapshot self-contained.)
-- **Diffing is a read, not a subsystem:** "what changed on CargoWise since June" = compare two manifests for changed hashes, then read the two markdown files side by side (or hand both to Claude for a summarized diff). No section-identity matching, no diff tables — at ~70 pages/site, reading the changed pages is the diff.
+- **Diffing is a read, not a subsystem:** "what changed on CargoWise since June" = compare two manifests for changed hashes, then read the two markdown files side by side (or hand both to Claude for a summarized diff). At this scale, reading the changed pages is the diff.
 - The manifest's `changed_since_previous` flag makes "show me everything that changed this month across all competitors" a one-liner.
 
 ---
@@ -203,65 +244,72 @@ There is no retrieval infrastructure. An analysis run works like this:
 ```text
 1. Point Claude (Claude Code session or dispatched agent) at:
    projects/<slug>/snapshots/<YYYY-MM>/  +  its manifest.json
-2. Claude reads the manifest to see what exists (sites, roles, pages, changes).
+2. Claude reads the manifest to see what exists (sites, roles, pages,
+   changes, failures).
 3. Claude reads the relevant markdown files — filtered by site/role via the
-   manifest, or simply all of them (~500k tokens is fine across a few passes
-   or a handful of parallel readers for a big question).
-4. Claude answers with citations: every claim carries url + snapshot date.
+   manifest, or simply all of them (a few passes or a handful of parallel
+   readers for a big question).
+4. Claude answers with citations: every claim carries url + snapshot date
+   + snapshot file path.
 ```
 
-What this supports today (the same research jobs the platform promised):
+### 8.1 Anti-hallucination rules (non-negotiable)
 
-- **Compare:** "What are competitors promising around implementation?" → read the implementation/feature pages across sites, produce the themes + evidence + comparison table.
+1. **Every page-content claim cites a snapshot file path.** No path, no claim. Claims are made from files on disk, never from content that existed only in a live fetch or in the model's general knowledge of a brand.
+2. **Failed pages are reported as "not captured," never described.** If the manifest marks a page failed (404, timeout, anti-bot), the analysis says so explicitly. Describing or inferring what a missing page "likely says" is the defect this rule exists to kill.
+3. **The manifest is the completeness statement.** Every analysis starts from "N of M selected pages captured; these failed: …" so gaps are visible line items, not silent holes.
+
+### 8.2 What this supports (the same research jobs the platform promised)
+
+- **What's working:** "What do the AI-cited competitor pages have in common that ours don't?" → the selection reasons identify the cited set; read them against the client's pages.
+- **Compare:** "What are competitors promising around implementation?" → read the implementation/feature pages across sites, produce themes + evidence + comparison table.
 - **Gap analysis:** "What topics do competitors cover that GoFreight doesn't?" → read both sides, list the gaps.
-- **Change tracking:** "What changed in competitor positioning this quarter?" → changed pages from the manifests, read old vs. new.
+- **Change tracking:** "What changed in competitor positioning this quarter?" → changed pages from the manifests, read old vs. new; plus the selection adds/drops log for what the market started rewarding.
 - **Historical:** "What was CargoWise saying about AI in January?" → read the January snapshot.
 
-Rules that carry over unchanged from the platform design:
+### 8.3 Standing rules
 
 - Deterministic first: counts, URL lists, change lists, and filters come from the manifest (a script or a `jq` line), never from asking an LLM to count.
-- No answer without provenance: analysis output cites exact URL + snapshot. Non-negotiable.
 - Repeated questions become saved prompts/scripts in the project directory, so analysis quality compounds instead of being reinvented per run.
 
 ---
 
 ## 9. Operations & Cost
 
-- **Cadence:** monthly snapshot per project (cron/launchd), plus on-demand runs before a client meeting or after a known competitor launch. Monthly is right for marketing-site drift; sub-day freshness is a platform trigger (Appendix A), not a lite feature.
-- **Runtime:** ~500 pages at polite rate limits ≈ under an hour per project, unattended.
-- **Human time:** ~15 min/month per project on the curation pass (§4).
-- **Cost:** ~$5–20/mo per client — API tokens for the monthly analysis reads, roughly nothing for compute/storage. Build: ~1 week (snapshot script + manifest 2–3 days; SF importer ~1 day; project scaffolding, discovery-seed script, and the first end-to-end GoFreight run in the remainder).
+- **Cadence:** monthly selector run + snapshot per project (cron/launchd), plus on-demand snapshot runs before a client meeting or after a known competitor launch. Monthly is right for marketing-site drift; sub-day freshness is a platform trigger (Appendix A), not a lite feature.
+- **Runtime:** ~300–500 pages at polite rate limits ≈ under an hour per project, unattended.
+- **Human time:** ~5 min/month per project — approve the selection diff, glance at the failure list.
+- **Cost:** ~$5–20/mo per client — analysis tokens dominate; selection API calls are cents per month (DataForSEO pay-per-call); compute/storage roughly nothing. Build: ~1–1.5 weeks (snapshot script + manifest 2–3 days; selector + DataForSEO adapter ~2 days; SF importer ~1 day; scaffolding + first end-to-end GoFreight run in the remainder).
 - **Legal/manners:** honor robots.txt and rate limits; snapshots are for internal competitive research (standard practice), but take an explicit stance on ToS exposure before ever productizing snapshot-taking as a client-facing service.
 
 ---
 
-## 10. Build Plan (~1 week)
+## 10. Build Plan (~1–1.5 weeks)
 
 ```text
-1. Scaffold projects/gofreight/ — project.yaml + curated URL lists
-   (seed via sitemap discovery, human-trim to ~70/site)
-2. tools/snapshot.py — Playwright fetch → raw HTML + markdown + manifest
-3. Hash-based change detection against the previous snapshot
+1. Scaffold projects/gofreight/ — project.yaml (provider pin, keyword panel)
+2. tools/select.py + providers/dataforseo.py — signals → reason-annotated
+   selection + raw API responses saved; Tina approves the first list
+3. tools/snapshot.py — Playwright fetch → raw HTML + trafilatura markdown
+   + manifest; hash-based change detection against the previous snapshot
 4. tools/sf_import.py — SF export → same layout + manifest
 5. First full GoFreight snapshot; verify manifest + spot-check markdown quality
-6. First analysis run (the §12 acceptance question) with citations
+6. First analysis run (the §12 acceptance question) under the §8.1 rules
 ```
 
-Order matters only in that the manifest schema (§6) is frozen before the SF importer is written — both writers target the same contract.
+Order matters in two places: the manifest schema (§6) is frozen before the SF importer is written (both writers target the same contract), and the first selection is human-approved before the first snapshot spends fetches on it.
 
 ---
 
 ## 11. Engineering Rules
 
-Carried forward from Rev 2, trimmed to what the lite system needs:
-
-1. **Never throw away raw source content.** Raw HTML is preserved alongside every markdown rendering.
+1. **Never throw away raw source content.** Raw HTML is preserved alongside every markdown rendering; raw API responses are preserved alongside every selection.
 2. **Never overwrite historical snapshots.** Every run is a new directory.
-3. **Never let an analysis claim exist without provenance.** URL + snapshot date on everything.
-4. **Never hard-code competitor counts or per-client logic.** Projects are directories + config.
-5. **Never depend on one fetcher's internals.** Everything downstream reads the manifest contract; Playwright and the SF importer are peers behind it.
-6. **Deterministic before LLM.** Counts, filters, and change lists come from the manifest, not from a model.
-7. **Curation is the corpus.** If a page isn't worth a human adding it to the list, it isn't worth snapshotting.
+3. **Never let an analysis claim exist without provenance.** URL + snapshot date + file path on everything; failed pages reported as not captured (§8.1).
+4. **Never hard-code competitor counts, page counts, or per-client logic.** Projects are directories + config; page lists are derived, not fixed.
+5. **Never depend on one vendor's internals.** Fetchers sit behind the manifest contract; data providers sit behind the selector's input contract; both are pinned and stamped so switching is deliberate, never silent.
+6. **Deterministic before LLM.** Selection, counts, filters, and change lists come from scripts and the manifest. AI appears only in Layer 3.
+7. **No silent caps.** Anything bounded (token budget drops, fetch failures, small-site fallbacks) is logged where the analysis will see it.
 
 ---
 
@@ -271,9 +319,9 @@ The lite system is done when, for the GoFreight project, we can ask:
 
 > What are competitors promising around implementation?
 
-and get back themes + evidence + a brand-vs-competitor comparison in which **every claim cites an exact URL and snapshot date**, produced by Claude reading that month's snapshot directory — with zero infrastructure beyond the repo, the snapshot script, and a scheduled monthly run.
+and get back themes + evidence + a brand-vs-competitor comparison in which **every claim cites an exact URL, snapshot date, and file path**, produced by Claude reading that month's snapshot directory — with zero infrastructure beyond the repo, three small scripts, and a scheduled monthly run. Any page that failed to capture is named as such in the output.
 
-And, three months in: the same question answered against a *historical* snapshot, and a "what changed this quarter" read across manifests — proving the versioning discipline paid for itself.
+And, three months in: the same question answered against a *historical* snapshot, a "what changed this quarter" read across manifests, and a selection log showing which pages the market started rewarding — proving the versioning and selection discipline paid for themselves.
 
 ---
 
