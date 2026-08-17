@@ -1,5 +1,6 @@
-# PRD — Scrape-Once Content Store & Competitive Research System
+# PRD — Content Intelligence (Beta): Scrape-Once Content Store & Competitive Research System
 
+> **Rev 6.2 — 17 Aug 2026.** System ships as **Beta** (label carried in the UI header) — first internal release, iterated in production on real client projects. Cost section corrected: analysis runs on the existing Claude Code subscription; real dollar cost is under ~$1–2/mo per client.
 > **Rev 6.1 — 17 Aug 2026.** Technical PM format. Adds the **landscape layer** — the selector's API data stored as first-class queryable data, with every competitor URL **mapped back to the client's own topics** via the keywords it ranks for — and **topic-triggered capture** (third ingestion path: pick a client topic, capture just the top competing pages). Three evidence rules now govern analysis: coverage claims cite the landscape dataset; content claims cite stored page versions; rank-cause statements stay observable-only. Rev 5 recentered the system on scrape-once/use-many with a SQLite store and local UI. Full earlier revisions are in this file's git history.
 
 ---
@@ -29,7 +30,7 @@ Each metric ties to the pain it retires:
 | O5 | History accumulates | Versions never overwritten; month-vs-month page diffs and landscape shifts visible in the UI from month 2 | 4 |
 | O6 | Defensible evidence | Any claim traces to URL + capture date + version (or landscape row) in under a minute, findable in the UI | 5 |
 | O7 | Human self-serve | Tina answers "what did their pricing page say in June?" and "what topics does CargoWise own?" alone, in the UI | 1, 3 |
-| O8 | Lean | Build ~2.5–3 weeks; ~$5–20/mo per client; landscape + selection API calls cost cents | — |
+| O8 | Lean | Build ~2.5–3 weeks; running cost under ~$1–2/mo per client in dollars (analysis runs on the existing Claude Code subscription) | — |
 
 The bar Tina set: hit ~95% of the goals with the simplest system that does so.
 
@@ -169,7 +170,7 @@ Three-month proof: the M4 question against a historical month; a what-changed-th
 
 **Costs**
 - **Build:** ~2.5–3 weeks (M1 3–4d · M2 3–4d · M3 3–4d · M4 2d · M5 1–2d). The DB + UI + landscape are ~1.5 weeks of that; the price of seeing, searching, and reusing captures.
-- **Running:** ~$5–20/mo per client — analysis tokens dominate; selection + landscape use the same DataForSEO calls (~$0.012/task + $0.00012/item — covering a 1,000-page competitor's landscape costs cents because no content is scraped); SQLite, screenshots, one local web process ≈ nothing. Reuse reduces today's scraping spend.
+- **Running:** under ~$1–2/mo per client in actual dollars. Playwright, SQLite, screenshots, and the local web UI cost nothing (open-source, on the existing Mac mini). The only per-use dollar cost is DataForSEO: ~$0.012/task + $0.00012/item — a full monthly landscape + selection pull is under $1 per project (covering a 1,000-page competitor's landscape costs cents because no content is scraped). Claude analysis runs through the existing Claude Code subscription like the mini's scheduled agent fleet — no API bill; it consumes subscription capacity (~500k tokens read per project per month), not dollars. If the analysis ever becomes a standalone client-facing product outside the subscription, it moves to API billing at roughly $2–5 per monthly analysis run per client — a future decision, not a build cost. Reuse reduces today's scraping spend.
 - **Human:** ~5 min/month per project (approve selection diff, glance at failures).
 - Reference point: the original platform design was ~$35–70k build + $50–270/mo infra. This delivers the reuse loop, the landscape view, and the same research answers for ~2.5–3 weeks of build.
 
