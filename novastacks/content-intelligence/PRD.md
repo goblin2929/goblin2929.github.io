@@ -108,7 +108,7 @@ P0 = system is wrong without it · P1 = core value, ships in v1 · P2 = v1 if ti
 ```text
    ON-DEMAND SCRAPES          MONTHLY REFRESH            TOPIC QUESTIONS
        (Path A)                  (Path B)                   (Path C)
-  (audits, diagnostics,    select.py + provider       "who wins <client topic>
+  (audits, diagnostics,    selector.py + provider     "who wins <client topic>
    listening, studies)     adapter — 4 signals,        and how?" → landscape
          │                 reasons, no LLM; writes     importance ranking
          │                 LANDSCAPE (client-topic     → top ~10–20 URLs
