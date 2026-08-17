@@ -144,7 +144,10 @@ selection_items     id, selection_run_id, url, reason, signal, dropped, drop_rea
 selection_raw       id, selection_run_id, provider_endpoint, response_json
 panel_keywords      id, project_id, keyword, client_topic   -- the client's tracked panel,
                                                             -- topics per its own grouping
-landscape_pages     id, site_id, month, url, est_traffic, provider
+landscape_pages     id, site_id, month, url, est_traffic, provider, serp_title
+                    -- serp_title: page title as shown in Google results, taken from the
+                    -- ranked-keywords rows already fetched (no extra API call). Used by the
+                    -- UI for uncaptured pages; a captured page's exact <title> supersedes it.
 landscape_keywords  id, site_id, month, keyword, client_topic ('unmapped' if out-of-panel),
                     position, est_volume, ranking_url, provider
                     -- topic assignment = join against panel_keywords; deterministic, no LLM;
