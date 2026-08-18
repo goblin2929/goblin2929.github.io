@@ -19,9 +19,30 @@ curl -sL -o fonts/IBMPlexMono-Regular.ttf "$BASE/ibmplexmono/IBMPlexMono-Regular
 python3 make_fonts.py   # pin the variable axes, install to ~/.fonts, fc-cache
 python3 build.py        # -> out/invite.png, out/invite.pdf, out/invite-compact.png
 python3 verify.py       # checks + out/check/q1..q4.png
+python3 build_html.py   # -> out/invite.html, a self-contained web version
 ```
 
 `make_fonts.py` only needs re-running when the fonts change.
+
+## The web version
+
+`build_html.py` imports `build.py` for the copy, palette and every ornament, so
+the card and the page cannot drift. Three things differ, because the medium
+does:
+
+- the headline ships as outline paths pulled from the font with fontTools, so
+  it fills the column exactly at any viewport width with no font-loading flash
+- the sandstone speckle is one seamless tiling PNG rather than several thousand
+  SVG circles, which would be that many DOM nodes for no visible gain
+- the phone number dials and the address opens Maps
+
+The closing note is one wrapped sentence there, not two hand-set lines. The
+card's break is measured for a fixed 872 px column; in a fluid one it stranded
+"and / one".
+
+The page is deliberately single-theme. An invitation that flipped to dark mode
+would stop being the designed object, so every colour is painted explicitly and
+it renders the same for everyone.
 
 ## Photographs
 
