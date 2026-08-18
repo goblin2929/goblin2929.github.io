@@ -1,0 +1,11 @@
+# Personal photographs and the rendered card. This repo is a public GitHub
+# Pages site; the invite and the venue photos are not for publication.
+assets/
+out/
+
+# Fetched upstream fonts and the pinned instances (see README for the curl
+# commands and make_fonts.py).
+fonts/
+models/
+
+__pycache__/
