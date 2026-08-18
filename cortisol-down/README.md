@@ -20,7 +20,13 @@ python3 make_fonts.py   # pin the variable axes, install to ~/.fonts, fc-cache
 python3 build.py        # -> out/invite.png, out/invite.pdf, out/invite-compact.png
 python3 verify.py       # checks + out/check/q1..q4.png
 python3 build_html.py   # -> out/invite.html, a self-contained web version
+python3 build_html.py --pages   # also -> index.html + preview.jpg for Pages
 ```
+
+`--pages` writes the GitHub Pages copy: the same page wrapped in its own
+document skeleton, with `noindex` and the link-preview tags that make the URL
+unfurl as the invitation when pasted into a chat. It is served at
+<https://goblin2929.github.io/cortisol-down/> once merged to `main`.
 
 `make_fonts.py` only needs re-running when the fonts change.
 

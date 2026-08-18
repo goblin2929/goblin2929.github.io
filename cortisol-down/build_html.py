@@ -432,12 +432,82 @@ svg {{ display:block; width:100%; height:auto; }}
 """
 
 
+PAGES_URL = "https://goblin2929.github.io/cortisol-down/"
+
+
+def preview_jpeg() -> bytes:
+    """A 1200x630 link-preview crop, so the URL unfurls as the invitation.
+
+    Taken from the rendered card rather than the web page: same artwork, and it
+    is already sitting at full resolution.
+    """
+    import json
+
+    src = Image.open(OUT / "invite.png").convert("RGB")
+    layout = json.loads((OUT / "layout.json").read_text())
+    heads = [b for b in layout["boxes"] if b["name"].startswith("headline:")]
+    # biased up so the frame ends in clear space under the arrowhead rather
+    # than slicing through the subhead
+    mid = (min(b["y0"] for b in heads) + max(b["y1"] for b in heads)) / 2 - 64
+
+    target_h = round(src.width * 630 / 1200)
+    top = max(0, min(round(mid - target_h / 2), src.height - target_h))
+    crop = src.crop((0, top, src.width, top + target_h))
+    crop = crop.resize((1200, 630), Image.LANCZOS)
+    buf = io.BytesIO()
+    crop.save(buf, "JPEG", quality=88, optimize=True, progressive=True)
+    return buf.getvalue()
+
+
+def standalone(body: str) -> str:
+    """Wrap the page for GitHub Pages.
+
+    The artifact host supplies a document skeleton; a file served straight off
+    Pages has to bring its own, plus the link-preview tags that make the URL
+    unfurl properly when it is pasted into a chat.
+    """
+    head = f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- an invitation for one group of people, not something to be found in search -->
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cortisol Down">
+<meta property="og:description" content="{escape(card.SUBHEAD)} {escape(card.DATELINE)}">
+<meta property="og:url" content="{PAGES_URL}">
+<meta property="og:image" content="{PAGES_URL}preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="{card.GROUND}">
+"""
+    return head + body + "</head>\n<body>\n</body>\n</html>\n"
+
+
 def main() -> None:
+    import sys
+
     OUT.mkdir(exist_ok=True)
     page = build_page()
     path = OUT / "invite.html"
     path.write_text(page, encoding="utf-8")
     print(f"wrote {path.relative_to(HERE)}  {len(page.encode()) / 1e6:.2f} MB")
+
+    if "--pages" in sys.argv:
+        # split the fragment so <style>/<meta> stay in head and markup in body
+        marker = "<main class="
+        head_part, _, body_part = page.partition(marker)
+        doc = (standalone(head_part).replace("</head>\n<body>\n</body>\n</html>\n",
+                                             "</head>\n<body>\n")
+               + marker + body_part + "</body>\n</html>\n")
+        out = HERE / "index.html"
+        out.write_text(doc, encoding="utf-8")
+        print(f"wrote {out.relative_to(HERE)}  {len(doc.encode()) / 1e6:.2f} MB")
+
+        jpg = HERE / "preview.jpg"
+        jpg.write_bytes(preview_jpeg())
+        print(f"wrote {jpg.relative_to(HERE)}  {jpg.stat().st_size / 1e3:.0f} kB")
 
 
 if __name__ == "__main__":
