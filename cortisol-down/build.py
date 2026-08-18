@@ -78,13 +78,16 @@ HEADLINE = ["CORTISOL", "DOWN"]
 SUBHEAD = "A moms-only evening at The Calla Project."
 DATELINE = "Wednesday 26 August · 6–9 pm"
 
+# (label, value, sub) — `sub` hangs a mono second line under the value, so a
+# long address does not force every value in the block down a size
 DETAILS = [
-    ("WHEN", "Wednesday 26 August"),
-    ("TIME", "6 – 9 pm"),
-    ("WHERE", "The Calla Project"),
-    ("BRING", "A swimsuit. That's it."),
-    ("FOOD", "Good food, light and clean"),
-    ("WHO", "Moms. All of you."),
+    ("WHEN", "Wednesday 26 August", None),
+    ("TIME", "6 – 9 pm", None),
+    ("WHERE", "The Calla Project", "271A Holland Ave, Singapore 278991"),
+    ("BRING", "A swimsuit. That's it.", None),
+    ("FOOD", "Good food, light and clean", None),
+    ("WHO", "Moms. All of you.", None),
+    ("RSVP", "93825029 before Aug 21", None),
 ]
 
 CLOSING = [
@@ -547,7 +550,7 @@ def build() -> tuple[str, int]:
     # -- measured type sizes -------------------------------------------------
     eyebrow_size = fit_size(MONO, EYEBROW, CONTENT_W * 0.66, MONO_TRACK)
     head_size, head_dx = fit_ink_flush(DISPLAY, HEADLINE[0], CONTENT_W, TIGHT_TRACK)
-    sub_size = fit_size(DISPLAY_MED, SUBHEAD, CONTENT_W)
+    subhead_size = fit_size(DISPLAY_MED, SUBHEAD, CONTENT_W)
     date_size = fit_size(MONO, DATELINE.upper(), CONTENT_W * 0.60, MONO_TRACK)
     caption_size = fit_size(
         MONO, widest(MONO, [p.caption for p in PHOTOS], MONO_TRACK),
@@ -557,6 +560,9 @@ def build() -> tuple[str, int]:
     value_size = fit_size(
         DISPLAY_MED, widest(DISPLAY_MED, [d[1] for d in DETAILS]),
         CONTENT_W - 150, cap=40)
+    subline_size = fit_size(
+        MONO, widest(MONO, [d[2] for d in DETAILS if d[2]], MONO_TRACK),
+        CONTENT_W - 150, MONO_TRACK, cap=caption_size)
     closing_size = fit_size(
         DISPLAY_MED, widest(DISPLAY_MED, [c[0] for c in CLOSING]), CONTENT_W)
 
@@ -632,9 +638,9 @@ def build() -> tuple[str, int]:
     y = base2 + head_size * 0.30
 
     # -- 5. subhead + dateline ----------------------------------------------
-    y += 58 + cap_per_em(DISPLAY_MED) * sub_size
-    svg.add(text_el(x, y, SUBHEAD, DISPLAY_MED, sub_size, INK))
-    record_text("subhead", x, y, SUBHEAD, DISPLAY_MED, sub_size)
+    y += 58 + cap_per_em(DISPLAY_MED) * subhead_size
+    svg.add(text_el(x, y, SUBHEAD, DISPLAY_MED, subhead_size, INK))
+    record_text("subhead", x, y, SUBHEAD, DISPLAY_MED, subhead_size)
 
     y += 34 + cap_per_em(MONO) * date_size
     svg.add(text_el(x, y, DATELINE.upper(), MONO, date_size, TERRACOTTA, MONO_TRACK))
@@ -669,16 +675,26 @@ def build() -> tuple[str, int]:
 
     gutter = 150
     row_h = value_size * 1.62
-    for label, value in DETAILS:
-        base = y + cap_per_em(DISPLAY_MED) * value_size
-        svg.add(text_el(x, base - (cap_per_em(DISPLAY_MED) * value_size
-                                   - cap_per_em(MONO) * label_size) / 2,
+    value_cap = cap_per_em(DISPLAY_MED) * value_size
+    subline_cap = cap_per_em(MONO) * subline_size
+    for label, value, sub in DETAILS:
+        base = y + value_cap
+        svg.add(text_el(x, base - (value_cap - cap_per_em(MONO) * label_size) / 2,
                         label, MONO, label_size, MUTED, MONO_TRACK))
         svg.add(text_el(x + gutter, base, value, DISPLAY_MED, value_size, INK))
         record_text(f"label:{label}", x, base, label, MONO, label_size, MONO_TRACK)
         record_text(f"value:{label}", x + gutter, base, value, DISPLAY_MED,
                     value_size)
         y += row_h
+        if sub:
+            sub_base = base + 18 + subline_cap
+            svg.add(text_el(x + gutter, sub_base, sub.upper(), MONO, subline_size,
+                            MUTED, MONO_TRACK))
+            record_text(f"sub:{label}", x + gutter, sub_base, sub.upper(), MONO,
+                        subline_size, MONO_TRACK)
+            # leave the same air below the sub-line that a normal row leaves
+            # below its value, so the two-line entry keeps the block's rhythm
+            y = sub_base + (row_h - value_cap)
 
     # -- 9/10. closing note --------------------------------------------------
     y += 44
@@ -830,9 +846,9 @@ def build() -> tuple[str, int]:
     svg.body = background + svg.body + [keylines]
 
     report = {
-        "eyebrow": eyebrow_size, "headline": head_size, "subhead": sub_size,
+        "eyebrow": eyebrow_size, "headline": head_size, "subhead": subhead_size,
         "dateline": date_size, "caption": caption_size, "label": label_size,
-        "value": value_size, "closing": closing_size,
+        "value": value_size, "address": subline_size, "closing": closing_size,
     }
     import json
     (OUT / "layout.json").write_text(json.dumps({
