@@ -91,8 +91,6 @@ DETAILS = [
 ]
 
 CLOSING = [
-    ("Nothing to buy.", TERRACOTTA),
-    ("No toys, no catalogue, no starter kit.", TERRACOTTA),
     ("Sauna, food, good company — and one", INK),
     ("evening of nobody needing you.", INK),
 ]
