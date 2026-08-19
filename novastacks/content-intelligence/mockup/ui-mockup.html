@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Intelligence — UI Mockup (Beta)</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --panel: #ffffff;
+    --border: #e2e5ea;
+    --text: #1c2430;
+    --muted: #667084;
+    --faint: #98a1b2;
+    --accent: #1f5eff;
+    --accent-soft: #eef3ff;
+    --green: #147a3d;
+    --green-soft: #e8f5ee;
+    --red: #b42318;
+    --red-soft: #fdecea;
+    --amber: #92400e;
+    --amber-soft: #fef3e2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; }
+
+  /* ---------- header ---------- */
+  header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 56px;
+  }
+  .brand { font-size: 16px; font-weight: 650; letter-spacing: -0.01em; }
+  .beta {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    color: var(--amber); background: var(--amber-soft);
+    border: 1px solid #f0d9b5; border-radius: 4px; padding: 2px 7px;
+  }
+  .project-switch {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 8px;
+    color: var(--muted); font-size: 13px;
+  }
+  .project-switch select {
+    font: inherit; color: var(--text);
+    padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: #fff;
+  }
+  .snapshot-note { color: var(--faint); font-size: 12.5px; }
+
+  /* ---------- tabs ---------- */
+  nav {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex; gap: 4px;
+  }
+  nav button {
+    font: inherit; font-size: 13.5px; font-weight: 550;
+    color: var(--muted);
+    background: none; border: none; cursor: pointer;
+    padding: 11px 14px;
+    border-bottom: 2px solid transparent;
+  }
+  nav button.active { color: var(--accent); border-bottom-color: var(--accent); }
+  nav button:hover { color: var(--text); }
+
+  main { padding: 20px 24px 48px; max-width: 1400px; margin: 0 auto; }
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  h1 { font-size: 18px; font-weight: 650; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  /* ---------- topics layout ---------- */
+  .topics-layout { display: flex; gap: 16px; align-items: flex-start; }
+  .topic-list { width: 300px; flex-shrink: 0; }
+  .topic-list .panel-head { padding: 12px 14px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .topic-item {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .topic-item:last-child { border-bottom: none; }
+  .topic-item.selected { background: var(--accent-soft); border-left: 3px solid var(--accent); padding-left: 11px; }
+  .topic-name { font-weight: 600; font-size: 13.5px; }
+  .topic-meta { color: var(--muted); font-size: 12px; margin-top: 3px; }
+  .chip {
+    display: inline-block; font-size: 11.5px; color: var(--muted);
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1px 8px; margin-right: 4px; margin-top: 4px;
+  }
+
+  .topic-main { flex: 1; min-width: 0; }
+  .topic-main-head { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .topic-main-head h2 { font-size: 15px; font-weight: 650; }
+  .topic-main-head .kw-note { color: var(--muted); font-size: 12.5px; }
+
+  .tbl-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 920px; }
+  th {
+    text-align: left; font-size: 11.5px; font-weight: 650;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em;
+    padding: 9px 12px; border-bottom: 1px solid var(--border);
+    background: #fafbfc; white-space: nowrap;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #eef0f3; vertical-align: top; font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  th.num { text-align: right; }
+  .page-title { font-weight: 600; }
+  .page-url { color: var(--faint); font-size: 12px; margin-top: 2px; }
+  .est-tag { color: var(--faint); font-size: 10.5px; display: block; font-weight: 500; text-transform: none; letter-spacing: 0; }
+  .badge {
+    display: inline-block; font-size: 11.5px; font-weight: 600;
+    border-radius: 4px; padding: 2px 7px; white-space: nowrap;
+  }
+  .badge.captured { color: var(--green); background: var(--green-soft); }
+  .badge.notcap { color: var(--red); background: var(--red-soft); }
+  .cap-date { color: var(--muted); font-size: 11.5px; display: block; margin-top: 2px; }
+  .btn {
+    font: inherit; font-size: 12px; font-weight: 600;
+    color: var(--accent); background: var(--accent-soft);
+    border: 1px solid #c9d8ff; border-radius: 5px;
+    padding: 3px 10px; cursor: pointer; margin-top: 4px;
+  }
+  .mom-up { color: var(--green); font-weight: 600; white-space: nowrap; }
+  .comp-sec .mom-up, .comp-sec .mom-down { white-space: normal; }
+  .mom-down { color: var(--red); font-weight: 600; white-space: nowrap; }
+  .mom-flat { color: var(--faint); white-space: nowrap; }
+
+  .foot-note {
+    padding: 10px 16px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 12.5px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  .foot-note a { color: var(--accent); text-decoration: none; }
+
+  /* ---------- page detail ---------- */
+  .detail-head { padding: 16px; border-bottom: 1px solid var(--border); }
+  .detail-head h2 { font-size: 16px; font-weight: 650; }
+  .detail-url { color: var(--muted); font-size: 13px; margin-top: 3px; }
+  .chips-row { margin-top: 8px; }
+
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  @media (max-width: 980px) { .detail-grid { grid-template-columns: 1fr; } }
+  .block-head { padding: 11px 14px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: 12.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .prov-list { padding: 12px 14px; }
+  .prov-list dt { color: var(--muted); font-size: 12px; float: left; width: 130px; clear: left; padding: 3px 0; }
+  .prov-list dd { padding: 3px 0; font-size: 13px; }
+
+  .vh-item { padding: 10px 14px; border-bottom: 1px solid #eef0f3; display: flex; gap: 10px; align-items: baseline; }
+  .vh-item:last-child { border-bottom: none; }
+  .vh-date { width: 92px; flex-shrink: 0; font-weight: 600; font-size: 12.5px; }
+  .vh-flag { font-size: 11.5px; font-weight: 600; border-radius: 4px; padding: 1px 7px; }
+  .vh-flag.changed { color: var(--amber); background: var(--amber-soft); }
+  .vh-flag.same { color: var(--faint); background: var(--bg); }
+  .vh-note { color: var(--muted); font-size: 12.5px; }
+
+  .diff { padding: 12px 14px; }
+  .diff .line { display: block; padding: 2px 8px; border-radius: 3px; margin: 1px 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; white-space: pre-wrap; }
+  .diff .add { background: var(--green-soft); color: var(--green); }
+  .diff .del { background: var(--red-soft); color: var(--red); text-decoration: line-through; }
+  .diff .ctx { color: var(--faint); }
+
+  .shot {
+    margin: 14px; height: 220px; border-radius: 6px;
+    background: repeating-linear-gradient(45deg, #eceef1, #eceef1 12px, #f3f4f6 12px, #f3f4f6 24px);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--faint); font-size: 13px;
+  }
+  .md-pane { padding: 16px 18px; max-width: 860px; }
+  .md-pane h3 { font-size: 15px; margin: 14px 0 6px; }
+  .md-pane h3:first-child { margin-top: 0; }
+  .md-pane p { margin-bottom: 10px; color: #2a3342; }
+  .md-pane ul { margin: 0 0 10px 20px; color: #2a3342; }
+
+  /* ---------- search ---------- */
+  .search-bar { display: flex; gap: 10px; margin-bottom: 12px; }
+  .search-bar input {
+    font: inherit; font-size: 14px; flex: 1;
+    padding: 9px 12px; border: 1px solid var(--border); border-radius: 7px; background: #fff;
+  }
+  .search-bar .go {
+    font: inherit; font-weight: 600; color: #fff; background: var(--accent);
+    border: none; border-radius: 7px; padding: 9px 18px; cursor: pointer;
+  }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .filters select {
+    font: inherit; font-size: 12.5px; color: var(--text);
+    padding: 6px 9px; border: 1px solid var(--border); border-radius: 6px; background: #fff;
+  }
+  .result { padding: 13px 16px; border-bottom: 1px solid var(--border); }
+  .result:last-child { border-bottom: none; }
+  .result .r-title { font-weight: 600; font-size: 13.5px; color: var(--accent); }
+  .result .r-meta { color: var(--muted); font-size: 12px; margin: 2px 0 6px; }
+  .result .r-snip { font-size: 13px; color: #2a3342; }
+  mark { background: #fff2c4; padding: 0 1px; border-radius: 2px; }
+  .result-count { color: var(--muted); font-size: 12.5px; margin-bottom: 8px; }
+
+  /* ---------- competitors ---------- */
+  .comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 16px; }
+  .comp-card .panel-head { padding: 12px 14px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .comp-card .panel-head h3 { font-size: 14px; font-weight: 650; }
+  .comp-card .domain { color: var(--faint); font-size: 12px; }
+  .detail-title-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .stale-note { color: #b45309; }
+  .val-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 10px; cursor: pointer; vertical-align: 1px; margin-left: 6px; }
+  .val-high { background: #e7f4ec; color: #1a7f43; }
+  .val-med { background: #fdf3e0; color: #9a6b12; }
+  .val-low { background: #f0f1f3; color: #6b7280; }
+  .btn-sm { font-size: 11.5px; font-weight: 600; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); background: #fff; cursor: pointer; }
+  .btn-ghost { color: #4b5563; }
+  .btn-approve { background: #2563eb; border-color: #2563eb; color: #fff; }
+  .btn-refresh { font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); background: #fff; color: #2563eb; cursor: pointer; white-space: nowrap; }
+  .topic-list .panel-head { display: flex; justify-content: space-between; align-items: center; }
+  .suggested-block { border-top: 2px dashed var(--border); padding: 10px 12px; background: #fbfcfe; }
+  .suggested-head { font-size: 11px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+  .suggested-item { display: flex; flex-direction: column; gap: 8px; }
+  .suggested-actions { display: flex; gap: 6px; }
+  .seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; }
+  .seo-grid .cell .num { display: block; font-size: 15px; font-weight: 700; }
+  .seo-grid .cell .k { display: block; font-size: 10.5px; color: var(--muted); }
+  .bar-row .cnt { color: var(--faint); font-size: 10.5px; white-space: nowrap; min-width: 34px; text-align: right; }
+  details.folder { margin-top: 6px; }
+  details.folder summary { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; cursor: pointer; list-style: none; }
+  details.folder summary::before { content: "▸"; color: var(--faint); margin-right: 4px; }
+  details.folder[open] summary::before { content: "▾"; }
+  details.folder summary .f { font-family: ui-monospace, monospace; font-weight: 650; flex: 1; }
+  details.folder summary .fc { color: var(--muted); white-space: nowrap; }
+  .fpage { display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; padding: 3px 0 3px 18px; border-left: 2px solid #eef0f3; margin-left: 4px; }
+  .fpage .pt { color: #374151; }
+  .fpage .pv { color: var(--muted); white-space: nowrap; }
+  .plink { cursor: pointer; }
+  .plink:hover { color: #2563eb; text-decoration: underline; }
+  details.more-topics summary { font-size: 11.5px; font-weight: 600; color: #2563eb; cursor: pointer; list-style: none; margin-top: 6px; }
+  details.more-topics[open] summary { display: none; }
+  .comp-sec { padding: 10px 14px; border-bottom: 1px solid #eef0f3; }
+  .comp-sec:last-child { border-bottom: none; }
+  .comp-sec h4 { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 7px; }
+  .mini-row { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; padding: 3px 0; }
+  .mini-row .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mini-row .v { color: var(--muted); font-variant-numeric: tabular-nums; flex-shrink: 0; }
+  .bar-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; font-size: 12.5px; }
+  .bar-row .lbl { width: 150px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar-row .bar { flex: 1; height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+  .bar-row .bar i { display: block; height: 100%; background: #7c9bff; border-radius: 4px; }
+  .bar-row .pct { width: 34px; text-align: right; color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+  .shift { font-size: 12.5px; padding: 2px 0; }
+
+  .global-note { color: var(--faint); font-size: 12px; margin-top: 22px; }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="brand">Content Intelligence</span>
+  <span class="beta">BETA</span>
+  <div class="project-switch">
+    <span>Client project</span>
+    <select><option selected>GoFreight</option><option>Decube</option></select>
+    <span class="snapshot-note">Latest snapshot: 03 Aug 2026 · next: 01 Sep 2026</span>
+  </div>
+</header>
+
+<nav>
+  <button class="tab active" data-screen="s1">Topics</button>
+  <button class="tab" data-screen="s2">Page detail</button>
+  <button class="tab" data-screen="s3">Search</button>
+  <button class="tab" data-screen="s4">Competitors</button>
+</nav>
+
+<main>
+
+<!-- ============ SCREEN 1: TOPICS (bird's-eye) ============ -->
+<section id="s1" class="screen active">
+  <h1>Topics — who is winning the topics GoFreight needs to win</h1>
+  <p class="sub">Competitor pages mapped to GoFreight's tracked topics via the keywords they rank for. Traffic figures are estimates (est., DataForSEO), refreshed monthly.</p>
+
+  <div class="topics-layout">
+    <div class="panel topic-list">
+      <div class="panel-head">Client topics <button class="btn-sm btn-ghost" title="Define a new topic and assign panel keywords to it">+ Add topic</button></div>
+      <div class="topic-item selected">
+        <div class="topic-name">Freight forwarding software <span class="val-badge val-high" title="Business value — set by you, drives priority ordering and capture depth">HIGH ▾</span></div>
+        <div class="topic-meta">14 panel keywords</div>
+        <span class="chip">18 competitor pages</span><span class="chip">top: CargoWise</span>
+      </div>
+      <div class="topic-item">
+        <div class="topic-name">TMS comparison <span class="val-badge val-high">HIGH ▾</span></div>
+        <div class="topic-meta">9 panel keywords</div>
+        <span class="chip">11 competitor pages</span><span class="chip">top: Descartes</span>
+      </div>
+      <div class="topic-item">
+        <div class="topic-name">Customs compliance <span class="val-badge val-med">MED ▾</span></div>
+        <div class="topic-meta">11 panel keywords</div>
+        <span class="chip">12 competitor pages</span><span class="chip">top: Descartes</span>
+      </div>
+      <div class="topic-item">
+        <div class="topic-name">Freight audit <span class="val-badge val-med">MED ▾</span></div>
+        <div class="topic-meta">7 panel keywords</div>
+        <span class="chip">9 competitor pages</span><span class="chip">top: CargoWise</span>
+      </div>
+      <div class="topic-item">
+        <div class="topic-name">Ocean freight tracking <span class="val-badge val-low">LOW ▾</span></div>
+        <div class="topic-meta">8 panel keywords</div>
+        <span class="chip">7 competitor pages</span><span class="chip">top: Magaya</span>
+      </div>
+      <div class="suggested-block">
+        <div class="suggested-head">Suggested from unmapped keywords <span class="chip">system-proposed · you decide</span></div>
+        <div class="suggested-item">
+          <div>
+            <div class="topic-name">Customs brokerage software</div>
+            <div class="topic-meta">6 unmapped keywords cluster here · CargoWise + Descartes both rank</div>
+          </div>
+          <div class="suggested-actions">
+            <button class="btn-sm btn-approve">Approve</button>
+            <button class="btn-sm btn-ghost">Dismiss</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel topic-main">
+      <div class="topic-main-head">
+        <h2>Freight forwarding software</h2>
+        <span class="kw-note">14 panel keywords · 18 competitor pages rank on them · sorted by importance (position × volume × breadth)</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Page</th>
+              <th>Competitor</th>
+              <th class="num">Traffic/mo <span class="est-tag">est., DataForSEO</span></th>
+              <th>Positions (panel kws)</th>
+              <th class="num">Breadth</th>
+              <th>Capture status</th>
+              <th>MoM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="page-title">Freight Forwarding Software</div><div class="page-url">cargowise.com/freight-forwarding-software</div></td>
+              <td>CargoWise</td>
+              <td class="num">4,800</td>
+              <td>#2, #4, #7</td>
+              <td class="num">9 / 14</td>
+              <td><span class="badge captured">Captured</span><span class="cap-date">03 Aug 2026</span></td>
+              <td class="mom-up">▲ +2 positions</td>
+            </tr>
+            <tr>
+              <td><div class="page-title">Freight Forwarding &amp; Logistics Software</div><div class="page-url">descartes.com/solutions/freight-forwarding</div></td>
+              <td>Descartes</td>
+              <td class="num">3,100</td>
+              <td>#3, #6</td>
+              <td class="num">7 / 14</td>
+              <td><span class="badge captured">Captured</span><span class="cap-date">03 Aug 2026</span></td>
+              <td class="mom-flat">— unchanged</td>
+            </tr>
+            <tr>
+              <td><div class="page-title">Digital Freight Platform for Forwarders</div><div class="page-url">magaya.com/digital-freight-platform</div></td>
+              <td>Magaya</td>
+              <td class="num">1,950</td>
+              <td>#5, #9</td>
+              <td class="num">6 / 14</td>
+              <td><span class="badge captured">Captured</span><span class="cap-date">03 Aug 2026</span></td>
+              <td class="mom-up">▲ +1 position</td>
+            </tr>
+            <tr>
+              <td><div class="page-title">TMS Built for Freight Forwarders</div><div class="page-url">freightpop.com/freight-forwarder-tms</div></td>
+              <td>FreightPOP</td>
+              <td class="num">1,200</td>
+              <td>#8, #12</td>
+              <td class="num">5 / 14</td>
+              <td><span class="badge notcap">Not captured</span><br><button class="btn">Capture now</button></td>
+              <td class="mom-up">▲ +4 positions</td>
+            </tr>
+            <tr>
+              <td><div class="page-title">What Is Freight Forwarding Software? A Guide</div><div class="page-url">cargowise.com/blog/what-is-freight-forwarding-software</div></td>
+              <td>CargoWise</td>
+              <td class="num">980</td>
+              <td>#6</td>
+              <td class="num">4 / 14</td>
+              <td><span class="badge captured">Captured</span><span class="cap-date">03 Aug 2026</span></td>
+              <td class="mom-down">▼ −3 positions</td>
+            </tr>
+            <tr>
+              <td><div class="page-title">Choosing Forwarding Software: Buyer's Checklist</div><div class="page-url">descartes.com/resources/forwarding-software-checklist</div></td>
+              <td>Descartes</td>
+              <td class="num">720</td>
+              <td>#9</td>
+              <td class="num">3 / 14</td>
+              <td><span class="badge notcap">Not captured</span><br><button class="btn">Capture now</button></td>
+              <td class="mom-flat">— unchanged</td>
+            </tr>
+            <tr>
+              <td><div class="page-title">Magaya vs Legacy Forwarding Systems</div><div class="page-url">magaya.com/compare/legacy-systems</div></td>
+              <td>Magaya</td>
+              <td class="num">540</td>
+              <td>#11</td>
+              <td class="num">3 / 14</td>
+              <td><span class="badge captured">Captured</span><span class="cap-date">03 Aug 2026</span></td>
+              <td class="mom-up">▲ +2 positions</td>
+            </tr>
+            <tr>
+              <td><div class="page-title">5 Signs You've Outgrown Spreadsheet Freight Ops</div><div class="page-url">freightpop.com/blog/outgrown-spreadsheets</div></td>
+              <td>FreightPOP</td>
+              <td class="num">310</td>
+              <td>#14</td>
+              <td class="num">2 / 14</td>
+              <td><span class="badge notcap">Not captured</span><br><button class="btn">Capture now</button></td>
+              <td class="mom-down">▼ −1 position</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="foot-note">
+        <span>Showing 8 of 18 pages · <a href="#">show all</a></span>
+        <span>23 competitor keywords don't map to any GoFreight topic yet · <a href="#">view unmapped</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREEN 2: PAGE DETAIL ============ -->
+<section id="s2" class="screen">
+  <h1>Page detail</h1>
+  <p class="sub">Everything stored about one competitor page — every monthly version, what changed, and full provenance. Opened by clicking any page in Topics, Search, or Competitors. Every page has its own stable URL (e.g. <span class="mono">/gofreight/pages/1423</span>) — ⌘-click opens it in a new browser tab, so any number of page details can be open at once.</p>
+
+  <div class="panel">
+    <div class="detail-head">
+      <div class="detail-title-row">
+        <h2>CargoWise — TMS Solutions Compared</h2>
+        <button class="btn-refresh" title="Fetch this page again right now — stored content is from the last monthly snapshot and may be behind the live page. Creates a new version; history is kept.">⟳ Refresh content now</button>
+      </div>
+      <div class="detail-url">cargowise.com/compare/tms-solutions · <span class="stale-note">stored version is 14 days old — live page may differ</span></div>
+      <div class="chips-row">
+        <span class="chip">project: GoFreight</span>
+        <span class="chip">page_type: comparison</span>
+        <span class="chip">topic: TMS comparison</span>
+        <span class="chip">topic: Freight forwarding software</span>
+        <span class="chip">source: monthly refresh</span>
+      </div>
+    </div>
+
+    <div class="shot">page screenshot — 03 Aug 2026 capture</div>
+  </div>
+
+  <div class="detail-grid">
+    <div class="panel">
+      <div class="block-head">Provenance — current version</div>
+      <dl class="prov-list">
+        <dt>Captured at</dt><dd>03 Aug 2026, 02:14 SGT</dd>
+        <dt>Content hash</dt><dd class="mono">a3f9c21e</dd>
+        <dt>Crawler</dt><dd class="mono">playwright-1.46 · adapter v2.1</dd>
+        <dt>Fetch status</dt><dd><span class="badge captured">OK — 200</span></dd>
+        <dt>Extraction</dt><dd class="mono">trafilatura 1.12 → markdown</dd>
+      </dl>
+    </div>
+
+    <div class="panel">
+      <div class="block-head">Version history</div>
+      <div class="vh-item"><span class="vh-date">03 Aug 2026</span><span class="vh-flag same">no change</span><span class="vh-note">hash matches July</span></div>
+      <div class="vh-item"><span class="vh-date">01 Jul 2026</span><span class="vh-flag same">no change</span><span class="vh-note">hash matches June</span></div>
+      <div class="vh-item"><span class="vh-date">02 Jun 2026</span><span class="vh-flag changed">changed</span><span class="vh-note">pricing-tier section rewritten; added AI-workflow claims</span></div>
+      <div class="vh-item"><span class="vh-date">04 May 2026</span><span class="vh-flag same">no change</span><span class="vh-note">hash matches April</span></div>
+      <div class="vh-item"><span class="vh-date">06 Apr 2026</span><span class="vh-flag same">first capture</span><span class="vh-note">baseline version</span></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:16px;">
+    <div class="block-head">Diff — 04 May 2026 → 02 Jun 2026</div>
+    <div class="diff">
+      <span class="line ctx">## Pricing that scales with your operation</span>
+      <span class="line del">- Contact our sales team for a customized quote based on your module selection.</span>
+      <span class="line add">+ Three transparent tiers — Launch, Scale, and Enterprise — priced per active user.</span>
+      <span class="line add">+ Every tier includes AI-assisted workflow automation for rating, quoting, and customs filing.</span>
+      <span class="line ctx">Our platform is trusted by forwarders in over 170 countries.</span>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:16px;">
+    <div class="block-head">Extracted content — markdown, 03 Aug 2026 version</div>
+    <div class="md-pane">
+      <h3>TMS Solutions Compared: What Freight Forwarders Should Look For</h3>
+      <p>Choosing a transport management system is a multi-year commitment. The platforms in this comparison differ most in three areas: depth of customs integration, how rating and quoting are automated, and whether the system runs your whole operation or bolts onto an existing stack.</p>
+      <h3>Pricing that scales with your operation</h3>
+      <p>Three transparent tiers — Launch, Scale, and Enterprise — priced per active user. Every tier includes AI-assisted workflow automation for rating, quoting, and customs filing.</p>
+      <h3>Where an integrated platform wins</h3>
+      <ul>
+        <li>One data model across forwarding, warehousing, and accounting — no re-keying between systems.</li>
+        <li>Native customs filing in 60+ jurisdictions, updated as regulations change.</li>
+        <li>Productivity analytics that show where branch teams lose time.</li>
+      </ul>
+      <p>Point solutions can be a reasonable start for a small brokerage, but most forwarders outgrow them once volumes pass a few hundred shipments a month…</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREEN 3: SEARCH ============ -->
+<section id="s3" class="screen">
+  <h1>Search</h1>
+  <p class="sub">Full-text search across every stored page version, filtered by the content taxonomy.</p>
+
+  <div class="search-bar">
+    <input type="text" value="detention and demurrage">
+    <button class="go">Search</button>
+  </div>
+  <div class="filters">
+    <select><option>Project: GoFreight</option></select>
+    <select><option>Competitor: all</option><option>CargoWise</option><option>Magaya</option><option>Descartes</option><option>FreightPOP</option></select>
+    <select><option>Page type: all</option><option>comparison</option><option>product</option><option>pricing</option><option>blog</option></select>
+    <select><option>Topic: all</option><option>Freight forwarding software</option><option>Customs compliance</option><option>Freight audit</option></select>
+    <select><option>Captured: any time</option><option>last 30 days</option><option>last 90 days</option></select>
+  </div>
+
+  <div class="result-count">3 pages match across 4 competitors</div>
+
+  <div class="panel">
+    <div class="result">
+      <div class="r-title">Descartes — Ocean Freight Visibility Suite</div>
+      <div class="r-meta">descartes.com/solutions/ocean-visibility · product · captured 03 Aug 2026</div>
+      <div class="r-snip">…automated alerts before <mark>detention and demurrage</mark> charges accrue, with container-level dwell timers and carrier free-time rules built in…</div>
+    </div>
+    <div class="result">
+      <div class="r-title">CargoWise — What Is Freight Forwarding Software? A Guide</div>
+      <div class="r-meta">cargowise.com/blog/what-is-freight-forwarding-software · blog · captured 03 Aug 2026</div>
+      <div class="r-snip">…costs forwarders routinely under-recover, including <mark>detention and demurrage</mark>, chassis usage, and per-diem fees, can be tracked automatically when…</div>
+    </div>
+    <div class="result">
+      <div class="r-title">Magaya — Digital Freight Platform for Forwarders</div>
+      <div class="r-meta">magaya.com/digital-freight-platform · product · captured 03 Aug 2026</div>
+      <div class="r-snip">…reduce <mark>demurrage</mark> exposure with milestone tracking from booking through final delivery; <mark>detention</mark> clocks surface in the operator dashboard…</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREEN 4: COMPETITORS ============ -->
+<section id="s4" class="screen">
+  <h1>Competitors</h1>
+  <p class="sub">Per-competitor rollup — a secondary lens; the Topics view is the primary way in. All traffic figures est., DataForSEO.</p>
+
+  <div class="comp-grid">
+    <div class="panel comp-card">
+      <div class="panel-head"><h3>CargoWise</h3><span class="domain">cargowise.com</span></div>
+      <div class="comp-sec">
+        <h4>SEO overview</h4>
+        <div class="seo-grid">
+          <div class="cell"><span class="num">1,240</span><span class="k">pages in landscape</span></div>
+          <div class="cell"><span class="num">18</span><span class="k">captured in our DB</span></div>
+          <div class="cell"><span class="num">31.2k</span><span class="k">est. traffic/mo (site)</span></div>
+          <div class="cell"><span class="num">4,120</span><span class="k">keywords ranked</span></div>
+        </div>
+      </div>
+      <div class="comp-sec">
+        <h4>Site structure · click a subfolder to expand</h4>
+        <details class="folder" open>
+          <summary><span class="f">/solutions/</span><span class="fc">64 pages · 41% of traffic</span></summary>
+          <div class="fpage"><span class="pt">Freight Forwarding Software</span><span class="pv">4,800</span></div>
+          <div class="fpage"><span class="pt">Customs Filing &amp; Compliance</span><span class="pv">1,400</span></div>
+          <div class="fpage"><span class="pt">Warehouse Management for Forwarders</span><span class="pv">760</span></div>
+          <div class="fpage"><span class="pt">Rating &amp; Quoting Automation</span><span class="pv">430</span></div>
+        </details>
+        <details class="folder">
+          <summary><span class="f">/blog/</span><span class="fc">540 pages · 27% of traffic</span></summary>
+          <div class="fpage"><span class="pt">What Is Freight Forwarding Software? A Guide</span><span class="pv">980</span></div>
+          <div class="fpage"><span class="pt">Incoterms 2026: The Complete Guide</span><span class="pv">720</span></div>
+        </details>
+        <details class="folder">
+          <summary><span class="f">/compare/</span><span class="fc">22 pages · 14% of traffic</span></summary>
+          <div class="fpage"><span class="pt">TMS Solutions Compared</span><span class="pv">2,300</span></div>
+          <div class="fpage"><span class="pt">CargoWise vs Magaya</span><span class="pv">610</span></div>
+        </details>
+        <details class="folder"><summary><span class="f">/products/</span><span class="fc">48 pages · 8% of traffic</span></summary><div class="fpage"><span class="pt">CargoWise One Platform</span><span class="pv">390</span></div></details>
+        <details class="folder"><summary><span class="f">/events/</span><span class="fc">120 pages · 4% of traffic</span></summary><div class="fpage"><span class="pt">CargoWise Horizons 2026</span><span class="pv">180</span></div></details>
+        <details class="folder"><summary><span class="f">/company/</span><span class="fc">35 pages · 2% of traffic</span></summary><div class="fpage"><span class="pt">About WiseTech Global</span><span class="pv">95</span></div></details>
+      </div>
+      <div class="comp-sec">
+        <h4>Topic coverage · pages per topic · performance-weighted</h4>
+        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="cnt">18 pg</span><span class="bar"><i style="width:78%"></i></span><span class="pct">78%</span></div>
+        <div class="bar-row"><span class="lbl">Freight audit</span><span class="cnt">9 pg</span><span class="bar"><i style="width:52%"></i></span><span class="pct">52%</span></div>
+        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="cnt">11 pg</span><span class="bar"><i style="width:44%"></i></span><span class="pct">44%</span></div>
+        <div class="bar-row"><span class="lbl">Customs compliance</span><span class="cnt">12 pg</span><span class="bar"><i style="width:31%"></i></span><span class="pct">31%</span></div>
+        <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="cnt">7 pg</span><span class="bar"><i style="width:26%"></i></span><span class="pct">26%</span></div>
+        <div class="bar-row"><span class="lbl">Customs brokerage software</span><span class="cnt">6 pg</span><span class="bar"><i style="width:24%"></i></span><span class="pct">24%</span></div>
+        <div class="bar-row"><span class="lbl">Warehouse management</span><span class="cnt">8 pg</span><span class="bar"><i style="width:19%"></i></span><span class="pct">19%</span></div>
+        <div class="bar-row"><span class="lbl">Freight rate management</span><span class="cnt">5 pg</span><span class="bar"><i style="width:15%"></i></span><span class="pct">15%</span></div>
+        <div class="bar-row"><span class="lbl">Shipment visibility</span><span class="cnt">6 pg</span><span class="bar"><i style="width:12%"></i></span><span class="pct">12%</span></div>
+        <div class="bar-row"><span class="lbl">Air freight software</span><span class="cnt">4 pg</span><span class="bar"><i style="width:9%"></i></span><span class="pct">9%</span></div>
+        <details class="more-topics">
+          <summary>show all 13 topics ▾</summary>
+          <div class="bar-row"><span class="lbl">Freight billing software</span><span class="cnt">3 pg</span><span class="bar"><i style="width:7%"></i></span><span class="pct">7%</span></div>
+          <div class="bar-row"><span class="lbl">Landed cost calculation</span><span class="cnt">2 pg</span><span class="bar"><i style="width:5%"></i></span><span class="pct">5%</span></div>
+          <div class="bar-row"><span class="lbl">Bonded warehouse software</span><span class="cnt">2 pg</span><span class="bar"><i style="width:3%"></i></span><span class="pct">3%</span></div>
+        </details>
+      </div>
+      <div class="comp-sec">
+        <h4>Month over month</h4>
+        <div class="shift mom-up">▲ Gained positions on 5 panel keywords</div>
+        <div class="shift mom-down">▼ Blog guide slipped on 3 keywords</div>
+      </div>
+    </div>
+
+    <div class="panel comp-card">
+      <div class="panel-head"><h3>Descartes</h3><span class="domain">descartes.com</span></div>
+      <div class="comp-sec">
+        <h4>SEO overview</h4>
+        <div class="seo-grid">
+          <div class="cell"><span class="num">2,860</span><span class="k">pages in landscape</span></div>
+          <div class="cell"><span class="num">14</span><span class="k">captured in our DB</span></div>
+          <div class="cell"><span class="num">58.4k</span><span class="k">est. traffic/mo (site)</span></div>
+          <div class="cell"><span class="num">9,340</span><span class="k">keywords ranked</span></div>
+        </div>
+      </div>
+      <div class="comp-sec">
+        <h4>Site structure · click a subfolder to expand</h4>
+        <details class="folder">
+          <summary><span class="f">/solutions/</span><span class="fc">180 pages · 46% of traffic</span></summary>
+          <div class="fpage"><span class="pt">Freight Forwarding &amp; Logistics Software</span><span class="pv">3,100</span></div>
+          <div class="fpage"><span class="pt">Customs Compliance Suite</span><span class="pv">2,700</span></div>
+          <div class="fpage"><span class="pt">Ocean Freight Visibility Suite</span><span class="pv">1,850</span></div>
+        </details>
+        <details class="folder">
+          <summary><span class="f">/resources/</span><span class="fc">710 pages · 22% of traffic</span></summary>
+          <div class="fpage"><span class="pt">Choosing Forwarding Software: Buyer's Checklist</span><span class="pv">720</span></div>
+          <div class="fpage"><span class="pt">HS Code Lookup Tool</span><span class="pv">640</span></div>
+        </details>
+        <details class="folder"><summary><span class="f">/industries/</span><span class="fc">44 pages · 9% of traffic</span></summary><div class="fpage"><span class="pt">Solutions for Freight Forwarders</span><span class="pv">410</span></div></details>
+        <details class="folder"><summary><span class="f">/news/</span><span class="fc">1,620 pages · 7% of traffic</span></summary><div class="fpage"><span class="pt">Descartes Acquires OCR Vision Co</span><span class="pv">120</span></div></details>
+        <details class="folder"><summary><span class="f">/partners/</span><span class="fc">60 pages · 3% of traffic</span></summary><div class="fpage"><span class="pt">Partner Directory</span><span class="pv">85</span></div></details>
+      </div>
+      <div class="comp-sec">
+        <h4>Topic coverage · pages per topic · performance-weighted</h4>
+        <div class="bar-row"><span class="lbl">Customs compliance</span><span class="cnt">14 pg</span><span class="bar"><i style="width:71%"></i></span><span class="pct">71%</span></div>
+        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="cnt">9 pg</span><span class="bar"><i style="width:58%"></i></span><span class="pct">58%</span></div>
+        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="cnt">12 pg</span><span class="bar"><i style="width:49%"></i></span><span class="pct">49%</span></div>
+        <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="cnt">8 pg</span><span class="bar"><i style="width:36%"></i></span><span class="pct">36%</span></div>
+        <div class="bar-row"><span class="lbl">Customs brokerage software</span><span class="cnt">10 pg</span><span class="bar"><i style="width:33%"></i></span><span class="pct">33%</span></div>
+        <div class="bar-row"><span class="lbl">Shipment visibility</span><span class="cnt">9 pg</span><span class="bar"><i style="width:28%"></i></span><span class="pct">28%</span></div>
+        <div class="bar-row"><span class="lbl">Freight rate management</span><span class="cnt">6 pg</span><span class="bar"><i style="width:17%"></i></span><span class="pct">17%</span></div>
+        <div class="bar-row"><span class="lbl">Freight audit</span><span class="cnt">4 pg</span><span class="bar"><i style="width:11%"></i></span><span class="pct">11%</span></div>
+        <div class="bar-row"><span class="lbl">Air freight software</span><span class="cnt">3 pg</span><span class="bar"><i style="width:7%"></i></span><span class="pct">7%</span></div>
+        <details class="more-topics">
+          <summary>show all 12 topics ▾</summary>
+          <div class="bar-row"><span class="lbl">Warehouse management</span><span class="cnt">3 pg</span><span class="bar"><i style="width:6%"></i></span><span class="pct">6%</span></div>
+          <div class="bar-row"><span class="lbl">Landed cost calculation</span><span class="cnt">2 pg</span><span class="bar"><i style="width:4%"></i></span><span class="pct">4%</span></div>
+          <div class="bar-row"><span class="lbl">Freight billing software</span><span class="cnt">1 pg</span><span class="bar"><i style="width:2%"></i></span><span class="pct">2%</span></div>
+        </details>
+      </div>
+      <div class="comp-sec">
+        <h4>Month over month</h4>
+        <div class="shift mom-up">▲ New buyer's-checklist page entered top 10 on 2 keywords</div>
+        <div class="shift mom-flat">— Customs pages unchanged since May</div>
+      </div>
+    </div>
+
+    <div class="panel comp-card">
+      <div class="panel-head"><h3>Magaya</h3><span class="domain">magaya.com</span></div>
+      <div class="comp-sec">
+        <h4>SEO overview</h4>
+        <div class="seo-grid">
+          <div class="cell"><span class="num">640</span><span class="k">pages in landscape</span></div>
+          <div class="cell"><span class="num">11</span><span class="k">captured in our DB</span></div>
+          <div class="cell"><span class="num">12.9k</span><span class="k">est. traffic/mo (site)</span></div>
+          <div class="cell"><span class="num">2,210</span><span class="k">keywords ranked</span></div>
+        </div>
+      </div>
+      <div class="comp-sec">
+        <h4>Site structure · click a subfolder to expand</h4>
+        <details class="folder">
+          <summary><span class="f">/platform/</span><span class="fc">38 pages · 44% of traffic</span></summary>
+          <div class="fpage"><span class="pt">Digital Freight Platform for Forwarders</span><span class="pv">1,950</span></div>
+          <div class="fpage"><span class="pt">Ocean Tracking Dashboard</span><span class="pv">1,100</span></div>
+        </details>
+        <details class="folder"><summary><span class="f">/compare/</span><span class="fc">9 pages · 18% of traffic</span></summary><div class="fpage"><span class="pt">Magaya vs Legacy Forwarding Systems</span><span class="pv">540</span></div></details>
+        <details class="folder"><summary><span class="f">/blog/</span><span class="fc">310 pages · 15% of traffic</span></summary><div class="fpage"><span class="pt">Freight KPIs Every Forwarder Should Track</span><span class="pv">290</span></div></details>
+        <details class="folder"><summary><span class="f">/customers/</span><span class="fc">52 pages · 8% of traffic</span></summary><div class="fpage"><span class="pt">Case Study: 3PL Cuts Quoting Time 60%</span><span class="pv">140</span></div></details>
+      </div>
+      <div class="comp-sec">
+        <h4>Topic coverage · pages per topic · performance-weighted</h4>
+        <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="cnt">9 pg</span><span class="bar"><i style="width:64%"></i></span><span class="pct">64%</span></div>
+        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="cnt">7 pg</span><span class="bar"><i style="width:41%"></i></span><span class="pct">41%</span></div>
+        <div class="bar-row"><span class="lbl">Warehouse management</span><span class="cnt">6 pg</span><span class="bar"><i style="width:29%"></i></span><span class="pct">29%</span></div>
+        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="cnt">4 pg</span><span class="bar"><i style="width:22%"></i></span><span class="pct">22%</span></div>
+        <div class="bar-row"><span class="lbl">Shipment visibility</span><span class="cnt">5 pg</span><span class="bar"><i style="width:18%"></i></span><span class="pct">18%</span></div>
+        <div class="bar-row"><span class="lbl">Freight rate management</span><span class="cnt">3 pg</span><span class="bar"><i style="width:12%"></i></span><span class="pct">12%</span></div>
+        <details class="more-topics">
+          <summary>show all 11 topics ▾</summary>
+          <div class="bar-row"><span class="lbl">Customs compliance</span><span class="cnt">3 pg</span><span class="bar"><i style="width:9%"></i></span><span class="pct">9%</span></div>
+          <div class="bar-row"><span class="lbl">Freight audit</span><span class="cnt">2 pg</span><span class="bar"><i style="width:6%"></i></span><span class="pct">6%</span></div>
+          <div class="bar-row"><span class="lbl">Customs brokerage software</span><span class="cnt">2 pg</span><span class="bar"><i style="width:5%"></i></span><span class="pct">5%</span></div>
+          <div class="bar-row"><span class="lbl">Air freight software</span><span class="cnt">1 pg</span><span class="bar"><i style="width:3%"></i></span><span class="pct">3%</span></div>
+          <div class="bar-row"><span class="lbl">Freight billing software</span><span class="cnt">1 pg</span><span class="bar"><i style="width:2%"></i></span><span class="pct">2%</span></div>
+        </details>
+      </div>
+      <div class="comp-sec">
+        <h4>Month over month</h4>
+        <div class="shift mom-up">▲ Tracking dashboard page up on 2 keywords</div>
+      </div>
+    </div>
+
+    <div class="panel comp-card">
+      <div class="panel-head"><h3>FreightPOP</h3><span class="domain">freightpop.com</span></div>
+      <div class="comp-sec">
+        <h4>SEO overview</h4>
+        <div class="seo-grid">
+          <div class="cell"><span class="num">210</span><span class="k">pages in landscape</span></div>
+          <div class="cell"><span class="num">12</span><span class="k">captured in our DB</span></div>
+          <div class="cell"><span class="num">4.1k</span><span class="k">est. traffic/mo (site)</span></div>
+          <div class="cell"><span class="num">890</span><span class="k">keywords ranked</span></div>
+        </div>
+      </div>
+      <div class="comp-sec">
+        <h4>Site structure · click a subfolder to expand</h4>
+        <details class="folder">
+          <summary><span class="f">/tms/</span><span class="fc">16 pages · 52% of traffic</span></summary>
+          <div class="fpage"><span class="pt">TMS Built for Freight Forwarders</span><span class="pv">1,200</span></div>
+          <div class="fpage"><span class="pt">Rate Shopping Across Carriers</span><span class="pv">280</span></div>
+        </details>
+        <details class="folder"><summary><span class="f">/blog/</span><span class="fc">150 pages · 31% of traffic</span></summary><div class="fpage"><span class="pt">5 Signs You've Outgrown Spreadsheet Freight Ops</span><span class="pv">310</span></div></details>
+        <details class="folder"><summary><span class="f">/integrations/</span><span class="fc">28 pages · 8% of traffic</span></summary><div class="fpage"><span class="pt">QuickBooks Integration</span><span class="pv">110</span></div></details>
+        <details class="folder"><summary><span class="f">/pricing/</span><span class="fc">3 pages · 5% of traffic</span></summary><div class="fpage"><span class="pt">FreightPOP Pricing</span><span class="pv">95</span></div></details>
+      </div>
+      <div class="comp-sec">
+        <h4>Topic coverage · pages per topic · performance-weighted</h4>
+        <div class="bar-row"><span class="lbl">Freight forwarding software</span><span class="cnt">5 pg</span><span class="bar"><i style="width:33%"></i></span><span class="pct">33%</span></div>
+        <div class="bar-row"><span class="lbl">TMS comparison</span><span class="cnt">3 pg</span><span class="bar"><i style="width:18%"></i></span><span class="pct">18%</span></div>
+        <div class="bar-row"><span class="lbl">Freight rate management</span><span class="cnt">4 pg</span><span class="bar"><i style="width:16%"></i></span><span class="pct">16%</span></div>
+        <div class="bar-row"><span class="lbl">Shipment visibility</span><span class="cnt">3 pg</span><span class="bar"><i style="width:11%"></i></span><span class="pct">11%</span></div>
+        <details class="more-topics">
+          <summary>show all 8 topics ▾</summary>
+          <div class="bar-row"><span class="lbl">Freight audit</span><span class="cnt">2 pg</span><span class="bar"><i style="width:7%"></i></span><span class="pct">7%</span></div>
+          <div class="bar-row"><span class="lbl">Warehouse management</span><span class="cnt">1 pg</span><span class="bar"><i style="width:4%"></i></span><span class="pct">4%</span></div>
+          <div class="bar-row"><span class="lbl">Ocean freight tracking</span><span class="cnt">1 pg</span><span class="bar"><i style="width:3%"></i></span><span class="pct">3%</span></div>
+          <div class="bar-row"><span class="lbl">Customs compliance</span><span class="cnt">1 pg</span><span class="bar"><i style="width:2%"></i></span><span class="pct">2%</span></div>
+        </details>
+      </div>
+      <div class="comp-sec">
+        <h4>Month over month</h4>
+        <div class="shift mom-up">▲ Fastest riser: +4 positions on the forwarder-TMS page</div>
+        <div class="shift mom-flat">— Small site: all 210 pages in landscape, 12 captured</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="global-note">Landscape = every page the data provider sees for a domain (est., DataForSEO), refreshed monthly. Captured = full content stored in the database. Coverage % = share of a topic's panel keywords where this competitor holds a top-10 position, weighted by search volume.</div>
+</section>
+
+</main>
+
+<script>
+  function showScreen(id) {
+    var btn = document.querySelector('nav .tab[data-screen="' + id + '"]');
+    if (!btn || !document.getElementById(id)) return;
+    document.querySelectorAll('nav .tab').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+  document.querySelectorAll('nav .tab').forEach(function (btn) {
+    btn.addEventListener('click', function () { showScreen(btn.dataset.screen); });
+  });
+  // Deep-linking: ?screen=s2 or #s2 opens that tab directly
+  var want = new URLSearchParams(location.search).get('screen') || location.hash.replace('#', '');
+  if (want) showScreen(want);
+  // Any page title anywhere (topics table, search results, competitor subfolders)
+  // opens its Page detail. Real app: every page has a stable URL, so plain click
+  // navigates and cmd-click opens a new browser tab — any number can be open at once.
+  document.querySelectorAll('.page-title, .fpage .pt, .result .r-title').forEach(function (el) {
+    el.classList.add('plink');
+    el.addEventListener('click', function () { showScreen('s2'); });
+  });
+</script>
+
+</body>
+</html>
