@@ -76,12 +76,12 @@ RNG = random.Random(20260826)
 EYEBROW = "THANK GOD SUMMER IS OVER · VOL. II"
 HEADLINE = ["CORTISOL", "DOWN"]
 SUBHEAD = "A moms-only evening at The Calla Project."
-DATELINE = "Wednesday 26 August · 6–9 pm"
+DATELINE = "Monday 24 August · 6–9 pm"
 
 # (label, value, sub) — `sub` hangs a mono second line under the value, so a
 # long address does not force every value in the block down a size
 DETAILS = [
-    ("WHEN", "Wednesday 26 August", None),
+    ("WHEN", "Monday 24 August", None),
     ("TIME", "6 – 9 pm", None),
     ("WHERE", "The Calla Project", "271A Holland Ave, Singapore 278991"),
     ("BRING", "A swimsuit. That's it.", None),
