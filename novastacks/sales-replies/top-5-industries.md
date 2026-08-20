@@ -16,10 +16,10 @@ Sections A–C stay as the generic fallback for the next lead.
 > Five where most of our work sits:
 >
 > 1. **B2B SaaS & logistics tech** — freight, supply chain, enterprise software
-> 2. **Travel, marketplaces & ecommerce** — OTAs, D2C, high-frequency consumer
-> 3. **Fintech & wealth** — brokerage, investing, financial services
-> 4. **Healthcare & longevity** — clinics, medical services, preventive health
-> 5. **Telco & enterprise tech** — carriers, connectivity, IT services
+> 2. **Travel** — OTAs, bookings, hospitality
+> 3. **Marketplaces & ecommerce** — D2C brands, platforms, high-frequency consumer
+> 4. **Fintech & wealth** — brokerage, investing, financial services
+> 5. **Healthcare & longevity** — clinics, medical services, preventive health
 >
 > Honestly though, the vertical matters less than the buying motion. Everything we take on
 > is a considered purchase where the buyer researches hard before they ever talk to sales —
@@ -29,7 +29,7 @@ Sections A–C stay as the generic fallback for the next lead.
 
 ## B. Short version (chat, WhatsApp, reply-in-thread)
 
-> B2B SaaS/logistics, travel & marketplaces, fintech, healthcare, and telco.
+> B2B SaaS/logistics, travel, marketplaces & ecommerce, fintech, and healthcare.
 > Common thread is high-consideration buying — where AI shortlists before sales gets a call.
 > Which one are you closest to?
 
@@ -44,17 +44,19 @@ Sections A–C stay as the generic fallback for the next lead.
 > average Google position 25 → 8, MQLs roughly 3×. Their CEO saw it as an inbound enterprise
 > lead that came in saying ChatGPT recommended them over the market leader.
 >
-> **2. Travel, marketplaces & ecommerce.** Where the team was built — Traveloka, Expedia,
-> Klook, Tokopedia. Tina ran a 100+ person global acquisition team and $50M+ in spend across
-> those; Eki led technical SEO at Traveloka and Tokopedia.
+> **2. Travel.** Where the team was built — Traveloka, Expedia, Klook, tiket.com. Tina ran a
+> 100+ person global acquisition team and $50M+ in spend across those; Eki was Head of
+> Technical SEO at Traveloka.
 >
-> **3. Fintech & wealth.** Brokerage and investing platforms; our CTO was previously CTO at
+> **3. Marketplaces & ecommerce.** Tokopedia on the platform side — Eki co-authored its growth
+> case study with Google — and on the brand side we built and exited a $10M D2C portfolio of
+> our own, from zero, over four years.
+>
+> **4. Fintech & wealth.** Brokerage and investing platforms; our CTO was previously CTO at
 > StashAway, so the data and compliance side isn't new ground.
 >
-> **4. Healthcare & longevity.** Clinics and medical services — high-intent, high-trust
+> **5. Healthcare & longevity.** Clinics and medical services — high-intent, high-trust
 > categories where AI answers are already the first consultation.
->
-> **5. Telco & enterprise tech.** Carrier-scale search and reputation work in Singapore.
 >
 > The pattern across all five: a considered purchase, a long research window, and a buyer who
 > now builds their shortlist inside ChatGPT, Gemini or AI Overviews before anyone in sales
@@ -76,13 +78,13 @@ before he replies.
 > Five where most of our work sits, and yours is #2:
 >
 > 1. **B2B SaaS & logistics tech**
-> 2. **D2C, ecommerce & marketplaces** — home turf. Before Novastacks we built and exited a
+> 2. **Marketplaces, ecommerce & D2C** — home turf. Before Novastacks we built and exited a
 >    $10M D2C portfolio from zero (Dunwell, Cranberry, Sentinol), and our search lead was
 >    Head of Technical SEO at Tokopedia and Traveloka.
-> 3. **Fintech & wealth**
-> 4. **Healthcare & longevity** — which is really where skincare sits: ingredient claims,
+> 3. **Travel** — Traveloka, Expedia, Klook
+> 4. **Fintech & wealth**
+> 5. **Healthcare & longevity** — which is really where skincare sits: ingredient claims,
 >    skin-concern queries, "is this safe for…"
-> 5. **Telco & enterprise tech**
 >
 > But the list matters less than this. Open ChatGPT and ask it *"best [your category] for
 > [your hero concern]"*. Whoever it names is your actual shortlist now — and for nearly every
@@ -98,8 +100,8 @@ before he replies.
 
 ### D2. Short version (LinkedIn DM / WhatsApp)
 
-> D2C & ecommerce is one of them — we built and exited a $10M D2C portfolio before starting
-> Novastacks, so skincare's a category we've actually operated in, not just pitched.
+> Marketplaces & ecommerce is one of them — we built and exited a $10M D2C portfolio before
+> starting Novastacks, so skincare's a category we've actually operated in, not just pitched.
 >
 > Quick thing worth doing before you reply: ask ChatGPT "best [your category] for [your hero
 > concern]" and see who it names. That list is your shortlist now, and it's built from Reddit
@@ -170,8 +172,9 @@ matter and short enough to act on, not as a promise of the same numbers.
 
 ## Notes for whoever sends this
 
-- **Adjacent verticals we've delivered in** but wouldn't lead with: proptech, events/expo,
-  education. Mention them only if the lead is in one.
+- **Adjacent verticals we've delivered in** but wouldn't lead with: telco (Singtel), proptech,
+  events/expo, education. Mention them only if the lead is in one — telco especially is real,
+  substantial work, it just doesn't earn a slot when the list is capped at five.
 - **Pick the version by channel.** A one-line question deserves a short answer — version B
   or A. Version C only when they've already shown intent.
 - **Always end on the question.** The list is the price of admission; their category is the
