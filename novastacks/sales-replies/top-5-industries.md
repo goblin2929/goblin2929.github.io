@@ -78,48 +78,70 @@ brand's own site. So the reply does three things: put his category *inside* the 
 we've operated D2C as owners rather than as an agency, and end on a check he can run himself
 before he replies.
 
-### D1. Primary reply (email — default send, 89 words)
+### D1. Primary reply (email — default send, 85 words)
 
-> Five: B2B SaaS & logistics, marketplaces & ecommerce, travel, fintech, healthcare.
+> Five: B2B SaaS & logistics, marketplaces & ecommerce, travel, fintech, healthcare — yours
+> is #2, we exited a $10M D2C portfolio before Novastacks.
 >
-> Yours is #2 — we built and exited a $10M D2C portfolio before starting Novastacks, so
-> skincare's a category we've operated in, not just pitched.
+> Worth 60 seconds: ask ChatGPT to compare you to your closest competitor, then *"what
+> sources did you use?"* It'll name them. Those pages decide whether you get recommended —
+> usually Reddit and a couple of roundups, almost never your own site.
 >
-> Quick thing: ask ChatGPT *"best [your category] for [your hero concern]"*. Whoever it names
-> is your shortlist now — and for most skincare brands that answer comes from Reddit and
-> roundups, not their own site.
->
-> Want me to run you against your top 3 competitors and send what AI actually says? Free,
-> takes a day.
+> Send me your two closest competitors and I'll run the full version: every buyer prompt,
+> every engine, the exact source list behind each.
 
-**Held back for the follow-up, not the first reply.** Each of these is strong and each costs
-15–25 words, so they buy nothing in a cold send and everything once he's engaged:
+**Why this close and not "free audit".** Every performance agency in his inbox offers a free
+audit; the phrase is dead on arrival and signals a sales sequence. Two changes fix it:
+
+- **The hook is a real trick, not an observation.** "Ask ChatGPT what's best in your
+  category" is something he's already done. Asking the model *to name its own sources* is the
+  move most people don't know — and it hands him the actual mechanism: a short list of
+  third-party URLs that decide his recommendation. He learns something in 60 seconds whether
+  or not he replies to us, which is what earns the reply.
+- **The ask trades, it doesn't beg.** "Send me your two closest competitors" is a five-second
+  micro-commitment that makes the deliverable specific and tells us the competitive set
+  before any call. It also lands as a peer swapping information rather than a vendor
+  requesting a meeting slot — and it never says the word "free", so the value isn't priced
+  at zero before he's seen it.
+
+**It also sets up the sale.** What he sees on his own is one answer's sources. What he can't
+do himself is the full citation-mining pass — every buyer prompt, per engine, ranked — which
+is precisely System 04, the Echo Network. The hack is a true sample of the product, not bait.
+
+**Held back for the follow-up, not the first reply.** Each is strong and each costs 15–25
+words, so they buy nothing cold and everything once he's engaged:
 
 - AI-referred visitors convert **42% more often** than other traffic (Adobe).
-- **85% of brand mentions** AI cites sit on third-party pages.
+- **85% of brand mentions** AI cites sit on third-party pages; **60% of AI Overview
+  citations** come from outside the top 20 organic results.
 - The **Dunwell / Cranberry / Sentinol** names, and Eki's Tokopedia case study with Google.
 - GoFreight: invisible to top-5 share of mentions in **three months**.
 
-### D2. Short version (LinkedIn DM / WhatsApp, 52 words)
+### D2. Short version (LinkedIn DM / WhatsApp, 56 words)
 
-> Marketplaces & ecommerce is one — we built and exited a $10M D2C portfolio before
-> Novastacks, so skincare's a category we've operated in, not just pitched.
+> Marketplaces & ecommerce — we exited a $10M D2C portfolio before Novastacks, so skincare's
+> a category we've operated in.
 >
-> Try this: ask ChatGPT "best [your category] for [your hero concern]". That list is your
-> shortlist now.
+> Try this: ask ChatGPT to compare you to your closest competitor, then "what sources did you
+> use?" Those pages, not your site, decide whether you get recommended.
 >
-> Want me to run you against your top 3? Free.
+> Send me two competitor names and I'll run the full set.
 
 ### D3. The FOMO, and how to make it land
 
 Four levers, in the order they actually work on a founder. Use one or two — stacking all
-four reads as a pitch and kills the credibility the free audit is meant to buy.
+four reads as a pitch and kills the credibility the hack is meant to buy.
 
-**1. The 60-second self-check (curiosity — strongest, use in almost every send).**
-Don't tell him he has a problem; hand him the query that shows it. *"Ask ChatGPT 'best
-vitamin C serum for sensitive skin' and see who comes up."* He will run it. If a competitor
-is named and he isn't, the FOMO is his own conclusion, which is the only kind that sticks.
-This also costs us nothing and can't be wrong — whatever it returns is a conversation.
+**1. The source-reveal (curiosity — strongest, use in almost every send).**
+Don't tell him he has a problem; hand him the trick that shows it. Ask ChatGPT to compare him
+to a competitor, then ask it *which sources it used*. It will list them — and they'll be
+Reddit threads, a Byrdie-style roundup, maybe a derm blog. Almost never his own site. He runs
+it, sees a stranger's page controlling his recommendation, and reaches the conclusion himself.
+That is the only kind of FOMO that sticks, and it costs us nothing.
+
+Do **not** downgrade this to "ask ChatGPT what's the best serum" — he's done that, it reads as
+a party trick, and it doesn't reveal the mechanism. The source list is the hack; the ranking
+is just the setup for it.
 
 **2. Loss that's already happening (not a future risk).**
 - AI-referred visitors convert **42% more often** than other traffic (Adobe) — for a D2C
@@ -144,12 +166,12 @@ one-per-competitor-set. This is legitimate scarcity because it's structurally tr
 plainly, once: *"Worth flagging — we only take one brand per competitive set, since the whole
 job is winning the same prompts."* Then drop it.
 
-**The actionable half.** FOMO without a next step is just anxiety. Every version above ends
-on the free prompt audit — his brand plus three named competitors, run through real buyer
-prompts, results in a day. It's the standing offer on the deck ("See what AI says about your
-brand today — we'll run the first audit free"), it requires nothing from him, and it converts
-the fear into a scheduled deliverable. Ask for the three competitor names in the same
-message: naming them is a micro-commitment and it tells us the set before the call.
+**The actionable half.** FOMO without a next step is just anxiety. Every version closes by
+asking for two competitor names in exchange for the full citation-mining pass. That's the
+standing free-audit offer from the deck, but never worded as one — a trade reads as peer
+behaviour, "let me audit you for free" reads as a sequence. The names are a five-second
+commitment, they make the deliverable concrete, and they hand us the competitive set before
+anyone gets on a call.
 
 **Speed proof, if he asks how long this takes.** GoFreight went from invisible to top-5
 share of mentions in AI answers in **three months** — organic clicks +88%, average position
@@ -188,8 +210,9 @@ matter and short enough to act on, not as a promise of the same numbers.
   honest list that happens to include them; first reads as a list rewritten for the email.
 - **Adapting D to another vertical:** the shape holds — name their category inside the five,
   attach the one credential that proves we've operated *in their world* rather than sold to
-  it, hand them a query they can run themselves, close on the free audit. Only the proof
-  point and the sample prompt change.
+  it, hand them a trick they can run themselves that reveals the mechanism, close by trading
+  for their competitor names. Only the proof point and the trick change — for a B2B lead the
+  equivalent is asking an engine to shortlist vendors in their category, then to cite why.
 - Figures cited in versions C and D come from the credentials deck
   (`novastacks/company-credential/`) and the AEO deck (`novastacks/aeo-deck/`) — keep them in
   sync if either deck changes. Sources: Adobe Analytics (42% conversion lift), SparkToro
