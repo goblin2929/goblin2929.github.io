@@ -2,7 +2,9 @@
 
 **Context:** cold one-liner from an inbound/outbound lead. Goal is not to list verticals —
 it's to answer fast, prove depth with names, and hand the question back so they tell us
-their category. Keep it under 120 words. Never open with "great question".
+their category. **Hard cap: 100 words on any first reply.** He asked one line; a screen of
+prose reads as a pitch deck and gets skimmed. One credential, one hook, one offer — the rest
+is what you say when he writes back. Never open with "great question".
 
 **Live lead: D2C skincare.** Use the versions in
 [Section D](#d-d2c-skincare-version-live-lead) — they name his category, lead with the
@@ -35,7 +37,10 @@ Sections A–C stay as the generic fallback for the next lead.
 
 ---
 
-## C. Longer version (when the lead is senior and expects proof)
+## C. Proof version — a follow-up, never a first reply
+
+Over the 100-word cap by design. Send only after they've replied and asked for substance,
+or when a senior lead has explicitly asked what we've done.
 
 > Five, in rough order of depth:
 >
@@ -73,42 +78,37 @@ brand's own site. So the reply does three things: put his category *inside* the 
 we've operated D2C as owners rather than as an agency, and end on a check he can run himself
 before he replies.
 
-### D1. Primary reply (email — default send)
+### D1. Primary reply (email — default send, 89 words)
 
-> Five where most of our work sits, and yours is #2:
+> Five: B2B SaaS & logistics, marketplaces & ecommerce, travel, fintech, healthcare.
 >
-> 1. **B2B SaaS & logistics tech**
-> 2. **Marketplaces, ecommerce & D2C** — home turf. Before Novastacks we built and exited a
->    $10M D2C portfolio from zero (Dunwell, Cranberry, Sentinol), and our search lead was
->    Head of Technical SEO at Tokopedia and Traveloka.
-> 3. **Travel** — Traveloka, Expedia, Klook
-> 4. **Fintech & wealth**
-> 5. **Healthcare & longevity** — which is really where skincare sits: ingredient claims,
->    skin-concern queries, "is this safe for…"
+> Yours is #2 — we built and exited a $10M D2C portfolio before starting Novastacks, so
+> skincare's a category we've operated in, not just pitched.
 >
-> But the list matters less than this. Open ChatGPT and ask it *"best [your category] for
-> [your hero concern]"*. Whoever it names is your actual shortlist now — and for nearly every
-> skincare brand that answer is assembled from Reddit threads and "best of" roundups, not
-> from your own site. 85% of the brand mentions AI cites sit on third-party pages.
+> Quick thing: ask ChatGPT *"best [your category] for [your hero concern]"*. Whoever it names
+> is your shortlist now — and for most skincare brands that answer comes from Reddit and
+> roundups, not their own site.
 >
-> Worth knowing: AI-referred visitors convert 42% more often than any other traffic source
-> (Adobe). So it's your highest-intent channel, and right now it's being routed by strangers.
->
-> Happy to run your brand and your top three competitors through the real buyer prompts and
-> send you what AI actually says about each of you. Free, takes us a day, no deck attached.
-> Want it?
+> Want me to run you against your top 3 competitors and send what AI actually says? Free,
+> takes a day.
 
-### D2. Short version (LinkedIn DM / WhatsApp)
+**Held back for the follow-up, not the first reply.** Each of these is strong and each costs
+15–25 words, so they buy nothing in a cold send and everything once he's engaged:
 
-> Marketplaces & ecommerce is one of them — we built and exited a $10M D2C portfolio before
-> starting Novastacks, so skincare's a category we've actually operated in, not just pitched.
+- AI-referred visitors convert **42% more often** than other traffic (Adobe).
+- **85% of brand mentions** AI cites sit on third-party pages.
+- The **Dunwell / Cranberry / Sentinol** names, and Eki's Tokopedia case study with Google.
+- GoFreight: invisible to top-5 share of mentions in **three months**.
+
+### D2. Short version (LinkedIn DM / WhatsApp, 52 words)
+
+> Marketplaces & ecommerce is one — we built and exited a $10M D2C portfolio before
+> Novastacks, so skincare's a category we've operated in, not just pitched.
 >
-> Quick thing worth doing before you reply: ask ChatGPT "best [your category] for [your hero
-> concern]" and see who it names. That list is your shortlist now, and it's built from Reddit
-> and roundups rather than your site.
+> Try this: ask ChatGPT "best [your category] for [your hero concern]". That list is your
+> shortlist now.
 >
-> I'll run you against your top 3 competitors on the real buyer prompts and send you what it
-> says — free. Want it?
+> Want me to run you against your top 3? Free.
 
 ### D3. The FOMO, and how to make it land
 
@@ -175,8 +175,10 @@ matter and short enough to act on, not as a promise of the same numbers.
 - **Adjacent verticals we've delivered in** but wouldn't lead with: telco (Singtel), proptech,
   events/expo, education. Mention them only if the lead is in one — telco especially is real,
   substantial work, it just doesn't earn a slot when the list is capped at five.
-- **Pick the version by channel.** A one-line question deserves a short answer — version B
-  or A. Version C only when they've already shown intent.
+- **Pick the version by channel.** A one-line question deserves a short answer: A or B for
+  email, D2 for a DM. C is a follow-up only — never the opening move.
+- **Word counts are in the headings. Respect them.** Everything that got cut is listed under
+  D1 as follow-up ammunition; it isn't lost, it's just not first-reply material.
 - **Always end on the question.** The list is the price of admission; their category is the
   thing we actually need to move the conversation.
 - **If they're in none of the five:** "Not a vertical we've gone deep in — which usually
