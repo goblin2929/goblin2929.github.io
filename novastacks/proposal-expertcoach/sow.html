@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Statement of Work — ExpertCoach × Novastacks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+@page{ size:A4; margin:14mm 15mm 12mm; }
+
+:root{
+  --ink:#131313; --ink-2:#33322F; --ink-3:#5A5854; --ink-4:#84817B;
+  --rule:#D5D1C8; --rule-2:#EDEAE3;
+  --accent:#01AAC1; --accent-dk:#017D8E; --tint:#EDF7F9;
+  --band:#F4F2EC;
+}
+*{box-sizing:border-box}
+html,body{margin:0; padding:0}
+body{
+  background:#fff; color:var(--ink-2);
+  font-family:Inter,-apple-system,"Segoe UI",sans-serif;
+  font-size:8.1pt; line-height:1.42; -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+h1,h2,h3,th{font-family:"Inter Tight",Inter,sans-serif; color:var(--ink); margin:0}
+p{margin:0 0 4pt}
+strong{color:var(--ink); font-weight:600}
+.mono{font-family:"JetBrains Mono",monospace}
+
+/* ---- masthead ---- */
+.head{border-top:2.5pt solid var(--accent); padding-top:7pt; display:flex; justify-content:space-between; align-items:flex-start; gap:14pt}
+.mark{font-family:"Inter Tight",sans-serif; font-weight:700; font-size:11pt; letter-spacing:-.01em; color:var(--ink)}
+.mark span{color:var(--accent-dk)}
+.mark small{display:block; font-family:"JetBrains Mono",monospace; font-weight:400; font-size:6pt; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-4); margin-top:2.5pt}
+.docref{text-align:right; font-family:"JetBrains Mono",monospace; font-size:6.6pt; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-4); line-height:1.75}
+.docref b{color:var(--ink); font-weight:500}
+
+h1{font-size:14.5pt; letter-spacing:-.02em; font-weight:700; margin:8pt 0 0; line-height:1.12}
+.sub{font-size:8.6pt; color:var(--ink-3); margin:3pt 0 0}
+
+/* ---- parties ---- */
+.parties{display:grid; grid-template-columns:1fr 1fr 0.85fr; gap:0; border-top:1pt solid var(--ink); border-bottom:.5pt solid var(--rule); margin:7pt 0 8pt}
+.parties>div{padding:5pt 10pt 5pt 0; border-right:.5pt solid var(--rule-2)}
+.parties>div:last-child{border-right:0; padding-right:0}
+.parties dt{font-family:"JetBrains Mono",monospace; font-size:6pt; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-4); margin-bottom:3pt}
+.parties dd{margin:0; font-size:7.9pt; color:var(--ink-2); line-height:1.45}
+.parties dd b{display:block; font-family:"Inter Tight",sans-serif; font-size:8.8pt; color:var(--ink); font-weight:600; letter-spacing:-.005em}
+
+/* ---- clauses ---- */
+h2{
+  font-size:8.9pt; font-weight:600; letter-spacing:-.005em; margin:6pt 0 3.5pt;
+  padding-bottom:3pt; border-bottom:1pt solid var(--ink); display:flex; gap:7pt; align-items:baseline;
+}
+h2 .n{font-family:"JetBrains Mono",monospace; font-size:7.6pt; color:var(--accent-dk); font-weight:500}
+h3{font-size:7.9pt; font-weight:600; margin:5.5pt 0 2.5pt; color:var(--ink)}
+h3 .n{font-family:"JetBrains Mono",monospace; font-size:7pt; color:var(--accent-dk); font-weight:500; margin-right:4pt}
+
+ul{margin:0 0 5pt; padding:0; list-style:none}
+li{padding-left:8pt; position:relative; margin-bottom:1.4pt; line-height:1.4}
+li::before{content:"·"; position:absolute; left:2pt; color:var(--accent-dk); font-weight:700}
+
+/* ---- tables ---- */
+table{border-collapse:collapse; width:100%; font-size:7.2pt; margin:2.5pt 0 3pt}
+th{
+  text-align:left; font-family:"JetBrains Mono",monospace; font-size:6.1pt; font-weight:500;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-4);
+  padding:0 7pt 3.5pt 0; border-bottom:1pt solid var(--ink); vertical-align:bottom;
+}
+td{padding:2.9pt 6pt 2.9pt 0; border-bottom:.5pt solid var(--rule-2); vertical-align:top; line-height:1.42}
+tr:last-child td{border-bottom:.5pt solid var(--rule)}
+td:last-child,th:last-child{padding-right:0}
+.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+tfoot td{border-bottom:0; border-top:1pt solid var(--ink); font-weight:600; color:var(--ink); padding-top:5pt}
+
+/* ---- differentiator table ---- */
+table.diff td:first-child{font-weight:600; color:var(--ink); width:17%}
+table.diff th.us, table.diff td.us{background:var(--tint); padding-left:7pt; padding-right:7pt}
+table.diff th.us{color:var(--accent-dk); border-bottom-color:var(--accent)}
+table.diff td.us{color:var(--ink-2)}
+table.diff td.us b{color:var(--ink)}
+table.diff col.c1{width:17%} table.diff col.c2{width:26%} table.diff col.c3{width:26%} table.diff col.c4{width:31%}
+
+/* ---- callout ---- */
+.note{background:var(--band); border-left:2pt solid var(--accent); padding:4.5pt 8pt; margin:4pt 0 0; font-size:7.5pt; line-height:1.45}
+.note p:last-child{margin-bottom:0}
+.note .lbl{font-family:"JetBrains Mono",monospace; font-size:6pt; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-dk); display:block; margin-bottom:2.5pt}
+
+/* ---- fee highlight ---- */
+.fee{display:flex; gap:20pt; align-items:baseline; padding:5pt 0 5pt; border-bottom:.5pt solid var(--rule)}
+.fee .big{font-family:"Inter Tight",sans-serif; font-size:18pt; font-weight:700; color:var(--ink); letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums}
+.fee .meta{font-size:7.5pt; color:var(--ink-3); line-height:1.5}
+.fee .meta b{color:var(--ink)}
+
+/* ---- signature ---- */
+.sign{display:grid; grid-template-columns:1fr 1fr; gap:26pt; margin-top:6pt}
+.sign .box{border-top:.5pt solid var(--rule)}
+.sign .who{font-family:"JetBrains Mono",monospace; font-size:6pt; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-4); padding-top:3pt}
+.sign .nm{font-size:8.4pt; color:var(--ink-2); margin-top:1pt; line-height:1.45}
+.sign .nm b{color:var(--ink)}
+.line{border-bottom:.5pt solid var(--ink); height:14pt}
+.line-lbl{font-family:"JetBrains Mono",monospace; font-size:6pt; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-4); padding-top:3pt}
+
+.foot{margin-top:5pt; padding-top:5pt; border-top:.5pt solid var(--rule); font-size:6.6pt; color:var(--ink-4); display:flex; justify-content:space-between; line-height:1.6}
+
+.duo{display:grid; grid-template-columns:1.15fr 1fr; gap:0 18pt; align-items:start}
+.duo>section{min-width:0}
+ul.cols{column-count:2; column-gap:14pt}
+ul.cols li{break-inside:avoid}
+.head.run{border-top-width:1.5pt; padding-top:4pt; padding-bottom:0; align-items:baseline}
+.head.run .mark{font-size:9pt}
+.pagebreak{break-before:page}
+section{break-inside:avoid}
+table{break-inside:auto}
+tr{break-inside:avoid}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="head">
+  <div class="mark">nova<span>stacks</span><small>Novastacks AI Pte Ltd · Singapore</small></div>
+  <div class="docref">
+    <div><b>Statement of Work</b></div>
+    <div>Ref NS-SOW-2026-014</div>
+    <div>Issued 26 August 2026</div>
+    <div>Valid until 5 September 2026</div>
+  </div>
+</div>
+
+<h1>Answer Engine Optimisation — ExpertCoach</h1>
+<p class="sub">A four-month engagement to make expertcoach.co the source AI assistants cite for ICF coaching certification.</p>
+
+<dl class="parties">
+  <div><dt>Service provider</dt><dd><b>Novastacks AI Pte Ltd</b>Tina Chu, Founder<br>tchu@novastacks-ai.com</dd></div>
+  <div><dt>Client</dt><dd><b>ExpertCoach</b>Yigit Yucel, Founder<br>expertcoach.co</dd></div>
+  <div><dt>Term &amp; value</dt><dd><b>4 months</b>1 Sep – 31 Dec 2026<br>S$6,000 total</dd></div>
+</dl>
+
+<section>
+<h2><span class="n">1</span> Background and objective</h2>
+<p>ExpertCoach publishes approximately 16 content pages and is losing share of voice in AI-assistant answers to CredentialPrep and CoachCertify, both executing on greater volume and cleaner technical structure. The Client operates as a single founder and is constrained by production capacity, not by strategy.</p>
+<p>The objective is to increase the frequency with which ExpertCoach is <strong>mentioned and cited by ChatGPT, Gemini, Claude and Perplexity</strong> in response to the questions its buyers actually ask — measured against a fixed prompt set and a baseline set in week two.</p>
+</section>
+
+<section>
+<h2><span class="n">2</span> Scope of services</h2>
+
+<h3><span class="n">2.1</span> Discovery and baseline — weeks 1–2</h3>
+<ul>
+  <li><strong>Technical and AEO audit</strong> — crawlability, indexation, architecture, internal linking, structured data and machine-readability of existing pages.</li>
+  <li><strong>Prompt set construction</strong> using our prompt methodology, simulating how ICF-track coaches ask assistants about certification, exam prep and provider choice.</li>
+  <li><strong>Keyword and content-gap database</strong> built from the Client's Search Console data and first-party inputs, not generic keyword lists.</li>
+  <li><strong>Competitor citation teardown</strong> — which CredentialPrep and CoachCertify pages are cited, for which prompts, and why structurally.</li>
+  <li><strong>Baseline report and live dashboard</strong> across all four assistants, handed over with Client login.</li>
+</ul>
+
+<h3><span class="n">2.2</span> Technical and structural optimisation</h3>
+<ul>
+  <li><strong>Prioritised remediation specification</strong> — every audit issue ranked by impact, written implementation-ready for the Client's Astro codebase.</li>
+  <li><strong>Architecture design</strong> — hub-and-spoke structure, URL taxonomy and internal linking built for machine retrieval, not human browsing.</li>
+  <li><strong>Structured data specification</strong> across content and service pages.</li>
+  <li><strong>Ongoing technical monitoring</strong> throughout the term. We identify and specify faults proactively; the Client is not expected to detect or report them.</li>
+</ul>
+
+<h3><span class="n">2.3</span> Content production — 60 pages over four months</h3>
+<ul>
+  <li><strong>60 pages</strong> — new content plus structural refreshes of the existing 16 posts, averaging 15 pages per month.</li>
+  <li><strong>Brief, draft, review, publish</strong> — researched against the gap database, drafted to a citation-oriented structure, supplied in Google Docs for approval, then published.</li>
+  <li><strong>Monthly refresh cycle</strong> on published pages, driven by which pages earn citations and which competitor pages beat our drafts in AI answers.</li>
+</ul>
+
+<h3><span class="n">2.4</span> Measurement and reporting</h3>
+<ul>
+  <li><strong>Daily AI-visibility tracking</strong> on the fixed prompt set across all four assistants, with underlying answers retained so movement can be explained, not just observed.</li>
+  <li><strong>Client dashboard</strong>, live throughout: share of voice, citations, competitor position, and the verbatim answers assistants give about ExpertCoach.</li>
+  <li><strong>Monthly report and 60-minute strategy session</strong> — what was delivered, what moved, the reasoning, and next month's plan.</li>
+  <li><strong>Off-page and community signals</strong> — where third-party citations, forums or review platforms influence AI answers in this category, we surface them and recommend action for the Client to execute.</li>
+</ul>
+</section>
+
+<section>
+<h2><span class="n">3</span> Exclusions</h2>
+<p>Expressly outside this SOW; may be quoted separately.</p>
+<ul class="cols">
+  <li><strong>Off-page execution</strong> — link acquisition, digital PR, guest placement, review-platform seeding. Recommendations are given under 2.4; execution is not.</li>
+  <li><strong>Community outreach execution</strong> — Reddit, forum and community participation.</li>
+  <li><strong>Software development</strong> — we specify technical fixes; the Client implements them in its Astro repository.</li>
+  <li><strong>Paid media</strong> — search or social advertising management, and media spend.</li>
+  <li><strong>Non-English content</strong>, translation and localisation.</li>
+</ul>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="pagebreak"></div>
+
+<div class="head run">
+  <div class="mark">nova<span>stacks</span></div>
+  <div class="docref"><b>NS-SOW-2026-014</b> · ExpertCoach · Page 2 of 2</div>
+</div>
+
+<section>
+<h2><span class="n">4</span> Why Novastacks — and how this differs</h2>
+
+<table class="diff">
+  <colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup>
+  <thead>
+    <tr>
+      <th></th>
+      <th>AI-visibility SaaS tools</th>
+      <th>Conventional SEO / content agency</th>
+      <th class="us">Novastacks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Who does the work</td>
+      <td>You do. The tool reports; you still research, write, fix and publish.</td>
+      <td>Junior writers executing to a brief, supervised at a distance.</td>
+      <td class="us"><b>Director-level operators</b> who have run acquisition marketing at scale, working through an AI production system they built.</td>
+    </tr>
+    <tr>
+      <td>The prompt set</td>
+      <td>You define and maintain the queries — the hardest, most consequential step.</td>
+      <td>Usually absent. Keyword rankings stand in for AI visibility.</td>
+      <td class="us"><b>Built for you</b> from your Search Console data using our prompt methodology, then tracked daily.</td>
+    </tr>
+    <tr>
+      <td>Technical faults</td>
+      <td>Flagged, sometimes. Fixing is out of scope.</td>
+      <td>Reported to you, then quoted as a separate project.</td>
+      <td class="us"><b>Found and specified without being asked.</b> We don’t wait to be told what is broken.</td>
+    </tr>
+    <tr>
+      <td>Content model</td>
+      <td>Not offered.</td>
+      <td>Publish and move on. Volume is the deliverable.</td>
+      <td class="us"><b>Publish → measure citations → analyse who was cited instead → refresh.</b> The loop is the product; it is why pages compound.</td>
+    </tr>
+    <tr>
+      <td>What arrives monthly</td>
+      <td>A dashboard you interpret.</td>
+      <td>A report of activity completed.</td>
+      <td class="us"><b>A decision.</b> What we did, what moved, why, and what is next — brought to a working session, not emailed.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <span class="lbl">Track record</span>
+  <p>A client entering a competitive US market at <strong>0.3% AI visibility</strong> was set a three-month target of 3%; it was met within the first month of publishing. A second holds <strong>40% share of voice</strong> across its tracked prompt set. Results are market-specific and not warranted here — they evidence method, not outcome.</p>
+</div>
+</section>
+
+<div class="duo">
+<section>
+<h2><span class="n">5</span> Timeline and success measure</h2>
+<table>
+  <thead><tr><th style="width:20%">Period</th><th>Milestone → indicator</th></tr></thead>
+  <tbody>
+    <tr><td>Weeks 1–2</td><td>Audit, prompt set, tracking and dashboard live; fix spec delivered → <b>baseline locked</b></td></tr>
+    <tr><td>Month 1</td><td>Client implements fixes; first batch published → <b>pages crawled and indexed</b></td></tr>
+    <tr><td>Month 2</td><td>Second batch; first refresh cycle → <b>first citations on new pages</b></td></tr>
+    <tr><td>Month 3</td><td>Third batch; production reallocated to what earns citations → <b>share of voice moves</b></td></tr>
+    <tr><td>Month 4</td><td>60 pages live; measured against baseline → <b>target assessed</b></td></tr>
+  </tbody>
+</table>
+<p style="margin-top:4pt"><strong>Success measure.</strong> A <strong>50% increase in AI visibility</strong> — how often ExpertCoach is mentioned or cited across the fixed prompt set — measured at the end of month four against the week-two baseline, on the same prompts and platforms. The prompt set is fixed at baseline and not altered thereafter.</p>
+</section>
+
+</section>
+
+<section>
+<h2><span class="n">6</span> Fees and payment</h2>
+<div class="fee">
+  <div><div class="big">S$1,500</div><div style="font-size:7.4pt; color:var(--ink-4); margin-top:3pt">per month</div></div>
+  <div class="meta">
+    <b>S$6,000</b> total contract value over four months.<br>
+    Invoiced monthly in advance, payable within 7 days. No deposit, setup or onboarding fee.<br>
+    All amounts in Singapore dollars and exclusive of any applicable taxes.
+  </div>
+</div>
+<p style="font-size:7.5pt; margin-top:4pt">Four invoices of S$1,500, raised 1 September, 1 October, 1 November and 1 December 2026.</p>
+<p style="font-size:7.3pt; color:var(--ink-3); margin-bottom:0">Founder rate, offered on a non-precedent basis. Standard Novastacks engagements commence at US$3,000–10,000 per month over six months; the equivalent scope at standard rates exceeds S$18,000.</p>
+</section>
+</div>
+
+<section>
+<h2><span class="n">7</span> Client responsibilities and terms</h2>
+<ul class="cols">
+  <li><strong>Access.</strong> Search Console, GA4, search tooling, and a publishing path into the Astro site.</li>
+  <li><strong>Implementation.</strong> The Client implements the technical remediation specification.</li>
+  <li><strong>Approvals.</strong> Drafts reviewed within three working days; roughly two hours of Client time per month in total.</li>
+  <li><strong>Term.</strong> Four months from 1 Sep 2026. Either party may terminate from the end of month two on 30 days' notice; fees to that date remain payable.</li>
+  <li><strong>Ownership.</strong> All content, briefs, databases, audits and reports are the Client's on payment of the relevant invoice.</li>
+  <li><strong>Dashboard.</strong> Access throughout the term and 30 days after. Each party keeps the other's non-public information confidential.</li>
+  <li><strong>Performance.</strong> Clause 5 is a good-faith target, not a warranty; AI ranking systems are controlled by third parties.</li>
+  <li><strong>Governing law.</strong> Singapore.</li>
+</ul>
+</section>
+
+<section>
+<h2><span class="n">8</span> Acceptance</h2>
+<div class="sign">
+  <div class="box">
+    <div class="who">For Novastacks AI Pte Ltd</div>
+    <div class="nm"><b>Tina Chu</b> · Founder</div>
+    <div class="line"></div><div class="line-lbl">Signature and date</div>
+  </div>
+  <div class="box">
+    <div class="who">For ExpertCoach</div>
+    <div class="nm"><b>Yigit Yucel</b> · Founder</div>
+    <div class="line"></div><div class="line-lbl">Signature and date</div>
+  </div>
+</div>
+</section>
+
+<div class="foot">
+  <div>Novastacks AI Pte Ltd · Singapore · tchu@novastacks-ai.com</div>
+  <div>NS-SOW-2026-014 · Confidential · Page 2 of 2</div>
+</div>
+
+</body>
+</html>
