@@ -56,7 +56,7 @@ h3{font-size:7.9pt; font-weight:600; margin:5.5pt 0 2.5pt; color:var(--ink)}
 h3 .n{font-family:"JetBrains Mono",monospace; font-size:7pt; color:var(--accent-dk); font-weight:500; margin-right:4pt}
 
 ul{margin:0 0 5pt; padding:0; list-style:none}
-li{padding-left:8pt; position:relative; margin-bottom:1.4pt; line-height:1.4}
+li{padding-left:8pt; position:relative; margin-bottom:1.2pt; line-height:1.4}
 li::before{content:"·"; position:absolute; left:2pt; color:var(--accent-dk); font-weight:700}
 
 /* ---- tables ---- */
@@ -97,7 +97,7 @@ table.diff col.c1{width:17%} table.diff col.c2{width:26%} table.diff col.c3{widt
 .sign .who{font-family:"JetBrains Mono",monospace; font-size:6pt; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-4); padding-top:3pt}
 .sign .nm{font-size:8.4pt; color:var(--ink-2); margin-top:1pt; line-height:1.45}
 .sign .nm b{color:var(--ink)}
-.line{border-bottom:.5pt solid var(--ink); height:14pt}
+.line{border-bottom:.5pt solid var(--ink); height:12pt}
 .line-lbl{font-family:"JetBrains Mono",monospace; font-size:6pt; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-4); padding-top:3pt}
 
 .foot{margin-top:5pt; padding-top:5pt; border-top:.5pt solid var(--rule); font-size:6.6pt; color:var(--ink-4); display:flex; justify-content:space-between; line-height:1.6}
@@ -108,6 +108,10 @@ ul.cols{column-count:2; column-gap:14pt}
 ul.cols li{break-inside:avoid}
 .head.run{border-top-width:1.5pt; padding-top:4pt; padding-bottom:0; align-items:baseline}
 .head.run .mark{font-size:9pt}
+.addon{background:var(--tint); border-left:2pt solid var(--accent); margin-top:4pt; padding:4pt 6pt 4pt}
+.addon .lbl{font-family:"JetBrains Mono",monospace; font-size:6pt; letter-spacing:.11em; text-transform:uppercase; color:var(--accent-dk); display:block; margin-bottom:2.5pt}
+.addon p{font-size:7.3pt; line-height:1.45; margin:0; color:var(--ink-3)}
+.addon p b{color:var(--ink)}
 .pagebreak{break-before:page}
 section{break-inside:avoid}
 table{break-inside:auto}
@@ -148,10 +152,10 @@ tr{break-inside:avoid}
 <h3><span class="n">2.1</span> Discovery and baseline — weeks 1–2</h3>
 <ul>
   <li><strong>Technical and AEO audit</strong> — crawlability, indexation, architecture, internal linking, structured data and machine-readability of existing pages.</li>
-  <li><strong>Prompt set construction</strong> using our prompt methodology, simulating how ICF-track coaches ask assistants about certification, exam prep and provider choice.</li>
+  <li><strong>Prompt set construction</strong> using our prompt methodology, simulating how ICF-track coaches ask assistants about certification and provider choice.</li>
   <li><strong>Keyword and content-gap database</strong> built from the Client's Search Console data and first-party inputs, not generic keyword lists.</li>
   <li><strong>Competitor citation teardown</strong> — which CredentialPrep and CoachCertify pages are cited, for which prompts, and why structurally.</li>
-  <li><strong>Baseline report and live dashboard</strong> across all four assistants, handed over with Client login.</li>
+  <li><strong>Baseline report and dashboard configuration</strong> across all four assistants, handed over with Client login. Platform licence billed separately — clause 6.</li>
 </ul>
 
 <h3><span class="n">2.2</span> Technical and structural optimisation</h3>
@@ -159,7 +163,7 @@ tr{break-inside:avoid}
   <li><strong>Prioritised remediation specification</strong> — every audit issue ranked by impact, written implementation-ready for the Client's Astro codebase.</li>
   <li><strong>Architecture design</strong> — hub-and-spoke structure, URL taxonomy and internal linking built for machine retrieval, not human browsing.</li>
   <li><strong>Structured data specification</strong> across content and service pages.</li>
-  <li><strong>Ongoing technical monitoring</strong> throughout the term. We identify and specify faults proactively; the Client is not expected to detect or report them.</li>
+  <li><strong>Ongoing technical monitoring</strong> throughout the term. We identify and specify faults proactively; the Client need not detect or report them.</li>
 </ul>
 
 <h3><span class="n">2.3</span> Content production — 60 pages over four months</h3>
@@ -171,10 +175,10 @@ tr{break-inside:avoid}
 
 <h3><span class="n">2.4</span> Measurement and reporting</h3>
 <ul>
-  <li><strong>Daily AI-visibility tracking</strong> on the fixed prompt set across all four assistants, with underlying answers retained so movement can be explained, not just observed.</li>
+  <li><strong>Daily AI-visibility tracking</strong> on the fixed prompt set across all four assistants, answers retained so movement can be explained, not just observed. We configure, operate and interpret the platform; the Client licenses it.</li>
   <li><strong>Client dashboard</strong>, live throughout: share of voice, citations, competitor position, and the verbatim answers assistants give about ExpertCoach.</li>
   <li><strong>Monthly report and 60-minute strategy session</strong> — what was delivered, what moved, the reasoning, and next month's plan.</li>
-  <li><strong>Off-page and community signals</strong> — where third-party citations, forums or review platforms influence AI answers in this category, we surface them and recommend action for the Client to execute.</li>
+  <li><strong>Off-page and community signals</strong> — where third-party citations, forums or review platforms influence AI answers here, we surface them and recommend action for the Client to execute.</li>
 </ul>
 </section>
 
@@ -187,6 +191,7 @@ tr{break-inside:avoid}
   <li><strong>Software development</strong> — we specify technical fixes; the Client implements them in its Astro repository.</li>
   <li><strong>Paid media</strong> — search or social advertising management, and media spend.</li>
   <li><strong>Non-English content</strong>, translation and localisation.</li>
+  <li><strong>Third-party tool licences</strong> — the AI-visibility tracking platform, licensed by the Client directly. Priced at clause 6.</li>
 </ul>
 </section>
 
@@ -264,7 +269,7 @@ tr{break-inside:avoid}
     <tr><td>Month 4</td><td>60 pages live; measured against baseline → <b>target assessed</b></td></tr>
   </tbody>
 </table>
-<p style="margin-top:4pt"><strong>Success measure.</strong> A <strong>50% increase in AI visibility</strong> — how often ExpertCoach is mentioned or cited across the fixed prompt set — measured at the end of month four against the week-two baseline, on the same prompts and platforms. The prompt set is fixed at baseline and not altered thereafter.</p>
+<p style="margin-top:4pt"><strong>Success measure.</strong> A <strong>50% increase in AI visibility</strong> — how often ExpertCoach is mentioned or cited across the fixed prompt set — measured at end of month four against the week-two baseline, on the same prompts and platforms. The prompt set is fixed at baseline and not altered thereafter.</p>
 </section>
 
 </section>
@@ -280,21 +285,23 @@ tr{break-inside:avoid}
   </div>
 </div>
 <p style="font-size:7.5pt; margin-top:4pt">Four invoices of S$1,500, raised 1 September, 1 October, 1 November and 1 December 2026.</p>
-<p style="font-size:7.3pt; color:var(--ink-3); margin-bottom:0">Founder rate, offered on a non-precedent basis. Standard Novastacks engagements commence at US$3,000–10,000 per month over six months; the equivalent scope at standard rates exceeds S$18,000.</p>
+<p style="font-size:7.3pt; color:var(--ink-3); margin-bottom:0">Founder rate, non-precedent. Standard engagements commence at US$3,000–10,000 per month over six months; equivalent scope exceeds S$18,000.</p>
+<div class="addon">
+  <span class="lbl">Additional — third-party licence</span>
+  <p><b>US$29–50 per month</b>, by number of prompts tracked. Licensed by the Client directly from the vendor; we specify, configure, operate and interpret it under clauses 2.1 and 2.4, and <b>apply no mark-up</b>. Tier confirmed after the week-two audit.</p>
+</div>
 </section>
 </div>
 
 <section>
 <h2><span class="n">7</span> Client responsibilities and terms</h2>
 <ul class="cols">
-  <li><strong>Access.</strong> Search Console, GA4, search tooling, and a publishing path into the Astro site.</li>
-  <li><strong>Implementation.</strong> The Client implements the technical remediation specification.</li>
+  <li><strong>Access and implementation.</strong> Search Console, GA4, search tooling and a publishing path into the Astro site; the Client implements the technical remediation specification.</li>
   <li><strong>Approvals.</strong> Drafts reviewed within three working days; roughly two hours of Client time per month in total.</li>
   <li><strong>Term.</strong> Four months from 1 Sep 2026. Either party may terminate from the end of month two on 30 days' notice; fees to that date remain payable.</li>
   <li><strong>Ownership.</strong> All content, briefs, databases, audits and reports are the Client's on payment of the relevant invoice.</li>
-  <li><strong>Dashboard.</strong> Access throughout the term and 30 days after. Each party keeps the other's non-public information confidential.</li>
-  <li><strong>Performance.</strong> Clause 5 is a good-faith target, not a warranty; AI ranking systems are controlled by third parties.</li>
-  <li><strong>Governing law.</strong> Singapore.</li>
+  <li><strong>Dashboard and confidentiality.</strong> Platform access throughout the term and 30 days after. Each party keeps the other's non-public information confidential.</li>
+  <li><strong>Performance and law.</strong> Clause 5 is a good-faith target, not a warranty; AI ranking systems are third-party controlled. Governed by the laws of Singapore.</li>
 </ul>
 </section>
 
