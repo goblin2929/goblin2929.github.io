@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ExpertCoach AEO Sprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --paper:#FAF8F4; --paper-2:#F2EFE8; --paper-pure:#FFFFFF;
+  --ink-1:#131313; --ink-2:#2A2A2A; --ink-3:#4A4A4A; --ink-4:#707070;
+  --rule:#DCD8CF; --rule-strong:#131313;
+  --accent:#01AAC1; --accent-text:#017D8E; --accent-tint:#EAF6F8;
+  --good:#2F7A4F; --out:#A39E93;
+  --shadow:0 1px 2px rgba(19,19,19,.05);
+  --close-bg:#131313; --close-fg:#FAF8F4; --close-fg-2:#B8B5AE;
+  --close-rule:#37383A; --close-link:#4FD6E8; --close-lbl:#8A8680;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#101112; --paper-2:#181A1C; --paper-pure:#1D2023;
+    --ink-1:#F4F2ED; --ink-2:#DCD9D2; --ink-3:#ADA9A1; --ink-4:#8A8680;
+    --rule:#2E3234; --rule-strong:#F4F2ED;
+    --accent:#2FC6DB; --accent-text:#4FD6E8; --accent-tint:#132226;
+    --good:#5DBE87; --out:#6B6862;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+    --close-bg:#1D2023; --close-fg:#F4F2ED; --close-fg-2:#ADA9A1;
+    --close-rule:#33383B; --close-link:#4FD6E8; --close-lbl:#8A8680;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101112; --paper-2:#181A1C; --paper-pure:#1D2023;
+  --ink-1:#F4F2ED; --ink-2:#DCD9D2; --ink-3:#ADA9A1; --ink-4:#8A8680;
+  --rule:#2E3234; --rule-strong:#F4F2ED;
+  --accent:#2FC6DB; --accent-text:#4FD6E8; --accent-tint:#132226;
+  --good:#5DBE87; --out:#6B6862;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+  --close-bg:#1D2023; --close-fg:#F4F2ED; --close-fg-2:#ADA9A1;
+  --close-rule:#33383B; --close-link:#4FD6E8; --close-lbl:#8A8680;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink-2);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px; margin:0 auto; padding:0 28px 96px}
+
+/* ---------- shared type ---------- */
+h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif; color:var(--ink-1); text-wrap:balance; margin:0}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-4); font-weight:500;
+}
+p{margin:0 0 1em; max-width:66ch}
+a{color:var(--accent-text)}
+strong{color:var(--ink-1); font-weight:600}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+/* ---------- masthead ---------- */
+.mast{border-top:3px solid var(--accent); padding:26px 0 0}
+.mast-row{display:flex; flex-wrap:wrap; gap:14px 28px; align-items:baseline; justify-content:space-between}
+.mark{font-family:"Inter Tight",sans-serif; font-weight:700; font-size:15px; letter-spacing:-.01em; color:var(--ink-1)}
+.mark span{color:var(--accent-text)}
+
+.cover{padding:60px 0 44px; border-bottom:2px solid var(--rule-strong)}
+.cover h1{font-size:clamp(34px,5.6vw,54px); line-height:1.04; letter-spacing:-.028em; font-weight:700; margin:20px 0 22px}
+.cover .lede{font-size:19px; line-height:1.55; color:var(--ink-3); max-width:60ch}
+.facts{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:0; margin-top:40px; border-top:1px solid var(--rule);
+}
+.fact{padding:16px 20px 14px; border-right:1px solid var(--rule)}
+.fact:first-child{padding-left:0}
+.fact:last-child{border-right:0}
+.fact dt{font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-4); margin-bottom:7px}
+.fact dd{margin:0; font-family:"Inter Tight",sans-serif; font-size:17px; font-weight:600; color:var(--ink-1); letter-spacing:-.01em}
+
+/* ---------- sections: mono gutter + body ---------- */
+section{
+  display:grid; grid-template-columns:132px minmax(0,1fr); gap:0 40px;
+  padding:44px 0; border-bottom:1px solid var(--rule);
+}
+.gutter{position:sticky; top:24px; align-self:start}
+.gutter .num{
+  font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--accent-text);
+  font-weight:500; display:block; margin-bottom:6px;
+}
+.gutter .lbl{
+  font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-4); line-height:1.5;
+}
+.body h2{font-size:26px; letter-spacing:-.018em; font-weight:600; margin-bottom:16px; line-height:1.2}
+.body h3{
+  font-size:14px; font-weight:600; letter-spacing:-.005em; color:var(--ink-1);
+  margin:26px 0 10px;
+}
+
+/* ---------- lists ---------- */
+ul.plain{list-style:none; margin:0 0 4px; padding:0; display:flex; flex-direction:column; gap:9px; max-width:66ch}
+ul.plain li{padding-left:20px; position:relative}
+ul.plain li::before{
+  content:"›"; position:absolute; left:2px; top:-1px;
+  color:var(--accent-text); font-weight:600;
+}
+
+/* ---------- in / out ledger ---------- */
+.ledger{display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:2px solid var(--rule-strong); margin-top:6px}
+.ledger>div{padding:18px 22px 20px}
+.ledger>div:first-child{padding-left:0; border-right:1px solid var(--rule)}
+.ledger h3{margin:0 0 14px}
+.ledger ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:14.5px; line-height:1.5}
+.ledger li{padding-left:24px; position:relative}
+.tick li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--good); font-weight:600; font-size:13px}
+.cross li::before{content:"—"; position:absolute; left:0; top:0; color:var(--out); font-weight:500}
+.cross li{color:var(--ink-3)}
+.ledger .note{font-size:13px; color:var(--ink-4); margin:16px 0 0; line-height:1.55; max-width:none}
+
+/* ---------- timeline ---------- */
+.tl{display:flex; flex-direction:column; border-top:2px solid var(--rule-strong); margin-top:6px}
+.tl-row{display:grid; grid-template-columns:88px minmax(0,1fr); gap:0 24px; padding:18px 0; border-bottom:1px solid var(--rule)}
+.tl-row:last-child{border-bottom:0}
+.tl-when{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--accent-text); font-weight:500; padding-top:2px; letter-spacing:.02em}
+.tl-what h3{margin:0 0 6px; font-size:15px}
+.tl-what p{margin:0; font-size:14.5px; color:var(--ink-3); line-height:1.55}
+
+/* ---------- price ---------- */
+.price-block{
+  border-top:2px solid var(--rule-strong); border-bottom:1px solid var(--rule);
+  padding:30px 0 28px; margin:6px 0 0;
+  display:flex; flex-wrap:wrap; gap:36px 56px; align-items:flex-end;
+}
+.price-main .amt{
+  font-family:"Inter Tight",sans-serif; font-weight:700; color:var(--ink-1);
+  font-size:clamp(42px,7vw,64px); line-height:.95; letter-spacing:-.035em;
+  font-variant-numeric:tabular-nums; display:block;
+}
+.price-main .cap{display:block; margin-top:12px; font-size:14px; color:var(--ink-3)}
+.price-side{display:flex; flex-direction:column; gap:14px; padding-bottom:4px}
+.price-side div{font-size:14px; color:var(--ink-3); line-height:1.45}
+.price-side b{display:block; font-family:"Inter Tight",sans-serif; font-size:16px; color:var(--ink-1); font-weight:600; letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+.compare{
+  background:var(--accent-tint); border-left:2px solid var(--accent);
+  padding:16px 20px; margin:24px 0 0; font-size:14.5px; line-height:1.6; color:var(--ink-2);
+}
+.compare p{margin:0; max-width:none}
+
+/* ---------- schedule table ---------- */
+.tblwrap{overflow-x:auto; margin-top:6px}
+table{border-collapse:collapse; width:100%; min-width:420px; font-size:14.5px}
+thead th{
+  text-align:left; font-family:"JetBrains Mono",monospace; font-size:10.5px;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--ink-4); font-weight:500;
+  padding:0 16px 9px 0; border-bottom:2px solid var(--rule-strong);
+}
+tbody td{padding:11px 16px 11px 0; border-bottom:1px solid var(--rule); color:var(--ink-2)}
+tbody td:first-child{font-family:"JetBrains Mono",monospace; font-size:12.5px; color:var(--ink-3)}
+td.amt-c{font-variant-numeric:tabular-nums; font-weight:600; color:var(--ink-1); text-align:right; padding-right:0}
+th.amt-c{text-align:right; padding-right:0}
+tfoot td{padding:12px 16px 0 0; font-weight:600; color:var(--ink-1); font-variant-numeric:tabular-nums}
+tfoot td:first-child{font-family:Inter,sans-serif; font-size:14.5px}
+
+/* ---------- callout ---------- */
+.callout{border-left:2px solid var(--accent); padding:4px 0 4px 20px; margin:22px 0; max-width:66ch}
+.callout p{margin:0; color:var(--ink-3); font-size:15px}
+.callout p+p{margin-top:.7em}
+
+/* ---------- close ---------- */
+.close{
+  background:var(--close-bg); color:var(--close-fg-2); margin-top:56px;
+  padding:44px 40px; border-radius:2px;
+}
+.close h2{color:var(--close-fg); font-size:24px; letter-spacing:-.018em; margin-bottom:14px; font-weight:600}
+.close p{color:var(--close-fg-2); max-width:60ch}
+.close .eyebrow{color:var(--close-lbl)}
+.close a{color:var(--close-link)}
+.sig{
+  margin-top:30px; padding-top:22px; border-top:1px solid var(--close-rule);
+  display:flex; flex-wrap:wrap; gap:8px 40px; font-size:13.5px; color:var(--close-fg-2);
+}
+.sig b{color:var(--close-fg); font-weight:600}
+
+footer{padding-top:26px; font-size:12.5px; color:var(--ink-4); line-height:1.6}
+
+@media (max-width:720px){
+  .wrap{padding:0 20px 72px}
+  section{grid-template-columns:1fr; gap:14px; padding:34px 0}
+  .gutter{position:static; display:flex; gap:12px; align-items:baseline}
+  .gutter .num{margin-bottom:0}
+  .ledger{grid-template-columns:1fr}
+  .ledger>div:first-child{border-right:0; border-bottom:1px solid var(--rule); padding-left:0}
+  .ledger>div:last-child{padding-left:0}
+  .fact{padding-left:0; border-right:0; border-bottom:1px solid var(--rule)}
+  .close{padding:32px 24px}
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="mast-row">
+    <div class="mark">nova<span>stacks</span></div>
+    <div class="eyebrow">Founder-to-founder proposal &nbsp;·&nbsp; 26 Aug 2026</div>
+  </div>
+
+  <div class="cover">
+    <div class="eyebrow">Prepared for Yigit Yucel &nbsp;·&nbsp; expertcoach.co</div>
+    <h1>Getting ExpertCoach cited by AI, over six months.</h1>
+    <p class="lede">A done-for-you AEO engagement built to your budget rather than scaled down from our enterprise retainer. A sixty-page floor, a live AI-visibility baseline, and a KPI we set together once the data exists.</p>
+
+    <dl class="facts">
+      <div class="fact"><dt>Term</dt><dd>6 months</dd></div>
+      <div class="fact"><dt>Pages shipped</dt><dd>60 minimum</dd></div>
+      <div class="fact"><dt>Investment</dt><dd>S$6,000</dd></div>
+      <div class="fact"><dt>Billing</dt><dd>S$1,000 / month</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section>
+  <div class="gutter"><span class="num">01</span><span class="lbl">What you<br>asked for</span></div>
+  <div class="body">
+    <h2>The brief, as I heard it</h2>
+    <ul class="plain">
+      <li><strong>Tracking.</strong> See what ChatGPT, Gemini, Claude and Perplexity actually say about ExpertCoach — and where CredentialPrep and CoachCertify are being cited instead of you.</li>
+      <li><strong>Gaps.</strong> Know which questions your buyers ask AI that you have no page for.</li>
+      <li><strong>Content that ships.</strong> Real posts, written properly, that don't read like they came out of a prompt.</li>
+      <li><strong>Your time back.</strong> You know what needs doing. You're one person, and doing it costs you half a day per post.</li>
+    </ul>
+    <div class="callout">
+      <p>Two things you said that shaped this proposal: CoachCertify has already passed you on share of voice by out-executing on volume and structure — and your budget is US$1,000 a month, which sits below where I normally start.</p>
+      <p>So this isn't my standard retainer with things crossed out. I rebuilt the scope around the two levers that actually move AI citation for a site your size, and removed everything else.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="gutter"><span class="num">02</span><span class="lbl">The bet</span></div>
+  <div class="body">
+    <h2>Surface area is your bottleneck</h2>
+    <p>ExpertCoach has around 16 published posts and some indexation problems. Your competitors aren't beating you on quality — they're beating you on volume, structure and machine-readability. AI assistants cite what they can crawl, parse and trust, and right now there simply isn't enough of you to cite.</p>
+    <p>Over six months we take you from fewer than 30 content pages to roughly 90, all built to be retrieved and quoted by an assistant rather than skimmed by a human.</p>
+    <div class="callout">
+      <p>Sixty is a floor, not a ceiling. Most agencies quote four or five pages a month and stop at the retainer line — that's how their model works. I'd rather keep producing and refreshing for as long as the citation data says there's ground to take, and refreshes don't count against the sixty. It works at this price because your niche is narrow: the research compounds, and every page makes the next one cheaper.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="gutter"><span class="num">03</span><span class="lbl">Scope</span></div>
+  <div class="body">
+    <h2>What's included — and what isn't</h2>
+    <div class="ledger">
+      <div>
+        <h3>Included</h3>
+        <ul class="tick">
+          <li><strong>Technical &amp; AEO audit</strong> of expertcoach.co — crawlability, indexation, site architecture, schema</li>
+          <li><strong>We ship the fixes ourselves</strong> — with publishing access to your Astro site, and you hear about every change</li>
+          <li><strong>Custom prompt set</strong> simulating how ICF coaches actually ask AI about certification</li>
+          <li><strong>Baseline + daily tracking</strong> across ChatGPT, Gemini, Claude and Perplexity</li>
+          <li><strong>Keyword &amp; gap database</strong> built from your Search Console data, not guesswork</li>
+          <li><strong>Competitor teardown</strong> — CredentialPrep and CoachCertify: what they're cited for, and why</li>
+          <li><strong>Minimum 60 pages over 6 months</strong> — a floor, not a cap; refreshes don't count against it</li>
+          <li><strong>Internal linking &amp; structured data</strong> across the content set</li>
+          <li><strong>Refreshed as often as needed</strong> — whenever a competitor page is being cited over yours</li>
+          <li><strong>Dashboard set up and run for you</strong> — your own login, live daily, yours to check any time</li>
+          <li><strong>Monthly strategy call</strong> (60 min), written report, and a shared channel for the day-to-day</li>
+          <li><strong>Off-page &amp; community signals</strong> — which forums, review sites and directories are shaping the answers, and what I'd do about it</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Not included</h3>
+        <ul class="cross">
+          <li><strong>Off-page and backlinks.</strong> An add-on, quoted only if the citation data shows it's the real constraint</li>
+          <li><strong>Community outreach.</strong> No Reddit or forum execution</li>
+                    <li><strong>Paid media.</strong> No SEM or ad management</li>
+          <li><strong>Other languages.</strong> English only for this term</li>
+                  </ul>
+        <p class="note"><strong>One suggested add-on:</strong> the AI-visibility tracking platform, <strong>from US$30/month</strong>. Track at least 30 prompts so the baseline is meaningful — it's what the KPI gets measured on. You license it directly and I don't mark it up. Everything else listed above is the most expensive part of a normal retainer and the least certain at your stage, which is why it's out unless the data says otherwise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="gutter"><span class="num">04</span><span class="lbl">Timeline</span></div>
+  <div class="body">
+    <h2>Six months, at less than your monthly budget</h2>
+    <p>You asked about three months at US$1,000. I'm proposing six at <strong>S$1,000</strong> — roughly US$775 — because month one is foundation, and a three-month deal only buys you two months of compounding. AI visibility is a compounding game; six months is where it actually pays. You spend less per month than you budgeted, and I get the runway to make the method work.</p>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-when">Week 1–2</div>
+        <div class="tl-what"><h3>Baseline locked</h3><p>Audit complete, prompt set live, tracking running, dashboard handed over. You can see your true AI share of voice for the first time. Fix spec delivered.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">Weeks 3–4</div>
+        <div class="tl-what"><h3>KPI agreed</h3><p>With the baseline in hand, I propose a six-month target and we agree it in writing. Setting it before the data exists would just be a guess.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">Ongoing</div>
+        <div class="tl-what"><h3>We fix, we publish, we refresh</h3><p>Fixes go live and content starts publishing — done by us, notified to you. We watch for crawl, index and the first citations, and steer production by what the data rewards.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">Mid-term</div>
+        <div class="tl-what"><h3>Share of voice moves</h3><p>Volume plus the refresh loop starts showing in the tracked prompt set. Pages that aren't earning citations get rewritten, not abandoned.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">Month 6</div>
+        <div class="tl-what"><h3>Assess against the KPI</h3><p>At least 60 pages live and compounding. We measure against the week-two baseline and the agreed target, and you make a straight investment decision.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="gutter"><span class="num">05</span><span class="lbl">The test</span></div>
+  <div class="body">
+    <h2>How you'll judge whether this worked</h2>
+    <p>We lock a baseline in week two across a fixed set of tracked prompts, then agree the six-month KPI together by end of week four — an increase in AI visibility, meaning how often ExpertCoach is mentioned or cited across that prompt set. Same prompts, same platforms, measured daily, visible to you throughout. Once agreed, nothing gets moved after the fact.</p>
+    <div class="callout">
+      <p>For calibration: a US-market client of ours started at 0.3% AI visibility against strong competitors. We set a three-month target of 3% — and hit it within the first month of publishing.</p>
+      <p>I'd rather set your number after I've seen your baseline than pluck one now to win the deal. A target agreed before the data exists is a guess; agreed after it, it's something I can be held to.</p>
+    </div>
+    <h3>If we miss it</h3>
+    <p>You still finish with a technically clean site, 60-plus pages you own, a keyword and prompt database, and six months of daily tracking data. You'd be making the next decision with evidence instead of a hunch — and you can walk away with all of it.</p>
+  </div>
+</section>
+
+<section>
+  <div class="gutter"><span class="num">06</span><span class="lbl">Investment</span></div>
+  <div class="body">
+    <h2>S$6,000 over six months</h2>
+    <div class="price-block">
+      <div class="price-main">
+        <span class="amt">S$6,000</span>
+        <span class="cap">six months at S$1,000/month · paid in two halves</span>
+      </div>
+      <div class="price-side">
+        <div><b>S$3,000</b>on signature, before we start</div>
+        <div><b>S$0</b>setup or onboarding fee</div>
+        <div><b>S$3,000</b>at the end of month three</div>
+        <div><b>from US$30</b>tracking tool, paid direct to vendor</div>
+      </div>
+    </div>
+
+    <div class="tblwrap">
+      <table>
+        <thead>
+          <tr><th>Instalment</th><th>When</th><th class="amt-c">Amount</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>01 · 50%</td><td>On signature — we start once it clears</td><td class="amt-c">S$3,000</td></tr>
+          <tr><td>02 · 50%</td><td>End of month three, payable within 7 days</td><td class="amt-c">S$3,000</td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td></td><td class="amt-c">S$6,000</td></tr></tfoot>
+      </table>
+    </div>
+
+    <div class="compare">
+      <p><strong>For context:</strong> our standard engagements start at US$3,000–10,000 per month over the same six months. The equivalent scope at standard rates is upward of S$18,000. This is a founder rate, offered once, because you're building the same way I am — and because a narrow niche is the one place where a small scope can genuinely win.</p>
+    </div>
+
+    <h3>Terms</h3>
+    <ul class="plain">
+      <li>Six-month term, proposed start <strong>1 September 2026</strong></li>
+      <li><strong>50% on signature, 50% at the end of month three</strong> — billed in SGD. If you exit at month three, anything covering months not delivered comes back to you at S$1,000/month</li>
+      <li><strong>Exit after month three</strong> with 30 days' notice, refunded pro rata. I'd rather you could leave than feel locked in</li>
+      <li>All content, briefs, databases and dashboards are yours, during and after</li>
+      <li>Pricing held until <strong>4 September 2026</strong></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="gutter"><span class="num">07</span><span class="lbl">Your side</span></div>
+  <div class="body">
+    <h2>What I need from you</h2>
+    <ul class="plain">
+      <li><strong>Publishing access</strong> to your Astro site, plus Google Search Console, GA4 and SEMrush — this is what makes it done-for-you rather than advice</li>
+      <li><strong>Roughly two hours a month</strong> — one strategy call plus reviewing drafts in Google Docs</li>
+      <li><strong>Draft turnaround within three working days</strong>, so publishing never stalls on approvals</li>
+          </ul>
+    <div class="callout">
+      <p>That list is deliberately short. You told me the bottleneck is your time, not your knowledge — so this is scoped to take the work off you rather than hand you a list. I publish, I fix, I tell you what changed. You review drafts and show up to one call a month.</p>
+    </div>
+  </div>
+</section>
+
+<div class="close">
+  <div class="eyebrow">Next step</div>
+  <h2>Say yes and we start Monday.</h2>
+  <p>I'll send the agreement and an access checklist the same day. Baseline and dashboard live within five working days of access — you'll be looking at your real AI share of voice before the first invoice is due.</p>
+  <div class="sig">
+    <div><b>Tina Chu</b> · Founder, Novastacks AI Pte Ltd</div>
+    <div><a href="mailto:tchu@novastacks-ai.com">tchu@novastacks-ai.com</a></div>
+  </div>
+</div>
+
+<footer>
+  Prepared for Yigit Yucel, ExpertCoach · 26 August 2026 · Novastacks AI Pte Ltd, Singapore<br>
+  Confidential. Figures quoted in Singapore dollars.
+</footer>
+
+</div>
+</body>
+</html>
