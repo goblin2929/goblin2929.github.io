@@ -1,0 +1,1358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novastacks — Company Credentials (full)</title>
+<meta property="og:title" content="Novastacks - Credentials">
+<meta property="og:type" content="website">
+<meta name="twitter:title" content="Novastacks - Credentials">
+<link rel="stylesheet" href="../company-credential/mbb_tokens.css">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;background:#1a1a1a}
+  deck-stage:not(:defined){visibility:hidden}
+
+  /* ---- Slide shells ---- */
+  .mslide{
+    height:100%;background:var(--paper);color:var(--ink-2);
+    padding:var(--margin-y) var(--margin-x);
+    display:flex;flex-direction:column;overflow:hidden;position:relative;
+  }
+  .corner-logo{position:absolute;top:var(--margin-y);right:var(--margin-x);height:38px;width:auto;z-index:5}
+  .mslide.bleed{padding:0;display:grid}
+  .mslide.dark{background:var(--dark-bg);color:var(--dark-fg)}
+
+  .crumb{margin-bottom:22px}
+  .accent-rule{border:0;border-top:var(--rule-w-strong) solid var(--accent);width:64px;margin:24px 0}
+  .subhead{max-width:1320px;margin-top:14px}
+  .t-action.long{font-size:52px}
+
+  /* Footer */
+  .footer{
+    margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;
+    padding-top:18px;border-top:var(--rule-w-hair) solid var(--rule-hair);
+  }
+  .dark .footer{border-top-color:var(--dark-rule)}
+  .dark .footer .t-footer{color:var(--dark-fg-2)}
+  .footer .t-footer{white-space:nowrap}
+
+  /* ---- Cover ---- */
+  .cover-grid{grid-template-columns:1.12fr 1fr}
+  .cover-left{padding:var(--margin-y) var(--margin-x);display:flex;flex-direction:column;justify-content:space-between}
+  .cover-logo{height:76px;width:auto;align-self:flex-start}
+  .cover-right{background:var(--ink-1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;position:relative}
+  .cover-right .rtag{font-family:var(--font-display);font-weight:600;font-size:60px;line-height:1.05;letter-spacing:-.02em;color:var(--dark-fg);text-align:center;margin:0}
+  .cover-right .ce{position:absolute;left:48px;bottom:44px;color:var(--dark-fg-2)}
+  .cover-right .tealrule{border:0;border-top:2px solid var(--accent);width:120px;margin:0}
+  .cover-right .ct{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-fg-2)}
+
+  /* ---- Charts (slide 2) ---- */
+  .chart-row{margin-top:28px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    display:grid;grid-template-columns:repeat(3,1fr);flex:1}
+  .chart-col{padding:26px 36px;display:flex;flex-direction:column;
+    border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .chart-col:last-child{border-right:0}
+  .chart-col .ce{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin:0 0 auto}
+  .chart-col .cw{flex:1;display:flex;align-items:flex-end;justify-content:center;margin:14px 0;min-height:0}
+  .chart-col .cw svg{max-height:230px;width:100%}
+  .chart-col .claim{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);line-height:1.18;letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance}
+  .chart-col .src{font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin:0}
+  .subhead .pq{display:block;font-family:var(--font-display);font-weight:500;font-size:26px;color:var(--accent-deep);letter-spacing:-.01em;margin:8px 0 0}
+
+  /* ---- SEO vs AEO split (slide 3) ---- */
+  .vs-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+  .vs-half{padding:64px 72px 56px;display:flex;flex-direction:column;gap:22px;min-width:0}
+  .vs-half.light{background:var(--paper);border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .vs-half.dark{background:var(--dark-bg);color:var(--dark-fg)}
+  .vs-half .vh{font-family:var(--font-display);font-weight:600;font-size:42px;letter-spacing:-.02em;line-height:1.05;margin:0;color:var(--ink-1)}
+  .vs-half.dark .vh{color:var(--dark-fg)}
+  .vs-half .vshot{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);overflow:hidden}
+  .vs-half.dark .vshot{border-color:var(--dark-rule);background:#0d0d0d}
+  .vs-half .vshot img{max-width:100%;max-height:100%;object-fit:contain}
+  .vs-half .vcap2{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:0}
+  .vs-half.dark .vcap2{color:var(--dark-fg-2)}
+  .vs-half .vfoot{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}
+  .vs-half.dark .vfoot{color:var(--dark-fg-2)}
+
+  /* ---- Venn (slide 3) ---- */
+  .venn-grid{margin-top:32px;flex:1;display:grid;grid-template-columns:720px 1fr;gap:72px;align-items:center}
+  .venn{position:relative;width:640px;height:520px;margin:0 auto}
+  .venn .c{position:absolute;width:360px;height:360px;border-radius:50%;
+    border:1.5px solid var(--ink-3);display:flex;align-items:center;justify-content:center;text-align:center}
+  .venn .c1{top:0;left:140px}
+  .venn .c2{bottom:0;left:0}
+  .venn .c3{bottom:0;right:0}
+  .venn .c .lab{font-family:var(--font-display);font-weight:600;font-size:25px;color:var(--ink-1);line-height:1.15;width:140px}
+  .venn .c1 .lab{margin-bottom:140px}
+  .venn .c2 .lab{margin:140px 120px 0 0}
+  .venn .c3 .lab{margin:140px 0 0 120px}
+  .venn .core{position:absolute;width:128px;height:128px;border-radius:50%;left:256px;top:196px;
+    background:var(--accent);display:flex;align-items:center;justify-content:center;text-align:center;z-index:3}
+  .venn .core span{font-family:var(--font-mono);font-size:19px;font-weight:500;color:#fff;letter-spacing:.04em;line-height:1.2}
+  .venn-legend{border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .venn-legend .row{padding:26px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .venn-legend .row .n{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .venn-legend .row .d{font-family:var(--font-body);font-size:22px;color:var(--ink-3);margin:8px 0 0;line-height:1.35}
+  /* slide 3 convergence claim */
+  .venn-claim{display:flex;flex-direction:column}
+  .venn-claim .vrow{display:flex;align-items:baseline;gap:24px;padding:20px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .venn-claim .vrow:first-child{border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .venn-claim .vrow .vnum{font-family:var(--font-mono);font-size:18px;letter-spacing:.1em;color:var(--accent-deep)}
+  .venn-claim .vrow .vname{font-family:var(--font-display);font-weight:600;font-size:34px;color:var(--ink-1);letter-spacing:-.01em}
+  .venn-claim .vpayoff{font-family:var(--font-display);font-weight:500;font-size:32px;line-height:1.2;letter-spacing:-.01em;color:var(--accent-deep);margin:32px 0 0;text-wrap:balance}
+
+  /* ---- Team (slide 4) ---- */
+  .team{margin-top:44px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    display:grid;grid-template-columns:1fr 1fr}
+  .team .prof{padding:40px 44px;display:grid;grid-template-columns:240px 1fr;gap:36px;align-items:start}
+  .team .prof:first-child{border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .team .photo{width:240px;height:296px;background:var(--paper-deep) center/cover;
+    border:var(--rule-w-hair) solid var(--rule-hair);filter:saturate(.82)}
+  .team .pname{font-family:var(--font-display);font-weight:600;font-size:38px;color:var(--ink-1);margin:0;letter-spacing:-.02em}
+  .team .prole{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:10px 0 0}
+  .team .cred{margin:24px 0 0;display:flex;flex-direction:column;gap:16px}
+  .team .cred p{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-3);margin:0}
+  .team .cred p b{color:var(--ink-1);font-weight:600}
+  .logo-row{display:flex;align-items:center;gap:42px;margin-top:48px;padding-top:24px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .logo-row .lab{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+  .logo-row img{height:30px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.55}
+  .logo-row .wm{font-family:var(--font-display);font-weight:600;font-size:25px;color:var(--ink-3);letter-spacing:-.01em}
+
+  /* ---- Method ranked list (slide 5) ---- */
+  .ranked{margin-top:12px;border-top:var(--rule-w-strong) solid var(--ink-1);flex:1;display:flex;flex-direction:column;justify-content:space-between}
+  .rrow{display:grid;grid-template-columns:300px 1fr;gap:44px;padding:5px 0;
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start}
+  .rrow .rname{display:flex;flex-direction:column;gap:10px}
+  .rrow .rname .nm{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);letter-spacing:-.01em;line-height:1.1}
+  .rrow .rname .tag{align-self:flex-start;white-space:nowrap;font-family:var(--font-mono);font-size:15px;font-weight:500;
+    letter-spacing:.06em;color:var(--paper);background:var(--ink-1);padding:4px 9px}
+  .rrow .rname .tag.us{background:var(--accent-deep)}
+  .rrow .sentence{font-family:var(--font-body);font-size:21px;line-height:1.36;color:var(--ink-2);margin:0}
+  .rrow .strip{font-family:var(--font-mono);font-size:16px;letter-spacing:.03em;color:var(--accent-deep);margin:6px 0 0;line-height:1.4}
+  .rrow .strip .s{color:var(--ink-5);margin:0 7px}
+
+  /* ---- Method: featured USP + supporting (slide 5) ---- */
+  .method2{margin-top:14px;flex:1;display:grid;grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr);gap:50px}
+  .feat{background:var(--accent-tint);border-top:4px solid var(--accent);padding:40px 42px;display:flex;flex-direction:column}
+  .feat .fe{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:0}
+  .feat .fn{font-family:var(--font-display);font-weight:600;font-size:52px;color:var(--ink-1);letter-spacing:-.02em;margin:16px 0 0;line-height:1}
+  .feat .fs{font-family:var(--font-body);font-size:25px;line-height:1.42;color:var(--ink-2);margin:22px 0 0}
+  .feat .ffeed{font-family:var(--font-body);font-size:22px;line-height:1.4;color:var(--ink-3);margin:20px 0 0;padding-top:20px;border-top:1px solid rgba(1,170,193,.3)}
+  .feat .ffeed b{color:var(--ink-1);font-weight:600}
+  .feat .fstrip{font-family:var(--font-mono);font-size:17px;letter-spacing:.03em;color:var(--accent-deep);margin:auto 0 0;padding-top:24px;line-height:1.6}
+  .feat .fstrip .s{color:var(--ink-5);margin:0 7px}
+  .supp{display:flex;flex-direction:column;border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .srow{display:grid;grid-template-columns:118px 1fr;gap:28px;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start;flex:1}
+  .srow .stag{font-family:var(--font-mono);font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);margin-top:7px}
+  .srow .sname{font-family:var(--font-display);font-weight:600;font-size:29px;color:var(--ink-1);letter-spacing:-.01em;margin:0;line-height:1.05}
+  .srow .sbadge{display:inline-block;white-space:nowrap;font-family:var(--font-mono);font-size:14px;letter-spacing:.04em;color:var(--paper);background:var(--accent-deep);padding:3px 9px;margin:9px 0 0}
+  .srow .sline{font-family:var(--font-body);font-size:22px;line-height:1.34;color:var(--ink-3);margin:10px 0 0}
+  .srow .sstrip{font-family:var(--font-mono);font-size:16px;letter-spacing:.02em;color:var(--ink-4);margin:9px 0 0}
+  .srow .sstrip .s{color:var(--ink-5);margin:0 6px}
+
+
+  /* ---- Three-up (slide 7) ---- */
+  .three-up{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .three-up.fill{flex:1;margin-top:44px}
+  .three-up.fill .card3{min-height:0}
+  .card3{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);
+    border-top:4px solid var(--accent);padding:36px 32px;display:flex;flex-direction:column;gap:18px;min-height:300px}
+  .card3 .n{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
+  .card3 .h{font-family:var(--font-display);font-weight:600;font-size:32px;color:var(--ink-1);margin:0;letter-spacing:-.01em;line-height:1.12}
+  .card3 .d{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.4;margin:auto 0 0}
+  .card3 .ev{font-family:var(--font-mono);font-size:17px;letter-spacing:.04em;color:var(--accent-deep);line-height:1.4;margin:22px 0 0;padding-top:18px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+
+  /* ---- Stat grid (slide 8) ---- */
+  .stat-grid{margin-top:56px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair);display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:40px 30px;border-right:var(--rule-w-hair) solid var(--rule-hair);display:flex;flex-direction:column;gap:16px}
+  .stat:last-child{border-right:0}
+  .stat .se{font-family:var(--font-mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4)}
+  .stat .sn{font-family:var(--font-display);font-weight:600;font-size:var(--fs-stat);letter-spacing:var(--tr-display);line-height:1;color:var(--ink-1);font-feature-settings:"tnum" 1,"lnum" 1}
+  .stat .sn.range{font-size:58px}
+  .stat .sn .ar{color:var(--accent-deep)}
+  .stat .sl{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.35}
+
+  /* ---- Proof / evidence (slide 9) ---- */
+  .proof{margin-top:16px;flex:1;display:grid;grid-template-columns:0.88fr 1.12fr;gap:56px;align-items:center}
+  .artifact{display:flex;flex-direction:column}
+  .artifact .alabel{font-family:var(--font-mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 14px}
+  .frame{border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);overflow:hidden}
+  .frame.email img{display:block;width:100%;height:auto;padding:16px 18px}
+  .frame.answer img{display:block;width:100%;height:380px;object-fit:cover;object-position:top center}
+  .frame.shot{background:var(--paper-pure);padding:20px 22px}
+  .frame.shot img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain}
+  .frame.chart{background:var(--paper-pure);padding:26px 30px 20px}
+  .frame.chart svg{display:block;width:100%;height:auto}
+  .artifact .cap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:18px 0 0}
+  .artifact .cap b{color:var(--ink-1);font-weight:600}
+
+  /* ---- System breakout slides ---- */
+  .sysslide .crumb{margin-bottom:18px}
+  .sysslide .t-action{margin:8px 0 0}
+  .sysslide .accent-rule{margin:16px 0}
+  .sysslide .subhead{margin:10px 0 0}
+  .sysslide .feat{padding:32px 42px}
+  .sysslide .cmp{margin-top:14px}
+  .sysslide .crow{padding:12px 0}
+  .sysslide .fstrip{padding-top:16px}
+  .sysslide .fbadge{margin:0 0 10px}
+  .sysgrid{margin-top:24px;flex:1;display:grid;grid-template-columns:0.88fr 1.12fr;gap:48px;align-content:start}
+  .sysgrid .feat{min-height:0}
+  .sysviz{display:flex;flex-direction:column;min-width:0}
+  .sysviz .vframe{border:var(--rule-w-hair) solid var(--rule-hair);background:#020617;padding:14px;display:flex;align-items:center;justify-content:center}
+  .sysviz .vframe img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain}
+  .sysviz .vcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:16px 0 0}
+  .sysviz .vcap b{color:var(--ink-1);font-weight:600}
+  .feat .cmp{margin-top:20px;display:flex;flex-direction:column}
+  .feat .crow{padding:16px 0;border-top:1px solid rgba(1,170,193,.30)}
+  .feat .crow .cl{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0 0 6px}
+  .feat .crow.us .cl{color:var(--accent-deep)}
+  .feat .crow .ct{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-3);margin:0}
+  .feat .crow.us .ct{color:var(--ink-1);font-weight:500}
+  .feat .fbadge{align-self:flex-start;white-space:nowrap;font-family:var(--font-mono);font-size:15px;letter-spacing:.06em;color:var(--paper);background:var(--accent-deep);padding:4px 10px;margin:0 0 14px}
+
+  /* ---- Product lockup (system nameplates, slides 6-11) ---- */
+  .plock{display:flex;align-items:center;gap:18px;margin:14px 0 0}
+  .plock .pmark{flex:0 0 auto}
+  .plock .pname{font-family:var(--font-display);font-weight:700;font-size:44px;color:var(--ink-1);letter-spacing:-.015em;line-height:1;margin:0}
+  .plock .pchip{font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.08em;color:var(--accent-deep);border:1px solid var(--accent-deep);border-radius:var(--radius-1);padding:4px 9px;white-space:nowrap}
+  .pmark{position:relative;display:inline-block;width:32px;height:32px;border:1.5px solid var(--ink-1);border-radius:var(--radius-1)}
+  .pmark::after{content:"";position:absolute;right:4px;bottom:4px;width:12px;height:12px;background:var(--accent);border-radius:1px}
+  .pmark.sm{width:18px;height:18px;border-width:1.5px}
+  .pmark.sm::after{right:2px;bottom:2px;width:7px;height:7px}
+
+  /* ---- Method overview split-bleed (slide 6) ---- */
+  .method-grid{grid-template-columns:42fr 58fr}
+  .method-left{padding:var(--margin-y) 56px var(--margin-y) var(--margin-x);display:flex;flex-direction:column;min-width:0;border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .method-left .t-action{font-size:50px;margin:12px 0 0}
+  .method-left .accent-rule{margin:18px 0}
+  .method-left .t-lede{font-size:25px}
+  .method-right{background:var(--paper-pure);display:flex;flex-direction:column;min-width:0}
+  .method-right .dia{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:36px 44px 20px}
+  .method-right .dia img{width:100%;height:100%;object-fit:contain}
+  .method-right .dcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:0;padding:18px 44px 28px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .syslist{margin-top:24px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .syslist .srow2{display:flex;align-items:center;gap:16px;padding:7px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .syslist .sysnm{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);letter-spacing:-.01em}
+  .syslist .sysnum{margin-left:auto;font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;color:var(--accent-deep)}
+
+  /* ---- Day-to-day NovaLens shots ---- */
+  .dayshots{margin-top:36px;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-content:start}
+  .dayshots .dshot{display:flex;flex-direction:column}
+  .dayshots .dshot img{display:block;width:100%;height:auto;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .dayshots .dcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:16px 0 0}
+  .dayshots .dcap b{color:var(--ink-1);font-weight:600}
+
+  /* ---- Big quote (slide 10) ---- */
+  .quote-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:40px}
+  .bigq{font-family:var(--font-display);font-weight:500;font-size:84px;letter-spacing:-.03em;line-height:1.06;color:var(--ink-1);margin:0;max-width:1640px;text-wrap:balance}
+  .bigq em{font-style:normal;color:var(--accent-deep)}
+  .qattr{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0}
+
+  /* ---- Partner (slide 11) ---- */
+  .partner{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-content:start}
+  .pcard{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);padding:30px 40px;display:flex;flex-direction:column}
+  .pcard.lead{border-top:4px solid var(--accent)}
+  .pcard .pk{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0}
+  .pcard h3{font-family:var(--font-display);font-weight:600;font-size:38px;color:var(--ink-1);margin:14px 0 0;letter-spacing:-.02em}
+  .pcard .pd{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.4;margin:18px 0 0}
+  .pcard .price{margin-top:30px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .prow{display:flex;justify-content:space-between;align-items:baseline;gap:32px;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .prow .tier{font-family:var(--font-mono);font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);white-space:nowrap}
+  .pcard .prow .scope{font-family:var(--font-body);font-size:21px;color:var(--ink-2);line-height:1.35;text-align:right;max-width:420px}
+  .pcard .single{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);letter-spacing:-.02em;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .note{font-family:var(--font-mono);font-size:17px;letter-spacing:.04em;color:var(--ink-4);margin:14px 0 0}
+  /* three-offer variant */
+  .partner.three{grid-template-columns:repeat(3,1fr);gap:36px}
+  .partner.three .pcard{padding:28px 30px}
+  .partner.three .pcard h3{font-size:29px;margin:12px 0 0}
+  .partner.three .pcard .pd{font-size:21px}
+  .partner.three .prow{gap:20px;padding:15px 0}
+  .partner.three .prow .scope{font-size:19px;max-width:none}
+  .partner.three .pcard .single{font-size:25px;padding:15px 0}
+  .partner.three .pcard .note{font-size:15px}
+  .partner.three .pcard .price{margin-top:22px}
+  .pcard .pbadge{align-self:flex-start;font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.12em;color:var(--paper);background:var(--accent-deep);padding:4px 10px;border-radius:var(--radius-1);margin:0 0 14px}
+  .pcard .single .tbd{font-family:var(--font-mono);font-size:22px;letter-spacing:.08em;color:var(--accent-deep)}
+
+  /* ---- Partner card tags ---- */
+  .pcard .ptitle{font-family:var(--font-display);font-weight:600;font-size:33px;color:var(--ink-1);margin:0;letter-spacing:-.015em;line-height:1.12}
+  .pcard .psub{font-family:var(--font-body);font-weight:600;font-size:21px;color:var(--ink-3);margin:14px 0 0;line-height:1.3}
+  .pprice{margin-top:auto;padding-top:20px;border-top:var(--rule-w-hair) solid var(--rule-hair);display:flex;flex-direction:column;gap:4px}
+  .pprice .plab{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+  .pprice .pnum{font-family:var(--font-display);font-weight:600;font-size:38px;letter-spacing:-.02em;color:var(--ink-1);font-feature-settings:"tnum" 1}
+  .pprice .pnum .pmo{font-size:21px;font-weight:500;color:var(--ink-3)}
+  .ptags{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+  .ptag{font-family:var(--font-mono);font-size:15px;letter-spacing:.04em;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:5px 11px;border-radius:var(--radius-1);white-space:nowrap}
+  .ptag.em{background:var(--accent-deep);color:var(--paper)}
+
+  /* ---- Close (slide 12) ---- */
+  .close-wrap{height:100%;display:flex;flex-direction:column;justify-content:space-between}
+  .close-q{font-family:var(--font-display);font-weight:500;font-size:84px;letter-spacing:-.03em;line-height:1.04;color:var(--dark-fg);max-width:1560px;text-wrap:balance}
+  .close-q em{font-style:normal;color:var(--accent)}
+  .cta-btn{display:inline-block;background:var(--accent);color:#08131a;font-family:var(--font-display);font-weight:600;font-size:26px;letter-spacing:-.01em;padding:20px 44px;border-radius:var(--radius-1);text-decoration:none;margin-top:44px}
+  .cta-btn:hover{background:var(--accent-deep);color:var(--dark-fg)}
+    .close-contact{display:flex;gap:26px;align-items:baseline;font-family:var(--font-mono);font-size:26px;color:var(--dark-fg);letter-spacing:.02em;flex-wrap:wrap;margin-top:30px}
+  .close-contact .sep{color:var(--accent)}
+  .close-contact .nm{color:var(--dark-fg);white-space:nowrap}
+
+  /* ---- Entrance (visible base; animate from hidden) ---- */
+  @media (prefers-reduced-motion:no-preference){
+    [data-deck-active] .anim{animation:mrise .55s cubic-bezier(.4,0,.2,1) both}
+    [data-deck-active] .anim.d1{animation-delay:.07s}
+    [data-deck-active] .anim.d2{animation-delay:.14s}
+    [data-deck-active] .anim.d3{animation-delay:.21s}
+    @keyframes mrise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  }
+
+  /* ===== Company Credentials — added components ===== */
+  /* Team — 4-up grid */
+  .team.quad{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+  .team.quad .prof{grid-template-columns:140px 1fr;gap:28px;padding:28px 38px}
+  .team.quad .prof:nth-child(odd){border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .team.quad .prof:nth-child(-n+2){border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .team.quad .photo{width:140px;height:172px}
+  .team.quad .pname{font-size:30px}
+  .team.quad .prole{font-size:16px;margin-top:8px}
+  .team.quad .cred{margin-top:16px;gap:11px}
+  .team.quad .cred p{font-size:19px;line-height:1.34}
+  .avatar{width:140px;height:172px;display:flex;align-items:center;justify-content:center;
+    background:var(--paper-deep);border:var(--rule-w-hair) solid var(--rule-hair);
+    font-family:var(--font-display);font-weight:600;font-size:54px;color:var(--accent-deep);letter-spacing:.02em}
+
+  /* Callout bar */
+  .callout{margin-top:30px;background:var(--ink-1);color:var(--paper);
+    padding:20px 28px;display:flex;align-items:center;gap:16px;
+    font-family:var(--font-body);font-size:23px;line-height:1.35}
+  .callout .dot{flex:0 0 auto;width:12px;height:12px;border-radius:2px;background:var(--accent)}
+  .callout b{color:#fff;font-weight:600}
+
+  /* Pyramid — Growth System */
+  .pyr-grid{margin-top:40px;flex:1;display:grid;grid-template-columns:640px 1fr;gap:64px;align-items:center}
+  .pyr-left{position:relative;height:512px}
+  .pyr-left svg{display:block;width:100%;height:100%}
+  .pyr-text{display:grid;grid-template-rows:repeat(4,128px)}
+  .pyr-row{display:flex;flex-direction:column;justify-content:center;
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pyr-row:last-child{border-bottom:0}
+  .pyr-row .ph{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .pyr-row .pdd{font-family:var(--font-body);font-size:21px;color:var(--ink-3);line-height:1.35;margin:8px 0 0;max-width:900px}
+
+  /* Scope grid — Tiket case */
+  .scope-grid{margin-top:34px;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px 56px;align-content:start}
+  .sitem{display:grid;grid-template-columns:32px 1fr;gap:18px;align-items:start;
+    padding-top:22px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .sitem .ar{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--accent-deep);line-height:1.1}
+  .sitem .sh{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .sitem .sd{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.36;margin:7px 0 0}
+
+  /* AI-transformation 3-layer model */
+  .tmodel{margin-top:30px;flex:1;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .tmrow{display:grid;grid-template-columns:88px 380px 1fr;gap:44px;align-items:center;
+    padding:24px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);flex:1}
+  .tmrow .tnum{font-family:var(--font-display);font-weight:600;font-size:52px;color:var(--accent);line-height:1;letter-spacing:-.02em}
+  .tmrow .tname{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);letter-spacing:-.01em;line-height:1.12}
+  .tmrow .tdesc{font-family:var(--font-body);font-size:21px;color:var(--ink-3);line-height:1.4;margin:0;max-width:980px}
+  .tmrow .tdesc b{color:var(--ink-1);font-weight:600}
+  /* client logo row (AI transformation) */
+  .logo-row.clients{margin-top:26px;gap:52px}
+  .logo-row.clients img{height:42px;opacity:.72}
+
+  /* Scope strip — mono, dot-separated (agentic advisory) */
+  .scopestrip{font-family:var(--font-mono);font-size:19px;letter-spacing:.03em;color:var(--accent-deep);margin:20px 0 0;line-height:1.6}
+  .scopestrip .s{color:var(--ink-5);margin:0 9px}
+
+  /* Client logo marquee — infinite auto-scroll (agentic advisory) */
+  .marquee{margin-top:auto;padding-top:30px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .marquee .mq-lab{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0 0 20px}
+  .mq-window{overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%)}
+  .mtrack{display:flex;width:max-content;animation:mqscroll 32s linear infinite}
+  .mgroup{display:flex;align-items:center;flex:0 0 auto}
+  .mlogo{flex:0 0 460px;height:152px;display:flex;align-items:center;justify-content:center;margin-right:120px}
+  .mlogo img{width:100%;height:132px;object-fit:contain;filter:grayscale(1);opacity:.78}
+  /* logos authored for dark backgrounds (white/lime artwork) — invert so they read on paper */
+  .mlogo img.on-dark{filter:grayscale(1) invert(1);opacity:.72}
+  @keyframes mqscroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+  @media (prefers-reduced-motion:reduce){.mtrack{animation:none}}
+
+
+  /* ---- Novastacks AI Search OS sequence (5 slides) ---- */
+  .aos-grid{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 700px;gap:64px;align-items:stretch}
+  .aos-text{display:flex;flex-direction:column;min-width:0;min-height:0}
+  .aos-text .t-action{font-size:50px;line-height:1.08;margin:0;text-wrap:balance}
+  .aos-text .accent-rule{margin:18px 0}
+  .aos-lede{font-family:var(--font-body);font-size:25px;line-height:1.4;color:var(--ink-2);margin:0;text-wrap:balance}
+  .aos-sys{margin-top:24px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .asys{display:flex;align-items:baseline;gap:16px;padding:20px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .asys .ahd{display:flex;align-items:center;gap:14px;margin:0 0 8px}
+  .asys .an{font-family:var(--font-display);font-weight:600;font-size:29px;color:var(--ink-1);letter-spacing:-.01em;margin:0;line-height:1.1}
+  .aos-text .pchip{font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.08em;color:var(--accent-deep);border:1px solid var(--accent-deep);border-radius:var(--radius-1);padding:4px 9px;white-space:nowrap;flex:0 0 auto}
+  .asys .ap{font-family:var(--font-body);font-size:24px;line-height:1.42;color:var(--ink-3);margin:0}
+  .asys .ap b{font-family:var(--font-display);color:var(--ink-1);font-weight:600;font-size:27px}
+  .asys .pchip{position:relative;top:-3px}
+  .aos-sys.tight .asys{padding:12px 0}
+  .aos-sys.tight .asys .an{font-size:27px;margin-bottom:4px}
+  .aos-sys.tight .asys .ap{font-size:20px;line-height:1.34;margin-top:4px}
+  .aos-carry{font-family:var(--font-display);font-weight:500;font-size:25px;line-height:1.3;color:var(--accent-deep);margin:22px 0 0}
+  .aos-dia{display:flex;align-items:center;justify-content:center;min-height:0;background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);padding:18px 14px}
+  .aos-dia svg{display:block;width:100%;height:100%;max-height:100%;font-family:var(--font-body)}
+  .aos-dia .aplane.dim{opacity:.28}
+  .aos-layers{margin-top:22px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .alrow{display:grid;grid-template-columns:210px 1fr;gap:24px;padding:9px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start}
+  .alrow .al{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;line-height:1.15}
+  .alrow .al span{display:block;font-family:var(--font-body);font-weight:500;font-size:18px;color:var(--accent-deep);margin-top:4px;line-height:1.3}
+  .alrow .as{font-family:var(--font-body);font-size:21px;line-height:1.5;color:var(--ink-3);margin:0}
+  .alrow .as{display:flex;flex-direction:column;gap:6px}
+  .alrow .asl{display:flex;align-items:baseline;gap:12px}
+  .alrow .asl .pchip{position:relative;top:-2px}
+  .alrow .as b{color:var(--ink-1);font-weight:600;font-family:var(--font-display);font-size:23px;white-space:nowrap}
+
+  .aos-h2{font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.22;color:var(--accent-deep);letter-spacing:-.01em;margin:14px 0 0;text-wrap:balance}
+  /* Why we are different */
+  .why-grid{margin-top:4px;display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:44px;align-items:start}
+  .why-left .wcards{align-items:start}
+  .wben{list-style:none;margin:6px 0 0;padding:16px 0 0;border-top:1px solid rgba(1,170,193,.35);display:flex;flex-direction:column;gap:12px}
+  .wben li{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:22px;line-height:1.25;color:var(--ink-1)}
+  .wmark.sm{width:26px;height:26px;font-size:14px}
+  .wcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .wcard{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);border-top:4px solid var(--ink-5);padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+  .wcard.us{border-top-color:var(--accent);background:var(--accent-tint)}
+  .wcard .wk{font-family:var(--font-mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin:0}
+  .wcard.us .wk{color:var(--accent-deep)}
+  .wcard .wt{display:flex;align-items:center;gap:12px}
+  .wcard h3{font-family:var(--font-display);font-weight:600;font-size:27px;line-height:1.12;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .wmark{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700}
+  .wmark.no{background:var(--bad-tint);color:var(--bad)}
+  .wmark.yes{background:var(--accent);color:#fff}
+  .wcard .wd{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-3);margin:0}
+  .why-p{font-family:var(--font-body);font-size:23px;line-height:1.5;color:var(--ink-2);margin:34px 0 0}
+  .why-rows{margin-top:30px;border-top:var(--rule-w-strong) solid var(--ink-1);display:grid;grid-template-columns:1fr 1fr;column-gap:48px}
+  .wrow{padding:16px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .wrow .wl{font-family:var(--font-display);font-weight:600;font-size:23px;line-height:1.25;color:var(--ink-1);margin:0}
+  .wrow .wv{font-family:var(--font-body);font-size:22px;line-height:1.42;color:var(--ink-3);margin:0}
+  .wrow .wv b{font-family:var(--font-display);font-weight:600;color:var(--ink-1)}
+  .why-fig{margin:0;display:flex;flex-direction:column}
+  .why-fig img{display:block;width:100%;height:auto;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .why-fig figcaption{font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin:10px 0 0}
+  /* Compounding Loop */
+  .loop-lede{font-family:var(--font-body);font-size:23px;line-height:1.42;color:var(--ink-2);margin:12px 0 0;max-width:1640px}
+  .loop-grid{margin-top:18px;flex:1;min-height:0;display:grid;grid-template-columns:400px minmax(0,1fr);gap:44px;align-items:start}
+  .loop-left{display:flex;flex-direction:column;gap:14px}
+  .loop-svg{display:block;width:380px;height:380px;margin:0 auto;font-family:var(--font-display)}
+  .loop-right{display:flex;flex-direction:column;gap:22px;min-width:0}
+  .loop-why{background:var(--accent-tint);border-left:4px solid var(--accent);padding:16px 24px}
+  .loop-why .lwh{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);margin:0 0 6px}
+  .loop-why p{font-family:var(--font-body);font-size:20px;line-height:1.42;color:var(--ink-2);margin:0}
+  .lcards{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
+  .lcard{border-top:var(--rule-w-strong) solid var(--ink-1);padding:14px 0 0}
+  .lcard .ln{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .lcard .lnum{width:34px;height:34px;border-radius:50%;background:var(--accent-tint);border:2px solid var(--accent-deep);color:var(--accent-deep);font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .lcard .lp{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-2);margin:8px 0 0}
+  .lcard .lr{font-family:var(--font-body);font-size:20px;line-height:1.38;color:var(--accent-deep);margin:8px 0 0}
+  .lcard .lr b{color:var(--accent-deep);font-weight:600}
+  .aos-harness{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-2);margin:16px 0 0}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 COVER -->
+  <section data-label="Cover">
+    <div class="mslide bleed cover-grid">
+      <div class="cover-left">
+        <img class="cover-logo anim" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+        <div>
+          <h1 class="t-cover-h1 anim d1" style="font-size:112px">Novastacks AI</h1>
+          <hr class="accent-rule anim d2">
+          <p class="t-lede anim d2" style="max-width:840px">AI-native growth partner for scaling APAC companies.</p>
+        </div>
+        <div class="t-eyebrow anim d3">COMPANY CREDENTIALS · NOVASTACKS · SINGAPORE</div>
+      </div>
+      <div class="cover-right">
+        <p class="rtag">We build the AI<br>system that grows<br>your business.</p>
+        <hr class="tealrule">
+        <div class="ct">Company Credentials · Singapore</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 WHAT WE DO -->
+  <section data-label="Core Services">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">01 · Core Services</div>
+      <h2 class="t-action anim d1">Three core services &mdash; AI search visibility, an embedded growth team, and AI transformation.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="three-up fill anim d2">
+        <div class="card3">
+          <div class="n">01</div>
+          <h3 class="h">AI Search, SEO &amp; AEO</h3>
+          <p class="d" style="margin:16px 0 0">Done-for-you visibility across Google and the AI answer engines &mdash; so your brand is the page buyers find and the answer ChatGPT, Gemini and Perplexity recommend.</p>
+          <div class="ev" style="margin-top:auto">Technical SEO · Content &amp; AEO · Digital PR · AI visibility tracking</div>
+        </div>
+        <div class="card3">
+          <div class="n">02</div>
+          <h3 class="h">Growth Partner</h3>
+          <p class="d" style="margin:16px 0 0">A fractional CMO and senior execution pod that embeds as your extended team &mdash; owning go-to-market, channels and the growth number with you, without a full in-house hire.</p>
+          <div class="ev" style="margin-top:auto">Fractional CMO · GTM &amp; demand gen · Paid, content &amp; lifecycle · Co-owned KPIs</div>
+        </div>
+        <div class="card3">
+          <div class="n">03</div>
+          <h3 class="h">AI Transformation</h3>
+          <p class="d" style="margin:16px 0 0">We make AI native to how your team operates &mdash; hands-on workshops, growth consultancy and agentic workflows built around your real business processes.</p>
+          <div class="ev" style="margin-top:auto">AI workshops · AI growth consultancy · Agentic workflow builds</div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">CORE SERVICES · THREE WAYS WE ENGAGE</span><span class="t-footer">02 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- 03 GROWTH SYSTEM -->
+  <section data-label="The Growth System">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">02 · The Growth System</div>
+      <h2 class="t-action anim d1">Every engagement runs on one stack &mdash; outcome on top, AI infrastructure underneath.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="pyr-grid anim d2">
+        <div class="pyr-left">
+          <svg viewBox="0 0 640 512" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <polygon points="320,6 580,506 60,506" fill="#01AAC1"/>
+            <line x1="255" y1="131" x2="385" y2="131" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+            <line x1="190" y1="256" x2="450" y2="256" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+            <line x1="125" y1="381" x2="515" y2="381" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+            <text x="320" y="80" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">1</text>
+            <text x="320" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">2</text>
+            <text x="320" y="330" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">3</text>
+            <text x="320" y="455" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">4</text>
+          </svg>
+        </div>
+        <div class="pyr-text">
+          <div class="pyr-row">
+            <p class="ph">Business Outcome</p>
+            <p class="pdd">Revenue, margin, lead pipeline and AI search share-of-voice &mdash; co-owned and on our comp.</p>
+          </div>
+          <div class="pyr-row">
+            <p class="ph">Expert Strategy</p>
+            <p class="pdd">Senior operator layer &mdash; GTM, ecommerce strategy, user acquisition and retention initiatives.</p>
+          </div>
+          <div class="pyr-row">
+            <p class="ph">Human &amp; Agentic Execution</p>
+            <p class="pdd">Storefront, branded app, membership, rebrand, ERP, AEO &amp; SEO, paid media, social content and campaign management.</p>
+          </div>
+          <div class="pyr-row">
+            <p class="ph">AI Infrastructure</p>
+            <p class="pdd">Agents, automation and data unification &mdash; customised and built for you.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">03 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- 04 TEAM -->
+  <section data-label="Team &amp; Resources">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · Team &amp; Resources</div>
+      <h2 class="t-action anim d1">The people named here do the work &mdash; not partners selling and juniors delivering.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="team quad anim d2">
+        <div class="prof">
+          <div class="photo" style="background-image:url(../company-credential/assets/team-tina.jpg)"></div>
+          <div>
+            <p class="pname">Tina Chu</p>
+            <p class="prole">Founder &amp; CEO</p>
+            <div class="cred">
+              <p>Ex-VP Marketing &mdash; <b>Traveloka, Klook, Tencent, Expedia.</b> Led a 100+ global acquisition team and $50M+ in ad spend.</p>
+              <p>Award-winning marketer and Wharton MBA &mdash; AI-marketing masterclass trainer at SMU.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="avatar">YH</div>
+          <div>
+            <p class="pname">YaoHong</p>
+            <p class="prole">CTO</p>
+            <div class="cred">
+              <p>Ex-CTO, <b>StashAway &amp; January Capital.</b> Writes the code; ships AI systems in days.</p>
+              <p>Business intelligence, data unification and agentic-workflow engineering.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="photo" style="background-image:url(../company-credential/assets/team-eki.jpg)"></div>
+          <div>
+            <p class="pname">Eki Riandra</p>
+            <p class="prole">Head of Search &amp; Commerce</p>
+            <div class="cred">
+              <p>Ex-Tech SEO Head of <b>Traveloka &amp; Tokopedia;</b> Google Product Expert.</p>
+              <p>Co-authored the Tokopedia growth case study with Google.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="avatar">RK</div>
+          <div>
+            <p class="pname">Raka</p>
+            <p class="prole">Creative Director</p>
+            <div class="cred">
+              <p>Ex-Creative Director, <b>Traveloka.</b> Founder of ArtGenie Studio.</p>
+              <p>Brand strategy, creative direction and visual storytelling.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="callout anim d3"><span class="dot"></span><span>At market salaries this team is worth <b>~$500K/year combined</b> &mdash; you&rsquo;re not getting a junior team behind a senior sales face.</span></div>
+      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">04 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- 05 PROOF BEFORE PITCH -->
+  <section data-label="Proof Before Pitch">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">04 · Proof Before Pitch</div>
+      <h2 class="t-action anim d1">The company is new &mdash; the team isn&rsquo;t. We&rsquo;ve driven real P&amp;L growth at leading brands in multiple markets.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="stat-grid anim d2" style="grid-template-columns:repeat(4,1fr)">
+        <div class="stat">
+          <div class="se">D2C portfolio exits</div>
+          <div class="sn">$10M</div>
+          <div class="sl">Dunwell, Cranberry, Sentinol &mdash; built from zero over four years.</div>
+        </div>
+        <div class="stat">
+          <div class="se">Ad spend managed</div>
+          <div class="sn">&gt;$50M</div>
+          <div class="sl">Performance budgets steered across paid channels in APAC.</div>
+        </div>
+        <div class="stat">
+          <div class="se">Growth acceleration</div>
+          <div class="sn">4&times;</div>
+          <div class="sl">Traveloka paid channel: 10% YoY growth on entry &rarr; 40% YoY at exit.</div>
+        </div>
+        <div class="stat">
+          <div class="se">Years operating</div>
+          <div class="sn">60+</div>
+          <div class="sl">Combined pedigree across Expedia, Tencent, Klook, Traveloka, StashAway and Carro.</div>
+        </div>
+      </div>
+      <div class="logo-row anim d3" style="flex-wrap:wrap;gap:34px">
+        <span class="lab">Brands we&rsquo;ve grown</span>
+        <span class="wm">Traveloka</span>
+        <span class="wm">Expedia</span>
+        <span class="wm">Tencent</span>
+        <span class="wm">Tokopedia</span>
+        <span class="wm">Klook</span>
+        <span class="wm">January Capital</span>
+        <span class="wm">Carro</span>
+      </div>
+      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">05 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- 06 WHY NOW -->
+  <section data-label="Why Now">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">05 · Why Now</div>
+      <h2 class="t-action anim d1">Why this configuration, and why now.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="three-up anim d2">
+        <div class="card3">
+          <div class="n">Force 01</div>
+          <h3 class="h">AI is collapsing the channel stack</h3>
+          <p class="d">SEO, paid, content and PR are converging into one chat surface. Whoever owns the LLM interface for their category wins disproportionately.</p>
+        </div>
+        <div class="card3">
+          <div class="n">Force 02</div>
+          <h3 class="h">Agencies and IT vendors don&rsquo;t compose</h3>
+          <p class="d">Agencies execute but can&rsquo;t build AI growth systems. IT vendors build software but don&rsquo;t carry a business outcome. You pay both &mdash; and neither owns the result.</p>
+        </div>
+        <div class="card3">
+          <div class="n">Force 03</div>
+          <h3 class="h">Scale-up startups, enterprises, and known brands need velocity</h3>
+          <p class="d">The topline growth you need can&rsquo;t come from traditional models or channels. Enterprise value compounds faster than how marketing firms work.</p>
+        </div>
+      </div>
+      <div class="callout anim d3"><span class="dot"></span><span>The gap between those three forces is exactly where <b>Novastacks</b> sits.</span></div>
+      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">06 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY 1/7 OVERVIEW -->
+  <section data-label="The Novastacks Methodology">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · The Novastacks Methodology</div>
+      <div class="aos-grid">
+        <div class="aos-text">
+          <h2 class="t-action anim d1">The Novastacks Methodology</h2>
+          <p class="aos-h2 anim d1">Senior marketing experts + Novastacks AI Search OS: operators on strategy, agentic precision on execution.</p>
+          <hr class="accent-rule anim d1">
+          <p class="aos-lede anim d1">Novastacks&rsquo; methodology arms senior marketing operators with Novastacks AI Search OS, Novastacks&rsquo; proprietary agentic system for AI search.</p>
+          <div class="aos-layers anim d2">
+          <div class="alrow"><p class="al">Data<span>What goes in</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;01</span><b>First-Party Signals</b> your own data</span><span class="asl"><span class="pchip">SYS&middot;02</span><b>Search Demand Signals</b> market and competitor evidence</span></div></div>
+          <div class="alrow"><p class="al">Decision<span>What determines your AEO strategy and tactics</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;03</span><b>AEO Orbit Watch</b> Novastacks&rsquo; AI search knowledge base</span><span class="asl"><span class="pchip">SYS&middot;04</span><b>Prompt Radar Pro</b> buyer-question generation method</span><span class="asl"><span class="pchip">SYS&middot;05</span><b>Answer Architecture</b> market map and page decisions</span></div></div>
+          <div class="alrow"><p class="al">Execution<span>What gets built</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;06</span><b>Machine Readability</b> the site&rsquo;s technical readiness</span><span class="asl"><span class="pchip">SYS&middot;07</span><b>Echo Network</b> trusted third-party presence</span></div></div>
+          <div class="alrow"><p class="al">Measurement<span>What you get</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;08</span><b>Proof Loop</b> AI visibility measured against pipeline</span></div></div>
+          </div>
+          <p class="aos-harness anim d2">Our senior AI engineers decomposed marketing operations into deterministic steps, LLM-reasoning steps, and the points where a human sets the strategy and adjusts the workflow. The system is configured around each client&rsquo;s performance needs; it is not designed to serve millions of accounts on one setting.</p>
+        </div>
+        <div class="aos-dia anim d2">
+            <svg class="aos-svg" viewBox="0 0 760 860" role="img" aria-label="Four stacked layers of Novastacks AI Search OS: Data, Decision, Execution, Measurement">
+            <g class="aplane">
+            <text x="40" y="44" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">1 · DATA LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What goes in</tspan></text>
+            <polygon points="140,62 620,62 720,192 40,192" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="105.3" x2="653.3" y2="105.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="148.7" x2="686.7" y2="148.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="62" x2="210" y2="192" stroke="#E2E8F0"/>
+            <line x1="380" y1="62" x2="380" y2="192" stroke="#E2E8F0"/>
+            <line x1="500" y1="62" x2="550" y2="192" stroke="#E2E8F0"/>
+            <rect x="150" y="89" width="121" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="210.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Sales calls</text>
+            <rect x="281" y="89" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="362.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Customer reviews</text>
+            <rect x="454" y="89" width="171" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="539.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Product catalogue</text>
+            <rect x="110" y="133" width="146" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="183.0" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Search Console</text>
+            <rect x="266" y="133" width="179" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="355.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">What buyers search</text>
+            <rect x="455" y="133" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="536.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Competitor pages</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="249" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">2 · DECISION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What determines your AEO strategy and tactics</tspan></text>
+            <polygon points="140,267 620,267 720,397 40,397" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="310.3" x2="653.3" y2="310.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="353.7" x2="686.7" y2="353.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="267" x2="210" y2="397" stroke="#E2E8F0"/>
+            <line x1="380" y1="267" x2="380" y2="397" stroke="#E2E8F0"/>
+            <line x1="500" y1="267" x2="550" y2="397" stroke="#E2E8F0"/>
+            <rect x="150" y="294" width="188" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="244.0" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Trending AI tactics</text>
+            <rect x="348" y="294" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="458.5" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Questions buyers ask AI</text>
+            <rect x="110" y="338" width="262" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="241.0" y="359.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Site structure and page plan</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="454" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">3 · EXECUTION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What gets built</tspan></text>
+            <polygon points="140,472 620,472 720,602 40,602" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="515.3" x2="653.3" y2="515.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="558.7" x2="686.7" y2="558.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="472" x2="210" y2="602" stroke="#E2E8F0"/>
+            <line x1="380" y1="472" x2="380" y2="602" stroke="#E2E8F0"/>
+            <line x1="500" y1="472" x2="550" y2="602" stroke="#E2E8F0"/>
+            <rect x="150" y="499" width="204" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="252.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">AI crawlability fixes</text>
+            <rect x="364" y="499" width="138" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="433.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Schema markup</text>
+            <rect x="110" y="543" width="246" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="233.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pages written to be quoted</text>
+            <rect x="366" y="543" width="238" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="485.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Mentions on trusted sites</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="659" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">4 · MEASUREMENT LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What you get</tspan></text>
+            <polygon points="140,677 620,677 720,807 40,807" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="720.3" x2="653.3" y2="720.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="763.7" x2="686.7" y2="763.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="677" x2="210" y2="807" stroke="#E2E8F0"/>
+            <line x1="380" y1="677" x2="380" y2="807" stroke="#E2E8F0"/>
+            <line x1="500" y1="677" x2="550" y2="807" stroke="#E2E8F0"/>
+            <rect x="150" y="704" width="320" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="310.0" y="725.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Named and recommended by AI engines</text>
+            <rect x="110" y="748" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="220.5" y="769.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pipeline from AI search</text>
+            </g>
+            <line x1="664" y1="127" x2="664" y2="332" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <line x1="664" y1="332" x2="664" y2="537" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <line x1="664" y1="537" x2="664" y2="742" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <circle cx="664" cy="127" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="332" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="537" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="742" r="13" fill="#01AAC1" stroke="#017D8E" stroke-width="4"/>
+            </svg>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS METHODOLOGY</span><span class="t-footer">07 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY 2/7 WHY WE ARE DIFFERENT -->
+  <section data-label="Why We Are Different">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · Why We Are Different</div>
+      <h2 class="t-action anim d1" style="max-width:1500px">When a Senior Marketing Leader Is Armed With a Multi-Layer Agentic System</h2>
+      <hr class="accent-rule anim d1">
+      <div class="why-grid anim d2">
+        <div class="why-left">
+          <div class="wcards">
+            <div class="wcard"><p class="wk">What others offer</p><div class="wt"><span class="wmark no" aria-label="Not offered">&#10005;</span><h3>All-Human Agencies</h3></div><p class="wd">Senior judgment, with output constrained by headcount and cost.</p></div>
+            <div class="wcard"><p class="wk">What others offer</p><div class="wt"><span class="wmark no" aria-label="Not offered">&#10005;</span><h3>All-AI Tools</h3></div><p class="wd">Speed and volume, with no strategy or judgment applied to the output.</p></div>
+            <div class="wcard us"><p class="wk">What Novastacks offers</p><div class="wt"><span class="wmark yes" aria-label="Offered">&#10003;</span><h3>Operator + Agentic System</h3></div><p class="wd">Senior judgment combined with execution at scale in a single team.</p><ul class="wben"><li><span class="wmark yes sm" aria-hidden="true">&#10003;</span>Tackle previously impractical work</li><li><span class="wmark yes sm" aria-hidden="true">&#10003;</span>Business-specific AI workflows</li><li><span class="wmark yes sm" aria-hidden="true">&#10003;</span>Learning retained between cycles</li></ul></div>
+          </div>
+        </div>
+        <figure class="why-fig"><img src="../company-credential/assets/team-lounge-v2-web.jpg" alt="Novastacks operators at work"><figcaption>Illustration</figcaption></figure>
+      </div>
+      <div class="footer"><span class="t-footer">WHY WE ARE DIFFERENT · OPERATOR + AGENTIC SYSTEM</span><span class="t-footer">08 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY 3/7 DATA LAYER -->
+  <section data-label="AI Search OS · Data layer">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · Novastacks AI Search OS</div>
+      <div class="aos-grid">
+        <div class="aos-text">
+          <h2 class="t-action anim d1">Data layer: every decision is based on evidence about your buyers and your market</h2>
+          <hr class="accent-rule anim d1">
+          
+          <div class="aos-sys anim d2">
+            <div class="asys"><span class="pchip">SYS&middot;01</span><p class="ap"><b>First-Party Signals</b> consolidates your sales calls, customer reviews, product information and Search Console data.</p></div>
+            <div class="asys"><span class="pchip">SYS&middot;02</span><p class="ap"><b>Search Demand Signals</b> shows what buyers search for and which competitor pages rank, in each market.</p></div>
+          </div>
+          <p class="aos-carry anim d2">Passed to the Decision layer: buyer questions and their evidence</p>
+        </div>
+        <div class="aos-dia anim d2">
+            <svg class="aos-svg" viewBox="0 0 760 860" role="img" aria-label="Four stacked layers of Novastacks AI Search OS: Data, Decision, Execution, Measurement">
+            <g class="aplane">
+            <text x="40" y="44" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">1 · DATA LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What goes in</tspan></text>
+            <polygon points="140,62 620,62 720,192 40,192" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="105.3" x2="653.3" y2="105.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="148.7" x2="686.7" y2="148.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="62" x2="210" y2="192" stroke="#E2E8F0"/>
+            <line x1="380" y1="62" x2="380" y2="192" stroke="#E2E8F0"/>
+            <line x1="500" y1="62" x2="550" y2="192" stroke="#E2E8F0"/>
+            <rect x="150" y="89" width="121" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="210.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Sales calls</text>
+            <rect x="281" y="89" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="362.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Customer reviews</text>
+            <rect x="454" y="89" width="171" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="539.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Product catalogue</text>
+            <rect x="110" y="133" width="146" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="183.0" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Search Console</text>
+            <rect x="266" y="133" width="179" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="355.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">What buyers search</text>
+            <rect x="455" y="133" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="536.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Competitor pages</text>
+            </g>
+            <g class="aplane dim">
+            <text x="40" y="249" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">2 · DECISION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What determines your AEO strategy and tactics</tspan></text>
+            <polygon points="140,267 620,267 720,397 40,397" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="310.3" x2="653.3" y2="310.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="353.7" x2="686.7" y2="353.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="267" x2="210" y2="397" stroke="#E2E8F0"/>
+            <line x1="380" y1="267" x2="380" y2="397" stroke="#E2E8F0"/>
+            <line x1="500" y1="267" x2="550" y2="397" stroke="#E2E8F0"/>
+            <rect x="150" y="294" width="188" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="244.0" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Trending AI tactics</text>
+            <rect x="348" y="294" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="458.5" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Questions buyers ask AI</text>
+            <rect x="110" y="338" width="262" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="241.0" y="359.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Site structure and page plan</text>
+            </g>
+            <g class="aplane dim">
+            <text x="40" y="454" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">3 · EXECUTION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What gets built</tspan></text>
+            <polygon points="140,472 620,472 720,602 40,602" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="515.3" x2="653.3" y2="515.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="558.7" x2="686.7" y2="558.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="472" x2="210" y2="602" stroke="#E2E8F0"/>
+            <line x1="380" y1="472" x2="380" y2="602" stroke="#E2E8F0"/>
+            <line x1="500" y1="472" x2="550" y2="602" stroke="#E2E8F0"/>
+            <rect x="150" y="499" width="204" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="252.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">AI crawlability fixes</text>
+            <rect x="364" y="499" width="138" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="433.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Schema markup</text>
+            <rect x="110" y="543" width="246" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="233.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pages written to be quoted</text>
+            <rect x="366" y="543" width="238" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="485.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Mentions on trusted sites</text>
+            </g>
+            <g class="aplane dim">
+            <text x="40" y="659" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">4 · MEASUREMENT LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What you get</tspan></text>
+            <polygon points="140,677 620,677 720,807 40,807" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="720.3" x2="653.3" y2="720.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="763.7" x2="686.7" y2="763.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="677" x2="210" y2="807" stroke="#E2E8F0"/>
+            <line x1="380" y1="677" x2="380" y2="807" stroke="#E2E8F0"/>
+            <line x1="500" y1="677" x2="550" y2="807" stroke="#E2E8F0"/>
+            <rect x="150" y="704" width="320" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="310.0" y="725.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Named and recommended by AI engines</text>
+            <rect x="110" y="748" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="220.5" y="769.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pipeline from AI search</text>
+            </g>
+            <circle cx="664" cy="127" r="13" fill="#01AAC1" stroke="#017D8E" stroke-width="4"/>
+            <circle cx="664" cy="332" r="9" fill="#01AAC1" opacity=".22"/>
+            <circle cx="664" cy="537" r="9" fill="#01AAC1" opacity=".22"/>
+            <circle cx="664" cy="742" r="9" fill="#01AAC1" opacity=".22"/>
+            </svg>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 1 OF 4 · DATA</span><span class="t-footer">09 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY 4/7 DECISION LAYER -->
+  <section data-label="AI Search OS · Decision layer">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · Novastacks AI Search OS</div>
+      <div class="aos-grid">
+        <div class="aos-text">
+          <h2 class="t-action anim d1">Decision layer: the strategy is defined first, then the buyer questions and pages that support it</h2>
+          <hr class="accent-rule anim d1">
+          
+          <div class="aos-sys anim d2">
+            <div class="asys"><span class="pchip">SYS&middot;03</span><p class="ap"><b>AEO Orbit Watch</b> defines the strategy from what works in AI search now.</p></div>
+            <div class="asys"><span class="pchip">SYS&middot;04</span><p class="ap"><b>Prompt Radar Pro</b> simulates the questions buyers ask AI and selects which ones to track.</p></div>
+            <div class="asys"><span class="pchip">SYS&middot;05</span><p class="ap"><b>Answer Architecture</b> specifies which pages to create or improve, from a map of your market and competitors.</p></div>
+          </div>
+          <p class="aos-carry anim d2">Passed to the Execution layer: the pages to build or fix</p>
+        </div>
+        <div class="aos-dia anim d2">
+            <svg class="aos-svg" viewBox="0 0 760 860" role="img" aria-label="Four stacked layers of Novastacks AI Search OS: Data, Decision, Execution, Measurement">
+            <g class="aplane dim">
+            <text x="40" y="44" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">1 · DATA LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What goes in</tspan></text>
+            <polygon points="140,62 620,62 720,192 40,192" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="105.3" x2="653.3" y2="105.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="148.7" x2="686.7" y2="148.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="62" x2="210" y2="192" stroke="#E2E8F0"/>
+            <line x1="380" y1="62" x2="380" y2="192" stroke="#E2E8F0"/>
+            <line x1="500" y1="62" x2="550" y2="192" stroke="#E2E8F0"/>
+            <rect x="150" y="89" width="121" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="210.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Sales calls</text>
+            <rect x="281" y="89" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="362.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Customer reviews</text>
+            <rect x="454" y="89" width="171" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="539.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Product catalogue</text>
+            <rect x="110" y="133" width="146" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="183.0" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Search Console</text>
+            <rect x="266" y="133" width="179" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="355.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">What buyers search</text>
+            <rect x="455" y="133" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="536.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Competitor pages</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="249" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">2 · DECISION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What determines your AEO strategy and tactics</tspan></text>
+            <polygon points="140,267 620,267 720,397 40,397" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="310.3" x2="653.3" y2="310.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="353.7" x2="686.7" y2="353.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="267" x2="210" y2="397" stroke="#E2E8F0"/>
+            <line x1="380" y1="267" x2="380" y2="397" stroke="#E2E8F0"/>
+            <line x1="500" y1="267" x2="550" y2="397" stroke="#E2E8F0"/>
+            <rect x="150" y="294" width="188" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="244.0" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Trending AI tactics</text>
+            <rect x="348" y="294" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="458.5" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Questions buyers ask AI</text>
+            <rect x="110" y="338" width="262" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="241.0" y="359.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Site structure and page plan</text>
+            </g>
+            <g class="aplane dim">
+            <text x="40" y="454" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">3 · EXECUTION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What gets built</tspan></text>
+            <polygon points="140,472 620,472 720,602 40,602" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="515.3" x2="653.3" y2="515.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="558.7" x2="686.7" y2="558.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="472" x2="210" y2="602" stroke="#E2E8F0"/>
+            <line x1="380" y1="472" x2="380" y2="602" stroke="#E2E8F0"/>
+            <line x1="500" y1="472" x2="550" y2="602" stroke="#E2E8F0"/>
+            <rect x="150" y="499" width="204" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="252.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">AI crawlability fixes</text>
+            <rect x="364" y="499" width="138" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="433.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Schema markup</text>
+            <rect x="110" y="543" width="246" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="233.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pages written to be quoted</text>
+            <rect x="366" y="543" width="238" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="485.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Mentions on trusted sites</text>
+            </g>
+            <g class="aplane dim">
+            <text x="40" y="659" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">4 · MEASUREMENT LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What you get</tspan></text>
+            <polygon points="140,677 620,677 720,807 40,807" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="720.3" x2="653.3" y2="720.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="763.7" x2="686.7" y2="763.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="677" x2="210" y2="807" stroke="#E2E8F0"/>
+            <line x1="380" y1="677" x2="380" y2="807" stroke="#E2E8F0"/>
+            <line x1="500" y1="677" x2="550" y2="807" stroke="#E2E8F0"/>
+            <rect x="150" y="704" width="320" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="310.0" y="725.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Named and recommended by AI engines</text>
+            <rect x="110" y="748" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="220.5" y="769.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pipeline from AI search</text>
+            </g>
+            <line x1="664" y1="127" x2="664" y2="332" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <circle cx="664" cy="127" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="332" r="13" fill="#01AAC1" stroke="#017D8E" stroke-width="4"/>
+            <circle cx="664" cy="537" r="9" fill="#01AAC1" opacity=".22"/>
+            <circle cx="664" cy="742" r="9" fill="#01AAC1" opacity=".22"/>
+            </svg>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 2 OF 4 · DECISION</span><span class="t-footer">10 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY 5/7 EXECUTION LAYER -->
+  <section data-label="AI Search OS · Execution layer">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · Novastacks AI Search OS</div>
+      <div class="aos-grid">
+        <div class="aos-text">
+          <h2 class="t-action anim d1">Execution layer: AI engines quote pages they can parse and recommend brands trusted sources corroborate</h2>
+          <hr class="accent-rule anim d1">
+          <p class="aos-lede anim d1">Content production delivers the pages, written by AI agents and directed by senior operators.</p>
+          <div class="aos-sys anim d2">
+            <div class="asys"><span class="pchip">SYS&middot;06</span><p class="ap"><b>Machine Readability</b> prepares the site for AI crawlers so AI engines can parse, quote and attribute your pages.</p></div>
+            <div class="asys"><span class="pchip">SYS&middot;07</span><p class="ap"><b>Echo Network</b> establishes presence on the publications, directories and review sites AI engines trust.</p></div>
+          </div>
+          <p class="aos-carry anim d2">Passed to the Measurement layer: published pages, confirmed by trusted sources</p>
+        </div>
+        <div class="aos-dia anim d2">
+            <svg class="aos-svg" viewBox="0 0 760 860" role="img" aria-label="Four stacked layers of Novastacks AI Search OS: Data, Decision, Execution, Measurement">
+            <g class="aplane dim">
+            <text x="40" y="44" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">1 · DATA LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What goes in</tspan></text>
+            <polygon points="140,62 620,62 720,192 40,192" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="105.3" x2="653.3" y2="105.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="148.7" x2="686.7" y2="148.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="62" x2="210" y2="192" stroke="#E2E8F0"/>
+            <line x1="380" y1="62" x2="380" y2="192" stroke="#E2E8F0"/>
+            <line x1="500" y1="62" x2="550" y2="192" stroke="#E2E8F0"/>
+            <rect x="150" y="89" width="121" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="210.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Sales calls</text>
+            <rect x="281" y="89" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="362.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Customer reviews</text>
+            <rect x="454" y="89" width="171" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="539.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Product catalogue</text>
+            <rect x="110" y="133" width="146" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="183.0" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Search Console</text>
+            <rect x="266" y="133" width="179" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="355.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">What buyers search</text>
+            <rect x="455" y="133" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="536.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Competitor pages</text>
+            </g>
+            <g class="aplane dim">
+            <text x="40" y="249" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">2 · DECISION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What determines your AEO strategy and tactics</tspan></text>
+            <polygon points="140,267 620,267 720,397 40,397" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="310.3" x2="653.3" y2="310.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="353.7" x2="686.7" y2="353.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="267" x2="210" y2="397" stroke="#E2E8F0"/>
+            <line x1="380" y1="267" x2="380" y2="397" stroke="#E2E8F0"/>
+            <line x1="500" y1="267" x2="550" y2="397" stroke="#E2E8F0"/>
+            <rect x="150" y="294" width="188" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="244.0" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Trending AI tactics</text>
+            <rect x="348" y="294" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="458.5" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Questions buyers ask AI</text>
+            <rect x="110" y="338" width="262" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="241.0" y="359.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Site structure and page plan</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="454" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">3 · EXECUTION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What gets built</tspan></text>
+            <polygon points="140,472 620,472 720,602 40,602" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="515.3" x2="653.3" y2="515.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="558.7" x2="686.7" y2="558.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="472" x2="210" y2="602" stroke="#E2E8F0"/>
+            <line x1="380" y1="472" x2="380" y2="602" stroke="#E2E8F0"/>
+            <line x1="500" y1="472" x2="550" y2="602" stroke="#E2E8F0"/>
+            <rect x="150" y="499" width="204" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="252.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">AI crawlability fixes</text>
+            <rect x="364" y="499" width="138" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="433.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Schema markup</text>
+            <rect x="110" y="543" width="246" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="233.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pages written to be quoted</text>
+            <rect x="366" y="543" width="238" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="485.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Mentions on trusted sites</text>
+            </g>
+            <g class="aplane dim">
+            <text x="40" y="659" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">4 · MEASUREMENT LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What you get</tspan></text>
+            <polygon points="140,677 620,677 720,807 40,807" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="720.3" x2="653.3" y2="720.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="763.7" x2="686.7" y2="763.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="677" x2="210" y2="807" stroke="#E2E8F0"/>
+            <line x1="380" y1="677" x2="380" y2="807" stroke="#E2E8F0"/>
+            <line x1="500" y1="677" x2="550" y2="807" stroke="#E2E8F0"/>
+            <rect x="150" y="704" width="320" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="310.0" y="725.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Named and recommended by AI engines</text>
+            <rect x="110" y="748" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="220.5" y="769.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pipeline from AI search</text>
+            </g>
+            <line x1="664" y1="127" x2="664" y2="332" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <line x1="664" y1="332" x2="664" y2="537" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <circle cx="664" cy="127" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="332" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="537" r="13" fill="#01AAC1" stroke="#017D8E" stroke-width="4"/>
+            <circle cx="664" cy="742" r="9" fill="#01AAC1" opacity=".22"/>
+            </svg>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 3 OF 4 · EXECUTION</span><span class="t-footer">11 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY 6/7 MEASUREMENT LAYER -->
+  <section data-label="AI Search OS · Measurement layer">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · Novastacks AI Search OS</div>
+      <div class="aos-grid">
+        <div class="aos-text">
+          <h2 class="t-action anim d1">Measurement layer: the work is evaluated by AI recommendations and the pipeline they drive</h2>
+          <hr class="accent-rule anim d1">
+          <p class="aos-lede anim d1">Each tracked buyer question is checked repeatedly in every AI engine and reported as a range.</p>
+          <div class="aos-sys anim d2">
+            <div class="asys"><span class="pchip">SYS&middot;08</span><p class="ap"><b>Proof Loop</b> tracks whether AI engines cite and recommend your brand and attributes the result to pipeline.</p></div>
+          </div>
+          <p class="aos-carry anim d2">Measured results inform the Decision layer in the next cycle</p>
+        </div>
+        <div class="aos-dia anim d2">
+            <svg class="aos-svg" viewBox="0 0 760 860" role="img" aria-label="Four stacked layers of Novastacks AI Search OS: Data, Decision, Execution, Measurement">
+            <g class="aplane dim">
+            <text x="40" y="44" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">1 · DATA LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What goes in</tspan></text>
+            <polygon points="140,62 620,62 720,192 40,192" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="105.3" x2="653.3" y2="105.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="148.7" x2="686.7" y2="148.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="62" x2="210" y2="192" stroke="#E2E8F0"/>
+            <line x1="380" y1="62" x2="380" y2="192" stroke="#E2E8F0"/>
+            <line x1="500" y1="62" x2="550" y2="192" stroke="#E2E8F0"/>
+            <rect x="150" y="89" width="121" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="210.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Sales calls</text>
+            <rect x="281" y="89" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="362.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Customer reviews</text>
+            <rect x="454" y="89" width="171" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="539.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Product catalogue</text>
+            <rect x="110" y="133" width="146" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="183.0" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Search Console</text>
+            <rect x="266" y="133" width="179" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="355.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">What buyers search</text>
+            <rect x="455" y="133" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="536.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Competitor pages</text>
+            </g>
+            <g class="aplane dim">
+            <text x="40" y="249" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">2 · DECISION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What determines your AEO strategy and tactics</tspan></text>
+            <polygon points="140,267 620,267 720,397 40,397" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="310.3" x2="653.3" y2="310.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="353.7" x2="686.7" y2="353.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="267" x2="210" y2="397" stroke="#E2E8F0"/>
+            <line x1="380" y1="267" x2="380" y2="397" stroke="#E2E8F0"/>
+            <line x1="500" y1="267" x2="550" y2="397" stroke="#E2E8F0"/>
+            <rect x="150" y="294" width="188" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="244.0" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Trending AI tactics</text>
+            <rect x="348" y="294" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="458.5" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Questions buyers ask AI</text>
+            <rect x="110" y="338" width="262" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="241.0" y="359.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Site structure and page plan</text>
+            </g>
+            <g class="aplane dim">
+            <text x="40" y="454" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">3 · EXECUTION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What gets built</tspan></text>
+            <polygon points="140,472 620,472 720,602 40,602" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="106.7" y1="515.3" x2="653.3" y2="515.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="558.7" x2="686.7" y2="558.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="472" x2="210" y2="602" stroke="#E2E8F0"/>
+            <line x1="380" y1="472" x2="380" y2="602" stroke="#E2E8F0"/>
+            <line x1="500" y1="472" x2="550" y2="602" stroke="#E2E8F0"/>
+            <rect x="150" y="499" width="204" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="252.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">AI crawlability fixes</text>
+            <rect x="364" y="499" width="138" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="433.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Schema markup</text>
+            <rect x="110" y="543" width="246" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="233.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pages written to be quoted</text>
+            <rect x="366" y="543" width="238" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="485.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Mentions on trusted sites</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="659" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">4 · MEASUREMENT LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What you get</tspan></text>
+            <polygon points="140,677 620,677 720,807 40,807" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="720.3" x2="653.3" y2="720.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="763.7" x2="686.7" y2="763.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="677" x2="210" y2="807" stroke="#E2E8F0"/>
+            <line x1="380" y1="677" x2="380" y2="807" stroke="#E2E8F0"/>
+            <line x1="500" y1="677" x2="550" y2="807" stroke="#E2E8F0"/>
+            <rect x="150" y="704" width="320" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="310.0" y="725.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Named and recommended by AI engines</text>
+            <rect x="110" y="748" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="220.5" y="769.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pipeline from AI search</text>
+            </g>
+            <line x1="664" y1="127" x2="664" y2="332" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <line x1="664" y1="332" x2="664" y2="537" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <line x1="664" y1="537" x2="664" y2="742" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <circle cx="664" cy="127" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="332" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="537" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="742" r="13" fill="#01AAC1" stroke="#017D8E" stroke-width="4"/>
+            </svg>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 4 OF 4 · MEASUREMENT</span><span class="t-footer">12 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY 7/7 COMPOUNDING LOOP -->
+  <section data-label="How an Engagement Runs">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">06 · How an Engagement Runs</div>
+      <h2 class="t-action anim d1">How Do We Run a Client&rsquo;s Engagement?</h2>
+      <p class="loop-lede anim d1">Novastacks runs each engagement as a four-stage cycle, the Compounding Loop: AEO/GEO/SEO Audit, Architect, Activate, Amplify. At each stage, the system performs the work at scale and the operator makes the judgement calls.</p>
+      <div class="loop-grid anim d2">
+        <div class="loop-left">
+            <svg class="loop-svg" viewBox="0 0 500 500" role="img" aria-label="The Compounding Loop: AEO/GEO/SEO Audit, Architect, Activate, Amplify, then back to AEO/GEO/SEO Audit">
+            <defs><marker id="lp-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#01AAC1"/></marker></defs>
+            <path d="M 299.6 89.5 A 168 168 0 0 1 410.5 200.4" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr)"/>
+            <path d="M 410.5 299.6 A 168 168 0 0 1 299.6 410.5" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr)"/>
+            <path d="M 200.4 410.5 A 168 168 0 0 1 89.5 299.6" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr)"/>
+            <path d="M 89.5 200.4 A 168 168 0 0 1 200.4 89.5" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr)"/>
+            <text x="250" y="244" text-anchor="middle" font-size="26" font-weight="600" fill="#131313">Compounding</text>
+            <text x="250" y="276" text-anchor="middle" font-size="26" font-weight="600" fill="#131313">Loop</text>
+            <circle cx="250" cy="82" r="34" fill="#EAF6F8" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="250" y="92" text-anchor="middle" font-size="28" font-weight="700" fill="#017D8E">1</text>
+            <circle cx="418" cy="250" r="34" fill="#EAF6F8" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="418" y="260" text-anchor="middle" font-size="28" font-weight="700" fill="#017D8E">2</text>
+            <circle cx="250" cy="418" r="34" fill="#EAF6F8" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="250" y="428" text-anchor="middle" font-size="28" font-weight="700" fill="#017D8E">3</text>
+            <circle cx="82" cy="250" r="34" fill="#EAF6F8" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="82" y="260" text-anchor="middle" font-size="28" font-weight="700" fill="#017D8E">4</text>
+            </svg>
+        </div>
+        <div class="loop-right">
+          <div class="lcards">
+            <div class="lcard"><p class="ln"><span class="lnum">1</span>AEO/GEO/SEO Audit</p><p class="lp">Establish the baseline, verify the gaps and identify the opportunities worth pursuing.</p><p class="lr"><b>What you receive:</b> Prioritised findings with supporting evidence.</p></div>
+            <div class="lcard"><p class="ln"><span class="lnum">2</span>Architect</p><p class="lp">Decide what to fix, build and test, with clear responsibilities and success measures.</p><p class="lr"><b>What you receive:</b> Delivery roadmap, briefs and measurement plan.</p></div>
+            <div class="lcard"><p class="ln"><span class="lnum">3</span>Activate</p><p class="lp">Implement the agreed work through specialist execution and defined quality checks.</p><p class="lr"><b>What you receive:</b> Completed changes and a record of what shipped.</p></div>
+            <div class="lcard"><p class="ln"><span class="lnum">4</span>Amplify</p><p class="lp">Review performance, expand what works and revise what does not.</p><p class="lr"><b>What you receive:</b> Results review and next-cycle priorities.</p></div>
+          </div>
+          <div class="loop-why"><p class="lwh">Every cycle leaves you better equipped</p><p>Each engagement develops assets your business can keep using: stronger content, clearer customer insights and documented ways of working. We use performance findings to improve subsequent briefs and execution, so learning carries forward into the next round of work.</p></div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP</span><span class="t-footer">13 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- 08 CASE — GOFREIGHT RESULTS -->
+  <section data-label="Case — GoFreight Results">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">07 · Client Case · GoFreight · Freight-Tech SaaS</div>
+      <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">Novastacks AI Search OS took a Series B freight SaaS from invisible to the fastest-rising share of AI-answer mentions in three months. <img src="../company-credential/assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
+      <hr class="accent-rule anim d1">
+      <div class="stat-grid anim d2">
+        <div class="stat"><div class="se">Monthly organic clicks</div><div class="sn">+88%</div><div class="sl">in three months</div></div>
+        <div class="stat"><div class="se">AI visibility</div><div class="sn range">13.7% <span class="ar">&rarr;</span> 23.5%</div><div class="sl">#5 &rarr; #4 vs competitors</div></div>
+        <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">&rarr;</span> 8.4</div><div class="sl">Page 3 &rarr; page 1</div></div>
+        <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">14 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- 08 CASE — GOFREIGHT PROOF -->
+  <section data-label="Case — GoFreight Proof">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">07 · Client Case · GoFreight &mdash; Proof</div>
+      <h2 class="t-action anim d1">The CEO saw it in the pipeline before he saw it in a dashboard.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="proof anim d2">
+        <div class="artifact">
+          <p class="alabel">The email</p>
+          <div class="frame email">
+            <img src="../company-credential/assets/proof-email.jpg" alt="Inbound lead email — ChatGPT recommended the client">
+          </div>
+          <p class="cap">Inbound enterprise lead &mdash; the prospect found them through ChatGPT, which recommended them over the market leader. <b>January 2026.</b></p>
+        </div>
+        <div class="artifact">
+          <p class="alabel">The visibility that drove it</p>
+          <div class="frame shot" style="padding:0;background:#020617">
+            <img src="../company-credential/assets/novalens-shots/novalens-sov-trend-slidecut.png" alt="NovaLens — AI visibility by engine climbing weekly across Google AI Overviews, Perplexity and ChatGPT" style="max-height:500px">
+          </div>
+          <p class="cap">AI visibility climbing across every engine &mdash; <b>Google AI Overviews, Perplexity and ChatGPT</b> &mdash; tracked live in NovaLens through the engagement.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">15 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- 09 CASE — GOFREIGHT BUYER -->
+  <section data-label="Case — GoFreight Buyer">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">07 · Client Case · GoFreight &mdash; The Buyer&rsquo;s Words</div>
+      <div class="quote-wrap">
+        <p class="t-h2 anim d1" style="color:var(--ink-3);font-weight:500;max-width:1500px">1 of the client&rsquo;s 6 most recent enterprise wins started with an AI shortlist.</p>
+        <p class="bigq anim d1">&ldquo;I had a conversation with AI&hellip; it narrowed it down to a top five. <em>You guys were a top two.</em>&rdquo;</p>
+        <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
+      </div>
+      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">16 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- 10 CASE — TIKET -->
+  <section data-label="AI Transformation">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · AI Transformation</div>
+      <h2 class="t-action anim d1">How we run AI transformation &mdash; three layers, from tech stack to future capability.</h2>
+      <hr class="accent-rule anim d1">
+      <p class="t-lede subhead anim d1">Several mid-market engagements with non-technical and marketing teams &mdash; built around real workflows, Claude-partnered.</p>
+      <div class="tmodel anim d2">
+        <div class="tmrow">
+          <div class="tnum">01</div>
+          <div class="tname">Rewire the workflow</div>
+          <p class="tdesc">Stand up the AI stack and redesign how the work runs.</p>
+        </div>
+        <div class="tmrow">
+          <div class="tnum">02</div>
+          <div class="tname">Reshape the org</div>
+          <p class="tdesc">Restructure roles and upskill teams on their real workflows.</p>
+        </div>
+        <div class="tmrow">
+          <div class="tnum">03</div>
+          <div class="tname">Build agentic capability</div>
+          <p class="tdesc">Sense buyer intent in unstructured data; act with agentic workflows.</p>
+        </div>
+      </div>
+      <div class="logo-row clients anim d3">
+        <span class="lab">Worked with</span>
+        <img src="../company-credential/assets/smu-academy-logo.png" alt="SMU Academy">
+        <img src="../company-credential/assets/tiket-logo.svg" alt="Tiket.com">
+      </div>
+      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">17 / 18</span></div>
+    </div>
+  </section>
+
+  <!-- 11 CLOSE -->
+  <section class="dark" data-label="Close">
+    <div class="mslide dark">
+      <img class="corner-logo" src="../company-credential/assets/logo-white.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim" style="color:var(--dark-fg-2)">09 · Close</div>
+      <div class="close-wrap">
+        <div>
+          <div class="close-q anim d1">Let&rsquo;s build something that compounds together.</div>
+          <p class="anim d1" style="font-family:var(--font-body);font-size:26px;color:var(--dark-fg-2);line-height:1.42;max-width:1180px;margin:28px 0 0">One working session &mdash; we align on the KPI, map the first 90 days, and both walk away knowing if it&rsquo;s the right fit.</p>
+          <hr class="accent-rule anim d2" style="margin-top:40px">
+          <a class="cta-btn anim d2" href="https://calendar.app.google/3tk45A3Wq7UwgJef9" target="_blank" rel="noopener">Book a working session &rarr;</a>
+        </div>
+        <div class="anim d2">
+          <div class="close-contact">
+            <span class="nm">Tina Chu</span><span class="sep">·</span>tchu@novastacks-ai.com<span class="sep">·</span>novastacks-ai.com
+          </div>
+          <div class="footer" style="margin-top:40px">
+            <span class="t-footer" style="color:var(--dark-fg-2)">NOVASTACKS · AI-NATIVE GROWTH PARTNER</span>
+            <span class="t-footer" style="color:var(--accent)">18 / 18</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</deck-stage>
+
+<script src="../company-credential/deck-stage.js"></script>
+</body>
+</html>
