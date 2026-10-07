@@ -413,7 +413,7 @@
 
   .aos-h2{font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.22;color:var(--accent-deep);letter-spacing:-.01em;margin:14px 0 0;text-wrap:balance}
   /* Why we are different */
-  .why-grid{margin-top:4px;flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 600px;gap:56px;align-items:start}
+  .why-grid{margin-top:4px;display:grid;grid-template-columns:minmax(0,1fr) 470px;gap:40px;align-items:stretch}
   .wcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .wcard{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);border-top:4px solid var(--ink-5);padding:22px 24px;display:flex;flex-direction:column;gap:12px}
   .wcard.us{border-top-color:var(--accent);background:var(--accent-tint)}
@@ -426,23 +426,30 @@
   .wmark.yes{background:var(--accent);color:#fff}
   .wcard .wd{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-3);margin:0}
   .why-p{font-family:var(--font-body);font-size:23px;line-height:1.5;color:var(--ink-2);margin:34px 0 0}
+  .why-rows{margin-top:30px;border-top:var(--rule-w-strong) solid var(--ink-1);display:grid;grid-template-columns:1fr 1fr;column-gap:48px}
+  .wrow{padding:16px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .wrow .wl{font-family:var(--font-display);font-weight:600;font-size:23px;line-height:1.25;color:var(--ink-1);margin:0}
+  .wrow .wv{font-family:var(--font-body);font-size:22px;line-height:1.42;color:var(--ink-3);margin:0}
+  .wrow .wv b{font-family:var(--font-display);font-weight:600;color:var(--ink-1)}
   .why-fig{margin:0;display:flex;flex-direction:column}
-  .why-fig img{display:block;width:100%;height:auto;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .why-fig img{display:block;width:100%;height:0;flex:1;object-fit:cover;border:var(--rule-w-hair) solid var(--rule-hair)}
   .why-fig figcaption{font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin:10px 0 0}
   /* Compounding Loop */
   .loop-lede{font-family:var(--font-body);font-size:23px;line-height:1.42;color:var(--ink-2);margin:12px 0 0;max-width:1640px}
   .loop-grid{margin-top:18px;flex:1;min-height:0;display:grid;grid-template-columns:400px minmax(0,1fr);gap:44px;align-items:start}
   .loop-left{display:flex;flex-direction:column;gap:14px}
   .loop-svg{display:block;width:380px;height:380px;margin:0 auto;font-family:var(--font-display)}
-  .loop-why{font-family:var(--font-body);font-size:19px;line-height:1.45;color:var(--ink-3);margin:0}
-  .loop-why b{color:var(--ink-1)}
-  .lcards{display:grid;grid-template-columns:1fr 1fr;gap:16px 36px}
+  .loop-right{display:flex;flex-direction:column;gap:22px;min-width:0}
+  .loop-why{background:var(--accent-tint);border-left:4px solid var(--accent);padding:16px 24px}
+  .loop-why .lwh{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);margin:0 0 6px}
+  .loop-why p{font-family:var(--font-body);font-size:20px;line-height:1.42;color:var(--ink-2);margin:0}
+  .lcards{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
   .lcard{border-top:var(--rule-w-strong) solid var(--ink-1);padding:14px 0 0}
   .lcard .ln{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
   .lcard .lnum{width:34px;height:34px;border-radius:50%;background:var(--accent-tint);border:2px solid var(--accent-deep);color:var(--accent-deep);font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-  .lcard .lp{font-family:var(--font-body);font-weight:500;font-size:19px;line-height:1.36;color:var(--accent-deep);margin:6px 0 0}
-  .lcard .lr{font-family:var(--font-body);font-size:19px;line-height:1.36;color:var(--ink-3);margin:6px 0 0}
-  .lcard .lr b{color:var(--ink-1);font-weight:600}
+  .lcard .lp{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-2);margin:8px 0 0}
+  .lcard .lr{font-family:var(--font-body);font-size:20px;line-height:1.38;color:var(--accent-deep);margin:8px 0 0}
+  .lcard .lr b{color:var(--accent-deep);font-weight:600}
   .aos-harness{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-2);margin:16px 0 0}
 </style>
 </head>
@@ -664,7 +671,7 @@
         </div>
         <div class="card3">
           <div class="n">Force 03</div>
-          <h3 class="h">Growth-stage companies need velocity</h3>
+          <h3 class="h">Scale-up startups, enterprises, and known brands need velocity</h3>
           <p class="d">The topline growth you need can&rsquo;t come from traditional models or channels. Enterprise value compounds faster than how marketing firms work.</p>
         </div>
       </div>
@@ -788,10 +795,15 @@
             <div class="wcard"><p class="wk">What others offer</p><div class="wt"><span class="wmark no" aria-label="Not offered">&#10005;</span><h3>All-AI Tools</h3></div><p class="wd">Speed and volume, with no strategy or judgment applied to the output.</p></div>
             <div class="wcard us"><p class="wk">What Novastacks offers</p><div class="wt"><span class="wmark yes" aria-label="Offered">&#10003;</span><h3>Operator + Agentic System</h3></div><p class="wd">Senior judgment combined with execution at scale in a single team.</p></div>
           </div>
-          <p class="why-p">The operators concentrate on the work that carries the most strategic value for each client, and the system carries out the execution. The agentic system collects evidence about buyers, markets, competitors and AI answers at a scale a human team cannot match, and the operator analyses that evidence to set the priorities: which opportunities matter most to the business, and in what sequence. Agentic execution shortens delivery from quarters to weeks and raises the quality and consistency of the output, because every deterministic step runs the same way every time.</p>
         </div>
         <figure class="why-fig"><img src="assets/team-lounge-v2-web.jpg" alt="Novastacks operators at work"><figcaption>Illustration</figcaption></figure>
       </div>
+          <div class="why-rows anim d2">
+            <div class="wrow"><p class="wv"><b>Senior involvement throughout delivery</b> Work directly with the senior marketer responsible for your strategy and execution.</p></div>
+            <div class="wrow"><p class="wv"><b>Ability to tackle previously impractical work</b> Address the backlog your team has not had the capacity to tackle.</p></div>
+            <div class="wrow"><p class="wv"><b>Business-specific AI workflows</b> Execution built around your customers, positioning and quality standards.</p></div>
+            <div class="wrow"><p class="wv"><b>Learning retained between cycles</b> Each round improves the briefs, workflows and decisions behind the next.</p></div>
+          </div>
       <div class="footer"><span class="t-footer">WHY WE ARE DIFFERENT · OPERATOR + AGENTIC SYSTEM</span><span class="t-footer">08 / 18</span></div>
     </div>
   </section>
@@ -1208,13 +1220,15 @@
             <circle cx="82" cy="250" r="34" fill="#EAF6F8" stroke="#017D8E" stroke-width="2.5"/>
             <text x="82" y="260" text-anchor="middle" font-size="28" font-weight="700" fill="#017D8E">4</text>
             </svg>
-          <p class="loop-why"><b>Why the cycle repeats.</b> Every Amplify stage informs the next AEO/GEO/SEO Audit, so each cycle begins from the measured results of the previous one.</p>
         </div>
-        <div class="lcards">
-            <div class="lcard"><p class="ln"><span class="lnum">1</span>AEO/GEO/SEO Audit</p><p class="lp">Establish the brand&rsquo;s current position in search results and AI answers.</p><p class="lr"><b>The system:</b> Data-layer systems gather your First-Party Signals and Search Demand Signals, and agents audit the site and its AI visibility.</p><p class="lr"><b>The operator:</b> Translates your business goals into a search strategy: which products, customer segments and markets the work supports.</p></div>
-            <div class="lcard"><p class="ln"><span class="lnum">2</span>Architect</p><p class="lp">Define which pages to create or improve, and in what sequence.</p><p class="lr"><b>The system:</b> AEO Orbit Watch, Prompt Radar Pro and Answer Architecture propose the strategy, the buyer questions to track and the pages.</p><p class="lr"><b>The operator:</b> Turns those findings into an actionable plan: what to build or improve, why it matters and what evidence it needs.</p></div>
-            <div class="lcard"><p class="ln"><span class="lnum">3</span>Activate</p><p class="lp">Deliver the pages, the technical fixes and the third-party presence.</p><p class="lr"><b>The system:</b> Machine Readability, content production and Echo Network deliver machine-readable pages and presence on the sources AI engines trust.</p><p class="lr"><b>The operator:</b> Directs and reviews execution: the audience, the positioning, the questions to answer and the claims the evidence supports.</p></div>
-            <div class="lcard"><p class="ln"><span class="lnum">4</span>Amplify</p><p class="lp">Measure the results and apply them to the next cycle.</p><p class="lr"><b>The system:</b> Proof Loop tracks whether AI engines cite and recommend your brand and connects the result to pipeline.</p><p class="lr"><b>The operator:</b> Uses the results to determine the next actions: revise content, resolve technical barriers or change priorities.</p></div>
+        <div class="loop-right">
+          <div class="lcards">
+            <div class="lcard"><p class="ln"><span class="lnum">1</span>AEO/GEO/SEO Audit</p><p class="lp">Establish the baseline, verify the gaps and identify the opportunities worth pursuing.</p><p class="lr"><b>What you receive:</b> Prioritised findings with supporting evidence.</p></div>
+            <div class="lcard"><p class="ln"><span class="lnum">2</span>Architect</p><p class="lp">Decide what to fix, build and test, with clear responsibilities and success measures.</p><p class="lr"><b>What you receive:</b> Delivery roadmap, briefs and measurement plan.</p></div>
+            <div class="lcard"><p class="ln"><span class="lnum">3</span>Activate</p><p class="lp">Implement the agreed work through specialist execution and defined quality checks.</p><p class="lr"><b>What you receive:</b> Completed changes and a record of what shipped.</p></div>
+            <div class="lcard"><p class="ln"><span class="lnum">4</span>Amplify</p><p class="lp">Review performance, expand what works and revise what does not.</p><p class="lr"><b>What you receive:</b> Results review and next-cycle priorities.</p></div>
+          </div>
+          <div class="loop-why"><p class="lwh">Every cycle leaves you better equipped</p><p>Each engagement develops assets your business can keep using: stronger content, clearer customer insights and documented ways of working. We use performance findings to improve subsequent briefs and execution, so learning carries forward into the next round of work.</p></div>
         </div>
       </div>
       <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP</span><span class="t-footer">13 / 18</span></div>
