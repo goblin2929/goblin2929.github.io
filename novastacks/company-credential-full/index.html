@@ -460,6 +460,51 @@
   .lcard .lr{font-family:var(--font-body);font-size:21px;line-height:1.45;color:var(--ink-3);margin:14px 0 0;padding-top:12px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
   .lcard .lr b{color:var(--ink-1);font-weight:600}
   .aos-harness{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-2);margin:16px 0 0}
+  /* ---- Partners & clients logo wall (from aeo-deck-nopricing slide 7) ---- */
+  .ptags{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+  .ptag{font-family:var(--font-mono);font-size:15px;letter-spacing:.04em;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:5px 11px;border-radius:var(--radius-1);white-space:nowrap}
+  .ptag.em{background:var(--accent-deep);color:var(--paper)}
+  .ptags.wide{gap:12px;margin-top:20px}
+  .ptags.wide .ptag{font-size:20px;letter-spacing:.08em;padding:9px 16px}
+  /* ---- Partner / client logo wall (marquee) ---- */
+  .lwall{flex:1;min-height:0;margin-top:30px;display:flex;align-items:stretch;overflow:hidden;background:var(--paper-pure);
+         border-top:var(--rule-w-strong) solid var(--ink-1);border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .lview{flex:1;display:flex;align-items:center;overflow:hidden;min-width:0;
+         -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 110px,#000 calc(100% - 110px),transparent 100%);
+         mask-image:linear-gradient(90deg,transparent 0,#000 110px,#000 calc(100% - 110px),transparent 100%)}
+  .ltrack{display:flex;width:max-content;animation:lscroll 46s linear infinite}
+  .lset{display:flex;align-items:center;gap:104px;padding-right:104px}
+  .lset img{display:block;width:auto;object-fit:contain}
+  @keyframes lscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media print{
+    .ltrack{animation:none;width:100%}
+    .lset[aria-hidden]{display:none}
+    .lset{flex-wrap:wrap;justify-content:center;gap:40px 90px;padding:0 40px;width:100%}
+    .lset img{height:auto !important;max-height:120px;max-width:300px}
+  }
+  /* ---- GEO vs SEO scope (from aeo-deck-nopricing slide 4) ---- */
+  .scope{margin-top:20px;flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .scol{display:flex;flex-direction:column;min-width:0}
+  .schead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+          padding-bottom:12px;border-bottom:var(--rule-w-strong) solid}
+  .schead .sclab{font-family:var(--font-mono);font-size:17px;font-weight:600;letter-spacing:.1em;
+                 text-transform:uppercase;line-height:1.35;margin:0}
+  .schead .scount{font-family:var(--font-display);font-weight:600;font-size:26px;line-height:1;
+                  padding:5px 12px;color:var(--paper);white-space:nowrap}
+  .scol.seo .schead{border-color:var(--rule-hair)}
+  .scol.seo .sclab{color:var(--ink-4)}
+  .scol.seo .scount{background:var(--ink-4)}
+  .scol.shr .schead{border-color:var(--ink-1)}
+  .scol.shr .sclab{color:var(--ink-1)}
+  .scol.shr .scount{background:var(--ink-1)}
+  .scol.geo .schead{border-color:var(--accent)}
+  .scol.geo .sclab{color:var(--accent-deep)}
+  .scol.geo .scount{background:var(--accent-deep)}
+  .stiles{margin-top:12px;display:flex;flex-direction:column;gap:3px}
+  .stile{font-family:var(--font-body);font-size:22px;line-height:1.2;margin:0;padding:6px 14px}
+  .scol.seo .stile{background:var(--paper-deep);color:var(--ink-3)}
+  .scol.shr .stile{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);color:var(--ink-2)}
+  .scol.geo .stile{background:var(--accent-tint);border-left:3px solid var(--accent);color:var(--ink-1);font-weight:500}
 </style>
 </head>
 <body>
@@ -512,7 +557,7 @@
           <div class="ev" style="margin-top:auto">AI workshops · AI growth consultancy · Agentic workflow builds</div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">CORE SERVICES · THREE WAYS WE ENGAGE</span><span class="t-footer">02 / 19</span></div>
+      <div class="footer"><span class="t-footer">CORE SERVICES · THREE WAYS WE ENGAGE</span><span class="t-footer">02 / 21</span></div>
     </div>
   </section>
 
@@ -555,7 +600,7 @@
           </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">03 / 19</span></div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">03 / 21</span></div>
     </div>
   </section>
 
@@ -613,7 +658,7 @@
         </div>
       </div>
       <div class="callout anim d3"><span class="dot"></span><span>At market salaries this team is worth <b>~$500K/year combined</b> &mdash; you&rsquo;re not getting a junior team behind a senior sales face.</span></div>
-      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">04 / 19</span></div>
+      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">04 / 21</span></div>
     </div>
   </section>
 
@@ -656,7 +701,54 @@
         <span class="wm">January Capital</span>
         <span class="wm">Carro</span>
       </div>
-      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">05 / 19</span></div>
+      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">05 / 21</span></div>
+    </div>
+  </section>
+
+  <!-- PARTNERS & CLIENTS -->
+  <section data-label="Partners &amp; Clients">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">04 · Partners &amp; Clients</div>
+      <h2 class="t-action anim d1">Partners and clients we help to scale their growth.</h2>
+      <hr class="accent-rule anim d1" style="margin:18px 0 20px">
+      <p class="t-lede anim d2">Practice areas we cover.</p>
+      <div class="ptags wide anim d2">
+        <span class="ptag">DATA-TECH</span>
+        <span class="ptag">LOGISTICS</span>
+        <span class="ptag">HOSPITALITY</span>
+        <span class="ptag">INVESTMENT</span>
+        <span class="ptag">ACADEMIC</span>
+        <span class="ptag">FINTECH</span>
+        <span class="ptag">B2B SAAS</span>
+        <span class="ptag">B2C MARKETPLACE</span>
+        <span class="ptag">HEALTHCARE</span>
+      </div>
+      <div class="lwall anim d2">
+        <div class="lview">
+        <div class="ltrack">
+          <div class="lset">
+            <img src="../company-credential/assets/tiket-logo.svg" alt="tiket.com" style="height:130px">
+            <img src="../company-credential/assets/smu-academy-logo.png" alt="SMU Academy" style="height:136px">
+            <img src="../company-credential/assets/gofreight-logo.png" alt="GoFreight" style="height:226px">
+            <img src="../company-credential/assets/flip-logo.svg" alt="Flip" style="height:178px">
+            <img src="../company-credential/assets/decube-logo.svg" alt="Decube" style="height:118px">
+            <img src="../company-credential/assets/mcsaatchi-logo.svg" alt="M&amp;C Saatchi Performance" style="height:182px">
+            <img src="../company-credential/assets/granite-asia-logo.svg" alt="Granite Asia" style="height:82px">
+          </div>
+          <div class="lset" aria-hidden="true">
+            <img src="../company-credential/assets/tiket-logo.svg" alt="" style="height:130px">
+            <img src="../company-credential/assets/smu-academy-logo.png" alt="" style="height:136px">
+            <img src="../company-credential/assets/gofreight-logo.png" alt="" style="height:226px">
+            <img src="../company-credential/assets/flip-logo.svg" alt="" style="height:178px">
+            <img src="../company-credential/assets/decube-logo.svg" alt="" style="height:118px">
+            <img src="../company-credential/assets/mcsaatchi-logo.svg" alt="" style="height:182px">
+            <img src="../company-credential/assets/granite-asia-logo.svg" alt="" style="height:82px">
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PROOF &middot; BRANDS AND INSTITUTIONS THAT WORK WITH US</span><span class="t-footer">06 / 21</span></div>
     </div>
   </section>
 
@@ -685,7 +777,57 @@
         </div>
       </div>
       <div class="callout anim d3"><span class="dot"></span><span>The gap between those three forces is exactly where <b>Novastacks</b> sits.</span></div>
-      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">06 / 19</span></div>
+      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">07 / 21</span></div>
+    </div>
+  </section>
+
+  <!-- THE SHIFT: GEO VS SEO SCOPE -->
+  <section data-label="GEO scope vs SEO">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim" style="margin-bottom:14px">05 · The Shift</div>
+      <h2 class="t-action anim d1">GEO has broader scope than classic SEO.</h2>
+      <hr class="accent-rule anim d1" style="margin:16px 0">
+      <p class="t-lede anim d1">Six of these 21 inputs are shared. Eleven belong to GEO alone, and the outcome you buy is different at the top.</p>
+      <div class="scope anim d2">
+        <div class="scol seo">
+          <div class="schead"><p class="sclab">SEO only &mdash; work GEO never asks for</p><span class="scount">4</span></div>
+          <div class="stiles">
+          <p class="stile">Keyword and intent research</p>
+          <p class="stile">On-page optimisation</p>
+          <p class="stile">Link equity management</p>
+          <p class="stile">Local profile management</p>
+          </div>
+        </div>
+        <div class="scol shr">
+          <div class="schead"><p class="sclab">Shared &mdash; one job, both payoffs</p><span class="scount">6</span></div>
+          <div class="stiles">
+          <p class="stile">Audience and competitive set</p>
+          <p class="stile">Crawl and index management</p>
+          <p class="stile">Internal linking and architecture</p>
+          <p class="stile">Structured data markup</p>
+          <p class="stile">Digital PR and media relations</p>
+          <p class="stile">Third-party listicle and review placement</p>
+          </div>
+        </div>
+        <div class="scol geo">
+          <div class="schead"><p class="sclab">GEO only &mdash; work SEO never asked for</p><span class="scount">11</span></div>
+          <div class="stiles">
+          <p class="stile">Prompt and conversation research</p>
+          <p class="stile">AI crawler access control</p>
+          <p class="stile">Raw-HTML retrieval readiness</p>
+          <p class="stile">Passage-level chunking</p>
+          <p class="stile">Entity consistency</p>
+          <p class="stile">Original research and first-party data</p>
+          <p class="stile">Content refresh cadence</p>
+          <p class="stile">Unlinked mention cultivation</p>
+          <p class="stile">Community and UGC presence</p>
+          <p class="stile">Multimodal asset distribution</p>
+          <p class="stile">Training-corpus presence</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">SCOPE &middot; WHERE SEO AND GEO WORK DIVERGE</span><span class="t-footer">08 / 21</span></div>
     </div>
   </section>
 
@@ -786,7 +928,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">THE NOVASTACKS METHODOLOGY</span><span class="t-footer">07 / 19</span></div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS METHODOLOGY</span><span class="t-footer">09 / 21</span></div>
     </div>
   </section>
 
@@ -805,7 +947,7 @@
           <div class="wcard us"><p class="wk">What Novastacks offers</p><div class="wt"><span class="wmark yes" aria-label="Offered">&#10003;</span><h3>Operator + Agentic System</h3></div><p class="wd">Senior judgment combined with execution at scale in a single team.</p><ul class="wben"><li><span class="wmark yes sm" aria-hidden="true">&#10003;</span>Tackle previously impractical work</li><li><span class="wmark yes sm" aria-hidden="true">&#10003;</span>Business-specific AI workflows</li><li><span class="wmark yes sm" aria-hidden="true">&#10003;</span>Learning retained between cycles</li></ul></div>
         <figure class="why-fig"><img src="../company-credential/assets/team-lounge-v2-web.jpg" alt="Novastacks operators at work"><figcaption>Illustration</figcaption></figure>
       </div>
-      <div class="footer"><span class="t-footer">WHY WE ARE DIFFERENT · OPERATOR + AGENTIC SYSTEM</span><span class="t-footer">08 / 19</span></div>
+      <div class="footer"><span class="t-footer">WHY WE ARE DIFFERENT · OPERATOR + AGENTIC SYSTEM</span><span class="t-footer">10 / 21</span></div>
     </div>
   </section>
 
@@ -900,7 +1042,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 1 OF 4 · DATA</span><span class="t-footer">09 / 19</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 1 OF 4 · DATA</span><span class="t-footer">11 / 21</span></div>
     </div>
   </section>
 
@@ -997,7 +1139,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 2 OF 4 · DECISION</span><span class="t-footer">10 / 19</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 2 OF 4 · DECISION</span><span class="t-footer">12 / 21</span></div>
     </div>
   </section>
 
@@ -1094,7 +1236,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 3 OF 4 · EXECUTION</span><span class="t-footer">11 / 19</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 3 OF 4 · EXECUTION</span><span class="t-footer">13 / 21</span></div>
     </div>
   </section>
 
@@ -1191,7 +1333,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 4 OF 4 · MEASUREMENT</span><span class="t-footer">12 / 19</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 4 OF 4 · MEASUREMENT</span><span class="t-footer">14 / 21</span></div>
     </div>
   </section>
 
@@ -1230,7 +1372,7 @@
           
         </div>
       </div>
-      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 1&ndash;2</span><span class="t-footer">13 / 19</span></div>
+      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 1&ndash;2</span><span class="t-footer">15 / 21</span></div>
     </div>
   </section>
 
@@ -1269,7 +1411,7 @@
           <div class="loop-why anim d2"><p class="lwh">Every cycle leaves you better equipped</p><p>Each engagement develops assets your business can keep using: stronger content, clearer customer insights and documented ways of working. We use performance findings to improve subsequent briefs and execution, so learning carries forward into the next round of work.</p></div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 3&ndash;4</span><span class="t-footer">14 / 19</span></div>
+      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 3&ndash;4</span><span class="t-footer">16 / 21</span></div>
     </div>
   </section>
 
@@ -1286,7 +1428,7 @@
         <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">&rarr;</span> 8.4</div><div class="sl">Page 3 &rarr; page 1</div></div>
         <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">15 / 19</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">17 / 21</span></div>
     </div>
   </section>
 
@@ -1313,7 +1455,7 @@
           <p class="cap">AI visibility climbing across every engine &mdash; <b>Google AI Overviews, Perplexity and ChatGPT</b> &mdash; tracked live in NovaLens through the engagement.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">16 / 19</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">18 / 21</span></div>
     </div>
   </section>
 
@@ -1327,7 +1469,7 @@
         <p class="bigq anim d1">&ldquo;I had a conversation with AI&hellip; it narrowed it down to a top five. <em>You guys were a top two.</em>&rdquo;</p>
         <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
       </div>
-      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">17 / 19</span></div>
+      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">19 / 21</span></div>
     </div>
   </section>
 
@@ -1361,7 +1503,7 @@
         <img src="../company-credential/assets/smu-academy-logo.png" alt="SMU Academy">
         <img src="../company-credential/assets/tiket-logo.svg" alt="Tiket.com">
       </div>
-      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">18 / 19</span></div>
+      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">20 / 21</span></div>
     </div>
   </section>
 
@@ -1383,7 +1525,7 @@
           </div>
           <div class="footer" style="margin-top:40px">
             <span class="t-footer" style="color:var(--dark-fg-2)">NOVASTACKS · AI-NATIVE GROWTH PARTNER</span>
-            <span class="t-footer" style="color:var(--accent)">19 / 19</span>
+            <span class="t-footer" style="color:var(--accent)">21 / 21</span>
           </div>
         </div>
       </div>
