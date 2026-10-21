@@ -484,6 +484,10 @@
     color: var(--accent-deep); font-family: var(--font-mono);
   }
   .speak-list li strong { color: var(--ink-1); font-weight: 600; }
+  .topic-list li { padding-left: 0; }
+  .topic-list li::before { content: none; }
+  .topic-list li strong { display: block; font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em; }
+  .topic-list li span { display: block; color: var(--ink-3); font-size: 18px; margin-top: 4px; }
   .edu-list li {
     font-family: var(--font-body); font-size: 20px;
     line-height: 1.45; color: var(--ink-2);
@@ -680,10 +684,10 @@
     <div class="speak-edu">
       <div class="speak">
         <div class="label">Speaking topics</div>
-        <ul class="speak-list">
-          <li><strong>AI transformation for marketing operations</strong> — pivoting marketers' skills to AI, building AI agents, redesigning workflows and training the team, so the organisation runs on systems its own operators built</li>
-          <li><strong>AI search (AEO / GEO)</strong> — getting a brand recommended by ChatGPT and Google AI</li>
-          <li><strong>Alternative career paths for corporate executives</strong> — from CMO to AI builder: what a second act looks like when you build the tools yourself</li>
+        <ul class="speak-list topic-list">
+          <li><strong>AI transformation for marketing operations</strong><span>Skills, agents, workflows and training, built by the team itself</span></li>
+          <li><strong>AI search (AEO / GEO)</strong><span>Getting a brand recommended by ChatGPT and Google AI</span></li>
+          <li><strong>Alternative career paths for corporate executives</strong><span>From CMO to AI builder: a second act built on your own tools</span></li>
         </ul>
         <div class="label" style="margin-top:28px;">Recent engagements</div>
         <ul class="speak-list">
