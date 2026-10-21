@@ -225,6 +225,31 @@
     line-height: 1.4; color: var(--ink-3);
   }
 
+  /* Logo strip — replaces the numeric stat strip (Tina, 2026-10-21) */
+  .logo-strip {
+    border-top: var(--rule-w-strong) solid var(--ink-1);
+    border-bottom: var(--rule-w-hair) solid var(--rule-hair);
+    display: grid; grid-template-columns: 2.2fr 1fr 1.2fr;
+    margin-top: 56px;
+  }
+  .logo-cell {
+    padding: 32px 28px 36px;
+    border-right: var(--rule-w-hair) solid var(--rule-hair);
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .logo-cell:last-child { border-right: 0; }
+  .logo-row { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; min-height: 56px; }
+  .logo-row img { height: 34px; width: auto; object-fit: contain; filter: grayscale(1) brightness(0); opacity: .78; }
+  .logo-row img.smu { filter: grayscale(1); opacity: .85; }
+  .logo-row img.tall { height: 44px; }
+  .logo-row img.smu { height: 52px; }
+  .badge-award {
+    display: inline-flex; align-items: baseline; gap: 10px;
+    font-family: var(--font-display); font-weight: 600; font-size: 30px;
+    letter-spacing: var(--tr-display); color: var(--ink-1); line-height: 1.1;
+  }
+  .badge-award .x { font-size: 20px; color: var(--ink-3); font-weight: 500; }
+
   /* =========================================================================
      SECTION SCAFFOLD
      ========================================================================= */
@@ -570,27 +595,27 @@
     </div>
   </section>
 
-  <!-- ====================== STAT STRIP ====================== -->
-  <div class="stat-strip">
-    <div class="stat-cell">
-      <div class="stat-eyebrow">Leadership</div>
-      <div class="stat-num">20<span class="unit">yrs</span></div>
-      <div class="stat-label">across Expedia, Tencent, Klook, Traveloka</div>
+  <!-- ====================== LOGO STRIP ====================== -->
+  <div class="logo-strip">
+    <div class="logo-cell">
+      <div class="stat-eyebrow">Growth leadership at</div>
+      <div class="logo-row">
+        <img src="logos/expedia-group-logo.svg" alt="Expedia Group">
+        <img src="logos/tencent-logo.avif" alt="Tencent">
+        <img src="logos/klook-logo.avif" alt="Klook">
+        <img src="logos/traveloka-logo.webp" alt="Traveloka" style="height:30px">
+      </div>
+      <div class="stat-label">20 years, 200+ marketers led</div>
     </div>
-    <div class="stat-cell">
-      <div class="stat-eyebrow">Marketers led</div>
-      <div class="stat-num">200<span class="unit">+</span></div>
-      <div class="stat-label">across her career, performance · brand · creative</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-eyebrow">Growth org built</div>
-      <div class="stat-num accent">100<span class="unit">+</span></div>
-      <div class="stat-label">people at Traveloka, performance · brand · creative</div>
-    </div>
-    <div class="stat-cell">
+    <div class="logo-cell">
       <div class="stat-eyebrow">Awards</div>
-      <div class="stat-num">2<span class="unit">×</span></div>
-      <div class="stat-label">Marketing Excellence Awards, Hotels.com</div>
+      <div class="logo-row"><span class="badge-award">Marketing Excellence Awards <span class="x">2×</span></span></div>
+      <div class="stat-label">Two-time winner, Hotels.com</div>
+    </div>
+    <div class="logo-cell">
+      <div class="stat-eyebrow">AI masterclasses</div>
+      <div class="logo-row"><img src="logos/smu-academy-logo.png" alt="SMU Academy" class="smu"></div>
+      <div class="stat-label">SMU Academy certified AI trainer; masterclasses for corporates and business organisations</div>
     </div>
   </div>
 
@@ -615,7 +640,7 @@
           Most recently, as VP of Acquisition Marketing at Traveloka, she built and led a 100-person growth organisation spanning performance marketing, affiliates, organic growth, brand and creative. Earlier she scaled organic search and built the CRM function at Klook, led growth for Tencent's JOOX music app across Southeast Asia, and ran Expedia's mobile marketing P&amp;L across Asia, where her work for Hotels.com won the Marketing Excellence Awards.
         </p>
         <p>
-          Today she runs <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a> on AI systems she builds herself: specialised agents, custom skills and connected data pipelines, orchestrated from a terminal. She brings that hands-on experience into teaching business leaders how to build AI agents, redesign workflows and train their teams, so AI works inside their own organisations.
+          Today she runs <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a> on AI systems she builds herself: specialised agents, custom skills and connected data pipelines, orchestrated from a terminal. She brings that hands-on experience into teaching business leaders how to build AI agents, redesign workflows and train their teams, so AI works inside their own organisations. She has conducted several AI masterclasses with well-known organisations such as SMU Academy, corporates and business organisations.
         </p>
         <p>
           She holds an MBA from the Wharton School.
@@ -624,93 +649,9 @@
     </div>
   </section>
 
-  <!-- ====================== CAREER MATRIX ====================== -->
-  <section class="bio career">
-    <div class="crumb">02 · Career</div>
-    <h2 class="action">Career.</h2>
-    <hr class="accent-rule">
-
-    <table class="career-table" style="margin-top: 40px;">
-      <thead>
-        <tr>
-          <th style="width: 420px;">Role</th>
-          <th>Company</th>
-          <th class="right" style="width: 320px;">Sector</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="current">
-          <td class="role">Founder &amp; CEO</td>
-          <td><a class="nova-link" href="https://novastacks-ai.com">Novastacks</a></td>
-          <td class="right" style="color: var(--ink-3);">AI marketing</td>
-        </tr>
-        <tr>
-          <td class="role">VP, Acquisition Marketing</td>
-          <td>Traveloka</td>
-          <td class="right" style="color: var(--ink-3);">Online travel</td>
-        </tr>
-        <tr>
-          <td class="role">VP, Growth</td>
-          <td>Cabital</td>
-          <td class="right" style="color: var(--ink-3);">B2B fintech</td>
-        </tr>
-        <tr>
-          <td class="role">VP, Growth Marketing</td>
-          <td>Klook</td>
-          <td class="right" style="color: var(--ink-3);">Travel &amp; experiences</td>
-        </tr>
-        <tr>
-          <td class="role">Director, Product &amp; Content Growth</td>
-          <td>Tencent · JOOX</td>
-          <td class="right" style="color: var(--ink-3);">Music streaming</td>
-        </tr>
-        <tr>
-          <td class="role">Head of Mobile Marketing</td>
-          <td>Expedia</td>
-          <td class="right" style="color: var(--ink-3);">Online travel</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- ====================== SIGNATURE WINS ====================== -->
-  <section class="bio">
-    <div class="crumb">03 · Signature wins</div>
-    <h2 class="action">Signature wins.</h2>
-    <hr class="accent-rule">
-
-    <div class="wins">
-      <div class="win-row">
-        <div class="win-tag">01</div>
-        <div class="win-claim">Built and led a 100-person growth organization spanning performance marketing, brand, and creative.</div>
-        <div class="win-where">Traveloka</div>
-      </div>
-      <div class="win-row">
-        <div class="win-tag">02</div>
-        <div class="win-claim">Scaled organic search and built CRM functions from the ground up at high-growth tech companies.</div>
-        <div class="win-where">Klook</div>
-      </div>
-      <div class="win-row">
-        <div class="win-tag">03</div>
-        <div class="win-claim">Led product and content growth for a leading Southeast Asian entertainment platform.</div>
-        <div class="win-where">Tencent · JOOX</div>
-      </div>
-      <div class="win-row">
-        <div class="win-tag">04</div>
-        <div class="win-claim">Two-time winner of the Marketing Excellence Awards.</div>
-        <div class="win-where">Hotels.com</div>
-      </div>
-      <div class="win-row" style="border-bottom: 0;">
-        <div class="win-tag">05</div>
-        <div class="win-claim">Pioneered an ad-fraud detection method later adopted as a company-wide standard.</div>
-        <div class="win-where">Expedia</div>
-      </div>
-    </div>
-  </section>
-
   <!-- ====================== SPEAKER INTRODUCTIONS ====================== -->
   <section class="bio">
-    <div class="crumb">04 · Introductions</div>
+    <div class="crumb">02 · Introductions</div>
     <h2 class="action">Speaker introductions.</h2>
     <hr class="accent-rule">
 
@@ -718,13 +659,13 @@
       <div>
         <div class="label">Short version · 3 sentences</div>
         <p class="text">
-          Tina Chu is a CMO turned AI builder. After 20 years leading growth at brands including Expedia, Tencent, Klook and Traveloka, she now runs <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a>, a Singapore-based AI-driven marketing agency specialising in AI search that also helps businesses with marketing AI transformation, on AI systems she builds herself. She teaches business leaders how to build AI agents, redesign workflows and train their teams.
+          Tina Chu is a CMO turned AI builder. After 20 years leading growth at brands including Expedia, Tencent, Klook and Traveloka, she now runs <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a>, a Singapore-based AI-driven marketing agency specialising in AI search that also helps businesses with marketing AI transformation, on AI systems she builds herself. She teaches marketers and leaders how to pivot their skills to AI and transform their organisations, through masterclasses with SMU Academy, corporates and business organisations.
         </p>
       </div>
       <div>
         <div class="meta">Webinar intro · 30 seconds · AEO topic</div>
         <p class="text" style="color: var(--ink-1);">
-          Today's speaker is Tina Chu, a CMO turned AI builder with 20 years leading growth at Expedia, Tencent, Klook and Traveloka. She runs <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a>, a Singapore-based AI-driven marketing agency specialising in AI search that also helps businesses with marketing AI transformation, on AI systems she builds herself. She was building AEO systems for clients before most marketers had a playbook for it. Today she'll share what actually works.
+          Today's speaker is Tina Chu, a CMO turned AI builder with 20 years leading growth at Expedia, Tencent, Klook and Traveloka. She runs <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a>, a Singapore-based AI-driven marketing agency specialising in AI search that also helps businesses with marketing AI transformation, on AI systems she builds herself. She teaches marketers and leaders how to pivot their skills to AI, through masterclasses with SMU Academy, corporates and business organisations. Today she'll share what actually works.
         </p>
       </div>
     </div>
@@ -732,21 +673,25 @@
 
   <!-- ====================== SPEAKING & TRAINING + EDUCATION ====================== -->
   <section class="bio">
-    <div class="crumb">05 · Speaking &amp; training · education</div>
-    <h2 class="action">Speaking, training, and education.</h2>
+    <div class="crumb">03 · Speaking topics · education</div>
+    <h2 class="action">Speaking topics and education.</h2>
     <hr class="accent-rule">
 
     <div class="speak-edu">
       <div class="speak">
-        <div class="label">Speaking &amp; training</div>
-        <p class="speak-lede">
-          A recognized speaker on AI marketing, AI search (AEO), and mobile marketing.
-          Recent and regular engagements include:
-        </p>
+        <div class="label">Speaking topics</div>
+        <ul class="speak-list">
+          <li><strong>Pivoting marketing skills to AI</strong> — what marketers and leaders do differently once agents do the production work</li>
+          <li><strong>Building AI agents for a marketing team</strong> — from one workflow to a connected system, built by the operators themselves</li>
+          <li><strong>AI transformation for marketing operations</strong> — redesigning workflows, training the team, getting the organisation behind change</li>
+          <li><strong>AI search (AEO / GEO)</strong> — getting a brand recommended by ChatGPT and Google AI</li>
+        </ul>
+        <div class="label" style="margin-top:28px;">Recent engagements</div>
         <ul class="speak-list">
           <li><strong>Panel speaker</strong> — Manus × HubSpot</li>
           <li><strong>Speaker</strong> — Web in Travel (WiT) Summit</li>
           <li><strong>Guest speaker</strong> — mobile marketing &amp; AI marketing for industry organizations and corporate audiences</li>
+          <li><strong>AI masterclass trainer</strong> — SMU Academy (certified AI trainer), corporates and business organisations</li>
           <li><strong>Corporate training facilitator</strong> — AI transformation</li>
         </ul>
       </div>
