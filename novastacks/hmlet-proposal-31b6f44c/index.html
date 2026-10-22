@@ -515,6 +515,82 @@
   /* ---- client-case tag ---- */
   .casetag{display:inline-block;margin-left:18px;padding:6px 14px;border-radius:4px;background:var(--accent);color:#fff;
            font-family:var(--font-mono);font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1;vertical-align:middle}
+
+  /* ---- AI visibility results tables ---- */
+  .aitbl{margin-top:22px;width:100%;border-collapse:collapse;border-top:var(--rule-w-strong) solid var(--ink-1);font-family:var(--font-body);font-size:16.5px;line-height:1.3;color:var(--ink-2)}
+  .aitbl th{font-family:var(--font-mono);font-size:13.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);text-align:left;padding:10px 14px 9px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);vertical-align:bottom}
+  .aitbl td{padding:9px 14px 9px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);vertical-align:top}
+  .aitbl td.q{color:var(--ink-1);font-weight:500}
+  .aitbl td.typ{font-family:var(--font-mono);font-size:13.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-4);white-space:nowrap}
+  .aitbl td.yes,.aitbl td.no{font-family:var(--font-mono);font-size:14px;font-weight:700;letter-spacing:.08em;white-space:nowrap}
+  .aitbl td.yes{color:var(--accent-deep)} .aitbl td.no{color:#B42318}
+  .aitbl td.dim{color:var(--ink-4)}
+  /* ---- Hmlet audit (verbatim audit tables) ---- */
+  .audit-title{font-size:50px;line-height:1.08;max-width:1560px}
+  .audit-body{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+  .audit-body .audit-h3{font-family:var(--font-mono);font-size:17px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 10px;display:flex;align-items:center;gap:14px}
+  .audit-body .audit-tbl + .audit-h3,.audit-body .audit-p + .audit-h3,.audit-body .audit-status + .audit-h3{margin-top:24px}
+  .audit-body p.t-lede.audit-p{font-size:19px;line-height:1.42;color:var(--ink-3);margin:14px 0 0;max-width:1700px}
+  .audit-body .audit-h3 + p.audit-p{margin-top:0;margin-bottom:12px}
+  .audit-tbl{border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#fff}
+  .audit-tbl table{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:17.5px;line-height:1.32}
+  .audit-tbl th{text-align:left;padding:11px 14px;font-weight:600;font-size:13.5px;text-transform:uppercase;letter-spacing:.05em;color:#666;border-bottom:2px solid #e5e5e5;background:#f5f5f5;white-space:nowrap;font-family:var(--font-body)}
+  .audit-tbl td{padding:9px 14px;border-bottom:1px solid #eee;color:#333;vertical-align:top}
+  .audit-tbl tr:last-child td{border-bottom:none}
+  .audit-tbl td[style*="font-size"]{font-size:inherit !important}
+  .audit-tbl .mono{font-family:var(--font-mono);font-size:15px}
+  .audit-tbl .text-right{text-align:right}
+  .audit-tbl .text-center{text-align:center}
+  .audit-body .text-success{color:#22c55e}
+  .audit-body .text-warning{color:#eab308}
+  .audit-body .text-danger{color:#ef4444}
+  .audit-body .badge-danger,.audit-body .badge-warning,.audit-body .badge-success,.audit-body .badge-info,.audit-body .badge-orange,.audit-body .badge-muted{display:inline-flex;align-items:center;padding:5px 12px;border-radius:100px;font-family:var(--font-body);font-size:13.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+  .audit-body .badge-danger{background:rgba(239,68,68,0.15);color:#ef4444}
+  .audit-body .badge-warning{background:rgba(234,179,8,0.15);color:#eab308}
+  .audit-body .badge-success{background:rgba(34,197,94,0.15);color:#22c55e}
+  .audit-body .badge-info{background:rgba(1,170,193,0.15);color:#01aac1}
+  .audit-body .badge-orange{background:rgba(249,115,22,0.15);color:#f97316}
+  .audit-body .badge-muted{background:rgba(136,136,136,0.15);color:#888}
+  .audit-status{display:flex;align-items:baseline;gap:18px;margin-top:16px;font-family:var(--font-body)}
+  .audit-status .sl,.audit-score .sl,.audit-impact .sl{font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#888}
+  .audit-status .sv{font-family:var(--font-display);font-size:30px;font-weight:700}
+  .audit-status .sc{font-size:18px;color:var(--ink-3)}
+  .audit-score{display:inline-flex;align-items:baseline;gap:14px;padding:10px 20px;border:1px solid #e5e5e5;border-radius:8px;background:#f5f5f5;align-self:flex-start;margin-bottom:20px}
+  .audit-score .sv,.audit-impact .sv{font-family:var(--font-display);font-size:36px;font-weight:700}
+  .audit-score .den,.audit-impact .den{font-size:16px;color:#888}
+  .audit-cols{display:grid;gap:44px;align-items:start}
+  .audit-cols > div{min-width:0}
+  .audit-fig{margin:0 0 14px}
+  .audit-fig img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid rgba(128,128,128,0.25)}
+  .audit-fig figcaption{font-family:var(--font-mono);font-size:14.5px;color:#666;margin-top:8px;line-height:1.35}
+  .audit-figrow{display:flex;flex-direction:column;gap:6px;margin-top:22px}
+  .audit-figrow.two{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  .audit-figrow.three{display:grid;grid-template-columns:0.95fr 1.05fr;gap:44px;margin-top:0}
+  .audit-grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px 48px}
+  .audit-finding{border-top:1px solid #e5e5e5;padding-top:16px}
+  .audit-impact{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:22px}
+  .audit-impact > div{display:flex;align-items:baseline;gap:16px;padding:14px 22px;background:#f5f5f5;border:1px solid #e5e5e5;border-radius:12px}
+  .audit-impact .arr{font-size:26px;color:#888}
+  .audit-impact .cp{font-family:var(--font-mono);font-size:13.5px;color:#888;margin-left:auto}
+  .audit-hzrow{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .audit-hz{border:1px solid #e5e5e5;border-radius:12px;padding:18px 20px;background:#fff}
+  .audit-hz .hzimp{font-family:var(--font-body);font-size:15.5px;color:#666;line-height:1.35;margin:0 0 10px}
+  .audit-recs{list-style:none;margin:0;padding:0}
+  .audit-recs li{display:flex;gap:12px;font-family:var(--font-body);font-size:17px;line-height:1.3;color:#333;padding:6px 0;border-top:1px solid #eee}
+  .audit-recs .rn{font-family:var(--font-mono);font-size:14.5px;font-weight:700;color:var(--accent-deep);padding-top:2px}
+  .audit-body > *{flex-shrink:0}
+  .audit-title{margin:0}
+  .audit-title + .accent-rule{margin:20px 0 22px}
+  .audit-body > p.audit-p:first-child{margin:0 0 18px}
+  .audit-tbl td{padding:8px 14px}
+  .audit-body .dense .audit-tbl table{font-size:16px;line-height:1.25}
+  .audit-body .dense .audit-tbl td{padding:6px 12px}
+  .audit-body .dense .audit-tbl th{padding:8px 12px}
+  .audit-hz{padding:14px 18px}
+  .audit-recs li{font-size:16.5px;padding:5px 0}
+  .audit-impact{margin-bottom:16px}
+  .audit-impact > div{padding:10px 22px}
+
 </style>
 </head>
 <body>
@@ -567,7 +643,7 @@
           <div class="ev" style="margin-top:auto">AI workshops · AI growth consultancy · Agentic workflow builds</div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">CORE SERVICES · THREE WAYS WE ENGAGE</span><span class="t-footer">02 / 33</span></div>
+      <div class="footer"><span class="t-footer">CORE SERVICES · THREE WAYS WE ENGAGE</span><span class="t-footer">02 / 48</span></div>
     </div>
   </section>
 
@@ -610,7 +686,7 @@
           </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">03 / 33</span></div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">03 / 48</span></div>
     </div>
   </section>
 
@@ -668,7 +744,7 @@
         </div>
       </div>
       <div class="callout anim d3"><span class="dot"></span><span>At market salaries this team is worth <b>~$500K/year combined</b> &mdash; you&rsquo;re not getting a junior team behind a senior sales face.</span></div>
-      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">04 / 33</span></div>
+      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">04 / 48</span></div>
     </div>
   </section>
 
@@ -711,7 +787,7 @@
         <span class="wm">January Capital</span>
         <span class="wm">Carro</span>
       </div>
-      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">05 / 33</span></div>
+      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">05 / 48</span></div>
     </div>
   </section>
 
@@ -758,7 +834,7 @@
         </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">PROOF &middot; BRANDS AND INSTITUTIONS THAT WORK WITH US</span><span class="t-footer">06 / 33</span></div>
+      <div class="footer"><span class="t-footer">PROOF &middot; BRANDS AND INSTITUTIONS THAT WORK WITH US</span><span class="t-footer">06 / 48</span></div>
     </div>
   </section>
 
@@ -787,7 +863,7 @@
         </div>
       </div>
       <div class="callout anim d3"><span class="dot"></span><span>The gap between those three forces is exactly where <b>Novastacks</b> sits.</span></div>
-      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">07 / 33</span></div>
+      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">07 / 48</span></div>
     </div>
   </section>
 
@@ -840,7 +916,7 @@
           </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SCOPE &middot; WHERE SEO AND GEO WORK DIVERGE</span><span class="t-footer">08 / 33</span></div>
+      <div class="footer"><span class="t-footer">SCOPE &middot; WHERE SEO AND GEO WORK DIVERGE</span><span class="t-footer">08 / 48</span></div>
     </div>
   </section>
 
@@ -941,7 +1017,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">THE NOVASTACKS METHODOLOGY</span><span class="t-footer">09 / 33</span></div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS METHODOLOGY</span><span class="t-footer">09 / 48</span></div>
     </div>
   </section>
 
@@ -1037,7 +1113,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 1 OF 4 · DATA</span><span class="t-footer">10 / 33</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 1 OF 4 · DATA</span><span class="t-footer">10 / 48</span></div>
     </div>
   </section>
 
@@ -1134,7 +1210,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 2 OF 4 · DECISION</span><span class="t-footer">11 / 33</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 2 OF 4 · DECISION</span><span class="t-footer">11 / 48</span></div>
     </div>
   </section>
 
@@ -1231,7 +1307,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 3 OF 4 · EXECUTION</span><span class="t-footer">12 / 33</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 3 OF 4 · EXECUTION</span><span class="t-footer">12 / 48</span></div>
     </div>
   </section>
 
@@ -1328,7 +1404,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 4 OF 4 · MEASUREMENT</span><span class="t-footer">13 / 33</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 4 OF 4 · MEASUREMENT</span><span class="t-footer">13 / 48</span></div>
     </div>
   </section>
 
@@ -1367,7 +1443,7 @@
           
         </div>
       </div>
-      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 1&ndash;2</span><span class="t-footer">14 / 33</span></div>
+      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 1&ndash;2</span><span class="t-footer">14 / 48</span></div>
     </div>
   </section>
 
@@ -1406,7 +1482,7 @@
           <div class="loop-why anim d2"><p class="lwh">Every cycle leaves you better equipped</p><p>Each engagement develops assets your business can keep using: stronger content, clearer customer insights and documented ways of working. We use performance findings to improve subsequent briefs and execution, so learning carries forward into the next round of work.</p></div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 3&ndash;4</span><span class="t-footer">15 / 33</span></div>
+      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 3&ndash;4</span><span class="t-footer">15 / 48</span></div>
     </div>
   </section>
 
@@ -1434,7 +1510,7 @@
           <p class="tdesc">Keeping rankings through the move would not be enough. <b>The new site had to be readable by AI crawlers from day one and give AI assistants destination answers worth citing.</b></p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">CLIENT CASE · HOSPITALITY · THE CHALLENGE</span><span class="t-footer">16 / 33</span></div>
+      <div class="footer"><span class="t-footer">CLIENT CASE · HOSPITALITY · THE CHALLENGE</span><span class="t-footer">16 / 48</span></div>
     </div>
   </section>
 
@@ -1467,7 +1543,7 @@
           <p class="tdesc">Country and city pages, promotion pages built around bank card offers, and a <b>&ldquo;hidden gems&rdquo; travel series</b> about things to do near each hotel. Live and growing since the migration.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">CLIENT CASE · HOSPITALITY · SITE MIGRATION SEO + AEO</span><span class="t-footer">17 / 33</span></div>
+      <div class="footer"><span class="t-footer">CLIENT CASE · HOSPITALITY · SITE MIGRATION SEO + AEO</span><span class="t-footer">17 / 48</span></div>
     </div>
   </section>
 
@@ -1484,7 +1560,7 @@
         <div class="stat"><div class="se">Non-brand clicks</div><div class="sn">+116%</div><div class="sl">per day, May vs September 2026</div></div>
         <div class="stat"><div class="se">Migration month</div><div class="sn range">within 1%</div><div class="sl">Google clicks per day, June vs May 2026</div></div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · GOOGLE SEARCH CONSOLE + BING WEBMASTER TOOLS · MAY VS SEP 2026 · CLIENT NAME WITHHELD</span><span class="t-footer">18 / 33</span></div>
+      <div class="footer"><span class="t-footer">SRC · GOOGLE SEARCH CONSOLE + BING WEBMASTER TOOLS · MAY VS SEP 2026 · CLIENT NAME WITHHELD</span><span class="t-footer">18 / 48</span></div>
     </div>
   </section>
 
@@ -1501,7 +1577,7 @@
         <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">&rarr;</span> 8.4</div><div class="sl">Page 3 &rarr; page 1</div></div>
         <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">19 / 33</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">19 / 48</span></div>
     </div>
   </section>
 
@@ -1528,7 +1604,7 @@
           <p class="cap">AI visibility climbing across every engine &mdash; <b>Google AI Overviews, Perplexity and ChatGPT</b> &mdash; tracked live in NovaLens through the engagement.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">20 / 33</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">20 / 48</span></div>
     </div>
   </section>
 
@@ -1542,7 +1618,7 @@
         <p class="bigq anim d1">&ldquo;I had a conversation with AI&hellip; it narrowed it down to a top five. <em>You guys were a top two.</em>&rdquo;</p>
         <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
       </div>
-      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">21 / 33</span></div>
+      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">21 / 48</span></div>
     </div>
   </section>
 
@@ -1555,13 +1631,13 @@
       <div class="close-wrap">
         <div>
           <div class="close-q anim d1">Hmlet: preliminary analysis of hmlet.com and its Singapore, Hong Kong and Japan properties.</div>
-          <p class="anim d1" style="font-family:var(--font-body);font-size:26px;color:var(--dark-fg-2);line-height:1.42;max-width:1180px;margin:28px 0 0">What we found before any engagement started: how AI answers treat Hmlet today, how ready the site is, where the infrastructure, content and brand signals break, and a first six-month roadmap. Nine slides, from the Novastacks AEO assessment of 21 October 2026.</p>
+          <p class="anim d1" style="font-family:var(--font-body);font-size:26px;color:var(--dark-fg-2);line-height:1.42;max-width:1180px;margin:28px 0 0">What we found before any engagement started: how AI answers treat Hmlet today, how ready the site is, where the infrastructure, content and brand signals break, and a first six-month roadmap. The slides that follow are taken from the Novastacks AEO assessment of 21 October 2026.</p>
           <hr class="accent-rule anim d2" style="margin-top:40px">
         </div>
         <div class="anim d2">
           <div class="footer" style="margin-top:40px">
             <span class="t-footer" style="color:var(--dark-fg-2)">HMLET · PRELIMINARY ANALYSIS · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span>
-            <span class="t-footer" style="color:var(--accent)">22 / 33</span>
+            <span class="t-footer" style="color:var(--accent)">22 / 48</span>
           </div>
         </div>
       </div>
@@ -1591,242 +1667,542 @@
           <p class="tdesc">On 21 October 2026 the site ran in Japanese and English only, with no Chinese version for Hong Kong renters, and <b>its header linked to none of its five city listings: Tokyo, Osaka, Fukuoka, Singapore, Hong Kong.</b></p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · EXECUTIVE SUMMARY · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">23 / 33</span></div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · EXECUTIVE SUMMARY · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">23 / 48</span></div>
     </div>
   </section>
 
-  <!-- 09 HMLET AUDIT 2 · AI VISIBILITY -->
-  <section data-label="Hmlet Audit · AI visibility">
+  <!-- HMLET AUDIT · SECTION 2 · ChatGPT -->
+  <section data-label="Hmlet Audit · AI visibility · ChatGPT">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · AI visibility</div>
-      <h2 class="t-action anim d1">ChatGPT names Hmlet in 4 of 5 scored prompts. Google&rsquo;s AI Overview cites hmlet.com or a Hmlet subdomain in 0 of 6.</h2>
+      <h2 class="t-action audit-title anim d1">ChatGPT Finds Hmlet&#x27;s Singapore Rooms. Google&#x27;s AI Overview Never Cites Them</h2>
       <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">On the plain category question, &ldquo;best coliving spaces in Singapore&rdquo;, ChatGPT drops Hmlet and names Cove, The Assembly Place, Dash Living and Hei Homes.</p>
-      <div class="stat-grid anim d2">
-        <div class="stat"><div class="se">ChatGPT</div><div class="sn range">4 of 5</div><div class="sl">scored prompts mention Hmlet, mostly through property subdomains</div></div>
-        <div class="stat"><div class="se">Google AI Overview</div><div class="sn range">0 of 6</div><div class="sl">Overviews cite Hmlet; 5 of the 6 queries trigger one</div></div>
-        <div class="stat"><div class="se">Branded query, Google</div><div class="sn range">#2</div><div class="sl">organic, yet the Overview cites stackedhomes.com, booking.com and figment.live</div></div>
-        <div class="stat"><div class="se">Trustpilot</div><div class="sn range">100%</div><div class="sl">of the visible star split is 1-star, on an unclaimed profile with 5 reviews</div></div>
+      <div class="audit-body anim d2">
+<p class="audit-h3">ChatGPT Query Results</p><div class="audit-tbl"><table class="data-table"><thead><tr><th>Prompt Type</th><th>Query</th><th class="text-center">Mentioned?</th><th>Who Was Cited</th></tr></thead><tbody>
+<tr><td class="mono" style="white-space:nowrap;">Branded</td><td>What is Hmlet Singapore and what do they offer?</td><td class="text-center"><span class="badge-success">Yes</span></td><td>Mentioned 2nd; cited 5 of Hmlet&#x27;s own subdomains (singapore.hmlet.com, hmlet.com, kallang/owenhouse/clarkequay.hmlet.com), 0 third-party sources</td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td class="mono" style="white-space:nowrap;">Competitor-Branded (diagnostic, not scored)</td><td>What is Cove Singapore and what do they offer?</td><td class="text-center"><span class="badge-danger">No</span></td><td>Not mentioned -- a well-behaved answer to a Cove question stays on Cove; kept for reference only</td></tr>
+<tr><td class="mono" style="white-space:nowrap;">Category</td><td>What are the best coliving spaces in Singapore?</td><td class="text-center"><span class="badge-danger">No</span></td><td>Not mentioned; ChatGPT cited MissLobang and Traveloka listicles, naming Cove, The Assembly Place, Dash Living and Hei Homes instead</td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td class="mono" style="white-space:nowrap;">Category</td><td>What are the best flexible rental apartment options for expats in Singapore?</td><td class="text-center"><span class="badge-success">Yes</span></td><td>Mentioned 3rd via Hmlet Cantonment; 8 third-party sources cited (Figment, MissLobang, Traveloka, MetroResidences and others), 0 citations of hmlet.com itself</td></tr>
+<tr><td class="mono" style="white-space:nowrap;">Comparison</td><td>Compare Hmlet vs Coliwoo vs Cove for coliving in Singapore</td><td class="text-center"><span class="badge-success">Yes</span></td><td>Mentioned 2nd, priced from S$1,628-2,033/mo; 1 own citation (singapore.hmlet.com)</td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td class="mono" style="white-space:nowrap;">Long-tail / Transactional</td><td>Is there a Habyt or Hmlet coliving property near Clarke Quay in Singapore?</td><td class="text-center"><span class="badge-success">Yes</span></td><td>Mentioned 2nd; cited clarkequay.hmlet.com and singapore.hmlet.com, plus 2 third-party sources (Dayuse, Google Hotels)</td></tr>
+</tbody></table></div><div class="audit-status"><span class="sl">ChatGPT Status</span><span class="sv text-warning">Partial</span><span class="sc">Found in 4 of 5 scored prompts, but drops out completely on the plain category question</span></div><p class="t-lede audit-p">ChatGPT finds and names Hmlet in 4 of 5 scored prompts -- but only when it can match a specific property or a head-to-head comparison. On the plain category question, the one a first-time searcher actually asks, Hmlet drops out entirely and the answer names four other brands instead. Even where Hmlet is mentioned, most of the citations point at individual property subdomains, not at a single authoritative Hmlet Singapore page.</p>
       </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · AI VISIBILITY · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">24 / 33</span></div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · AI VISIBILITY · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">24 / 48</span></div>
     </div>
   </section>
-
-  <!-- 09 HMLET AUDIT 3 · SITE READINESS -->
-  <section data-label="Hmlet Audit · Site readiness">
+  <!-- HMLET AUDIT · SECTION 2 · Google AI Overview -->
+  <section data-label="Hmlet Audit · AI visibility · Google AI Overview">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · AI visibility</div>
+      <h2 class="t-action audit-title anim d1">ChatGPT Finds Hmlet&#x27;s Singapore Rooms. Google&#x27;s AI Overview Never Cites Them</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="audit-h3">Google AI Overview Results</p><div class="audit-tbl"><table class="data-table"><thead><tr><th>Query Type</th><th>Query</th><th class="text-center">AIO Triggered?</th><th class="text-center">Prospect Rank</th><th>Top Results</th></tr></thead><tbody>
+<tr><td class="mono" style="white-space:nowrap;">Branded</td><td>What is Hmlet Singapore and what do they offer?</td><td class="text-center"><span class="badge-muted">Yes</span></td><td class="text-center mono"><span style="color:#34d399;font-weight:600;">#2 organic, absent from AIO citations</span></td><td style="font-size:12px;">No competitor named; AI Overview cited stackedhomes.com, booking.com and figment.live instead of hmlet.com</td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td class="mono" style="white-space:nowrap;">Competitor-Branded (diagnostic)</td><td>What is Cove Singapore and what do they offer?</td><td class="text-center"><span class="badge-muted">Yes</span></td><td class="text-center mono"><span style="color:#f87171;font-weight:600;">Absent from top 20</span></td><td style="font-size:12px;">cove.sg (#2)</td></tr>
+<tr><td class="mono" style="white-space:nowrap;">Category</td><td>best coliving spaces in Singapore</td><td class="text-center"><span class="badge-muted">No</span></td><td class="text-center mono"><span style="color:#f87171;font-weight:600;">Absent from top 20</span></td><td style="font-size:12px;">coliwoo.com (#1), cove.sg (#6)</td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td class="mono" style="white-space:nowrap;">Category</td><td>flexible rental apartment singapore expats</td><td class="text-center"><span class="badge-muted">Yes</span></td><td class="text-center mono"><span style="color:#f87171;font-weight:600;">Absent from top 20</span></td><td style="font-size:12px;">coliwoo.com (#5), cove.sg (#21)</td></tr>
+<tr><td class="mono" style="white-space:nowrap;">Comparison</td><td>Hmlet vs Coliwoo vs Cove Singapore coliving</td><td class="text-center"><span class="badge-muted">Yes</span></td><td class="text-center mono"><span style="color:#34d399;font-weight:600;">#13 organic, absent from AIO citations</span></td><td style="font-size:12px;">cove.sg (#2), coliwoo.com (#8)</td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td class="mono" style="white-space:nowrap;">Long-tail / Transactional</td><td>Habyt Hmlet coliving property near Clarke Quay Singapore</td><td class="text-center"><span class="badge-muted">Yes</span></td><td class="text-center mono"><span style="color:#34d399;font-weight:600;">#14 organic, absent from AIO citations</span></td><td style="font-size:12px;">No competitor named in top 10; AI Overview cited Expedia, Booking.com and TripAdvisor instead</td></tr>
+</tbody></table></div><div class="audit-status"><span class="sl">Google AIO Status</span><span class="sv text-danger">Absent</span><span class="sc">0 of 6 AI Overviews cite hmlet.com or any Hmlet subdomain</span></div><p class="t-lede audit-p">Google's AI Overview triggers for 5 of the 6 tested queries but cites hmlet.com or any Hmlet subdomain in none of them -- 0 of 6. Even on the branded query, where Hmlet ranks #2 organically, Google's AI Overview reaches past it to cite third-party travel and property sites instead.</p>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · AI VISIBILITY · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">25 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 2 · Citation surface -->
+  <section data-label="Hmlet Audit · AI visibility · Citation surface">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · AI visibility</div>
+      <h2 class="t-action audit-title anim d1">ChatGPT Finds Hmlet&#x27;s Singapore Rooms. Google&#x27;s AI Overview Never Cites Them</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="audit-h3">Citation Surface Analysis</p><div class="audit-tbl"><table class="data-table"><thead><tr><th>Platform</th><th class="text-center">Presence</th><th class="text-center">Strength</th><th>Notable</th></tr></thead><tbody>
+<tr><td class="mono">PropertyGuru (SG&#x27;s #1 property portal)</td><td class="text-center text-success">Yes</td><td class="text-center">Active agent profile + live listings</td><td style="font-size:12px;">68 indexed results under the Hmlet name</td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td class="mono">Traveloka</td><td class="text-center ">Yes, as hotel listings</td><td class="text-center">2,660 indexed results</td><td style="font-size:12px;">One listing URL literally reads &#x27;habyt-cantonment-formerly-hmlet-cantonment&#x27;, encoding the brand&#x27;s Habyt-to-Hmlet churn</td></tr>
+<tr><td class="mono">Trustpilot</td><td class="text-center ">Yes, unclaimed profile</td><td class="text-center">5 reviews, 4 within 12 months</td><td style="font-size:12px;">Visible star-tier split is 100% 1-star; profile is unclaimed so the sample may be self-selected negative</td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td class="mono">Reddit</td><td class="text-center ">Yes, off-market</td><td class="text-center">Top 3 threads are all in r/Tokyo</td><td style="font-size:12px;">One thread is titled &#x27;Do not rent from Hmlet&#x27;; no r/singapore discussion surfaced</td></tr>
+<tr><td class="mono">Google reviews / editorial</td><td class="text-center text-success">Yes</td><td class="text-center">#1 organic result for &#x27;Hmlet reviews Singapore&#x27;</td><td style="font-size:12px;">That top result is a StackedHomes first-hand piece titled &#x27;...Not Great&#x27;</td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td class="mono">YouTube</td><td class="text-center ">No official channel</td><td class="text-center">n/a</td><td style="font-size:12px;">All ranking video content is third-party Tokyo apartment-tour footage</td></tr>
+</tbody></table></div><p class="t-lede audit-p">Hmlet has a real third-party footprint on the exact platforms AI systems cite -- PropertyGuru, Traveloka, Trustpilot, Reddit, Google editorial -- but it skews negative everywhere it is reviewed, and there is no owned channel (no YouTube, no visible response to reviews) to balance it out.</p>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · AI VISIBILITY · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">26 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 3 · Page types -->
+  <section data-label="Hmlet Audit · Site readiness · Page types">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Site readiness</div>
-      <h2 class="t-action anim d1">Hmlet runs a live Singapore homepage and six property sites, and none of them links to a blog, a help page or hmlet.com.</h2>
+      <h2 class="t-action audit-title anim d1">A Live Homepage and Six Properties, Connected to Nothing Else</h2>
       <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">Site readiness scores 3.4 / 10. Both rivals run a connected site: homepage, listings, active blog and help page.</p>
-      <div class="tmodel four anim d2">
-        <div class="tmrow">
-          <div class="tnum">01</div>
-          <div class="tname">Homepage</div>
-          <p class="tdesc"><b>hmlet.com serves Hmlet Japan content with no Singapore path.</b> Coliwoo and Cove both run a Singapore-specific homepage.</p>
-        </div>
-        <div class="tmrow">
-          <div class="tnum">02</div>
-          <div class="tname">Property pages</div>
-          <p class="tdesc"><b>6 live property microsites, none linked from the hmlet.com navigation.</b> Coliwoo and Cove both run extensive listing menus.</p>
-        </div>
-        <div class="tmrow">
-          <div class="tnum">03</div>
-          <div class="tname">Blog</div>
-          <p class="tdesc"><b>The sitemap lists /news/, and it returns 404.</b> Coliwoo publishes 130+ posts and Cove 200+, both active through 2026.</p>
-        </div>
-        <div class="tmrow">
-          <div class="tnum">04</div>
-          <div class="tname">FAQ and languages</div>
-          <p class="tdesc"><b>singapore.hmlet.com/faq returns 404; the Japan FAQ sits on Notion.</b> No Chinese version exists for Hong Kong renters: hmlet.com/zh-hk shows &ldquo;Page not found&rdquo;.</p>
-        </div>
+      <div class="audit-body anim d2">
+<div class="audit-score"><span class="sl">Site Readiness</span><span class="sv" style="color:#f97316">3.4<span class="den">/10</span></span></div><p class="audit-h3">Page-type coverage comparison across domains</p><div class="audit-tbl"><table class="data-table"><thead><tr><th>Page Type</th><th class="text-center">Hmlet</th><th class="text-center">coliwoo.com</th><th class="text-center">cove.sg</th></tr></thead><tbody>
+<tr><td>Homepage (apex domain)</td><td class="text-center"><span class="text-danger">⚠ Serves Hmlet Japan content, no Singapore path</span></td><td class="text-center"><span class="text-success">✓ SG-specific, schema present</span></td><td class="text-center"><span class="text-success">✓ SG-specific, SSR</span></td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td>Property / Listing Pages</td><td class="text-center"><span class="text-warning">⚠ 6 live property microsites, not linked from apex nav</span></td><td class="text-center"><span class="text-success">✓ Extensive (Find Your Home menu, corporate, students)</span></td><td class="text-center"><span class="text-success">✓ Extensive (View Homes, Locations, 6+ featured listings)</span></td></tr>
+<tr><td>Blog / Informational</td><td class="text-center"><span class="text-danger">Does not exist -- sitemap lists /news/ but it 404s live</span></td><td class="text-center"><span class="text-success">✓ ~130+ posts, active through Sep 2026</span></td><td class="text-center"><span class="text-success">✓ ~200+ posts, active through Aug 2026</span></td></tr>
+<tr style="background:rgba(255,255,255,0.02);"><td>FAQ / Help</td><td class="text-center"><span class="text-danger">Does not exist on the Singapore domain -- singapore.hmlet.com/faq 404s; Japan FAQ is off-domain on Notion</span></td><td class="text-center"><span class="text-success">✓ Dedicated /faq/ page with FAQPage schema</span></td><td class="text-center"><span class="text-success">✓ Dedicated /faq page</span></td></tr>
+</tbody></table></div><p class="t-lede audit-p">Hmlet's Singapore surfaces are real and live -- a homepage plus six property microsites -- but none of them link to a blog, a help page, or the main hmlet.com domain a searcher would actually visit. Both rivals run a fully connected site (homepage, extensive listings, active blog, dedicated help page) that Hmlet's current structure cannot match anywhere.</p>
       </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · SITE READINESS · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">25 / 33</span></div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · SITE READINESS · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">27 / 48</span></div>
     </div>
   </section>
-
-  <!-- 09 HMLET AUDIT 4 · INFRASTRUCTURE -->
-  <section data-label="Hmlet Audit · Infrastructure">
+  <!-- HMLET AUDIT · SECTION 3 · Market and language -->
+  <section data-label="Hmlet Audit · Site readiness · Market and language">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Infrastructure</div>
-      <h2 class="t-action anim d1">hmlet.com has zero schema, no H1s and a 9.7-second homepage, and its listing cards are not links crawlers can follow.</h2>
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Site readiness</div>
+      <h2 class="t-action audit-title anim d1">A Live Homepage and Six Properties, Connected to Nothing Else</h2>
       <hr class="accent-rule anim d1">
-      <div class="proof anim d2" style="grid-template-columns:0.82fr 1.18fr;align-items:start;flex:0 0 auto">
-        <div class="artifact">
-          <p class="alabel">Hong Kong listing page</p>
-          <div class="frame shot" style="padding:0;align-self:flex-start"><img src="assets/audit/hk-listing.png" alt="Hong Kong listing page showing apartment cards with monthly prices in HKD" style="max-height:380px;width:auto;max-width:100%"></div>
-          <p class="cap"><b>Every card is clickable, none is a link.</b> hmlet.com Hong Kong city page, captured October 13, 2026.</p>
-        </div>
-        <div class="stat-grid" style="margin-top:0;grid-template-columns:repeat(2,1fr)">
-          <div class="stat" style="padding:30px 30px"><div class="se">Homepage LCP</div><div class="sn range">9.7s</div><div class="sl">on hmlet.com/en; cove.sg paints in 0.6s</div></div>
-          <div class="stat" style="padding:30px 30px;border-right:0"><div class="se">Schema types</div><div class="sn range">0</div><div class="sl">on every hmlet.com page type tested; Coliwoo runs 15</div></div>
-          <div class="stat" style="padding:30px 30px;border-top:var(--rule-w-hair) solid var(--rule-hair)"><div class="se">H1 tag</div><div class="sn range">Missing</div><div class="sl">on every hmlet.com page tested; both rivals have one</div></div>
-          <div class="stat" style="padding:30px 30px;border-top:var(--rule-w-hair) solid var(--rule-hair)"><div class="se">Links to unit pages</div><div class="sn range">0</div><div class="sl">on the Hong Kong, Singapore and Tokyo city listings</div></div>
-        </div>
+      <div class="audit-body anim d2">
+<p class="audit-h3">Market and Language Coverage: Singapore, Hong Kong, Japan <span class="badge-danger">Critical</span></p><p class="t-lede audit-p">hmlet.com runs two languages: Japanese at hmlet.com/ and English at hmlet.com/en. Renters in Singapore and Hong Kong who browse in English are sent to the English site automatically. Renters in Hong Kong who browse in Chinese land on the Japanese homepage, because no Chinese version exists. Every regional address returns the site's "Page not found" screen.</p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Audience</th><th>What hmlet.com serves today</th><th>Gap</th></tr></thead>
+<tbody>
+<tr><td>Japanese speakers in Japan</td><td class="text-success">Japanese site (hmlet.com/)</td><td class="text-warning">Language tags on the homepage only</td></tr>
+<tr><td>English speakers in Singapore</td><td class="text-success">English site (hmlet.com/en), automatic redirect</td><td class="text-warning">hmlet.com/en-sg shows "Page not found"</td></tr>
+<tr><td>English speakers in Hong Kong</td><td class="text-success">English site (hmlet.com/en), automatic redirect</td><td class="text-warning">hmlet.com/en-hk shows "Page not found"</td></tr>
+<tr><td>Chinese speakers in Hong Kong</td><td class="text-danger">Japanese homepage</td><td class="text-danger">No Chinese version; hmlet.com/zh-hk shows "Page not found"</td></tr>
+</tbody>
+</table></div>
       </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · SITE INFRASTRUCTURE · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">26 / 33</span></div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · SITE READINESS · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">28 / 48</span></div>
     </div>
   </section>
-
-  <!-- 09 HMLET AUDIT 5 · INTERNAL LINKS -->
-  <section data-label="Hmlet Audit · Internal links">
+  <!-- HMLET AUDIT · SECTION 4 · Rendering and hierarchy -->
+  <section data-label="Hmlet Audit · Site infrastructure · Rendering and hierarchy">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Internal links</div>
-      <h2 class="t-action anim d1">Cove&rsquo;s homepage carries 320 internal links. Hmlet&rsquo;s carries 3, and singapore.hmlet.com carries zero.</h2>
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Site infrastructure</div>
+      <h2 class="t-action audit-title anim d1">Zero Schema, Missing H1s, and a Homepage That Loads for 9.7 Seconds</h2>
       <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">The five city listing pages are linked from the footer only, after JavaScript runs. The page HTML that crawlers read first holds no link to any of them.</p>
-      <div class="proof anim d2" style="grid-template-columns:1fr;gap:22px;align-items:start;flex:0 0 auto;max-width:1400px">
-        <div class="artifact">
-          <p class="alabel">hmlet.com/en header</p>
-          <div class="frame shot" style="padding:0"><img src="assets/audit/nav-hmlet.png" alt="hmlet.com English header: Campaign, About Hmlet, FAQ, Contact us" style="max-height:none"></div>
-          <p class="cap"><b>Campaign, About Hmlet, FAQ, Contact us: none leads to an apartment area.</b> Captured October 13, 2026.</p>
-        </div>
-        <div class="artifact">
-          <p class="alabel">cove.sg header</p>
-          <div class="frame shot" style="padding:0"><img src="assets/audit/nav-cove.png" alt="cove.sg header: view homes, locations, why Cove, community, students, corporate" style="max-height:none"></div>
-          <p class="cap"><b>&ldquo;View homes&rdquo; and &ldquo;locations&rdquo; come first, and the footer links 19 area search pages.</b> Captured October 13, 2026.</p>
-        </div>
+      <div class="audit-body anim d2">
+<p class="audit-h3">Rendering &amp; Bot Access <span class="badge-danger">Critical</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Domain (page tested)</th><th>Rendering</th><th>Bot Accessible</th><th>FCP</th><th>LCP</th><th>CLS</th></tr></thead>
+<tbody>
+<tr><td>hmlet.com/en (apex, Japan content)</td><td>Server-rendered (Next.js)</td><td>Yes</td><td>0.6s</td><td>9.7s</td><td>0</td></tr>
+<tr><td>coliwoo.com</td><td>Server-rendered (WordPress)</td><td>Yes</td><td>2.6s</td><td>19.9s</td><td>0.035</td></tr>
+<tr><td>cove.sg</td><td>Server-rendered (Next.js)</td><td>Yes</td><td>0.4s</td><td>0.6s</td><td>0.001</td></tr>
+</tbody>
+</table></div><p class="audit-h3">Content Hierarchy &amp; Signals <span class="badge-danger">Critical</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Signal</th><th>hmlet.com/en (apex)</th><th>hmlet.com SG listing page</th><th>singapore.hmlet.com</th><th>coliwoo.com</th><th>cove.sg</th></tr></thead>
+<tbody>
+<tr><td>H1 tag</td><td class="text-danger">Missing</td><td class="text-danger">Missing</td><td class="text-danger">Missing</td><td class="text-success">Present</td><td class="text-success">Present</td></tr>
+<tr><td>Title tag</td><td class="text-warning">"...| Hmlet Japan"</td><td class="text-danger">"Singapore...| Hmlet Japan" (branding bleed)</td><td class="text-success">Correct ("...In Singapore | Hmlet")</td><td class="text-success">Correct</td><td class="text-success">Correct</td></tr>
+<tr><td>Canonical URL</td><td class="text-success">Present</td><td class="text-danger">Missing</td><td class="text-danger">Missing</td><td class="text-success">Present</td><td class="text-success">Present</td></tr>
+<tr><td>Semantic HTML (nav/main/article/section/footer)</td><td class="text-warning">All 5 present</td><td class="text-warning">All 5 present</td><td class="text-danger">All 5 absent</td><td class="text-warning">nav/section/footer only</td><td class="text-success">All 5 present</td></tr>
+</tbody>
+</table></div>
       </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · CONTENT COMPETITIVENESS · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">27 / 33</span></div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · SITE INFRASTRUCTURE · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">29 / 48</span></div>
     </div>
   </section>
-
-  <!-- 09 HMLET AUDIT 6 · BRAND -->
-  <section data-label="Hmlet Audit · Brand">
+  <!-- HMLET AUDIT · SECTION 4 · Structured data and hosts -->
+  <section data-label="Hmlet Audit · Site infrastructure · Structured data and hosts">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Brand</div>
-      <h2 class="t-action anim d1">Hmlet&rsquo;s largest Singapore keyword is a search about its own rebrand, and it sits outside the top 20 on all three core coliving searches.</h2>
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Site infrastructure</div>
+      <h2 class="t-action audit-title anim d1">Zero Schema, Missing H1s, and a Homepage That Loads for 9.7 Seconds</h2>
       <hr class="accent-rule anim d1">
-      <p class="t-lede subhead anim d1">The property pages rank when a search names one property. The gap is reach and site structure.</p>
-      <div class="stat-grid anim d2">
-        <div class="stat"><div class="se">Rebrand search</div><div class="sn range">6,600</div><div class="sl">monthly searches for &ldquo;owen house by habyt previously hmlet&rdquo;</div></div>
-        <div class="stat"><div class="se">Category searches</div><div class="sn range">All 3</div><div class="sl">with Hmlet outside the top 20; Coliwoo and Cove hold top-3 slots</div></div>
-        <div class="stat"><div class="se">Shared keywords</div><div class="sn range">24 · 25</div><div class="sl">with Coliwoo and Cove; Hmlet trails on almost every one</div></div>
-        <div class="stat"><div class="se">Property names</div><div class="sn range">#2 vs #59</div><div class="sl">&ldquo;habyt studios kallang&rdquo;, Hmlet vs Cove; three names outrank Cove</div></div>
+      <div class="audit-body anim d2">
+<p class="audit-h3">Structured Data <span class="badge-orange">High</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Page Type</th><th>hmlet.com</th><th>coliwoo.com</th><th>cove.sg</th></tr></thead>
+<tbody>
+<tr><td>Homepage</td><td class="text-danger">No schema detected</td><td class="text-success">15 types incl. Organization, FAQPage, AggregateRating, SearchAction</td><td class="text-warning">2 types (Organization, WebSite)</td></tr>
+<tr><td>Property / Listing</td><td class="text-danger">No schema detected (Tokyo or Singapore listing pages)</td><td class="text-success">15 types incl. LodgingBusiness, BreadcrumbList</td><td class="text-danger">No schema detected</td></tr>
+<tr><td>FAQ</td><td class="text-danger">No dedicated FAQ page to carry schema</td><td class="text-success">15 types incl. FAQPage, Question, Answer</td><td class="text-danger">No schema detected on /faq</td></tr>
+<tr><td>Blog</td><td class="text-danger">No schema detected (blog path 404s)</td><td class="text-success">15 types incl. Article, BreadcrumbList</td><td class="text-warning">3 types (ImageObject, Organization, WebSite)</td></tr>
+</tbody>
+</table></div><p class="audit-h3">Five Hosts, One Brand <span class="badge-warning">Medium</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Host</th><th>What it holds</th><th>Technical state</th></tr></thead>
+<tbody>
+<tr><td>hmlet.com</td><td>Main site, Japanese and English</td><td class="text-warning">Findings above</td></tr>
+<tr><td>japan.hmlet.com</td><td>Campaigns and news</td><td class="text-warning">English pages declare Japanese (lang="ja")</td></tr>
+<tr><td>hongkong.hmlet.com</td><td>Hong Kong lead form</td><td class="text-danger">No language tag, canonical or H1; one link ends on "Page not found"</td></tr>
+<tr><td>singapore.hmlet.com</td><td>Singapore lead form</td><td class="text-danger">No language tag, canonical or H1; one link ends on "Page not found"</td></tr>
+<tr><td>Notion (notion.site)</td><td>FAQ, latest information, careers</td><td class="text-warning">Linked from the header; FAQ sits off the domain</td></tr>
+</tbody>
+</table></div>
       </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · BRAND &amp; POSITIONING · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">28 / 33</span></div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · SITE INFRASTRUCTURE · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">30 / 48</span></div>
     </div>
   </section>
-
-  <!-- 09 HMLET AUDIT 7 · ROADMAP -->
-  <section data-label="Hmlet Audit · Roadmap">
+  <!-- HMLET AUDIT · SECTION 4 · hreflang -->
+  <section data-label="Hmlet Audit · Site infrastructure · hreflang">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">08 · Hmlet · Roadmap</div>
-      <h2 class="t-action anim d1">Three horizons over six months take site readiness from 3.4 to a projected 7.0 and LLM visibility from 4.3 to 6.5.</h2>
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Site infrastructure</div>
+      <h2 class="t-action audit-title anim d1">Zero Schema, Missing H1s, and a Homepage That Loads for 9.7 Seconds</h2>
       <hr class="accent-rule anim d1">
-      <div class="tmodel anim d2">
-        <div class="tmrow">
-          <div class="tnum">01</div>
-          <div class="tname">Horizon 1 · 0-30 days<br>Infrastructure</div>
-          <p class="tdesc"><b>+2.0 to +3.0 site readiness.</b> Link singapore.hmlet.com and the six property subdomains into the main navigation. Add H1s, canonicals and Organization + LodgingBusiness schema. Put the five city listings in the header, make every listing card a real link, return 404s and rebuild the sitemap.</p>
-        </div>
-        <div class="tmrow">
-          <div class="tnum">02</div>
-          <div class="tname">Horizon 2 · 30-90 days<br>Content</div>
-          <p class="tdesc"><b>+1.5 to +2.5 site readiness, +0.5 to +1.0 LLM visibility.</b> An on-domain Singapore FAQ, an informational hub in place of /news/, internal links from singapore.hmlet.com to its six properties, a Chinese version for Hong Kong with hreflang, clean titles and an llms.txt.</p>
-        </div>
-        <div class="tmrow">
-          <div class="tnum">03</div>
-          <div class="tname">Horizon 3 · 3-6 months<br>Authority</div>
-          <p class="tdesc"><b>+1.5 to +2.0 LLM visibility.</b> Comparison content that answers Figment&rsquo;s &ldquo;vs Hmlet&rdquo; page, corrected Traveloka and PropertyGuru listings, a direct response to the Trustpilot and StackedHomes reviews, Singapore third-party citations, and tracking of covejapan.com.</p>
-        </div>
+      <div class="audit-body anim d2">
+<p class="audit-h3">Language Targeting and hreflang <span class="badge-danger">Critical</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>URL or request</th><th>HTTP status</th><th>What it serves</th></tr></thead>
+<tbody>
+<tr><td>hmlet.com/</td><td>200</td><td class="text-success">Japanese homepage, hreflang present</td></tr>
+<tr><td>hmlet.com/en</td><td>200</td><td class="text-success">English homepage, hreflang present</td></tr>
+<tr><td>hmlet.com/zh-hk</td><td>200</td><td class="text-danger">"Page not found" screen</td></tr>
+<tr><td>hmlet.com/zh-tw</td><td>200</td><td class="text-danger">"Page not found" screen</td></tr>
+<tr><td>hmlet.com/en-sg</td><td>200</td><td class="text-danger">"Page not found" screen</td></tr>
+<tr><td>hmlet.com/ with a Hong Kong Chinese browser</td><td>200</td><td class="text-danger">Japanese homepage</td></tr>
+<tr><td>hmlet.com/ with a Singapore English browser</td><td>307</td><td class="text-warning">Redirect to the English site</td></tr>
+<tr><td>Hong Kong, Singapore and Tokyo city pages and unit pages (12 tested)</td><td>200</td><td class="text-danger">No hreflang, no canonical</td></tr>
+</tbody>
+</table></div><p class="audit-h3">Hong Kong Pages Carry the Japan Brand <span class="badge-warning">Medium</span></p><p class="t-lede audit-p">The title bleed on the Singapore listing page also appears across Hong Kong. The Hong Kong city page is titled "Furnished Apartments for Rent in Hong Kong│Hmlet Japan", and Hong Kong unit pages follow the same pattern, for example "Po Foo Building│Fully Furnished Apartment│Hmlet Japan". Hong Kong unit pages also have no meta description.</p>
       </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · ROADMAP &amp; IMPACT · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">29 / 33</span></div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · SITE INFRASTRUCTURE · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">31 / 48</span></div>
     </div>
   </section>
-
-  <!-- 09 HMLET AUDIT 8 · GEO PAGES -->
-  <section data-label="Hmlet Audit · Geo pages">
+  <!-- HMLET AUDIT · SECTION 4 · Listings and crawl files -->
+  <section data-label="Hmlet Audit · Site infrastructure · Listings and crawl files">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">08 · Hmlet · Geo pages</div>
-      <h2 class="t-action anim d1">The city and area pages already exist: nine fixes make them readable to crawlers now, and five builds target 5,440 monthly area searches.</h2>
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Site infrastructure</div>
+      <h2 class="t-action audit-title anim d1">Zero Schema, Missing H1s, and a Homepage That Loads for 9.7 Seconds</h2>
       <hr class="accent-rule anim d1">
-      <div class="scope anim d2" style="grid-template-columns:1fr 1fr;flex:0 0 auto">
-        <div class="scol shr">
-          <div class="schead"><p class="sclab">Fix now · pages and code that exist</p><span class="scount">9</span></div>
-          <div class="stiles">
-          <p class="stile">City links in the header, in the page HTML</p>
-          <p class="stile">Unit cards and the pager as real links</p>
-          <p class="stile">One H1 per geo page that names the place</p>
-          <p class="stile">Self canonical plus hreflang ja, en and x-default</p>
-          <p class="stile">FAQ answers in the HTML, marked up as FAQPage</p>
-          <p class="stile">ItemList markup of the listed units</p>
-          <p class="stile">Sitemap with city and area pages in both languages</p>
-          <p class="stile">&ldquo;Hmlet Japan&rdquo; removed from Hong Kong and Singapore titles</p>
-          <p class="stile">HTTP 404 for addresses that do not exist</p>
-          </div>
-        </div>
-        <div class="scol geo">
-          <div class="schead"><p class="sclab">Build next · new content and templates</p><span class="scount">5</span></div>
-          <div class="stiles">
-          <p class="stile">Area filter pages built out as landing pages</p>
-          <p class="stile">A hidden gems guide per area</p>
-          <p class="stile">Tokyo &ldquo;Central&rdquo; named by real places: Minato, Azabu-juban, Nihonbashi</p>
-          <p class="stile">Traditional Chinese city and area pages</p>
-          <p class="stile">Content for renters moving from Singapore and Hong Kong</p>
-          </div>
-        </div>
+      <div class="audit-body anim d2">
+<div class="audit-cols" style="grid-template-columns:0.9fr 1.1fr"><div><p class="audit-h3">Listings Are Not Linked <span class="badge-danger">Critical</span></p><figure class="audit-fig"><img src="assets/audit/hk-listing.png" alt="Hong Kong listing page showing apartment cards with monthly prices in HKD" style=""><figcaption>hmlet.com/en/property/city/hong-kong: every card is clickable, none is a link. Captured October 13, 2026</figcaption></figure></div><div><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>City listing page</th><th>Units shown</th><th>Links to unit pages</th></tr></thead>
+<tbody>
+<tr><td>hmlet.com/en/property/city/hong-kong</td><td>Yes (prices in HKD)</td><td class="text-danger">0</td></tr>
+<tr><td>hmlet.com/en/property/city/singapore</td><td>Yes</td><td class="text-danger">0</td></tr>
+<tr><td>hmlet.com/en/property/city/tokyo</td><td>Yes</td><td class="text-danger">0</td></tr>
+</tbody>
+</table></div><p class="audit-h3">Crawl Files, Sitemap and Error Handling <span class="badge-orange">High</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Check</th><th>hmlet.com</th><th>cove.sg</th></tr></thead>
+<tbody>
+<tr><td>robots.txt</td><td class="text-danger">Missing (HTML page, HTTP 200)</td><td class="text-success">Present, names the sitemap</td></tr>
+<tr><td>llms.txt</td><td class="text-danger">Missing (HTML page, HTTP 200)</td><td class="text-success">Present</td></tr>
+<tr><td>Unknown address returns</td><td class="text-danger">HTTP 200</td><td class="text-success">HTTP 404</td></tr>
+<tr><td>Sitemap entries that load directly</td><td class="text-warning">125 of 149</td><td>n/a</td></tr>
+<tr><td>Sitemap entries that redirect</td><td class="text-warning">17 of 149</td><td>n/a</td></tr>
+<tr><td>Sitemap entries ending on an error page</td><td class="text-danger">13 of 149</td><td>n/a</td></tr>
+<tr><td>Hong Kong or Singapore units in the sitemap</td><td class="text-danger">0</td><td>n/a</td></tr>
+</tbody>
+</table></div></div></div>
       </div>
-      <div class="proof anim d3" style="grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:20px;flex:0 0 auto">
-        <div class="artifact">
-          <div class="frame shot" style="padding:0"><img src="assets/audit/geo-nav-before.webp" alt="hmlet.com English header today: Campaign, About Hmlet, FAQ, Contact us" style="max-height:none"></div>
-          <p class="cap" style="margin-top:10px"><b>Before:</b> hmlet.com/en header today, October 21, 2026.</p>
-        </div>
-        <div class="artifact">
-          <div class="frame shot" style="padding:0"><img src="assets/audit/geo-nav-after.webp" alt="hmlet.com header with Tokyo, Osaka, Fukuoka, Singapore and Hong Kong links added" style="max-height:none"></div>
-          <p class="cap" style="margin-top:10px"><b>After:</b> mockup with the five city links added (orange outline).</p>
-        </div>
-      </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">30 / 33</span></div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · SITE INFRASTRUCTURE · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">32 / 48</span></div>
     </div>
   </section>
-
-  <!-- 09 HMLET AUDIT 9 · DETAIL PAGES -->
-  <section data-label="Hmlet Audit · Detail pages">
+  <!-- HMLET AUDIT · SECTION 5 · Content volume -->
+  <section data-label="Hmlet Audit · Content competitiveness · Content volume">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">08 · Hmlet · Detail pages</div>
-      <h2 class="t-action anim d1">Only 65 of 1,889 live units are in the sitemap: seven fixes on the unit pages now, six builds next.</h2>
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Content competitiveness</div>
+      <h2 class="t-action audit-title anim d1">320 Internal Links on Cove&#x27;s Homepage. 3 on Hmlet&#x27;s. Zero on Singapore&#x27;s</h2>
       <hr class="accent-rule anim d1">
-      <div class="scope anim d2" style="grid-template-columns:1fr 1fr 1.15fr">
-        <div class="scol shr">
-          <div class="schead"><p class="sclab">Fix now</p><span class="scount">7</span></div>
-          <div class="stiles">
-          <p class="stile">Self canonical, hreflang pairing English and Japanese</p>
-          <p class="stile">A meta description per unit, from its own data</p>
-          <p class="stile">Apartment and Offer markup for facts already on the page</p>
-          <p class="stile">Sitemap with every live unit, split by city</p>
-          <p class="stile">301 removed units to their area or city page</p>
-          <p class="stile">&ldquo;Hmlet Japan&rdquo; removed from Hong Kong and Singapore titles</p>
-          <p class="stile">&ldquo;Higahi-Nakano&rdquo; corrected to &ldquo;Higashi-Nakano&rdquo;</p>
-          </div>
-        </div>
-        <div class="scol geo">
-          <div class="schead"><p class="sclab">Build next</p><span class="scount">6</span></div>
-          <div class="stiles">
-          <p class="stile">Breadcrumb with BreadcrumbList markup</p>
-          <p class="stile">More homes in this building and nearby</p>
-          <p class="stile">Popular spots and hidden gems near the property</p>
-          <p class="stile">Getting here, with routes from the airports</p>
-          <p class="stile">FAQ about this apartment, marked up as FAQPage</p>
-          <p class="stile">Traditional Chinese unit pages</p>
-          </div>
-        </div>
-        <div class="artifact">
-          <div class="frame shot" style="padding:0;align-self:flex-start"><img src="assets/audit/detail-spots-before.webp" alt="Popular spots near the property today: photo cards only" style="max-height:120px;width:auto;max-width:100%"></div>
-          <p class="cap" style="margin:8px 0 18px"><b>Before:</b> unit 731 shows three spots as photo cards with no text.</p>
-          <div class="frame shot" style="padding:0;align-self:flex-start"><img src="assets/audit/detail-spots-after.webp" alt="Popular spots with a text description under each spot and a hidden gem box picked by the Hmlet team" style="max-height:300px;width:auto;max-width:100%"></div>
-          <p class="cap" style="margin-top:8px"><b>After:</b> mockup with text per spot and a hidden gem box.</p>
-        </div>
+      <div class="audit-body anim d2">
+<p class="audit-h3">Content Volume &amp; Internal Linking Gap <span class="badge-danger">Critical</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Page</th><th>Word Count</th><th>Images</th><th>H2 Count</th><th>Internal Links</th></tr></thead>
+<tbody>
+<tr><td>hmlet.com/en homepage (Japan)</td><td>988</td><td>91</td><td>11</td><td>3</td></tr>
+<tr><td>singapore.hmlet.com homepage</td><td>560</td><td>131</td><td>0</td><td>0</td></tr>
+<tr><td>hmlet.com SG listing page</td><td>358</td><td>42</td><td>3</td><td>3</td></tr>
+<tr><td>coliwoo.com homepage</td><td>1,473</td><td>64</td><td>7</td><td>0</td></tr>
+<tr><td>coliwoo.com property page</td><td>861</td><td>34</td><td>11</td><td>1</td></tr>
+<tr><td>cove.sg homepage</td><td>1,692</td><td>282</td><td>10</td><td>320</td></tr>
+<tr><td>cove.sg listings page</td><td>85</td><td>11</td><td>0</td><td>33</td></tr>
+</tbody>
+</table></div><p class="audit-h3">FAQ / Structured Content Gap <span class="badge-orange">High</span></p><p class="t-lede audit-p">Singapore's homepage returns a 404 on its own /faq path, and the only working Hmlet FAQ content sits off-domain on Notion for the Japan business -- not reachable from, or relevant to, the Singapore product. This is not a first-mover gap: both Coliwoo (schema-marked FAQPage, 2,448 words) and Cove (dedicated on-domain page) already ship this as a baseline expectation, so Hmlet is catching up to the category standard, not getting ahead of it.</p>
       </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · DETAIL PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">31 / 33</span></div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · CONTENT COMPETITIVENESS · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">33 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 5 · Header navigation -->
+  <section data-label="Hmlet Audit · Content competitiveness · Header navigation">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Content competitiveness</div>
+      <h2 class="t-action audit-title anim d1">320 Internal Links on Cove&#x27;s Homepage. 3 on Hmlet&#x27;s. Zero on Singapore&#x27;s</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="audit-h3">Header Navigation Has No Link to Any Apartment Area <span class="badge-danger">Critical</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>City listing page</th><th>Header menu</th><th>Footer (after JavaScript)</th><th>Page HTML</th></tr></thead>
+<tbody>
+<tr><td>hmlet.com/en/property/city/tokyo</td><td class="text-danger">No</td><td class="text-warning">Yes</td><td class="text-danger">No</td></tr>
+<tr><td>hmlet.com/en/property/city/osaka</td><td class="text-danger">No</td><td class="text-warning">Yes</td><td class="text-danger">No</td></tr>
+<tr><td>hmlet.com/en/property/city/fukuoka</td><td class="text-danger">No</td><td class="text-warning">Yes</td><td class="text-danger">No</td></tr>
+<tr><td>hmlet.com/en/property/city/singapore</td><td class="text-danger">No</td><td class="text-warning">Yes</td><td class="text-danger">No</td></tr>
+<tr><td>hmlet.com/en/property/city/hong-kong</td><td class="text-danger">No</td><td class="text-warning">Yes</td><td class="text-danger">No</td></tr>
+</tbody>
+</table></div><p class="t-lede audit-p">The header repeats on every page and is the first set of links visitors and crawlers read. Area links there take a visitor to Tokyo or Hong Kong homes in one click from any page, and pass internal link value from every page to the pages that hold the inventory. Today that value goes to a campaign page, the company profile and an FAQ hosted on Notion. Cove puts "view homes" and "locations" first in its header and links 19 area search pages from its footer, such as "apartment for rent in Orchard".</p><div class="audit-figrow two"><figure class="audit-fig"><img src="assets/audit/nav-hmlet.png" alt="hmlet.com English header: Campaign, About Hmlet, FAQ, Contact us" style=""><figcaption>hmlet.com/en header, captured October 13, 2026</figcaption></figure><figure class="audit-fig"><img src="assets/audit/nav-cove.png" alt="cove.sg header: view homes, locations, why Cove, community, students, corporate" style=""><figcaption>cove.sg header, captured October 13, 2026</figcaption></figure></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · CONTENT COMPETITIVENESS · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">34 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 6 · Category SERP -->
+  <section data-label="Hmlet Audit · Brand &amp; positioning · Category SERP">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Brand &amp; positioning</div>
+      <h2 class="t-action audit-title anim d1">Hmlet&#x27;s Biggest Keyword Is About Its Own Rebrand, Not About Coliving</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="audit-h3">Category SERP Gap <span class="badge-danger">Critical</span></p><p class="t-lede audit-p">As a signal test, we ran the 3 core Singapore coliving category terms through live search: "coliving singapore", "flexible rental apartment singapore", and "furnished serviced apartment singapore short term". Hmlet is absent from the top 20 organic results on all 3; Coliwoo and Cove occupy top-3 slots on every one of them (Coliwoo ranks #1 on two of the three).</p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Category Query</th><th>hmlet.com</th><th>coliwoo.com</th><th>cove.sg</th></tr></thead>
+<tbody>
+<tr><td>coliving singapore</td><td class="text-danger">Absent (outside top 20)</td><td class="text-success">#1</td><td class="text-success">#2</td></tr>
+<tr><td>flexible rental apartment singapore</td><td class="text-danger">Absent (outside top 20)</td><td class="text-success">#1</td><td class="text-success">#3</td></tr>
+<tr><td>furnished serviced apartment singapore short term</td><td class="text-danger">Absent (outside top 20)</td><td class="text-success">#2</td><td class="text-warning">Not in top 10 shown</td></tr>
+</tbody>
+</table></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · BRAND &amp; POSITIONING · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">35 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 6 · Keywords and rivals -->
+  <section data-label="Hmlet Audit · Brand &amp; positioning · Keywords and rivals">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Brand &amp; positioning</div>
+      <h2 class="t-action audit-title anim d1">Hmlet&#x27;s Biggest Keyword Is About Its Own Rebrand, Not About Coliving</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<div class="audit-grid2"><div class="audit-finding"><p class="audit-h3">Content-Mix vs Brand-Identity Mismatch <span class="badge-orange">High</span></p><p class="t-lede audit-p">Hmlet's single largest Singapore traffic driver is "owen house by habyt previously hmlet" (6,600 monthly searches, the highest estimated traffic value of any keyword on the domain), followed by "habyt novena previously hotel balestier" (2,900 searches). Both are searches about Hmlet's own brand-name transition -- Habyt to Hmlet -- not about coliving as a service. Meanwhile the page a Singapore search would actually land on, hmlet.com/en, presents as a Japan corporate rental brand. The traffic that exists is driven by brand-name confusion, not by category demand the way it is for both rivals.</p></div><div class="audit-finding"><p class="audit-h3">Competitor Keyword Moat <span class="badge-orange">High</span></p><p class="t-lede audit-p">hmlet.com shares only 24 ranked keywords with coliwoo.com and 25 with cove.sg in the Singapore market -- against Coliwoo's 1,281 total ranked keywords and Cove's 2,630. Where the sets overlap, Hmlet trails on almost every term: "dormitory in singapore for rent" (Hmlet #50 vs. Coliwoo #19), "short term rent room" (Hmlet #48 vs. Cove #2), "communal living near me" (Hmlet #32 vs. Coliwoo #1). The overlap itself is thin, and Hmlet loses most of the keywords it does share.</p></div><div class="audit-finding"><p class="audit-h3">Bright Spots: Property Names Still Rank <span class="badge-success">Bright Spot</span></p><p class="t-lede audit-p">Despite the overall gap, three of Hmlet's own property names outrank Cove on shared keywords: "habyt novena" (Hmlet #3 vs. Cove #54), "habyt studios at novena" (Hmlet #2 vs. Cove #45), and "habyt studios kallang" (Hmlet #2 vs. Cove #59). Volumes are modest (110-590 monthly searches), but they show the individual property content itself ranks well when it has a clean, singular keyword to answer -- the gap is reach and architecture, not the underlying property pages.</p></div><div class="audit-finding"><p class="audit-h3">Cove Already Competes in Japan <span class="badge-orange">High</span></p><p class="t-lede audit-p">Cove's header links to sister sites in Japan (covejapan.com), Korea (covekorea.com) and Indonesia (cove.id). covejapan.com is a Japanese language rental site for homes in Japan, with English support, no guarantor and no key money: the same offer Hmlet makes on hmlet.com. For renters in Singapore and Hong Kong looking for a home in Japan, Cove is a direct competitor, and it already runs separate sites per market.</p></div></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · BRAND &amp; POSITIONING · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">36 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 7 -->
+  <section data-label="Hmlet Audit · Roadmap &amp; impact">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Roadmap &amp; impact</div>
+      <h2 class="t-action audit-title anim d1">Roadmap: From 3.9 to a Connected Singapore Presence</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<div class="audit-impact"><div><span class="sl">Site Readiness Score</span><span class="sv" style="color:#f97316">3.4<span class="den">/10</span></span><span class="arr">&rarr;</span><span class="sv" style="color:#22c55e">7.0<span class="den">/10</span></span><span class="cp">Current &rarr; Projected</span></div><div><span class="sl">LLM Visibility Score</span><span class="sv" style="color:#eab308">4.3<span class="den">/10</span></span><span class="arr">&rarr;</span><span class="sv" style="color:#22c55e">6.5<span class="den">/10</span></span><span class="cp">Current &rarr; Projected</span></div></div><div class="audit-hzrow"><div class="audit-hz"><p class="audit-h3" style="color:var(--ink-1)">Horizon 1 (0-30 days): Infrastructure</p><p class="hzimp">+2.0 to +3.0 Site Readiness (references Findings: Rendering &amp; Bot Access, Content Hierarchy &amp; Signals, Structured Data)</p><ol class="audit-recs"><li><span class="rn">01</span><span>Link singapore.hmlet.com and the six property subdomains into hmlet.com&#x27;s main navigation</span></li><li><span class="rn">02</span><span>Add H1 tags across all Hmlet pages (currently missing sitewide)</span></li><li><span class="rn">03</span><span>Fix the &quot;| Hmlet Japan&quot; title-tag bleed on the Singapore listing page</span></li><li><span class="rn">04</span><span>Add canonical tags on Singapore pages and baseline Organization + LodgingBusiness schema</span></li><li><span class="rn">05</span><span>Add the five city listings (Tokyo, Osaka, Fukuoka, Singapore, Hong Kong) to the header menu, present in the page HTML</span></li><li><span class="rn">06</span><span>Turn every listing card into a real link to its unit page</span></li><li><span class="rn">07</span><span>Return HTTP 404 for unknown addresses and publish a plain text robots.txt that names the sitemap</span></li><li><span class="rn">08</span><span>Rebuild the sitemap: drop redirects and error pages, add city pages and Hong Kong and Singapore units</span></li></ol></div><div class="audit-hz"><p class="audit-h3" style="color:var(--ink-1)">Horizon 2 (30-90 days): Content</p><p class="hzimp">+1.5 to +2.5 Site Readiness, +0.5 to +1.0 LLM Visibility (references Findings: FAQ / Structured Content Gap, Content Volume &amp; Internal Linking Gap)</p><ol class="audit-recs"><li><span class="rn">01</span><span>Build a dedicated, on-domain FAQ page for the Singapore product</span></li><li><span class="rn">02</span><span>Restore an informational hub in place of the 404&#x27;d /news/ path</span></li><li><span class="rn">03</span><span>Add internal links from singapore.hmlet.com to its six property pages (currently zero)</span></li><li><span class="rn">04</span><span>Launch a Chinese version for Hong Kong renters, with hreflang (ja, en, zh-Hant-HK) on every page</span></li><li><span class="rn">05</span><span>Remove "Hmlet Japan" from Hong Kong and Singapore titles and add meta descriptions</span></li><li><span class="rn">06</span><span>Publish an llms.txt that lists each city, the FAQ and how renting with Hmlet works</span></li></ol></div><div class="audit-hz"><p class="audit-h3" style="color:var(--ink-1)">Horizon 3 (3-6 months): Authority</p><p class="hzimp">+1.5 to +2.0 LLM Visibility (references Findings: Category SERP Gap, Competitor Keyword Moat, Platform Citation Surface)</p><ol class="audit-recs"><li><span class="rn">01</span><span>Publish Hmlet-authored comparison content to counter Figment&#x27;s &#x27;vs Hmlet&#x27; page</span></li><li><span class="rn">02</span><span>Claim and correct the Traveloka and PropertyGuru listings to resolve the Habyt/Hmlet branding confusion</span></li><li><span class="rn">03</span><span>Address the negative Trustpilot and StackedHomes narrative directly</span></li><li><span class="rn">04</span><span>Build Singapore-specific third-party citation surface (listicles, r/singapore presence)</span></li><li><span class="rn">05</span><span>Track covejapan.com alongside Coliwoo and Cove for Japan rental searches in English, Chinese and Japanese</span></li></ol></div></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · ROADMAP &amp; IMPACT · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">37 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 8 · Do now -->
+  <section data-label="Hmlet Audit · Geo pages · Do now">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
+      <h2 class="t-action audit-title anim d1">Geo Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="t-lede audit-p">Geo pages are the city listing pages and the area pages under them. Both already exist in English and Japanese, so the first round of work improves pages that are live today.</p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Level</th><th>English</th><th>Japanese</th><th>Live on October 21, 2026</th></tr></thead>
+<tbody>
+<tr><td>City</td><td>hmlet.com/en/property/city/tokyo</td><td>hmlet.com/property/city/tokyo</td><td>5 cities: Tokyo, Osaka, Fukuoka, Singapore, Hong Kong</td></tr>
+<tr><td>Area</td><td>hmlet.com/en/property/city/tokyo/n/shibuya</td><td>hmlet.com/property/city/tokyo/n/shibuya</td><td>Filter pages with their own title, such as "Furnished Apartments for Rent in Shibuya, Tokyo"</td></tr>
+</tbody>
+</table></div><p class="audit-h3">Optimization We Can Do Now <span class="badge-success">Do now</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>#</th><th>Task</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>City links in the header</td><td>Add the five city pages to the header menu, written in the page HTML so they exist before JavaScript runs</td></tr>
+<tr><td>2</td><td>Unit cards as real links</td><td>Wrap each listing card in a link to its unit page, and make the pager (1, 2, 3, Next page) real links</td></tr>
+<tr><td>3</td><td>H1 on every geo page</td><td>One H1 per page that names the place</td></tr>
+<tr><td>4</td><td>Canonical and hreflang</td><td>Self canonical plus hreflang ja, en and x-default on every city and area page</td></tr>
+<tr><td>5</td><td>FAQ answers in the HTML</td><td>Put the FAQ answers in the page HTML (today they appear only after a click) and mark them up as FAQPage, word for word</td></tr>
+<tr><td>6</td><td>ItemList of units</td><td>Mark up the listed units as an ItemList pointing to each unit URL</td></tr>
+<tr><td>7</td><td>Sitemap</td><td>List the city pages and area pages in both languages; drop the entries that end on an error page</td></tr>
+<tr><td>8</td><td>Hong Kong and Singapore titles</td><td>Remove "Hmlet Japan" from Hong Kong and Singapore titles</td></tr>
+<tr><td>9</td><td>Error handling</td><td>Return HTTP 404 for addresses that do not exist (today they return 200)</td></tr>
+</tbody>
+</table></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">38 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 8 · Mockups -->
+  <section data-label="Hmlet Audit · Geo pages · Mockups">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
+      <h2 class="t-action audit-title anim d1">Geo Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<div class="audit-cols" style="grid-template-columns:1fr 1fr"><div><p class="audit-h3">City links in the header</p><figure class="audit-fig"><img src="assets/audit/geo-nav-before.webp" alt="hmlet.com English header today: Campaign, About Hmlet, FAQ, Contact us" style=""><figcaption>Before: hmlet.com/en header, October 21, 2026</figcaption></figure><figure class="audit-fig"><img src="assets/audit/geo-nav-after.webp" alt="hmlet.com header with Tokyo, Osaka, Fukuoka, Singapore and Hong Kong links added" style=""><figcaption>After: mockup on the live page, five city links added (orange outline)</figcaption></figure><p class="audit-h3">H1 on every geo page</p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Page</th><th>Suggested H1</th></tr></thead>
+<tbody>
+<tr><td>hmlet.com/en/property/city/tokyo</td><td>Furnished Apartments for Rent in Tokyo</td></tr>
+<tr><td>hmlet.com/property/city/tokyo</td><td>東京の家具家電付き賃貸・マンスリー</td></tr>
+<tr><td>hmlet.com/en/property/city/tokyo/n/shibuya</td><td>Furnished Apartments for Rent in Shibuya, Tokyo</td></tr>
+<tr><td>hmlet.com/property/city/tokyo/n/shibuya</td><td>渋谷の家具家電付き賃貸・マンスリーマンション</td></tr>
+</tbody>
+</table></div></div><div><figure class="audit-fig"><img src="assets/audit/geo-h1-after.webp" alt="Tokyo listing page with the H1 Furnished Apartments for Rent in Tokyo added above the intro" style=""><figcaption>After: mockup on the live Tokyo page, H1 added (orange outline)</figcaption></figure></div></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">39 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 8 · Do later -->
+  <section data-label="Hmlet Audit · Geo pages · Do later">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
+      <h2 class="t-action audit-title anim d1">Geo Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="audit-h3">Optimization We Can Do Later <span class="badge-info">Development</span></p><p class="t-lede audit-p">These need new content or new templates.</p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>#</th><th>Task</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Area pages, built out</td><td>Turn the existing area filter pages into real landing pages: H1, an intro to the area, the Hmlet buildings in it, price range, station access and the units list. Build only where Hmlet has availability, and make each page unique with Hmlet data</td></tr>
+<tr><td>2</td><td>Hidden gems per area</td><td>A short guide per area to food, cafes and things to do that locals rate, written for someone moving in. This is what AI assistants quote when a renter asks what living in Shibuya or Tiong Bahru is like</td></tr>
+<tr><td>3</td><td>Name "Central" by real places</td><td>Tokyo "Central" is not something renters search. Its demand sits in ward and neighbourhood names: Minato, Monzen-nakacho, Azabu-juban, Nihonbashi</td></tr>
+<tr><td>4</td><td>Traditional Chinese version</td><td>Add zh-Hant-HK city and area pages and include them in hreflang</td></tr>
+<tr><td>5</td><td>Content for renters moving from Singapore and Hong Kong</td><td>Explain renting in Tokyo as a foreigner on the English pages: no guarantor, no key money, English support, residence registration</td></tr>
+</tbody>
+</table></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">40 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 8 · Area demand -->
+  <section data-label="Hmlet Audit · Geo pages · Area demand">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
+      <h2 class="t-action audit-title anim d1">Geo Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<div class="dense"><p class="audit-h3">Area demand and availability</p><div class="audit-cols" style="grid-template-columns:1fr 1fr"><div><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>City</th><th>Area</th><th>Live units / buildings</th><th>Monthly searches</th></tr></thead>
+<tbody>
+<tr><td>Tokyo</td><td>Shibuya (incl. Sangenjaya, Setagaya)</td><td>401 / 23</td><td>1,330</td></tr>
+<tr><td>Tokyo</td><td>Shinjuku (incl. Nakano, Koenji)</td><td>756 / 41</td><td>1,040</td></tr>
+<tr><td>Tokyo</td><td>Asakusa (incl. Kinshicho)</td><td>95 / 7</td><td>700</td></tr>
+<tr><td>Tokyo</td><td>Shinagawa (incl. Gotanda, Kamata, Meguro)</td><td>150 / 10</td><td>520</td></tr>
+<tr><td>Tokyo</td><td>Central (Minato, Azabu-juban, Nihonbashi, Monzen-nakacho)</td><td>317 / 15</td><td>410</td></tr>
+<tr><td>Tokyo</td><td>Ikebukuro</td><td>122 / 7</td><td>300</td></tr>
+<tr><td>Osaka</td><td>Umeda</td><td>78 / 7</td><td>150</td></tr>
+<tr><td>Osaka</td><td>Tennoji</td><td>5 / 2</td><td>70</td></tr>
+<tr><td>Osaka</td><td>Bay Area (Bentencho)</td><td>8 / 1</td><td>10</td></tr>
+<tr><td>Osaka</td><td>Namba</td><td>3 / 1</td><td>0</td></tr>
+<tr><td>Fukuoka</td><td>Hakata・Tenjin</td><td>3 / 1</td><td>170</td></tr>
+</tbody>
+</table></div></div><div><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>City</th><th>Area</th><th>Live units / buildings</th><th>Monthly searches</th></tr></thead>
+<tbody>
+<tr><td>Singapore</td><td>Orchard</td><td>4 / 1</td><td>170</td></tr>
+<tr><td>Singapore</td><td>Tiong Bahru</td><td>38 / 12</td><td>150</td></tr>
+<tr><td>Singapore</td><td>Lavender / Farrer Park</td><td>22 / 1</td><td>120</td></tr>
+<tr><td>Singapore</td><td>River Valley</td><td>9 / 2</td><td>90</td></tr>
+<tr><td>Singapore</td><td>Newton</td><td>20 / 2</td><td>80</td></tr>
+<tr><td>Singapore</td><td>Outram</td><td>3 / 1</td><td>80</td></tr>
+<tr><td>Singapore</td><td>Eunos</td><td>21 / 4</td><td>20</td></tr>
+<tr><td>Singapore</td><td>Marina Bay</td><td>7 / 2</td><td>0</td></tr>
+<tr><td>Hong Kong</td><td>Hong Kong Island</td><td>41 / 18</td><td>30</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td></td><td><strong>5,440</strong></td></tr>
+</tbody>
+</table></div><div style="height:22px"></div><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Source of the 5,440</th><th>Monthly searches</th></tr></thead>
+<tbody>
+<tr><td>Japanese searches in Japan</td><td>2,140</td></tr>
+<tr><td>English searches from Singapore (Tokyo areas)</td><td>1,600</td></tr>
+<tr><td>English searches in Japan</td><td>960</td></tr>
+<tr><td>Singapore and Hong Kong local searches</td><td>740</td></tr>
+</tbody>
+</table></div></div></div></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">41 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 9 · Do now -->
+  <section data-label="Hmlet Audit · Detail pages · Do now">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Detail pages</div>
+      <h2 class="t-action audit-title anim d1">Detail Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="t-lede audit-p">Detail pages are the unit pages, for example hmlet.com/en/property/37/units/731/detail and its Japanese twin hmlet.com/property/37/units/731/detail. They already carry good content in the page HTML: an H1, about 900 words, the price, size, layout, station distance, amenities and a neighbourhood section.</p><div class="audit-cols" style="grid-template-columns:1.45fr 1fr"><div><p class="audit-h3">Optimization We Can Do Now <span class="badge-success">Do now</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>#</th><th>Task</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Canonical and hreflang</td><td>Self canonical, and hreflang that pairs the English and Japanese URL of the same unit</td></tr>
+<tr><td>2</td><td>Meta description</td><td>Unit pages have none today. Generate one per unit from its own data</td></tr>
+<tr><td>3</td><td>Structured data</td><td>Mark up the facts already on the page: Apartment (size, rooms, address, amenities) with an Offer (monthly price, move in date)</td></tr>
+<tr><td>4</td><td>Sitemap with every live unit</td><td>1,889 live units on October 21, 2026, 65 of them in the sitemap. List every live unit, split by city, with lastmod</td></tr>
+<tr><td>5</td><td>Removed units</td><td>When a unit is gone, 301 it to its area or city page</td></tr>
+<tr><td>6</td><td>Hong Kong and Singapore titles</td><td>Remove "Hmlet Japan", for example "Po Foo Building│Fully Furnished Apartment│Hmlet Japan"</td></tr>
+<tr><td>7</td><td>Typo</td><td>Unit 731 heading says "Higahi-Nakano"; correct to "Higashi-Nakano"</td></tr>
+</tbody>
+</table></div></div><div><p class="audit-h3">Sitemap with every live unit</p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>City</th><th>Live units</th><th>Units in the sitemap</th></tr></thead>
+<tbody>
+<tr><td>Tokyo</td><td>1,620</td><td>One per building at most</td></tr>
+<tr><td>Osaka</td><td>94</td><td>One per building at most</td></tr>
+<tr><td>Fukuoka</td><td>3</td><td>0</td></tr>
+<tr><td>Singapore</td><td>131</td><td>0</td></tr>
+<tr><td>Hong Kong</td><td>41</td><td>0</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>1,889</strong></td><td><strong>65 unique units</strong></td></tr>
+</tbody>
+</table></div></div></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · DETAIL PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">42 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 9 · Do later -->
+  <section data-label="Hmlet Audit · Detail pages · Do later">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Detail pages</div>
+      <h2 class="t-action audit-title anim d1">Detail Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="audit-h3">Optimization We Can Do Later <span class="badge-info">Development</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>#</th><th>Task</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Breadcrumb</td><td>Home > City > Area > Building, as real links above the photos, with BreadcrumbList markup</td></tr>
+<tr><td>2</td><td>More homes in this building and nearby</td><td>Links to other live units in the same building first, then nearby buildings in the same area, each named by building, layout and size</td></tr>
+<tr><td>3</td><td>Popular spots and hidden gems near the property</td><td>Rename the existing "Popular spots near the property" section, add a short text box under each spot, and add one or two hidden gems picked by the Hmlet team</td></tr>
+<tr><td>4</td><td>Getting here</td><td>Nearest stations and step by step routes from the airports (Haneda and Narita for Tokyo; Changi and Hong Kong International for Singapore and Hong Kong) and to the main business districts</td></tr>
+<tr><td>5</td><td>FAQ about this apartment</td><td>Four to six questions answered from the unit's own data, in the HTML and marked up as FAQPage</td></tr>
+<tr><td>6</td><td>Traditional Chinese version</td><td>zh-Hant-HK unit pages, added to the hreflang set</td></tr>
+</tbody>
+</table></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · DETAIL PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">43 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 9 · Breadcrumb -->
+  <section data-label="Hmlet Audit · Detail pages · Breadcrumb">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Detail pages</div>
+      <h2 class="t-action audit-title anim d1">Detail Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="audit-h3">Breadcrumb</p><p class="t-lede audit-p">Unit 731 has no breadcrumb and no link back to Tokyo or to its area. The breadcrumb sits under the header, above the photos.</p><div class="audit-figrow two"><figure class="audit-fig"><img src="assets/audit/detail-breadcrumb-before.webp" alt="Unit 731 page today, no breadcrumb above the photos" style=""><figcaption>Before: hmlet.com/en/property/37/units/731/detail, October 21, 2026</figcaption></figure><figure class="audit-fig"><img src="assets/audit/detail-breadcrumb-after.webp" alt="Unit 731 page with a breadcrumb Home, Tokyo, Shinjuku area, Hmlet Higashi Nakano II" style=""><figcaption>After: mockup on the live page, breadcrumb added (orange outline)</figcaption></figure></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · DETAIL PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">44 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 9 · More homes and spots -->
+  <section data-label="Hmlet Audit · Detail pages · More homes and spots">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Detail pages</div>
+      <h2 class="t-action audit-title anim d1">Detail Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<div class="audit-figrow three" style="grid-template-columns:0.8fr 1.2fr"><div><p class="audit-h3">More homes in this building and nearby</p><figure class="audit-fig"><img src="assets/audit/detail-more-homes.webp" alt="Block listing four more units in Hmlet Higashi Nakano II and three nearby Hmlet buildings in Nakano" style=""><figcaption>After: mockup on the live page, 4 units in the same building and 3 nearby buildings, each a link</figcaption></figure></div><div><p class="audit-h3">Popular spots and hidden gems near the property</p><div class="audit-figrow two" style="margin-top:0;gap:24px"><figure class="audit-fig"><img src="assets/audit/detail-spots-before.webp" alt="Popular spots near the property today: Nakano Broadway, Nakano Marui, Nakano City Central Library as photo cards" style=""><figcaption>Before: "Popular spots near the property" on unit 731</figcaption></figure><figure class="audit-fig"><img src="assets/audit/detail-spots-after.webp" alt="Popular spots with a text description under each spot and a hidden gem box picked by the Hmlet team" style=""><figcaption>After: mockup on the live page, text per spot and a hidden gem box</figcaption></figure></div></div></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · DETAIL PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">45 / 48</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 9 · Getting here -->
+  <section data-label="Hmlet Audit · Detail pages · Getting here">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Detail pages</div>
+      <h2 class="t-action audit-title anim d1">Detail Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="audit-h3">Getting here and FAQ about this apartment</p><div class="audit-cols" style="grid-template-columns:0.9fr 1.1fr"><div><figure class="audit-fig"><img src="assets/audit/detail-getting-here-faq.webp" alt="Getting to Hmlet Higashi Nakano II route table and FAQ about this apartment" style="max-height:560px;width:auto;max-width:100%"><figcaption>After: mockup on the live page, placed above "About the neighborhood"</figcaption></figure></div><div><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Route</th><th>Unit 731 (Tokyo)</th></tr></thead>
+<tbody>
+<tr><td>Nearest stations</td><td>Higashi-Nakano (JR Chuo-Sobu Line, Toei Oedo Line), Ochiai (Tokyo Metro Tozai Line); 3 min walk</td></tr>
+<tr><td>From Haneda Airport</td><td>Keikyu Line to Shinagawa, JR Yamanote Line to Shinjuku, JR Chuo-Sobu Line to Higashi-Nakano</td></tr>
+<tr><td>From Narita Airport</td><td>Narita Express to Shinjuku, JR Chuo-Sobu Line to Higashi-Nakano</td></tr>
+<tr><td>To business districts</td><td>Shinjuku (JR Chuo-Sobu Line), Otemachi (Tokyo Metro Tozai Line from Ochiai)</td></tr>
+</tbody>
+</table></div><p class="t-lede audit-p">Singapore and Hong Kong units use the same table from Changi Airport and Hong Kong International Airport, with MRT or MTR stations. The listing data already holds every building's coordinates, so stations can be filled for all 151 buildings from one source.</p></div></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · DETAIL PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">46 / 48</span></div>
     </div>
   </section>
 
@@ -1860,7 +2236,7 @@
         <img src="../company-credential/assets/smu-academy-logo.png" alt="SMU Academy">
         <img src="../company-credential/assets/tiket-logo.svg" alt="Tiket.com">
       </div>
-      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">32 / 33</span></div>
+      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">47 / 48</span></div>
     </div>
   </section>
 
@@ -1882,7 +2258,7 @@
           </div>
           <div class="footer" style="margin-top:40px">
             <span class="t-footer" style="color:var(--dark-fg-2)">NOVASTACKS · AI-NATIVE GROWTH PARTNER</span>
-            <span class="t-footer" style="color:var(--accent)">33 / 33</span>
+            <span class="t-footer" style="color:var(--accent)">48 / 48</span>
           </div>
         </div>
       </div>
