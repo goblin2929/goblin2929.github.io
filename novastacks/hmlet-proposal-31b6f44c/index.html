@@ -593,6 +593,16 @@
 
   .gap3 table{font-size:12.5px} .gap3 th{font-size:10.5px;padding:6px 8px} .gap3 td{padding:4px 8px;line-height:1.25}
   .rmask span:last-child{filter:blur(7px);color:var(--ink-4);user-select:none;pointer-events:none}
+
+  /* ---- capability matrix (SSOT: eight capabilities) ---- */
+  .capgrid{margin-top:18px;flex:1;min-height:0;display:grid;grid-template-columns:340px 1fr 1.3fr;gap:0 26px;align-content:start}
+  .caph{font-family:var(--font-mono);font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;line-height:1.3;padding:0 0 9px;border-bottom:var(--rule-w-strong) solid var(--ink-1);margin:0}
+  .caph.seo{color:var(--ink-4);border-color:var(--rule-hair)} .caph.geo{color:var(--accent-deep);border-color:var(--accent)}
+  .capn,.capseo,.capgeo{margin:0;padding:10px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);line-height:1.3;font-family:var(--font-body)}
+  .capn{font-size:18px;font-weight:600;color:var(--ink-1)}
+  .capseo{font-size:17px;color:var(--ink-3)}
+  .capgeo{font-size:17px;color:var(--ink-1);font-weight:500;padding-left:12px;border-left:3px solid var(--accent);background:var(--accent-tint)}
+  .capnil{color:var(--ink-5);font-weight:400;font-style:italic}
 </style>
 </head>
 <body>
@@ -877,48 +887,18 @@
       <h2 class="t-action anim d1">GEO has broader scope than classic SEO.</h2>
       <hr class="accent-rule anim d1" style="margin:16px 0">
       <p class="t-lede anim d1">We run every discipline on this page, and prioritise the ones your brand, strategy and audience need.</p>
-      <div class="scope anim d2">
-        <div class="scol seo">
-          <div class="schead"><p class="sclab">SEO only &mdash; work GEO never asks for</p><span class="scount">4</span></div>
-          <div class="stiles">
-          <p class="stile">Keyword and intent research</p>
-          <p class="stile">On-page optimisation</p>
-          <p class="stile">Link equity management</p>
-          <p class="stile">Local profile management</p>
-          </div>
-        </div>
-        <div class="scol shr">
-          <div class="schead"><p class="sclab">Shared &mdash; one job, both payoffs</p><span class="scount">6</span></div>
-          <div class="stiles">
-          <p class="stile">Audience and competitive set</p>
-          <p class="stile">Crawl and index management</p>
-          <p class="stile">Internal linking and architecture</p>
-          <p class="stile">Structured data markup</p>
-          <p class="stile">Digital PR and media relations</p>
-          <p class="stile">Third-party listicle and review placement</p>
-          </div>
-        </div>
-        <div class="scol geo">
-          <div class="schead"><p class="sclab">GEO only &mdash; work SEO never asked for</p><span class="scount">14</span></div>
-          <div class="stiles">
-          <p class="stile">Prompt and conversation research</p>
-          <p class="stile">Buyer research</p>
-          <p class="stile">Customer funnel analysis</p>
-          <p class="stile">AI crawler access control</p>
-          <p class="stile">Raw-HTML retrieval readiness</p>
-          <p class="stile">Passage-level chunking</p>
-          <p class="stile">Entity consistency</p>
-          <p class="stile">Original research and first-party data</p>
-          <p class="stile">Content refresh cadence</p>
-          <p class="stile">Unlinked mention cultivation</p>
-          <p class="stile">AI-cited source outreach and partnerships</p>
-          <p class="stile">Community and UGC presence</p>
-          <p class="stile">Multimodal asset distribution</p>
-          <p class="stile">Training-corpus presence</p>
-          </div>
-        </div>
+      <div class="capgrid anim d2">
+        <p class="caph">Capability</p><p class="caph seo">Classic SEO covers</p><p class="caph geo">What GEO adds</p>
+        <p class="capn">Search strategy &amp; research</p><p class="capseo">Keyword research &middot; search intent mapping &middot; competitor gap analysis</p><p class="capgeo">AI prompt research &middot; buyer research &middot; customer funnel analysis &middot; ICP modelling</p>
+        <p class="capn">Technical SEO</p><p class="capseo">Crawl and indexation &middot; canonicalisation &middot; Core Web Vitals</p><p class="capgeo">AI crawler access management &middot; rendering readiness for AI retrieval</p>
+        <p class="capn">Site architecture &amp; internal linking</p><p class="capseo">Information architecture &middot; internal linking</p><p class="capgeo">Topic clusters built around buyer questions</p>
+        <p class="capn">Content &amp; on-page optimisation</p><p class="capseo">Titles and metas &middot; headings &middot; SEO copywriting</p><p class="capgeo">Answer-focused content &middot; commercial and comparison pages &middot; content quality assessment &middot; refresh and fact verification</p>
+        <p class="capn">Entity clarity &amp; structured data</p><p class="capseo">Structured data implementation</p><p class="capgeo">Brand entity clarification &middot; product information standardisation &middot; onsite/offsite consistency audit</p>
+        <p class="capn">Authority &amp; reputation</p><p class="capseo">Editorial link acquisition &middot; digital PR</p><p class="capgeo">Original research publication &middot; expert contribution &middot; third-party profile and review optimisation &middot; AI-cited source outreach and partnerships</p>
+        <p class="capn">AI visibility analysis &amp; optimisation</p><p class="capseo"><span class="capnil">Not part of classic SEO</span></p><p class="capgeo">AI visibility benchmarking &middot; citation source analysis &middot; brand representation analysis &middot; answer gap analysis &middot; source information correction</p>
+        <p class="capn">Performance measurement &amp; conversion</p><p class="capseo">Organic performance analysis &middot; conversion tracking</p><p class="capgeo">AI mention and citation tracking &middot; prompt-level tracking &middot; AI referral analysis</p>
       </div>
-      <div class="footer"><span class="t-footer">SCOPE &middot; WHERE SEO AND GEO WORK DIVERGE</span><span class="t-footer">08 / 46</span></div>
+      <div class="footer"><span class="t-footer">SCOPE &middot; EIGHT CAPABILITIES, WHAT GEO ADDS TO EACH</span><span class="t-footer">08 / 46</span></div>
     </div>
   </section>
 
