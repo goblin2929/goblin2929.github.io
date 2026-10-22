@@ -1939,81 +1939,6 @@
     </div>
   </section>
 
-  <section data-label="Hmlet Audit · Geo pages · Do now">
-    <div class="mslide">
-      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
-      <h2 class="t-action audit-title anim d1">Geo Pages: What to Fix Now, What to Build Next</h2>
-      <hr class="accent-rule anim d1">
-      <div class="audit-body anim d2">
-<p class="t-lede audit-p">Geo pages are the city listing pages and the area pages under them. Both already exist in English and Japanese, so the first round of work improves pages that are live today.</p><div class="audit-tbl"><table class="comparison-table">
-<thead><tr><th>Level</th><th>English</th><th>Japanese</th><th>Live on October 21, 2026</th></tr></thead>
-<tbody>
-<tr><td>City</td><td>hmlet.com/en/property/city/tokyo</td><td>hmlet.com/property/city/tokyo</td><td>5 cities: Tokyo, Osaka, Fukuoka, Singapore, Hong Kong</td></tr>
-<tr><td>Area</td><td>hmlet.com/en/property/city/tokyo/n/shibuya</td><td>hmlet.com/property/city/tokyo/n/shibuya</td><td>Filter pages with their own title, such as "Furnished Apartments for Rent in Shibuya, Tokyo"</td></tr>
-</tbody>
-</table></div><p class="audit-h3">Optimization We Can Do Now <span class="badge-success">Do now</span></p><div class="audit-tbl"><table class="comparison-table">
-<thead><tr><th>#</th><th>Task</th><th>What to do</th></tr></thead>
-<tbody>
-<tr><td>1</td><td>City links in the header</td><td>Add the five city pages to the header menu, written in the page HTML so they exist before JavaScript runs</td></tr>
-<tr><td>2</td><td>Unit cards as real links</td><td>Wrap each listing card in a link to its unit page, and make the pager (1, 2, 3, Next page) real links</td></tr>
-<tr><td>3</td><td>H1 on every geo page</td><td>One H1 per page that names the place</td></tr>
-<tr><td>4</td><td>Canonical and hreflang</td><td>Self canonical plus hreflang ja, en and x-default on every city and area page</td></tr>
-<tr><td>5</td><td>FAQ answers in the HTML</td><td>Put the FAQ answers in the page HTML (today they appear only after a click) and mark them up as FAQPage, word for word</td></tr>
-<tr><td>6</td><td>ItemList of units</td><td>Mark up the listed units as an ItemList pointing to each unit URL</td></tr>
-<tr><td>7</td><td>Sitemap</td><td>List the city pages and area pages in both languages; drop the entries that end on an error page</td></tr>
-<tr><td>8</td><td>Hong Kong and Singapore titles</td><td>Remove "Hmlet Japan" from Hong Kong and Singapore titles</td></tr>
-<tr><td>9</td><td>Error handling</td><td>Return HTTP 404 for addresses that do not exist (today they return 200)</td></tr>
-</tbody>
-</table></div>
-      </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">37 / 47</span></div>
-    </div>
-  </section>
-  <!-- HMLET AUDIT · SECTION 8 · Mockups -->
-  <section data-label="Hmlet Audit · Geo pages · Mockups">
-    <div class="mslide">
-      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
-      <h2 class="t-action audit-title anim d1">City links in the header · H1 on every geo page</h2>
-      <hr class="accent-rule anim d1">
-      <div class="audit-body anim d2">
-<div class="audit-cols" style="grid-template-columns:1fr 1fr"><div><p class="audit-h3"></p><figure class="audit-fig"><img src="assets/audit/geo-nav-before.webp" alt="hmlet.com English header today: Campaign, About Hmlet, FAQ, Contact us" style=""><figcaption>Before: hmlet.com/en header, October 21, 2026</figcaption></figure><figure class="audit-fig"><img src="assets/audit/geo-nav-after.webp" alt="hmlet.com header with Tokyo, Osaka, Fukuoka, Singapore and Hong Kong links added" style=""><figcaption>After: mockup on the live page, five city links added (orange outline)</figcaption></figure><p class="audit-h3"></p><div class="audit-tbl"><table class="comparison-table">
-<thead><tr><th>Page</th><th>Suggested H1</th></tr></thead>
-<tbody>
-<tr><td>hmlet.com/en/property/city/tokyo</td><td>Furnished Apartments for Rent in Tokyo</td></tr>
-<tr><td>hmlet.com/property/city/tokyo</td><td>東京の家具家電付き賃貸・マンスリー</td></tr>
-<tr><td>hmlet.com/en/property/city/tokyo/n/shibuya</td><td>Furnished Apartments for Rent in Shibuya, Tokyo</td></tr>
-<tr><td>hmlet.com/property/city/tokyo/n/shibuya</td><td>渋谷の家具家電付き賃貸・マンスリーマンション</td></tr>
-</tbody>
-</table></div></div><div><figure class="audit-fig"><img src="assets/audit/geo-h1-after.webp" alt="Tokyo listing page with the H1 Furnished Apartments for Rent in Tokyo added above the intro" style=""><figcaption>After: mockup on the live Tokyo page, H1 added (orange outline)</figcaption></figure></div></div>
-      </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">38 / 47</span></div>
-    </div>
-  </section>
-  <!-- HMLET AUDIT · SECTION 8 · Do later -->
-  <section data-label="Hmlet Audit · Geo pages · Do later">
-    <div class="mslide">
-      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
-      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
-      <h2 class="t-action audit-title anim d1">Content Expansion (New Page Types)</h2>
-      <hr class="accent-rule anim d1">
-      <div class="audit-body anim d2">
-<p class="audit-h3"><span class="badge-info">Development</span></p><p class="t-lede audit-p">These need new content or new templates.</p><div class="audit-tbl"><table class="comparison-table">
-<thead><tr><th>#</th><th>Task</th><th>What to do</th></tr></thead>
-<tbody>
-<tr><td>1</td><td>Area pages, built out</td><td>Turn the existing area filter pages into real landing pages: H1, an intro to the area, the Hmlet buildings in it, price range, station access and the units list. Build only where Hmlet has availability, and make each page unique with Hmlet data</td></tr>
-<tr><td>2</td><td>Hidden gems per area</td><td>A short guide per area to food, cafes and things to do that locals rate, written for someone moving in. This is what AI assistants quote when a renter asks what living in Shibuya or Tiong Bahru is like</td></tr>
-<tr><td>3</td><td>Name "Central" by real places</td><td>Tokyo "Central" is not something renters search. Its demand sits in ward and neighbourhood names: Minato, Monzen-nakacho, Azabu-juban, Nihonbashi</td></tr>
-<tr><td>4</td><td>Traditional Chinese version</td><td>Add zh-Hant-HK city and area pages and include them in hreflang</td></tr>
-<tr><td>5</td><td>Content for renters moving from Singapore and Hong Kong</td><td>Explain renting in Tokyo as a foreigner on the English pages: no guarantor, no key money, English support, residence registration</td></tr>
-</tbody>
-</table></div>
-      </div>
-      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">39 / 47</span></div>
-    </div>
-  </section>
-  <!-- HMLET AUDIT · SECTION 8 · Area demand -->
   <section data-label="Hmlet Audit · Geo pages · Area demand">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
@@ -2060,10 +1985,88 @@
 </tbody>
 </table></div></div></div></div>
       </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">37 / 47</span></div>
+    </div>
+  </section>
+
+  <section data-label="Hmlet Audit · Geo pages · Do now">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
+      <h2 class="t-action audit-title anim d1">Geo Pages: What to Fix Now, What to Build Next</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="t-lede audit-p">Geo pages are the city listing pages and the area pages under them. Both already exist in English and Japanese, so the first round of work improves pages that are live today.</p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Level</th><th>English</th><th>Japanese</th><th>Live on October 21, 2026</th></tr></thead>
+<tbody>
+<tr><td>City</td><td>hmlet.com/en/property/city/tokyo</td><td>hmlet.com/property/city/tokyo</td><td>5 cities: Tokyo, Osaka, Fukuoka, Singapore, Hong Kong</td></tr>
+<tr><td>Area</td><td>hmlet.com/en/property/city/tokyo/n/shibuya</td><td>hmlet.com/property/city/tokyo/n/shibuya</td><td>Filter pages with their own title, such as "Furnished Apartments for Rent in Shibuya, Tokyo"</td></tr>
+</tbody>
+</table></div><p class="audit-h3">Optimization We Can Do Now <span class="badge-success">Do now</span></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>#</th><th>Task</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>City links in the header</td><td>Add the five city pages to the header menu, written in the page HTML so they exist before JavaScript runs</td></tr>
+<tr><td>2</td><td>Unit cards as real links</td><td>Wrap each listing card in a link to its unit page, and make the pager (1, 2, 3, Next page) real links</td></tr>
+<tr><td>3</td><td>H1 on every geo page</td><td>One H1 per page that names the place</td></tr>
+<tr><td>4</td><td>Canonical and hreflang</td><td>Self canonical plus hreflang ja, en and x-default on every city and area page</td></tr>
+<tr><td>5</td><td>FAQ answers in the HTML</td><td>Put the FAQ answers in the page HTML (today they appear only after a click) and mark them up as FAQPage, word for word</td></tr>
+<tr><td>6</td><td>ItemList of units</td><td>Mark up the listed units as an ItemList pointing to each unit URL</td></tr>
+<tr><td>7</td><td>Sitemap</td><td>List the city pages and area pages in both languages; drop the entries that end on an error page</td></tr>
+<tr><td>8</td><td>Hong Kong and Singapore titles</td><td>Remove "Hmlet Japan" from Hong Kong and Singapore titles</td></tr>
+<tr><td>9</td><td>Error handling</td><td>Return HTTP 404 for addresses that do not exist (today they return 200)</td></tr>
+</tbody>
+</table></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">38 / 47</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 8 · Mockups -->
+  <section data-label="Hmlet Audit · Geo pages · Mockups">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
+      <h2 class="t-action audit-title anim d1">City links in the header · H1 on every geo page</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<div class="audit-cols" style="grid-template-columns:1fr 1fr"><div><p class="audit-h3"></p><figure class="audit-fig"><img src="assets/audit/geo-nav-before.webp" alt="hmlet.com English header today: Campaign, About Hmlet, FAQ, Contact us" style=""><figcaption>Before: hmlet.com/en header, October 21, 2026</figcaption></figure><figure class="audit-fig"><img src="assets/audit/geo-nav-after.webp" alt="hmlet.com header with Tokyo, Osaka, Fukuoka, Singapore and Hong Kong links added" style=""><figcaption>After: mockup on the live page, five city links added (orange outline)</figcaption></figure><p class="audit-h3"></p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>Page</th><th>Suggested H1</th></tr></thead>
+<tbody>
+<tr><td>hmlet.com/en/property/city/tokyo</td><td>Furnished Apartments for Rent in Tokyo</td></tr>
+<tr><td>hmlet.com/property/city/tokyo</td><td>東京の家具家電付き賃貸・マンスリー</td></tr>
+<tr><td>hmlet.com/en/property/city/tokyo/n/shibuya</td><td>Furnished Apartments for Rent in Shibuya, Tokyo</td></tr>
+<tr><td>hmlet.com/property/city/tokyo/n/shibuya</td><td>渋谷の家具家電付き賃貸・マンスリーマンション</td></tr>
+</tbody>
+</table></div></div><div><figure class="audit-fig"><img src="assets/audit/geo-h1-after.webp" alt="Tokyo listing page with the H1 Furnished Apartments for Rent in Tokyo added above the intro" style=""><figcaption>After: mockup on the live Tokyo page, H1 added (orange outline)</figcaption></figure></div></div>
+      </div>
+      <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">39 / 47</span></div>
+    </div>
+  </section>
+  <!-- HMLET AUDIT · SECTION 8 · Do later -->
+  <section data-label="Hmlet Audit · Geo pages · Do later">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">08 · Hmlet · Audit findings · Geo pages</div>
+      <h2 class="t-action audit-title anim d1">Content Expansion (New Page Types)</h2>
+      <hr class="accent-rule anim d1">
+      <div class="audit-body anim d2">
+<p class="audit-h3"><span class="badge-info">Development</span></p><p class="t-lede audit-p">These need new content or new templates.</p><div class="audit-tbl"><table class="comparison-table">
+<thead><tr><th>#</th><th>Task</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Area pages, built out</td><td>Turn the existing area filter pages into real landing pages: H1, an intro to the area, the Hmlet buildings in it, price range, station access and the units list. Build only where Hmlet has availability, and make each page unique with Hmlet data</td></tr>
+<tr><td>2</td><td>Hidden gems per area</td><td>A short guide per area to food, cafes and things to do that locals rate, written for someone moving in. This is what AI assistants quote when a renter asks what living in Shibuya or Tiong Bahru is like</td></tr>
+<tr><td>3</td><td>Name "Central" by real places</td><td>Tokyo "Central" is not something renters search. Its demand sits in ward and neighbourhood names: Minato, Monzen-nakacho, Azabu-juban, Nihonbashi</td></tr>
+<tr><td>4</td><td>Traditional Chinese version</td><td>Add zh-Hant-HK city and area pages and include them in hreflang</td></tr>
+<tr><td>5</td><td>Content for renters moving from Singapore and Hong Kong</td><td>Explain renting in Tokyo as a foreigner on the English pages: no guarantor, no key money, English support, residence registration</td></tr>
+</tbody>
+</table></div>
+      </div>
       <div class="footer"><span class="t-footer">HMLET AUDIT · GEO PAGES · SOURCE: NOVASTACKS AEO ASSESSMENT, 21 OCT 2026</span><span class="t-footer">40 / 47</span></div>
     </div>
   </section>
-  <!-- HMLET AUDIT · SECTION 9 · Do now -->
+  <!-- HMLET AUDIT · SECTION 8 · Area demand -->
+  
+
+    <!-- HMLET AUDIT · SECTION 9 · Do now -->
   <section data-label="Hmlet Audit · Detail pages · Do now">
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
