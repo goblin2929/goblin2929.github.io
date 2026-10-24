@@ -71,6 +71,8 @@
   .lead{font-weight:600;color:var(--ink);}
   .pillar{font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:28px 0 2px;}
   .pillar + h3{margin-top:2px;}
+  h4{font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:var(--ink);margin:18px 0 4px;}
+  .aside{border-left:2px solid var(--rule);padding:2px 0 2px 14px;color:var(--muted);font-style:italic;margin:4px 0 12px;}
   ul.ops{list-style:none;margin:6px 0 10px;padding:0;font-size:.94em;}
   ul.ops li{padding:6px 0;border-bottom:1px solid var(--rule);}
   ul.ops li:last-child{border-bottom:none;}
@@ -89,19 +91,20 @@
     .masthead,.foot{flex-direction:column;align-items:flex-start;}
   }
 
-  @page{size:A4;margin:9mm 15mm 8mm;}
+  @page{size:A4;margin:13mm 16mm 12mm;}
   @media print{
-    body{background:#fff;font-size:9.3pt;line-height:1.36;}
+    body{background:#fff;font-size:9.7pt;line-height:1.43;}
     .doc{max-width:none;margin:0;padding:0;box-shadow:none;}
     h1{font-size:19pt;}
-    h3{font-size:12pt;margin-top:12px;margin-bottom:4px;break-after:avoid;}
-    p{margin-bottom:7px;}
+    h3{font-size:13pt;margin-top:16px;margin-bottom:6px;break-after:avoid;}
+    h4{break-after:avoid;}
+    p{margin-bottom:9px;}
     .memo{margin:10px 0 12px;}
     .basis{margin-bottom:12px;}
     .masthead{padding-bottom:8px;}
     .exhibit{margin:8px 0;}
-    .pillar{margin-top:14px;break-after:avoid;}
-    .exhibit th,.exhibit td{padding:3px 8px;}
+    .pillar{margin-top:20px;break-after:avoid;}
+    .exhibit th,.exhibit td{padding:5px 8px;}
     .foot{display:none;}
     .summary{margin-bottom:10px;padding:10px 14px 4px;}
     .exhibit{break-inside:avoid;}
@@ -125,35 +128,55 @@
   </dl>
 
   <h1>In a new, sticky category, the bigger risk is moving too slowly</h1>
-  <p class="basis">A coaching note, not a business plan. It's based only on our conversation, so treat it as a way of framing your decisions rather than a set of answers.</p>
+  <p class="basis">A coaching note, not a business plan. I've written down how I'd think about the decisions in front of you after our conversation. It's based only on what we discussed, without your data, so treat the numbers as reference points and the reasoning as the part that matters.</p>
 
   <section class="summary">
     <h2>Summary</h2>
-    <p><b>Neoflo's product is proven, but growth still runs through you.</b> Well-known brands pay for it, roundtables turn the right conversations into customers, and once integrated, clients stay. What limits growth now is not the product but how fast Neoflo can put itself in front of the right buyers, before competitors integrate first.</p>
+    <p><b>Neoflo's product is proven, but growth still runs through you.</b> Well-known brands pay for it, roundtables turn the right conversations into customers, and once integrated, clients stay. What limits growth now isn't the product. It's how quickly Neoflo can get in front of the right buyers and learn what makes them move, before a competitor integrates first.</p>
     <p>Three decisions matter most:</p>
     <ol>
       <li><b>Strategy:</b> <b>make next quarter about the funnel and the buyer.</b> Grow the upper funnel and move it into qualified conversations, while testing clear assumptions about each buyer persona, so the growth loop turns faster than it did this year.</li>
       <li><b>Budget:</b> <b>plan quarter by quarter, and invest above the usual 10–20% of revenue.</b> The opportunity cost and the likely lifetime value justify it. Secure the predictable roundtables first, and cap riskier bets so they buy data, not losses.</li>
-      <li><b>Resources:</b> <b>hire for visibility, and let the interview decide the level.</b> If a CMO candidate can't coach you, hire a marketing director to execute your vision. Either way, choose speed over the perfect hire.</li>
+      <li><b>Resources:</b> <b>hire for visibility, and let the interview decide the level.</b> If a CMO candidate can't coach you, hire a marketing director to execute your vision. Either way, choose speed over the perfect hire, and make sure someone can run the work before you fund it.</li>
     </ol>
-    <p>Everything else in this note is operational and follows from these three.</p>
+    <p>Everything else here is operational and follows from these three.</p>
   </section>
 
   <p class="pillar">1 · Strategy</p>
   <h3>Next quarter's goal: a fuller funnel and a faster growth loop</h3>
-  <p><b>The cost of moving slowly is higher than it looks.</b> Neoflo sells into a category that is still forming. Contracts are large, the product integrates into clients' systems, and customers rarely leave. Once a competitor is integrated, that account is effectively closed for years. Referrals alone can't fill the pipeline at the pace this window requires.</p>
-  <p><b>For the next quarter, measure success by funnel movement, not revenue.</b> With a seven-to-nine-month cycle, revenue reflects last year's decisions. The goal now is to widen the <b>upper funnel</b> (more of the right finance and e-commerce leaders in a first conversation, through roundtables, content, AI visibility, your network and an outbound test) and move that demand into the <b>middle funnel</b>: qualified opportunities that progress to a statement of work and pilot.</p>
-  <p><b>Use the same quarter to test what you believe about each buyer.</b> Alongside more pipeline, Q1 should establish working assumptions for each persona, using the jobs-to-be-done lens: the job they are hiring Neoflo to do, the pain that triggers the search, what they care about and how long they take to buy. That tells you what to say and whom to target, and every conversation then sharpens the outbound engine. Some answers only appear with volume. AI search, for example, may bring buyers who close easily, but you'll only know by trying more. The aim is a growth loop that turns faster than this year's. This costs time rather than budget and sits between product and marketing. Whoever leads marketing, or a product marketer, should own it, starting from the deals you've won and lost. Treat early patterns with caution while closed deals are few, and fill the gaps by talking to customers, mapping competitors and finding where deals stall.</p>
-  <p><b>Track the signals that show the funnel is moving, and adjust to what they reveal:</b> first meetings by channel, qualified opportunities by customer tier, conversion from statement of work to pilot, and why deals are lost. Roundtables that produce meetings but few pilots usually point to a messaging problem, not an event problem.</p>
+
+  <h4>Why speed matters more than it seems</h4>
+  <p><b>The cost of moving slowly is the accounts other people win while you wait.</b> Neoflo sells into a category that is still forming. Contracts are large, the product integrates into clients' systems, and customers rarely leave. That combination changes the maths. Once a competitor is integrated, that account and its expansion revenue are effectively closed for years. Your sales cycle is long, but it's sticky, and sticky markets reward whoever gets there first.</p>
+  <p>Referrals and your own network got Neoflo here, and they'll keep working. But they grow at the pace of your calendar, and this window won't wait for that. The point of the next quarter is to build something that brings in demand without depending on you personally.</p>
+
+  <h4>What the quarter should achieve</h4>
+  <p><b>Measure next quarter by funnel movement, not revenue.</b> With a seven-to-nine-month cycle, this quarter's revenue mostly reflects decisions made last year. Judge new activity on revenue and you'll cut it before it can work. Instead, set two goals. First, widen the <b>upper funnel</b>: more of the right finance and e-commerce leaders in a first conversation, through roundtables, content, AI visibility, your network and an outbound test. Second, move that demand into the <b>middle funnel</b>: qualified opportunities that progress to a statement of work and a pilot.</p>
+  <p><b>Use the same quarter to test what you believe about each buyer.</b> More pipeline is only half the goal. The other half is establishing working assumptions for each buyer persona. I'd use the jobs-to-be-done lens: what job is this person hiring Neoflo to do? What pain triggers the search? What do they care about, and who else do they have to convince? How long do they take to buy? The answers tell you what to say and whom to target, and every conversation then sharpens the outbound engine and the content. That's what makes the loop turn faster: each quarter you start with better assumptions than the last.</p>
+  <p><b>Some answers only show up with volume.</b> AI search, for example, may turn out to bring buyers who close easily. But you won't know from a handful of conversations; you'll know by trying more. That's a large part of why I'd invest above the usual level (see Budget). Early on, you're paying to find out where the easy wins are.</p>
+
+  <h4>Who does this work, and how much to trust it</h4>
+  <p><b>This work costs time rather than money, and it sits between product and marketing.</b> Whoever leads marketing, or a product marketer, should own it, starting from the deals you've won and lost. Read the results with caution while closed deals are few. A pattern built on five wins can mislead as easily as it can help. Fill the gaps the way most AI-native and SaaS founders do: talk to customers, map the competitors they mention, and find where deals stall.</p>
+  <p class="aside">From my own business: when I looked back at a year of deals, one type closed in a fraction of the time the others took. I didn't know while I was exploring. Once I could see it, I adjusted where I spend time and money.</p>
+
+  <h4>How you'll know it's working</h4>
+  <p><b>Track the signals that show the funnel moving, and adjust to what they reveal.</b> The signals to track are first meetings by channel, qualified opportunities by customer tier, conversion from statement of work to pilot, and why deals are lost. Having this roughly right every week is worth more than having it precise once a quarter. Watch for what the signals point to, because it's often not the channel. Roundtables that produce meetings but few pilots usually mean a messaging problem, not an event problem.</p>
 
   <p class="pillar">2 · Budget</p>
   <h3>Plan quarter by quarter, and invest above the usual share of revenue</h3>
-  <p><b>Look at marketing spend one quarter at a time, not as a full-year budget.</b> Mature B2B companies typically spend 10–20% of revenue on marketing. Because the opportunity cost is high for Neoflo, you should go above that. How far above can't be known yet. The way to find out is to invest enough to get real data points: how many leads each line of spend produces, and whether those leads convert.</p>
-  <p><b>Early signs suggest lifetime value is well above today's revenue per client.</b> Customers integrate Neoflo into their systems, stay, and are likely to expand. Budgeting against current revenue per client therefore under-invests by design. Early spend should be judged on what it teaches you, not on breaking even in its first quarter.</p>
-  <p><b>Secure the predictable spend first, and cap the risky bets.</b> CFO roundtables give you the most predictable pipeline at the lowest cost, so budget them with confidence and protect them as the priority. Outbound and AI visibility are riskier. Invest in them to learn, but keep each one below about $20K a quarter so the downside stays contained.</p>
-  <p><b>Keep it disciplined with three habits:</b> a business analyst's model of customer acquisition cost and lifetime value under several growth scenarios; a guardrail tied to current revenue; and the same metrics reviewed every quarter, so each quarter's estimates are better than the last.</p>
 
-  <p><b>Before committing money, make sure someone can run it.</b> Two or three internal managers should be able to work with the vendors, keep everyone moving at the same pace, and interview for the senior hire. With it in place, a first quarter could look like this:</p>
+  <h4>How much</h4>
+  <p><b>Look at marketing spend one quarter at a time, not as a full-year budget.</b> A quarter is long enough to learn and short enough to change course.</p>
+  <p><b>Go above the 10–20% of revenue a mature company would spend.</b> That norm assumes known channels and measurable lifetime value. Neither is true for Neoflo yet, and under-investing is costly. How far above is genuinely hard to say. The honest answer is to invest enough to get real data points: how many leads each line of spend produces, and whether those leads turn into pipeline. Let those numbers set the following quarter.</p>
+
+  <h4>Why the usual maths under-states it</h4>
+  <p><b>Two unknowns should still shape the budget: the opportunity cost of moving slowly, and customer lifetime value.</b> Wait until both are clear, and the best accounts will be taken. Early signs suggest lifetime value is well above today's revenue per client. Customers integrate Neoflo into their systems, stay, and are likely to expand. If you budget against current revenue per client, you'll under-invest by design, which is the most common mistake in this position. So judge early spend on what it teaches you, not on whether it breaks even or shows a positive marketing margin in its first quarter.</p>
+
+  <h4>Where to put it</h4>
+  <p><b>Secure the predictable spend first, and cap the risky bets.</b> CFO roundtables give you the most predictable pipeline at the lowest cost, so budget them with confidence and protect them as the priority. Outbound and AI visibility are riskier. They're worth doing, because they're how you learn whether Neoflo can create demand beyond your network. But keep each one below about $20K a quarter, so a bet that doesn't work costs you a lesson, not a quarter.</p>
+  <p><b>Keep it disciplined with three habits.</b> First, have a business analyst model customer acquisition cost and lifetime value under several growth scenarios, so you can see what each level of spend implies. Second, set a guardrail tied to current revenue, so spending never outruns what the business can carry. Third, review the same metrics every quarter, so each quarter's estimates, and the budget that follows from them, are better than the last.</p>
+
+  <h4>Before you spend</h4>
+  <p><b>Make sure someone can run it.</b> Before committing budget, make sure two or three internal managers can work with the vendors, keep everyone moving at the same pace, and interview for the senior hire. With that in place, a first quarter could look like this:</p>
   <div class="exhibit">
     <p class="cap"><span>Example</span>Illustrative investment for next quarter</p>
     <div class="tbl-wrap"><table>
@@ -171,25 +194,32 @@
 
   <p class="pillar">3 · Resources</p>
   <h3>Hire for visibility, and let the interview decide the level</h3>
-  <p><b>The senior marketing role exists to give you visibility.</b> Its job is to run the engines that show you, week by week, who your audience is, where the pipeline stands and where Neoflo is visible. Without someone doing that daily, the picture stays fragmented and every decision stays with you.</p>
-  <p><b>Use the interview to choose between a CMO and a marketing director.</b> A CMO worth hiring should share your vision and, in the interview itself, be able to coach you: sharpen how you think about the buyer, the market and the order of moves. If no candidate does that, step back. What you need is someone to execute the vision you already hold: a B2B marketing director with a product marketing background and hands-on experience in marketing automation and nurture.</p>
-  <p><b>Optimise for speed, not the perfect hire.</b> While you search, an advisor and a mid-level, AI-forward team can run the engines, so whoever joins inherits momentum. Messaging ownership must stay inside Neoflo.</p>
+
+  <h4>What the role is really for</h4>
+  <p><b>The senior marketing role exists to give you visibility.</b> Its job is to run the engines that show you, week by week, who your audience is, where the pipeline stands and where Neoflo is visible. Without someone doing that daily, the picture stays fragmented and every decision stays with you. The work covers positioning and messaging, demand generation, nurture and partnerships. It's mostly oversight and execution, roughly 20% strategy and 80% making things happen. That's why a traditional, strategy-only CMO is often the wrong fit at this stage.</p>
+
+  <h4>CMO or marketing director?</h4>
+  <p><b>Use the interview to decide.</b> A CMO worth hiring should share your vision and, in the interview itself, be able to coach you. They should sharpen how you think about the buyer, the market and the order of moves, and leave you seeing something you hadn't. If no candidate does that, step back. That tells you that what you need is someone to execute the vision you already hold, which is a marketing director's job. For Neoflo, that means a B2B marketing director with a product marketing background and hands-on experience in marketing automation and nurture. Whoever you hire should be numbers-driven and genuinely AI-fluent, because much of this work is now AI-assisted. Your best candidates will probably come through referrals.</p>
+
+  <h4>Speed over perfection</h4>
+  <p><b>Ask how to get this done faster, not who the perfect person is.</b> While you search, an advisor and a mid-level, AI-forward team can run the engines, so whoever joins inherits momentum rather than a blank page. Two things should stay inside Neoflo regardless: owning the messaging, and the founder-level relationships with partners and platforms that only you can open.</p>
 
   <h3>Operational notes</h3>
   <ul class="ops">
-    <li><b>Outbound accounting.</b> An acquisition cost, not cost of goods sold: fund it from marketing as a test, then move it to sales.</li>
-    <li><b>Nurture.</b> Regular product updates to every lead and key partner, owned in-house by a product marketer.</li>
-    <li><b>Pipeline hygiene.</b> One pipeline view, a next step and date on every deal, and a short lost-deal survey to surface what ghosting hides.</li>
-    <li><b>Founder channels.</b> Technology providers, industry bodies, communities and AI-platform programmes, and whether MCP makes sense.</li>
+    <li><b>Outbound accounting.</b> Outbound is an acquisition cost, not cost of goods sold. Fund it from marketing while it's a test, and move it to the sales budget once it consistently produces meetings.</li>
+    <li><b>Nurture.</b> With a seven-to-nine-month cycle, the first meeting is where the risk begins. Send regular, relevant product updates to every qualified lead and key partner. Own it in-house with a product marketer, since the content comes from the product; it needs only about 3–5% of budget.</li>
+    <li><b>Pipeline hygiene.</b> Keep one pipeline view, and give every deal a named next step and date. Finance buyers rarely say no outright, so a short lost-deal survey, with an easy way to say "not now", brings out what ghosting hides.</li>
+    <li><b>Brand and positioning.</b> Keep the brand consultant focused on foundational positioning, which the team and AI-visibility work can then amplify. Content needs a strong messaging owner inside Neoflo, whether it's produced in-house or by a vendor.</li>
+    <li><b>Founder channels.</b> Introductions through technology providers, industry bodies and communities, plus AI-platform partner programmes, are yours to open. Whether an MCP integration makes sense is worth its own discussion.</li>
   </ul>
 
   <h3>For our next conversation</h3>
   <ol class="steps">
     <li>What would a fuller funnel look like next quarter, and which persona assumptions should it test first?</li>
     <li>Which growth scenarios should the CAC and lifetime value model test, and what guardrail feels safe?</li>
-    <li>After a first round of interviews, does the role call for a CMO or a marketing director?</li>
+    <li>Who could coordinate the work internally today, and after a first round of interviews, does the role call for a CMO or a marketing director?</li>
   </ol>
-  <p>Customers' requests for marketing analytics, and the integration strategy, each deserve their own conversation.</p>
+  <p>Your customers' requests for marketing analytics, and the integration strategy, each deserve their own conversation.</p>
 
   <footer class="foot">
     <span>Advisory note · based solely on our conversation · no Neoflo data reviewed</span>
