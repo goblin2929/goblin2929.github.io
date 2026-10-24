@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Neoflo GTM Advisory · Novastacks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EEE5;
+    --paper-2:#EBE4D6;
+    --ink:#141210;
+    --muted:#6E6659;
+    --rule:#1C1915;
+    --accent:#B8502A;
+    --accent-soft:#E8B49A;
+    --sage:#5C7A5E;
+    --paper-dark:#1A1714;
+    --line:#d6ccbb;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#cfc8bb;color:var(--ink);
+    font-family:'IBM Plex Sans',-apple-system,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;}
+  em{font-family:'Instrument Serif',serif;font-style:italic;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  .page{width:210mm;max-width:100%;margin:18px auto;background:var(--paper);
+    padding:16mm 16mm 12mm;box-shadow:0 8px 40px rgba(0,0,0,.22);}
+
+  .masthead{display:flex;justify-content:space-between;align-items:center;gap:16px;
+    border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:18px;}
+  .masthead img{height:26px;width:auto;display:block;}
+  .masthead .meta{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.7;}
+
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 6px;}
+  h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:46px;line-height:1.02;
+    letter-spacing:-.015em;margin:0 0 10px;}
+  h1 em{color:var(--accent);}
+  .standfirst{font-size:13.5px;line-height:1.55;color:#3a3530;margin:0;}
+  .standfirst b{color:var(--ink);}
+
+  .bigidea{background:var(--paper-dark);color:var(--paper);border-radius:4px;padding:16px 20px;margin:16px 0 0;}
+  .bigidea .q{font-family:'Instrument Serif',serif;font-style:italic;font-size:23px;line-height:1.15;
+    margin:0 0 7px;color:#fff;}
+  .bigidea p{font-size:12.5px;line-height:1.55;color:#cdc4b4;margin:0;}
+  .bigidea b{color:var(--accent-soft);font-weight:500;}
+
+  section{margin-top:20px;}
+  .sec-head{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule);
+    padding-bottom:6px;margin-bottom:11px;}
+  .sec-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--accent);line-height:1;}
+  .sec-title{font-family:'Instrument Serif',serif;font-size:24px;line-height:1;letter-spacing:-.01em;}
+
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .card{border:1px solid var(--line);border-radius:4px;padding:11px 12px 12px;background:#faf7f0;}
+  .card h3{font-size:13px;font-weight:600;margin:0 0 5px;line-height:1.3;}
+  .card p{font-size:11.5px;line-height:1.5;color:#3a3530;margin:0;}
+  .card .tag{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 5px;display:block;}
+
+  ol.recs{list-style:none;margin:0;padding:0;counter-reset:r;}
+  ol.recs > li{counter-increment:r;display:grid;grid-template-columns:30px 1fr;gap:8px;
+    padding:9px 0;border-bottom:1px solid var(--line);}
+  ol.recs > li:last-child{border-bottom:none;}
+  ol.recs > li::before{content:counter(r,decimal-leading-zero);font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--accent);padding-top:1px;}
+  ol.recs h3{font-size:13.5px;font-weight:600;margin:0 0 3px;}
+  ol.recs h3 .when{font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--sage);margin-left:6px;}
+  ol.recs p{font-size:12px;line-height:1.5;color:#3a3530;margin:0;}
+  ol.recs > li > div{min-width:0;}
+  ol.recs ul{margin:4px 0 0;padding-left:16px;font-size:12px;line-height:1.5;color:#3a3530;}
+
+  .tbl-wrap{overflow-x:auto;margin-top:8px;}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;line-height:1.4;min-width:460px;}
+  th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);font-weight:500;border-bottom:1px solid var(--rule);}
+  td:first-child{font-weight:600;white-space:nowrap;}
+  .note{font-size:10.5px;color:var(--muted);margin:6px 0 0;line-height:1.45;}
+
+  .phase .tag{color:var(--sage);}
+  .phase ul{margin:0;padding-left:15px;font-size:11.5px;line-height:1.5;color:#3a3530;}
+
+  .foot{margin-top:18px;border-top:1px solid #c9bfae;padding-top:8px;display:flex;justify-content:space-between;
+    gap:12px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);line-height:1.5;}
+
+  @media (max-width:760px){
+    .page{margin:0;padding:22px 16px;box-shadow:none;}
+    h1{font-size:34px;}
+    .grid4,.grid3{grid-template-columns:1fr 1fr;}
+    .masthead,.foot{flex-direction:column;align-items:flex-start;}
+    .masthead .meta{text-align:left;}
+  }
+  @media (max-width:480px){
+    .grid4,.grid3,.grid2{grid-template-columns:1fr;}
+  }
+  @page{size:A4;margin:0;}
+  @media print{
+    html,body{background:var(--paper);}
+    .page{margin:0;box-shadow:none;width:auto;padding:10mm 12mm 8mm;zoom:.7;}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <img src="../company-credential/assets/novastacks-logo.png" alt="Novastacks AI">
+    <div class="meta">Advisory note · Neoflo<br>Prepared for Nipun · October 2026</div>
+  </header>
+
+  <p class="eyebrow">Growth &amp; go-to-market · one-page advisory</p>
+  <h1>From referrals to a <em>repeatable</em> pipeline</h1>
+  <p class="standfirst">A short, structured read-out of our conversation. <b>It's based only on what we discussed</b>, with none of Neoflo's data reviewed, so treat it as hypotheses to check against your pipeline rather than conclusions.</p>
+
+  <div class="bigidea">
+    <p class="q">The product isn't the problem. The system and the message are.</p>
+    <p>You've won 8–9 well-known customers through referrals and roundtables, which proves the product. What's missing is <b>a pipeline that runs without you</b>, <b>a pitch in the buyer's language</b>, and <b>funnel numbers by ICP tier</b> so channel and hiring decisions are made on data, not instinct.</p>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">What we heard</span></div>
+    <div class="grid4">
+      <div class="card"><span class="tag">Pipeline</span><h3>Warm-only</h3><p>Almost all deals come from referrals. Roundtables are the only channel that has reliably produced leads. There's no inbound or outbound motion yet.</p></div>
+      <div class="card"><span class="tag">Process</span><h3>Person-driven</h3><p>Deals depend on individual follow-up, not a system, so some fall through the cracks between SOW and pilot.</p></div>
+      <div class="card"><span class="tag">Buyers</span><h3>Silent no's</h3><p>Ghosting keeps happening. Finance buyers in particular rarely say no outright, so the real objections stay hidden.</p></div>
+      <div class="card"><span class="tag">Message</span><h3>Strong product, weak landing</h3><p>The product is good, but the pitch may not match how buyers want to hear it. You said yourself: <em>"that might be the problem with us."</em></p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Recommendations, in order</span></div>
+    <ol class="recs">
+      <li><div>
+        <h3>Put the pipeline on rails <span class="when">Next 30 days</span></h3>
+        <p>Pull the full year of pipeline data into one place before spending on anything new. Then set three rules: every open deal has a named next step and a date; there's a set follow-up cadence after each meeting; and SOW → pilot → paid conversion is tracked as its own stage.</p>
+      </div></li>
+      <li><div>
+        <h3>Turn ghosting into data <span class="when">Next 30 days</span></h3>
+        <p>Ask every closed or stalled deal a short 3-question survey, or book a 10-minute call. For finance buyers, make "no" easy to say:</p>
+        <ul><li>Offer multiple-choice answers ("Is it timing, budget, priority or fit?") instead of open questions.</li>
+        <li>Send a polite break-up email after two unanswered follow-ups. It often brings out the real reason.</li></ul>
+      </div></li>
+      <li><div>
+        <h3>Rewrite the pitch in the buyer's words <span class="when">Days 30–60</span></h3>
+        <p>Use what the surveys turn up, plus quotes from your current customers, to rebuild the core message. For CFOs, lead with financial outcomes and risk reduction before features. Test the new version on the next 10 conversations.</p>
+      </div></li>
+      <li><div>
+        <h3>Reverse-engineer the funnel by ICP tier <span class="when">Days 30–60</span></h3>
+        <p>Start from your revenue target and work backwards. For each tier, estimate conversion rates, how many SQLs you need, and acquisition cost. Different tiers need different motions:</p>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Tier</th><th>Profile</th><th>Motion to test</th><th>Funnel math to work out</th></tr></thead>
+          <tbody>
+            <tr><td>Enterprise</td><td>E-com &amp; retail, $100M–$1B revenue; 7–9 month cycle</td><td>Referral, partners, roundtables, targeted outbound to finance leaders</td><td>Target new logos ÷ SQL→won rate = SQLs needed; × cycle length = when pipeline must exist</td></tr>
+            <tr><td>SMB</td><td>Smaller brands, ~$3K/month</td><td>Search, content, self-serve or low-touch demo</td><td>CAC vs. ~$3K MRR payback; volume needed for the tier to matter</td></tr>
+          </tbody>
+        </table></div>
+      </div></li>
+      <li><div>
+        <h3>Test channels in 3-month sprints before committing budget <span class="when">Days 60–90+</span></h3>
+        <p>Scale what's proven first: build roundtables into a regular series with a set follow-up process. Then run one new channel at a time for 3 months, with a target set in advance (meetings, SQLs, cost per SQL). Keep it, change it or kill it based on the numbers.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Team, hiring &amp; the product idea</span></div>
+    <div class="grid3">
+      <div class="card"><span class="tag">Brand consultant</span><h3>Scope her to positioning</h3><p>Brand work alone won't produce SQLs. Give her a fixed set of foundational deliverables with a deadline (ICP definition, positioning, a messaging house), and make sure someone has the capacity to put them into practice.</p></div>
+      <div class="card"><span class="tag">Growth hire</span><h3>Build the system first</h3><p>A full-time, numbers-driven, AI-fluent growth marketer is the right profile. Write a 90-day scorecard before you hire, source through referrals, and have the pipeline basics in place so they inherit a system to run, not chaos to untangle.</p></div>
+      <div class="card"><span class="tag">Marketing analytics</span><h3>Validate before building</h3><p>Two customers asking is a good signal. But the CFO and the marketing team are different buyers with different budgets. Interview both customers about who would own it and who would pay before putting it on the roadmap.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">A 90-day shape</span></div>
+    <div class="grid3">
+      <div class="card phase"><span class="tag">Days 1–30 · Foundation</span><ul><li>Full-year pipeline pulled and cleaned</li><li>Next-step and follow-up rules in place</li><li>Lost-deal survey live</li></ul></div>
+      <div class="card phase"><span class="tag">Days 31–60 · Diagnose</span><ul><li>Funnel math by ICP tier</li><li>Messaging rewritten from buyer feedback</li><li>Growth-hire scorecard drafted</li></ul></div>
+      <div class="card phase"><span class="tag">Days 61–90 · Test</span><ul><li>Roundtables run as a repeatable series</li><li>One new channel in a 3-month sprint</li><li>First read of cost per SQL by tier</li></ul></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Based solely on our conversation · no Neoflo data reviewed · all figures from Neoflo's own description</span>
+    <span>Novastacks AI</span>
+  </footer>
+
+</main>
+</body>
+</html>
