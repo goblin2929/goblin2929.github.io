@@ -97,7 +97,18 @@
   .agenda{margin:0;padding-left:18px;font-size:12px;line-height:1.55;color:#3a3530;columns:2;column-gap:24px;}
   .agenda li{break-inside:avoid;margin-bottom:4px;}
   .agenda b{color:var(--ink);}
-  @media (max-width:600px){.vs{grid-template-columns:1fr;}.agenda{columns:1;}}
+  .budget-total{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 8px;}
+  .budget-total .big{font-family:'Instrument Serif',serif;font-size:34px;line-height:1;}
+  .budget-total .sub{font-size:12px;color:#3a3530;}
+  .bar{display:flex;height:26px;border-radius:3px;overflow:hidden;margin:0 0 4px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;}
+  .bar span{display:flex;align-items:center;padding:0 6px;min-width:0;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+  .bar .b-aeo{flex:30;background:var(--accent);color:#fff;}
+  .bar .b-out{flex:20;background:var(--sage);color:#fff;}
+  .bar .b-rt{flex:50;background:repeating-linear-gradient(135deg,#e2d8c6 0 6px,#ebe3d4 6px 12px);color:var(--ink);}
+  .bar-scale{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--muted);margin:0 0 10px;}
+  .card .amt{font-family:'Instrument Serif',serif;font-size:24px;line-height:1;margin:2px 0 6px;color:var(--ink);}
+  .card .amt small{font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:var(--muted);margin-left:4px;}
+  @media (max-width:600px){.bar{font-size:8.5px;letter-spacing:0;}.bar span{padding:0 4px;}.vs{grid-template-columns:1fr;}.agenda{columns:1;}}
   .phase ul{margin:0;padding-left:15px;font-size:11.5px;line-height:1.5;color:#3a3530;}
 
   .foot{margin-top:18px;border-top:1px solid #c9bfae;padding-top:8px;display:flex;justify-content:space-between;
@@ -131,11 +142,11 @@
 
   <p class="eyebrow">Growth &amp; go-to-market · one-page advisory</p>
   <h1>Double down on what <em>works</em>, then hire to run it</h1>
-  <p class="standfirst">A short read-out of our conversation, written so we can use our next conversation on decisions rather than background. <b>It's based only on what we discussed</b>, with none of Neoflo's data reviewed, so treat it as hypotheses to check against your pipeline.</p>
+  <p class="standfirst">A short read-out of our conversation, written so we can use our next conversation on decisions rather than background. <b>It's based only on what we discussed</b>, without looking at Neoflo's data, services or product. The details will change once we do; the direction probably won't.</p>
 
   <div class="bigidea">
-    <p class="q">You don't need a senior CMO. You need a system built on what already works, and an AI-forward operator to run it.</p>
-    <p>Your 8–9 well-known customers prove the product. Growth so far has come from <b>referrals and roundtables</b>, and the gaps are mostly execution: follow-up, messaging, and visibility. The best use of your budget is to <b>strengthen the pillars that are working</b>, hire a <b>mid-level, AI-forward growth marketer</b> to execute, and keep an advisor for the frameworks and test design.</p>
+    <p class="q">Put a focused budget behind the channels that already work, add one direct acquisition engine, and get senior marketing guidance for six months before making the big hire.</p>
+    <p>Your 8–9 well-known customers prove the product. With limited resources, spend <b>10–20% of revenue on marketing</b>, start with <b>roundtables, AI visibility and an outbound engine</b>, and work with an <b>experienced marketing director for 6 months</b> while you learn what the full-time role really needs.</p>
   </div>
 
   <section>
@@ -149,57 +160,50 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Build on three pillars</span></div>
-    <div class="grid3">
-      <div class="card"><span class="tag">Pillar 1 · Roundtables</span><h3>Connect and amplify</h3><p>Your one proven channel. Run it as a repeatable series rather than one-off events:</p>
-        <ul><li><b>Before:</b> build each invite list from your target customer profile</li><li><b>After:</b> follow up with every attendee within 48 hours</li><li><b>Amplify:</b> turn the discussion into posts, a short write-up and outreach to people who didn't attend</li></ul></div>
-      <div class="card"><span class="tag">Pillar 2 · AI visibility</span><h3>Be the answer buyers find</h3><p>Finance and e-commerce leaders increasingly research vendors in ChatGPT, Perplexity and Google's AI answers. Referred buyers check you there too.</p>
-        <ul><li>Find out where Neoflo shows up today for its key buyer questions</li><li>Publish proof (customer outcomes, roundtable insights) in formats AI tools cite</li></ul></div>
-      <div class="card"><span class="tag">Pillar 3 · Pipeline intelligence</span><h3>Learn from every conversation</h3><p>Use AI to analyse sales calls and the full year of pipeline data against one framework:</p>
-        <ul><li>Where deals stall, especially between SOW and pilot</li><li>The real objections behind ghosting, plus a 3-question lost-deal survey</li><li>The language buyers use, to rewrite the pitch</li></ul></div>
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Where the budget goes</span></div>
+    <div class="budget-total"><span class="big">$50–100K a year</span><span class="sub">10–20% of ~$500K annual revenue, invested in marketing</span></div>
+    <div class="bar" role="img" aria-label="Budget split: AI visibility $30K, outbound engine $20K, roundtables and amplification the remainder up to $100K">
+      <span class="b-aeo">AEO $30K</span><span class="b-out">Outbound $20K</span><span class="b-rt">Roundtables: the rest</span>
     </div>
-    <p class="note">The guiding principle: having information in real time matters more than having it perfect. Weekly signal beats a quarterly report.</p>
+    <div class="bar-scale"><span>$0</span><span>$50K: floor</span><span>$100K: ceiling</span></div>
+    <div class="grid3">
+      <div class="card"><span class="tag">1 · Roundtables</span><div class="amt">Map it first</div><h3>Your proven channel, and your biggest cost</h3><p>Start by mapping the true cost of each event and which deals it led to. Then run them as a series:</p>
+        <ul><li>Build invite lists from your target customer profile</li><li>Follow up with every attendee within 48 hours</li><li>Turn each discussion into posts and outreach</li></ul></div>
+      <div class="card"><span class="tag">2 · AI visibility (AEO)</span><div class="amt">$30K<small>$5K/month × 6</small></div><h3>Amplify the positioning you're already paying for</h3><p>Your brand and messaging work is underway. Make sure that positioning is what buyers find when they research the category in ChatGPT, Perplexity and Google's AI answers. If it works, step down to ~$3K/month after 6 months.</p></div>
+      <div class="card"><span class="tag">3 · Outbound engine</span><div class="amt">$20K<small>to start</small></div><h3>The direct acquisition test</h3><p>The one channel where you can count leads directly. Use AI to learn from sales calls and pipeline data (where deals stall, why buyers ghost, the words they use), then run sequences against the funnel math below. Fund it from marketing at first, and move it to the sales budget once it's working.</p></div>
+    </div>
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Then test, using the numbers</span></div>
-    <p class="note" style="margin:0 0 4px;color:#3a3530;font-size:12px;">Work backwards from the revenue target for each ICP tier: conversion rates, the SQLs you need, and acquisition cost. Then run each new channel as a 3-month test with a target set in advance, and keep, change or kill it based on the results.</p>
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Measure it with funnel math</span></div>
     <div class="tbl-wrap"><table>
-      <thead><tr><th>Tier</th><th>Profile</th><th>Motion to test</th><th>Funnel math to work out</th></tr></thead>
+      <thead><tr><th>Tier</th><th>Profile</th><th>Motion</th><th>Funnel math to work out</th></tr></thead>
       <tbody>
-        <tr><td>Enterprise</td><td>E-com &amp; retail, $100M–$1B revenue; 7–9 month cycle</td><td>Roundtables, referral &amp; partners, targeted outbound to finance leaders</td><td>Target new logos ÷ SQL→won rate = SQLs needed; × cycle length = when pipeline must exist</td></tr>
-        <tr><td>SMB</td><td>Smaller brands, ~$3K/month</td><td>Search, AI visibility, low-touch demo</td><td>Acquisition cost vs. ~$3K MRR payback; volume needed for the tier to matter</td></tr>
+        <tr><td>Enterprise</td><td>E-com &amp; retail, $100M–$1B revenue; 7–9 month cycle</td><td>Roundtables, referral, outbound to finance leaders</td><td>Target new logos ÷ SQL→won rate = SQLs needed; × cycle length = when pipeline must exist</td></tr>
+        <tr><td>SMB</td><td>Smaller brands, ~$3K/month</td><td>AI visibility, search, low-touch demo</td><td>Acquisition cost vs. ~$3K MRR payback</td></tr>
       </tbody>
     </table></div>
+    <p class="note">Give each channel a target set in advance, then keep, change or kill it at the 3- and 6-month marks. Having information in real time matters more than having it perfect.</p>
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">The right hire</span></div>
-    <div class="vs">
-      <div class="card no"><span class="tag">Not this</span><h3>A full-time senior CMO / director</h3><p>Most of what's needed is execution, not strategy. Senior leaders often work at a different pace, cost a large share of the budget, and frequently aren't AI-native. The frameworks this role needs are now largely AI-assisted.</p></div>
-      <div class="card"><span class="tag">This</span><h3>A mid-level, AI-forward B2B growth marketer</h3><p>Senior-manager level, full-time, with an outbound and pipeline background. Numbers-driven, comfortable building structure, and fluent at giving AI tools business context and putting them to work. Source through referrals, with a 90-day scorecard written before hiring.</p></div>
-    </div>
-    <p class="note">Brand consultant: limit her work to the foundations (ICP, positioning, messaging) with a deadline, so the new hire can put it into practice. Marketing analytics product idea: interview the two customers who asked about who would own it and who would pay, because CFOs and marketing teams are different buyers.</p>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">How we could work together</span></div>
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">People: guidance now, the right hire next</span></div>
     <div class="grid3">
-      <div class="card role"><span class="tag">Advisor · Novastacks</span><h3>Frameworks &amp; direction</h3><p>Maps the pillars and funnel by tier, designs the tests and the AI workflows, helps scope and screen the hire, and reviews results on a regular cadence.</p></div>
-      <div class="card role hire"><span class="tag">Growth hire</span><h3>Execution</h3><p>Runs the roundtable follow-up, outbound and content. Keeps the pipeline and conversation data current, and reports the numbers weekly.</p></div>
-      <div class="card role you"><span class="tag">Nipun</span><h3>High-level decisions</h3><p>Chooses which tests to run, sets the budget for each, and decides whether to keep, change or kill a channel based on the results.</p></div>
+      <div class="card role"><span class="tag">Months 1–6</span><h3>Pair with a marketing director</h3><p>An experienced marketing director, working with you part-time, to map the roundtables, set up the AI-visibility work and outbound tests, and read the results. This uses those six months to learn which skills the full-time role really needs.</p></div>
+      <div class="card role hire"><span class="tag">Then hire</span><h3>A mid-level, AI-forward growth marketer</h3><p>Not a full-time senior CMO, since most of the work is execution. Hire at senior-manager level: numbers-driven, outbound-savvy, and able to give AI tools business context and put them to work. Source through referrals.</p></div>
+      <div class="card role you"><span class="tag">Nipun</span><h3>High-level decisions</h3><p>Chooses which tests to run, sets the budget for each, and decides whether to keep, change or kill a channel. Keep the brand consultant focused on positioning, which the AI-visibility work then amplifies.</p></div>
     </div>
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">To make our next conversation count</span></div>
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">For our next conversation</span></div>
     <ol class="agenda">
+      <li><b>Budget:</b> confirm the revenue base and where in the $50–100K range you're comfortable</li>
+      <li><b>Roundtables:</b> current spend per event, and which events led to which deals</li>
       <li><b>Pipeline export:</b> the full year of deals, with stage, source and outcome</li>
-      <li><b>Roundtables:</b> which events led to which deals</li>
-      <li><b>Budget:</b> a rough range for the hire plus 3-month tests</li>
-      <li><b>Priorities:</b> the 1–2 tests you'd most want to run first</li>
-      <li><b>Hire:</b> whether the mid-level, AI-forward profile fits what you have in mind</li>
-      <li><b>Advisory:</b> what scope and cadence would be useful to you</li>
+      <li><b>Priorities:</b> AI visibility, outbound or both first</li>
+      <li><b>Support:</b> what scope and cadence you'd want from a marketing director</li>
+      <li><b>Separately:</b> the marketing-analytics requests from clients are a signal not to ignore. Let's give that its own conversation.</li>
     </ol>
   </section>
 
