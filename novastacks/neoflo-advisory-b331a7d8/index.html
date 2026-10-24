@@ -54,7 +54,22 @@
   .sec-head{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule);
     padding-bottom:6px;margin-bottom:11px;}
   .sec-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--accent);line-height:1;}
-  .sec-title{font-family:'Instrument Serif',serif;font-size:24px;line-height:1;letter-spacing:-.01em;}
+  .sec-title{font-family:'Instrument Serif',serif;font-size:22px;line-height:1.1;letter-spacing:-.01em;}
+  .exec{background:var(--paper-dark);color:var(--paper);border-radius:4px;padding:16px 20px 14px;margin:14px 0 0;}
+  .exec .lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-soft);margin:0 0 8px;}
+  .exec .scr{display:grid;grid-template-columns:96px 1fr;gap:4px 12px;font-size:12px;line-height:1.5;color:#cdc4b4;margin:0 0 12px;}
+  .exec .scr dt{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9d9383;padding-top:2px;}
+  .exec .scr dd{margin:0;}
+  .exec .q{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;line-height:1.18;margin:0 0 12px;color:#fff;}
+  .exec .q em{color:var(--accent-soft);}
+  .exec .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 12px;}
+  .exec .pillars div{border-top:1px solid #4a433b;padding-top:8px;}
+  .exec .pillars b{display:block;color:#fff;font-size:12.5px;line-height:1.35;margin:0 0 4px;}
+  .exec .pillars span{font-size:11.5px;line-height:1.5;color:#cdc4b4;}
+  .exec .pillars i{font-style:normal;font-family:'IBM Plex Mono',monospace;color:var(--accent-soft);font-size:10px;margin-right:4px;}
+  .exec .ask{border-top:1px solid #4a433b;padding-top:9px;font-size:12px;line-height:1.5;color:#cdc4b4;}
+  .exec .ask b{color:var(--accent-soft);font-weight:500;}
+  @media (max-width:600px){.exec .scr{grid-template-columns:1fr;}.exec .pillars{grid-template-columns:1fr;}}
 
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
@@ -133,7 +148,7 @@
   @page{size:A4;margin:0;}
   @media print{
     html,body{background:var(--paper);}
-    .page{margin:0;box-shadow:none;width:auto;padding:10mm 12mm 8mm;zoom:.6;}
+    .page{margin:0;box-shadow:none;width:auto;padding:10mm 12mm 8mm;zoom:.57;}
   }
 </style>
 </head>
@@ -146,16 +161,26 @@
   </header>
 
   <p class="eyebrow">Growth &amp; go-to-market · one-page advisory</p>
-  <h1>Double down on what <em>works</em>, and break the rest into workstreams</h1>
-  <p class="standfirst">A short read-out of our conversation, written so we can use our next conversation on decisions rather than background. <b>It's based only on what we discussed</b>, without looking at Neoflo's data, services or product. The details will change once we do; the direction probably won't.</p>
+  <h1>Doubling Neoflo's revenue needs a <em>system</em>, not a full-time CMO</h1>
+  <p class="standfirst">An advisory note for the CEO, <b>based only on our conversation</b>. We haven't reviewed Neoflo's data, services or product, so the numbers are illustrative; the direction should hold.</p>
 
-  <div class="bigidea">
-    <p class="q">What you need sits between strategy and execution: about 20% strategy, 80% overseeing the work and feeding back on it.</p>
-    <p>A traditional full-time CMO is the wrong fit for that. Instead, <b>set the sales &amp; marketing budget at 20–25% of revenue, quarter by quarter</b>, put most of the program spend behind roundtables, add <b>two workstreams that run on time more than money</b> (nurture, and founder-led partnerships), and <b>divide the work</b>: you take the senior bets, an advisor oversees the growth engines, and a mid-level team executes.</p>
+  <div class="exec">
+    <p class="lbl">Executive summary</p>
+    <dl class="scr">
+      <dt>Situation</dt><dd>Neoflo has proof the product works: 8–9 well-known e-commerce and retail customers and ~$150–200K revenue a quarter, won almost entirely through referrals and roundtables.</dd>
+      <dt>Complication</dt><dd>Growth depends on the founder, not a system. There's no marketing team, no inbound or outbound, a 7–9 month sales cycle, and buyers who ghost instead of saying no, yet the goal is to double revenue next year.</dd>
+    </dl>
+    <p class="q">Recommendation: invest <em>20–25% of revenue</em> in sales &amp; marketing, released quarter by quarter, behind the engines that already work. Split the CMO role instead of hiring one.</p>
+    <div class="pillars">
+      <div><b><i>1</i>Fund growth from the plan, not a fixed number</b><span>Size the budget from a plan to double revenue (~$280–350K a year) and release it quarterly against actual revenue, so you never over- or under-invest.</span></div>
+      <div><b><i>2</i>Back what works, and cover the full cycle</b><span>70% of program spend on roundtables and content, 20% on AI visibility, 10% on an outbound test. Nurture keeps 7–9 month deals warm.</span></div>
+      <div><b><i>3</i>Divide the leadership role</b><span>You own partnerships and integrations, an advisor oversees the growth engines, and a mid-level, AI-forward team executes. That's 20% strategy, 80% oversight.</span></div>
+    </div>
+    <p class="ask"><b>Decisions needed from you:</b> approve the plan to double and the 20–25% budget rule · commit the first-quarter budget · name an internal owner for messaging and nurture.</p>
   </div>
 
   <section>
-    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">What we heard</span></div>
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Growth today depends on referrals and the founder, not a system</span></div>
     <div class="grid4">
       <div class="card"><span class="tag">Pipeline</span><h3>Warm-only</h3><p>Almost all deals come from referrals. Roundtables are the only channel that has reliably produced leads. There's no inbound or outbound motion yet.</p></div>
       <div class="card"><span class="tag">Process</span><h3>Person-driven</h3><p>Deals depend on individual follow-up, not a system, so some fall through the cracks between SOW and pilot.</p></div>
@@ -165,9 +190,8 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">How much to spend: set it quarter by quarter</span></div>
-    <div class="budget-total"><span class="big">20–25% of revenue</span><span class="sub">on sales &amp; marketing, people included: the norm for a venture-backed company aiming to grow</span></div>
-    <p class="note" style="margin:0 0 6px;color:#3a3530;font-size:12px;">Build a pro forma plan that doubles revenue next year, and size the budget from it. Then <b>release it each quarter against actual revenue</b>, so you neither over-invest ahead of growth nor starve it. You don't have to spend all of it.</p>
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Spend 20–25% of revenue on sales &amp; marketing, released quarterly</span></div>
+    <p class="note" style="margin:0 0 6px;color:#3a3530;font-size:12px;">20–25%, people included, is the norm for a venture-backed company aiming to grow. Build a pro forma plan that doubles revenue next year, and size the budget from it. Then <b>release it each quarter against actual revenue</b>, so you neither over-invest ahead of growth nor starve it. You don't have to spend all of it.</p>
     <div class="tbl-wrap"><table>
       <thead><tr><th>Quarter</th><th>Revenue (plan to double)</th><th>Sales &amp; marketing at 20–25%</th></tr></thead>
       <tbody>
@@ -180,7 +204,7 @@
       </tbody>
     </table></div>
     <p class="note">Illustrative figures, based on today's ~$150–200K per quarter. Replace them with your actual plan.</p>
-    <div class="sec-head" style="margin-top:14px;"><span class="sec-num" style="font-size:18px;">↳</span><span class="sec-title" style="font-size:20px;">Marketing programs: 70 / 20 / 10</span></div>
+    <div class="sec-head" style="margin-top:14px;"><span class="sec-num" style="font-size:18px;">↳</span><span class="sec-title" style="font-size:19px;">Put 70% of program spend behind what works, 20% on scaling, 10% on tests</span></div>
     <div class="bar" role="img" aria-label="Programs split: core roundtables and social content 70% about $105K, scaling AI visibility 20% about $30K, experiment outbound 10% about $15-20K">
       <span class="b-core">Core 70% · Roundtables + content ~$105K</span><span class="b-scale">AEO 20%</span><span class="b-exp">10%</span>
     </div>
@@ -195,7 +219,7 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Two workstreams that run on time more than money</span></div>
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Keep long deals warm and open new channels, mostly with time</span></div>
     <div class="grid2">
       <div class="card free"><span class="tag">Nurture · ~3–5% of the marketing budget</span><h3>Regular, relevant updates to every MQL and key partner</h3><p>Once someone becomes a lead, keep in touch by email on product progress, new developments and customer outcomes. Spend only a little on the tooling and content: ~3–5% of the marketing budget, since your current sales activity already covers part of it. This is product-led work, so keep it in-house with a <b>product marketer</b> who also understands how a marketing team runs, rather than a vendor. It's what keeps a 7–9 month pipeline from going cold.</p></div>
       <div class="card free"><span class="tag">Founder-led · new channels</span><h3>Your network, partners and integrations</h3><p>Open new channels through your own network: technology providers, industry bodies and community partners. Measure it by first meetings booked. Then the senior questions: partner and licensing programmes with AI platforms such as Anthropic, and whether an <b>MCP integration</b> makes sense for a service-led product. This is CEO-level integration strategy.</p></div>
@@ -203,7 +227,7 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">People: divide and conquer</span></div>
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Split the CMO role instead of hiring one full-time</span></div>
     <p class="note" style="margin:0 0 8px;color:#3a3530;font-size:12px;">If you can find a senior director who works at roughly 20% strategy and 80% hands-on oversight, hire them. If not, split the role:</p>
     <div class="grid3">
       <div class="card role you"><span class="tag">Nipun · senior bets</span><h3>Integrations, partnerships, growth loop</h3><p>Founder-network channels, AI-platform partnerships, the MCP and integration strategy, and the sales growth loop. You also decide which tests to fund, renew or kill.</p></div>
@@ -213,7 +237,7 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">For our next conversation</span></div>
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Bring these to our next conversation</span></div>
     <ol class="agenda">
       <li><b>Budget:</b> your current quarterly revenue, the plan to double, and whether 20–25% (split 70/20/10) fits</li>
       <li><b>Roundtables:</b> current cost per event, and which events led to which deals</li>
