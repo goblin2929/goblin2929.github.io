@@ -102,10 +102,10 @@
   .budget-total .sub{font-size:12px;color:#3a3530;}
   .bar{display:flex;height:26px;border-radius:3px;overflow:hidden;margin:0 0 4px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;}
   .bar span{display:flex;align-items:center;padding:0 6px;min-width:0;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
-  .bar .b-aeo{flex:30;background:var(--accent);color:#fff;}
-  .bar .b-out{flex:20;background:var(--sage);color:#fff;}
-  .bar .b-aeo{flex:15;}.bar .b-out{flex:15;}
-  .bar .b-soc{flex:10;background:#3a3530;color:#fff;}
+  .bar .b-core{flex:70;background:var(--accent);color:#fff;}
+  .bar .b-scale{flex:20;background:var(--sage);color:#fff;}
+  .bar .b-exp{flex:10;background:#3a3530;color:#fff;}
+  .card.free{background:transparent;border-style:dashed;}
   .bar-scale{position:relative;height:14px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--muted);margin:0 0 10px;}
   .bar-scale span{position:absolute;top:0;white-space:nowrap;}
   .q1{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;background:#faf7f0;border:1px dashed var(--accent);border-radius:4px;padding:8px 12px;margin:0 0 10px;font-size:12px;line-height:1.5;color:#3a3530;}
@@ -146,12 +146,12 @@
   </header>
 
   <p class="eyebrow">Growth &amp; go-to-market · one-page advisory</p>
-  <h1>Double down on what <em>works</em>, then hire to run it</h1>
+  <h1>Double down on what <em>works</em>, and break the rest into workstreams</h1>
   <p class="standfirst">A short read-out of our conversation, written so we can use our next conversation on decisions rather than background. <b>It's based only on what we discussed</b>, without looking at Neoflo's data, services or product. The details will change once we do; the direction probably won't.</p>
 
   <div class="bigidea">
-    <p class="q">Put a focused budget behind the channels that already work, add one direct acquisition engine, and get senior marketing guidance for six months before making the big hire.</p>
-    <p>Your 8–9 well-known customers prove the product. With limited resources, budget <b>$80–150K a year for marketing</b> (10–15% of next year's ARR), commit <b>$40K in the first quarter</b>, build on <b>roundtables</b> and test <b>AI visibility, outbound and social content</b>, and work with an <b>experienced marketing director for 6 months</b> while you learn what the full-time role really needs.</p>
+    <p class="q">What you need sits between strategy and execution: about 20% strategy, 80% overseeing the work and feeding back on it.</p>
+    <p>A traditional full-time CMO is the wrong fit for that. Instead, <b>put most of the budget behind roundtables</b>, add <b>two workstreams that cost time rather than budget</b> (nurture, and founder-led partnerships), and <b>divide the work</b>: you take the senior bets, an advisor oversees the growth engines, and a mid-level team executes.</p>
   </div>
 
   <section>
@@ -165,51 +165,46 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Where the budget goes</span></div>
-    <div class="budget-total"><span class="big">$80–150K a year</span><span class="sub">10–15% of next year's ARR target, or more, invested in marketing</span></div>
-    <div class="bar" role="img" aria-label="Quarterly split: AI visibility $15K, outbound engine $15K, social media and content $10K, total $40K per quarter">
-      <span class="b-aeo">AEO $15K</span><span class="b-out">Outbound $15K</span><span class="b-soc">Social $10K</span>
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Where the budget goes: 70 / 20 / 10</span></div>
+    <div class="budget-total"><span class="big">~$150K a year</span><span class="sub">10–15% of next year's ARR target, invested in marketing</span></div>
+    <div class="bar" role="img" aria-label="Budget split: core roundtables 70% about $105K, scaling AI visibility 20% about $30K, experiment outbound 10% about $15-20K">
+      <span class="b-core">Core 70% · Roundtables ~$105K</span><span class="b-scale">AEO 20%</span><span class="b-exp">10%</span>
     </div>
-    <div class="bar-scale"><span style="left:0">Per quarter</span><span style="right:0">$40K</span></div>
-    <div class="q1"><span class="tag">First quarter</span><span>Commit <b>$40K</b> across AEO, outbound, and social &amp; content, review the results at the end of the quarter, then renew only what hits its targets. Roundtables are mapped first and paid for from the same annual budget.</span></div>
-    <div class="grid4">
-      <div class="card"><span class="tag">Roundtables</span><div class="amt">Map it first</div><h3>Your proven channel</h3><p>Map the true cost of each event and which deals it led to, then run them as a series: invite lists from your target customer profile, follow-up within 48 hours, and each discussion turned into content.</p></div>
-      <div class="card"><span class="tag">AI visibility (AEO)</span><div class="amt">$15K<small>per quarter</small></div><h3>Amplify your positioning</h3><p>Make sure the brand and messaging work you're paying for is what buyers find when they research the category in ChatGPT, Perplexity and Google's AI answers.</p></div>
-      <div class="card"><span class="tag">Outbound engine</span><div class="amt">$15K<small>per quarter</small></div><h3>Direct acquisition test</h3><p>The one channel where you can count leads directly. Use AI to learn from calls and pipeline data, then run sequences against the funnel math. Move it to the sales budget once it's working.</p></div>
-      <div class="card"><span class="tag">Social &amp; content</span><div class="amt">$10K<small>per quarter</small></div><h3>Keep the story visible</h3><p>Turn roundtable insights, customer outcomes and your point of view into regular posts and content. That gives outbound something to point to, and gives AI tools something to cite.</p></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Measure it with funnel math</span></div>
-    <div class="tbl-wrap"><table>
-      <thead><tr><th>Tier</th><th>Profile</th><th>Motion</th><th>Funnel math to work out</th></tr></thead>
-      <tbody>
-        <tr><td>Enterprise</td><td>E-com &amp; retail, $100M–$1B revenue; 7–9 month cycle</td><td>Roundtables, referral, outbound to finance leaders</td><td>Target new logos ÷ SQL→won rate = SQLs needed; × cycle length = when pipeline must exist</td></tr>
-        <tr><td>SMB</td><td>Smaller brands, ~$3K/month</td><td>AI visibility, search, low-touch demo</td><td>Acquisition cost vs. ~$3K MRR payback</td></tr>
-      </tbody>
-    </table></div>
-    <p class="note">Give each channel a target set in advance, then keep, change or kill it at the 3- and 6-month marks. Having information in real time matters more than having it perfect.</p>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">People: guidance now, the right hire next</span></div>
+    <div class="bar-scale"><span style="left:0">$0</span><span style="right:0">~$150K</span></div>
     <div class="grid3">
-      <div class="card role"><span class="tag">Months 1–6</span><h3>Pair with a marketing director</h3><p>An experienced marketing director, working with you part-time, to map the roundtables, set up the AI-visibility work and outbound tests, and read the results. This uses those six months to learn which skills the full-time role really needs.</p></div>
-      <div class="card role hire"><span class="tag">Then hire</span><h3>A mid-level, AI-forward growth marketer</h3><p>Not a full-time senior CMO, since most of the work is execution. Hire at senior-manager level: numbers-driven, outbound-savvy, and able to give AI tools business context and put them to work. Source through referrals.</p></div>
-      <div class="card role you"><span class="tag">Nipun</span><h3>High-level decisions</h3><p>Chooses which tests to run, sets the budget for each, and decides whether to keep, change or kill a channel. Keep the brand consultant focused on positioning, which the AI-visibility work then amplifies.</p></div>
+      <div class="card"><span class="tag">Core · proven</span><div class="amt">~$105K<small>a year</small></div><h3>Roundtables, every two weeks</h3><p>26 events at ~$3K each (~$78K), plus ~$27K for follow-up and social content from each one. Invite from your target customer profile, follow up within 48 hours, and track which events lead to which deals.</p></div>
+      <div class="card"><span class="tag">Scale · early signal</span><div class="amt">$30K<small>$5K/month × 6</small></div><h3>AI visibility (AEO)</h3><p>Amplify the positioning your brand work is building, so it's what buyers find when they research the category in ChatGPT, Perplexity and Google's AI answers. Review at 6 months.</p></div>
+      <div class="card"><span class="tag">Experiment · allowed to fail</span><div class="amt">$15–20K<small>to start</small></div><h3>Outbound engine</h3><p>Judged on whether it shows a signal, not on first-quarter return. It's an acquisition cost (sales &amp; marketing, not COGS). Fund it from marketing as a test, then move it to sales once it hits an agreed meetings target.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Two workstreams that cost time, not budget</span></div>
+    <div class="grid2">
+      <div class="card free"><span class="tag">Nurture · keep the pipeline warm</span><h3>Regular, relevant updates to every MQL and key partner</h3><p>Once someone becomes a lead, keep in touch by email on product progress, new developments and customer outcomes. It's relevant updates, not marketing spend. This is product-led work, so keep it in-house with a <b>product marketer</b> who also understands how a marketing team runs, rather than a vendor. It's what keeps a 7–9 month pipeline from going cold.</p></div>
+      <div class="card free"><span class="tag">Founder-led · new channels</span><h3>Your network, partners and integrations</h3><p>Open new channels through your own network: technology providers, industry bodies and community partners. Measure it by first meetings booked. Then the senior questions: partner and licensing programmes with AI platforms such as Anthropic, and whether an <b>MCP integration</b> makes sense for a service-led product. This is CEO-level integration strategy.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">People: divide and conquer</span></div>
+    <p class="note" style="margin:0 0 8px;color:#3a3530;font-size:12px;">If you can find a senior director who works at roughly 20% strategy and 80% hands-on oversight, hire them. If not, split the role:</p>
+    <div class="grid3">
+      <div class="card role you"><span class="tag">Nipun · senior bets</span><h3>Integrations, partnerships, growth loop</h3><p>Founder-network channels, AI-platform partnerships, the MCP and integration strategy, and the sales growth loop. You also decide which tests to fund, renew or kill.</p></div>
+      <div class="card role"><span class="tag">Marketing advisor · Tina</span><h3>Oversee the growth engines</h3><p>Sets up and oversees the roundtable, AEO, outbound and nurture engines: frameworks, test design, funnel math by ICP tier, and regular feedback. Helps scope and screen the team.</p></div>
+      <div class="card role hire"><span class="tag">Mid-level team · execution</span><h3>AI-forward operators</h3><p>An AI-forward growth marketer (roundtables, outbound, content) and a product marketer (nurture, messaging). Numbers-driven, comfortable building structure, fluent at putting AI tools to work. Source through referrals.</p></div>
     </div>
   </section>
 
   <section>
     <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">For our next conversation</span></div>
     <ol class="agenda">
-      <li><b>Budget:</b> confirm next year's ARR target, where in the $80–150K range you're comfortable, and the $40K first-quarter split</li>
-      <li><b>Roundtables:</b> current spend per event, and which events led to which deals</li>
+      <li><b>Budget:</b> confirm next year's ARR target and whether the 70/20/10 split fits</li>
+      <li><b>Roundtables:</b> current cost per event, and which events led to which deals</li>
       <li><b>Pipeline export:</b> the full year of deals, with stage, source and outcome</li>
-      <li><b>Priorities:</b> whether the 15/15/10 split fits, or one channel should lead</li>
-      <li><b>Support:</b> what scope and cadence you'd want from a marketing director</li>
-      <li><b>Separately:</b> the marketing-analytics requests from clients are a signal not to ignore. Let's give that its own conversation.</li>
+      <li><b>Nurture:</b> who on the product side could own it today</li>
+      <li><b>Founder channels:</b> the 5–10 partners and communities to approach first</li>
+      <li><b>Separately:</b> client requests for marketing analytics, plus the MCP and integration question. Each deserves its own conversation.</li>
     </ol>
   </section>
 
