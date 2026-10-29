@@ -256,6 +256,13 @@
   section.bio {
     margin-top: 80px;
   }
+  .qr-card { display:flex; align-items:center; gap:18px; margin-top:28px; padding:14px 18px 14px 14px; border:1px solid var(--rule, #d5d9dd); border-radius:12px; background:#fff; width:fit-content; }
+  .qr-card img { display:block; width:112px; height:112px; }
+  .qr-title { font-family: var(--font-head, 'Space Grotesk', sans-serif); font-weight:600; font-size:17px; color:var(--ink-1, #020617); }
+  .qr-url { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size:12px; color:var(--ink-3, #64748b); margin-top:4px; }
+  .qr-dl { font-size:13px; margin-top:10px; color:var(--ink-2, #3a3f4a); }
+  .qr-dl a { color:#017d8e; font-weight:600; }
+  @media print { .qr-dl { display:none; } }
   .crumb {
     font-family: var(--font-mono);
     font-weight: 500; font-size: 16px;
@@ -591,6 +598,14 @@
       <div class="hero-role"><strong>Tina Chu</strong>, Founder &amp; CEO, <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a></div>
       <hr class="accent-rule" style="margin-top: 32px; width: 64px;">
       <p class="hero-lede">20 years leading growth at Expedia, Tencent, Klook and Traveloka. Now runs <a class="nova-link" href="https://novastacks-ai.com">Novastacks</a> on AI systems she builds herself and teaches leaders to build their own.</p>
+      <div class="qr-card">
+        <a href="https://www.linkedin.com/in/huilanchu" target="_blank" rel="noopener"><img src="tina-chu-linkedin-qr.svg" alt="QR code linking to Tina Chu's LinkedIn profile" width="112" height="112"></a>
+        <div>
+          <div class="qr-title">Connect on LinkedIn</div>
+          <div class="qr-url">linkedin.com/in/huilanchu</div>
+          <div class="qr-dl">Download QR: <a href="tina-chu-linkedin-qr.png" download>PNG</a> · <a href="tina-chu-linkedin-qr.svg" download>SVG</a></div>
+        </div>
+      </div>
     </div>
 
     <div class="hero-portrait">
