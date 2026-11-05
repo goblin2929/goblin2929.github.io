@@ -591,6 +591,41 @@
   .sbtbl td.sbk{font-family:var(--font-display);font-weight:600;color:var(--ink-1);width:300px;padding-left:0}
   .sbtbl td.sbci{color:var(--bad);background:rgba(185,60,60,.07);width:520px}
   .sbtbl td.sbco{color:var(--ink-2)} .sbtbl td.sbco b{color:var(--ink-1)}
+
+  .mockgrid{margin-top:6px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .mock .mh{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);margin:0;padding-bottom:8px;border-bottom:var(--rule-w-strong) solid var(--good)}
+  .mock .mframe{margin-top:12px;border:var(--rule-w-hair) solid var(--rule-hair);background:#fff;height:400px;overflow:hidden}
+  .mock .mframe img{display:block;width:100%;height:auto}
+  .mock .mcap{font-family:var(--font-body);font-size:20px;line-height:1.35;color:var(--ink-2);margin:12px 0 6px}
+
+  .flow3{margin-top:10px;display:grid;grid-template-columns:1fr 64px 1fr 64px 1fr;align-items:stretch}
+  .flow3 .arr{display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:48px;color:var(--ink-4)}
+  .fstep{border-top:var(--rule-w-strong) solid var(--bad);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+  .fstep.win{border-top-color:var(--good)}
+  .fstep .fsn{font-family:var(--font-mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin:0}
+  .fstep .fsh{font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.15;color:var(--ink-1);margin:0}
+  .fstep .fbig{font-family:var(--font-display);font-weight:600;font-size:96px;line-height:1;letter-spacing:-.03em;color:var(--bad);margin:8px 0 0}
+  .fstep.win .fbig{color:var(--good)}
+  .fstep .fbt{font-family:var(--font-body);font-size:22px;line-height:1.4;color:var(--ink-2);margin:0}
+  .fstep .fsub{font-family:var(--font-body);font-size:20px;line-height:1.4;color:var(--ink-2);margin:6px 0 0;padding-top:12px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .fstep .fsub b{color:var(--ink-1)}
+  .fstep .fsrc{font-family:var(--font-mono);font-size:13px;letter-spacing:.05em;color:var(--ink-4);margin:0}
+
+  .aivgrid{margin-top:4px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  .aiv .ah{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);margin:0 0 10px}
+  .aiv img{display:block;width:100%;height:auto;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .aiv .acap{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-2);margin:14px 0 0}
+  .aiv .acap b{color:var(--bad)}
+
+  .listnote{font-family:var(--font-body);font-size:19px;line-height:1.4;color:var(--ink-2);margin:0 0 12px;max-width:900px}
+  .listnote b{color:var(--ink-1)}
+  a.sitelnk{color:var(--ink-1);text-decoration:none;border-bottom:1px solid var(--rule-hair)}
+  a.sitelnk:hover{color:var(--accent,#017d8e)}
+
+  .invgrid .ci-table td{padding-top:7px;padding-bottom:7px}
+  .invgrid .ci-table .sub{font-size:15px}
+  .invgrid .ci-links{margin-top:12px}
+  .ploc2{font-family:var(--font-mono);font-size:14px;letter-spacing:.05em;color:var(--ink-4);margin-left:8px}
   .proofgrid{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:1fr 640px;gap:64px;align-items:start}
   .proofshot{border:var(--rule-w-hair) solid var(--rule-hair);background:#fff;display:flex;justify-content:center;max-height:560px;overflow:hidden}
   .proofshot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto}
@@ -669,16 +704,15 @@
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 1 · Why GEO</div>
-      <h2 class="t-action ci anim d1" style="max-width:1560px">Your Head of Comms is right: search is moving into AI answers.</h2>
+      <h2 class="t-action ci anim d1" style="max-width:1560px">Your Head of Comms is right: the buying journey is moving into AI answers, not just search.</h2>
       <hr class="accent-rule bad anim d1">
       <div class="ev2 anim d2">
         <div class="evcol">
           <p class="evhead">From your own team&rsquo;s deck: The Discoverability Journey (Sept 2026)</p>
           <div class="evrow"><span class="en">62%</span><p class="et">ChatGPT&rsquo;s share of AI chat use.</p></div>
           <div class="evrow"><span class="en">15&ndash;20%</span><p class="et">Estimated share of informational search volume now on AI platforms.</p></div>
-          <div class="evrow"><span class="en">25&ndash;30%</span><p class="et">Informational Google searches that now show an AI Overview.</p></div>
+          <div class="evrow"><span class="en">81.6%</span><p class="et">US Google searches that now show an AI answer; over 94% of research searches. Your deck&rsquo;s figure was 25&ndash;30%.<span class="es">First Page Sage, Sept 2026</span></p></div>
           <div class="evrow"><span class="en">~5x</span><p class="et">Better conversion from AI referral traffic (~14% vs ~3%).</p></div>
-          <div class="evrow"><span class="en">96% / 6%</span><p class="et">Marketers who call AI search transformational / who have a strategy.<span class="es">World Federation of Advertisers</span></p></div>
         </div>
         <div class="evcol bad">
           <p class="evhead">What it does to clicks</p>
@@ -687,7 +721,7 @@
           <p class="ci-note">A second panel (Datos, 13.1B searches) measures 47% zero-click; panels differ by device mix.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">AI SEARCH SHIFT · YOUR TEAM&rsquo;S DATA AND CLICK STUDIES</span><span class="t-footer">02 / 34</span></div>
+      <div class="footer"><span class="t-footer">AI SEARCH SHIFT · YOUR TEAM&rsquo;S DATA AND CLICK STUDIES</span><span class="t-footer">02 / 38</span></div>
     </div>
   </section>
 
@@ -696,21 +730,37 @@
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 1 · Why GEO</div>
-      <h2 class="t-action ci anim d1">Ranking is no longer enough: AI now picks the shortlist.</h2>
+      <h2 class="t-action ci anim d1">Discovery starts in AI, the click disappears, and the brand AI recommends wins the buyer.</h2>
       <hr class="accent-rule bad anim d1">
-      <div class="chartproof anim d2">
-        <div class="artifact">
-          <p class="alabel" style="color:var(--bad)">US Google searches that end without a click</p>
-          <div class="frame chart"><svg viewBox="0 0 880 520" role="img" aria-label="US zero-click share of Google searches: about 45% in 2016, about 49% in 2019, 60.45% in 2024, 68.01% in 2026"><line x1="110" y1="470.0" x2="850" y2="470.0" style="stroke:var(--rule-hair)" stroke-width="1"/><text x="96" y="476.0" text-anchor="end" font-size="18" style="fill:var(--ink-4)">0%</text><line x1="110" y1="365.0" x2="850" y2="365.0" style="stroke:var(--rule-hair)" stroke-width="1"/><text x="96" y="371.0" text-anchor="end" font-size="18" style="fill:var(--ink-4)">20%</text><line x1="110" y1="260.0" x2="850" y2="260.0" style="stroke:var(--rule-hair)" stroke-width="1"/><text x="96" y="266.0" text-anchor="end" font-size="18" style="fill:var(--ink-4)">40%</text><line x1="110" y1="155.0" x2="850" y2="155.0" style="stroke:var(--rule-hair)" stroke-width="1"/><text x="96" y="161.0" text-anchor="end" font-size="18" style="fill:var(--ink-4)">60%</text><line x1="110" y1="50.0" x2="850" y2="50.0" style="stroke:var(--rule-hair)" stroke-width="1"/><text x="96" y="56.0" text-anchor="end" font-size="18" style="fill:var(--ink-4)">80%</text><line x1="110" y1="470" x2="850" y2="470" style="stroke:var(--ink-1)" stroke-width="2"/><line x1="110" y1="470" x2="110" y2="478" style="stroke:var(--ink-4)"/><text x="110" y="502" text-anchor="middle" font-size="18" style="fill:var(--ink-3)">2016</text><line x1="258" y1="470" x2="258" y2="478" style="stroke:var(--ink-4)"/><text x="258" y="502" text-anchor="middle" font-size="18" style="fill:var(--ink-3)">2018</text><line x1="406" y1="470" x2="406" y2="478" style="stroke:var(--ink-4)"/><text x="406" y="502" text-anchor="middle" font-size="18" style="fill:var(--ink-3)">2020</text><line x1="554" y1="470" x2="554" y2="478" style="stroke:var(--ink-4)"/><text x="554" y="502" text-anchor="middle" font-size="18" style="fill:var(--ink-3)">2022</text><line x1="702" y1="470" x2="702" y2="478" style="stroke:var(--ink-4)"/><text x="702" y="502" text-anchor="middle" font-size="18" style="fill:var(--ink-3)">2024</text><line x1="850" y1="470" x2="850" y2="478" style="stroke:var(--ink-4)"/><text x="850" y="502" text-anchor="middle" font-size="18" style="fill:var(--ink-3)">2026</text><polyline points="110,233.8 332,212.8 702,152.6 850,112.9" fill="none" style="stroke:var(--bad)" stroke-width="4" stroke-linejoin="round"/><circle cx="110" cy="233.8" r="8" style="fill:var(--bad);stroke:var(--paper-pure)" stroke-width="3"/><text x="110" y="213.8" text-anchor="middle" font-size="24" font-weight="700" style="fill:var(--ink-1)">~45%</text><circle cx="332" cy="212.8" r="8" style="fill:var(--bad);stroke:var(--paper-pure)" stroke-width="3"/><text x="332" y="192.8" text-anchor="middle" font-size="24" font-weight="700" style="fill:var(--ink-1)">~49%</text><circle cx="702" cy="152.6" r="8" style="fill:var(--bad);stroke:var(--paper-pure)" stroke-width="3"/><text x="702" y="132.6" text-anchor="middle" font-size="24" font-weight="700" style="fill:var(--ink-1)">60.45%</text><circle cx="850" cy="112.9" r="8" style="fill:var(--bad);stroke:var(--paper-pure)" stroke-width="3"/><text x="844" y="92.9" text-anchor="end" font-size="24" font-weight="700" style="fill:var(--ink-1)">68.01%</text></svg></div>
-          <p class="ci-note" style="margin-top:12px">Source: SparkToro. 2016 and 2019 values approximate.</p>
+      <div class="flow3 anim d2">
+        <div class="fstep">
+          <p class="fsn">1 · Discovery starts in AI</p>
+          <p class="fbig">81.6%</p>
+          <p class="fbt">of Google searches now show an AI answer before any link.</p>
+          <p class="fsrc">First Page Sage, Sept 2026 (US)</p>
+          <p class="fsub"><b>37%</b> of consumers now start their searches in an AI tool such as ChatGPT, not Google.</p>
+          <p class="fsrc">Eight Oh Two consumer study</p>
         </div>
-        <div class="plist">
-          <div class="prow2"><p class="pl">AI names the same 4&ndash;5 brands</p><p class="pt">Whatever the question wording, then a sharp drop-off.</p><p class="ps">270-query, 3-engine study · Ayomide Joseph · June 2026</p></div>
-          <div class="prow2"><p class="pl">Cited brands get ~35% more clicks</p><p class="pt">Cited inside an AI Overview: 0.70% vs 0.52% CTR.</p><p class="ps">Seer Interactive</p></div>
-          <div class="prow2"><p class="pl">It already decides B2B deals</p><p class="pt">One of GoFreight&rsquo;s 6 most recent enterprise wins started with an AI shortlist.</p><p class="ps">Novastacks client · case in Part 2</p></div>
+        <div class="arr">&rarr;</div>
+        <div class="fstep">
+          <p class="fsn">2 · The click disappears</p>
+          <p class="fbig">68%</p>
+          <p class="fbt">of Google searches end without a click to any website. UK: 69.5%. A zero-click internet.</p>
+          <p class="fsrc">SparkToro / Similarweb, Jan&ndash;Apr 2026 (US)</p>
+          <p class="fsub">When an AI Overview appears, the #1 ranked page gets <b>58% fewer clicks</b>.</p>
+          <p class="fsrc">Ahrefs, 300K keywords, Dec 2025</p>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div class="fstep win">
+          <p class="fsn">3 · The recommended brand wins</p>
+          <p class="fbig">~5x</p>
+          <p class="fbt">better conversion from AI referral traffic: about 14% versus 3% from classic search.</p>
+          <p class="fsrc">Your team&rsquo;s deck, The Discoverability Journey, Sept 2026</p>
+          <p class="fsub">AI names the same <b>4&ndash;5 brands</b> whatever the question; brands cited in an AI Overview get <b>~35% more clicks</b>.</p>
+          <p class="fsrc">Ayomide Joseph, 270 queries, June 2026 · Seer Interactive</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">ZERO-CLICK SEARCH · AI SHORTLISTS</span><span class="t-footer">03 / 34</span></div>
+      <div class="footer"><span class="t-footer">AI DISCOVERY · ZERO-CLICK SEARCH · AI-RECOMMENDED CONVERSION</span><span class="t-footer">03 / 38</span></div>
     </div>
   </section>
 
@@ -738,7 +788,7 @@
         </div>
       </div>
       <div class="callout anim d3"><span class="dot"></span><span>The gap between those three forces is exactly where <b>Novastacks</b> sits.</span></div>
-      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">04 / 34</span></div>
+      <div class="footer"><span class="t-footer">WHY THIS CONFIGURATION · WHY NOW</span><span class="t-footer">04 / 38</span></div>
     </div>
   </section>
 
@@ -760,7 +810,7 @@
         <p class="capn">AI visibility analysis &amp; optimisation</p><p class="capseo"><span class="capnil">Not part of classic SEO</span></p><p class="capgeo">AI visibility benchmarking &middot; citation source analysis &middot; brand representation analysis &middot; answer gap analysis &middot; source information correction</p>
         <p class="capn">Performance measurement &amp; conversion</p><p class="capseo">Organic performance analysis &middot; conversion tracking</p><p class="capgeo">AI mention and citation tracking &middot; prompt-level tracking &middot; AI referral analysis</p>
       </div>
-      <div class="footer"><span class="t-footer">SCOPE &middot; EIGHT CAPABILITIES, WHAT GEO ADDS TO EACH</span><span class="t-footer">05 / 34</span></div>
+      <div class="footer"><span class="t-footer">SCOPE &middot; EIGHT CAPABILITIES, WHAT GEO ADDS TO EACH</span><span class="t-footer">05 / 38</span></div>
     </div>
   </section>
 
@@ -771,7 +821,7 @@
       <p class="pnum anim">Part 2</p>
       <h2 class="anim d1">Why Novastacks, and what you get.</h2>
       <p class="t-lede anim d2">The team, the AI search system we run, a B2B client case and our AI transformation work.</p>
-      <div class="footer"><span class="t-footer">NOVASTACKS × CABLES INTERNATIONAL</span><span class="t-footer">06 / 34</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS × CABLES INTERNATIONAL</span><span class="t-footer">06 / 38</span></div>
     </div>
   </section>
 
@@ -801,7 +851,7 @@
           <div class="ev" style="margin-top:auto">AI workshops · AI growth consultancy · Agentic workflow builds</div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">CORE SERVICES · THREE WAYS WE ENGAGE</span><span class="t-footer">07 / 34</span></div>
+      <div class="footer"><span class="t-footer">CORE SERVICES · THREE WAYS WE ENGAGE</span><span class="t-footer">07 / 38</span></div>
     </div>
   </section>
 
@@ -843,7 +893,7 @@
           </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">08 / 34</span></div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS GROWTH SYSTEM · FOUR LAYERS</span><span class="t-footer">08 / 38</span></div>
     </div>
   </section>
 
@@ -900,7 +950,7 @@
         </div>
       </div>
       <div class="callout anim d3"><span class="dot"></span><span>At market salaries this team is worth <b>~$500K/year combined</b> &mdash; you&rsquo;re not getting a junior team behind a senior sales face.</span></div>
-      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">09 / 34</span></div>
+      <div class="footer"><span class="t-footer">THE TEAM IS THE DIFFERENTIATOR</span><span class="t-footer">09 / 38</span></div>
     </div>
   </section>
 
@@ -936,7 +986,7 @@
           <p class="trole">Host and keynote speaker</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">AI TRANSFORMATION ADVISORY &middot; WHO WE LEAD</span><span class="t-footer">10 / 34</span></div>
+      <div class="footer"><span class="t-footer">AI TRANSFORMATION ADVISORY &middot; WHO WE LEAD</span><span class="t-footer">10 / 38</span></div>
     </div>
   </section>
 
@@ -978,7 +1028,7 @@
         <span class="wm">January Capital</span>
         <span class="wm">Carro</span>
       </div>
-      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">11 / 34</span></div>
+      <div class="footer"><span class="t-footer">PROOF BEFORE PITCH · OPERATOR TRACK RECORD</span><span class="t-footer">11 / 38</span></div>
     </div>
   </section>
 
@@ -1024,7 +1074,7 @@
         </div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">PROOF &middot; BRANDS AND INSTITUTIONS THAT WORK WITH US</span><span class="t-footer">12 / 34</span></div>
+      <div class="footer"><span class="t-footer">PROOF &middot; BRANDS AND INSTITUTIONS THAT WORK WITH US</span><span class="t-footer">12 / 38</span></div>
     </div>
   </section>
 
@@ -1124,7 +1174,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">THE NOVASTACKS METHODOLOGY</span><span class="t-footer">13 / 34</span></div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS METHODOLOGY</span><span class="t-footer">13 / 38</span></div>
     </div>
   </section>
 
@@ -1218,7 +1268,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 1 OF 4 · DATA</span><span class="t-footer">14 / 34</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 1 OF 4 · DATA</span><span class="t-footer">14 / 38</span></div>
     </div>
   </section>
 
@@ -1314,7 +1364,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 2 OF 4 · DECISION</span><span class="t-footer">15 / 34</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 2 OF 4 · DECISION</span><span class="t-footer">15 / 38</span></div>
     </div>
   </section>
 
@@ -1410,7 +1460,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 3 OF 4 · EXECUTION</span><span class="t-footer">16 / 34</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 3 OF 4 · EXECUTION</span><span class="t-footer">16 / 38</span></div>
     </div>
   </section>
 
@@ -1506,7 +1556,7 @@
             </svg>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 4 OF 4 · MEASUREMENT</span><span class="t-footer">17 / 34</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AI SEARCH OS · LAYER 4 OF 4 · MEASUREMENT</span><span class="t-footer">17 / 38</span></div>
     </div>
   </section>
 
@@ -1544,7 +1594,7 @@
           
         </div>
       </div>
-      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 1&ndash;2</span><span class="t-footer">18 / 34</span></div>
+      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 1&ndash;2</span><span class="t-footer">18 / 38</span></div>
     </div>
   </section>
 
@@ -1582,7 +1632,7 @@
           <div class="loop-why anim d2"><p class="lwh">Every cycle leaves you better equipped</p><p>Each engagement develops assets your business can keep using: stronger content, clearer customer insights and documented ways of working. We use performance findings to improve subsequent briefs and execution, so learning carries forward into the next round of work.</p></div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 3&ndash;4</span><span class="t-footer">19 / 34</span></div>
+      <div class="footer"><span class="t-footer">HOW AN ENGAGEMENT RUNS · THE COMPOUNDING LOOP · STAGES 3&ndash;4</span><span class="t-footer">19 / 38</span></div>
     </div>
   </section>
 
@@ -1598,7 +1648,7 @@
         <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">&rarr;</span> 8.4</div><div class="sl">Page 3 &rarr; page 1</div></div>
         <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">20 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT ANALYTICS · 3-MONTH ENGAGEMENT</span><span class="t-footer">20 / 38</span></div>
     </div>
   </section>
 
@@ -1624,7 +1674,7 @@
           <p class="cap">AI visibility climbing across every engine &mdash; <b>Google AI Overviews, Perplexity and ChatGPT</b> &mdash; tracked live in NovaLens through the engagement.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">21 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · CLIENT INBOX + AEO VISIBILITY DASHBOARD · JAN 2026</span><span class="t-footer">21 / 38</span></div>
     </div>
   </section>
 
@@ -1637,7 +1687,7 @@
         <p class="bigq anim d1">&ldquo;I had a conversation with AI&hellip; it narrowed it down to a top five. <em>You guys were a top two.</em>&rdquo;</p>
         <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
       </div>
-      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">22 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">22 / 38</span></div>
     </div>
   </section>
 
@@ -1670,7 +1720,7 @@
         <img src="../company-credential/assets/smu-academy-logo.png" alt="SMU Academy">
         <img src="../company-credential/assets/tiket-logo.svg" alt="Tiket.com">
       </div>
-      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">23 / 34</span></div>
+      <div class="footer"><span class="t-footer">AI TRANSFORMATION · THREE-LAYER ENGAGEMENT MODEL</span><span class="t-footer">23 / 38</span></div>
     </div>
   </section>
 
@@ -1681,7 +1731,7 @@
       <p class="pnum anim">Part 3</p>
       <h2 class="anim d1">Your opportunity.</h2>
       <p class="t-lede anim d2">What your buyers search for, who they find today, and what we do in Month 1.</p>
-      <div class="footer"><span class="t-footer">NOVASTACKS × CABLES INTERNATIONAL</span><span class="t-footer">24 / 34</span></div>
+      <div class="footer"><span class="t-footer">NOVASTACKS × CABLES INTERNATIONAL</span><span class="t-footer">24 / 38</span></div>
     </div>
   </section>
 
@@ -1690,7 +1740,7 @@
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Your Opportunity</div>
-      <h2 class="t-action ci anim d1">Your buyers search about 82,000 times a month for what you sell.</h2>
+      <h2 class="t-action ci anim d1">Your buyers search about 50,000 times a month for your priority product lines.</h2>
       <hr class="accent-rule anim d1">
       <div class="simgrid anim d2">
         <div class="simshot">
@@ -1708,10 +1758,28 @@
             </tbody>
           </table>
           <p class="ci-line"><b>Offshore lines (NEK 606, marine)</b> are small in volume (1,720 searches) but high in order value.</p>
-          <p class="ci-note">Google Ads search volume via DataForSEO, 12-month average to Sep 2026, English terms, William&rsquo;s 14 target markets; CTR First Page Sage 2026 (Blended); 3% click-to-lead.</p>
+          <p class="ci-note">Google search volume (DataForSEO, 12-month average), English terms, 14 markets; CTR First Page Sage 2026; 3% click-to-lead.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">YOUR SEARCH MARKET · ENQUIRY MODEL</span><span class="t-footer">25 / 34</span></div>
+      <div class="footer"><span class="t-footer">YOUR SEARCH MARKET · ENQUIRY MODEL</span><span class="t-footer">25 / 38</span></div>
+    </div>
+  </section>
+  <section data-label="AI influence proof">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Part 3 · Your opportunity</div>
+      <h2 class="t-action ci anim d1">AI influence shows up in what buyers tell you, not only in your analytics.</h2>
+      <hr class="accent-rule good anim d1">
+      <div class="proofgrid anim d2">
+        <div class="proofshot"><img src="assets/client-ai-signups.jpg" alt="Message from a Novastacks client CEO: AI-assistant sign-ups up 66% and sales up 112% per week since 9 October"></div>
+        <div class="proofside" style="border-top-color:var(--good)">
+          <p class="ptag" style="color:var(--good)">Novastacks client · CEO&rsquo;s own update</p>
+          <p class="ptext">Since 9 October, sign-ups that <b>say they found the client through ChatGPT, Claude or Gemini</b> are up <b>66% a week</b>, and their sales are up <b>112%</b>.</p>
+          <p class="ptext">AI tools often pass no referral data, so these buyers show up as &ldquo;direct&rdquo; in analytics. Asking &ldquo;how did you hear about us?&rdquo; reveals them.</p>
+          <p class="ptext" style="font-size:19px;color:var(--ink-4)">Early data on small numbers, as the CEO notes. Client name withheld.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS CLIENT · SELF-REPORTED ATTRIBUTION · OCT&ndash;NOV 2026</span><span class="t-footer">26 / 38</span></div>
     </div>
   </section>
 
@@ -1750,7 +1818,39 @@
           <div class="fact"><p class="fl">Cables International: in neither</p><p class="ft">Absent from both the search results and the Maps panel.</p></div>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · GOOGLE SINGAPORE SERP CAPTURES · 106-SEARCH SCAN · 5 NOV 2026</span><span class="t-footer">26 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · GOOGLE SINGAPORE SERP CAPTURES · 106-SEARCH SCAN · 5 NOV 2026</span><span class="t-footer">27 / 38</span></div>
+    </div>
+  </section>
+  <section data-label="ChatGPT NEK 606">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Part 3 · Your opportunity</div>
+      <h2 class="t-action ci anim d1">Ask ChatGPT about NEK 606 cable in Singapore, and the first supplier it names is Cable Source.</h2>
+      <hr class="accent-rule bad anim d1">
+      <div class="proofgrid anim d2">
+        <div class="proofshot"><img src="assets/chatgpt-nek606.jpg" alt="ChatGPT answer to nek 606 cable, listing Cable Source Pte Ltd under NEK 606 cable suppliers in Singapore"></div>
+        <div class="proofside">
+          <p class="ptag">ChatGPT · &ldquo;nek 606 cable&rdquo; · 5 Nov 2026</p>
+          <p class="ptext">Under &ldquo;NEK 606 cable suppliers in Singapore&rdquo;, ChatGPT names <b>Cable Source</b> first, because its pages list RFOU, BFOU, RFOU(i) and BFOU(i) cables <b>with data sheets</b>.</p>
+          <p class="ptext">NEK 606 is your top revenue line. Your site has no NEK 606 page for ChatGPT to read.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">CHATGPT, 5 NOV 2026 · SCREENSHOT</span><span class="t-footer">28 / 38</span></div>
+    </div>
+  </section>
+  <section data-label="AI visibility">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Part 3 · Your opportunity</div>
+      <h2 class="t-action ci anim d1">Your AI visibility does not show your leadership position, and you are not influencing it.</h2>
+      <hr class="accent-rule bad anim d1">
+      <div class="aivgrid anim d2">
+        <div class="aiv"><p class="ah">ChatGPT</p><img src="assets/v3-chatgpt-results.jpg" alt="ChatGPT query results table: Cables International mentioned on its own name, one marine category question and one comparison; not on the general category or manufacturer questions">
+          <p class="acap">Named on your own name, one marine question and one comparison. <b>Missing</b> from &ldquo;best cable suppliers in Singapore&rdquo;. In the comparison, ChatGPT&rsquo;s only sources were <b>your site and LinkedIn</b>: no third party vouches for you.</p></div>
+        <div class="aiv"><p class="ah">Google AI Overview</p><img src="assets/v3-aio-results.jpg" alt="Google AI Overview results table: Cables International first only for its own name; absent from the organic top 10 or 20 on category, comparison and long-tail searches">
+          <p class="acap">First only for your own name. On category, comparison and long-tail searches you are <b>absent from the top 10&ndash;20</b>, while Seen Joo, Cable Source and Everwell rank.</p></div>
+      </div>
+      <div class="footer"><span class="t-footer">NOVASTACKS AEO AUDIT · CHATGPT AND GOOGLE AI OVERVIEW, SINGAPORE · OCT 2026</span><span class="t-footer">29 / 38</span></div>
     </div>
   </section>
 
@@ -1759,34 +1859,25 @@
     <div class="mslide">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Your Opportunity</div>
-      <h2 class="t-action ci anim d1">Search winners publish a page for every product and standard; your site has none.</h2>
+      <h2 class="t-action ci anim d1">Even the competitors you named have more real pages, and far more search visits, than you.</h2>
       <hr class="accent-rule bad anim d1">
       <div class="invgrid anim d2">
         <div>
-          <table class="ci-table">
-            <thead><tr><th>Site</th><th class="num">Pages</th><th class="num">Google visits<br>a month</th></tr></thead>
-            <tbody>
-              <tr><td>Eland</td><td class="num">4,928</td><td class="num">35,373</td></tr>
-              <tr><td>Thorne &amp; Derrick</td><td class="num">11,266</td><td class="num">6,988</td></tr>
-              <tr><td>Cleveland</td><td class="num">1,461</td><td class="num">4,652</td></tr>
-              <tr><td>Lim Kim Hai</td><td class="num">1,207</td><td class="num">2,756</td></tr>
-              <tr><td>Cable Source</td><td class="num">178</td><td class="num">141</td></tr>
-              <tr class="bad"><td>Cables International<span class="sub">101 of the 112 pages are website-template demo pages</span></td><td class="num">112</td><td class="num">7</td></tr>
-            </tbody>
-          </table>
+          <table class="ci-table"><thead><tr><th>Site</th><th class="num">Pages</th><th class="num">Google visits<br>a month</th></tr></thead><tbody><tr><td><a class="sitelnk" href="https://www.benghui.com/" target="_blank" rel="noopener">Beng Hui &#8599;</a> <span class="ploc2">Your #1</span></td><td class="num">219</td><td class="num">95</td></tr><tr><td><a class="sitelnk" href="https://bh-estore.com/" target="_blank" rel="noopener">Beng Hui e-store &#8599;</a> <span class="ploc2">Beng Hui&rsquo;s online shop</span></td><td class="num">not counted</td><td class="num">250</td></tr><tr><td><a class="sitelnk" href="https://cablesource.com.sg/" target="_blank" rel="noopener">Cable Source &#8599;</a> <span class="ploc2">Your #2</span></td><td class="num">178</td><td class="num">141</td></tr><tr><td><a class="sitelnk" href="https://wea-asia.com/" target="_blank" rel="noopener">WEA Asia &#8599;</a> <span class="ploc2">Your #3</span></td><td class="num">78</td><td class="num">174</td></tr><tr><td><a class="sitelnk" href="https://www.anixter.com/" target="_blank" rel="noopener">Anixter &#8599;</a> <span class="ploc2">Your #4 · mostly US</span></td><td class="num">not counted</td><td class="num">15,599</td></tr><tr><td><a class="sitelnk" href="https://www.wesco.com/" target="_blank" rel="noopener">Wesco &#8599;</a> <span class="ploc2">Your #5 · mostly US</span></td><td class="num">1,169</td><td class="num">43,960</td></tr><tr><td><a class="sitelnk" href="https://www.limkimhai.com.sg/" target="_blank" rel="noopener">Lim Kim Hai &#8599;</a> <span class="ploc2">Your #6</span></td><td class="num">1,207</td><td class="num">2,756</td></tr><tr class="bad"><td><a class="sitelnk" href="https://cablesinternational.com/" target="_blank" rel="noopener">Cables International &#8599;</a><span class="sub">101 of the 112 pages are website-template demo pages</span></td><td class="num">112</td><td class="num">7</td></tr></tbody></table>
+        </div>
+        <div class="nekbox">
+          <p class="nh">NEK 606 and offshore pages on your competitors&rsquo; sites</p>
+          <div class="nrow"><span class="nn">5</span><p class="nt"><b>Cable Source:</b> four NEK 606 cable-type pages and one BFOU vs RFOU article. In Google&rsquo;s top 10 on 24 of the 106 searches we ran.</p></div>
+          <div class="nrow"><span class="nn">1</span><p class="nt"><b>Beng Hui e-store:</b> one offshore cable guide. It ranks for &ldquo;BFOU cable&rdquo; in four countries.</p></div>
+          <div class="nrow"><span class="nn">0</span><p class="nt"><b>WEA Asia, Anixter, Wesco, Lim Kim Hai:</b> no NEK 606 pages. The NEK 606 search space is open.</p></div>
+          <div class="nrow us"><span class="nn">0</span><p class="nt"><b>Cables International:</b> no NEK 606 page or data sheet, although it is your top revenue line.</p></div>
           <div class="ci-links">
             <a class="ci-link" href="https://claude.ai/artifact/FLgpv3werBV7pbmtiYg7xb" target="_blank" rel="noopener">Competitor site structures &#8599;</a>
             <a class="ci-link" href="https://claude.ai/artifact/FPgVfJjPJJJgPZxTjZgFic" target="_blank" rel="noopener">William&rsquo;s named competitors &#8599;</a>
           </div>
         </div>
-        <div class="nekbox">
-          <p class="nh">NEK 606: one standard, three sites</p>
-          <div class="nrow"><span class="nn">170</span><p class="nt"><b>EUTEX:</b> NEK visits a month, almost all from two explainer articles.</p></div>
-          <div class="nrow"><span class="nn">110</span><p class="nt"><b>Cable Solutions Worldwide:</b> NEK data-sheet PDFs; ranks on most NEK searches.</p></div>
-          <div class="nrow us"><span class="nn">0</span><p class="nt"><b>Cables International:</b> NEK 606 pages.</p></div>
-        </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · SITEMAPS AND AHREFS · 5 NOV 2026</span><span class="t-footer">27 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · SITEMAPS AND AHREFS · 5 NOV 2026 · PAGES NOT COUNTED WHERE A SITE BLOCKS CRAWLERS</span><span class="t-footer">30 / 38</span></div>
     </div>
   </section>
   <section data-label="One product page">
@@ -1801,7 +1892,7 @@
           <tbody><tr><td class="sbk">Category pages</td><td class="sbci">None: every range is a heading on one /products/ page</td><td class="sbco"><b>Cleveland 273</b>, Lim Kim Hai 199, DNOW 189. Example: limkimhai.com.sg/products/electrical-cables/</td></tr><tr><td class="sbk">Product (SKU) pages</td><td class="sbci">None real. A demo &ldquo;Kitchen Throw&rdquo; at $40.00</td><td class="sbco"><b>Thorne &amp; Derrick 8,000</b>, Cleveland 756, Lim Kim Hai 629. Example: Cable Source&rsquo;s RFOU NEK 606 page</td></tr><tr><td class="sbk">Maker-brand pages</td><td class="sbci">None</td><td class="sbco"><b>Thorne &amp; Derrick 74</b>, Beng Hui 73, Lim Kim Hai 31. Example: limkimhai.com.sg/brands/epson-distributor/</td></tr><tr><td class="sbk">Standard pages (NEK 606, BS, IEC)</td><td class="sbci">None</td><td class="sbco"><b>Cleveland 149</b>, Eland 75, Batt 22. Example: Eland&rsquo;s NEK 606 standard page</td></tr><tr><td class="sbk">Data sheets</td><td class="sbci">None</td><td class="sbco"><b>Eland 1,054</b>; Cable Solutions Worldwide 110 NEK 606 PDFs, which rank on most NEK searches</td></tr><tr><td class="sbk">Articles</td><td class="sbci">0 on your own site</td><td class="sbco"><b>Lim Kim Hai 193</b>, bringing 35% of its visits. EUTEX: 2 NEK 606 articles, 167 visits a month</td></tr><tr><td class="sbk">Google visits a month</td><td class="sbci"><b>7</b>, 0 from Singapore</td><td class="sbco"><b>Eland 35,373</b>; Thorne &amp; Derrick 6,988; Lim Kim Hai 2,756 (2,366 from Singapore)</td></tr></tbody>
         </table>
       </div>
-      <div class="footer"><span class="t-footer">SRC · EACH SITE&rsquo;S XML SITEMAP AND AHREFS, 5 NOV 2026 · NOVASTACKS SITE AUDIT</span><span class="t-footer">28 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · EACH SITE&rsquo;S XML SITEMAP AND AHREFS, 5 NOV 2026 · NOVASTACKS SITE AUDIT</span><span class="t-footer">31 / 38</span></div>
     </div>
   </section>
   <section data-label="Side by side">
@@ -1816,7 +1907,30 @@
           <tbody><tr><td class="sbk">Category page</td><td class="sbci">None: every range is text on /products/</td><td class="sbco"><b>Allied Wire &amp; Cable, SOOW Cord:</b> introduction with standards, specification filters, stock filter, 131 items</td></tr><tr><td class="sbk">Product page</td><td class="sbci">A demo &ldquo;Kitchen Throw&rdquo; at $40.00</td><td class="sbco"><b>Allied Wire &amp; Cable, SOOW 18/10 Shielded:</b> part-number heading, attributes table, Add to Quote</td></tr><tr><td class="sbk">Visits from searches for cable types you sell</td><td class="sbci">0</td><td class="sbco"><b>Allied Wire &amp; Cable:</b> about 1,840 a month to pages for the cable families you sell, plus about 275 from marine and US-standard pages</td></tr><tr><td class="sbk">Articles on your product topics</td><td class="sbci">0 on your own site</td><td class="sbco"><b>Nassau National Cable:</b> 33,825 a month from 562 blog and guide pages</td></tr><tr><td class="sbk">Search demand for the same 39 cable keywords</td><td class="sbci">Singapore: 3,980 a month</td><td class="sbco"><b>United States:</b> 43,770 a month (11 times larger)</td></tr></tbody>
         </table>
       </div>
-      <div class="footer"><span class="t-footer">SRC · AHREFS (GOOGLE US AND SINGAPORE, OCT&ndash;NOV 2026) · NOVASTACKS PRELIMINARY ANALYSIS 7.1</span><span class="t-footer">29 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · AHREFS (GOOGLE US AND SINGAPORE, OCT&ndash;NOV 2026) · NOVASTACKS PRELIMINARY ANALYSIS 7.1</span><span class="t-footer">32 / 38</span></div>
+    </div>
+  </section>
+  <section data-label="Page mockups">
+    <div class="mslide">
+      <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">Part 3 · What we would build</div>
+      <h2 class="t-action ci anim d1">This is what your NEK 606 category and product pages could look like.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="mockgrid anim d2">
+        <div class="mock">
+          <p class="mh">Category page: NEK 606 Offshore Cables</p>
+          <div class="mframe"><img src="assets/mockup-cat.png" alt="Concept mockup of a NEK 606 Offshore Cables category page for Cables International"></div>
+          <p class="mcap">Answers what, who and how fast in the first lines; filters by use, fire performance and stock; two paths for project supply and urgent restock.</p>
+          <a class="ci-link" href="https://goblin2929.github.io/aeo-report/mockup-cables-international/category/nek-606-offshore-cables/?v=3" target="_blank" rel="noopener">Open the category page mockup &#8599;</a>
+        </div>
+        <div class="mock">
+          <p class="mh">Product page: RFOU 0.6/1 kV power cable</p>
+          <div class="mframe"><img src="assets/mockup-prod.png" alt="Concept mockup of an RFOU 0.6/1 kV NEK 606 product page for Cables International"></div>
+          <p class="mcap">Standards, sizes and stock in Singapore up front; Add to quote, urgent repair and data sheet download.</p>
+          <a class="ci-link" href="https://goblin2929.github.io/aeo-report/mockup-cables-international/products/rfou-0-6-1-kv-power-cable/" target="_blank" rel="noopener">Open the product page mockup &#8599;</a>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">CONCEPT MOCKUPS · SAMPLE SIZES, STOCK AND PHOTOS · BRAND NAMES LEFT OUT PENDING COMMUNICATIONS APPROVAL</span><span class="t-footer">33 / 38</span></div>
     </div>
   </section>
   <section data-label="Demo pages">
@@ -1833,7 +1947,7 @@
           <p class="ptext">Most of the <b>112 addresses</b> in your site map are demo pages left by the WordPress theme: numbered home and about layouts, a shop of <b>9 home goods</b> with filler text, and a team page of invented people. The only Cables International page Google Singapore records traffic for is one of them: a demo wooden chair.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · NOVASTACKS SITE AUDIT · SITE MAP AND AHREFS · OCT 2026</span><span class="t-footer">30 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · NOVASTACKS SITE AUDIT · SITE MAP AND AHREFS · OCT 2026</span><span class="t-footer">34 / 38</span></div>
     </div>
   </section>
   <section data-label="No main heading">
@@ -1850,7 +1964,7 @@
           <p class="ptext"><b>32 of 80 pages</b> have no main heading (H1), including the homepage and the products page. On /products/ the top heading is a second-level &ldquo;Products&rdquo;, then &ldquo;Offshore Cables&rdquo; and the other ranges. Google and AI tools cannot tell what the page is about.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · NOVASTACKS SITE AUDIT · 80 PAGES READ · OCT 2026</span><span class="t-footer">31 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · NOVASTACKS SITE AUDIT · 80 PAGES READ · OCT 2026</span><span class="t-footer">35 / 38</span></div>
     </div>
   </section>
   <section data-label="Image descriptions">
@@ -1867,7 +1981,7 @@
           <p class="ptext">Your client logo&rsquo;s image description should be <b>&ldquo;ABB logo&rdquo;</b>, but today it is <b>&ldquo;Artboard 21-8&rdquo;</b>. Google and AI tools cannot read text inside an image; they read its description. Your strongest proof of trust tells them nothing.</p>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">SRC · NOVASTACKS SITE AUDIT · HOMEPAGE INSPECTION · OCT 2026</span><span class="t-footer">32 / 34</span></div>
+      <div class="footer"><span class="t-footer">SRC · NOVASTACKS SITE AUDIT · HOMEPAGE INSPECTION · OCT 2026</span><span class="t-footer">36 / 38</span></div>
     </div>
   </section>
 
@@ -1908,7 +2022,7 @@
           </ul>
         </div>
       </div>
-      <div class="footer"><span class="t-footer">MONTH 1 · SIZE · MAP · FIX</span><span class="t-footer">33 / 34</span></div>
+      <div class="footer"><span class="t-footer">MONTH 1 · SIZE · MAP · FIX</span><span class="t-footer">37 / 38</span></div>
     </div>
   </section>
 
@@ -1929,7 +2043,7 @@
           </div>
           <div class="footer" style="margin-top:40px">
             <span class="t-footer" style="color:var(--dark-fg-2)">NOVASTACKS · AI-NATIVE GROWTH PARTNER</span>
-            <span class="t-footer" style="color:var(--accent)">34 / 34</span>
+            <span class="t-footer" style="color:var(--accent)">38 / 38</span>
           </div>
         </div>
       </div>
