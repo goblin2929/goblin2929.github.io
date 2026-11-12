@@ -744,6 +744,11 @@
   .gname{display:inline-block;color:#fff;padding:.04em .34em .08em;border-radius:12px;line-height:1.05}
   .gopt{display:inline-block;margin-left:24px;font-family:var(--font-mono);font-size:22px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);vertical-align:.55em;font-weight:500}
   .gsub{font-family:var(--font-body);font-size:26px;line-height:1.35;color:var(--ink-2);margin:12px 0 0;max-width:1500px}
+  .mslide.gated{position:relative}
+  .gated .blurbg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .gated>.crumb,.gated>h2,.gated>hr,.gated>.gate,.gated>.footer{position:relative;z-index:1}
+  .gated>.corner-logo{z-index:1}
+  .gated .gate{background:rgba(250,249,246,.78);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);margin:150px auto 0;text-align:center;max-width:900px;border-left:0;border:var(--rule-w-hair) solid var(--rule-hair);border-top:4px solid var(--accent-deep)}
 </style>
 </head>
 <body>
@@ -1391,12 +1396,31 @@
       <div class="crumb t-eyebrow anim">Part 3 · Your Opportunity</div>
       <h2 class="t-action ci anim d1">Your buyers search 50,000 times a month for your priority products. Reaching page one could generate up to 46 leads a month.</h2>
       <hr class="accent-rule anim d1">
-      <div class="gate anim d2"><p class="gl">Detailed analysis</p><p class="gt">The analysis behind this finding is presented in our meeting and shared in full on engagement.</p></div>
-      <div class="footer"><span class="t-footer">DETAILED ANALYSIS · SHARED ON ENGAGEMENT</span><span class="t-footer">20 / 40</span></div>
+      <div class="simgrid anim d2">
+        <div class="simshot">
+          <img src="assets/simulator-screenshot.png" alt="Search and AI visibility market simulator for Cables International: 49,710 searches a month on priority lines, 13 enquiries a month at position 4 to 5">
+          <div class="ci-links"></div>
+        </div>
+        <div>
+          <table class="ci-table">
+            <thead><tr><th></th><th class="num">Priority<br>lines</th><th class="num">All<br>lines</th></tr></thead>
+            <tbody>
+              <tr><td>Searches a month</td><td class="num">49,710</td><td class="num">82,140</td></tr>
+              <tr><td>Leads a month<span class="sub">at position 8&ndash;10</span></td><td class="num">3.5</td><td class="num">5.7</td></tr>
+              <tr class="hl"><td>Leads a month<span class="sub">at position 4&ndash;5</span></td><td class="num">13.4</td><td class="num">22.2</td></tr>
+              <tr><td>Upside on searches without AI answers<span class="sub">leads a month at position 4&ndash;5</span></td><td class="num">up to 46</td><td class="num">up to 76</td></tr>
+            </tbody>
+          </table>
+          <p class="ci-line"><b>Offshore lines (NEK 606, marine)</b> are small in volume (1,720 searches) but high in order value.</p>
+          <p class="ci-note">Google search volume (DataForSEO, 12-month average), English terms, 14 markets; CTR First Page Sage 2026; 3% click-to-lead.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">YOUR SEARCH MARKET · ENQUIRY MODEL</span><span class="t-footer">20 / 40</span></div>
     </div>
   </section>
 <section data-label="AI influence proof">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-ai-influence-proof.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Your opportunity</div>
       <h2 class="t-action ci anim d1">AI influence shows up in what buyers tell you, not only in your analytics.</h2>
@@ -1406,7 +1430,8 @@
     </div>
   </section>
 <section data-label="Who your buyers find">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-who-your-buyers-find.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Your Opportunity</div>
       <h2 class="t-action ci anim d1">Your buyers find overseas stockists through online search.</h2>
@@ -1416,7 +1441,8 @@
     </div>
   </section>
 <section data-label="ChatGPT NEK 606">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-chatgpt-nek-606.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Your opportunity</div>
       <h2 class="t-action ci anim d1">Ask ChatGPT for NEK 606 cable in Singapore, and it names Cable Source, a company that buys from you.</h2>
@@ -1426,7 +1452,8 @@
     </div>
   </section>
 <section data-label="AI visibility">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-ai-visibility.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Your opportunity</div>
       <h2 class="t-action ci anim d1">Your AI visibility does not show your leadership position, and you are not influencing it.</h2>
@@ -1436,7 +1463,8 @@
     </div>
   </section>
 <section data-label="One product page">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-one-product-page.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Technical readiness</div>
       <h2 class="t-action ci anim d1">You have one product page. The sites that win your product searches have hundreds.</h2>
@@ -1446,7 +1474,8 @@
     </div>
   </section>
 <section data-label="Pages vs search visits">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-pages-vs-search-visits.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Your Opportunity</div>
       <h2 class="t-action ci anim d1">Your named competitors barely show in search either. Whoever builds the pages first wins.</h2>
@@ -1456,7 +1485,8 @@
     </div>
   </section>
 <section data-label="Side by side">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-side-by-side.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Technical readiness</div>
       <h2 class="t-action ci anim d1">A well-run cable site earns from category pages, product pages and articles. Yours has none yet.</h2>
@@ -1466,7 +1496,8 @@
     </div>
   </section>
 <section data-label="Page mockups">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-page-mockups.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · What we would build</div>
       <h2 class="t-action ci anim d1">This is what your NEK 606 category and product pages could look like.</h2>
@@ -1476,7 +1507,8 @@
     </div>
   </section>
 <section data-label="Demo pages">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-demo-pages.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Technical readiness</div>
       <h2 class="t-action ci anim d1">Majority of your website are not related your company. Theme demo pages sit beside the real cable pages.</h2>
@@ -1486,7 +1518,8 @@
     </div>
   </section>
 <section data-label="No main heading">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-no-main-heading.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Technical readiness</div>
       <h2 class="t-action ci anim d1">Google and AI cannot tell what your core pages are about: they have no main heading.</h2>
@@ -1496,7 +1529,8 @@
     </div>
   </section>
 <section data-label="Image descriptions">
-    <div class="mslide">
+    <div class="mslide gated">
+      <img class="blurbg" src="assets/blur-image-descriptions.png" alt="">
       <img class="corner-logo" src="../company-credential/assets/novastacks-logo.png" alt="Novastacks">
       <div class="crumb t-eyebrow anim">Part 3 · Technical readiness</div>
       <h2 class="t-action ci anim d1">Your customer logos are invisible to AI: ABB is labelled &ldquo;Artboard 21-8&rdquo;.</h2>
