@@ -349,6 +349,39 @@
     [data-deck-active] .anim.d3{animation-delay:.21s}
     @keyframes mrise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
   }
+  /* ---- Novastacks AI Search OS sequence (5 slides) ---- */
+  .aos-grid{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 700px;gap:64px;align-items:stretch}
+  .aos-text{display:flex;flex-direction:column;min-width:0;min-height:0}
+  .aos-text .t-action{font-size:50px;line-height:1.08;margin:0;text-wrap:balance}
+  .aos-text .accent-rule{margin:18px 0}
+  .aos-lede{font-family:var(--font-body);font-size:25px;line-height:1.4;color:var(--ink-2);margin:0;text-wrap:balance}
+  .aos-sys{margin-top:24px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .asys{display:flex;align-items:baseline;gap:16px;padding:20px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .asys .ahd{display:flex;align-items:center;gap:14px;margin:0 0 8px}
+  .asys .an{font-family:var(--font-display);font-weight:600;font-size:29px;color:var(--ink-1);letter-spacing:-.01em;margin:0;line-height:1.1}
+  .aos-text .pchip{font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.08em;color:var(--accent-deep);border:1px solid var(--accent-deep);border-radius:var(--radius-1);padding:4px 9px;white-space:nowrap;flex:0 0 auto}
+  .asys .ap{font-family:var(--font-body);font-size:24px;line-height:1.42;color:var(--ink-3);margin:0}
+  .asys .ap b{font-family:var(--font-display);color:var(--ink-1);font-weight:600;font-size:27px}
+  .asys .pchip{position:relative;top:-3px}
+  .aos-sys.tight .asys{padding:12px 0}
+  .aos-sys.tight .asys .an{font-size:27px;margin-bottom:4px}
+  .aos-sys.tight .asys .ap{font-size:20px;line-height:1.34;margin-top:4px}
+  .aos-carry{font-family:var(--font-display);font-weight:500;font-size:25px;line-height:1.3;color:var(--accent-deep);margin:22px 0 0}
+  .aos-dia{display:flex;align-items:center;justify-content:center;min-height:0;background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);padding:18px 14px}
+  .aos-dia svg{display:block;width:100%;height:100%;max-height:100%;font-family:var(--font-body)}
+  .aos-dia .aplane.dim{opacity:.28}
+  .aos-layers{margin-top:22px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .alrow{display:grid;grid-template-columns:210px 1fr;gap:24px;padding:9px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start}
+  .alrow .al{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;line-height:1.15}
+  .alrow .al span{display:block;font-family:var(--font-body);font-weight:500;font-size:18px;color:var(--accent-deep);margin-top:4px;line-height:1.3}
+  .alrow .as{font-family:var(--font-body);font-size:21px;line-height:1.5;color:var(--ink-3);margin:0}
+  .alrow .as{display:flex;flex-direction:column;gap:6px}
+  .alrow .asl{display:flex;align-items:baseline;gap:12px}
+  .alrow .asl .pchip{position:relative;top:-2px}
+  .alrow .as b{color:var(--ink-1);font-weight:600;font-family:var(--font-display);font-size:23px;white-space:nowrap}
+
+  .aos-h2{font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.22;color:var(--accent-deep);letter-spacing:-.01em;margin:14px 0 0;text-wrap:balance}
+  .aos-harness{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-2);margin:16px 0 0}
 </style>
 </head>
 <body>
@@ -632,30 +665,104 @@
     </div>
   </section>
 
-  <!-- 05 THE METHOD — OVERVIEW -->
-  <section data-label="The Source & Echo Method">
-    <div class="mslide bleed method-grid">
-      <div class="method-left">
-        <div class="crumb t-eyebrow anim">03 · The Source &amp; Echo Method</div>
-        <h2 class="t-action anim d1">The Source &amp; Echo Method is Novastacks' own AEO methodology.</h2>
-        <hr class="accent-rule anim d1">
-        <div class="anim d2" style="display:flex;flex-direction:column;gap:16px">
-          <p class="t-lede" style="max-width:none">Every AI answer is assembled from content worth quoting — the source — and from what the rest of the internet says about you — the echo. We engineer both, with five systems that are built and running, not advised.</p>
-          <p class="t-lede" style="max-width:none;color:var(--ink-2)">Prompt Radar Pro finds every question worth winning. Two source systems and the Echo Network go win them. The Proof Loop measures daily and reports in pipeline.</p>
+
+  <section data-label="The Novastacks Methodology">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="crumb t-eyebrow anim">03 · The Novastacks Methodology</div>
+      <div class="aos-grid">
+        <div class="aos-text">
+          <h2 class="t-action anim d1">The Novastacks Methodology</h2>
+          <p class="aos-h2 anim d1">Senior operators on strategy, agentic precision on execution.</p>
+          <hr class="accent-rule anim d1">
+          <p class="aos-lede anim d1">Novastacks&rsquo; methodology arms senior marketing operators with Novastacks AI Search OS, Novastacks&rsquo; proprietary agentic system for AI search.</p>
+          <div class="aos-layers anim d2">
+          <div class="alrow"><p class="al">Data<span>What goes in</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;01</span><b>First-Party Signals</b> your own data</span><span class="asl"><span class="pchip">SYS&middot;02</span><b>Search Demand Signals</b> market and competitor evidence</span></div></div>
+          <div class="alrow"><p class="al">Decision<span>What determines your AEO strategy and tactics</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;03</span><b>AEO Orbit Watch</b> Novastacks&rsquo; AI search knowledge base</span><span class="asl"><span class="pchip">SYS&middot;04</span><b>Prompt Radar Pro</b> buyer-question generation method</span><span class="asl"><span class="pchip">SYS&middot;05</span><b>Answer Architecture</b> market map and page decisions</span></div></div>
+          <div class="alrow"><p class="al">Execution<span>What gets built</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;06</span><b>Machine Readability</b> the site&rsquo;s technical readiness</span><span class="asl"><span class="pchip">SYS&middot;07</span><b>Echo Network</b> trusted third-party presence</span></div></div>
+          <div class="alrow"><p class="al">Measurement<span>What you get</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;08</span><b>Proof Loop</b> AI visibility measured against pipeline</span></div></div>
+          </div>
+          <p class="aos-harness anim d2">Our senior AI engineers decomposed marketing operations into deterministic steps, LLM-reasoning steps, and the points where a human sets the strategy and adjusts the workflow. The system is configured around each client&rsquo;s performance needs; it is not designed to serve millions of accounts on one setting.</p>
         </div>
-        <div class="syslist anim d2">
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Prompt Radar Pro</span><span class="sysnum">SYS·01</span></div>
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Answer Architecture</span><span class="sysnum">SYS·02</span></div>
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">First-Party Answers</span><span class="sysnum">SYS·03</span></div>
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Echo Network</span><span class="sysnum">SYS·04</span></div>
-          <div class="srow2"><span class="pmark sm" aria-hidden="true"></span><span class="sysnm">Proof Loop</span><span class="sysnum">SYS·05</span></div>
+        <div class="aos-dia anim d2">
+            <svg class="aos-svg" viewBox="0 0 760 860" role="img" aria-label="Four stacked layers of Novastacks AI Search OS: Data, Decision, Execution, Measurement">
+            <g class="aplane">
+            <text x="40" y="44" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">1 · DATA LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What goes in</tspan></text>
+            <polygon points="140,62 620,62 720,192 40,192" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="105.3" x2="653.3" y2="105.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="148.7" x2="686.7" y2="148.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="62" x2="210" y2="192" stroke="#E2E8F0"/>
+            <line x1="380" y1="62" x2="380" y2="192" stroke="#E2E8F0"/>
+            <line x1="500" y1="62" x2="550" y2="192" stroke="#E2E8F0"/>
+            <rect x="150" y="89" width="121" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="210.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Sales calls</text>
+            <rect x="281" y="89" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="362.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Customer reviews</text>
+            <rect x="454" y="89" width="171" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="539.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Product catalogue</text>
+            <rect x="110" y="133" width="146" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="183.0" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Search Console</text>
+            <rect x="266" y="133" width="179" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="355.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">What buyers search</text>
+            <rect x="455" y="133" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="536.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Competitor pages</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="249" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">2 · DECISION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What determines your AEO strategy and tactics</tspan></text>
+            <polygon points="140,267 620,267 720,397 40,397" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="310.3" x2="653.3" y2="310.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="353.7" x2="686.7" y2="353.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="267" x2="210" y2="397" stroke="#E2E8F0"/>
+            <line x1="380" y1="267" x2="380" y2="397" stroke="#E2E8F0"/>
+            <line x1="500" y1="267" x2="550" y2="397" stroke="#E2E8F0"/>
+            <rect x="150" y="294" width="188" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="244.0" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Trending AI tactics</text>
+            <rect x="348" y="294" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="458.5" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Questions buyers ask AI</text>
+            <rect x="110" y="338" width="262" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="241.0" y="359.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Site structure and page plan</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="454" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">3 · EXECUTION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What gets built</tspan></text>
+            <polygon points="140,472 620,472 720,602 40,602" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="515.3" x2="653.3" y2="515.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="558.7" x2="686.7" y2="558.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="472" x2="210" y2="602" stroke="#E2E8F0"/>
+            <line x1="380" y1="472" x2="380" y2="602" stroke="#E2E8F0"/>
+            <line x1="500" y1="472" x2="550" y2="602" stroke="#E2E8F0"/>
+            <rect x="150" y="499" width="204" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="252.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">AI crawlability fixes</text>
+            <rect x="364" y="499" width="138" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="433.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Schema markup</text>
+            <rect x="110" y="543" width="246" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="233.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pages written to be quoted</text>
+            <rect x="366" y="543" width="238" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="485.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Mentions on trusted sites</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="659" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">4 · MEASUREMENT LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What you get</tspan></text>
+            <polygon points="140,677 620,677 720,807 40,807" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="720.3" x2="653.3" y2="720.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="763.7" x2="686.7" y2="763.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="677" x2="210" y2="807" stroke="#E2E8F0"/>
+            <line x1="380" y1="677" x2="380" y2="807" stroke="#E2E8F0"/>
+            <line x1="500" y1="677" x2="550" y2="807" stroke="#E2E8F0"/>
+            <rect x="150" y="704" width="320" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="310.0" y="725.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Named and recommended by AI engines</text>
+            <rect x="110" y="748" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="220.5" y="769.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pipeline from AI search</text>
+            </g>
+            <line x1="664" y1="127" x2="664" y2="332" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <line x1="664" y1="332" x2="664" y2="537" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <line x1="664" y1="537" x2="664" y2="742" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <circle cx="664" cy="127" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="332" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="537" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="742" r="13" fill="#01AAC1" stroke="#017D8E" stroke-width="4"/>
+            </svg>
         </div>
-        <div class="footer"><span class="t-footer">METHOD · THE SOURCE &amp; ECHO METHOD</span><span class="t-footer">08 / 13</span></div>
       </div>
-      <div class="method-right anim d2">
-        <div class="dia"><img src="assets/full-system-light.png" alt="The Source &amp; Echo Method system diagram"></div>
-        <p class="dcap">One buyer prompt through the method: the radar detects it, the source and echo tracks win it, the loop proves it.</p>
-      </div>
+      <div class="footer"><span class="t-footer">THE NOVASTACKS METHODOLOGY</span><span class="t-footer">08 / 13</span></div>
     </div>
   </section>
 
