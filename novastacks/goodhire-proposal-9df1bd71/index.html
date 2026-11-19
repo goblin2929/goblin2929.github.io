@@ -1,0 +1,1559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novastacks × Goodhire: proposal</title>
+<meta property="og:title" content="Novastacks × Goodhire: proposal">
+<meta property="og:type" content="website">
+<meta name="twitter:title" content="Novastacks × Goodhire: proposal">
+<link rel="stylesheet" href="assets/mbb_tokens.css">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;background:#1a1a1a}
+  deck-stage:not(:defined){visibility:hidden}
+
+  /* ---- Slide shells ---- */
+  .mslide{
+    height:100%;background:var(--paper);color:var(--ink-2);
+    padding:var(--margin-y) var(--margin-x);
+    display:flex;flex-direction:column;overflow:hidden;position:relative;
+  }
+  .corner-logo{position:absolute;top:var(--margin-y);right:var(--margin-x);height:38px;width:auto;z-index:5}
+  .mslide.bleed{padding:0;display:grid}
+  .mslide.dark{background:var(--dark-bg);color:var(--dark-fg)}
+
+  .crumb{margin-bottom:22px}
+  .accent-rule{border:0;border-top:var(--rule-w-strong) solid var(--accent);width:64px;margin:24px 0}
+  .subhead{max-width:1320px;margin-top:14px}
+  .t-action.long{font-size:52px}
+
+  /* Footer */
+  .footer{
+    margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;
+    padding-top:18px;border-top:var(--rule-w-hair) solid var(--rule-hair);
+  }
+  .dark .footer{border-top-color:var(--dark-rule)}
+  .dark .footer .t-footer{color:var(--dark-fg-2)}
+  .footer .t-footer{white-space:nowrap}
+
+  /* ---- Cover ---- */
+  .cover-grid{grid-template-columns:1.12fr 1fr}
+  .cover-left{padding:var(--margin-y) var(--margin-x);display:flex;flex-direction:column;justify-content:space-between}
+  .cover-logo{height:76px;width:auto;align-self:flex-start}
+  .cover-right{background:var(--ink-1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;position:relative}
+  .cover-right .rtag{font-family:var(--font-display);font-weight:600;font-size:60px;line-height:1.05;letter-spacing:-.02em;color:var(--dark-fg);text-align:center;margin:0}
+  .cover-right .ce{position:absolute;left:48px;bottom:44px;color:var(--dark-fg-2)}
+  .cover-right .tealrule{border:0;border-top:2px solid var(--accent);width:120px;margin:0}
+  .cover-right .ct{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-fg-2)}
+
+  /* ---- Charts (slide 2) ---- */
+  .chart-row{margin-top:28px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    display:grid;grid-template-columns:repeat(3,1fr);flex:1}
+  .chart-col{padding:26px 36px;display:flex;flex-direction:column;
+    border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .chart-col:last-child{border-right:0}
+  .chart-col .ce{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin:0 0 auto}
+  .chart-col .cw{flex:1;display:flex;align-items:flex-end;justify-content:center;margin:14px 0;min-height:0}
+  .chart-col .cw svg{max-height:230px;width:100%}
+  .chart-col .claim{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);line-height:1.18;letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance}
+  .chart-col .src{font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin:0}
+  .subhead .pq{display:block;font-family:var(--font-display);font-weight:500;font-size:26px;color:var(--accent-deep);letter-spacing:-.01em;margin:8px 0 0}
+
+  /* ---- SEO vs AEO split (slide 3) ---- */
+  .vs-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+  .vs-half{padding:64px 72px 56px;display:flex;flex-direction:column;gap:22px;min-width:0}
+  .vs-half.light{background:var(--paper);border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .vs-half.dark{background:var(--dark-bg);color:var(--dark-fg)}
+  .vs-half .vh{font-family:var(--font-display);font-weight:600;font-size:42px;letter-spacing:-.02em;line-height:1.05;margin:0;color:var(--ink-1)}
+  .vs-half.dark .vh{color:var(--dark-fg)}
+  .vs-half .vshot{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);overflow:hidden}
+  .vs-half.dark .vshot{border-color:var(--dark-rule);background:#0d0d0d}
+  .vs-half .vshot img{max-width:100%;max-height:100%;object-fit:contain}
+  .vs-half .vcap2{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:0}
+  .vs-half.dark .vcap2{color:var(--dark-fg-2)}
+  .vs-half .vfoot{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}
+  .vs-half.dark .vfoot{color:var(--dark-fg-2)}
+
+  /* ---- Venn (slide 3) ---- */
+  .venn-grid{margin-top:32px;flex:1;display:grid;grid-template-columns:720px 1fr;gap:72px;align-items:center}
+  .venn{position:relative;width:640px;height:520px;margin:0 auto}
+  .venn .c{position:absolute;width:360px;height:360px;border-radius:50%;
+    border:1.5px solid var(--ink-3);display:flex;align-items:center;justify-content:center;text-align:center}
+  .venn .c1{top:0;left:140px}
+  .venn .c2{bottom:0;left:0}
+  .venn .c3{bottom:0;right:0}
+  .venn .c .lab{font-family:var(--font-display);font-weight:600;font-size:25px;color:var(--ink-1);line-height:1.15;width:140px}
+  .venn .c1 .lab{margin-bottom:140px}
+  .venn .c2 .lab{margin:140px 120px 0 0}
+  .venn .c3 .lab{margin:140px 0 0 120px}
+  .venn .core{position:absolute;width:128px;height:128px;border-radius:50%;left:256px;top:196px;
+    background:var(--accent);display:flex;align-items:center;justify-content:center;text-align:center;z-index:3}
+  .venn .core span{font-family:var(--font-mono);font-size:19px;font-weight:500;color:#fff;letter-spacing:.04em;line-height:1.2}
+  .venn-legend{border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .venn-legend .row{padding:26px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .venn-legend .row .n{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .venn-legend .row .d{font-family:var(--font-body);font-size:22px;color:var(--ink-3);margin:8px 0 0;line-height:1.35}
+  /* slide 3 convergence claim */
+  .venn-claim{display:flex;flex-direction:column}
+  .venn-claim .vrow{display:flex;align-items:baseline;gap:24px;padding:20px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .venn-claim .vrow:first-child{border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .venn-claim .vrow .vnum{font-family:var(--font-mono);font-size:18px;letter-spacing:.1em;color:var(--accent-deep)}
+  .venn-claim .vrow .vname{font-family:var(--font-display);font-weight:600;font-size:34px;color:var(--ink-1);letter-spacing:-.01em}
+  .venn-claim .vpayoff{font-family:var(--font-display);font-weight:500;font-size:32px;line-height:1.2;letter-spacing:-.01em;color:var(--accent-deep);margin:32px 0 0;text-wrap:balance}
+
+  /* ---- Team (slide 4) ---- */
+  .team{margin-top:44px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    display:grid;grid-template-columns:1fr 1fr}
+  .team .prof{padding:40px 44px;display:grid;grid-template-columns:240px 1fr;gap:36px;align-items:start}
+  .team .prof:first-child{border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .team .photo{width:240px;height:296px;background:var(--paper-deep) center/cover;
+    border:var(--rule-w-hair) solid var(--rule-hair);filter:saturate(.82)}
+  .team .pname{font-family:var(--font-display);font-weight:600;font-size:38px;color:var(--ink-1);margin:0;letter-spacing:-.02em}
+  .team .prole{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:10px 0 0}
+  .team .cred{margin:24px 0 0;display:flex;flex-direction:column;gap:16px}
+  .team .cred p{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-3);margin:0}
+  .team .cred p b{color:var(--ink-1);font-weight:600}
+  .logo-row{display:flex;align-items:center;gap:42px;margin-top:48px;padding-top:24px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .logo-row .lab{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+  .logo-row img{height:30px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.55}
+  .logo-row .wm{font-family:var(--font-display);font-weight:600;font-size:25px;color:var(--ink-3);letter-spacing:-.01em}
+
+  /* ---- Method ranked list (slide 5) ---- */
+  .ranked{margin-top:12px;border-top:var(--rule-w-strong) solid var(--ink-1);flex:1;display:flex;flex-direction:column;justify-content:space-between}
+  .rrow{display:grid;grid-template-columns:300px 1fr;gap:44px;padding:5px 0;
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start}
+  .rrow .rname{display:flex;flex-direction:column;gap:10px}
+  .rrow .rname .nm{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);letter-spacing:-.01em;line-height:1.1}
+  .rrow .rname .tag{align-self:flex-start;white-space:nowrap;font-family:var(--font-mono);font-size:15px;font-weight:500;
+    letter-spacing:.06em;color:var(--paper);background:var(--ink-1);padding:4px 9px}
+  .rrow .rname .tag.us{background:var(--accent-deep)}
+  .rrow .sentence{font-family:var(--font-body);font-size:21px;line-height:1.36;color:var(--ink-2);margin:0}
+  .rrow .strip{font-family:var(--font-mono);font-size:16px;letter-spacing:.03em;color:var(--accent-deep);margin:6px 0 0;line-height:1.4}
+  .rrow .strip .s{color:var(--ink-5);margin:0 7px}
+
+  /* ---- Method: featured USP + supporting (slide 5) ---- */
+  .method2{margin-top:14px;flex:1;display:grid;grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr);gap:50px}
+  .feat{background:var(--accent-tint);border-top:4px solid var(--accent);padding:40px 42px;display:flex;flex-direction:column}
+  .feat .fe{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:0}
+  .feat .fn{font-family:var(--font-display);font-weight:600;font-size:52px;color:var(--ink-1);letter-spacing:-.02em;margin:16px 0 0;line-height:1}
+  .feat .fs{font-family:var(--font-body);font-size:25px;line-height:1.42;color:var(--ink-2);margin:22px 0 0}
+  .feat .ffeed{font-family:var(--font-body);font-size:22px;line-height:1.4;color:var(--ink-3);margin:20px 0 0;padding-top:20px;border-top:1px solid rgba(1,170,193,.3)}
+  .feat .ffeed b{color:var(--ink-1);font-weight:600}
+  .feat .fstrip{font-family:var(--font-mono);font-size:17px;letter-spacing:.03em;color:var(--accent-deep);margin:auto 0 0;padding-top:24px;line-height:1.6}
+  .feat .fstrip .s{color:var(--ink-5);margin:0 7px}
+  .supp{display:flex;flex-direction:column;border-top:var(--rule-w-strong) solid var(--ink-1)}
+  .srow{display:grid;grid-template-columns:118px 1fr;gap:28px;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start;flex:1}
+  .srow .stag{font-family:var(--font-mono);font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);margin-top:7px}
+  .srow .sname{font-family:var(--font-display);font-weight:600;font-size:29px;color:var(--ink-1);letter-spacing:-.01em;margin:0;line-height:1.05}
+  .srow .sbadge{display:inline-block;white-space:nowrap;font-family:var(--font-mono);font-size:14px;letter-spacing:.04em;color:var(--paper);background:var(--accent-deep);padding:3px 9px;margin:9px 0 0}
+  .srow .sline{font-family:var(--font-body);font-size:22px;line-height:1.34;color:var(--ink-3);margin:10px 0 0}
+  .srow .sstrip{font-family:var(--font-mono);font-size:16px;letter-spacing:.02em;color:var(--ink-4);margin:9px 0 0}
+  .srow .sstrip .s{color:var(--ink-5);margin:0 6px}
+
+
+  /* ---- Three-up (slide 7) ---- */
+  .three-up{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .three-up.fill{flex:1;margin-top:44px}
+  .three-up.fill .card3{min-height:0}
+  .card3{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);
+    border-top:4px solid var(--accent);padding:36px 32px;display:flex;flex-direction:column;gap:18px;min-height:300px}
+  .card3 .n{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
+  .card3 .h{font-family:var(--font-display);font-weight:600;font-size:32px;color:var(--ink-1);margin:0;letter-spacing:-.01em;line-height:1.12}
+  .card3 .d{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.4;margin:auto 0 0}
+  .card3 .ev{font-family:var(--font-mono);font-size:17px;letter-spacing:.04em;color:var(--accent-deep);line-height:1.4;margin:22px 0 0;padding-top:18px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+
+  /* ---- Stat grid (slide 8) ---- */
+  .stat-grid{margin-top:56px;border-top:var(--rule-w-strong) solid var(--ink-1);
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair);display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:40px 30px;border-right:var(--rule-w-hair) solid var(--rule-hair);display:flex;flex-direction:column;gap:16px}
+  .stat:last-child{border-right:0}
+  .stat .se{font-family:var(--font-mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4)}
+  .stat .sn{font-family:var(--font-display);font-weight:600;font-size:var(--fs-stat);letter-spacing:var(--tr-display);line-height:1;color:var(--ink-1);font-feature-settings:"tnum" 1,"lnum" 1}
+  .stat .sn.range{font-size:58px}
+  .stat .sn .ar{color:var(--accent-deep)}
+  .stat .sl{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.35}
+
+  /* ---- Proof / evidence (slide 9) ---- */
+  .proof{margin-top:16px;flex:1;display:grid;grid-template-columns:0.88fr 1.12fr;gap:56px;align-items:center}
+  .artifact{display:flex;flex-direction:column}
+  .artifact .alabel{font-family:var(--font-mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 14px}
+  .frame{border:var(--rule-w-hair) solid var(--rule-hair);background:var(--paper-pure);overflow:hidden}
+  .frame.email img{display:block;width:100%;height:auto;padding:16px 18px}
+  .frame.answer img{display:block;width:100%;height:380px;object-fit:cover;object-position:top center}
+  .frame.shot{background:var(--paper-pure);padding:20px 22px}
+  .frame.shot img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain}
+  .frame.chart{background:var(--paper-pure);padding:26px 30px 20px}
+  .frame.chart svg{display:block;width:100%;height:auto}
+  .artifact .cap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:18px 0 0}
+  .artifact .cap b{color:var(--ink-1);font-weight:600}
+
+  /* ---- System breakout slides ---- */
+  .sysslide .crumb{margin-bottom:18px}
+  .sysslide .t-action{margin:8px 0 0}
+  .sysslide .accent-rule{margin:16px 0}
+  .sysslide .subhead{margin:10px 0 0}
+  .sysslide .feat{padding:32px 42px}
+  .sysslide .cmp{margin-top:14px}
+  .sysslide .crow{padding:12px 0}
+  .sysslide .fstrip{padding-top:16px}
+  .sysslide .fbadge{margin:0 0 10px}
+  .sysgrid{margin-top:24px;flex:1;display:grid;grid-template-columns:0.88fr 1.12fr;gap:48px;align-content:start}
+  .sysgrid .feat{min-height:0}
+  .sysviz{display:flex;flex-direction:column;min-width:0}
+  .sysviz .vframe{border:var(--rule-w-hair) solid var(--rule-hair);background:#020617;padding:14px;display:flex;align-items:center;justify-content:center}
+  .sysviz .vframe img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain}
+  .sysviz .vcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:16px 0 0}
+  .sysviz .vcap b{color:var(--ink-1);font-weight:600}
+  .feat .cmp{margin-top:20px;display:flex;flex-direction:column}
+  .feat .crow{padding:16px 0;border-top:1px solid rgba(1,170,193,.30)}
+  .feat .crow .cl{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0 0 6px}
+  .feat .crow.us .cl{color:var(--accent-deep)}
+  .feat .crow .ct{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-3);margin:0}
+  .feat .crow.us .ct{color:var(--ink-1);font-weight:500}
+  .feat .fbadge{align-self:flex-start;white-space:nowrap;font-family:var(--font-mono);font-size:15px;letter-spacing:.06em;color:var(--paper);background:var(--accent-deep);padding:4px 10px;margin:0 0 14px}
+
+  /* ---- Product lockup (system nameplates, slides 6-11) ---- */
+  .plock{display:flex;align-items:center;gap:18px;margin:14px 0 0}
+  .plock .pmark{flex:0 0 auto}
+  .plock .pname{font-family:var(--font-display);font-weight:700;font-size:44px;color:var(--ink-1);letter-spacing:-.015em;line-height:1;margin:0}
+  .plock .pchip{font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.08em;color:var(--accent-deep);border:1px solid var(--accent-deep);border-radius:var(--radius-1);padding:4px 9px;white-space:nowrap}
+  .pmark{position:relative;display:inline-block;width:32px;height:32px;border:1.5px solid var(--ink-1);border-radius:var(--radius-1)}
+  .pmark::after{content:"";position:absolute;right:4px;bottom:4px;width:12px;height:12px;background:var(--accent);border-radius:1px}
+  .pmark.sm{width:18px;height:18px;border-width:1.5px}
+  .pmark.sm::after{right:2px;bottom:2px;width:7px;height:7px}
+
+  /* ---- Method overview split-bleed (slide 6) ---- */
+  .method-grid{grid-template-columns:42fr 58fr}
+  .method-left{padding:var(--margin-y) 56px var(--margin-y) var(--margin-x);display:flex;flex-direction:column;min-width:0;border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .method-left .t-action{font-size:50px;margin:12px 0 0}
+  .method-left .accent-rule{margin:18px 0}
+  .method-left .t-lede{font-size:25px}
+  .method-right{background:var(--paper-pure);display:flex;flex-direction:column;min-width:0}
+  .method-right .dia{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:36px 44px 20px}
+  .method-right .dia img{width:100%;height:100%;object-fit:contain}
+  .method-right .dcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:0;padding:18px 44px 28px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .syslist{margin-top:24px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .syslist .srow2{display:flex;align-items:center;gap:16px;padding:7px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .syslist .sysnm{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);letter-spacing:-.01em}
+  .syslist .sysnum{margin-left:auto;font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;color:var(--accent-deep)}
+
+  /* ---- Day-to-day NovaLens shots ---- */
+  .dayshots{margin-top:36px;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-content:start}
+  .dayshots .dshot{display:flex;flex-direction:column}
+  .dayshots .dshot img{display:block;width:100%;height:auto;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .dayshots .dcap{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.4;margin:16px 0 0}
+  .dayshots .dcap b{color:var(--ink-1);font-weight:600}
+
+  /* ---- Big quote (slide 10) ---- */
+  .quote-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:40px}
+  .bigq{font-family:var(--font-display);font-weight:500;font-size:84px;letter-spacing:-.03em;line-height:1.06;color:var(--ink-1);margin:0;max-width:1640px;text-wrap:balance}
+  .bigq em{font-style:normal;color:var(--accent-deep)}
+  .qattr{font-family:var(--font-mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0}
+
+  /* ---- Partner (slide 11) ---- */
+  .partner{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-content:start}
+  .pcard{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);padding:30px 40px;display:flex;flex-direction:column}
+  .pcard.lead{border-top:4px solid var(--accent)}
+  .pcard .pk{font-family:var(--font-mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0}
+  .pcard h3{font-family:var(--font-display);font-weight:600;font-size:38px;color:var(--ink-1);margin:14px 0 0;letter-spacing:-.02em}
+  .pcard .pd{font-family:var(--font-body);font-size:22px;color:var(--ink-3);line-height:1.4;margin:18px 0 0}
+  .pcard .price{margin-top:30px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .prow{display:flex;justify-content:space-between;align-items:baseline;gap:32px;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .prow .tier{font-family:var(--font-mono);font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);white-space:nowrap}
+  .pcard .prow .scope{font-family:var(--font-body);font-size:21px;color:var(--ink-2);line-height:1.35;text-align:right;max-width:420px}
+  .pcard .single{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);letter-spacing:-.02em;padding:18px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pcard .note{font-family:var(--font-mono);font-size:17px;letter-spacing:.04em;color:var(--ink-4);margin:14px 0 0}
+  /* three-offer variant */
+  .partner.three{grid-template-columns:repeat(3,1fr);gap:36px}
+  .partner.three .pcard{padding:28px 30px}
+  .partner.three .pcard h3{font-size:29px;margin:12px 0 0}
+  .partner.three .pcard .pd{font-size:21px}
+  .partner.three .prow{gap:20px;padding:15px 0}
+  .partner.three .prow .scope{font-size:19px;max-width:none}
+  .partner.three .pcard .single{font-size:25px;padding:15px 0}
+  .partner.three .pcard .note{font-size:15px}
+  .partner.three .pcard .price{margin-top:22px}
+  .pcard .pbadge{align-self:flex-start;font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.12em;color:var(--paper);background:var(--accent-deep);padding:4px 10px;border-radius:var(--radius-1);margin:0 0 14px}
+  .pcard .single .tbd{font-family:var(--font-mono);font-size:22px;letter-spacing:.08em;color:var(--accent-deep)}
+
+  /* ---- Partner card tags ---- */
+  .pcard .ptitle{font-family:var(--font-display);font-weight:600;font-size:33px;color:var(--ink-1);margin:0;letter-spacing:-.015em;line-height:1.12}
+  .pcard .psub{font-family:var(--font-body);font-weight:600;font-size:21px;color:var(--ink-3);margin:14px 0 0;line-height:1.3}
+  .pprice{margin-top:auto;padding-top:20px;border-top:var(--rule-w-hair) solid var(--rule-hair);display:flex;flex-direction:column;gap:4px}
+  .pprice .plab{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+  .pprice .pnum{font-family:var(--font-display);font-weight:600;font-size:38px;letter-spacing:-.02em;color:var(--ink-1);font-feature-settings:"tnum" 1}
+  .pprice .pnum .pmo{font-size:21px;font-weight:500;color:var(--ink-3)}
+  .ptags{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+  .ptag{font-family:var(--font-mono);font-size:15px;letter-spacing:.04em;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:5px 11px;border-radius:var(--radius-1);white-space:nowrap}
+  .ptag.em{background:var(--accent-deep);color:var(--paper)}
+
+  /* ---- Close (slide 12) ---- */
+  .close-wrap{height:100%;display:flex;flex-direction:column;justify-content:space-between}
+  .close-q{font-family:var(--font-display);font-weight:500;font-size:84px;letter-spacing:-.03em;line-height:1.04;color:var(--dark-fg);max-width:1560px;text-wrap:balance}
+  .close-q em{font-style:normal;color:var(--accent)}
+  .cta-btn{display:inline-block;background:var(--accent);color:#08131a;font-family:var(--font-display);font-weight:600;font-size:26px;letter-spacing:-.01em;padding:20px 44px;border-radius:var(--radius-1);text-decoration:none;margin-top:44px}
+  .cta-btn:hover{background:var(--accent-deep);color:var(--dark-fg)}
+    .close-contact{display:flex;gap:26px;align-items:baseline;font-family:var(--font-mono);font-size:26px;color:var(--dark-fg);letter-spacing:.02em;flex-wrap:wrap;margin-top:30px}
+  .close-contact .sep{color:var(--accent)}
+  .close-contact .nm{color:var(--dark-fg);white-space:nowrap}
+
+  /* ---- Entrance (visible base; animate from hidden) ---- */
+  @media (prefers-reduced-motion:no-preference){
+    [data-deck-active] .anim{animation:mrise .55s cubic-bezier(.4,0,.2,1) both}
+    [data-deck-active] .anim.d1{animation-delay:.07s}
+    [data-deck-active] .anim.d2{animation-delay:.14s}
+    [data-deck-active] .anim.d3{animation-delay:.21s}
+    @keyframes mrise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  }
+
+  /* ===== Company Credentials — added components ===== */
+  /* Team — 4-up grid */
+  .team.quad{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+  .team.quad .prof{grid-template-columns:140px 1fr;gap:28px;padding:28px 38px}
+  .team.quad .prof:nth-child(odd){border-right:var(--rule-w-hair) solid var(--rule-hair)}
+  .team.quad .prof:nth-child(-n+2){border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .team.quad .photo{width:140px;height:172px}
+  .team.quad .pname{font-size:30px}
+  .team.quad .prole{font-size:16px;margin-top:8px}
+  .team.quad .cred{margin-top:16px;gap:11px}
+  .team.quad .cred p{font-size:19px;line-height:1.34}
+  .avatar{width:140px;height:172px;display:flex;align-items:center;justify-content:center;
+    background:var(--paper-deep);border:var(--rule-w-hair) solid var(--rule-hair);
+    font-family:var(--font-display);font-weight:600;font-size:54px;color:var(--accent-deep);letter-spacing:.02em}
+
+  /* Callout bar */
+  .callout{margin-top:30px;background:var(--ink-1);color:var(--paper);
+    padding:20px 28px;display:flex;align-items:center;gap:16px;
+    font-family:var(--font-body);font-size:23px;line-height:1.35}
+  .callout .dot{flex:0 0 auto;width:12px;height:12px;border-radius:2px;background:var(--accent)}
+  .callout b{color:#fff;font-weight:600}
+
+  /* Pyramid — Growth System */
+  .pyr-grid{margin-top:40px;flex:1;display:grid;grid-template-columns:640px 1fr;gap:64px;align-items:center}
+  .pyr-left{position:relative;height:512px}
+  .pyr-left svg{display:block;width:100%;height:100%}
+  .pyr-text{display:grid;grid-template-rows:repeat(4,128px)}
+  .pyr-row{display:flex;flex-direction:column;justify-content:center;
+    border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .pyr-row:last-child{border-bottom:0}
+  .pyr-row .ph{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .pyr-row .pdd{font-family:var(--font-body);font-size:21px;color:var(--ink-3);line-height:1.35;margin:8px 0 0;max-width:900px}
+
+  /* Scope grid — Tiket case */
+  .scope-grid{margin-top:34px;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px 56px;align-content:start}
+  .sitem{display:grid;grid-template-columns:32px 1fr;gap:18px;align-items:start;
+    padding-top:22px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .sitem .ar{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--accent-deep);line-height:1.1}
+  .sitem .sh{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .sitem .sd{font-family:var(--font-body);font-size:20px;color:var(--ink-3);line-height:1.36;margin:7px 0 0}
+
+  /* AI-transformation 3-layer model */
+  .tmodel{margin-top:30px;flex:1;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .tmrow{display:grid;grid-template-columns:88px 380px 1fr;gap:44px;align-items:center;
+    padding:24px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);flex:1}
+  .tmrow .tnum{font-family:var(--font-display);font-weight:600;font-size:52px;color:var(--accent);line-height:1;letter-spacing:-.02em}
+  .tmrow .tname{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);letter-spacing:-.01em;line-height:1.12}
+  .tmrow .tdesc{font-family:var(--font-body);font-size:21px;color:var(--ink-3);line-height:1.4;margin:0;max-width:980px}
+  .tmrow .tdesc b{color:var(--ink-1);font-weight:600}
+  /* client logo row (AI transformation) */
+  .logo-row.clients{margin-top:26px;gap:52px}
+  .logo-row.clients img{height:42px;opacity:.72}
+
+  /* Scope strip — mono, dot-separated (agentic advisory) */
+  .scopestrip{font-family:var(--font-mono);font-size:19px;letter-spacing:.03em;color:var(--accent-deep);margin:20px 0 0;line-height:1.6}
+  .scopestrip .s{color:var(--ink-5);margin:0 9px}
+
+  /* Client logo marquee — infinite auto-scroll (agentic advisory) */
+  .marquee{margin-top:auto;padding-top:30px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .marquee .mq-lab{font-family:var(--font-mono);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin:0 0 20px}
+  .mq-window{overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%)}
+  .mtrack{display:flex;width:max-content;animation:mqscroll 32s linear infinite}
+  .mgroup{display:flex;align-items:center;flex:0 0 auto}
+  .mlogo{flex:0 0 460px;height:152px;display:flex;align-items:center;justify-content:center;margin-right:120px}
+  .mlogo img{width:100%;height:132px;object-fit:contain;filter:grayscale(1);opacity:.78}
+  /* logos authored for dark backgrounds (white/lime artwork) — invert so they read on paper */
+  .mlogo img.on-dark{filter:grayscale(1) invert(1);opacity:.72}
+  @keyframes mqscroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+  @media (prefers-reduced-motion:reduce){.mtrack{animation:none}}
+
+
+  /* ---- Novastacks AI Search OS sequence (5 slides) ---- */
+  .aos-grid{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 700px;gap:64px;align-items:stretch}
+  .aos-text{display:flex;flex-direction:column;min-width:0;min-height:0}
+  .aos-text .t-action{font-size:50px;line-height:1.08;margin:0;text-wrap:balance}
+  .aos-text .accent-rule{margin:18px 0}
+  .aos-lede{font-family:var(--font-body);font-size:25px;line-height:1.4;color:var(--ink-2);margin:0;text-wrap:balance}
+  .aos-sys{margin-top:24px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .asys{display:flex;align-items:baseline;gap:16px;padding:20px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .asys .ahd{display:flex;align-items:center;gap:14px;margin:0 0 8px}
+  .asys .an{font-family:var(--font-display);font-weight:600;font-size:29px;color:var(--ink-1);letter-spacing:-.01em;margin:0;line-height:1.1}
+  .aos-text .pchip{font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:.08em;color:var(--accent-deep);border:1px solid var(--accent-deep);border-radius:var(--radius-1);padding:4px 9px;white-space:nowrap;flex:0 0 auto}
+  .asys .ap{font-family:var(--font-body);font-size:24px;line-height:1.42;color:var(--ink-3);margin:0}
+  .asys .ap b{font-family:var(--font-display);color:var(--ink-1);font-weight:600;font-size:27px}
+  .asys .pchip{position:relative;top:-3px}
+  .aos-sys.tight .asys{padding:12px 0}
+  .aos-sys.tight .asys .an{font-size:27px;margin-bottom:4px}
+  .aos-sys.tight .asys .ap{font-size:20px;line-height:1.34;margin-top:4px}
+  .aos-carry{font-family:var(--font-display);font-weight:500;font-size:25px;line-height:1.3;color:var(--accent-deep);margin:22px 0 0}
+  .aos-dia{display:flex;align-items:center;justify-content:center;min-height:0;background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);padding:18px 14px}
+  .aos-dia svg{display:block;width:100%;height:100%;max-height:100%;font-family:var(--font-body)}
+  .aos-dia .aplane.dim{opacity:.28}
+  .aos-layers{margin-top:22px;border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .alrow{display:grid;grid-template-columns:210px 1fr;gap:24px;padding:9px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);align-items:start}
+  .alrow .al{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;line-height:1.15}
+  .alrow .al span{display:block;font-family:var(--font-body);font-weight:500;font-size:18px;color:var(--accent-deep);margin-top:4px;line-height:1.3}
+  .alrow .as{font-family:var(--font-body);font-size:21px;line-height:1.5;color:var(--ink-3);margin:0}
+  .alrow .as{display:flex;flex-direction:column;gap:6px}
+  .alrow .asl{display:flex;align-items:baseline;gap:12px}
+  .alrow .asl .pchip{position:relative;top:-2px}
+  .alrow .as b{color:var(--ink-1);font-weight:600;font-family:var(--font-display);font-size:23px;white-space:nowrap}
+
+  .aos-h2{font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.22;color:var(--accent-deep);letter-spacing:-.01em;margin:14px 0 0;text-wrap:balance}
+  /* Why we are different */
+  .why-grid{margin-top:4px;display:grid;grid-template-columns:400px minmax(0,1fr) 420px;gap:36px;align-items:start}
+  .why-others{display:flex;flex-direction:column;gap:22px}
+  .why-grid .wcard.us{padding:30px 34px;gap:16px}
+  .why-grid .wcard.us h3{font-size:32px}
+  .why-grid .wcard.us .wd{font-size:23px;color:var(--ink-2)}
+  .why-left .wcards{align-items:start}
+  .wben{list-style:none;margin:6px 0 0;padding:16px 0 0;border-top:1px solid rgba(1,170,193,.35);display:flex;flex-direction:column;gap:12px}
+  .wben li{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:22px;line-height:1.25;color:var(--ink-1)}
+  .wmark.sm{width:26px;height:26px;font-size:14px}
+  .wcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .wcard{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);border-top:4px solid var(--ink-5);padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+  .wcard.us{border-top-color:var(--accent);background:var(--accent-tint)}
+  .wcard .wk{font-family:var(--font-mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin:0}
+  .wcard.us .wk{color:var(--accent-deep)}
+  .wcard .wt{display:flex;align-items:center;gap:12px}
+  .wcard h3{font-family:var(--font-display);font-weight:600;font-size:27px;line-height:1.12;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .wmark{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700}
+  .wmark.no{background:var(--bad-tint);color:var(--bad)}
+  .wmark.yes{background:var(--accent);color:#fff}
+  .wcard .wd{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-3);margin:0}
+  .why-p{font-family:var(--font-body);font-size:23px;line-height:1.5;color:var(--ink-2);margin:34px 0 0}
+  .why-rows{margin-top:30px;border-top:var(--rule-w-strong) solid var(--ink-1);display:grid;grid-template-columns:1fr 1fr;column-gap:48px}
+  .wrow{padding:16px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .wrow .wl{font-family:var(--font-display);font-weight:600;font-size:23px;line-height:1.25;color:var(--ink-1);margin:0}
+  .wrow .wv{font-family:var(--font-body);font-size:22px;line-height:1.42;color:var(--ink-3);margin:0}
+  .wrow .wv b{font-family:var(--font-display);font-weight:600;color:var(--ink-1)}
+  .why-fig{margin:0;display:flex;flex-direction:column}
+  .why-fig img{display:block;width:100%;height:auto;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .why-fig figcaption{font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin:10px 0 0}
+  /* Compounding Loop */
+  .loop-lede{font-family:var(--font-body);font-size:23px;line-height:1.42;color:var(--ink-2);margin:12px 0 0;max-width:1640px}
+  .loop-grid{margin-top:18px;flex:1;min-height:0;display:grid;grid-template-columns:400px minmax(0,1fr);gap:44px;align-items:start}
+  .loop-left{display:flex;flex-direction:column;gap:14px}
+  .loop-svg{display:block;width:340px;height:340px;margin:0 auto;font-family:var(--font-display)}
+  .loop-right{display:flex;flex-direction:column;gap:22px;min-width:0}
+  .loop-why{background:var(--accent-tint);border-left:4px solid var(--accent);padding:16px 24px}
+  .loop-why .lwh{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);margin:0 0 6px}
+  .loop-why p{font-family:var(--font-body);font-size:20px;line-height:1.42;color:var(--ink-2);margin:0}
+  .lcards{display:grid;grid-template-columns:1fr 1fr;gap:18px 48px}
+  .lcard{border-top:var(--rule-w-strong) solid var(--ink-1);padding:14px 0 0}
+  .lcard .ln{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--ink-1);margin:0;letter-spacing:-.01em}
+  .lcard .lnum{width:34px;height:34px;border-radius:50%;background:var(--accent-tint);border:2px solid var(--accent-deep);color:var(--accent-deep);font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .lcard .lh{font-family:var(--font-display);font-weight:600;font-size:26px;line-height:1.2;color:var(--accent-deep);margin:12px 0 0}
+  .lcard .lp{font-family:var(--font-body);font-size:22px;line-height:1.45;color:var(--ink-2);margin:12px 0 0}
+  .lcard .lr{font-family:var(--font-body);font-size:21px;line-height:1.45;color:var(--ink-3);margin:14px 0 0;padding-top:12px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .lcard .lr b{color:var(--ink-1);font-weight:600}
+  .aos-harness{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-2);margin:16px 0 0}
+  /* ---- Partners & clients logo wall (from aeo-deck-nopricing slide 7) ---- */
+  .ptags{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+  .ptag{font-family:var(--font-mono);font-size:15px;letter-spacing:.04em;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:5px 11px;border-radius:var(--radius-1);white-space:nowrap}
+  .ptag.em{background:var(--accent-deep);color:var(--paper)}
+  .ptags.wide{gap:12px;margin-top:20px}
+  .ptags.wide .ptag{font-size:20px;letter-spacing:.08em;padding:9px 16px}
+  /* ---- Partner / client logo wall (marquee) ---- */
+  .lwall{flex:1;min-height:0;margin-top:30px;display:flex;align-items:stretch;overflow:hidden;background:var(--paper-pure);
+         border-top:var(--rule-w-strong) solid var(--ink-1);border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .lview{flex:1;display:flex;align-items:center;overflow:hidden;min-width:0;
+         -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 110px,#000 calc(100% - 110px),transparent 100%);
+         mask-image:linear-gradient(90deg,transparent 0,#000 110px,#000 calc(100% - 110px),transparent 100%)}
+  .ltrack{display:flex;width:max-content;animation:lscroll 46s linear infinite}
+  .lset{display:flex;align-items:center;gap:104px;padding-right:104px}
+  .lset img{display:block;width:auto;object-fit:contain}
+  @keyframes lscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media print{
+    .ltrack{animation:none;width:100%}
+    .lset[aria-hidden]{display:none}
+    .lset{flex-wrap:wrap;justify-content:center;gap:40px 90px;padding:0 40px;width:100%}
+    .lset img{height:auto !important;max-height:120px;max-width:300px}
+  }
+  /* ---- GEO vs SEO scope (from aeo-deck-nopricing slide 4) ---- */
+  .scope{margin-top:20px;flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .scol{display:flex;flex-direction:column;min-width:0}
+  .schead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+          padding-bottom:12px;border-bottom:var(--rule-w-strong) solid}
+  .schead .sclab{font-family:var(--font-mono);font-size:17px;font-weight:600;letter-spacing:.1em;
+                 text-transform:uppercase;line-height:1.35;margin:0}
+  .schead .scount{font-family:var(--font-display);font-weight:600;font-size:26px;line-height:1;
+                  padding:5px 12px;color:var(--paper);white-space:nowrap}
+  .scol.seo .schead{border-color:var(--rule-hair)}
+  .scol.seo .sclab{color:var(--ink-4)}
+  .scol.seo .scount{background:var(--ink-4)}
+  .scol.shr .schead{border-color:var(--ink-1)}
+  .scol.shr .sclab{color:var(--ink-1)}
+  .scol.shr .scount{background:var(--ink-1)}
+  .scol.geo .schead{border-color:var(--accent)}
+  .scol.geo .sclab{color:var(--accent-deep)}
+  .scol.geo .scount{background:var(--accent-deep)}
+  .stiles{margin-top:10px;display:flex;flex-direction:column;gap:2px}
+  .stile{font-family:var(--font-body);font-size:18px;line-height:1.2;margin:0;padding:4px 12px}
+  .scol.seo .stile{background:var(--paper-deep);color:var(--ink-3)}
+  .scol.shr .stile{background:var(--paper-pure);border:var(--rule-w-hair) solid var(--rule-hair);color:var(--ink-2)}
+  .scol.geo .stile{background:var(--accent-tint);border-left:3px solid var(--accent);color:var(--ink-1);font-weight:500}
+  /* ---- capability matrix (SSOT: eight capabilities) ---- */
+  .capgrid{margin-top:18px;flex:1;min-height:0;display:grid;grid-template-columns:340px 1fr 1.3fr;gap:0 26px;align-content:start}
+  .caph{font-family:var(--font-mono);font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;line-height:1.3;padding:0 0 9px;border-bottom:var(--rule-w-strong) solid var(--ink-1);margin:0}
+  .caph.seo{color:var(--ink-4);border-color:var(--rule-hair)} .caph.geo{color:var(--accent-deep);border-color:var(--accent)}
+  .capn,.capseo,.capgeo{margin:0;padding:10px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);line-height:1.3;font-family:var(--font-body)}
+  .capn{font-size:18px;font-weight:600;color:var(--ink-1)}
+  .capseo{font-size:17px;color:var(--ink-3)}
+  .capgeo{font-size:17px;color:var(--ink-1);font-weight:500;padding-left:12px;border-left:3px solid var(--accent);background:var(--accent-tint)}
+  .capnil{color:var(--ink-5);font-weight:400;font-style:italic}
+  /* ---- Teaching proof: four rooms (AI transformation advisory) ---- */
+  .teach{margin-top:24px;flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;align-content:start}
+  .tcard{display:flex;flex-direction:column;min-width:0;border-top:var(--rule-w-strong) solid var(--ink-1);padding-top:16px}
+  .tcard .tph{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .tcard .tph.pending{display:flex;align-items:center;justify-content:center;background:#E3E1DC;border:2px dashed var(--ink-5);
+    font-family:var(--font-mono);font-size:20px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-4);text-align:center;padding:24px}
+  .tcard .taud{font-family:var(--font-display);font-weight:600;font-size:28px;line-height:1.14;letter-spacing:-.01em;color:var(--ink-1);margin:16px 0 0;text-wrap:balance}
+  .tcard .taud.pending{color:var(--ink-4)}
+  .tcard .tev{font-family:var(--font-body);font-size:21px;line-height:1.34;color:var(--ink-2);margin:8px 0 0}
+  .tcard .trole{font-family:var(--font-body);font-size:19px;line-height:1.34;color:var(--ink-3);margin:6px 0 0}
+
+  /* ===== Proposal deck components ===== */
+  .accent-rule.bad{border-top-color:var(--bad)}
+  .accent-rule.good{border-top-color:var(--good)}
+  .t-action.ci{font-size:58px;line-height:1.06}
+  /* evidence columns (slide A) */
+  .ev2{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-content:start}
+  .evcol{display:flex;flex-direction:column;min-width:0}
+  .evhead{font-family:var(--font-mono);font-size:17px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin:0;padding-bottom:12px;border-bottom:var(--rule-w-strong) solid var(--ink-1);line-height:1.4}
+  .evcol.bad .evhead{color:var(--bad);border-bottom-color:var(--bad)}
+  .evrow{display:grid;grid-template-columns:230px 1fr;gap:28px;align-items:baseline;padding:16px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .evrow .en{font-family:var(--font-display);font-weight:600;font-size:46px;letter-spacing:-.02em;line-height:1;color:var(--ink-1);font-feature-settings:"tnum" 1,"lnum" 1;white-space:nowrap}
+  .evcol.bad .evrow .en{color:var(--bad);font-size:64px}
+  .evcol.bad .evrow{grid-template-columns:200px 1fr;padding:26px 0}
+  .evrow .et{font-family:var(--font-body);font-size:23px;line-height:1.36;color:var(--ink-2);margin:0}
+  .evrow .es{display:block;font-family:var(--font-mono);font-size:15px;letter-spacing:.06em;color:var(--ink-4);margin-top:8px;line-height:1.4}
+  .ci-note{font-family:var(--font-mono);font-size:16px;letter-spacing:.04em;color:var(--ink-4);line-height:1.45;margin:18px 0 0}
+  /* chart + proof (slide B) */
+  .chartproof{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:start}
+  .chartproof .frame.chart{padding:22px 26px 14px}
+  .chartproof .frame.chart svg{font-family:var(--font-body)}
+  .plist{border-top:var(--rule-w-strong) solid var(--ink-1);display:flex;flex-direction:column}
+  .prow2{padding:22px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .prow2 .pl{font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--ink-1);letter-spacing:-.01em;margin:0;line-height:1.15}
+  .prow2 .pt{font-family:var(--font-body);font-size:23px;line-height:1.38;color:var(--ink-2);margin:8px 0 0}
+  .prow2 .ps{font-family:var(--font-mono);font-size:15px;letter-spacing:.06em;color:var(--ink-4);margin:8px 0 0;line-height:1.4}
+  /* simulator + table (slide C) */
+  .simgrid{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:1000px 1fr;gap:52px;align-items:start}
+  .simshot{display:flex;flex-direction:column}
+  .simshot img{display:block;width:100%;height:auto;max-height:530px;object-fit:cover;object-position:top left;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .ci-link{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--accent-deep);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px;align-self:flex-start}
+  .ci-link:hover{color:var(--ink-1)}
+  .ci-links{display:flex;gap:36px;flex-wrap:wrap;margin-top:18px}
+  .ci-table{width:100%;border-collapse:collapse;font-family:var(--font-body)}
+  .ci-table th{font-family:var(--font-mono);font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);text-align:left;font-weight:500;padding:10px 14px;border-bottom:var(--rule-w-strong) solid var(--rule-strong);line-height:1.3;vertical-align:bottom}
+  .ci-table td{font-size:22px;color:var(--ink-2);padding:13px 14px;border-bottom:var(--rule-w-hair) solid var(--rule-hair);vertical-align:middle;line-height:1.28}
+  .ci-table th.num,.ci-table td.num{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ci-table td.num{font-size:23px;color:var(--ink-1)}
+  .ci-table tr.hl td{background:var(--accent-tint);color:var(--ink-1);font-weight:600}
+  .ci-table tr.hl td.num{color:var(--accent-deep)}
+  .ci-table tr.bad td{background:var(--bad-tint);color:var(--ink-1);font-weight:600}
+  .ci-table tr.bad td.num{color:var(--bad)}
+  .ci-table td .sub{display:block;font-size:17px;font-weight:400;color:var(--ink-3);margin-top:3px}
+  .ci-line{font-family:var(--font-body);font-size:23px;line-height:1.38;color:var(--ink-2);margin:22px 0 0;padding:16px 20px;background:var(--accent-tint);border-left:4px solid var(--accent)}
+  .ci-line b{color:var(--ink-1)}
+  /* SERP evidence (slide D) */
+
+
+  .pctbl{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:22px}
+  .pctbl th{font-family:var(--font-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);font-weight:500;text-align:right;padding:0 16px 10px;border-bottom:var(--rule-w-strong) solid var(--ink-1);vertical-align:bottom}
+  .pctbl th:first-child{text-align:left;padding-left:0}
+  .pctbl td{padding:9px 16px;border-bottom:var(--rule-w-hair) solid var(--rule-hair);color:var(--ink-1)}
+  .pctbl td:first-child{padding-left:0}
+  .pctbl td.r{text-align:right;font-family:var(--font-mono);font-feature-settings:"tnum" 1}
+  .pctbl td.z{color:var(--ink-5)}
+  .pctbl .ploc{font-family:var(--font-mono);font-size:14px;letter-spacing:.06em;color:var(--ink-4);margin-left:8px}
+  .pctbl tr.us td{background:rgba(185,60,60,.10);color:var(--bad);font-weight:600;border-bottom:none}
+  .pctbl tr.us .ploc{color:var(--bad)}
+
+  .sbtbl{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:21px;line-height:1.3}
+  .sbtbl th{font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;text-align:left;padding:0 20px 10px;border-bottom:var(--rule-w-strong) solid var(--ink-1)}
+  .sbtbl th.sbci{color:var(--bad)} .sbtbl th.sbco{color:var(--ink-3)}
+  .sbtbl td{padding:12px 20px;border-bottom:var(--rule-w-hair) solid var(--rule-hair);vertical-align:top}
+  .sbtbl td.sbk{font-family:var(--font-display);font-weight:600;color:var(--ink-1);width:300px;padding-left:0}
+  .sbtbl td.sbci{color:var(--bad);background:rgba(185,60,60,.07);width:520px}
+  .sbtbl td.sbco{color:var(--ink-2)} .sbtbl td.sbco b{color:var(--ink-1)}
+
+  .mockgrid{margin-top:6px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .mock .mh{font-family:var(--font-display);font-weight:600;font-size:26px;color:var(--ink-1);margin:0;padding-bottom:8px;border-bottom:var(--rule-w-strong) solid var(--good)}
+  .mock .mframe{margin-top:12px;border:var(--rule-w-hair) solid var(--rule-hair);background:#fff;height:400px;overflow:hidden}
+  .mock .mframe img{display:block;width:100%;height:auto}
+  .mock .mcap{font-family:var(--font-body);font-size:20px;line-height:1.35;color:var(--ink-2);margin:12px 0 6px}
+
+  .flow3{margin-top:10px;display:grid;grid-template-columns:1fr 64px 1fr 64px 1fr;align-items:stretch}
+  .flow3 .arr{display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:48px;color:var(--ink-4)}
+  .fstep{border-top:var(--rule-w-strong) solid var(--bad);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+  .fstep.win{border-top-color:var(--good)}
+  .fstep .fsn{font-family:var(--font-mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin:0}
+  .fstep .fsh{font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.15;color:var(--ink-1);margin:0}
+  .fstep .fbig{font-family:var(--font-display);font-weight:600;font-size:96px;line-height:1;letter-spacing:-.03em;color:var(--bad);margin:8px 0 0}
+  .fstep.win .fbig{color:var(--good)}
+  .fstep .fbt{font-family:var(--font-body);font-size:22px;line-height:1.4;color:var(--ink-2);margin:0}
+  .fstep .fsub{font-family:var(--font-body);font-size:20px;line-height:1.4;color:var(--ink-2);margin:6px 0 0;padding-top:12px;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .fstep .fsub b{color:var(--ink-1)}
+  .fstep .fsrc{font-family:var(--font-mono);font-size:13px;letter-spacing:.05em;color:var(--ink-4);margin:0}
+
+  .aivgrid{margin-top:4px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  .aiv .ah{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);margin:0 0 10px}
+  .aiv img{display:block;width:100%;height:auto;border:var(--rule-w-hair) solid var(--rule-hair)}
+  .aiv .acap{font-family:var(--font-body);font-size:21px;line-height:1.4;color:var(--ink-2);margin:14px 0 0}
+  .aiv .acap b{color:var(--bad)}
+
+  .listnote{font-family:var(--font-body);font-size:19px;line-height:1.4;color:var(--ink-2);margin:0 0 12px;max-width:900px}
+  .listnote b{color:var(--ink-1)}
+  a.sitelnk{color:var(--ink-1);text-decoration:none;border-bottom:1px solid var(--rule-hair)}
+  a.sitelnk:hover{color:var(--accent,#017d8e)}
+
+  .invgrid .ci-table td{padding-top:7px;padding-bottom:7px}
+  .invgrid .ci-table .sub{font-size:15px}
+  .invgrid .ci-links{margin-top:12px}
+  .ploc2{font-family:var(--font-mono);font-size:14px;letter-spacing:.05em;color:var(--ink-4);margin-left:8px}
+  .sbtbl.tight td{padding-top:9px;padding-bottom:9px}
+
+  .prgrid{margin-top:8px;display:grid;grid-template-columns:560px 1fr;gap:56px;align-items:start}
+  .orx{font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1;text-align:center;color:var(--accent-deep);margin:-4px 0;letter-spacing:.04em}
+  .p3{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:40px;align-items:start}
+  .pcol{display:flex;flex-direction:column;gap:14px}
+  .pnum{font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin:0;border-bottom:var(--rule-w-strong) solid var(--ink-1);padding-bottom:8px}
+  .plan.trk{border-top-color:var(--warn)}
+  .pl{margin:0;padding-left:20px;font-family:var(--font-body);font-size:18px;line-height:1.5;color:var(--ink-2)}
+  .fx{font-family:var(--font-mono);font-size:15px;color:var(--ink-1);margin:0;background:var(--warn-tint);padding:8px 10px}
+  .ex{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:16px}
+  .ex th{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);font-weight:500;text-align:left;padding:0 0 6px;border-bottom:var(--rule-w-hair) solid var(--ink-1)}
+  .ex td{padding:6px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);color:var(--ink-2)}.ex .r{text-align:right;font-family:var(--font-mono);white-space:nowrap}
+  .cintro{font-family:var(--font-body);font-size:18px;line-height:1.4;color:var(--ink-2);margin:-8px 0 14px;max-width:1700px}.cintro b{color:var(--ink-1)}
+  .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .ratecard.rc2{font-size:17px;line-height:1.28}.ratecard.rc2 td{padding:4px 14px 4px 0}.rc2 th{padding-bottom:4px}.rc2 tr.g:first-child td{padding-top:0}.rc2 tr.g td{font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);padding-top:7px;border-bottom:var(--rule-w-hair) solid var(--ink-3)}
+  .crules{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:10px;border-top:var(--rule-w-strong) solid var(--accent);padding-top:6px}
+  .crules p{margin:0;font-family:var(--font-body);font-size:16px;line-height:1.35;color:var(--ink-2)}.crules b{color:var(--ink-1)}
+  .plans{display:flex;flex-direction:column;gap:20px}
+  .plan{border:var(--rule-w-hair) solid var(--rule-hair);border-top:var(--rule-w-strong) solid var(--accent);background:var(--paper-pure);padding:20px 24px}
+  .plan.alt{border-top-color:var(--good)}
+  .plan .pn{font-family:var(--font-mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0}
+  .plan .pp{font-family:var(--font-display);font-weight:600;font-size:52px;letter-spacing:-.02em;color:var(--ink-1);margin:6px 0 0;line-height:1}
+  .plan .pp span{font-size:22px;font-weight:500;color:var(--ink-3);letter-spacing:0}
+  .plan .pc{font-family:var(--font-body);font-size:21px;color:var(--ink-2);margin:10px 0 0}
+  .plan .pc b{color:var(--ink-1)}
+  .terms{font-family:var(--font-body);font-size:17px;line-height:1.45;color:var(--ink-3);margin:0}
+  .ratecard{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:19px;line-height:1.3}
+  .ratecard th{font-family:var(--font-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);font-weight:500;text-align:left;padding:0 12px 8px 0;border-bottom:var(--rule-w-strong) solid var(--ink-1)}
+  .ratecard th.r,.ratecard td.r{text-align:right;padding-right:0;white-space:nowrap}
+  .ratecard td{padding:9px 12px 9px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);vertical-align:top;color:var(--ink-2)}
+  .ratecard td b{color:var(--ink-1)}
+  .ratecard td.r{font-family:var(--font-mono);color:var(--ink-1)}
+
+  .gantt{margin-top:6px;display:grid;grid-template-columns:300px repeat(6,1fr);border-top:var(--rule-w-strong) solid var(--ink-1);font-family:var(--font-body)}
+  .gantt .gh{font-family:var(--font-mono);font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-1);padding:10px 8px;border-bottom:var(--rule-w-hair) solid var(--rule-hair);text-align:center}
+  .gantt .ws{font-family:var(--font-display);font-weight:600;font-size:20px;color:var(--ink-1);padding:10px 12px 10px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);display:flex;align-items:center}
+  .gantt .cell{border-bottom:var(--rule-w-hair) solid var(--rule-hair);border-left:1px dashed var(--rule-hair);padding:6px 4px;display:flex;align-items:center}
+  .gantt .bar{border-radius:4px;padding:6px 10px;font-size:15px;line-height:1.25;color:var(--ink-1);width:100%}
+  .gantt .b1{background:var(--accent-tint);border-left:4px solid var(--accent)}
+  .gantt .b2{background:var(--good-tint);border-left:4px solid var(--good)}
+  .gantt .b3{background:var(--warn-tint);border-left:4px solid var(--warn)}
+  .gantt .grp{grid-column:1/-1;font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);padding:3px 0 1px;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .gantt .ws.sub{font-family:var(--font-body);font-weight:500;font-size:15px;padding:0 12px 0 16px}
+  .gantt .b4{background:var(--paper-2,#eee);border-left:4px solid var(--ink-4);color:var(--ink-3)}
+  .gantt.compact .ws:not(.sub){font-size:17px;padding:2px 12px 2px 0}.gantt.compact .cell{padding:2px 4px}.gantt.compact .bar{padding:3px 8px;font-size:14px;line-height:1.2}.gantt.compact .phase{padding:4px;font-size:15px}.gantt.compact .gh{padding:5px 8px;font-size:13px}
+  .gantt.m8{grid-template-columns:270px repeat(8,1fr)}.gantt.m8 .bar{font-size:13px;padding:3px 6px}.gantt.m8 .ws.sub{font-size:14px}
+  .launch{display:flex;gap:18px;align-items:baseline;background:var(--accent-tint);border-left:4px solid var(--accent-deep);padding:7px 12px;margin:-14px 0 8px;font-family:var(--font-body);font-size:15px;color:var(--ink-2)}.launch b{color:var(--ink-1);white-space:nowrap}
+  .gantt .phase{font-family:var(--font-display);font-weight:600;font-size:17px;padding:8px;text-align:center;color:var(--paper-pure)}
+  .alloc{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:18px;line-height:1.3}
+  .alloc th{font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);font-weight:500;text-align:left;padding:0 10px 8px 0;border-bottom:var(--rule-w-strong) solid var(--ink-1)}
+  .alloc td{padding:8px 10px 8px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair);vertical-align:top;color:var(--ink-2)}
+  .alloc td.m{font-family:var(--font-display);font-weight:600;color:var(--ink-1);white-space:nowrap}
+  .alloc td.r,.alloc th.r{text-align:right;font-family:var(--font-mono);white-space:nowrap;color:var(--ink-1)}
+  .ptypes td:nth-child(1){width:300px}.ptypes td:nth-child(2){width:600px}.ptypes td:nth-child(4){width:300px}.ptypes td:nth-child(5){width:330px}.ptypes td.r,.ptypes th.r{padding-right:32px}
+  .allocgrid{margin-top:6px;display:grid;grid-template-columns:1fr 470px;gap:48px;align-items:start}
+  .rules{border-top:var(--rule-w-strong) solid var(--accent);padding-top:14px;display:flex;flex-direction:column;gap:12px}
+  .rules p{margin:0;font-family:var(--font-body);font-size:18px;line-height:1.4;color:var(--ink-2)}
+  .rules p b{color:var(--ink-1)}
+  .rules .rh{font-family:var(--font-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep)}
+  .proofgrid{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:1fr 640px;gap:64px;align-items:start}
+  .proofshot{border:var(--rule-w-hair) solid var(--rule-hair);background:#fff;display:flex;justify-content:center;max-height:560px;overflow:hidden}
+  .proofshot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto}
+  .proofgrid.wide{grid-template-columns:1fr;gap:36px}
+  .proofgrid.wide .proofside{display:grid;grid-template-columns:560px 1fr;column-gap:56px;row-gap:14px;align-items:start}
+  .proofgrid.wide .proofside .ptext{grid-column:2;grid-row:1 / span 2}
+  .proofside{border-top:var(--rule-w-strong) solid var(--bad);padding-top:22px;display:flex;flex-direction:column;gap:22px}
+  .proofside .ptag{font-family:var(--font-mono);font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--bad);margin:0}
+  .proofside .purl{font-family:var(--font-mono);font-size:19px;color:var(--ink-1);overflow-wrap:anywhere;margin:0;padding:12px 14px;background:var(--paper-deep)}
+  .proofside .ptext{font-family:var(--font-body);font-size:24px;line-height:1.45;color:var(--ink-2);margin:0}
+  .proofside .ptext b{color:var(--ink-1)}
+  .serpgrid{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:1210px 1fr;gap:48px;align-items:start}
+  .serps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+  .serp{display:flex;flex-direction:column;min-width:0}
+  .serp .sq{font-family:var(--font-display);font-weight:600;font-size:24px;color:var(--ink-1);margin:0;padding-bottom:8px;border-bottom:var(--rule-w-strong) solid var(--bad)}
+  .serp .sframe{margin-top:10px;border:var(--rule-w-hair) solid var(--rule-hair);background:#fff}
+  .serp .sframe img{display:block;width:100%;height:auto}
+  .serp .gap{display:block;text-align:center;font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;color:var(--ink-4);background:var(--paper-deep);padding:3px 0;border-top:1px dashed var(--ink-5);border-bottom:1px dashed var(--ink-5)}
+  .serp .scap{font-family:var(--font-body);font-size:19px;line-height:1.35;color:var(--ink-2);margin:10px 0 0}
+  .serp .scap b{color:var(--bad)}
+  .serp .ssrc{font-family:var(--font-mono);font-size:14px;letter-spacing:.06em;color:var(--ink-4);margin:4px 0 0}
+  .facts{border-top:var(--rule-w-strong) solid var(--bad);display:flex;flex-direction:column}
+  .fact{padding:16px 0;border-bottom:var(--rule-w-hair) solid var(--rule-hair)}
+  .fact .fl{font-family:var(--font-display);font-weight:600;font-size:27px;color:var(--bad);margin:0;letter-spacing:-.01em;line-height:1.15}
+  .fact .ft{font-family:var(--font-body);font-size:21px;line-height:1.38;color:var(--ink-2);margin:6px 0 0}
+  /* page inventory (slide E) */
+  .invgrid{margin-top:6px;flex:1;min-height:0;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
+  .nekbox{border-top:var(--rule-w-strong) solid var(--bad);display:flex;flex-direction:column}
+  .nekbox .nh{font-family:var(--font-mono);font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--bad);margin:0;padding:10px 0;font-weight:500}
+  .nrow{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:baseline;padding:16px 0;border-top:var(--rule-w-hair) solid var(--rule-hair)}
+  .nrow .nn{font-family:var(--font-display);font-weight:600;font-size:46px;letter-spacing:-.02em;line-height:1;color:var(--ink-1);font-feature-settings:"tnum" 1}
+  .nrow.us .nn{color:var(--bad)}
+  .nrow .nt{font-family:var(--font-body);font-size:21px;line-height:1.36;color:var(--ink-2);margin:0}
+  .nrow .nt b{color:var(--ink-1)}
+  /* Month 1 plan (slide F) */
+  .m1 .card3{border-top-color:var(--good);gap:14px;padding:32px 32px}
+  .m1 .card3 .n{color:var(--good)}
+  .m1 ul{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0}
+  .m1 li{font-family:var(--font-body);font-size:23px;line-height:1.36;color:var(--ink-2);padding:13px 0 13px 30px;border-top:var(--rule-w-hair) solid var(--rule-hair);position:relative}
+  .m1 li::before{content:"";position:absolute;left:4px;top:23px;width:10px;height:10px;border-radius:2px;background:var(--good)}
+  .m1 li.cond{color:var(--ink-3);font-size:20px}
+  .m1 li.cond::before{background:var(--warn)}
+  /* Part divider */
+  .pdiv{justify-content:center}
+  .pdiv .crumb{color:var(--accent)}
+  .pdiv .pnum{font-family:var(--font-mono);font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 28px}
+  .pdiv h2{font-family:var(--font-display);font-weight:600;font-size:104px;line-height:1.02;letter-spacing:-.03em;color:var(--dark-fg);margin:0;max-width:1500px;text-wrap:balance}
+  .pdiv .t-lede{color:var(--dark-fg-2);max-width:1240px;margin-top:30px}
+  .pdiv .footer{position:absolute;left:var(--margin-x);right:var(--margin-x);bottom:var(--margin-y)}
+.allocgrid.bl{grid-template-columns:1fr 330px;gap:32px}.allocgrid.bl .alloc{font-size:15.5px;line-height:1.25}.allocgrid.bl .alloc td{padding:6px 8px 6px 0}.allocgrid.bl .rules p{font-size:15.5px}.allocgrid.bl ul{columns:3!important;column-gap:26px!important}  .gate{margin-top:40px;border:var(--rule-w-hair) solid var(--rule-hair);border-left:4px solid var(--accent-deep);background:var(--paper-pure);padding:28px 32px;max-width:1100px}
+  .gate .gl{font-family:var(--font-mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 10px}
+  .gate .gt{font-family:var(--font-body);font-size:24px;line-height:1.4;color:var(--ink-2);margin:0}
+  .gtag{display:inline-block;font-family:var(--font-mono);font-weight:600;font-size:.72em;letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:.16em .5em .12em;border-radius:6px;vertical-align:.08em;line-height:1.2;white-space:nowrap}
+  .gtag.g40,.gname.g40{background:#017d8e}.gtag.g60,.gname.g60{background:#2e7d4f}
+  h2 .gtag{font-size:.5em;vertical-align:.22em}
+  .gname{display:inline-block;color:#fff;padding:.04em .34em .08em;border-radius:12px;line-height:1.05}
+  .gopt{display:inline-block;margin-left:24px;font-family:var(--font-mono);font-size:22px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);vertical-align:.55em;font-weight:500}
+  .gsub{font-family:var(--font-body);font-size:26px;line-height:1.35;color:var(--ink-2);margin:12px 0 0;max-width:1500px}
+  .mslide.gated{position:relative}
+  .gated .blurbg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .gated>.crumb,.gated>h2,.gated>hr,.gated>.gate,.gated>.footer{position:relative;z-index:1}
+  .gated>.corner-logo{z-index:1}
+  .gated .gate{background:rgba(250,249,246,.78);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);margin:150px auto 0;text-align:center;max-width:900px;border-left:0;border:var(--rule-w-hair) solid var(--rule-hair);border-top:4px solid var(--accent-deep)}
+
+  /* ===== Goodhire proposal — added components ===== */
+  .gh-sub{font-family:var(--font-body);font-size:25px;line-height:1.38;color:var(--ink-2);margin:4px 0 0;max-width:1640px}
+  .gh-sub b{color:var(--ink-1)}
+  .p3 .pl li{margin-bottom:4px}
+  .pagetbl td:nth-child(1){width:330px}.pagetbl td:nth-child(2){width:820px}
+  .pagetbl{font-size:19px}.pagetbl td{padding:10px 14px 10px 0}
+  .plan-tbl{font-size:19px}.plan-tbl td{padding:9px 10px 9px 0}
+  .plan-tbl ul{margin:0;padding-left:18px;columns:2;column-gap:32px}
+  .plan-tbl li{margin:0 0 3px;break-inside:avoid}
+  .plan-tbl tr.tot td{border-top:var(--rule-w-strong) solid var(--ink-1);font-weight:600;color:var(--ink-1)}
+  .rc3{font-size:17px;line-height:1.25}.rc3 td{padding:6px 14px 6px 0}
+  .rc3 td.r{font-size:22px}
+  .rules.wide p{font-size:19px}
+  .kwgrid{margin-top:10px;display:grid;gap:0 24px;align-items:start}
+  .kwt{border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;background:#fff}
+  .kwt table{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:16px;line-height:1.25}
+  .kwt th{text-align:left;padding:8px 10px;font-weight:600;font-size:13.5px;text-transform:uppercase;letter-spacing:.05em;color:#666;border-bottom:2px solid #e5e5e5;background:#f5f5f5;white-space:nowrap}
+  .kwt td{padding:6px 10px;border-bottom:1px solid #eee;color:#333;vertical-align:top}
+  .kwt tr:last-child td{border-bottom:none}
+  .kwt .mono{font-family:var(--font-mono);font-size:15px;white-space:nowrap}
+  .kwt .r{text-align:right}
+  .kwt .win{color:#15803d;font-weight:600}.kwt .miss{color:var(--ink-4)}.kwt .near{color:#b45309;font-weight:600}
+  .kwt .site{font-family:var(--font-mono);font-size:15px;color:var(--ink-3);white-space:nowrap}
+  .kwsum{margin-top:10px;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:start}
+  .kwsum .kwt table{font-size:18px}.kwsum .kwt td{padding:9px 12px}.kwsum .kwt th{padding:9px 12px}
+  .kwsum tr.tot td{font-weight:700;color:var(--ink-1);background:var(--accent-tint);border-top:2px solid var(--ink-1)}
+  .kwsum tr.adm td{color:var(--ink-3);background:#fafafa;border-top:3px double var(--ink-4)}
+  .kwsum .lbl{display:inline-block;font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:1px 7px;border-radius:4px;margin-left:8px;vertical-align:2px}
+  .kwsum .sub{display:block;font-size:15px;color:var(--ink-3);margin-top:3px;line-height:1.3}
+  .estbox{margin-top:22px;background:var(--accent-tint);border-left:4px solid var(--accent);padding:16px 20px;font-family:var(--font-body);font-size:20px;line-height:1.4;color:var(--ink-1)}
+  .estbox .el{display:block;font-family:var(--font-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:6px}
+  .kwsrc{font-family:var(--font-body);font-size:16px;line-height:1.35;color:var(--ink-4);margin:12px 0 0}
+  .kwbig table{font-size:20px}.kwbig td{padding:12px 14px}.kwbig th{padding:10px 14px}.kwbig .mono{font-size:18px}
+  .kwsum2 table{font-size:17px}.kwsum2 td{padding:7px 10px}.kwsum2 th{padding:6px 10px}.kwsum2 td.b{font-weight:600;color:var(--ink-1)}
+  .kwsum2 tr.tot td{font-weight:700;color:var(--ink-1);background:var(--accent-tint);border-top:2px solid var(--ink-1)}
+  .kwsum2 tr.adm td{color:var(--ink-3);background:#fafafa;border-top:3px double var(--ink-4)}
+  .kwsum2 .lbl{display:inline-block;font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:1px 7px;border-radius:4px;margin-left:8px;vertical-align:2px}
+  .kwsum2 .sub{display:block;font-size:15px;color:var(--ink-3);margin-top:3px;line-height:1.3;max-width:640px}
+  .kwsumfoot{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+  .kwt tr.grp td{font-family:var(--font-mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-tint);font-weight:600}
+  .kwnote{font-family:var(--font-body);font-size:17px;line-height:1.4;color:var(--ink-3);margin:14px 0 0}
+  .scope-cards .card3{padding:24px 28px;gap:8px}.scope-cards li{font-size:21px;padding:10px 0 10px 28px}.scope-cards li::before{top:19px}
+  .vmask{display:inline-block;width:180px;height:12px;border-radius:6px;background:#d6d6d6;vertical-align:middle}
+  .kwmask{font-family:var(--font-body);font-size:17px;line-height:1.35;color:var(--ink-3);margin:12px 0 0}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="Cover">
+    <div class="mslide bleed cover-grid">
+      <div class="cover-left">
+        <img class="cover-logo anim" src="assets/novastacks-logo.png" alt="Novastacks">
+        <div>
+          <h1 class="t-cover-h1 anim d1" style="font-size:96px;line-height:1.02">Novastacks &times;<br>Goodhire</h1>
+          <hr class="accent-rule anim d2">
+          <p class="t-lede anim d2" style="max-width:840px">Proposal · 30 November 2026 · Singapore</p>
+        </div>
+      </div>
+      <div class="cover-right">
+        <p class="rtag">Be the agency<br>families and AI<br>find first.</p>
+        <hr class="tealrule">
+        <div class="ct">Goodhire · Jobs and Staff Pte Ltd</div>
+      </div>
+    </div>
+  </section>
+<section data-label="AI picks the shortlist">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1">AI answers now come before the links, fewer people click, and the agency AI names gets the enquiry.</h2>
+      <hr class="accent-rule bad anim d1">
+      <div class="flow3 anim d2">
+        <div class="fstep">
+          <p class="fsn">1 · AI answers come first</p>
+          <p class="fbig">81.6%</p>
+          <p class="fbt">of Google searches now show an AI answer before any link.</p>
+          <p class="fsrc">First Page Sage, Sept 2026 (US)</p>
+          <p class="fsub">Google AI Overviews already show Goodhire for <b>direct hire from the Philippines</b>. ChatGPT and other assistants recommend other agencies.</p>
+          <p class="fsrc">Jude Lee, call with Novastacks, 19 Nov 2026</p>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div class="fstep">
+          <p class="fsn">2 · The click disappears</p>
+          <p class="fbig">68%</p>
+          <p class="fbt">of Google searches end without a click to any website.</p>
+          <p class="fsrc">SparkToro / Similarweb, Jan&ndash;Apr 2026 (US)</p>
+          <p class="fsub">When an AI Overview appears, the #1 ranked page gets <b>58% fewer clicks</b>.</p>
+          <p class="fsrc">Ahrefs, 300K keywords, Dec 2025</p>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div class="fstep win">
+          <p class="fsn">3 · The named agency wins</p>
+          <p class="fbig">4&ndash;5</p>
+          <p class="fbt">brands: AI names the same small set in a category, however the question is asked.</p>
+          <p class="fsrc">Ayomide Joseph, 270 queries, June 2026</p>
+          <p class="fsub">Brands cited in an AI Overview get <b>about 35% more clicks</b> than brands that are not cited.</p>
+          <p class="fsrc">Seer Interactive</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 1 · WHY AI SEARCH MATTERS FOR GOODHIRE</span><span class="t-footer">2 / 27</span></div>
+    </div>
+  </section>
+<section data-label="How AI search decides">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1">AI checks three layers before it recommends an agency, starting with your own website.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="anim d2" style="margin-top:10px"><svg viewBox="0 0 1728 580" width="100%" role="img" aria-label="Three rings AI search reads: control (your website), influence (conversations) and earned trust (independent sources), resting on buyer questions, product knowledge and proof">
+<path d="M180,500 A460,460 0 0 1 1100,500 Z" style="fill:var(--accent-tint-2);stroke:var(--accent);stroke-width:2"/><path d="M320,500 A320,320 0 0 1 960,500 Z" style="fill:var(--accent-tint);stroke:var(--accent);stroke-width:2"/><path d="M460,500 A180,180 0 0 1 820,500 Z" style="fill:var(--paper-pure);stroke:var(--accent-deep);stroke-width:2"/>
+<text x="640" y="105" text-anchor="middle" style="font-family:var(--font-mono);fill:var(--accent-deep);font-size:20px;font-weight:600;letter-spacing:3px">EARN TRUST</text>
+<text x="640" y="138" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:22px;font-weight:400;letter-spacing:0px">MOM licence · DMW accreditation · News</text>
+<text x="640" y="166" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:22px;font-weight:400;letter-spacing:0px">Agency guides and directories · Google reviews</text>
+<text x="640" y="245" text-anchor="middle" style="font-family:var(--font-mono);fill:var(--accent-deep);font-size:20px;font-weight:600;letter-spacing:3px">INFLUENCE</text>
+<text x="640" y="278" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:22px;font-weight:400;letter-spacing:0px">Facebook groups · Parent forums</text>
+<text x="640" y="390" text-anchor="middle" style="font-family:var(--font-mono);fill:var(--accent-deep);font-size:20px;font-weight:600;letter-spacing:3px">CONTROL</text>
+<text x="640" y="424" text-anchor="middle" style="font-family:var(--font-display);fill:var(--ink-1);font-size:26px;font-weight:600;letter-spacing:0px">Your website</text>
+<text x="640" y="456" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">Service pages · Fee guides</text>
+<rect x="140" y="500" width="1000" height="56" style="fill:var(--ink-1)"/>
+<text x="640" y="537" text-anchor="middle" style="font-family:var(--font-display);fill:var(--paper-pure);font-size:24px;font-weight:600;letter-spacing:0px">Employer questions · Fees and process · Proof</text>
+<g>
+<line x1="1230" y1="70" x2="1728" y2="70" style="stroke:var(--accent);stroke-width:3"/>
+<text x="1230" y="102" text-anchor="start" style="font-family:var(--font-display);fill:var(--ink-1);font-size:24px;font-weight:600;letter-spacing:0px">What AI checks before it</text><text x="1230" y="130" text-anchor="start" style="font-family:var(--font-display);fill:var(--ink-1);font-size:24px;font-weight:600;letter-spacing:0px">recommends an agency</text>
+<text x="1230" y="182" text-anchor="start" style="font-family:var(--font-display);fill:var(--accent-deep);font-size:22px;font-weight:600;letter-spacing:0px">Control</text>
+<text x="1230" y="212" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-2);font-size:22px;font-weight:400;letter-spacing:0px">Is the answer on your own site, clearly?</text>
+<text x="1230" y="262" text-anchor="start" style="font-family:var(--font-display);fill:var(--accent-deep);font-size:22px;font-weight:600;letter-spacing:0px">Influence</text>
+<text x="1230" y="294" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-2);font-size:22px;font-weight:400;letter-spacing:0px">Do buyers and peers discuss you?</text>
+<text x="1230" y="354" text-anchor="start" style="font-family:var(--font-display);fill:var(--accent-deep);font-size:22px;font-weight:600;letter-spacing:0px">Earn trust</text>
+<text x="1230" y="386" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-2);font-size:22px;font-weight:400;letter-spacing:0px">Do independent sources confirm it?</text>
+<text x="1230" y="460" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-1);font-size:22px;font-weight:600;letter-spacing:0px">Each ring depends on the one inside it:</text>
+<text x="1230" y="490" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-1);font-size:22px;font-weight:600;letter-spacing:0px">start with your own website.</text>
+</g></svg></div>
+      <div class="footer"><span class="t-footer">PART 1 · HOW AI SEARCH WORKS</span><span class="t-footer">3 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Website truth layer">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1">Your website is the source AI checks first, so each employer question needs a page on it.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="anim d2" style="margin-top:10px"><svg viewBox="0 0 1728 580" width="100%" role="img" aria-label="Buyers bring questions to your website, which answers them; Google and AI read those pages for authority, retrieval and training">
+<defs><marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent-deep)"/></marker></defs>
+<text x="170" y="110" text-anchor="middle" style="font-family:var(--font-display);fill:var(--ink-1);font-size:28px;font-weight:600;letter-spacing:0px">Your buyers</text>
+<text x="170" y="160" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">Singapore families</text>
+<text x="170" y="186" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">hiring a domestic</text>
+<text x="170" y="212" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">helper</text>
+<text x="170" y="280" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">They search by</text>
+<text x="170" y="306" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">source country, fees</text>
+<text x="170" y="332" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">and process</text>
+<line x1="330" y1="230" x2="540" y2="230" style="stroke:var(--accent-deep);stroke-width:3;" marker-end="url(#ah)"/>
+<rect x="530" y="40" width="680" height="440" rx="6" style="fill:var(--accent-tint);stroke:var(--accent-deep);stroke-width:3"/>
+<text x="870" y="90" text-anchor="middle" style="font-family:var(--font-display);fill:var(--ink-1);font-size:30px;font-weight:600;letter-spacing:0px">Your website</text>
+<text x="870" y="124" text-anchor="middle" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">The source of truth AI checks first</text>
+<rect x="560" y="150" width="620" height="72" rx="6" style="fill:var(--paper-pure);stroke:var(--accent);stroke-width:2"/><text x="584" y="182" text-anchor="start" style="font-family:var(--font-display);fill:var(--ink-1);font-size:22px;font-weight:600;letter-spacing:0px">Learn and solve</text><text x="584" y="208" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-3);font-size:18px;font-weight:400;letter-spacing:0px">Eligibility · Levy · Hiring process · OEC and IPA</text><rect x="560" y="242" width="620" height="72" rx="6" style="fill:var(--paper-pure);stroke:var(--accent);stroke-width:2"/><text x="584" y="274" text-anchor="start" style="font-family:var(--font-display);fill:var(--ink-1);font-size:22px;font-weight:600;letter-spacing:0px">Evaluate and choose</text><text x="584" y="300" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-3);font-size:18px;font-weight:400;letter-spacing:0px">A service page per hire type · Fees · Timelines</text><rect x="560" y="334" width="620" height="72" rx="6" style="fill:var(--paper-pure);stroke:var(--accent);stroke-width:2"/><text x="584" y="366" text-anchor="start" style="font-family:var(--font-display);fill:var(--ink-1);font-size:22px;font-weight:600;letter-spacing:0px">Use and succeed</text><text x="584" y="392" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-3);font-size:18px;font-weight:400;letter-spacing:0px">Settling in · Permit renewal · Transfers</text>
+<text x="870" y="455" text-anchor="middle" style="font-family:var(--font-mono);fill:var(--accent-deep);font-size:18px;font-weight:500;letter-spacing:0px">Verified facts · Evidence · Up-to-date fees</text>
+<line x1="1220" y1="230" x2="1380" y2="230" style="stroke:var(--accent-deep);stroke-width:3;" marker-end="url(#ah)"/>
+<line x1="1220" y1="330" x2="1380" y2="380" style="stroke:var(--accent-deep);stroke-width:3;stroke-dasharray:8 6" marker-end="url(#ah)"/>
+<text x="1555" y="110" text-anchor="middle" style="font-family:var(--font-display);fill:var(--ink-1);font-size:28px;font-weight:600;letter-spacing:0px">Google and AI</text>
+<text x="1400" y="180" text-anchor="start" style="font-family:var(--font-display);fill:var(--accent-deep);font-size:22px;font-weight:600;letter-spacing:0px">Authority</text>
+<text x="1400" y="208" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">Confidence to recommend you</text>
+<text x="1400" y="272" text-anchor="start" style="font-family:var(--font-display);fill:var(--accent-deep);font-size:22px;font-weight:600;letter-spacing:0px">Retrieval</text>
+<text x="1400" y="300" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">Answers quoted from your pages</text>
+<text x="1400" y="380" text-anchor="start" style="font-family:var(--font-display);fill:var(--accent-deep);font-size:22px;font-weight:600;letter-spacing:0px">Training</text>
+<text x="1400" y="408" text-anchor="start" style="font-family:var(--font-body);fill:var(--ink-2);font-size:20px;font-weight:400;letter-spacing:0px">Shapes what future models know</text>
+<rect x="140" y="510" width="1448" height="52" style="fill:var(--ink-1)"/>
+<text x="864" y="545" text-anchor="middle" style="font-family:var(--font-display);fill:var(--paper-pure);font-size:22px;font-weight:600;letter-spacing:0px">Employer questions by hire type and source country</text>
+</svg></div>
+      <div class="footer"><span class="t-footer">PART 1 · HOW AI SEARCH WORKS</span><span class="t-footer">4 / 27</span></div>
+    </div>
+  </section>
+<section class="dark" data-label="Part 2 divider">
+    <div class="mslide dark pdiv">
+      <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
+      <p class="pnum anim">Part 2</p>
+      <h2 class="anim d1">Why Novastacks, and what you get.</h2>
+      <p class="t-lede anim d2">The team, the AI search system we run, how an engagement runs, the scope for Goodhire and a client case.</p>
+      <div class="footer"><span class="t-footer">NOVASTACKS × GOODHIRE</span><span class="t-footer">5 / 27</span></div>
+    </div>
+  </section>
+<section data-label="The Growth System">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action anim d1">Every engagement runs on one stack: the business outcome on top, AI infrastructure underneath.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="pyr-grid anim d2">
+        <div class="pyr-left">
+          <svg viewBox="0 0 640 512" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <polygon points="320,6 580,506 60,506" fill="#01AAC1"/>
+            <line x1="255" y1="131" x2="385" y2="131" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+            <line x1="190" y1="256" x2="450" y2="256" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+            <line x1="125" y1="381" x2="515" y2="381" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+            <text x="320" y="80" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">1</text>
+            <text x="320" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">2</text>
+            <text x="320" y="330" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">3</text>
+            <text x="320" y="455" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="30" font-weight="600" fill="#ffffff">4</text>
+          </svg>
+        </div>
+        <div class="pyr-text">
+          <div class="pyr-row">
+            <p class="ph">Business Outcome</p>
+            <p class="pdd">Revenue, margin, lead pipeline and AI search share-of-voice, co-owned and on our comp.</p>
+          </div>
+          <div class="pyr-row">
+            <p class="ph">Expert Strategy</p>
+            <p class="pdd">Senior operator layer: GTM, ecommerce strategy, user acquisition and retention initiatives.</p>
+          </div>
+          <div class="pyr-row">
+            <p class="ph">Human &amp; Agentic Execution</p>
+            <p class="pdd">Storefront, branded app, membership, rebrand, ERP, AEO &amp; SEO, paid media, social content and campaign management.</p>
+          </div>
+          <div class="pyr-row">
+            <p class="ph">AI Infrastructure</p>
+            <p class="pdd">Agents, automation and data unification, customised and built for you.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · THE NOVASTACKS GROWTH SYSTEM</span><span class="t-footer">6 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Team &amp; Resources">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action anim d1" style="margin-bottom:0">The senior people named here plan and do the work, with no junior or account team behind them.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="team quad anim d2" style="margin-top:24px">
+        <div class="prof">
+          <div class="photo" style="background-image:url(assets/team-tina.jpg)"></div>
+          <div>
+            <p class="pname">Tina Chu</p>
+            <p class="prole">Founder &amp; CEO</p>
+            <div class="cred">
+              <p>Growth leadership at <b>Expedia, Tencent, Klook, Cabital and Traveloka.</b> Led a 100-person growth organisation at Traveloka.</p>
+              <p>Two-time Marketing Excellence Awards winner and Wharton MBA; SMU Academy certified AI trainer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="avatar">YH</div>
+          <div>
+            <p class="pname">YaoHong</p>
+            <p class="prole">CTO</p>
+            <div class="cred">
+              <p>20+ years in finance and tech; built and scaled data teams at <b>StashAway and January Capital.</b></p>
+              <p>Business intelligence, data unification and agentic-workflow engineering.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="photo" style="background-image:url(assets/team-eki.jpg)"></div>
+          <div>
+            <p class="pname">Eki Riandra</p>
+            <p class="prole">Head of Search &amp; Commerce</p>
+            <div class="cred">
+              <p>Ex-Tech SEO Head of <b>Traveloka &amp; Tokopedia;</b> Google Product Expert.</p>
+              <p>Co-authored the Tokopedia growth case study with Google.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prof">
+          <div class="avatar">RK</div>
+          <div>
+            <p class="pname">Raka</p>
+            <p class="prole">Creative Director</p>
+            <div class="cred">
+              <p>Ex-Creative Director, <b>Traveloka.</b> Founder of ArtGenie Studio.</p>
+              <p>Brand strategy, creative direction and visual storytelling.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="callout anim d3"><span class="dot"></span><span>At market salaries this team is worth <b>~$500K a year combined</b>, and the same people run your account.</span></div>
+      <div class="footer"><span class="t-footer">PART 2 · TEAM</span><span class="t-footer">7 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Core Services">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action anim d1">Three services, one revenue growth loop: get found, convert demand, scale with AI.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="three-up fill anim d2">
+        <div class="card3">
+          <div class="n">01</div>
+          <h3 class="h">AI Search, SEO &amp; AEO</h3>
+          <p class="d" style="margin:16px 0 0">Done-for-you visibility across Google and the AI answer engines, so your brand is the page buyers find and the answer ChatGPT, Gemini and Google AI Overviews recommend.</p>
+          <div class="ev" style="margin-top:auto">Technical SEO · Content &amp; AEO · Digital PR · AI visibility tracking</div>
+        </div>
+        <div class="card3">
+          <div class="n">02</div>
+          <h3 class="h">Growth Partner</h3>
+          <p class="d" style="margin:16px 0 0">A fractional CMO and senior execution pod that embeds as your extended team, owning go-to-market, channels and the growth number with you, without a full in-house hire.</p>
+          <div class="ev" style="margin-top:auto">Fractional CMO · GTM &amp; demand gen · Paid, content &amp; lifecycle · Co-owned KPIs</div>
+        </div>
+        <div class="card3">
+          <div class="n">03</div>
+          <h3 class="h">AI Transformation</h3>
+          <p class="d" style="margin:16px 0 0">We make AI native to how your team operates: hands-on workshops, growth consultancy and agentic workflows built around your real business processes.</p>
+          <div class="ev" style="margin-top:auto">AI workshops · AI growth consultancy · Agentic workflow builds</div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · CORE SERVICES</span><span class="t-footer">8 / 27</span></div>
+    </div>
+  </section>
+<section data-label="GEO scope vs SEO">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      
+      <h2 class="t-action anim d1">GEO has broader scope than classic SEO.</h2>
+      <hr class="accent-rule anim d1" style="margin:16px 0">
+      <p class="t-lede anim d1">We run every discipline on this page, and prioritise the ones your brand, strategy and audience need.</p>
+      <div class="capgrid anim d2">
+        <p class="caph">Capability</p><p class="caph seo">Classic SEO covers</p><p class="caph geo">What GEO adds</p>
+        <p class="capn">Search strategy &amp; research</p><p class="capseo">Keyword research &middot; search intent mapping &middot; competitor gap analysis</p><p class="capgeo">AI prompt research &middot; buyer research &middot; customer funnel analysis &middot; ICP modelling</p>
+        <p class="capn">Technical SEO</p><p class="capseo">Crawl and indexation &middot; canonicalisation &middot; Core Web Vitals</p><p class="capgeo">AI crawler access management &middot; rendering readiness for AI retrieval</p>
+        <p class="capn">Site architecture &amp; internal linking</p><p class="capseo">Information architecture &middot; internal linking</p><p class="capgeo">Topic clusters built around buyer questions</p>
+        <p class="capn">Content &amp; on-page optimisation</p><p class="capseo">Titles and metas &middot; headings &middot; SEO copywriting</p><p class="capgeo">Answer-focused content &middot; commercial and comparison pages &middot; content quality assessment &middot; refresh and fact verification</p>
+        <p class="capn">Entity clarity &amp; structured data</p><p class="capseo">Structured data implementation</p><p class="capgeo">Brand entity clarification &middot; product information standardisation &middot; onsite/offsite consistency audit</p>
+        <p class="capn">Authority &amp; reputation</p><p class="capseo">Editorial link acquisition &middot; digital PR</p><p class="capgeo">Original research publication &middot; expert contribution &middot; third-party profile and review optimisation &middot; AI-cited source outreach and partnerships</p>
+        <p class="capn">AI visibility analysis &amp; optimisation</p><p class="capseo"><span class="capnil">Not part of classic SEO</span></p><p class="capgeo">AI visibility benchmarking &middot; citation source analysis &middot; brand representation analysis &middot; answer gap analysis &middot; source information correction</p>
+        <p class="capn">Performance measurement &amp; conversion</p><p class="capseo">Organic performance analysis &middot; conversion tracking</p><p class="capgeo">AI mention and citation tracking &middot; prompt-level tracking &middot; AI referral analysis</p>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · EIGHT CAPABILITIES, WHAT GEO ADDS TO EACH</span><span class="t-footer">9 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Scope of work">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1">Scope for Goodhire: SEO and GEO on goodhire.sg, for Singapore employers, in English.</h2>
+      <p class="gh-sub anim d1"><b>Your goal, from our 19 November call:</b> direct hires back from about 30 a month to 50 or more. Results are not guaranteed.</p>
+      <hr class="accent-rule good anim d1" style="margin:18px 0 0">
+      <div class="three-up fill m1 scope-cards anim d2" style="margin-top:18px">
+        <div class="card3">
+          <div class="n">01</div>
+          <h3 class="h">Website</h3>
+          <ul>
+            <li>Content and structure on your existing WordPress site; no rebrand.</li>
+            <li>A service page for each main way to hire: direct and agency hire from the Philippines and from Indonesia, plus a page on hiring a helper online.</li>
+            <li>All 27 Get Answers articles refreshed, so each answers one employer question in full.</li>
+            <li>New articles for the questions employers ask ChatGPT and Google AI.</li>
+          </ul>
+        </div>
+        <div class="card3">
+          <div class="n">02</div>
+          <h3 class="h">SEO and GEO</h3>
+          <ul>
+            <li>Light technical clean-up: a services section in the navigation, headings, structured data and metadata.</li>
+            <li>Links from your existing articles to the new service pages.</li>
+            <li>Pages written so ChatGPT and Google AI can quote them.</li>
+            <li>Monthly tracking of Google rankings and AI answers.</li>
+          </ul>
+        </div>
+        <div class="card3">
+          <div class="n">03</div>
+          <h3 class="h">Market and channel</h3>
+          <ul>
+            <li>Singapore, in English: the employers who hire through goodhire.sg.</li>
+            <li>One channel: your own website.</li>
+            <li>No ads, no paid placements and nothing posted in community groups.</li>
+            <li class="cond">Community and reputation work is a possible second phase, decided after the six months.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · SCOPE FOR GOODHIRE</span><span class="t-footer">10 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Partners &amp; Clients">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action anim d1">Partners and clients we help to scale their growth.</h2>
+      <hr class="accent-rule anim d1" style="margin:18px 0 20px">
+      <p class="t-lede anim d2">Practice areas we cover.</p>
+      <div class="ptags wide anim d2">
+        <span class="ptag">DATA-TECH</span>
+        <span class="ptag">LOGISTICS</span>
+        <span class="ptag">HOSPITALITY</span>
+        <span class="ptag">INVESTMENT</span>
+        <span class="ptag">ACADEMIC</span>
+        <span class="ptag">FINTECH</span>
+        <span class="ptag">B2B SAAS</span>
+        <span class="ptag">B2C MARKETPLACE</span>
+        <span class="ptag">HEALTHCARE</span>
+      </div>
+      <div class="lwall anim d2">
+        <div class="lview">
+        <div class="ltrack">
+          <div class="lset">
+            <img src="assets/tiket-logo.svg" alt="tiket.com" style="height:130px">
+            <img src="assets/smu-academy-logo.png" alt="SMU Academy" style="height:136px">
+            <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:226px">
+            <img src="assets/flip-logo.svg" alt="Flip" style="height:178px">
+            <img src="assets/decube-logo.svg" alt="Decube" style="height:118px">
+          </div>
+          <div class="lset" aria-hidden="true">
+            <img src="assets/tiket-logo.svg" alt="" style="height:130px">
+            <img src="assets/smu-academy-logo.png" alt="" style="height:136px">
+            <img src="assets/gofreight-logo.png" alt="" style="height:226px">
+            <img src="assets/flip-logo.svg" alt="" style="height:178px">
+            <img src="assets/decube-logo.svg" alt="" style="height:118px">
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · BRANDS AND INSTITUTIONS THAT WORK WITH US</span><span class="t-footer">11 / 27</span></div>
+    </div>
+  </section>
+<section data-label="The Novastacks Methodology">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="aos-grid">
+        <div class="aos-text">
+          <h2 class="t-action anim d1">The Novastacks Methodology</h2>
+          <p class="aos-h2 anim d1">Senior operators on strategy, agentic precision on execution.</p>
+          <hr class="accent-rule anim d1">
+          <p class="aos-lede anim d1">Novastacks&rsquo; methodology arms senior marketing operators with Novastacks AI Search OS, Novastacks&rsquo; proprietary agentic system for AI search.</p>
+          <div class="aos-layers anim d2">
+          <div class="alrow"><p class="al">Data<span>What goes in</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;01</span><b>First-Party Signals</b> your own data</span><span class="asl"><span class="pchip">SYS&middot;02</span><b>Search Demand Signals</b> market and competitor evidence</span></div></div>
+          <div class="alrow"><p class="al">Decision<span>What determines your AEO strategy and tactics</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;03</span><b>AEO Orbit Watch</b> Novastacks&rsquo; AI search knowledge base</span><span class="asl"><span class="pchip">SYS&middot;04</span><b>Prompt Radar Pro</b> buyer-question generation method</span><span class="asl"><span class="pchip">SYS&middot;05</span><b>Answer Architecture</b> market map and page decisions</span></div></div>
+          <div class="alrow"><p class="al">Execution<span>What gets built</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;06</span><b>Machine Readability</b> the site&rsquo;s technical readiness</span><span class="asl"><span class="pchip">SYS&middot;07</span><b>Echo Network</b> trusted third-party presence</span></div></div>
+          <div class="alrow"><p class="al">Measurement<span>What you get</span></p><div class="as"><span class="asl"><span class="pchip">SYS&middot;08</span><b>Proof Loop</b> AI visibility measured against pipeline</span></div></div>
+          </div>
+          <p class="aos-harness anim d2">Our senior AI engineers decomposed marketing operations into deterministic steps, LLM-reasoning steps, and the points where a human sets the strategy and adjusts the workflow. The system is configured around each client&rsquo;s performance needs; it is not designed to serve millions of accounts on one setting.</p>
+        </div>
+        <div class="aos-dia anim d2">
+            <svg class="aos-svg" viewBox="0 0 760 860" role="img" aria-label="Four stacked layers of Novastacks AI Search OS: Data, Decision, Execution, Measurement">
+            <g class="aplane">
+            <text x="40" y="44" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">1 · DATA LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What goes in</tspan></text>
+            <polygon points="140,62 620,62 720,192 40,192" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="105.3" x2="653.3" y2="105.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="148.7" x2="686.7" y2="148.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="62" x2="210" y2="192" stroke="#E2E8F0"/>
+            <line x1="380" y1="62" x2="380" y2="192" stroke="#E2E8F0"/>
+            <line x1="500" y1="62" x2="550" y2="192" stroke="#E2E8F0"/>
+            <rect x="150" y="89" width="121" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="210.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Sales calls</text>
+            <rect x="281" y="89" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="362.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Customer reviews</text>
+            <rect x="454" y="89" width="171" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="539.5" y="110.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Product catalogue</text>
+            <rect x="110" y="133" width="146" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="183.0" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Search Console</text>
+            <rect x="266" y="133" width="179" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="355.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">What buyers search</text>
+            <rect x="455" y="133" width="163" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="536.5" y="154.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Competitor pages</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="249" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">2 · DECISION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What determines your AEO strategy and tactics</tspan></text>
+            <polygon points="140,267 620,267 720,397 40,397" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="310.3" x2="653.3" y2="310.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="353.7" x2="686.7" y2="353.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="267" x2="210" y2="397" stroke="#E2E8F0"/>
+            <line x1="380" y1="267" x2="380" y2="397" stroke="#E2E8F0"/>
+            <line x1="500" y1="267" x2="550" y2="397" stroke="#E2E8F0"/>
+            <rect x="150" y="294" width="188" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="244.0" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Trending AI tactics</text>
+            <rect x="348" y="294" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="458.5" y="315.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Questions buyers ask AI</text>
+            <rect x="110" y="338" width="262" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="241.0" y="359.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Site structure and page plan</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="454" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">3 · EXECUTION LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What gets built</tspan></text>
+            <polygon points="140,472 620,472 720,602 40,602" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="515.3" x2="653.3" y2="515.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="558.7" x2="686.7" y2="558.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="472" x2="210" y2="602" stroke="#E2E8F0"/>
+            <line x1="380" y1="472" x2="380" y2="602" stroke="#E2E8F0"/>
+            <line x1="500" y1="472" x2="550" y2="602" stroke="#E2E8F0"/>
+            <rect x="150" y="499" width="204" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="252.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">AI crawlability fixes</text>
+            <rect x="364" y="499" width="138" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="433.0" y="520.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Schema markup</text>
+            <rect x="110" y="543" width="246" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="233.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pages written to be quoted</text>
+            <rect x="366" y="543" width="238" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="485.0" y="564.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Mentions on trusted sites</text>
+            </g>
+            <g class="aplane">
+            <text x="40" y="659" font-size="17" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" paint-order="stroke"><tspan font-weight="700" fill="#017D8E" letter-spacing="1.2">4 · MEASUREMENT LAYER</tspan><tspan font-weight="500" fill="#4A4A4A"> · What you get</tspan></text>
+            <polygon points="140,677 620,677 720,807 40,807" fill="#EAF6F8" stroke="#01AAC1" stroke-width="2"/>
+            <line x1="106.7" y1="720.3" x2="653.3" y2="720.3" stroke="#E2E8F0"/>
+            <line x1="73.3" y1="763.7" x2="686.7" y2="763.7" stroke="#E2E8F0"/>
+            <line x1="260" y1="677" x2="210" y2="807" stroke="#E2E8F0"/>
+            <line x1="380" y1="677" x2="380" y2="807" stroke="#E2E8F0"/>
+            <line x1="500" y1="677" x2="550" y2="807" stroke="#E2E8F0"/>
+            <rect x="150" y="704" width="320" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="310.0" y="725.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Named and recommended by AI engines</text>
+            <rect x="110" y="748" width="221" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8"/>
+            <text x="220.5" y="769.5" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Pipeline from AI search</text>
+            </g>
+            <line x1="664" y1="127" x2="664" y2="332" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <line x1="664" y1="332" x2="664" y2="537" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <line x1="664" y1="537" x2="664" y2="742" stroke="#01AAC1" stroke-width="3.5" stroke-dasharray="8 6"/>
+            <circle cx="664" cy="127" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="332" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="537" r="9" fill="#01AAC1" stroke="#FFFFFF" stroke-width="2.5"/>
+            <circle cx="664" cy="742" r="13" fill="#01AAC1" stroke="#017D8E" stroke-width="4"/>
+            </svg>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · THE NOVASTACKS METHODOLOGY</span><span class="t-footer">12 / 27</span></div>
+    </div>
+  </section>
+<section data-label="How an Engagement Runs (1 of 2)">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action anim d1">Every engagement runs as a four-stage cycle; stages 1 and 2 set the plan.</h2>
+      <p class="loop-lede anim d1">Novastacks runs each engagement as a four-stage cycle, the Compounding Loop: AEO/GEO/SEO Audit, Architect, Activate, Amplify. At each stage, the system performs the work at scale and the operator makes the judgement calls.</p>
+      <div class="loop-grid anim d2">
+        <div class="loop-left">
+            <svg class="loop-svg" viewBox="0 0 500 500" role="img" aria-label="The Compounding Loop: AEO/GEO/SEO Audit, Architect, Activate, Amplify, then back to AEO/GEO/SEO Audit">
+            <defs><marker id="lp-arr-0" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#01AAC1"/></marker></defs>
+            <path d="M 299.6 89.5 A 168 168 0 0 1 410.5 200.4" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr-0)"/>
+            <path d="M 410.5 299.6 A 168 168 0 0 1 299.6 410.5" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr-0)"/>
+            <path d="M 200.4 410.5 A 168 168 0 0 1 89.5 299.6" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr-0)"/>
+            <path d="M 89.5 200.4 A 168 168 0 0 1 200.4 89.5" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr-0)"/>
+            <text x="250" y="244" text-anchor="middle" font-size="28" font-weight="600" fill="#131313">Compounding</text>
+            <text x="250" y="278" text-anchor="middle" font-size="28" font-weight="600" fill="#131313">Loop</text>
+            <circle cx="250" cy="82" r="38" fill="#01AAC1" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="250" y="92" text-anchor="middle" font-size="30" font-weight="700" fill="#FFFFFF">1</text>
+            <circle cx="418" cy="250" r="38" fill="#01AAC1" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="418" y="260" text-anchor="middle" font-size="30" font-weight="700" fill="#FFFFFF">2</text>
+            <circle cx="250" cy="418" r="38" fill="#EAF6F8" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="250" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#017D8E">3</text>
+            <circle cx="82" cy="250" r="38" fill="#EAF6F8" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="82" y="260" text-anchor="middle" font-size="30" font-weight="700" fill="#017D8E">4</text>
+            </svg>
+        </div>
+        <div class="loop-right">
+          <div class="lcards">
+            <div class="lcard"><p class="ln"><span class="lnum">1</span>AEO/GEO/SEO Audit</p><p class="lh">See where you stand and what needs attention.</p><p class="lp">We assess your search and AI visibility, competitor presence, content, technical foundations, backlinks and brand entity consistency. Your senior lead prioritises the gaps against your business goals.</p><p class="lr"><b>You get:</b> A visibility baseline, competitor comparison and prioritised findings across content, technical performance and brand authority.</p></div>
+            <div class="lcard"><p class="ln"><span class="lnum">2</span>Architect</p><p class="lh">Decide the strategy and tactics.</p><p class="lp">We decide which buyer questions, products and markets to win first, and the tactics for each: content, technical fixes, link partnerships and entity management. Your senior lead sets the priorities and success measures.</p><p class="lr"><b>You get:</b> A strategy and tactics plan with agreed priorities, sequence and metrics.</p></div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · HOW AN ENGAGEMENT RUNS · STAGES 1&ndash;2</span><span class="t-footer">13 / 27</span></div>
+    </div>
+  </section>
+<section data-label="How an Engagement Runs (2 of 2)">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action anim d1">Stages 3 and 4 build the pages, measure what moved and set the next month.</h2>
+      
+      <div class="loop-grid anim d2">
+        <div class="loop-left">
+            <svg class="loop-svg" viewBox="0 0 500 500" role="img" aria-label="The Compounding Loop: AEO/GEO/SEO Audit, Architect, Activate, Amplify, then back to AEO/GEO/SEO Audit">
+            <defs><marker id="lp-arr-1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#01AAC1"/></marker></defs>
+            <path d="M 299.6 89.5 A 168 168 0 0 1 410.5 200.4" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr-1)"/>
+            <path d="M 410.5 299.6 A 168 168 0 0 1 299.6 410.5" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr-1)"/>
+            <path d="M 200.4 410.5 A 168 168 0 0 1 89.5 299.6" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr-1)"/>
+            <path d="M 89.5 200.4 A 168 168 0 0 1 200.4 89.5" fill="none" stroke="#01AAC1" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#lp-arr-1)"/>
+            <text x="250" y="244" text-anchor="middle" font-size="28" font-weight="600" fill="#131313">Compounding</text>
+            <text x="250" y="278" text-anchor="middle" font-size="28" font-weight="600" fill="#131313">Loop</text>
+            <circle cx="250" cy="82" r="38" fill="#EAF6F8" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="250" y="92" text-anchor="middle" font-size="30" font-weight="700" fill="#017D8E">1</text>
+            <circle cx="418" cy="250" r="38" fill="#EAF6F8" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="418" y="260" text-anchor="middle" font-size="30" font-weight="700" fill="#017D8E">2</text>
+            <circle cx="250" cy="418" r="38" fill="#01AAC1" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="250" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#FFFFFF">3</text>
+            <circle cx="82" cy="250" r="38" fill="#01AAC1" stroke="#017D8E" stroke-width="2.5"/>
+            <text x="82" y="260" text-anchor="middle" font-size="30" font-weight="700" fill="#FFFFFF">4</text>
+            </svg>
+        </div>
+        <div class="loop-right">
+          <div class="lcards">
+            <div class="lcard"><p class="ln"><span class="lnum">3</span>Activate</p><p class="lh">Put the plan into action.</p><p class="lp">We create and optimise content, implement technical fixes, develop link partnerships and strengthen brand information across relevant sources. Senior specialists guide outreach, verify claims and review execution.</p><p class="lr"><b>You get:</b> Completed site improvements, published content, partnership outreach and entity updates, with a tracker showing progress and pending actions.</p></div>
+            <div class="lcard"><p class="ln"><span class="lnum">4</span>Amplify</p><p class="lh">See what changed and what comes next.</p><p class="lp">We track AI mentions, citations, search performance, acquired links and entity consistency. Your senior lead reviews progress against the baseline and decides what to expand, revise or stop.</p><p class="lr"><b>You get:</b> A performance report covering visibility, authority growth and next priorities, connected to traffic and lead enquiries.</p></div>
+          </div>
+          <div class="loop-why anim d2"><p class="lwh">Every cycle leaves you better equipped</p><p>Each engagement develops assets your business can keep using: stronger content, clearer customer insights and documented ways of working. We use performance findings to improve subsequent briefs and execution, so learning carries forward into the next round of work.</p></div>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · HOW AN ENGAGEMENT RUNS · STAGES 3&ndash;4</span><span class="t-footer">14 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Case — GoFreight Results">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action anim d1" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">Novastacks AI Search OS took a Series B freight SaaS from invisible to the fastest-rising share of AI-answer mentions in three months. <img src="assets/gofreight-logo.png" alt="GoFreight" style="height:96px;width:auto;vertical-align:middle"></h2>
+      <hr class="accent-rule anim d1">
+      <div class="stat-grid anim d2">
+        <div class="stat"><div class="se">Monthly organic clicks</div><div class="sn">+88%</div><div class="sl">in three months</div></div>
+        <div class="stat"><div class="se">AI visibility</div><div class="sn range">13.7% <span class="ar">&rarr;</span> 23.5%</div><div class="sl">#5 &rarr; #4 vs competitors</div></div>
+        <div class="stat"><div class="se">Avg. Google position</div><div class="sn range">25.2 <span class="ar">&rarr;</span> 8.4</div><div class="sl">Page 3 &rarr; page 1</div></div>
+        <div class="stat"><div class="se">MQL growth</div><div class="sn">~200%</div><div class="sl">Quarter over quarter</div></div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · CLIENT CASE · SRC: CLIENT ANALYTICS, 3-MONTH ENGAGEMENT</span><span class="t-footer">15 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Case — GoFreight Proof">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action anim d1">The CEO saw it in the pipeline before he saw it in a dashboard.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="proof anim d2">
+        <div class="artifact">
+          <p class="alabel">The email</p>
+          <div class="frame email">
+            <img src="assets/proof-email.jpg" alt="Inbound lead email — ChatGPT recommended the client">
+          </div>
+          <p class="cap">Inbound enterprise lead: the prospect found them through ChatGPT, which recommended them over the market leader. <b>January 2026.</b></p>
+        </div>
+        <div class="artifact">
+          <p class="alabel">The visibility that drove it</p>
+          <div class="frame shot" style="padding:0;background:#020617">
+            <img src="assets/novalens-shots/novalens-sov-trend-slidecut.png" alt="NovaLens — AI visibility by engine climbing weekly across Google AI Overviews, Perplexity and ChatGPT" style="max-height:500px">
+          </div>
+          <p class="cap">AI visibility climbing across <b>Google AI Overviews, Perplexity and ChatGPT</b>, tracked live in NovaLens through the engagement.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · CLIENT CASE · SRC: CLIENT INBOX + AI VISIBILITY DASHBOARD, JAN 2026</span><span class="t-footer">16 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Case — GoFreight Buyer">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <div class="quote-wrap">
+        <p class="t-h2 anim d1" style="color:var(--ink-3);font-weight:500;max-width:1500px">1 of the client&rsquo;s 6 most recent enterprise wins started with an AI shortlist.</p>
+        <p class="bigq anim d1">&ldquo;I had a conversation with AI&hellip; it narrowed it down to a top five. <em>You guys were a top two.</em>&rdquo;</p>
+        <p class="qattr anim d2">Enterprise buyer · B2B SaaS</p>
+      </div>
+      <div class="footer"><span class="t-footer">PART 2 · CLIENT CASE · SRC: ENTERPRISE BUYER INTERVIEW</span><span class="t-footer">17 / 27</span></div>
+    </div>
+  </section>
+<section class="dark" data-label="Part 3 divider">
+    <div class="mslide dark pdiv">
+      <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
+      <p class="pnum anim">Part 3</p>
+      <h2 class="anim d1">Business Opportunity from doing GEO</h2>
+      <p class="t-lede anim d2">The Singapore searches Goodhire already wins in Google, and the hiring searches where it ranks 6th or lower, or does not rank.</p>
+      <div class="footer"><span class="t-footer">NOVASTACKS × GOODHIRE</span><span class="t-footer">18 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Where Goodhire ranks today">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1" style="font-size:45px;max-width:none;line-height:1.2">What drives your leads now = 5 queries in top 5 positions (850 searches/mo)<br>What are your quick wins = 21 keywords that in bottom of P1 (5,610 searches/mo)</h2>
+      <hr class="accent-rule good anim d1">
+      <div class="anim d2" style="margin-top:6px"><div class="kwgrid" style="grid-template-columns:1fr 1fr"><div class="kwt"><table><thead><tr><th>Search query</th><th class="r">Searches / mo</th><th class="r">Ahrefs</th><th class="r">Labs</th><th class="r">Average</th></tr></thead><tbody><tr class="grp"><td colspan="5">Top 5 &middot; 5 searches &middot; 850 a month</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">400</td><td class="mono r win">#2</td><td class="mono r win">#1</td><td class="mono r win">1.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">300</td><td class="mono r win">#2</td><td class="mono r near">#7</td><td class="mono r win">4.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">60</td><td class="mono r win">#4</td><td class="mono r win">#5</td><td class="mono r win">4.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">50</td><td class="mono r win">#2</td><td class="mono r win">#4</td><td class="mono r win">3.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">40</td><td class="mono r win">#4</td><td class="mono r win">#1</td><td class="mono r win">2.5</td></tr><tr class="grp"><td colspan="5">Page 1 &middot; 21 searches &middot; 5,610 a month</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">1,900</td><td class="mono r near">#8</td><td class="mono r near">#9</td><td class="mono r near">8.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">800</td><td class="mono r win">#2</td><td class="mono r near">#9</td><td class="mono r near">5.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">500</td><td class="mono r near">#6</td><td class="mono r win">#5</td><td class="mono r near">5.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">350</td><td class="mono r near">#9</td><td class="mono r win">#5</td><td class="mono r near">7.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">300</td><td class="mono r near">#7</td><td class="mono r near">#7</td><td class="mono r near">7.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">250</td><td class="mono r near">#7</td><td class="mono r near">#9</td><td class="mono r near">8.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">200</td><td class="mono r win">#1</td><td class="mono r ">#16</td><td class="mono r near">8.5</td></tr></tbody></table></div><div class="kwt"><table><thead><tr><th>Search query</th><th class="r">Searches / mo</th><th class="r">Ahrefs</th><th class="r">Labs</th><th class="r">Average</th></tr></thead><tbody><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">200</td><td class="mono r near">#7</td><td class="mono r win">#5</td><td class="mono r near">6.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r win">#3</td><td class="mono r ">#13</td><td class="mono r near">8.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r near">#10</td><td class="mono r near">#8</td><td class="mono r near">9.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r near">#8</td><td class="mono r win">#5</td><td class="mono r near">6.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">100</td><td class="mono r near">#8</td><td class="mono r near">#6</td><td class="mono r near">7.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">100</td><td class="mono r near">#6</td><td class="mono r near">#6</td><td class="mono r near">6.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">90</td><td class="mono r win">#3</td><td class="mono r near">#8</td><td class="mono r near">5.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">90</td><td class="mono r near">#6</td><td class="mono r near">#6</td><td class="mono r near">6.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">80</td><td class="mono r near">#6</td><td class="mono r near">#7</td><td class="mono r near">6.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">80</td><td class="mono r ">#11</td><td class="mono r near">#9</td><td class="mono r near">10.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">60</td><td class="mono r win">#5</td><td class="mono r ">#12</td><td class="mono r near">8.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">40</td><td class="mono r near">#7</td><td class="mono r win">#4</td><td class="mono r near">5.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">10</td><td class="mono r near">#8</td><td class="mono r near">#10</td><td class="mono r near">9.0</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">10</td><td class="mono r near">#8</td><td class="mono r near">#9</td><td class="mono r near">8.5</td></tr></tbody></table></div></div><p class="kwmask">The search queries are shared in the walkthrough.</p><p class="kwsrc">Ranks: average of Ahrefs (SG, Aug&ndash;Oct 2026) and DataForSEO Labs (SG); not found = 31. Searches: Ahrefs SG 12-month average.</p></div>
+      <div class="footer"><span class="t-footer">PART 3 · WHERE GOODHIRE RANKS TODAY</span><span class="t-footer">19 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Opportunity by service line">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1" style="font-size:45px;max-width:none;line-height:1.2">Overall growth potential = you&rsquo;re not in the top 5 for 300+ related helper queries (31,580 searches/mo)</h2>
+      <hr class="accent-rule  anim d1">
+      <style>
+.kqg{margin-top:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px 26px}
+.kqh{margin-bottom:6px;line-height:1.25}
+.kqt{font-family:var(--font-body);font-weight:700;font-size:18px;color:var(--ink-1)}
+.kqs{display:block;font-family:var(--font-mono);font-size:13.5px;color:var(--ink-3);margin-top:2px}
+.kqc .lbl{display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);border:1px solid var(--accent-deep);padding:0 6px;border-radius:4px;margin-left:8px;vertical-align:2px}
+.kqc .kwt table{font-size:15px}.kqc .kwt td{padding:5px 10px}.kqc .kwt th{padding:6px 10px;font-size:12px}
+.kqc .nr{color:#b91c1c}
+.kqnote{margin-top:10px;font-family:var(--font-body);font-size:17px;color:var(--ink-2);line-height:1.4}
+</style><div class="anim d2" style="margin-top:6px"><div class="kqg"><div class="kqc"><div class="kqh"><span class="kqt">Philippines direct hire</span><span class="kqs">33 queries · 2,040 searches a month · 0 in the top 5</span></div><div class="kwt"><table><thead><tr><th>Key queries</th><th class="r">Searches / mo</th><th class="r">Rank</th></tr></thead><tbody><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">300</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">250</td><td class="mono r">19</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">200</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r">18</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r">28.5</td></tr></tbody></table></div></div><div class="kqc"><div class="kqh"><span class="kqt">Philippines agency hire</span><span class="kqs">52 queries · 2,220 searches a month · 0 in the top 5</span></div><div class="kwt"><table><thead><tr><th>Key queries</th><th class="r">Searches / mo</th><th class="r">Rank</th></tr></thead><tbody><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">200</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">100</td><td class="mono r">20.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">100</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">100</td><td class="mono r nr">Not ranking</td></tr></tbody></table></div></div><div class="kqc"><div class="kqh"><span class="kqt">Indonesia direct hire</span><span class="kqs">3 queries · 60 searches a month · 0 in the top 5</span></div><div class="kwt"><table><thead><tr><th>Key queries</th><th class="r">Searches / mo</th><th class="r">Rank</th></tr></thead><tbody><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">40</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">10</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">10</td><td class="mono r nr">Not ranking</td></tr></tbody></table></div></div><div class="kqc"><div class="kqh"><span class="kqt">Indonesia agency hire</span><span class="kqs">37 queries · 2,860 searches a month · 0 in the top 5</span></div><div class="kwt"><table><thead><tr><th>Key queries</th><th class="r">Searches / mo</th><th class="r">Rank</th></tr></thead><tbody><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">200</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">150</td><td class="mono r nr">Not ranking</td></tr></tbody></table></div></div><div class="kqc"><div class="kqh"><span class="kqt">General hiring (online helper recruitment)</span><span class="kqs">189 queries · 25,190 searches a month · 4 in the top 5</span></div><div class="kwt"><table><thead><tr><th>Key queries</th><th class="r">Searches / mo</th><th class="r">Rank</th></tr></thead><tbody><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">1,900</td><td class="mono r">8.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">1,000</td><td class="mono r">21.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">900</td><td class="mono r">11</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">600</td><td class="mono r">19.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">500</td><td class="mono r">26</td></tr></tbody></table></div></div><div class="kqc adm"><div class="kqh"><span class="kqt">Employer admin questions (levy, IPA, home leave, loans)</span><span class="lbl">Top of funnel</span><span class="kqs">126 queries · 15,650 searches a month · 1 in the top 5</span></div><div class="kwt"><table><thead><tr><th>Key queries</th><th class="r">Searches / mo</th><th class="r">Rank</th></tr></thead><tbody><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">1,900</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">1,300</td><td class="mono r">28.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">800</td><td class="mono r">5.5</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">600</td><td class="mono r nr">Not ranking</td></tr><tr><td><span class="vmask" title="Shared in the walkthrough"></span></td><td class="mono r">500</td><td class="mono r">19</td></tr></tbody></table></div></div></div><p class="kqnote"><b>Estimate, not a forecast:</b> top 3 on these hiring queries &asymp; 6,100 extra visits a month (click-through ~20% at ranks 1&ndash;3, ~3% at 6&ndash;10, ~1% on pages 2&ndash;3, 0% not ranking).</p><p class="kwmask">The search queries are shared in the walkthrough.</p><p class="kwsrc">Key queries: 5 largest per line, near-identical phrasings merged. Rank: average of Ahrefs (SG, Aug&ndash;Oct 2026) and DataForSEO Labs (SG); not found = Not ranking. Searches: Ahrefs SG 12-month average.</p></div>
+      <div class="footer"><span class="t-footer">PART 3 · OPPORTUNITY BY SERVICE LINE</span><span class="t-footer">20 / 27</span></div>
+    </div>
+  </section>
+<section class="dark" data-label="Part 4 divider">
+    <div class="mslide dark pdiv">
+      <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
+      <p class="pnum anim">Part 4</p>
+      <h2 class="anim d1">Novastacks SEO and GEO proposal for Goodhire.</h2>
+      <p class="t-lede anim d2">Pricing, the pages we would build, the credit system and a six-month credit plan.</p>
+      <div class="footer"><span class="t-footer">NOVASTACKS × GOODHIRE</span><span class="t-footer">21 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Pricing">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1">SEO/AEO Full-service Monthly Retainer Pricing Plan</h2>
+      <hr class="accent-rule anim d1">
+      <div class="p3 anim d2">
+        <div class="pcol">
+          <p class="pnum">1 &middot; Launch fee (one time)</p>
+          <div class="plan"><p class="pn">One-time</p><p class="pp">S$1,000</p><p class="pc">Paid once at the start.</p></div>
+          <p class="pnum" style="margin-top:10px">What the launch fee covers</p>
+          <ul class="pl"><li>Onboarding and access: WordPress, Google Search Console and Google Analytics</li><li>Keyword list for Singapore employer searches</li><li>AI prompt list for tracking</li><li>Baseline report on Google rankings and AI answers</li><li>Page plan and Month 1 credit plan, confirmed with you</li></ul>
+          <p class="terms">The service page template and the navigation change are not in the launch fee. They are paid from Month 1 credits (see the credit plan).</p>
+        </div>
+        <div class="pcol">
+          <p class="pnum">2 &middot; Monthly retainer (credit system)</p>
+          <div class="plan"><p class="pn">Monthly retainer</p><p class="pp">S$3,000 <span>per month</span></p><p class="pc"><b>20 credits</b> a month</p></div>
+          <p class="fx" style="font-family:var(--font-body);font-size:17px;line-height:1.4"><b>What is a credit?</b> A credit is the unit of work in the retainer, worth S$150 (S$3,000 &divide; 20). Every task has a fixed credit value: one article is 1 credit, one service page is 3 credits. The full credit table is on the next slide.</p>
+          <p class="terms" style="font-size:19px;color:var(--ink-2)">Six-month term, fully committed: <b>120 credits</b> over the term.</p>
+          <p class="terms">Credits are flexible across the months of the term. At each monthly strategy meeting we review results with you and agree where next month&rsquo;s credits go. Includes the monthly strategy meeting and a monthly report.</p>
+          <p class="terms" style="font-size:19px;color:var(--ink-2)">Total for six months: <b>S$19,000</b> (S$1,000 + 6 &times; S$3,000), before the tracking add-on.</p>
+        </div>
+        <div class="pcol">
+          <p class="pnum">3 &middot; AI visibility tracking (add-on)</p>
+          <div class="plan trk"><p class="pn">WorkDuo tracking tool</p><p class="pp">US$30&ndash;60</p><p class="pc">per month, depending on the prompts tracked</p></div>
+          <p class="fx">Monthly cost = prompts &times; AI platforms &times; US$0.70 per prompt, per platform</p>
+          <table class="ex"><thead><tr><th>Singapore examples</th><th class="r">Per month</th></tr></thead><tbody>
+            <tr><td>22 prompts &times; 2 platforms</td><td class="r">about US$31</td></tr>
+            <tr><td>40 prompts &times; 2 platforms</td><td class="r">US$56</td></tr></tbody></table>
+          <p class="terms">Singapore market only, on platforms such as ChatGPT and Google AI Overviews. Paid directly to the tool provider on your account, with no mark-up. We set it up, run it and report on it.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 4 · PRICING · LAUNCH FEE · MONTHLY RETAINER · AI VISIBILITY TRACKING ADD-ON</span><span class="t-footer">22 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Credit system">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1">AEO Tasks Credit Table</h2>
+      <hr class="accent-rule anim d1">
+      <p class="anim d1" style="font-family:var(--font-body);font-size:24px;color:var(--ink-1);margin:0 0 18px">Every task has a fixed credit value, and credits are drawn only when you approve the finished work.</p>
+      <div class="allocgrid anim d2" style="grid-template-columns:1fr 560px;gap:56px">
+        <table class="ratecard rc3"><thead><tr><th>Work item and what it covers</th><th class="r">Credits</th></tr></thead><tbody><tr><td><b>Content page, new or refresh</b><br>One article or Get Answers page, written new or refreshed: 600 to 3,000 words, headings, internal links, metadata and schema markup.</td><td class="r">1</td></tr><tr><td><b>Non-blog page, new</b><br>One service page (e.g. direct hire from the Philippines), landing, comparison or fees page, or the homepage: copy, layout, structure, internal links, metadata, schema markup, and enquiry and WhatsApp routing.</td><td class="r">3</td></tr><tr><td><b>Non-blog page, refresh</b><br>An update to an existing non-blog page: copy, structure, internal links, metadata and schema markup.</td><td class="r">2</td></tr><tr><td><b>Page template rebuild</b><br>One reusable WordPress template, e.g. the service page, so every page built on it inherits the structure, headings, internal links and schema markup.</td><td class="r">3</td></tr><tr><td><b>Technical maintenance</b><br>One to two routine items: metadata corrections, redirects, sitemap updates, broken links or indexing checks.</td><td class="r">2&ndash;3</td></tr><tr><td><b>Critical technical fix or site-structure redesign</b><br>One substantial change, e.g. a URL and redirect change or a navigation redesign. Not in the indicative plan; used only if a need appears.</td><td class="r">5&ndash;10</td></tr><tr><td><b>Off-page AI citation optimisation</b><br>One cycle: which websites ChatGPT and Google AI cite for Singapore employers&rsquo; questions, a prioritised placement plan, and placements only where you agree.</td><td class="r">3&ndash;10</td></tr><tr><td><b>Local SEO</b><br>Google Business Profile updates, local directory listings, and the same name, address and phone number across them.</td><td class="r">2&ndash;5</td></tr></tbody></table>
+        <div class="rules wide">
+          <p class="rh">Credit rules</p>
+          <p><b>Monthly allowance.</b> 20 credits a month; 120 over the six-month term, fully committed.</p>
+          <p><b>Drawn on completion.</b> Credits are deducted only when an item is marked Complete or Published in the client portal, after your approval.</p>
+          <p><b>Pooled.</b> Credits are flexible across the months of the term. Unused credits do not carry beyond the term.</p>
+          <p><b>Monthly strategy meeting.</b> We review results with you and agree where next month&rsquo;s credits go.</p>
+          <p><b>Variable items.</b> For items priced as a range (2&ndash;3, 2&ndash;5, 3&ndash;10 or 5&ndash;10), we state the credit figure at the monthly meeting and you confirm it before work starts.</p>
+          <p><b>Indicative plan.</b> The six-month plan is indicative and confirmed in Month 1.</p>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 4 · CREDIT SYSTEM · RATE CARD</span><span class="t-footer">23 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Page plan">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1">Website content strategy</h2>
+      <hr class="accent-rule anim d1">
+      <div class="anim d2">
+        <table class="alloc pagetbl"><thead><tr><th>Page type</th><th>What it covers</th><th class="r">Pages</th><th class="r">Credits each</th><th class="r">When</th></tr></thead><tbody><tr><td class="m">Service page, one per main way to hire</td><td>Direct hire from the Philippines; agency hire from the Philippines; direct hire from Indonesia; agency hire from Indonesia. Each covers fees, what is included, timeline and documents.</td><td class="r">4 new</td><td class="r">3</td><td class="r">Months 1&ndash;2</td></tr><tr><td class="m">Hiring a helper online</td><td>One page on how Goodhire&rsquo;s fully online process works: email, WhatsApp and e-signing, with no office visit.</td><td class="r">1 new</td><td class="r">3</td><td class="r">Month 2</td></tr><tr><td class="m">Page templates</td><td>One service page template, reused for all four service lines; one answer-article template if the existing layout needs it.</td><td class="r">2</td><td class="r">3</td><td class="r">Months 1&ndash;2</td></tr><tr><td class="m">Homepage</td><td>Refresh so the homepage names each service and links to its page.</td><td class="r">2 refresh</td><td class="r">2</td><td class="r">Months 3, 6</td></tr><tr><td class="m">About us and other pages</td><td>About us and one other key page, refreshed to match the new service pages.</td><td class="r">2 refresh</td><td class="r">2</td><td class="r">Months 3&ndash;4</td></tr><tr><td class="m">Service page refresh</td><td>Service pages updated on the Month 4 and 5 results.</td><td class="r">3 refresh</td><td class="r">2</td><td class="r">Months 5&ndash;6</td></tr><tr><td class="m">Article refresh</td><td>All 27 Get Answers articles, starting with the Philippines direct-hire guides; each answers one employer question in full and links to its service page.</td><td class="r">27 refresh</td><td class="r">1</td><td class="r">Months 1&ndash;4</td></tr><tr><td class="m">New article</td><td>Answers one question employers ask ChatGPT or Google AI, e.g. direct hire versus agency hire, levy, or hiring timelines by source country.</td><td class="r">14 new</td><td class="r">1</td><td class="r">Months 4&ndash;6</td></tr><tr><td class="m">FAQ answer</td><td>A short, quotable answer to one common question, added to a service page or Get Answers.</td><td class="r">5 new</td><td class="r">1</td><td class="r">Months 5&ndash;6</td></tr></tbody></table>
+      </div>
+      <div class="footer"><span class="t-footer">PART 4 · PAGE PLAN · SOURCE: SERVICES AND 27 ARTICLES LISTED ON GOODHIRE.SG, READ 19 NOV 2026</span><span class="t-footer">24 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Credit plan">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1">Indicative credit plan: 20 credits a month, 120 over six months.</h2>
+      <hr class="accent-rule anim d1">
+      <div class="anim d2">
+        <table class="alloc plan-tbl"><thead><tr><th>Month</th><th>Work (credits); new page types in bold</th><th class="r">Credits</th></tr></thead><tbody><tr><td class="m">Month 1</td><td><ul><li>Service page template (3)</li><li><b>3 service pages (Philippines direct and agency, Indonesia direct)</b> (9)</li><li>Technical maintenance, incl. navigation (3)</li><li>5 article refreshes (5)</li></ul></td><td class="r">20</td></tr><tr><td class="m">Month 2</td><td><ul><li><b>Service page: Indonesia agency hire</b> (3)</li><li><b>Online-hiring page</b> (3)</li><li>Article template (3)</li><li>Technical maintenance (6)</li><li>5 article refreshes (5)</li></ul></td><td class="r">20</td></tr><tr><td class="m">Month 3</td><td><ul><li>Homepage refresh (2)</li><li><b>About us refresh</b> (2)</li><li>7 article refreshes (7)</li><li>AI citation optimisation (3)</li><li>Technical maintenance (6)</li></ul></td><td class="r">20</td></tr><tr><td class="m">Month 4</td><td><ul><li>1 other page refresh (2)</li><li>10 article refreshes (10)</li><li><b>1 new article</b> (1)</li><li>AI citation optimisation (3)</li><li>Technical maintenance (4)</li></ul></td><td class="r">20</td></tr><tr><td class="m">Month 5</td><td><ul><li>1 service page refresh (2)</li><li>8 new articles (8)</li><li><b>3 FAQ answers</b> (3)</li><li>AI citation optimisation (3)</li><li>Technical maintenance (4)</li></ul></td><td class="r">20</td></tr><tr><td class="m">Month 6</td><td><ul><li>Homepage refresh (2)</li><li>2 service page refreshes (4)</li><li>5 new articles (5)</li><li>2 FAQ answers (2)</li><li>AI citation optimisation (3)</li><li>Technical maintenance (4)</li></ul></td><td class="r">20</td></tr><tr class="tot"><td class="m">Six months</td><td>20 credits &times; 6 months</td><td class="r">120</td></tr></tbody></table><p class="kwsrc" style="font-size:16px;margin-top:10px">Month 1 set-up (template and navigation, 6 credits) is paid from credits, not the launch fee.</p>
+        
+      </div>
+      <div class="footer"><span class="t-footer">PART 4 · CREDIT PLAN · INDICATIVE, CONFIRMED IN MONTH 1</span><span class="t-footer">25 / 27</span></div>
+    </div>
+  </section>
+<section data-label="Roadmap">
+    <div class="mslide">
+      <img class="corner-logo" src="assets/novastacks-logo.png" alt="Novastacks">
+      <h2 class="t-action ci anim d1">Six months in three phases: set up, build the service pages, then grow the answers to employer questions.</h2>
+      <hr class="accent-rule good anim d1">
+      <div class="three-up fill m1 anim d2" style="margin-top:22px">
+        <div class="card3">
+          <div class="n">Foundation &middot; Month 1</div>
+          <ul>
+            <li>Launch set-up: access, keyword list, prompt list and baseline.</li>
+            <li>Service page template; services section in the navigation.</li>
+            <li>First 3 service pages live; 5 articles refreshed.</li>
+            <li class="cond">Report: baseline of Google rankings and AI answers in Singapore.</li>
+          </ul>
+        </div>
+        <div class="card3">
+          <div class="n">Build &middot; Months 2&ndash;3</div>
+          <ul>
+            <li>All 4 service pages and the online-hiring page live.</li>
+            <li>Homepage and About us refreshed; 17 of 27 articles refreshed.</li>
+            <li>First AI citation report.</li>
+            <li class="cond">Report: service pages indexed and tracked; first AI answers checked.</li>
+          </ul>
+        </div>
+        <div class="card3">
+          <div class="n">Grow &middot; Months 4&ndash;6</div>
+          <ul>
+            <li>All 27 articles refreshed by Month 4; 14 new articles and 5 FAQ answers; homepage refreshed again in Month 6.</li>
+            <li>Service pages updated on the results.</li>
+            <li>AI citation report every month.</li>
+            <li class="cond">Report: rankings, AI mentions and enquiries against your goal of 50 direct hires a month.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span class="t-footer">PART 4 · ROADMAP · INDICATIVE, REVIEWED MONTHLY</span><span class="t-footer">26 / 27</span></div>
+    </div>
+  </section>
+<section class="dark" data-label="Close">
+    <div class="mslide dark">
+      <img class="corner-logo" src="assets/logo-white.png" alt="Novastacks">
+      <div class="close-wrap">
+        <div style="flex:1;display:flex;align-items:center">
+          <div class="close-q anim d1" style="font-size:140px">Thank you.</div>
+        </div>
+        <div class="anim d2">
+          <div class="close-contact">
+            <span class="nm">Tina Chu</span><span class="sep">·</span>tchu@novastacks-ai.com<span class="sep">·</span>novastacks-ai.com
+          </div>
+          <div class="footer" style="margin-top:40px">
+            <span class="t-footer" style="color:var(--dark-fg-2)">NOVASTACKS × GOODHIRE</span>
+            <span class="t-footer" style="color:var(--accent)">27 / 27</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="assets/deck-stage.js"></script>
+</body>
+</html>
